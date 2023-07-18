@@ -11,7 +11,7 @@ To allow for discovery in those scenarios, we are happy to announce the availabi
 
 **The new Device42 Offline Discovery Agent is available for the following platforms:**
 
-<table><tbody><tr><td width="208"><ul><li>Windows x32/x64</li><li>Linux x32/x64</li></ul></td><td width="208"><ul><li>Mac</li><li>Solaris Sparc x64</li></ul></td><td width="208"><ul><li>OpenBSD x32/x64</li><li>FreeBSD x32/x64</li></ul></td></tr></tbody></table>
+`<table><tbody><tr><td width="208"><ul><li>Windows x32/x64</li><li>Linux x32/x64</li></ul></td><td width="208"><ul><li>Mac</li><li>Solaris Sparc x64</li></ul></td><td width="208"><ul><li>OpenBSD x32/x64</li><li>FreeBSD x32/x64</li></ul></td></tr></tbody></table>`
 
  
 
@@ -48,6 +48,7 @@ The utility supports batch upload of multiple log files per run, as well. It is 
 
 Since you might want to run the discovery multiple times before processing the data, _(possibly also from multiple different computers)_, it’s important to have a unique file name. Variables are used to define the file name, and in the example below, we use the computer name, date and time stamp to generate the unique file names for the discovered data as below:
 
+```
 <table style="height: 180px;" width="850"><tbody><tr><td width="312"><b>On Windows:</b><pre>C:\&gt;set var=%computername%-%date%-%time::=%
 C:\&gt;set var=%var:.=%
 C:\&gt;set var=%var:/=-%
@@ -61,6 +62,7 @@ $ echo $VAR1
 &gt; CentOS7-20190306-133710.log
 $
 </pre><code>./linuxagent.sh -offline &gt; $VAR1.log</code></td></tr></tbody></table>
+```
 
 ### Linux Pre-requisite: sudo permissions
 
