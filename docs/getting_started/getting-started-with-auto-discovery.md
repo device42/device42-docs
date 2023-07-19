@@ -27,8 +27,6 @@ All discovered IP addresses will be placed in their respective subnets if subnet
 
 The required fields are Name, Network and mask bits. Others are optional. The begin and end range are automatically calculated based on network and bits if left empty.
 
- 
-
 ![View or edit existing subnets](/assets/images/select_subnet_to_view-2018v15.PNG)
 
 ## Setting up Autodiscovery
@@ -41,7 +39,9 @@ The required fields are Name, Network and mask bits. Others are optional. The be
 
 Once you've installed the [WDS](/getstarted/installation/windows-discovery-service-installation/) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](/auto-discovery/autodisc-best-practices/) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](/auto-discovery/network-auto-discovery/)
 
-Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](https://docs.device42.com/auto-discovery/network-auto-discovery/) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc. ![Add SNMP discovery](/assets/images/add_SNMP_discovery_RC_v15.png)
+Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](https://docs.device42.com/auto-discovery/network-auto-discovery/) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
+
+![Add SNMP discovery](/assets/images/add_SNMP_discovery_RC_v15.png)
 
 * * *
 
@@ -71,12 +71,16 @@ Add the URL and the credentials for your Device42 appliance to the settings tab,
 
 The Linux tab requires you enter a username and password, and the Help tab has brief tips around this. See the Documentation page for the Device42 auto-discovery client \[or for the remote collector\] for more information.
 
-**The image below is an example of the DEPRECIATED Windows Discovery Tool UI** _(aka the .NET discovery tool):_ ![wpid1961-media_1344827110858.png](/assets/images/wpid1961-media_1344827110858.png)
+**The image below is an example of the DEPRECIATED Windows Discovery Tool UI** _(aka the .NET discovery tool):_
+
+![wpid1961-media_1344827110858.png](/assets/images/wpid1961-media_1344827110858.png)
 
 CI Details screens \[pre-v15\] looked like this:
 
 ![Device Details Example](/assets/images/wpid1962-media_1344828425174.png)
 
-This is the same screen in the new D42 UI \[v15+\]: ![Device Details example, v15+](/assets/images/device_details_example.PNG)
+This is the same screen in the new D42 UI \[v15+\]:
+
+![Device Details example, v15+](/assets/images/device_details_example.PNG)
 
 Device details like name, hardware model, serial #, CPU & RAM info, OS, MAC, and IP info are populated depending on what is discovered.

@@ -7,8 +7,6 @@ sidebar_position: 7
 
 Many Device42 list pages contain an Advanced Search option to help you quickly and easily find the items you want; the example below shows the Resources list page. Click _Advanced Search_ to display its _Query_ bar. (Click _Basic Filtering_ to return to the default list page.)
 
-![](/assets/images/placeholder.png)
-
 Advanced search lets you enter search criteria based on the columns on the list page. The basic search syntax is:
 
 `<column name> <operator> <search value>`
@@ -31,7 +29,10 @@ If you need to use the `"` character in your search, use two double quotes ins
 
 Dates should still be enclosed with double quotes and the following formats are valid:
 
-**“yyyy/mm/dd hh:mm”** – (for hh:mm values use 24 hour clock) **“yyyy-mm-dd hh:mm”** **“yyyy/mm/dd”** **“yyyy-mm-dd”**
+* “yyyy/mm/dd hh:mm” – (for hh:mm values use 24 hour clock)
+* “yyyy-mm-dd hh:mm”
+* “yyyy/mm/dd”
+* “yyyy-mm-dd”
 
 ### Numbers
 
@@ -57,7 +58,7 @@ Example of column representing a list (IP Column on Device List page):
 
 will return all records that contain the _10.90.10.20_ IP address.
 
-##### Special Values
+#### Special Values
 
 **EMPTY –** the ‘EMPTY’ keyword can be used to represent a ‘null’ or ‘blank’ value.
 
