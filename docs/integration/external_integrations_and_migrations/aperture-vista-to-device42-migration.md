@@ -1,0 +1,44 @@
+---
+title: "Aperture VISTA to Device42 Migration"
+sidebar_position: 1
+---
+
+The Aperture VISTA to Device42 migration works in the following manner: Data is exported from the Aperture VISTA application by first creating Device42 custom views in the Aperture SQL Server database. These views are then exported from Aperture VISTA and saved as .csv or Excel files which are then easily imported and mapped into Device42’s data architecture. (Aperture views can be downloaded here: [https://www.device42.com/migrations/aperture/](https://www.device42.com/migrations/aperture/).)
+
+Device42 then automatically creates building, data center, and rack configurations for all rack mounted devices. With the import completed, Device42’s agentless autodiscovery tool automatically identifies and maps remaining IP-based network devices and intelligent power equipment for ongoing monitoring and management.
+
+### Import Views
+
+![Import Views](/assets/images/media_1437070133863.png)
+
+Device42 has developed a long list of SQL views to be able to give clients the ability to pick and choose the information they want to migrate to Device42 from Aperture VISTA.
+
+To download the views click [here](https://www.device42.com/migrations/aperture/)
+
+### Run View
+
+![Run View](/assets/images/media_1437070334329.png)
+
+By running the views you can easily get data out of your instance of Aperture VISTA
+
+### Save Data to CSV or Excel
+
+![Save Data to CSV or Excel](/assets/images/media_1437070455551.png)
+
+Very simply right click anywhere on the data and select "Save Results As..."
+
+### Saving your file
+
+![Saving your file](/assets/images/media_1437070573781.png)
+
+Give the file a name and save the data locally
+
+### Downloading the Bulk Import Tool to Map Fields
+
+![Downloading the Bulk Import Tool to Map Fields](/assets/images/media_1437484542712.png)
+
+Click [here](https://www.device42.com/bulk-data-management/) to download the bulk import tool.
+
+For instructions on how to use the bulk import tool to map your fields click [here](https://www.device42.com/blog/2015/07/bulk-import-your-data-from-any-format-easily-with-new-device42-import-tool/)
+
+If there are any questions please feel free to contact support: support@device42.com

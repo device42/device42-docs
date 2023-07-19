@@ -1,0 +1,43 @@
+---
+title: "Foreman Smart Proxy Integration"
+sidebar_position: 11
+---
+
+### Device42 - Foreman Smart Proxy Integration
+
+Get even more from Device42 by integrating Device42's IP Address Management (IPAM) features with the Foreman. Device42 already knows all about your subnets as well as the used and free IP addresses on each -- so let it provide the next free IP address automatically! Foreman's Smart proxies allow your Puppet & Foreman-based configuration scripts & other automation to request the next available IP on your network directly from Device42, transparently, via a standard DHCP request! The Device42-Foreman Smart-proxy plugin handles the transparent passing of DHCP requests to the D42 API!
+
+From the point of view of the server making the DHCP request, the smart proxy is transparent. It has no idea \[nor any need to know\] that it is actually getting an IP address from Device42. As far as Device42 can tell, it just received a normal API request for the next available IP. The new CI recording (including _name, IP, and MAC address_) is also recorded in Device42 automatically. Visit the [Device42-Foreman Smart Proxy Integration page to download](https://www.device42.com/integrations/foreman-smart-proxy/).
+
+### Setting up the Foreman Smart Proxy Plugin by Device42
+
+Installing the smart proxy plugin by Device42 is the same as the installation of any smart proxy plugin into the Foreman (there are many). The below instructions were copied from [these instructions in the Foreman user manual](https://theforeman.org/manuals/1.1/index.html#4.3SmartProxies). Please consult the Foreman Manual directly for more details, but installation should be as simple as:
+
+  # Debian Linux (as root)
+  apt-get update
+  apt-get install foreman-proxy
+
+  # Ubuntu Linux (as normal user)
+  sudo aptitude update
+  sudo aptitude install foreman-proxy
+
+Once you've installed the Foreman Smart Proxy package as per Foreman, add the following Device42 specific configuration:
+
+Configuration
+
+To enable this DHCP provider, edit /etc/foreman-proxy/settings.d/dhcp.yml and set:
+
+:use\_provider: dhcp\_device42
+:subnets: subnets you want to use (optional unless you set device42\_subnets to false)
+
+Configuration options for this plugin are in /etc/foreman-proxy/settings.d/dhcp\_device42.yml and include:
+
+:scheme: server scheme
+:verify: secure verification ( bool )
+:server: IP of device42 server
+:username: API Username
+:password: API Password
+
+Note that you can find the above configuration details in the README.MD file included with the [Device42-Foreman Smart Proxy plugin download](https://github.com/theforeman/smart_proxy_dhcp_device42/archive/master.zip) on the [Device42 Github](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
+
+Should you have issues, please check to see installation instructions haven't changed per the Foreman manual (linked above). If they have changed, or have not changed and your are still experiencing trouble, please do let us know -- simply email support@device42.com. Thanks!

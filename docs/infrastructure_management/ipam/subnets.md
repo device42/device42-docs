@@ -1,0 +1,75 @@
+---
+title: "Subnets"
+sidebar_position: 7
+---
+
+A subnet can be any L3 network (IPv4 or IPv6) in your organization, and it can be part of a VLAN or not. All IP Addresses in Device42 must belong to a subnet.
+
+You can create nested subnets automatically and can relocate manually created subnets as a nested subnet.
+
+The subnet must be part of a VRF group to create a nested subnet.
+
+### Subnet List page
+
+![](/assets/images/WEB-833_1.jpg)
+
+This page lists all your defined and discovered subnets. As with any list, you can sort by multiple fields.
+
+Here are a few useful tips:
+
+1. % Used indicates how much of the subnet space is used and gives you an idea if a subnet is being exhausted for available IPs. This only applies to IPv4 subnets.
+2. Show IPs takes you to IP address page and shows you all IP addresses that belong to this subnet.
+
+Clicking on a subnet gives you a detailed view/edit page for that subnet.
+
+![](/assets/images/WEB-833_2.jpg)
+
+You can also add IPs to an existing subnet using the new _Background Populate Subnets with IPs_ command from the Subnets Action menu. When deleting a subnet (_Delete with Detailed Confirmation_), you can also choose to add the associated IPs to the parent subnet (if one exists). This feature helps when doing maintenance on subnets where moving from a smaller to larger subnet is desired without removing or recreating the associated IP addresses.
+
+The Action menu also includes an option for creating a ping sweep for a set of selected subnets.
+
+![](/assets/images/WEB-833_3.jpg)
+
+ 
+
+![](/assets/images/WEB-833_4.jpg) ![](/assets/images/WEB-833_5.jpg)
+
+ 
+
+### Adding/Editing a subnet
+
+![](/assets/images/WEB-833_6.jpg)
+
+Network and mask bits are required fields, all others are optional. Range begin, and end is calculated automatically based on network and mask bits if not entered.
+
+The VRF group is required if you want to further subnet this subnet.
+
+The Subnet Category can be used to categorize your subnets. If using the Multitenancy feature, you can restrict subnet permissions based on these categories.
+
+If you mark the network and/or broadcast addresses as usable for a subnet, these IPs will be shown as usable IPs in the IP Address list page.
+
+### VRF groups and overlapping subnet ranges
+
+When you add an overlapping subnet in a VRF group, the subnet gets automatically positioned with the right parent/child relationship.
+
+### Adding Subnetted Subnets
+
+![](/assets/images/WEB-833_7.jpg)
+
+Once you assign a VRF group to a subnet and save and continue, you will see a subnets tab in the lower part of the page.
+
+You can just enter mask bits and click Add, and a subnet underneath the current subnet will be automatically created for you. It will show you error messages inline if there are any.
+
+On the edit page, clicking on a nested subnet takes you to the edit page for that subnet.
+
+### Relocating a subnet
+
+![](/assets/images/WEB-833_8.jpg)
+
+On the edit page, if you click on relocate subnet, it will calculate if there are any subnets into which this subnet can be moved. If it finds one and there are no IP conflicts, it will relocate the subnet.
+
+### Deleting a subnet upwards/merging into parent
+
+![](/assets/images/WEB-833_9.jpg)
+
+With the merge-to-parent function, you can associate all child subnets and IPs to a parent and delete that subnet, as shown in the images above.
