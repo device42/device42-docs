@@ -7,6 +7,8 @@ sidebar_position: 7
 
 Many Device42 list pages contain an Advanced Search option to help you quickly and easily find the items you want; the example below shows the Resources list page. Click _Advanced Search_ to display its _Query_ bar. (Click _Basic Filtering_ to return to the default list page.)
 
+![](/assets/images/placeholder.png)
+
 Advanced search lets you enter search criteria based on the columns on the list page. The basic search syntax is:
 
 `<column name> <operator> <search value>`
