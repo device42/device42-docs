@@ -1,0 +1,75 @@
+---
+title: "Cloud Endure + Device42"
+sidebar_position: 5
+---
+
+## Cloud Endure + Device42
+
+After you have performed your HyperVisors / \*nix/ Windows scans and associated your business applications to your devices using the Device42 Business Application functionality, you are ready to prepare for your migration to AWS using CloudEndure.
+
+Device42 has streamlined the process of conducting cloud migrations to AWS by integrating with the CloudEndure Blueprint.  With a few short clicks, Device42 users can assess which workloads have the CloudEndure agent loaded as well as export blueprints for CloudEndure migrations.
+
+### Here's How It Works
+
+When performing a migration with CloudEndure, the first step is to ensure the CloudEndure agent is installed on the workloads in scope.  This can be easily viewed from the built-in _CloudEndure Prep_ report.
+
+- Select _Analytics > Advanced Reporting_.
+- In the Reports tree, select _Pre-Defined Reports > Integrations > Workload Portability > CloudEndure Prep > XLS_.
+
+![](/assets/images/WEB-607_Cloud-Endure-1-1.png)
+
+![](/assets/images/WEB-607_Cloud-Endure-2-1.png)
+
+After ensuring the workloads in scope have the CloudEndure agent installed, click the _CloudEndure_ report and then click _CSV_.  This will export the relevant data into the CloudEndure Blueprint format.
+
+- In the Reports tree, select _Pre-Defined Reports > Integrations > Workload Portability > CloudEndure_ _\> CSV_.
+
+![](/assets/images/WEB-607_Cloud-Endure-3-1.png)
+
+### What Happens Next?
+
+Once you have generated the CloudEndure CSV file from Advanced Reporting, you must make sure to download the [Mass Blueprint Setter](https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip) script.
+
+This script requires Python2.7 to run, and in order to have the blueprint set in CloudEndure, the devices in the CSV file must have the CloudEndure agent installed and connected to your chosen project.
+
+Before running the script, in the _cloudendure.csv_ file you must add the project name in the first column (_projectName_) for each device. Include the relevant name of the matching project for each listed machine.
+
+![](/assets/images/WEB-607_Cloud-Endure-4.png)
+
+There will also be other blank columns for _iamRole_, _placementGroup_, and others that you can supply in the CSV if you have already made decisions for these values for each machine.
+
+Once the CSV file is prepped, you can then run the Mass Blueprint Setter script.
+
+Use \`python CE\_Update\_Blueprints.py -h\` to list all available options:
+
+usage: CE\_Update\_Blueprints.py \[-h\] -u USER -p PASSWORD -i INPUTFILE
+
+                               \[-o OUTPUTFILE\]
+
+optional arguments:
+
+  -h, --help            show this help message and exit
+
+  -u USER, --user USER  User name
+
+  -p PASSWORD, --password PASSWORD
+
+                        Password
+
+  -i INPUTFILE, --inputfile INPUTFILE
+
+                        Input CSV file
+
+  -o OUTPUTFILE, --outputfile OUTPUTFILE
+
+                        Output CSV file for backup before change
+
+When ready to run, supply all of the above parameters. If there are any issues when running the script a .log file will be created in the same directory.
+
+Once completed, all machines in the CSV file that match machines in CloudEndure will have their respective blueprints updated.
+
+### Reference Links
+
+CE API Docs available with Sample Scripts - [https://docs.cloudendure.com/Content/Getting\_Started\_with\_CloudEndure/API/API.htm](https://docs.cloudendure.com/Content/Getting_Started_with_CloudEndure/API/API.htm)
+
+Must download the Mass Blueprint Setter - [https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip](https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip)

@@ -1,0 +1,20 @@
+---
+title: "Auditing Racks"
+sidebar_position: 1
+---
+
+### Exporting a List of Devices on Racks for Audit
+
+To create a list of all devices on a number of racks in Device42 to allow easy auditing, we will first browse to the Racks list view in Device42
+
+![Browse to Racks](/assets/images/2016-02-26-rack-audit-01.png)
+
+From the Racks list view we will pick the racks we would like to audit against the actual equipment, and from the Action dropdown menu, select "Audit Export for Selected Racks":
+
+![Audit Export Racks](/assets/images/2016-02-26-rack-audit-03.png)
+
+Save the spreadsheet when prompted and open in Excel.
+
+![Audit Spreadsheet](/assets/images/2016-02-26-rack-audit-04.png)
+
+With this spreadsheet open, you will be able to use a barcode reader and scan the devices in a rack by asset tag and compare to the information you have in Device42, updating to reflect changes as you move through the racks!

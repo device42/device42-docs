@@ -1,0 +1,29 @@
+---
+title: "IP NAT/Map"
+sidebar_position: 4
+---
+
+IP Nat/Map functions are used for routing, such as routing external IPs to internal IPs or routing traffic within different network segments. You define IP Nat/Maps as they are not found during discovery.
+
+- To create an IP Nat/Map, go to _Resources > IPs > IP NAT_ to display Nat/Map list page, and then click _Add IP Nat/Map_ at the top right.
+
+![](/assets/images/WEB-597_ip-nat-map-menu-1-700x351.png)
+
+Device42 displays the Nat/Map add page.
+
+![](/assets/images/WEB-597_ip-nat-map-add-700x390.png)
+
+- Enter a _Name_ for the Nat/Map, and then enter the _Source IP Address Start_ and _Target IP Address Start_. You can also use the magnifying glass icon to select an IP address.
+
+![](/assets/images/WEB-597_ip-nat-map-select-ipaddress-1-700x313.png)
+
+- You can also or select or enter these options:
+    - _Two way relation_
+    - _Protocol_
+    - _Source IP Address End_
+    - _Source Port Stat_
+    - _Source Port End_
+    - _Target IP Address End_
+    - _Target Port Start_
+    - _Target Port End_
+- When done, click _Save_. The IP Nat/Map is added to the list.

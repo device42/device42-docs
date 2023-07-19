@@ -1,0 +1,259 @@
+---
+title: "Insights+"
+sidebar_position: 1
+---
+
+## Introduction
+
+Device42 **Insights+** provides integrated analytics that leverage the breadth and depth of Device42 discovery to help you make sense of your data through visuals and dashboards so that you can make better, more informed business decisions _quickly_.
+
+Insights+ identifies patterns, trends, and outliers in data sets across your entire estate, elevating your performance with data understanding.
+
+The combination of automatic discovered data and visualization empowers you and your IT teams with a more accurate understanding of your environment that would take the most senior IT staff years to understand –  which helps reduce the time it takes to restore service, increase the speed of root cause discovery, and better plan for capacity growth.
+
+**Note**: Additional curated dashboards are available on our Insights+ GitHub page: [https://github.com/device42/insights](https://github.com/device42/insights). Follow the instructions on the page to download and import the dashboards.
+
+## Using Insights+
+
+- Click on _Insights+_ in the Device42 main menu to display the Insights+ home page, and then select the visualizations you want to see.
+
+**Note**: You can also select and display Insights+ dashboards on the Device42 [home page](https://docs.device42.com/getstarted/home-page-widgets-and-global-search/).
+
+![](/assets/images/D42-27517_Insights_home-page.png)
+
+- Click _DBB Cookbook_ to go to the cookbook documentation pages.
+- Click _Data Dictionary_ to see the available Data Building Blocks.
+- Click _Import_ to get new or updated dashboards as they become available. (Note you must be a super admin user or have the _Feature | Update Insights+ Dashboards_ permission to import.)
+- Click _Reports_ to create or edit email [Reports and Alerts](https://docs.device42.com/insights-plus/#section-3).
+- Click _How it Works?_ to view the Insights+ documentation page.
+- Click _Repository_ to go to the Insights+ GitHub page.
+- Click on a Dashboard to see its charts and graphs. Note that the list of dashboards and charts now appears in the left panel.
+
+![](/assets/images/D42-27517_Insights_compute-chart-list.png)
+
+- Hover over elements in a chart or graphic to see additional information.
+
+![](/assets/images/D42-27517_Insights_compute-chart-hover.png)
+
+- Many Insights+ dashboards include filters you can use to refine the visualizations to see the information you want. You can collapse the filters to increase the dashboard viewing area.
+
+![](/assets/images/D42-27517_Insights_compute-dashboard-filters.png)
+
+- You can also refresh or maximize a chart, view the chart query, view it as a table, or download it as an image or as a CSV file.
+
+![](/assets/images/D42-27517_Insights_compute-dashboard-chart-options.png)
+
+### Terminology
+
+Before diving into Insights+, there are some key terms to go over.
+
+**DataSet**
+
+Datasets are the smallest building block within Insights+. This term refers to the result of a query to the Device42 database. It includes the defining SQL query, resulting columns & data types, as well as metrics and calculated columns (defined below).
+
+**Metric**
+
+A Metric is an aggregation defined on top of a dataset. For example, in a query that returns 1 record per physical device, a Metric, could be the count of records returned – the total number of physical devices. Available aggregations include _Count, Sum, Avg, Max,_ and _Min_.
+
+**Calculated Column**
+
+A Calculated Column is similar to a metric in that it is defined on top of a dataset. The difference is that it is not limited to aggregations. It is defined by a SQL expression and acts like any of the columns defined in the results of the dataset**.**
+
+**Chart**
+
+A Chart is a visual representation of a singular dataset. While a dataset can be shared by multiple charts, one chart can only utilize one dataset.
+
+**Dashboard**
+
+A Dashboard is a collection of charts that share a common theme. These charts can share underlying Datasets or utilize several different ones. Dashboards can also include filters that apply to charts contained within, as well as tabs to help organize the visualizations into relevant categories.
+
+**System-Defined**
+
+Any Dataset, Chart, or Dashboard provided within Device42 are considered to be System-Defined. This means that users of Insights+ cannot delete or otherwise modify these objects.
+
+**Tags**
+
+Tags within Insights+ are much like tags throughout Device42 – brief descriptions of the object they are attached to. They can be used for searching and filtering for specific visualizations.
+
+### Dashboard Hierarchy
+
+Upon opening Insights+, the landing page shows the hierarchy of existing dashboards and charts. Each System-Defined dashboard in this list comes with a brief description and a set of tags. These can be viewed through the info bubble next to their name. Dashboards also have a clickable arrow to display the list of charts that exist on it.
+
+Clicking on any individual chart or dashboard will pull it up front and center while moving the hierarchy over to a navigation pane on the left. The sidebar can be hidden by selecting the arrow in the top-left corner of the page, and the dashboard hierarchy can be reloaded using the refresh button next to it.
+
+### Search and Filter
+
+On the landing page of Insights+ there is a search bar. This will search through existing charts and dashboards and open up a new page with descriptions and tags more visible to ensure the requested information is clear. Within that search bar is a filter option – searches can be restricted by content type (System-Defined or Custom) and by tag. The tag search will return any chart or dashboard that contains _at least one of_ the tags selected.
+
+### Import & Export
+
+There are several dashboards Device42 has developed which are not loaded into the application automatically. These dashboards are located in [this Github repository](https://github.com/device42/insights). It is also possible that members of the Device42 team have developed out-of-band dashboards specific to a use case that need to be loaded in. For that, the import functionality allows a user to pull other content into the application.
+
+On the Insights+ homepage, there is an Import button in the top-right hand corner. It opens a pop-up that expects a .zip file which defines a chart or dashboard. **_Caution_**: importing a dashboard that already exists will overwrite any existing content or changes. It is also important to note that System-defined dashboards can not be imported or overwritten.  The user that imports a dashboard or chart is considered the owner – they alone are able to make changes or re-import over it. The list of owners can be modified.
+
+Exporting currently supports the download of a JPG image of the dashboard or chart being viewed.
+
+### Insight+ Videos
+
+Instructional videos for using Insights+.
+
+\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/InsightsPlus-Fundamentals.mp4"\]\[/video\]
+
+\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Dashboards-and-Filtering.mp4"\]\[/video\]
+
+\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Datasets-and-Charts.mp4"\]\[/video\]
+
+ 
+
+## Email Reports and Alerts
+
+You can create and edit email Reports and Alerts for dashboards or charts that are generated and sent based on a schedule you set for each report or alert. The reports and alerts contain images of the dashboard or chart and links to them in Device42.
+
+- Report content can be either a dashboard or chart, and the report is triggered according to the schedule you set up for the report.
+- Alert content can also be either a dashboard or chart, but an alert is based on a condition you define for the alert using an SQL query that runs against a D42 database (_d42\_viewer\_mt_). The condition check is triggered according to the schedule you set up for the alert
+- Alerts and reports run as the alert or report creator, so they respect the model or RBAC permissions of the user who creates the report.
+- Alerts and reports can have have multiple owners (including the creator) who can all modify the alert or report.
+- Alerts and reports use the Device42 mail server settings (Tools > Settings > Mail Server Settings) to send alert and report emails – these need to be set for emails to function correctly.
+
+Click _Reports_ at the top right of the Insights+ home page, a dashboard or a chart to display the Alerts & Reports page.![](/assets/images/D42-27517_Insights_reports-list-page.png)
+
+The list page displays existing reports or alerts and include Actions options to view logs and edit or delete the reports or alerts. Click _Alerts_ or _Reports_ at the top left to display the items you want.
+
+![](/assets/images/D42-27517_Insights_reports-list-page-actions-options.png)
+
+### Reports
+
+Click _\+ Report_ to add a new report; click the Edit icon to edit an existing report. Insights+ displays the add/edit page.
+
+![](/assets/images/D42-27517_Insights_reports-add-page.png)
+
+- Enter _Name_ for the report, select the report _Owners_ and add a _Description_ if you want. Note that _Owners_ should include the report creator and any other users you want to be able to modify the report.
+- The report is _Active_ by default.
+- Use the _Report schedule_ drop-downs to set the schedule or enter a CRON schedule.
+- You can select or enter _Schedule settings_ for Log Retention and Working Timeout.
+- Select either Dashboard or Chart as the _Message content_, and then use the drop-down to select the specific dashboard or chart you want. Select _Ignore cache when generating screen shot_ to have Insights+ regenerate the dashboard or chart graphic rather than using a cached version.
+- Select Email as the _Notification method_, and then enter the recipient email addresses (separated by commas or semicolons).
+- Click _Save_ to save the report.
+
+### Alerts
+
+Click _\+ Alert_ to add a new alert; click the Edit icon to edit an existing alert. Insights+ displays the add/edit page. An alert lets you define an alert condition for the notification, but requires an SQL query to create the condition. The condition test is triggered according to the schedule you set for the alert.
+
+![](/assets/images/D42-27517_Insights_alerts-add-page-1.png)
+
+- Enter _Name_ for the alert, select the alert _Owner_ and add a _Description_ if you want. Note that _Owners_ should include the alert creator and any other users you want to be able to modify the alert.
+- The alert is _Active_ by default.
+- Select the _Database_ to use (this should always be _d42\_viewer\_mt_) for the _Alert condition_ and enter the SQL Query for the condition. Select a Trigger Alert If… operator from the drop down, and then select the value for the statement to be used with the SQL query.
+
+_SQL Query_ – expects a SQL statement to poll Device42 for an aggregate value based on the input SQL. This means you will want to use a SQL statement that has a _where_ clause and provides the output as a single aggregate value like COUNT, SUM, MAX, MIN, etc…
+
+Here are a few examples:
+
+**Alert on certificates expiring in 30 days:**
+
+SELECT COUNT(\*) FROM view\_certificate\_v1
+WHERE valid\_to BETWEEN CURRENT\_DATE AND CURRENT\_DATE + 30
+
+**New device discovered without a tag:**
+
+SELECT COUNT(\*) FROM view\_device\_v2
+WHERE DATE(first\_added) = CURRENT\_DATE AND tags IS NULL
+
+**Device discovered over 80% local storage:**
+
+WITH
+device\_capacity AS (
+Select
+    a.device\_pk Device\_ID,
+    ROUND(sum(c.capacity - c.free\_capacity) / sum(c.capacity) \* 100,2) used\_percentage
+From
+    view\_device\_v2 a
+    Left Join view\_mountpoint\_v1 c on c.device\_fk = a.device\_pk
+   Where c.capacity>0
+               and a.network\_device = 'f'
+GROUP BY 1
+)
+SELECT COUNT(\*) FROM device\_capacity
+WHERE used\_percentage > 80
+
+ 
+
+ 
+
+- Use the _Report schedule_ drop-downs to set the schedule or enter a _CRON schedule_.
+- You can select or enter _Schedule settings_ for Log Retention, Working Timeout, and Grace Period.
+- Select either Dashboard or Chart as the _Message content_, and then use the drop-down to select the specific dashboard or chart you want. Select _Ignore cache when generating screen shot_ to have Insights+ regenerate the dashboard or chart graphic rather than using a cached version.
+- Select Email as the _Notification method_, and then enter the recipient email addresses (separated by commas or semicolons).
+- Click _Save_ to save the alert.
+
+## DCIM Dataset, Chart and Alert Example
+
+This section provides examples of how to take existing Device42 datasets and transform them into analytics of your own. For these datasets, you will first need to clone the dataset into one that you own and manage so that our system dashboards are not affected by any analysis you may want to do. This is most easily done by Exploring the dataset and viewing it in the SQL Editor. Here you can save it as a new dataset and label it something meaningful.
+
+### Power Flow
+
+Power Flow is one of the datasets driving the Infrastructure Analysis dashboard, specifically the Power Usage & Impact Tab. It provides valuable insight on Resource Utilization for the Power Apparent Measurement – across all metrics, windows, and time periods. To aggregate on this dataset, it is important to clearly define which singular measurement set is desired.
+
+Since Device42 currently provides several point-in-time metrics on Power usage, you may want to develop a time-series analysis of power usage to predict future power needs. For that, a time series line chart will do well.
+
+Start by selecting _View All Charts_ and finding the _#Time_ option in the list.
+
+![](/assets/images/Insights_view-all-charts-NM.png)
+
+Choose the _Time-series Smooth Line_ to return a clean looking graph. In the _Time_ column, use _Start Time_ from the dataset. _End Time_ is also a suitable option depending on how you want to perform the analysis. Since it only returns day-level values, keep the time-grain as Day.
+
+![](/assets/images/Insights_time-series-NM.png)
+
+We want to measure the max Power Apparent from all PDUs, but let’s target the display by grouping the data on Room & Rack – so we can break down the totals into meaningful categories.
+
+However, since the dataset returns all metrics and time periods we need to filter down the singular measurement we want to analyze. Let’s use the MAX metric and the 1 Day period  to get the peak value for power apparent measured each day.
+
+We end up with something like this, but you can choose to customize the formatting in the _Customize_ tab. Color schemes, labels, values and other options can be found there.
+
+![](/assets/images/Insights_customize-NM.png)
+
+### Power Impact
+
+Power Impact, which is similar to Power Flow, drives the Power Usage and Impact tab of the Infrastructure Analysis Dashboard. This is a fairly simple dataset that details all dependencies related to PDUs. You can quickly build up a couple of analyses from this dataset that differ from the Device42 provided charts.
+
+For example, you can take the cloned dataset and set up a bar chart as in the image below.
+
+![](/assets/images/Insights_power-impact-NM.png)
+
+By just setting up the dimension as _pdu_ and the metric as a _count_ you quickly get an idea of how ubiquitous your PDUs are across your network. You can change this to a sunburst chart to include the percentage of devices on each PDU. It is easy to add a filter to this chart to look at a particular Building, room, or rack using the appropriate fields. You can swap to measure distinct Business Apps affected.
+
+This dataset is ideal for impact analysis or incident management use cases – it helps narrow down the scope of information to just the affected devices in the case of an outage.
+
+### DC Capacity – Alert Example
+
+Data Center Capacity is a dataset that supports the Risk Center dashboard. It provides capacity information at building, room, and rack level. Similar to power flow, we must filter down to a specific type of filter when analyzing this dataset, or the aggregation values won’t be accurate.  It also makes a great example of how to utilize Insights+ Alerts to your advantage.
+
+First we’ll need to create a chart that provides some immediate value. Let’s look for racks with a limited number of network ports available. We will keep it simple and just have it return some tabular data. After cloning the dataset, create a chart from it and first set up the handful of columns we think are important: Building, Room, Rack, object\_tags, network\_device\_count, and the network port count columns. In the filters, we want to display only racks (reminder this is case-sensitive!) that have less than some threshold of their network ports available for use. This is done through 1 simple filter and 1 Custom SQL Filter.
+
+![](/assets/images/Insights_simple-and-custom-sql-NM.png)
+
+This will return a table of data showcasing racks that have less than 10% of their network ports available and it is easy to manipulate as needed. Now let’s create both a Report and an Alert. A report is a scheduled execution of a chart or dashboard that can be emailed as an image or a CSV. CSV works well for tabular data, so let’s choose that option. This schedule will send the file at noon EDT once a week on Mondays – regardless of what data is returned.
+
+![](/assets/images/Insights_report-setup-NM.png)
+
+An Alert, while still a scheduled execution, will only send the email if a certain condition is met. In this case, let’s set up an email every day if there are any racks that have NO remaining netports available. This query was built using the _rack\_port\_count_ part of the base query we used in the chart and wrapping a COUNT around it. Alerts will sometimes require some SQL knowledge to enable intelligent conditions.
+
+![](/assets/images/Insights_alert-setup-NM.png)
+
+WITH rack\_ports AS (
+SELECT d.rack\_fk
+           ,count(\*) total\_network\_port\_count
+           ,(SELECT COUNT(\*) FROM view\_netport\_v1 np WHERE d.device\_pk = np.device\_fk AND np.remote\_netport\_fk IS NOT NULL OR d.device\_pk = np.second\_device\_fk AND np.remote\_netport\_fk IS NOT NULL) used\_network\_port\_count
+FROM view\_device\_v2 d
+JOIN view\_netport\_v1 np ON d.device\_pk = np.device\_fk OR d.device\_pk = np.second\_device\_fk
+JOIN view\_rack\_v1 r ON r.rack\_pk = d.rack\_fk
+WHERE
+            d.network\_device IS TRUE
+            AND d.rack\_fk IS NOT NULL
+GROUP BY
+            d.rack\_fk,d.device\_pk)
+SELECT
+count(DISTINCT rack\_fk)
+FROM rack\_ports
+WHERE
+           total\_network\_port\_count = used\_network\_port\_count
