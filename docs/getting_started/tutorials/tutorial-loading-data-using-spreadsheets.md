@@ -63,7 +63,19 @@ Please note that the room spreadsheet references the building name (or id). Beca
 
 A good order for the key objects is the following:
 
-Add Buildings Add Rooms Add Vendors Add Racks Add Hardware Models Add Devices Add Devices to Racks Add Assets Add Switches (Devices) Add VLANs Add Subnets Add IP Addresses Add Application Components
+* Add Buildings 
+* Add Rooms 
+* Add Vendors 
+* Add Racks 
+* Add Hardware Models 
+* Add Devices 
+* Add Devices to Racks 
+* Add Assets 
+* Add Switches (Devices) 
+* Add VLANs 
+* Add Subnets 
+* Add IP Addresses 
+* Add Application Components
 
 In fact, this is the data we'll be loading in this tutorial and this is the order we'll load the data.
 
