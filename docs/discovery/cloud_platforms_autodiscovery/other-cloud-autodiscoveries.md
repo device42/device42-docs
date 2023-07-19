@@ -37,7 +37,7 @@ Click Save and Continue; then you can click Run Now to run the job immediately. 
 
 ### Linode Discovery Items
 
-`<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td><strong>Accessed API</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>VMs</td><td>Devices --&gt; All Devices</td><td><a href="https://api.linode.com/v4/linode/instances">https://api.linode.com/v4/linode/instances</a> <a href="https://api.linode.com/v4/linode/instances/%7BlinodeId%7D/disks">https://api.linode.com/v4/linode/instances/{linodeId}/disks</a> <a href="https://api.linode.com/v4/linode/instances/%7BlinodeId%7D/ips">https://api.linode.com/v4/linode/instances/{linodeId}/ips</a> <a href="https://api.linode.com//?api_action=api.spec">https://api.linode.com//?api_action=api.spec</a></td><td>Name, type, RAM, OS, HDD serial number and size, IP, etc.</td></tr></tbody></table>`
+<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td><strong>Accessed API</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>VMs</td><td>Devices --&gt; All Devices</td><td>https://api.linode.com/v4/linode/instances https://api.linode.com/v4/linode/instances/[linodeId]/disks https://api.linode.com/v4/linode/instances/[linodeId]/ips https://api.linode.com//?api_action=api.spec</td><td>Name, type, RAM, OS, HDD serial number and size, IP, etc.</td></tr></tbody></table>`
 
 ![](/assets/images/Image_29_Cloud_Disc_Linode.png)
 

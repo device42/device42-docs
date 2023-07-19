@@ -41,7 +41,9 @@ The configuration will ONLY allow you to "Launch" successfully using one of the 
 
 ### Generating a new AWS keypair for SSH access
 
-To generate a new SSH keypair for use on AWS, either click the "Create a key pair in EC2" link during configuration of your appliance or alternatively, open up the [EC2 console](https://console.aws.amazon.com/ec2/v2/home), scroll the menu on the left hand side to the _Network & Security_ section, and choose **Key Pairs**: ![Create an new SSH keypair on AWS EC2](/assets/images/create_AWS_keypair_for_SSH.png)
+To generate a new SSH keypair for use on AWS, either click the "Create a key pair in EC2" link during configuration of your appliance or alternatively, open up the [EC2 console](https://console.aws.amazon.com/ec2/v2/home), scroll the menu on the left hand side to the _Network & Security_ section, and choose **Key Pairs**: 
+
+![Create an new SSH keypair on AWS EC2](/assets/images/create_AWS_keypair_for_SSH.png)
 
 1. Click the "Create Key Pair" button, #1 in the image above.
 2. In the dialog that pops up, give your new key-pair a name that has meaning to you.
@@ -50,9 +52,13 @@ To generate a new SSH keypair for use on AWS, either click the "Create a key pai
 
 ### Accessing the D42 Appliance Manager - AWS Marketplace installs
 
-All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager: ![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
+All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager:
 
-For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username \[ d42admin \], the password being your _AWS instance ID_. Once logged in, you'll see the appliance manager main menu: ![D42 Appliance Manager menu](/assets/images/appliance_manager_main.png)
+![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
+
+For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username \[ d42admin \], the password being your _AWS instance ID_. Once logged in, you'll see the appliance manager main menu: 
+
+![D42 Appliance Manager menu](/assets/images/appliance_manager_main.png)
 
 Note: if you installed on AWS manually (using a downloaded image), reference the Appliance Manager section below \[different credentials\].
 
@@ -120,68 +126,69 @@ The following permissions are required to support discovery:
 
 The following is a \*\*sample IAM policy\*\* _(with minimum appropriate permissions)_ that allows Device42 to discover and inventory instances running on AWS; you may want to modify it, and should not use it if you do not understand it:
 
-JSON example of an IAM policy containing the minimum permissions.
+```json
 {
     "Version": "2012-10-17",
-    "Statement": \[
+    "Statement": [
         {
             "Effect": "Allow",
-            "Action": "ec2:Describe\*",
-            "Resource": "\*"
+            "Action": "ec2:Describe*",
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
-            "Action": "elasticloadbalancing:Describe\*",
-            "Resource": "\*"
+            "Action": "elasticloadbalancing:Describe*",
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
-            "Action": \[
+            "Action": [
                 "cloudwatch:ListMetrics",
                 "cloudwatch:GetMetricStatistics",
-                "cloudwatch:Describe\*"
-            \],
-            "Resource": "\*"
+                "cloudwatch:Describe*"
+            ],
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
-            "Action": "autoscaling:Describe\*",
-            "Resource": "\*"
+            "Action": "autoscaling:Describe*",
+            "Resource": "*"
         },
         {
-            "Action": \[
-                "elasticache:Describe\*"
-            \],
+            "Action": [
+                "elasticache:Describe*"
+            ],
             "Effect": "Allow",
-            "Resource": "\*"
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
-            "Action": \[
+            "Action": [
                 "s3:ListAllMyBuckets"
-            \],
-            "Resource": "\*"
+            ],
+            "Resource": "*"
         },
         {
-            "Action": \[
-                "rds:Describe\*",
+            "Action": [
+                "rds:Describe*",
                 "rds:ListTagsForResource",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeAvailabilityZones",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeVpcs"
-            \],
+            ],
             "Effect": "Allow",
-            "Resource": "\*"
+            "Resource": "*"
         },
         {
-            "Action": \[
+            "Action": [
                 "cloudwatch:GetMetricStatistics",
                 "logs:DescribeLogStreams",
                 "logs:GetLogEvents"
-            \],
+            ],
             "Effect": "Allow",
-            "Resource": "\*"
+            "Resource": "*"
         }
-    \]
+    ]
 }
+```

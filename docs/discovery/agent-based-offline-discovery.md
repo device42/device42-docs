@@ -11,7 +11,7 @@ To allow for discovery in those scenarios, we are happy to announce the availabi
 
 **The new Device42 Offline Discovery Agent is available for the following platforms:**
 
-`<table><tbody><tr><td width="208"><ul><li>Windows x32/x64</li><li>Linux x32/x64</li></ul></td><td width="208"><ul><li>Mac</li><li>Solaris Sparc x64</li></ul></td><td width="208"><ul><li>OpenBSD x32/x64</li><li>FreeBSD x32/x64</li></ul></td></tr></tbody></table>`
+<table><tbody><tr><td width="208"><ul><li>Windows x32/x64</li><li>Linux x32/x64</li></ul></td><td width="208"><ul><li>Mac</li><li>Solaris Sparc x64</li></ul></td><td width="208"><ul><li>OpenBSD x32/x64</li><li>FreeBSD x32/x64</li></ul></td></tr></tbody></table>
 
  
 
