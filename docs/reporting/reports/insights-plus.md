@@ -97,13 +97,17 @@ Exporting currently supports the download of a JPG image of the dashboard or cha
 
 Instructional videos for using Insights+.
 
-\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/InsightsPlus-Fundamentals.mp4"\]\[/video\]
+<video width="100%" controls>
+  <source src="/assets/videos/InsightsPlus-Fundamentals.mp4"/>
+</video>
 
-\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Dashboards-and-Filtering.mp4"\]\[/video\]
+<video width="100%" controls>
+  <source src="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Dashboards-and-Filtering.mp4"/>
+</video>
 
-\[video width="1920" height="1080" mp4="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Datasets-and-Charts.mp4"\]\[/video\]
-
- 
+<video width="100%" controls>
+  <source src="https://docs.device42.com/wp-content/uploads/2023/05/Insights-Plus-Building-A-Dashboard-Datasets-and-Charts.mp4"/>
+</video>
 
 ## Email Reports and Alerts
 
@@ -151,34 +155,36 @@ Here are a few examples:
 
 **Alert on certificates expiring in 30 days:**
 
-SELECT COUNT(\*) FROM view\_certificate\_v1
-WHERE valid\_to BETWEEN CURRENT\_DATE AND CURRENT\_DATE + 30
+```
+SELECT COUNT(*) FROM view_certificate_v1
+WHERE valid_to BETWEEN CURRENT_DATE AND CURRENT_DATE + 30
+```
 
 **New device discovered without a tag:**
 
-SELECT COUNT(\*) FROM view\_device\_v2
-WHERE DATE(first\_added) = CURRENT\_DATE AND tags IS NULL
+```
+SELECT COUNT(*) FROM view_device_v2
+WHERE DATE(first_added) = CURRENT_DATE AND tags IS NULL
+```
 
 **Device discovered over 80% local storage:**
 
+```
 WITH
-device\_capacity AS (
+device_capacity AS (
 Select
-    a.device\_pk Device\_ID,
-    ROUND(sum(c.capacity - c.free\_capacity) / sum(c.capacity) \* 100,2) used\_percentage
+    a.device_pk Device_ID,
+    ROUND(sum(c.capacity - c.free_capacity) / sum(c.capacity) * 100,2) used_percentage
 From
-    view\_device\_v2 a
-    Left Join view\_mountpoint\_v1 c on c.device\_fk = a.device\_pk
+    view_device_v2 a
+    Left Join view_mountpoint_v1 c on c.device_fk = a.device_pk
    Where c.capacity>0
-               and a.network\_device = 'f'
+               and a.network_device = 'f'
 GROUP BY 1
 )
-SELECT COUNT(\*) FROM device\_capacity
-WHERE used\_percentage > 80
-
- 
-
- 
+SELECT COUNT(*) FROM device_capacity
+WHERE used_percentage > 80
+```
 
 - Use the _Report schedule_ drop-downs to set the schedule or enter a _CRON schedule_.
 - You can select or enter _Schedule settings_ for Log Retention, Working Timeout, and Grace Period.
@@ -240,20 +246,22 @@ An Alert, while still a scheduled execution, will only send the email if a certa
 
 ![](/assets/images/Insights_alert-setup-NM.png)
 
-WITH rack\_ports AS (
-SELECT d.rack\_fk
-           ,count(\*) total\_network\_port\_count
-           ,(SELECT COUNT(\*) FROM view\_netport\_v1 np WHERE d.device\_pk = np.device\_fk AND np.remote\_netport\_fk IS NOT NULL OR d.device\_pk = np.second\_device\_fk AND np.remote\_netport\_fk IS NOT NULL) used\_network\_port\_count
-FROM view\_device\_v2 d
-JOIN view\_netport\_v1 np ON d.device\_pk = np.device\_fk OR d.device\_pk = np.second\_device\_fk
-JOIN view\_rack\_v1 r ON r.rack\_pk = d.rack\_fk
+```
+WITH rack_ports AS (
+SELECT d.rack_fk
+           ,count(*) total_network_port_count
+           ,(SELECT COUNT(*) FROM view_netport_v1 np WHERE d.device_pk = np.device_fk AND np.remote_netport_fk IS NOT NULL OR d.device_pk = np.second_device_fk AND np.remote_netport_fk IS NOT NULL) used_network_port_count
+FROM view_device_v2 d
+JOIN view_netport_v1 np ON d.device_pk = np.device_fk OR d.device_pk = np.second_device_fk
+JOIN view_rack_v1 r ON r.rack_pk = d.rack_fk
 WHERE
-            d.network\_device IS TRUE
-            AND d.rack\_fk IS NOT NULL
+            d.network_device IS TRUE
+            AND d.rack_fk IS NOT NULL
 GROUP BY
-            d.rack\_fk,d.device\_pk)
+            d.rack_fk,d.device_pk)
 SELECT
-count(DISTINCT rack\_fk)
-FROM rack\_ports
+count(DISTINCT rack_fk)
+FROM rack_ports
 WHERE
-           total\_network\_port\_count = used\_network\_port\_count
+           total_network_port_count = used_network_port_count
+```

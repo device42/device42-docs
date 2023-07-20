@@ -5,40 +5,34 @@ sidebar_position: 19
 
 Inventory of Virtual Devices.
 
+```sql
 select
-     dc.device\_fk
-     ,dc.device\_name
-     ,dc.service\_level
-     ,dc.virtual\_subtype
-     ,dc.customer\_department
-     ,dc.all\_cost\_centers
-     ,dc.total\_cpus
-     ,dc.core\_per\_cpu
-     ,round((dc.ram\_mb/1024)::numeric ,0)    ram\_gb
-     ,dc.remote\_total\_space\_gb + dc.local\_total\_space\_gb 
-                                        total\_space\_gb
-     ,dc.remote\_total\_space\_gb
-     ,dc.local\_total\_space\_gb
-     ,dc.disk\_type   
-     ,dc.os\_name\_ver
-,dc2.device\_name                   hypervisor
-     ,dc2.building\_address
-     ,dc.all\_ips
-from view\_dbb\_compute\_v2 dc
-left join view\_dbb\_compute\_v2 dc2
-on dc2.virtual\_host\_device\_fk  = dc.device\_fk
-where lower(dc.device\_type) = 'virtual'
-     and dc.is\_network\_device = 'No'
-     and dc.is\_container = 'No'
-order by dc.device\_name
-
- 
-
- 
-
- 
-
-* * *
+     dc.device_fk
+     ,dc.device_name
+     ,dc.service_level
+     ,dc.virtual_subtype
+     ,dc.customer_department
+     ,dc.all_cost_centers
+     ,dc.total_cpus
+     ,dc.core_per_cpu
+     ,round((dc.ram_mb/1024)::numeric ,0)    ram_gb
+     ,dc.remote_total_space_gb + dc.local_total_space_gb 
+                                        total_space_gb
+     ,dc.remote_total_space_gb
+     ,dc.local_total_space_gb
+     ,dc.disk_type   
+     ,dc.os_name_ver
+,dc2.device_name                   hypervisor
+     ,dc2.building_address
+     ,dc.all_ips
+from view_dbb_compute_v2 dc
+left join view_dbb_compute_v2 dc2
+on dc2.virtual_host_device_fk  = dc.device_fk
+where lower(dc.device_type) = 'virtual'
+     and dc.is_network_device = 'No'
+     and dc.is_container = 'No'
+order by dc.device_name
+```
 
 **NOTES**
 

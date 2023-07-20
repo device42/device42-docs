@@ -16,7 +16,10 @@ Select _Analytics > Reports > Cloud Recommendation Engine_ and get clear recomme
 - Instance recommendations are calculated based on a combination of your observed workloads (CPU, RAM, HDD, NIC, etc.), and utilizing Resource Utilization data, if available, plus a user-selected _Safety Factor_ you can select via the slider (for example, if your current instance peaks at 16GB RAM usage, and you chose 50% safety factor, CRE will size cloud instance at 24GB).
 - CRE reports now include the following monthly and annual cost information for all vendors:
 
-– On-Demand Instance Cost – 1-Year Reserved Instance Cost – Prorated 3-Year Reserved Instance Cost – Storage Cost (does not apply to VMware Cloud on AWS) – Networking Cost (does not apply to VMware Cloud on AWS)
+    - On-Demand Instance Cost 
+    - 1-Year Reserved Instance Cost – Prorated 3-Year Reserved Instance Cost 
+    - Storage Cost (does not apply to VMware Cloud on AWS) 
+    - Networking Cost (does not apply to VMware Cloud on AWS)
 
 ![](/assets/images/WEB-606_CRE-Setup.png)
 
@@ -31,25 +34,16 @@ Select _Analytics > Reports > Cloud Recommendation Engine_ and get clear recomme
 3. When you click the “Send to Cloud and Analyze Data” button, Device42 anonymizes your data and sends it to our cloud servers, finding matching AWS, Azure, GCP, Oracle, or VMware Cloud on AWS workloads.
 4. Device42’s bots do the hard work, returning workload recommendations that have been best-matched to each particular device in your main appliance. The anonymized data is then re-matched with your actual device names, and an output sheet is generated that contains both your device names and matched workloads for the following scenarios:
 
-**– AWS based on inventory data**
-
-**– AWS based on resource utilization**
-
-**– Azure based on inventory data**
-
-**– Azure based on resource utilization**
-
-**– GCP based on inventory data**
-
-**– GCP based on resource utilization**
-
-**– Oracle based on inventory data**
-
-**– Oracle based on resource utilization**
-
-**– VMware Cloud on AWS based on inventory data**
-
-**– VMware Cloud on AWS based on resource utilization**
+    - AWS based on inventory data
+    - AWS based on resource utilization
+    - Azure based on inventory data
+    - Azure based on resource utilization
+    - GCP based on inventory data
+    - GCP based on resource utilization
+    - Oracle based on inventory data
+    - Oracle based on resource utilization
+    - VMware Cloud on AWS based on inventory data
+    - VMware Cloud on AWS based on resource utilization
 
 **Downloaded Data Sample**
 
@@ -73,9 +67,12 @@ The following RU data for NICs and HDDs is now available:
 
 Cloud recommendation engine communicates with the Device42 main appliance (MA) over https/443, reaching out to either _connect.device42.io (non-EU)_ or _connect-eu.device42.io for EU users._ IP address details for this communication (current as of 2018-19) is as follows:
 
+```
 FQDN/IPS: 
 connect.device42.io  https/443
 connect-eu.device42.io https/443
+```
+
 
 ## Global Cloud Recommendation Engine Settings and Scheduling
 

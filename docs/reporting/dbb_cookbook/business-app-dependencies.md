@@ -7,30 +7,30 @@ Infrastructure that may impact Business Apps.
 
 
 ```
-/\*
-\* Business App Dependencies
-\* This is a simple query to quickly see what infrastructure impacts one or more Business Apps.
-\*/
+/*
+* Business App Dependencies
+* This is a simple query to quickly see what infrastructure impacts one or more Business Apps.
+*/
 SELECT
-    businessapplication\_fk
-    ,business\_app\_name
-    ,object\_name           AS dependent\_object\_name
-    ,related\_object\_url    AS dependent\_object\_url
-    ,component\_type
+    businessapplication_fk
+    ,business_app_name
+    ,object_name           AS dependent_object_name
+    ,related_object_url    AS dependent_object_url
+    ,component_type
     ,port
-    ,device\_fk             AS impacted\_device\_fk
-    ,impacted\_object       AS impacted\_device\_name
-    ,device\_host
-    ,device\_subtype
-    ,impact\_reason
-    ,relationship\_type
-    ,relationship\_url
-    ,trends\_url
-FROM view\_dbb\_adm\_businessapp\_composition\_v2
+    ,device_fk             AS impacted_device_fk
+    ,impacted_object       AS impacted_device_name
+    ,device_host
+    ,device_subtype
+    ,impact_reason
+    ,relationship_type
+    ,relationship_url
+    ,trends_url
+FROM view_dbb_adm_businessapp_composition_v2
 WHERE 
-    business\_app\_name IN ('<your-business-app-name-here>')
+    business_app_name IN ('<your-business-app-name-here>')
 ORDER BY
-    impacted\_object;
+    impacted_object;
 ```
 
 * * *
