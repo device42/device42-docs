@@ -62,6 +62,7 @@ const config = {
         logo: {
           alt: 'Device42 Logo',
           src: 'img/logo.png',
+          srcDark: 'img/logo-dark.svg',
         },
         items: [
           {
