@@ -27,9 +27,28 @@ You can't add a password without setting this first. If you fail to set a passph
 
 ![](/assets/images/Secrets-8-add-normal-700x341.png)
 
-Password Fields: **Username**: Required. Even if this is an account without a username, assign one for easy identification. This is useful for search as well. **Label**: Optional. This helps to differentiate and search. **Category**: Select a category or add a new one. **\# Days Before Expiration**: Number of days before the password expires. **Use Password**: Selected by default. **Password Storage**: _Normal_ or _Burnt_. **Password:** Required. This is free text; click the eye icon to display the password. **Key File**: Select an existing key file. **Devices**: Optionally assign devices to a password. This is useful for easy searching and centralizing all device passwords. You can select multiple devices. **Application Components**: Optionally application components to a password. This is useful for easy searching and centralizing all application passwords. You can select multiple application components. **Notes** : Searchable free text. **View Users** : Users who can view the password. **View Groups:** Groups who can view the password. **Use Only Users**: Users who can only use the password. **Use Only Groups**: Groups that can only use the password. **View Edit Users** : Users who can view, edit, and delete the password. **View Edit Groups:** Groups that can view, edit, and delete the password.
+Password Fields: 
 
-At least one user or group needs to have permission assigned to view and edit the password (otherwise, no one can edit it.) **If view edit users and view edit groups is left empty, the logged in user is automatically added to view edit users.**
+- **Username**: Required. Even if this is an account without a username, assign one for easy identification. This is useful for search as well. 
+- **Label**: Optional. This helps to differentiate and search. 
+- **Category**: Select a category or add a new one. 
+- **\# Days Before Expiration**: Number of days before the password expires. 
+- **Use Password**: Selected by default. 
+- **Password Storage**: _Normal_ or _Burnt_. 
+- **Password:** Required. This is free text; click the eye icon to display the password. 
+- **Key File**: Select an existing key file. 
+- **Devices**: Optionally assign devices to a password. This is useful for easy searching and centralizing all device passwords. You can select multiple devices. 
+- **Application Components**: Optionally application components to a password. This is useful for easy searching and centralizing all application passwords. You can select multiple application components. 
+- **Notes** : Searchable free text. 
+- **View Users** : Users who can view the password. 
+- **View Groups:** Groups who can view the password. 
+- **Use Only Users**: Users who can only use the password. 
+- **Use Only Groups**: Groups that can only use the password. 
+- **View Edit Users** : Users who can view, edit, and delete the password. 
+- **View Edit Groups:** Groups that can view, edit, and delete the password.
+
+At least one user or group needs to have permission assigned to view and edit the password (otherwise, no one can edit it.) 
+- **If view edit users and view edit groups is left empty, the logged in user is automatically added to view edit users.**
 
 ### Generate a Password
 

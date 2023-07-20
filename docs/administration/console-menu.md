@@ -1,5 +1,5 @@
 ---
-title: "Setup &amp; Troubleshooting Menu"
+title: "Setup & Troubleshooting Menu"
 sidebar_position: 14
 ---
 
@@ -31,9 +31,4 @@ The current options are as follows:
      16. Compact Database
      17. Compact only Audit Log in Database
      0. Logout
-
-
-
-
-[pagelist child_of="375"]
 ```

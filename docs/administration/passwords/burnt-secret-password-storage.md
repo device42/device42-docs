@@ -17,4 +17,6 @@ Creating a "burnt" secret/password is very similar to the creation of a 'normal'
 
 ![](/assets/images/Secrets-5-add-burnt-700x303.png)
 
-A stored "burnt secret": ![](/assets/images/Secrets-6-list-with-burnt-700x257.png)
+A stored "burnt secret": 
+
+![](/assets/images/Secrets-6-list-with-burnt-700x257.png)
