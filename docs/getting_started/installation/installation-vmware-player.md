@@ -19,15 +19,21 @@ sidebar_position: 11
 
 ![Here are the steps in images:](/assets/images/open-appliance.png)
 
-Power on the machine by clicking "Play virtual machine": ![Power on the Device42 Virtual Appliance](/assets/images/wpid6196-media_1331534654060.png)
+Power on the machine by clicking "Play virtual machine": 
+
+![Power on the Device42 Virtual Appliance](/assets/images/wpid6196-media_1331534654060.png)
 
 ![Login to the Device42 Console](/assets/images/d42-console-login-screen-v15.png)
 
 Default login: device42 Default password: adm!nd42
 
-Change the password using option 10, and then proceed to configure network settings via menu option 1: ![Configure IP/Networking](/assets/images/d42-console-menu-config-IP-v15.png)
+Change the password using option 10, and then proceed to configure network settings via menu option 1: 
 
-Configure a **static** IP address for the Device42 appliance: ![Network Config](/assets/images/wpid6197-media_1331534878565.png)
+![Configure IP/Networking](/assets/images/d42-console-menu-config-IP-v15.png)
+
+Configure a **static** IP address for the Device42 appliance: 
+
+![Network Config](/assets/images/wpid6197-media_1331534878565.png)
 
 _Note:_ The default password for user device42 MUST be changed using console menu using option 10 to secure your appliance. As mentioned, the default username/password is admin/adm!nd42.
 

@@ -29,8 +29,10 @@ To install D42Netflow as a service:
 
 **On Linux:**
 
+```
 $ sudo firewall-cmd --zone=public --add-port=2055/udp --permanent
 $ sudo firewall-cmd --reload
+```
 
 ## Install the service
 
@@ -40,7 +42,9 @@ In your administrative command prompt, run the following to register the downloa
 
 ![Create D42Netflow Windows Service](/assets/images/Create_D42_Netflow_Service.png)
 
-    $ sc create D42Netflow binPath="c:pathtobinarywindows\_x64.exe -h \*ma\_url\* -u \*username\* -p \*password\* -i \*Interval\*" 
+```
+$ sc create D42Netflow binPath="c:pathtobinarywindows\_x64.exe -h \*ma\_url\* -u \*username\* -p \*password\* -i \*Interval\*" 
+```
 
 After executing the above, you can see your new service in the services control panel (services.msc):
 
@@ -48,12 +52,14 @@ After executing the above, you can see your new service in the services control 
 
 _The CMD string parameters:_
 
+```
 ServiceName = D42Netflow - the service will be registered with this name
 binPath = path to binary
 -h = URL of Device42 main appliance
 -u = Device42 username
 -p = Device42 password
 -i = flow delivery interval to D42 MA in seconds (60 seconds is a good starting point)
+```
 
 **On Linux / SystemD:** Create file `/etc/systemd/system/netflow.service` containing the following:
 
@@ -79,9 +85,11 @@ WantedBy=multi-user.target
 
 **On Linux:**
 
+```
 Set the service as executable:
 $ chmod +x /opt/rc/services/netflow
 Set the service to start automatically:
 $ systemctl enable netflow
 Start the service:
 $ systemctl restart netflow
+```

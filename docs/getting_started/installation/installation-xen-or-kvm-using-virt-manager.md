@@ -40,8 +40,8 @@ Choose your virtualization type from Advanced options and x86\_64 as architectur
 - Optional: Create a DNS entry for the new IP address for the new virtual appliance.
 - Point your browser to https://FQDN(Fully Qualified Domain Name) or IP address and you are ready to go.
 - The default username is admin and password is adm!nd42 (NOTE: Use (ubuntu/default) for power appliance). You can change the password with option 10.
-    
-    ![](/assets/images/wpid6128-media_1418268309382.png)
+
+![](/assets/images/wpid6128-media_1418268309382.png)
     
 
 default login : device42  

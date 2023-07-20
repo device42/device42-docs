@@ -11,7 +11,9 @@ Use 7zip to unzip the downloaded file.
 
 Create a VM with a **minimum** of 2 vCPU, 8 GB RAM, and 1 network card; configure the new VM to use the attached vhd. **Note:** _Only HyperV Gen1 VMs are currently supported! In our experience, users have run into issues deploying Linux VMs as Generation 2 in HyperV. With that in mind, we recommend deploying Device42 only as a version Gen1 VM._
 
-![Specify Name and Location](/assets/images/wpid6173-Here_are_step_1_in_pictures.png) ![Assign Memory](/assets/images/wpid6174-media_1326982807001.png)
+![Specify Name and Location](/assets/images/wpid6173-Here_are_step_1_in_pictures.png) 
+
+![Assign Memory](/assets/images/wpid6174-media_1326982807001.png)
 
 ## Configure VM networking
 

@@ -15,5 +15,7 @@ The RC is shipped as a virtual appliance, which can be downloaded on our [Discov
 
 If you're simply looking for the **Device42 RC default login credentials**:
 
+```
 username: client
 password: device42
+```
