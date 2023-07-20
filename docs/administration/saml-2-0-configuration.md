@@ -69,7 +69,7 @@ Copy metadata url from endpoints
 
 ![](/assets/images/image4.png)
 
-5\. While still in the SAML 2.0 settings of the Appliance Manager, enter http://schemas.xmlsoap.org/ws/2005/05/identity/claims/**SAML\_Attribute** to map the Azure AD value to the appropriate SAML attribute. Save and restart the appliance from the VM console menu with option 4. You may wish to complete steps 6 and 7 before saving/restarting so that you can still login to D42 and create users with the local admin account you've used so far. The SAML attributes tested successfully are listed below-
+5\. While still in the SAML 2.0 settings of the Appliance Manager, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/**SAML_Attribute**` to map the Azure AD value to the appropriate SAML attribute. Save and restart the appliance from the VM console menu with option 4. You may wish to complete steps 6 and 7 before saving/restarting so that you can still login to D42 and create users with the local admin account you've used so far. The SAML attributes tested successfully are listed below-
 
 - **emailaddress**\- Email address associated with user account in Azure AD
 - **name**\- User Principal Name (UPN) associated with user account in Azure AD ![](/assets/images/image-2021-04-26-17-29-20-178.png)
@@ -106,7 +106,7 @@ Set application preferences and click next
 
 ![Okta Admin Link](/assets/images/saml-006.png)
 
-On the next page setup ACS url and field mapping. The Single Sign On URL & Audience URI should be https://yourdevice42address/saml2\_auth/acs/. The Attribute value should be the same AD or LDAP attribute that your users will log into Device42 with. Note the "Name" given to it as this will be needed in the Device42 Appliance Manager configurations.
+On the next page setup ACS url and field mapping. The Single Sign On URL & Audience URI should be `https://yourdevice42address/saml2_auth/acs/`. The Attribute value should be the same AD or LDAP attribute that your users will log into Device42 with. Note the "Name" given to it as this will be needed in the Device42 Appliance Manager configurations.
 
 ![Okta Admin Link](/assets/images/saml-007.png)
 
@@ -140,7 +140,7 @@ To configure SAML2 integration between OneLogin and Device42, you have to create
 
 5\. Go to the `Configuration` tab
 
-- Put the value `https://<<fqdn>>/saml2\_auth/acs/` in `Audience (EntityID)`, `Recipient` and `ACS (Consumer)URL`
+- Put the value `https://<<fqdn>>/saml2_auth/acs/` in `Audience (EntityID)`, `Recipient` and `ACS (Consumer)URL`
 - Put `.*` in `ACS(Consumer) URL Validator`
 - Save
 
