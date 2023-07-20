@@ -49,7 +49,8 @@ Working Salt & Device42 installations. Tested against Salt Master 2016.11.1 Carb
 2. Copy (or move/rename) the settings file settings.yaml.example to _settings.yaml_.
 3. Populate the settings.yaml file you created in the last step with your Device42 instance info \[host, user, pss\]:
 
-\# ========= Device 42
+```
+========= Device 42
 Device42:
     host: host
     user: user
@@ -59,13 +60,14 @@ Device42:
 # static options
 Static:
     customer: null
-    customer\_id: null
-    service\_level: null
+    customer_id: null
+    service_level: null
 
 Options:
-    # as\_node\_name: one of \[fqdn, name\]
-    as\_node\_name: fqdn
-    node\_filter: \[\] 
+    # as_node_name: one of [fqdn, name]
+    as_node_name: fqdn
+    node_filter: [] 
+```
 
 (consult README.MD & requirements.txt for more details)
 
