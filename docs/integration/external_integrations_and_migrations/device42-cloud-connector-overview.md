@@ -66,8 +66,26 @@ Note that the Device42 cloud connector is hosted by DigitalOcean, and takes adva
 
 _Cloud Connector IPs (IPv4 and IPv6):_
 
-Name: [connect.device42.io](http://connect.device42.io/ "http://connect.device42.io/") (USA) Addresses: 104.22.78.250 104.22.79.250 172.67.26.32 2606:4700:10::6816:4efa 2606:4700:10::6816:4ffa 2606:4700:10::ac43:1a20
+Name: [connect.device42.io](http://connect.device42.io/ "http://connect.device42.io/") (USA) Addresses: 
 
-Name: [connect-eu.device42.io](http://connect-eu.device42.io/ "http://connect-eu.device42.io/") (Europe) Addresses: 104.22.78.250 104.22.79.250 172.67.26.32 2606:4700:10::6816:4efa 2606:4700:10::6816:4ffa 2606:4700:10::ac43:1a20
+```
+104.22.78.250
+104.22.79.250
+172.67.26.32
+2606:4700:10::6816:4efa
+2606:4700:10::6816:4ffa
+2606:4700:10::ac43:1a20
+```
+
+Name: [connect-eu.device42.io](http://connect-eu.device42.io/ "http://connect-eu.device42.io/") (Europe) Addresses:
+
+```
+104.22.78.250
+104.22.79.250
+172.67.26.32
+2606:4700:10::6816:4efa
+2606:4700:10::6816:4ffa
+2606:4700:10::ac43:1a20
+```
 
 If you have a question that isn't answered here, please email support@device42.com and we'll be glad both to answer your question, and to include the answer here.

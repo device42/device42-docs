@@ -31,20 +31,22 @@ Integrating Device42 data to HPSM is easily accomplished using the Device42-hpsm
 2. Copy (or move/rename) the settings file conf.sample to conf
 3. Edit the conf file you created in the last step to contain your Device42 & HPSM instance credentials \[host, user, pass\]:
 
+```
     #========= Device 42 ========= #
-        d42\_host = '192.168.1.102'
-        d42\_username = 'user'
-        d42\_password = 'pass'
+        d42_host = '192.168.1.102'
+        d42_username = 'user'
+        d42_password = 'pass'
     #========= HPSM ========= #
-        hpsm\_host = '10.42.42.46'
-        hpsm\_protocol = 'http'
-        hpsm\_port = '13080'
-        hpsm\_username = 'user'
-        hpsm\_password = 'pass'
-        hpsm\_api\_version = '9'
+        hpsm_host = '10.42.42.46'
+        hpsm_protocol = 'http'
+        hpsm_port = '13080'
+        hpsm_username = 'user'
+        hpsm_password = 'pass'
+        hpsm_api_version = '9'
     #========= Options ========= #
-        opt\_debug = True
-        opt\_dry\_run = True
+        opt_debug = True
+        opt_dry_run = True
+```
 
 1. Configure HPSM: Open the Database Dictionary and add field (type ‘number’, name ‘device42.id’) to both the models ‘computer’ and ‘networkcomponents' ![Configure HPSM Database Dictionary](/assets/images/2015-03-15-hpsm-conf-1.png) ![Configure HPSM Databse Dictionary fields](/assets/images/2015-03-15-hpsm-conf-2.png)
 2. Operator should have access to the REST API: ![Configure Operator API Access](/assets/images/2015-03-15-hpsm-3.png)

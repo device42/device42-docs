@@ -31,14 +31,16 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
 
 1a. Populate the node\_classes field (with a placeholder) in Device42 on your target Puppet Node's CI \[puppet.device42.pvt, in our case\] by setting one of your device’s node\_classes field to the following:
 
+```
 {
   "classes": {
     "example": { 
-      "param": "example\_param" 
+      "param": "example_param" 
     } 
   }, 
   "environment": "production" 
 }
+```
 
 ![Device42 Custom Field JSON](/assets/images/Puppet_ENC_custom_field_JSON.png)
 
@@ -55,9 +57,12 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
         ![Puppet ENC settings.yaml](/assets/images/Puppet_ENC_settings.yaml.png)
 2. Designate your Puppet master as the ENC authority by editing your puppet.conf \[/etc/puppetlabs/puppet/puppet.conf\]. Add these 2 configuration lines, specifying the location of d42\_enc\_fetcher.py:
 
-\[master\]
-  node\_terminus = exec
-  external\_nodes = /etc/puppetlabs/puppet/d42-puppet-enc/d42\_enc\_fetcher.py
+```
+[master]
+  node_terminus = exec
+  external_nodes = /etc/puppetlabs/puppet/d42-puppet-enc/d42_enc_fetcher.py
+```
+
 
 Once that's set, restart your Puppet server Services, and you're all set. Now, just create a class, and you're in business!
 
@@ -73,7 +78,14 @@ The Device42 integration connector works with all Chef-supported versions of Che
 
 Integrating Puppet or Chef with Device42, also ensures that Device42 remains aligned with the Chef or Puppet device data ensuring consistency and uniformity between Device42 and either application across all of Device42’s broad IT infrastructure management capabilities:
 
-IP address management Cabling management Password management Server room, rack, and device visualizations Software license management Power and environmental monitoring Power control Integration Connectors Information
+- IP address management
+- Cabling management 
+- Password management
+- Server room, rack, and device visualizations
+- Software license management
+- Power and environmental monitoring
+- Power control
+- Integration Connectors Information
 
 ### Device42 — Puppet and Chef integrations are easily accomplished using Device42 provided scripts.
 
