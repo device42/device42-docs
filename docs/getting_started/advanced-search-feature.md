@@ -31,7 +31,10 @@ If you need to use the `"` character in your search, use two double quotes ins
 
 Dates should still be enclosed with double quotes and the following formats are valid:
 
-**“yyyy/mm/dd hh:mm”** – (for hh:mm values use 24 hour clock) **“yyyy-mm-dd hh:mm”** **“yyyy/mm/dd”** **“yyyy-mm-dd”**
+* “yyyy/mm/dd hh:mm” – (for hh:mm values use 24 hour clock)
+* “yyyy-mm-dd hh:mm”
+* “yyyy/mm/dd”
+* “yyyy-mm-dd”
 
 ### Numbers
 
@@ -57,7 +60,7 @@ Example of column representing a list (IP Column on Device List page):
 
 will return all records that contain the _10.90.10.20_ IP address.
 
-##### Special Values
+#### Special Values
 
 **EMPTY –** the ‘EMPTY’ keyword can be used to represent a ‘null’ or ‘blank’ value.
 
