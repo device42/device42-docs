@@ -7,43 +7,43 @@ Business App Device Impacts
 
 
 ```
-/\*
-\* Business App Device Impacts
-\* Use this query if you are looking to discover all business apps that are impacted by a specific set of infrastructure devices and the relationships between them.
-\* You can use object\_name to look at the source of the impact or impacted\_object to look at the device directly supporting the business application.
-\*/
+/*
+* Business App Device Impacts
+* Use this query if you are looking to discover all business apps that are impacted by a specific set of infrastructure devices and the relationships between them.
+* You can use object_name to look at the source of the impact or impacted_object to look at the device directly supporting the business application.
+*/
 SELECT
-businessapplication\_fk
-    ,business\_app\_name
-    ,device\_fk
-    ,impacted\_object
-    ,device\_host
-    ,device\_subtype
-    ,impact\_reason
-    ,relationship\_type
-    ,relationship\_url
-    ,object\_name                AS related\_object\_name
-    ,port                       AS related\_object\_port
-    ,related\_object\_url
-    ,component\_type
-    ,business\_app\_url
-    ,business\_app\_diagram
-    ,business\_app\_tech\_owner
-    ,business\_app\_owner
-    ,business\_app\_service\_level
-    ,business\_app\_migration\_group
-    ,business\_app\_criticality
-    ,business\_app\_type
-    ,business\_app\_description
-    ,business\_app\_contains\_pii
-    ,business\_app\_internet\_accessible
-    ,business\_app\_notes
-FROM view\_dbb\_adm\_businessapp\_composition\_v2
+businessapplication_fk
+    ,business_app_name
+    ,device_fk
+    ,impacted_object
+    ,device_host
+    ,device_subtype
+    ,impact_reason
+    ,relationship_type
+    ,relationship_url
+    ,object_name                AS related_object_name
+    ,port                       AS related_object_port
+    ,related_object_url
+    ,component_type
+    ,business_app_url
+    ,business_app_diagram
+    ,business_app_tech_owner
+    ,business_app_owner
+    ,business_app_service_level
+    ,business_app_migration_group
+    ,business_app_criticality
+    ,business_app_type
+    ,business_app_description
+    ,business_app_contains_pii
+    ,business_app_internet_accessible
+    ,business_app_notes
+FROM view_dbb_adm_businessapp_composition_v2
 WHERE 
-    object\_name IN('<your-device-name-here>')
-    OR impacted\_object IN('<your-device-name-here>')
+    object_name IN('<your-device-name-here>')
+    OR impacted_object IN('<your-device-name-here>')
 ORDER BY
-    business\_app\_name ;
+    business_app_name ;
 ```
 
 * * *

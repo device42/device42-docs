@@ -5,24 +5,24 @@ sidebar_position: 15
 
 Inventory of Physical Devices grouped by Customer Department.
 
+```sql
 select
-     dc.customer\_department  
-     ,dc.asset\_number
-     ,dc.last\_discovered
-     ,dc.device\_name
-     ,dc.device\_type
-     ,dc.device\_serial
-     ,dc.in\_service
-     ,dc.building\_name
-     ,dc.room\_name
-     ,dc.row\_name
-     ,dc.rack\_name
-     ,dc.u\_position
-from view\_dbb\_compute\_v2 dc
-where lower(dc.device\_type)= 'physical'
+     dc.customer_department  
+     ,dc.asset_number
+     ,dc.last_discovered
+     ,dc.device_name
+     ,dc.device_type
+     ,dc.device_serial
+     ,dc.in_service
+     ,dc.building_name
+     ,dc.room_name
+     ,dc.row_name
+     ,dc.rack_name
+     ,dc.u_position
+from view_dbb_compute_v2 dc
+where lower(dc.device_type)= 'physical'
 order by 1,2,4
-
-* * *
+```
 
 **NOTES**
 

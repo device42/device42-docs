@@ -5,33 +5,33 @@ sidebar_position: 12
 
 Inventory of Devices arranged by Rack
 
+```sql
 select
-     dc.device\_type
-     ,dc.server\_location
-     ,dc.building\_name
-     ,dc.building\_address
-     ,dc.room\_name
-     ,dc.row\_name
-     ,dc.chassis\_u\_location
-     ,dc.chassis\_device\_name
-     ,dc.rack\_name
-     ,dc.u\_position
-     ,dc.device\_name
-     ,dc.asset\_number
+     dc.device_type
+     ,dc.server_location
+     ,dc.building_name
+     ,dc.building_address
+     ,dc.room_name
+     ,dc.row_name
+     ,dc.chassis_u_location
+     ,dc.chassis_device_name
+     ,dc.rack_name
+     ,dc.u_position
+     ,dc.device_name
+     ,dc.asset_number
      ,dc.manufacturer
-     ,dc.hardware\_model
-     ,dc.service\_level
-     ,dc.in\_service
-     ,dc.customer\_department
-     ,dc.device\_type
-     /\* \\/ used if renting bare-metal machine from a cloud provider.\*/
-     ,dc.cloud\_service\_provider
-from view\_dbb\_compute\_v2 dc
-where lower(dc.device\_type) = 'physical' and  dc.rack\_name is not null
-order by dc.server\_location, dc.building\_name, dc.room\_name,
-dc.storage\_room, dc.row\_name, dc.rack\_name, dc.u\_position
-
-* * *
+     ,dc.hardware_model
+     ,dc.service_level
+     ,dc.in_service
+     ,dc.customer_department
+     ,dc.device_type
+     /* / used if renting bare-metal machine from a cloud provider.*/
+     ,dc.cloud_service_provider
+from view_dbb_compute_v2 dc
+where lower(dc.device_type) = 'physical' and  dc.rack_name is not null
+order by dc.server_location, dc.building_name, dc.room_name,
+dc.storage_room, dc.row_name, dc.rack_name, dc.u_position
+```
 
 **NOTES**
 

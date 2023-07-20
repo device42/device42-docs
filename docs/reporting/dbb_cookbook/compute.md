@@ -9,7 +9,7 @@ sidebar_position: 8
 - [Device Count by Device Type](https://docs.device42.com/dbb-cookbook/compute/device-count-by-device-type/)
 - [Device Count by Service Level](https://docs.device42.com/dbb-cookbook/compute/device-count-by-service-level/)
 - [Device to Rack Inventory](https://docs.device42.com/dbb-cookbook/compute/device-to-rack-inventory/)
-- [Devices Missing Device\_Type or Service\_Level](https://docs.device42.com/dbb-cookbook/compute/devices-missing-device_type-or-service_level/)
+- [Devices Missing Device_Type or Service_Level](https://docs.device42.com/dbb-cookbook/compute/devices-missing-device_type-or-service_level/)
 - [Physical Device Inventory](https://docs.device42.com/dbb-cookbook/compute/physical-device-inventory/)
 - [Physical Devices by Customer Department](https://docs.device42.com/dbb-cookbook/compute/physical-devices-by-customer-department/)
 - [Physical Devices Without Hardware Model](https://docs.device42.com/dbb-cookbook/compute/physical-devices-without-hardware-model/)

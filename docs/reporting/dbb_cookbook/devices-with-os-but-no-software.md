@@ -5,22 +5,20 @@ sidebar_position: 27
 
 Compute Devices with OS but no Software captured.
 
+```sql
 select distinct
-     ds.device\_fk
-     ,ds.device\_name
-     ,ds.device\_type
-     ,ds.device\_service\_level
+     ds.device_fk
+     ,ds.device_name
+     ,ds.device_type
+     ,ds.device_service_level
      ,ds.tags
-     ,ds.device\_first\_added
-     ,ds.device\_last\_changed
-     ,ds.is\_missing\_os
-     ,ds.is\_missing\_software
-from view\_dbb\_security\_v2 ds
-where ds.is\_missing\_software = 'Yes' and ds.device\_fk is not null       and ds.is\_missing\_os = 'No'
-
- 
-
-* * *
+     ,ds.device_first_added
+     ,ds.device_last_changed
+     ,ds.is_missing_os
+     ,ds.is_missing_software
+from view_dbb_security_v2 ds
+where ds.is_missing_software = 'Yes' and ds.device_fk is not null       and ds.is_missing_os = 'No'
+```
 
 **NOTES**
 

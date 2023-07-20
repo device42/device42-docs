@@ -40,29 +40,32 @@ There will also be other blank columns for _iamRole_, _placementGroup_, and othe
 
 Once the CSV file is prepped, you can then run the Mass Blueprint Setter script.
 
-Use \`python CE\_Update\_Blueprints.py -h\` to list all available options:
 
-usage: CE\_Update\_Blueprints.py \[-h\] -u USER -p PASSWORD -i INPUTFILE
+```
+Use `python CE_Update_Blueprints.py -h` to list all available options:
 
-                               \[-o OUTPUTFILE\]
+usage: CE_Update_Blueprints.py [-h] -u USER -p PASSWORD -i INPUTFILE
+
+                               [-o OUTPUTFILE]
 
 optional arguments:
 
-  -h, --help            show this help message and exit
+  -h, --help            show this help message and exit
 
-  -u USER, --user USER  User name
+  -u USER, --user USER  User name
 
-  -p PASSWORD, --password PASSWORD
+  -p PASSWORD, --password PASSWORD
 
-                        Password
+                        Password
 
-  -i INPUTFILE, --inputfile INPUTFILE
+  -i INPUTFILE, --inputfile INPUTFILE
 
-                        Input CSV file
+                        Input CSV file
 
-  -o OUTPUTFILE, --outputfile OUTPUTFILE
+  -o OUTPUTFILE, --outputfile OUTPUTFILE
 
-                        Output CSV file for backup before change
+                        Output CSV file for backup before change
+```
 
 When ready to run, supply all of the above parameters. If there are any issues when running the script a .log file will be created in the same directory.
 
