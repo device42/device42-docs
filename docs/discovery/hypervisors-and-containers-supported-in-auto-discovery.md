@@ -3,7 +3,9 @@ title: "Supported Hypervisors and Containers List"
 sidebar_position: 30
 ---
 
-If you were looking for how-to instructions to get started with Hypervisor, Linux (\*nix), or Windows discovery, see either: - the [Windows / Hyper-V Discovery](https://docs.device42.com/auto-discovery/windows-and-hyper-v-auto-discovery/) page - or the [Linux / UNIX server auto-discovery](https://docs.device42.com/auto-discovery/linux-unix-server-auto-discovery/) page.
+If you were looking for how-to instructions to get started with Hypervisor, Linux (\*nix), or Windows discovery, see either: 
+- the [Windows / Hyper-V Discovery](https://docs.device42.com/auto-discovery/windows-and-hyper-v-auto-discovery/) page 
+- or the [Linux / UNIX server auto-discovery](https://docs.device42.com/auto-discovery/linux-unix-server-auto-discovery/) page.
 
 ## Supported Hypervisor / Container Platforms
 
@@ -11,7 +13,6 @@ Device42 is constantly expanding its list of hypervisor and container platforms 
 
 ![](/assets/images/D42-25011_supported-hyperv-platforms.png)
 
- 
 
 - \*nix
 - AIX HMC

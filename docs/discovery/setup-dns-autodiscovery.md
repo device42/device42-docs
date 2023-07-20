@@ -7,11 +7,15 @@ In this section, we will explain how to prep your Microsoft DNS server for DNS a
 
 ## Allowing zone transfers from your DNS server to your Device42 virtual appliance
 
-![1. Allowing zone transfer from your DNS server to device42 virtual appliance IP.](/assets/images/2016-03-22-dns-01.png) Right click on the zone name, go to Properties and go to the zone transfers tab.
+![1. Allowing zone transfer from your DNS server to device42 virtual appliance IP.](/assets/images/2016-03-22-dns-01.png)
+
+Right click on the zone name, go to Properties and go to the zone transfers tab.
 
 ## Allow your Device42 virtual appliance's IP
 
-![2. Allow device42 virtual appliance IP](/assets/images/2016-03-22-dns-02.png) You can enable zone transfers to Device42 appliance IP at your discretion.
+![2. Allow device42 virtual appliance IP](/assets/images/2016-03-22-dns-02.png) 
+
+You can enable zone transfers to Device42 appliance IP at your discretion.
 
 ## Set up Device42 DNS Zone autodiscovery
 

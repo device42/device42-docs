@@ -27,27 +27,37 @@ To configure automatic warranty discovery, you'll need to simply request API key
 
 ### API Keys, Configuration and Prerequisites:
 
-1. 1. For the script to successfully retrieve warranty information for a given device, the device’s model and serial number fields must be correctly filled out (entered or discovered). If you have more than one Vendor entry for a given vendor, the best option is to merge them prior to discovery. For example, to merge all lexical variations of "Dell" into a single vendor, head to _Infrastructure -> Vendors_ and check the boxes next to all variations of 'dell': ![](/assets/images/WEB-598_warranty-ad-merge-vendors.png)
-    2. The Device42 _Model field_ must be set to one of the following: _Dell, IBM, Lenovo, or Meraki_ – hardware with different vendor name variations will not return a warranty. You can easily add the proper Alias to each vendor if your vendors are named differently. On the vendor edit screen, simply add _dell_ to the Dell vendor entry, _ibm_ for IBM, _meraki_ for Meraki, and finally _lenovo_ to the Lenovo vendor entry: ![](/assets/images/WEB-598_warranty-ad-vendor-change-1-700x523.png)
-    3. Get your API keys (Dell and Meraki):
+1. For the script to successfully retrieve warranty information for a given device, the device’s model and serial number fields must be correctly filled out (entered or discovered). If you have more than one Vendor entry for a given vendor, the best option is to merge them prior to discovery. For example, to merge all lexical variations of "Dell" into a single vendor, head to _Infrastructure -> Vendors_ and check the boxes next to all variations of 'dell': 
 
-**Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://techdirect.dell.com/portal/AboutAPIs.aspx).
+![](/assets/images/WEB-598_warranty-ad-merge-vendors.png)
 
-**Meraki API Keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Instructions to obtain Meraki API key: https://developer.cisco.com/meraki/api/#/rest/getting-started. These instructions from Meraki offer details around their process for obtaining their API key.
+2. The Device42 _Model field_ must be set to one of the following: _Dell, IBM, Lenovo, or Meraki_ – hardware with different vendor name variations will not return a warranty. You can easily add the proper Alias to each vendor if your vendors are named differently. On the vendor edit screen, simply add _dell_ to the Dell vendor entry, _ibm_ for IBM, _meraki_ for Meraki, and finally _lenovo_ to the Lenovo vendor entry: 
 
-**Note:** If using the standalone warranty script (instructions in  the _STANDALONE_ section below), Python 2.7 must be installed along with the python library requests.
+![](/assets/images/WEB-598_warranty-ad-vendor-change-1-700x523.png)
+
+3. Get your API keys (Dell and Meraki):
+
+    **Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://techdirect.dell.com/portal/AboutAPIs.aspx).
+
+    **Meraki API Keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Instructions to obtain Meraki API key: https://developer.cisco.com/meraki/api/#/rest/getting-started. These instructions from Meraki offer details around their process for obtaining their API key.
+
+    **Note:** If using the standalone warranty script (instructions in  the _STANDALONE_ section below), Python 2.7 must be installed along with the python library requests.
 
 ### Secure Communication Details
 
-Both the UI and the warranty script transmit the same information (relevant serial number(s) to the appropriate vendor via port 443 SSL, including the API key entered into Device42 for this purpose _only_ if required by the vendor (Dell/Meraki). Payload looks as follows:
+Both the UI and the warranty script transmit the same information (relevant serial number(s)) to the appropriate vendor via port 443 SSL, including the API key entered into Device42 for this purpose _only_ if required by the vendor (Dell/Meraki). Payload looks as follows:
 
+```
 payload = {'id': inline\_serials, 'apikey': self.api\_key, 'accept': 'Application/json'}
+```
 
 Warranty lookup queries the APIs at the following URLs:
 
+```
 Dell - sandbox.api.dell.com https port 443
 Lenovo/IBM - support.lenovo.com https port 443
 Meraki - api.meraki.com https port 443
+```
 
 ## Configuring a Job / API Key Example
 
@@ -83,7 +93,8 @@ The latest version of the standalone script can be [downloaded from GitHub](http
 
 ## Cisco Support API Info
 
-Cisco discovery specifically uses Cisco’s Support API labeled `Serial Number to Information`. The endpoint used is: `https://api.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
+Cisco discovery specifically uses Cisco’s Support API labeled `Serial Number to Information`. The endpoint used is: 
+`https://api.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
 
 Click this link for more information: [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!serial-number-to-information/get-coverage-summary-by-serial-numbers)
 

@@ -123,6 +123,4 @@ Hypervisors are discovered via the Device42 web UI: _Discovery > HyperVisors / \
 
 Discussed in depth: [https://docs.device42.com/auto-discovery/vmware-auto-discovery/](https://docs.device42.com/auto-discovery/vmware-auto-discovery/)
 
-\[pagelist child\_of="370"\]
-
 * * *

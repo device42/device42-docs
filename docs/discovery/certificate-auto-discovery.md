@@ -9,7 +9,9 @@ Device42 supports autodiscovery of SSL certificates for easy tracking within Dev
 
 You can set up a new certificate discovery job by going to _Discovery → Certificates_, and then clicking _"Add Certificate Autodiscovery Spec"_. You can specify a range of addresses and one or more ports to check for the certificates. You can also set a schedule at this time to keep the discovery jobs running.
 
-SSL Certificate Discovery Configuration ![add SSL cert discovery job](/assets/images/add_ssl_cert_autodiscovery.png)
+SSL Certificate Discovery Configuration 
+
+![add SSL cert discovery job](/assets/images/add_ssl_cert_autodiscovery.png)
 
 If a certificate is found on an IP address already associated with a device in Device42, the certificate will also be associated with that device automatically. Certificates that are discovered will then be available under Software>Certificates and each device with a particular certificate will be listed in that Certificate's detail page, or in Certificate Instances.
 

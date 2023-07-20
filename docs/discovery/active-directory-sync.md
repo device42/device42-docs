@@ -13,17 +13,26 @@ You can elect to have AD/LDAP users added to Device42 as either regular end-user
 
 To begin, you'll want to configure the Active Directory Settings in Device42. These settings will control authentication to AD like which servers to authenticate against, base DNs, and how users that are discovered are added. _**You'll want to do this \*before\* you create/run your Active Directory/LDAP discovery jobs.**_
 
-1. From the main menu, head to _Tools -> Settings -> Active Directory Settings._:![](/assets/images/AD1.png)
-2. On the Active Directory Settings page, Click the _"Active Directory / LDAP Settings"_ button to acess the actual AD settings, and enter values that are appropriate for your Active Directory (or LDAP) domain: ![](/assets/images/AD3.png)![](/assets/images/AD2.png) **A few things worth noting with regards to the settings on this page:**
-    - **LDAP Type**: Choose either AD for Active Directory or LDAP for Lightweight directory access protocol (non-MS directory servers).
-    - **Server**: Enter AD or LDAP server IP address _(FQDN ONLY if your DNS can resolve it)_. Note that if your Device42 server isn't using AD-Aware DNS servers, you'll want to use an IP address as it may not be able to resolve your domain name if it hasn't been configured across all your DNS servers
-    - **Backup Server**: Secondary AD / LDAP server, will be used if primary isn't available.
-    - **Port**: Port for auth requests to your LDAP or Active Directory server. Note that 389 is the **non-SSL default**, while **636 is default SSL port. BE SURE TO change the port** should you decide to enable SSL or run a non-standard port.
-    - **Base**: Enter the Base DN that points to your users.
-    - **SSL**: Check this box if you want to query AD or LDAP using SSL. _Be sure to change the port to 636 or your configured SSL port if you check this box!_
-    - **Username/Password**: This is the user/pw that will be used for authentication against AD
-    - **Username login Style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. **WARNING**: changing this setting only affects users imported after the settings change. To change account & logon format for all users, delete existing D42 accounts, change the setting, and _then_ re-sync accounts from AD.
-    - **Netbios name**: NETBIOS name is an up-to-15-character representation (sometimes shortened) of your domain name, and _can and may actually be entirely different_ from the domain name. [Click for help locating domain's NETBIOS name.](https://smallcitydesign.com/netbios-name/)
+1. From the main menu, head to _Tools -> Settings -> Active Directory Settings._:
+
+![](/assets/images/AD1.png)
+
+2. On the Active Directory Settings page, Click the _"Active Directory / LDAP Settings"_ button to acess the actual AD settings, and enter values that are appropriate for your Active Directory (or LDAP) domain: 
+
+![](/assets/images/AD3.png)
+
+![](/assets/images/AD2.png) 
+
+**A few things worth noting with regards to the settings on this page:**
+- **LDAP Type**: Choose either AD for Active Directory or LDAP for Lightweight directory access protocol (non-MS directory servers).
+- **Server**: Enter AD or LDAP server IP address _(FQDN ONLY if your DNS can resolve it)_. Note that if your Device42 server isn't using AD-Aware DNS servers, you'll want to use an IP address as it may not be able to resolve your domain name if it hasn't been configured across all your DNS servers
+- **Backup Server**: Secondary AD / LDAP server, will be used if primary isn't available.
+- **Port**: Port for auth requests to your LDAP or Active Directory server. Note that 389 is the **non-SSL default**, while **636 is default SSL port. BE SURE TO change the port** should you decide to enable SSL or run a non-standard port.
+- **Base**: Enter the Base DN that points to your users.
+- **SSL**: Check this box if you want to query AD or LDAP using SSL. _Be sure to change the port to 636 or your configured SSL port if you check this box!_
+- **Username/Password**: This is the user/pw that will be used for authentication against AD
+- **Username login Style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. **WARNING**: changing this setting only affects users imported after the settings change. To change account & logon format for all users, delete existing D42 accounts, change the setting, and _then_ re-sync accounts from AD.
+- **Netbios name**: NETBIOS name is an up-to-15-character representation (sometimes shortened) of your domain name, and _can and may actually be entirely different_ from the domain name. [Click for help locating domain's NETBIOS name.](https://smallcitydesign.com/netbios-name/)
 3. Once you've configured the AD/LDAP settings here, proceed to creating an AD/LDAP sync job \[main menu -> Discovery -> Active Directory/LDAP settings\] to configure user import and run an initial sync, as discussed in the next section.
 
 ## Configure an Active Directory / LDAP User Discovery Job

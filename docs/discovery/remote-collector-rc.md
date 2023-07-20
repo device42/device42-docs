@@ -82,7 +82,9 @@ Device42 remote collectors provide robust scalability by offloading discovery wo
 
 ## Remote Collector (RC) Deployment Example
 
-Remote collectors are extremely flexible, and make discovery with Device42 easier than ever. You can deploy one or more, with no logical limit to the number of remote collectors. ![main menu](/assets/images/D42_RC_deploy_example.png)
+Remote collectors are extremely flexible, and make discovery with Device42 easier than ever. You can deploy one or more, with no logical limit to the number of remote collectors. 
+
+![main menu](/assets/images/D42_RC_deploy_example.png)
 
 In the deployment example pictured, a remote collector is deployed within each isolated DMZ Network Segment that, per firewall rules typical of a DMZ, the Device42 appliance is normally unable to directly reach and/or discover. Deploying a remote collector to these segments not only bolsters security by saving the Network Administrator from having to make multiple temporary (or permanent & insecure) firewall rules (_aka ‘holes’_) to allow discovery traffic to pass from the main appliance over the wide range of ports utilized by various vendors APIs. Please note that the diagram does not show the majority of network connectivity that would be present, and instead focuses mainly on what is discovered by the MA vs. the RC, and the communication between the RC & MA.
 
