@@ -64,13 +64,34 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 
 ### Device-specific SNMP v3 info
 
-**Note on Cisco Nexus 7K switches:** - The user for SNMP v3 autodiscovery may need to be in the network-operator / vdc-operator group. **Note on Huawei Switches:** - By default, some Huawei devices ship with LLDP _(link layer discovery protocol)_ via SNMP off. You must switch it on by creating a new 'mib-view' and attaching the 'ISO tree' contains the Huawei LLDP MIB to the community. Consult Huawei's documentation for complete setup & management details. **Note on Cisco Switches**: - Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing collection of the per-VLAN MAC tables; you will likely see an _authorization error_ in the macsuck log if this is happening. **To fix this authentication error on Cisco hardware,** an additional snmp-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table: Switches running newer versions of Cisco IOS: Simply run `snmp-server group v3group v3 auth context vlan- match prefix` once. Switches with older IOS releases (versions that don't support _"match prefix wildcard"_): Issue the above command for newer IOS releases on EACH VLAN configured for the switch. Use `show snmp context` to list configured VLANs.
+Note on Cisco Nexus 7K switches:
+- The user for SNMP v3 autodiscovery may need to be in the network-operator / vdc-operator group.
+
+Note on Huawei Switches:
+- By default, some Huawei devices ship with LLDP (link layer discovery protocol) via SNMP off.
+- You must switch it on by creating a new 'mib-view' and attaching the 'ISO tree' containing the Huawei LLDP MIB to the community.
+- Consult Huawei's documentation for complete setup & management details.
+
+Note on Cisco Switches:
+- Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing collection of the per-VLAN MAC tables.
+- You will likely see an authorization error in the macsuck log if this is happening.
+- To fix this authentication error on Cisco hardware, an additional snmp-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table:
+
+Switches running newer versions of Cisco IOS:
+- Simply run: `snmp-server group v3group v3 auth context vlan- match prefix once.`
+
+Switches with older IOS releases (versions that don't support "match prefix wildcard"):
+- Issue the above command for newer IOS releases on EACH VLAN configured for the switch.
+- Use `show snmp context` to list configured VLANs.
+
 
 * * *
 
 ### Preferred Credentials
 
-You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. ![](/assets/images/SNMP-multi-creds-1-700x338.png)
+You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. 
+
+![](/assets/images/SNMP-multi-creds-1-700x338.png)
 
 - Click _Add another community string_ and use the magnifying glass icon to select the secret for the community string.
 - Click _Move Up_ or _Move Down_ to order the credentials.
@@ -83,7 +104,9 @@ Expanding the "Network Device Options" section will reveal the following setting
 
 ### Get all switch ports
 
-![](/assets/images/SNMP-add-job-net-device-options-2-700x399.png) If you select _Get all switch ports_, you will see 6 extra form items:
+![](/assets/images/SNMP-add-job-net-device-options-2-700x399.png) 
+
+If you select _Get all switch ports_, you will see 6 extra form items:
 
 1. **Port name prefix to ignore macs**: Ignore mac addresses from port that start with this prefix.
 2. **VLANs to ignore** : Do not discover mac addresses on these VLANs.
@@ -113,4 +136,6 @@ You can view the status and/or results of a discovery job during or after the jo
 
 ## Run network discovery
 
-![Run network discovery](/assets/images/run_network_discovery-2018v15.png) Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, you can click on "Run now" button on list, view or edit page.
+![Run network discovery](/assets/images/run_network_discovery-2018v15.png) 
+
+Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, you can click on "Run now" button on list, view or edit page.

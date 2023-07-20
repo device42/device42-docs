@@ -22,9 +22,18 @@ If you already have one or more Device42 remote collectors running, you may want
 ### Installing the Device42 RC for NetFlow Collection
 
 1. To **install the Device42 Remote Collector for NetFlow collection**, see the "RC Installation and Configuration" section of the [Device42 RC documentation page.](https://docs.device42.com/auto-discovery/remote-collector-rc/) After installation, return to this page to complete NetFlow Configuration for your RC.
-2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu, _Discovery > Remote Collectors_ and clicking the Name of the Remote Collector you want to use for NetFlow collection: ![](/assets/images/WEB-808_1.png)
-3. You should now be at the "View remote collector" screen. Click the "Edit" button in the upper-right hand corner to edit the options for your RC, and expand the section labeled "NetFlow Options" by clicking pm "Show", as pictured: ![](/assets/images/WEB-808_2.png)
-4. To enable NetFlow, Check the "Enable Netflow" checkbox \[Labeled #1 below\]. Choose a "Default Protocol" (either TCP or UDP, labeled #2 below\] if you'll be using one or the other _(otherwise traffic without a protocol will be ignored)_. You may optionally configure IPs to ignore, ports to ignore, or a NetFlow Forwarding IP address by utilizing the other available options on this screen, but this will not be necessary for many setups. Choose "Save" in the lower-right hand corner, and your RC is now configured for NetFlow collection! ![](/assets/images/WEB-808_3.png)
+2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu, _Discovery > Remote Collectors_ and clicking the Name of the Remote Collector you want to use for NetFlow collection: 
+
+![](/assets/images/WEB-808_1.png)
+
+3. You should now be at the "View remote collector" screen. Click the "Edit" button in the upper-right hand corner to edit the options for your RC, and expand the section labeled "NetFlow Options" by clicking pm "Show", as pictured:
+
+![](/assets/images/WEB-808_2.png)
+
+4. To enable NetFlow, Check the "Enable Netflow" checkbox \[Labeled #1 below\]. Choose a "Default Protocol" (either TCP or UDP, labeled #2 below\] if you'll be using one or the other _(otherwise traffic without a protocol will be ignored)_. You may optionally configure IPs to ignore, ports to ignore, or a NetFlow Forwarding IP address by utilizing the other available options on this screen, but this will not be necessary for many setups. Choose "Save" in the lower-right hand corner, and your RC is now configured for NetFlow collection!
+
+![](/assets/images/WEB-808_3.png)
+
 5. The final step is the ensure all your NetFlow generating devices are sending their NetFlows to the Device42 RC you just configured. If you haven't configured that already, do that now. This procedure will differ depending on the hardware you are using. Consult the manufacturer's directions for help should you need it.
 
 ### Installing the Device42 Standalone NetFlow Collector
@@ -43,18 +52,20 @@ This will start the listener on port 2055 (unless a different port is specified)
 
 The following options are available to augment the behavior of `d42-netflow-collector-windows-v100.exe`:
 
-  -addr string  	|  netflow listen address (default "0.0.0.0:2055")
-  -debug  		|  show netflow info
-  -h string  		|  D42 host name
-  -i int  		|  interval in seconds between sends data to D42 (default 300)
-  -ignore-ip string  	|  ignore IPs
-  -ignore-port string  	|  ignore ports
-  -live-entries  	|  display live entries
-  -live-entries-nok  	|  display OK live entries
-  -live-entries-ok  	|  display NOK live entries
-  -p string  		|  D42 password
-  -print-data  		|  prints data
-  -u string  		|  D42 username
+```
+-addr string  	|  netflow listen address (default "0.0.0.0:2055")
+-debug  		|  show netflow info
+-h string  		|  D42 host name
+-i int  		|  interval in seconds between sends data to D42 (default 300)
+-ignore-ip string  	|  ignore IPs
+-ignore-port string  	|  ignore ports
+-live-entries  	|  display live entries
+-live-entries-nok  	|  display OK live entries
+-live-entries-ok  	|  display NOK live entries
+-p string  		|  D42 password
+-print-data  		|  prints data
+-u string  		|  D42 username
+```
 
 The NetFlow collector will capture and send data to Device42 in 5-minute increments _\[by default\]_. You may customize this interval using the _\-i_ command switch.
 

@@ -72,15 +72,40 @@ The External Ping Sweep utility is a stand-alone tool that will do a ping sweep 
 Use the ping.cfg.sample file to select your settings. Make a copy of this file and rename it to “ping.cfg”
 
 1. In the **\[settings\]** section, enter the base URL (FQDN or IP) for the Device42 appliance on your network, including credentials. Make sure the credentials have the required access permissions. Minimum required for the user are
-    - Ping Sweep | Can add Ping Sweep Ping Sweep | Can change Ping Sweep IP Address | Can add IP Address IP Address | Can change IP Address IP Address | Can view IP Address Subnet | Can add Subnet Subnet | Can change Subnet Subnet | Can view Subnet Device | Can add Device Device | Can change Device
+    - Ping Sweep | Can add Ping Sweep
+    - Ping Sweep | Can change Ping Sweep
+    - IP Address | Can add IP Address
+    - IP Address | Can change IP Address
+    - IP Address | Can view IP Address
+    - Subnet | Can add Subnet
+    - Subnet | Can change Subnet
+    - Subnet | Can view Subnet
+    - Device | Can add Device
+    - Device | Can change Device
+
 2. In the **\[targets\]** section, enter a network range using mask bits or you can use hyphen ranges (per nmap syntax). **Examples:** 192.168.11.0/24 for subnet range or 192.168.11.1-254 (for hyphenated range). Multiple ranges can be separated by spaces.
 3. The **\[0ptions\]** section provides the following options, with explanations and examples.
 
-Below is an example of the ping.cfg file: \[settings\] # base\_url points to your Device42 server # For example: base\_url = https://192.168.1.50 base\_url = https://192.168.1.100 # Device42 username and password username = username secret = password
+Below is an example of the `ping.cfg` file:
 
-\[targets\] # targets can be specified as: # single: 192.168.1.125 # range: 192.168.1.101-192.168.1.150 # cidr block: 192.168.1.0/24 # any combination of above: 192.168.3.0/24,192.168.4.1-192.168.4.10,192.168.55.22,10.0.0.0/24 targets = 192.168.1.1/24
+```ini
+[settings]
+# base_url points to your Device42 server
+# For example: base_url = https://192.168.1.50
+base_url = https://192.168.1.100
+# Device42 username and password
+username = username
+secret = password
 
-option\_name: explanation = default value
+[targets]
+# targets can be specified as:
+# single: 192.168.1.125
+# range: 192.168.1.101-192.168.1.150
+# cidr block: 192.168.1.0/24
+# any combination of above: 192.168.3.0/24,192.168.4.1-192.168.4.10,192.168.55.22,10.0.0.0/24
+targets = 192.168.1.1/24
+```
+    option_name: explanation = default value
 
 - **get\_mac\_address**: Try to get MAC address for found IP _\= False_
 - **get\_hostname**: Try to get hostname for found IP via DNS (if there are multiple domains using the same IP, only the first is used) _\= False_
@@ -93,7 +118,7 @@ option\_name: explanation = default value
 
 4\. The **\[discovery\_options\]** section provides the following options, with explanations and examples.
 
-**option\_name**: explanation = _default value_
+    option_name: explanation = default value
 
 - **strip\_domain\_suffix**: Strip everything after first dot = _False_
 - **category**: Category for discovered subnets = _String_

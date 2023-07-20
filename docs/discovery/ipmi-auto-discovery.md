@@ -17,7 +17,9 @@ Select _Discovery > IPMI / Redfish_ to create the IPMI autodiscovery job. **Job 
 
 ## Hostname to use
 
-![IPMI Hostname to use setting](/assets/images/ipmi-job-small.png) The **Hostname to use** option comes into play when an IPMI discovery job is the FIRST to discover a device _(or cannot match against an existing device)_, and thus a new device record is created with the **hostname** determined by the order specified in the selected "Hostname to use" option. Note that this option does not affect devices that have already been discovered using a previous method (record already exists in Device42); in this case, the existing record is simply updated with the discovered MAC address and IP Address from the BMC interface, with an interface label of _"mgmt"._ **The following 3 options are available:**
+![IPMI Hostname to use setting](/assets/images/ipmi-job-small.png) 
+
+The **Hostname to use** option comes into play when an IPMI discovery job is the FIRST to discover a device _(or cannot match against an existing device)_, and thus a new device record is created with the **hostname** determined by the order specified in the selected "Hostname to use" option. Note that this option does not affect devices that have already been discovered using a previous method (record already exists in Device42); in this case, the existing record is simply updated with the discovered MAC address and IP Address from the BMC interface, with an interface label of _"mgmt"._ **The following 3 options are available:**
 
 - **Serial # / Reverse DNS / IP**: With this option, name use preference is Serial #, reverse DNS, IP address - If the serial # is found, it is used as the device name; Otherwise, the reverse DNS name is used. If neither of those two were found, the IP address is used to name the device.
 - **Discovered Name / Serial # / Reverse DNS / IP**: With this, discovered name from IPMI is used first, if found; then the order is the same as above.

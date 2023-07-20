@@ -48,21 +48,39 @@ The utility supports batch upload of multiple log files per run, as well. It is 
 
 Since you might want to run the discovery multiple times before processing the data, _(possibly also from multiple different computers)_, it’s important to have a unique file name. Variables are used to define the file name, and in the example below, we use the computer name, date and time stamp to generate the unique file names for the discovered data as below:
 
-```
-<table style="height: 180px;" width="850"><tbody><tr><td width="312"><b>On Windows:</b><pre>C:\&gt;set var=%computername%-%date%-%time::=%
+<table>
+<tbody>
+<tr>
+<td><b>On Windows:</b>
+<div></div>
+C:\&gt;set var=%computername%-%date%-%time::=%
+<div></div>
 C:\&gt;set var=%var:.=%
+<div></div>
 C:\&gt;set var=%var:/=-%
+<div></div>
 C:\&gt;set var=%var: =%
+<div></div>
 C:\&gt;echo %var%.log
+<div></div>
 ASUS-GL553V-Thu03-14-2019-16265819.log
-</pre><code>C:\&gt;d42_winagent_x64.exe -offline &gt; %var%.log</code></td><td width="312"><b>On Linux</b>:<pre>$ VAR1=`hostname`-`date +%Y%m%d-%k%M%S`
+<div></div>
+C:\&gt;d42_winagent_x64.exe -offline &gt; %var%.log
+</td>
+
+<td><b>On Linux:</b>
+<div></div>
+$ VAR1=`hostname`-`date +%Y%m%d-%k%M%S`
+<div></div>
 $
+<div></div>
 $ echo $VAR1
 <div></div>
 &gt; CentOS7-20190306-133710.log
-$
-</pre><code>./linuxagent.sh -offline &gt; $VAR1.log</code></td></tr></tbody></table>
-```
+<div></div>
+$./linuxagent.sh -offline &gt; $VAR1.log
+</td></tr></tbody></table>
+
 
 ### Linux Pre-requisite: sudo permissions
 
