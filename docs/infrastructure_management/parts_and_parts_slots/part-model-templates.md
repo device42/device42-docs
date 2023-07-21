@@ -15,7 +15,7 @@ Define a new part by visiting DataCenter > Parts > Parts Models, or edit any exi
 
 Add a parts model from DataCenter > Parts > Model list, and clicking “Add Parts Model” in the upper right:
 
-![Add a parts model button](/assets/images/ADD_PARTS_MODEL_BUTTON.png)
+![Add a parts model button](/assets/images/add_parts_model_button.png)
 
 From this screen you can add a parts model:
 
