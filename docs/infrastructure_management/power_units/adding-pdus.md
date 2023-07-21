@@ -13,7 +13,19 @@ Add a new PDU by heading to the Device42 main menu: **DataCenter > Power Units >
 
 **PDU field**: description - _required \[yes/no\]_
 
-**Name**: Name your PDU _\- required_ **Type**: PDU, UPS, or ATS _\- required_ **Power Unit Model**: Choose the PDU model - _Must be defined if the PDU is rack mounted and/or to track individual ports on the PDU_ **Serial #**: Name your PDU _\- required_ **Is monitoring enabled**: Name your PDU _\- required_ **Storage Room**: Name your PDU _\- required_ **Bootstrap Power**: Name your PDU _\- required_ **Rated Power**: Name your PDU _\- required_ **First Added**: Name your PDU _\- required_ **Last updated**: Name your PDU _\- required_ **Object Category**: Name your PDU _\- required_ **Tags**: Name your PDU _\- required_ **Notes**: Name your PDU _\- required_
+- **Name**: Name your PDU _\- required_ 
+- **Type**: PDU, UPS, or ATS _\- required_ 
+- **Power Unit Model**: Choose the PDU model - _Must be defined if the PDU is rack mounted and/or to track individual ports on the PDU_ 
+- **Serial #**: Name your PDU _\- required_ 
+- **Is monitoring enabled**: Name your PDU _\- required_ 
+- **Storage Room**: Name your PDU _\- required_ 
+- **Bootstrap Power**: Name your PDU _\- required_ 
+- **Rated Power**: Name your PDU _\- required_ 
+- **First Added**: Name your PDU _\- required_ 
+- **Last updated**: Name your PDU _\- required_ 
+- **Object Category**: Name your PDU _\- required_ 
+- **Tags**: Name your PDU _\- required_ 
+- **Notes**: Name your PDU _\- required_
 
 ### Device Mapping section
 
