@@ -31,7 +31,9 @@ Now, let's go ahead and get some more information about one of the servers! We c
 
 ![Hover over server for details demonstration](/assets/images/impact_HOVER_for_details.png)
 
-Hovering over any object will present a quick overview and relevant options. Hovering over server "USOXIS-P0034", we can view the individual server's "Topology', or by clicking the "Device Page" button, head straight to the Device Details page for "USOXIS-P0034": ![USOXISP0034 Device Details](/assets/images/view_device_USOXIS-P0034.png)
+Hovering over any object will present a quick overview and relevant options. Hovering over server "USOXIS-P0034", we can view the individual server's "Topology', or by clicking the "Device Page" button, head straight to the Device Details page for "USOXIS-P0034": 
+
+![USOXISP0034 Device Details](/assets/images/view_device_USOXIS-P0034.png)
 
 We now know that we are looking at an HP Proliant DL560GB, which was added all the way back in Feb 2014! (its useful life might be up were it not a lab machine!) Notice we can also get right to the "Topology" screen (our other option when we hovered) from the details screen, as well!
 
@@ -98,9 +100,13 @@ Display Options are used to manipulate current in-view objects based on the belo
 
 **Service Dependencies Report** – Will generate an xls file for all listener services with connections for any devices currently in-view of the current Topology. This will include raw data for listener/client device and service details with port and connection statistic information.
 
-![topology filter](/assets/images/topology_filter.png) **Filter** – Provides a list of “Show Top #” of services, to select key services that are desired to show or hide in the currently topology. Selecting any services will calculate any new topology considering any of the services will selected for show/hide. See image above.
+![topology filter](/assets/images/topology_filter.png)
 
-![topology pause](/assets/images/topology_pause.png) **“Pause” button** – This button will allow you to stop Topology calculation, this can be beneficial if the Topology selected has a large number of relations and will allow you to stop calculation at levels to look at current data and continue calculation if desired.
+**Filter** – Provides a list of “Show Top #” of services, to select key services that are desired to show or hide in the currently topology. Selecting any services will calculate any new topology considering any of the services will selected for show/hide. See image above.
+
+![topology pause](/assets/images/topology_pause.png)
+
+**“Pause” button** – This button will allow you to stop Topology calculation, this can be beneficial if the Topology selected has a large number of relations and will allow you to stop calculation at levels to look at current data and continue calculation if desired.
 
 ### Nested Context Menus
 
@@ -160,7 +166,30 @@ Service dependencies reports can be downloaded via buttons found on Impact lists
 
 ### Field Definitions:
 
-**Listener name:** listener hostname **Listener IP:** listening IP address **All listener device IPs:** Discovered IP addresses **Listener service:** listener service found **Listener port:** port listener found on **Listener OS:** listener operating system **Listener is Virtual:** yes/no - is listener a VM **Client Listener Hardware:** listener hardware type **Client name:** client hostname **Client Service:** service name **Client OS:** client operating system **Client is virtual:** yes/no - is client a VM **Client Hardware:** client hardware type **Client Stat Type:** netstat/netflow - which was discovered **Client Connection First Found:** date/time **Client Connection Last Found:** date/time **Total Client Connections Detected:** running total count -- since first found **Detected Average Minutes Between Client Connections:** time, in minutes, since last connection(s) found **Average # of Connections from the client:** running average of connections found since first found **Latest detected # of Connections from the client:** integer count of # of connections found as of last check **Latest contiguous stats - Client connection First Found:** date/time when this stat was first found if the connection is different \[different ports connected than connected from last discovery\] **Latest contiguous stats - Client connection Last Found:** date/time when this stat was last rediscovered \[if the connection is different, or different ports connected than were connected when last discovered\] **Latest contiguous stats - Total Client connections Detected:** count; only includes connections found during latest \[different ports connected from last discovery\] **Latest contiguous stats - Detected Average Minutes Between client connections:** time in minutes; Only goes from latest, \[different ports connected from last discovery\]
+- **Listener name:** listener hostname 
+- **Listener IP:** listening IP address 
+- **All listener device IPs:** Discovered IP addresses 
+- **Listener service:** listener service found 
+- **Listener port:** port listener found on 
+- **Listener OS:** listener operating system 
+- **Listener is Virtual:** yes/no - is listener a VM 
+- **Client Listener Hardware:** listener hardware type 
+- **Client name:** client hostname 
+- **Client Service:** service name 
+- **Client OS:** client operating system 
+- **Client is virtual:** yes/no - is client a VM 
+- **Client Hardware:** client hardware type 
+- **Client Stat Type:** netstat/netflow - which was discovered 
+- **Client Connection First Found:** date/time 
+- **Client Connection Last Found:** date/time 
+- **Total Client Connections Detected:** running total count -- since first found 
+- **Detected Average Minutes Between Client Connections:** time, in minutes, since last connection(s) found 
+- **Average # of Connections from the client:** running average of connections found since first found 
+- **Latest detected # of Connections from the client:** integer count of # of connections found as of last check 
+- **Latest contiguous stats - Client connection First Found:** date/time when this stat was first found if the connection is different \[different ports connected than connected from last discovery\] 
+- **Latest contiguous stats - Client connection Last Found:** date/time when this stat was last rediscovered \[if the connection is different, or different ports connected than were connected when last discovered\] 
+- **Latest contiguous stats - Total Client connections Detected:** count; only includes connections found during latest \[different ports connected from last discovery\] 
+- **Latest contiguous stats - Detected Average Minutes Between client connections:** time in minutes; Only goes from latest, \[different ports connected from last discovery\]
 
 ## Dependency Charts (Graphs)
 
