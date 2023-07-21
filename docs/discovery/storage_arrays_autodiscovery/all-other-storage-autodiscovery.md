@@ -55,11 +55,15 @@ api-lun-get-serial-number
 
 - Create a monitoring group, attaching the monitoring role created above.
 
+```
 useradmin group add -r
+```
 
 - Create a monitoring user and assign it to the monitoring group created in the step above.
 
+```
 useradmin user add -g
+```
 
 **Cluster Mode**
 
@@ -72,7 +76,9 @@ useradmin user add -g
 - Application: ontapi
 - Auth Method: Password
 
+```
 security login create -vserver -user-or-group-name -application ontapi -authentication-method password -role readonly
+```
 
 ### Nutanix
 

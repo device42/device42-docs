@@ -28,19 +28,21 @@ Navigate to Access Control (IAM) >  Roles > Add > Add Custom Role. Give the cus
 1. If using the Start from scratch option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](https://docs.device42.com/auto-discovery/cloud-auto-discovery/#section-14). Select Add permissions, search for and select the desired permission, check the relevant box and choose Add. Repeat this for any desired permissions.
 2. If using the Start from JSON option, copy and paste the below JSON data, pulling in the necessary permissions from the list in Discovery section, and save it as a .json file. Upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
 
+```
 {
 	"properties": {
 		"roleName": "D42Discovery",
 		"description": "",
-		"assignableScopes": \["/subscriptions/subscription-id-goes-here"\],
-		"permissions": \[{
-			"actions": \["Microsoft.Compute/virtualMachines/read", 
-			"notActions": \[\],
-			"dataActions": \[\],
-			"notDataActions": \[\]
-		}\]
+		"assignableScopes": ["/subscriptions/subscription-id-goes-here"],
+		"permissions": [{
+			"actions": ["Microsoft.Compute/virtualMachines/read", 
+			"notActions": [],
+			"dataActions": [],
+			"notDataActions": []
+		}]
 	}
 }
+```
 
 After defining the permissions, select Next to define the scope this application will have access to. This can be done at the subscription level or any nested resource groups; we’ll be using the subscription in this example. Select Next to review and/or copy the JSON > Next > Create.
 
@@ -62,7 +64,104 @@ Configure any other discovery options as required, such as Add vendor metadata a
 
 ## Azure Discovery Items
 
-\[table id=1 /\]
+<table id="tablepress-1" class="tablepress tablepress-id-1">
+<thead>
+<tr class="row-1 odd">
+    <th class="column-1">Service/Object Name</th><th class="column-2">Where in D42</th><th class="column-3">Accessed API</th><th class="column-4">Sample Information Generated</th><th class="column-5">Permission(s) Required</th>
+</tr>
+</thead>
+<tbody class="row-hover">
+<tr class="row-2 even">
+    <td class="column-1">SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags</td><td class="column-5">Microsoft.Sql/servers/read <br/>
+<br/>
+Microsoft.Sql/servers/databases/read </td>
+</tr>
+<tr class="row-3 odd">
+    <td class="column-1">Managed SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.Sql/managedInstances/read <br/>
+<br/>
+Microsoft.Sql/managedInstances/databases/read</td>
+</tr>
+<tr class="row-4 even">
+    <td class="column-1">Azure DB for MySQL</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMySQL/servers/read<br/>
+<br/>
+Microsoft.DBforMySQL/servers/databases/read</td>
+</tr>
+<tr class="row-5 odd">
+    <td class="column-1">Azure DB for Postgres</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforPostgreSQL/servers/read<br/>
+<br/>
+Microsoft.DBforPostgreSQL/servers/databases/read</td>
+</tr>
+<tr class="row-6 even">
+    <td class="column-1">Azure DB for MariaDB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMariaDB/servers/read<br/>
+<br/>
+Microsoft.DBforMariaDB/servers/databases/read</td>
+</tr>
+<tr class="row-7 odd">
+    <td class="column-1">Cosmos DB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DocumentDB/databaseAccounts/read  <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/tables/read<br/>
+<br/>
+Microsoft.DBforPostgreSQL/serverGroupsv2/* <br/>
+<br/>
+Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read<br/>
+<br/>
+Microsoft.Network/privateEndpoints/read<br/>
+<br/>
+Microsoft.OperationalInsights/workspaces/read (Log Analytics Reader on workspace level) </td>
+</tr>
+<tr class="row-8 even">
+    <td class="column-1">SQL VM</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.SqlVirtualMachine/sqlVirtualMachines/read</td>
+</tr>
+<tr class="row-9 odd">
+    <td class="column-1">Functions</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Resource group name, runtime, trigger, function type</td><td class="column-5">Microsoft.Web/sites/read <br/>
+<br/>
+Microsoft.Web/sites/functions/read</td>
+</tr>
+<tr class="row-10 even">
+    <td class="column-1">Kubernetes (AKS)</td><td class="column-2">Devices –&gt; Unknown</td><td class="column-3">management.azure.com</td><td class="column-4">Containers, nodes, clusters</td><td class="column-5">Microsoft.ContainerService/managedClusters/read<br/>
+<br/>
+Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action</td>
+</tr>
+<tr class="row-11 odd">
+    <td class="column-1">Load Balancers</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.azure.com</td><td class="column-4">Name, tags, IP</td><td class="column-5">Microsoft.Network/loadBalancers/read <br/>
+<br/>
+Microsoft.Network/publicIPAddresses/read</td>
+</tr>
+<tr class="row-12 even">
+    <td class="column-1">Networks (as VRF Groups)</td><td class="column-2">Network --&gt; VRF Groups</td><td class="column-3">management.azure.com</td><td class="column-4">Name</td><td class="column-5">Microsoft.Network/virtualNetworks/read </td>
+</tr>
+<tr class="row-13 odd">
+    <td class="column-1">Subnets</td><td class="column-2">Network --&gt; All Subnets</td><td class="column-3">management.azure.com</td><td class="column-4">Network, mask, name</td><td class="column-5">Microsoft.Network/virtualNetworks/read</td>
+</tr>
+<tr class="row-14 even">
+    <td class="column-1">VMs</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.core.windows.net</td><td class="column-4">Name, OS version, RAM size, CPU, IP, MAC</td><td class="column-5">Microsoft.Compute/virtualMachines/read <br/>
+<br/>
+Microsoft.Network/networkInterfaces/read <br/>
+<br/>
+Microsoft.Network/publicIPAddresses/read </td>
+</tr>
+<tr class="row-15 odd">
+    <td class="column-1">Blob Storage</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Capacity, available capacity</td><td class="column-5">Microsoft.Storage/storageAccounts/read<br/>
+<br/>
+Microsoft.Storage/storageAccounts/blobServices/containers/read<br/>
+<br/>
+Microsoft.Storage/storageAccounts/privateEndpointConnections/read<br/>
+<br/>
+Microsoft.Network/privateEndpoints/read</td>
+</tr>
+<tr class="row-16 even">
+    <td class="column-1">Workspaces</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.OperationalInsights/workspaces/read</td>
+</tr>
+</tbody>
+</table>
 
 \*specific calls are available on request
 

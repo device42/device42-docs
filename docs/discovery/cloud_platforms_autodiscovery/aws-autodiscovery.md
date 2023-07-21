@@ -50,7 +50,23 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 
 Note that some Discovery items require enabling the feature and cannot be discovered otherwise.
 
-\[table id=2 /\]
+| Cloud Service/Object Name | Where in D42                      | Accessed API                             | Information Generated                                   |
+| ------------------------- | --------------------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| Dynamo DB                 | Resources --> All Resources       | dynamodb._region_.amazonaws.com         | Backup details, contributor insights, tables, limits, etc. |
+| EC2 Instances             | Resources --> All Resources       | ec2._region_.amazonaws.com              | Service name, instance id, status, location, etc.      |
+| Elastic Block Storage (EBS) | Resources --> All Resources      | ec2._region_.amazonaws.com              | Lists, rules, tags, etc.                                |
+| ElastiCache Nodes         | Resources --> All Resources       | elasticache._region_.amazonaws.com      | Account info, status, location                          |
+| Elastic File System (EFS) | Resources --> All Resources       | elasticfilesystemr_egion.amazonaws.com  | File system, access points, mount targets               |
+| Elastic Load Balancer (ELB) | Resources --> All Resources      | elasticloadbalancing._region_.amazonaws.com | Attributes, description, rules, tags, target groups  |
+| Lambda                   | Resources --> All Resources       | lambda._region_.com                    | Name, ARN, code size, memory, runtime                   |
+| Kubernetes (EKS)         | Resources --> All Resources       | eks._region_.amazonaws.com              | Containers, nodes, clusters                              |
+| RDS Instances             | Resources --> All Resources       | rds._region_.amazonaws.com              | Account info, status, location                          |
+| Redshift                 | Resources --> All Resources       | redshift._region_.amazonaws.com         | Backup details, contributor insights, tables, limits    |
+| Route 53                 | Resources --> All Resources       | route53.amazonaws.com                  | Type, content, tags                                     |
+| S3                        | Resources --> Storage --> Cloud Storage | *.s3._region_.amazonaws.com s3._region_.amazonaws.com *.s3.amazonaws.com s3.amazonaws.com | Storage utilization, bucket, bucket policies           |
+| Subnets                   | Network --> Subnets              |                                       | Subnets                                                |
+| VPCs                      | Resources --> VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       |
+
 
 **Additional Endpoint Information**
 
@@ -69,6 +85,7 @@ _**K8s cluster endpoints access per K8s RBAC setup**_
 
 _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
 
+```
 {
 
     "Version": "2012-10-17",
@@ -132,7 +149,7 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
         }
     \]
 }
-
+```
 * * *
 
 ### Add/Edit AWS Roles
@@ -171,7 +188,7 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
         
 2. From the Sub (or separate)-account
     
-    1. Have a user that is assigned the assumerole from Step 2 "Grant Access to the Role" here in the AWS IAM case [IAM Tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html")
+    Have a user that is assigned the assumerole from Step 2 "Grant Access to the Role" here in the AWS IAM case [IAM Tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html")
         
 
 * * *
@@ -184,7 +201,9 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
 
 ![](/assets/images/Image_28_Cloud_Disc_AMZN_API.png)
 
-When discovering your Amazon Cloud via the Amazon API, Device42 authenticates against the **API URL** with your **AWS API Access Key** and **Secret Key**. To create a discovery job, please ensure you have these available. You can find or generate new AWS API Access keys via the AWS Console -> UserName Menu --> "My Security Credentials". Expand the "Access keys (access key ID and secret access key)" item, and "Create New Access Key" (or reference an existing one): ![create aws api access key](/assets/images/create_AWS_API-access_key.png)
+When discovering your Amazon Cloud via the Amazon API, Device42 authenticates against the **API URL** with your **AWS API Access Key** and **Secret Key**. To create a discovery job, please ensure you have these available. You can find or generate new AWS API Access keys via the AWS Console -> UserName Menu --> "My Security Credentials". Expand the "Access keys (access key ID and secret access key)" item, and "Create New Access Key" (or reference an existing one): 
+
+![create aws api access key](/assets/images/create_AWS_API-access_key.png)
 
 1. Begin by setting **Cloud Type:** ‘Amazon AWS’ via the dropdown \[pictured\].
 2. Enter a ‘Name’ for your Amazon AWS API discovery job.
