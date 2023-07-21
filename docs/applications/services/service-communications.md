@@ -31,15 +31,103 @@ Select _Apps > Services > Service Communications_ to view service port IP statis
 
 #### Netstat Statistics
 
-<table><tbody><tr><td width="360"><strong>Attribute</strong></td><td width="360"><strong>Description</strong></td></tr><tr><td width="360"><ul><li>Netstat Total Samples</li></ul></td><td width="360"><ul><li>How many times D42 has discovered the listener (using Netstats) since this connection was discovered.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Active Samples</li></ul></td><td width="360"><ul><li>How many times D42 found this connection itself.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Total Ports</li></ul></td><td width="360"><ul><li>How many open connections (eports) found. This is a running total.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Average Client Connections</li></ul></td><td width="360"><ul><li>This is a actually a calculated number of <em>Netstat Total Ports / Netstat Active Samples</em>.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Client Connection First Found</li></ul></td><td width="360"><ul><li>First time D42 detected this connection.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Client Connection Last Found</li></ul></td><td width="360"><ul><li>Last time D42 detected this connection.</li></ul></td></tr></tbody></table>
+<table>
+  <tbody>
+    <tr>
+      <td width="360"><strong>Attribute</strong></td>
+      <td width="360"><strong>Description</strong></td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Total Samples</td>
+      <td width="360">How many times D42 has discovered the listener (using Netstats) since this connection was discovered.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Active Samples</td>
+      <td width="360">How many times D42 found this connection itself.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Total Ports</td>
+      <td width="360">How many open connections (eports) found. This is a running total.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Average Client Connections</td>
+      <td width="360">This is actually a calculated number of <em>Netstat Total Ports / Netstat Active Samples</em>.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Client Connection First Found</td>
+      <td width="360">First time D42 detected this connection.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Client Connection Last Found</td>
+      <td width="360">Last time D42 detected this connection.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 #### Values  Extrapolated from Netstat Statistics
 
-<table><tbody><tr><td width="360"><strong>Formula</strong></td><td width="360"><strong>Description</strong></td></tr><tr><td width="360"><ul><li>Netstat Total Ports / Netstat Active Samples</li></ul></td><td width="360"><ul><li>Weight of connection. This is the average number of client open connections.</li></ul></td></tr><tr><td width="360"><ul><li>Netstat Active Samples / Netstat Total Samples * 100</li></ul></td><td width="360"><ul><li>Persistence of connection. Percentage of time that a connection is found when this listener is active. This last part is important as D42 only increments Total Samples when D42 actually discovers the listener. So if a service is only running on weekends for example, D42 doesn't affect the client percentage time during weekdays. So a service could still be connected 100% of the time if every time D42 found this service listening, it also saw this connection, even if the service was only listening 15% of the time.</li></ul></td></tr></tbody></table>
+<table>
+  <tbody>
+    <tr>
+      <td width="360"><strong>Formula</strong></td>
+      <td width="360"><strong>Description</strong></td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Total Ports / Netstat Active Samples</td>
+      <td width="360">Weight of connection. This is the average number of client open connections.</td>
+    </tr>
+    <tr>
+      <td width="360">Netstat Active Samples / Netstat Total Samples * 100</td>
+      <td width="360">Persistence of connection. Percentage of time that a connection is found when this listener is active. This last part is important as D42 only increments Total Samples when D42 actually discovers the listener. So if a service is only running on weekends for example, D42 doesn't affect the client percentage time during weekdays. So a service could still be connected 100% of the time if every time D42 found this service listening, it also saw this connection, even if the service was only listening 15% of the time.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 #### Netflow Statistics
 
-<table><tbody><tr><td width="360"><strong>Attribute</strong></td><td width="360"><strong>Description</strong></td></tr><tr><td width="360"><ul><li>Netflow Active Samples</li></ul></td><td width="360"><ul><li>How many samples D42 found (this is really based on how you configure Netflow).</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Total Events</li></ul></td><td width="360"><ul><li>How many events happened within all the samples.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Total Ports</li></ul></td><td width="360"><ul><li>Running total of how many ports were found.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Average Client Connections</li></ul></td><td width="360"><ul><li>This is a actually a calculated number of <em>Netflow Total Ports / Netflow Active Samples</em>.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Client Connection First Found</li></ul></td><td width="360"><ul><li>First time D42 detected this connection.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Client Connection Last Found</li></ul></td><td width="360"><ul><li>Last time D42 detected this connection.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Client Active Span</li></ul></td><td width="360"><ul><li>This is a running total of the time span in between <em>First</em> and <em>Last Found</em> where no connection was found during a full sample period.</li></ul></td></tr><tr><td width="360"><ul><li>Netflow Client Gap Span</li></ul></td><td width="360"><ul><li>This is a running total of the time span in between <em>First</em> and <em>Last Found</em> where a connection was found during a full sample period.</li></ul></td></tr></tbody></table>
+<table>
+  <tbody>
+    <tr>
+      <td width="360"><strong>Attribute</strong></td>
+      <td width="360"><strong>Description</strong></td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Active Samples</td>
+      <td width="360">How many samples D42 found (this is really based on how you configure Netflow).</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Total Events</td>
+      <td width="360">How many events happened within all the samples.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Total Ports</td>
+      <td width="360">Running total of how many ports were found.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Average Client Connections</td>
+      <td width="360">This is a actually a calculated number of <em>Netflow Total Ports / Netflow Active Samples</em>.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Client Connection First Found</td>
+      <td width="360">First time D42 detected this connection.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Client Connection Last Found</td>
+      <td width="360">Last time D42 detected this connection.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Client Active Span</td>
+      <td width="360">This is a running total of the time span in between <em>First</em> and <em>Last Found</em> where no connection was found during a full sample period.</td>
+    </tr>
+    <tr>
+      <td width="360">Netflow Client Gap Span</td>
+      <td width="360">This is a running total of the time span in between <em>First</em> and <em>Last Found</em> where a connection was found during a full sample period.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 #### Time Span Notes
 
