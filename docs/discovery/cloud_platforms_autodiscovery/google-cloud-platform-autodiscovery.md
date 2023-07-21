@@ -13,7 +13,9 @@ For Google Cloud Discovery, you will need a user account with the built-in Googl
 
 ### Configuring Google Cloud Discovery
 
-Device42 can now discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs. Begin by creating a new Google cloud discovery job: ![](/assets/images/Image_12_Cloud_Disc_Google_1.png)
+Device42 can now discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs. Begin by creating a new Google cloud discovery job: 
+
+![](/assets/images/Image_12_Cloud_Disc_Google_1.png)
 
 1) Create a new _"Cloud Autodiscovery"_ job from the _Discovery_, and choose _Google Cloud._
 

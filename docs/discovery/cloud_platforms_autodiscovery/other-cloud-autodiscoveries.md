@@ -21,7 +21,7 @@ Select one or more Zones for the discovery and select options for Action for Ins
 
 ### DigitalOcean Discovery Items
 
-<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td><strong>Accessed API</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>Droplets (VMs)</td><td>Devices --&gt; All Devices</td><td>https://api.digitalocean.com</td><td>Type, name, RAM size, CPU count, HDD Size, Tags, OS, etc.</td></tr></tbody></table>
+<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td><strong>Accessed API</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>Droplets (VMs)</td><td>Devices --&gt; All Devices</td><td><a href="https://api.digitalocean.com">https://api.digitalocean.com</a></td><td>Type, name, RAM size, CPU count, HDD Size, Tags, OS, etc.</td></tr></tbody></table>
 
 Click _Add Cloud Discovery_ on the Cloud Discovery page, and then select _DigitalOcean_ as the Cloud Type.
 
