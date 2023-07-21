@@ -53,7 +53,7 @@ Click _Add_ at the upper right of the template list page to add a new template
 
 - Enter an _Application Name Pattern_ to specify how the application component will be named. You can enter static text for the name and also use the following variable to construct the application component name.
 
-%(device\_name)s, %(discovered\_listening\_ip)s, %(listening\_port)s, %(app\_template\_name)s
+    %(device\_name)s, %(discovered\_listening\_ip)s, %(listening\_port)s, %(app\_template\_name)s
 
 - Select, enter, or add (plus sign) any _Related Software Components_ or _Related Services_ that should associated with the application component. For Related Service, you can specify _Only services listening on this port_.
 - Enter a path in _Configuration File Location_ to specify the directory in which Device42 should look for configuration files.
@@ -71,7 +71,7 @@ Click _Add_ at the upper right of the template list page to add a new template
 
 ### Custom Fields
 
-- Select or enter values for any _Custom Fields_ you want for the application component. You can also add _Notes_ for each Custom Field.
+Select or enter values for any _Custom Fields_ you want for the application component. You can also add _Notes_ for each Custom Field.
 
 Click _Save_ at the upper right of the Add/Edit page to save the template and add it to the application component template list.
 
