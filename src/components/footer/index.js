@@ -58,7 +58,7 @@ const compare = [
   { link: "https://www.device42.com/vs/racktables/", title: "Racktables" },
   { link: "https://www.device42.com/vs/servicenow/", title: "ServiceNow" },
   { link: "https://www.device42.com/vs/sunbird/", title: "Sunbird DCIM" },
-  { link: "https://www.device42.com/vs/", title: "Device42 vs, Others" }
+  { link: "https://www.device42.com/vs/", title: "Device42 vs. Others" }
 ]
 
 function Social({ link, icon }) {
@@ -126,7 +126,7 @@ const Footer = () => {
                 <div>
                   <a href="/">
                     <img width="285" height="68" alt="Device42"
-                         src="https://blog.device42.com/wp-content/uploads/2021/08/d42-rgb-reverse.svg"/>
+                         src="img/logo-dark.svg"/>
                   </a>
                 </div>
                 <p>
