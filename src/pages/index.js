@@ -15,38 +15,32 @@ const indexCards = [
   {
     title: "Discovery",
     icon: <Icon fa="fa-solid fa-magnifying-glass" />,
-    link: "docs/discovery/",
-    externalLink: true,
+    link: "docs/discovery/"
   },
   {
     title: "Applications",
     icon: <Icon fa="fa-solid fa-box-archive" />,
-    link: "docs/applications/",
-    externalLink: false,
+    link: "docs/applications/"
   },
   {
     title: "Infrastructure Management",
     icon: <Icon fa="fa-regular fa-building" />,
-    link: "/docs/infrastructure_management/",
-    externalLink: false,
+    link: "/docs/infrastructure_management/"
   },
   {
     title: "Reporting",
     icon: <Icon fa="fa-solid fa-bug" />,
-    link: "/docs/reporting/",
-    externalLink: true,
+    link: "/docs/reporting/"
   },
   {
     title: "Integration",
     icon: <Icon fa="fa-regular fa-object-group" />,
-    link: "/docs/integration/",
-    externalLink: false,
+    link: "/docs/integration/"
   },
   {
     title: "Administration",
     icon: <Icon fa="fa-solid fa-screwdriver-wrench" />,
-    link: "/docs/administration/",
-    externalLink: false,
+    link: "/docs/administration/"
   },
 ];
 
