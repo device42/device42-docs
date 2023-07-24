@@ -1,4 +1,4 @@
 position: 5
 label: 'Reporting'
 collapsible: true
-collapsed: false
+collapsed: true

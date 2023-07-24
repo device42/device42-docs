@@ -25,12 +25,6 @@ The client can be downloaded by going to _Discovery > Agent Based Scans_. Enter
 
 ![](/assets/images/D42-23312_discovery-agent-1-250x122.png)
 
- 
-
- 
-
- 
-
 It can be run from the command line or can be scheduled using the relevant scheduling program per OS. When running the application, the following switches are available:
 
 | Switch | Description |
