@@ -42,6 +42,12 @@ const indexCards = [
     icon: <Icon fa="fa-solid fa-screwdriver-wrench" />,
     link: "/docs/administration/"
   },
+  {
+    title: "Videos",
+    icon: <Icon fa="fa-solid fa-video" />,
+    link: "/docs/videos/",
+    externalLink: false,
+  },
 ];
 
 export default function Home() {
