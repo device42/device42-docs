@@ -68,7 +68,15 @@ The available Auto Clean Rule Action options vary depending on which _Object ty
 
 ![](/assets/images/AutoClean-device-action-options.png)
 
-**Delete the data**: delete the object. **Archive and delete the data**: create an archive record for the object (_Analytics > Archived Objects_) and delete the object. **Clear all IPs**: remove IPs from the Device. **Clear all IPs for this subnet**: clear all device IPs from the entered or selected subnet. **Clear all Connectivity**: clear all connectivity to the device. **Change to not in service**: set the device status as not in service. **Change device service level to**: choose a service level to set for the device when the rule is triggered. **Send email to**: send notification when the rule is triggered. **Webhook AutoClean Endpoints**: add or delete webhooks to send when the rule is triggered.
+- **Delete the data**: delete the object. 
+- **Archive and delete the data**: create an archive record for the object (_Analytics > Archived Objects_) and delete the object. 
+- **Clear all IPs**: remove IPs from the Device. 
+- **Clear all IPs for this subnet**: clear all device IPs from the entered or selected subnet. 
+- **Clear all Connectivity**: clear all connectivity to the device. 
+- **Change to not in service**: set the device status as not in service. 
+- **Change device service level to**: choose a service level to set for the device when the rule is triggered. 
+- **Send email to**: send notification when the rule is triggered. 
+- **Webhook AutoClean Endpoints**: add or delete webhooks to send when the rule is triggered.
 
 **Note:** The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
 

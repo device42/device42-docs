@@ -2,28 +2,27 @@
 title: "Using API's for Custom Autodiscovery"
 sidebar_position: 34
 ---
-
-If you find that there are autodiscovery methods that you need and that aren't provided by Device42, you can create you own autodiscovery tools that use Device42's API's to load data into a Device42 instance.
+If you find that there are autodiscovery methods that you need and that aren't provided by Device42, you can create your own autodiscovery tools that use Device42's APIs to load data into a Device42 instance.
 
 Device42 provides a number of sample scripts that you can use as a basis for your own custom autodiscovery tools. These tools are available at [Device42's Auto-Discovery Tools Site](https://github.com/device42/Device42-API) and include the following scripts:
 
-api-sample.py : Runs against a single windows server and uploads info to the Device42 appliance.
+- `api-sample.py`: Runs against a single Windows server and uploads info to the Device42 appliance.
 
-ad-sample.py : Runs against Active Directory computers, servers or a list of IP addresses, and upload discovered systems' info to the Device42 appliance.
+- `ad-sample.py`: Runs against Active Directory computers, servers, or a list of IP addresses, and uploads discovered systems' info to the Device42 appliance.
 
-d42\_api\_linux\_upload\_sample\_script.py : Runs on a single \*nix based system and uploads info to the Device42 appliance.
+- `d42_api_linux_upload_sample_script.py`: Runs on a single *nix based system and uploads info to the Device42 appliance.
 
-sample-script-facter-facts-to-d42.py : Runs on a Puppet master and uploads nodes info from facter fact files to the Device42 appliance.
+- `sample-script-facter-facts-to-d42.py`: Runs on a Puppet master and uploads nodes info from facter fact files to the Device42 appliance.
 
-d42\_api\_solaris\_sample\_script.py: Runs on an individual Solaris system and uploads info to the Device42 appliance.
+- `d42_api_solaris_sample_script.py`: Runs on an individual Solaris system and uploads info to the Device42 appliance.
 
-linux\_auto\_dics\_multi.py: Run on a \*nix system with paramiko to get inventory using ssh from an IP range and upload to the Device42 appliance.
+- `linux_auto_dics_multi.py`: Runs on a *nix system with paramiko to get inventory using SSH from an IP range and upload to the Device42 appliance.
 
-winservice.py : Can run against Active directory computers, servers or a list of IP addresses and upload discovered services as application components to the Device42 appliance.
+- `winservice.py`: Can run against Active Directory computers, servers, or a list of IP addresses and upload discovered services as application components to the Device42 appliance.
 
-All of these scripts are written in Python but you can use any programming language that can call RESTful API's.
+All of these scripts are written in Python, but you can use any programming language that can call RESTful APIs.
 
-The remainder of this document will show an example of how to use one of these scripts. We wil use Iron Python for this example because it is simple to install. You can just drop the executables into a folder and as long as you have the .NET 4 framework installed, you are good to go.
+The remainder of this document will show an example of how to use one of these scripts. We will use IronPython for this example because it is simple to install. You can just drop the executables into a folder, and as long as you have the .NET 4 framework installed, you are good to go.
 
 * * *
 

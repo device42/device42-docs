@@ -20,13 +20,35 @@ Navigate to the _Discovery_ menu and select _HyperVisors / \*Nix / Windows_, thi
 1. **Select _"Add Hypervisors/\*nix/Win for Autodiscovery"_ to setup a new Windows / Hyper-V Autodiscovery job.**
 2. To specify **Windows WMI-based** or **Hyper-V** discovery, select **Windows** as the Platform.
     -  As of 18.08.00, you can select WinRM as the default method within the Windows discovery (pictured below) and the URL prefix and port will default.
-3. Include a "Job Name" to identify this autodiscovery job: ![](/assets/images/New-WinRM.png)
+3. Include a "Job Name" to identify this autodiscovery job: 
+
+![](/assets/images/New-WinRM.png)
 
 \*Classic WinRM could be deprecated in the future but there are currently no plans in place to do so.
 
 ### Windows/Hyper-V discovery options & definitions:
 
-**Job Name**: User defined name for the job. **Remote Collector**: Select which remote collector you’d like to run the discovery job from – optional. **Job Debug Level**: Debug On for extra debug info, useful for a support ticket. **Discovery Target(s)**: Specify FQDN or IP of discovery target(s). If using FQDN, Device42 must be configured to resolve the DNS. **Use Service Account Credentials**: Will use the current logged-in user of the system running WDS to perform WMI discovery. **Query domain controller to obtain list of discovery devices**: Hides the _Discovery Target(s)_ field. Target(s) to be discovered in this mode are instead defined by the result of chosen _LDAP Criteria_ as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. See _Query domain controller to obtain list of discovery devices_ below for more information. **Collect database server information**: Select this option to discover MYSQL and Oracle database servers. (Displays a _Database Username/Password(s)_ field if selected.) **ADM Sampling Interval**: Off or sampling interval in minutes or hours. **Enable Resource Utilization Tracking for Device(s)**: Optionally enable collection of resource utilization metrics from discovered devices. **Resource Utilization Sampling Interval**: Set the interval for RU data collection (only in effect if RU Tracking is enabled). **Autodiscovery Schedule**: You can schedule the discovery to run at certain times.
+- **Job Name:** User-defined name for the job.
+
+- **Remote Collector:** Select which remote collector you’d like to run the discovery job from – optional.
+
+- **Job Debug Level:** Debug On for extra debug info, useful for a support ticket.
+
+- **Discovery Target(s):** Specify FQDN or IP of discovery target(s). If using FQDN, Device42 must be configured to resolve the DNS.
+
+- **Use Service Account Credentials:** Will use the current logged-in user of the system running WDS to perform WMI discovery.
+
+- **Query domain controller to obtain a list of discovery devices:** Hides the Discovery Target(s) field. Target(s) to be discovered in this mode are instead defined by the result of chosen LDAP Criteria as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. (See "Query domain controller to obtain a list of discovery devices" below for more information.)
+
+- **Collect database server information:** Select this option to discover MYSQL and Oracle database servers. (Displays a Database Username/Password(s) field if selected.)
+
+- **ADM Sampling Interval:** Off or sampling interval in minutes or hours.
+
+- **Enable Resource Utilization Tracking for Device(s):** Optionally enable collection of resource utilization metrics from discovered devices.
+
+- **Resource Utilization Sampling Interval:** Set the interval for RU data collection (only in effect if RU Tracking is enabled).
+
+- **Autodiscovery Schedule:** You can schedule the discovery to run at certain times.
 
 ### “Query domain controller to obtain list of discovery devices” option
 
@@ -36,7 +58,16 @@ Selecting the “Query domain controller to obtain list of discovery devices” 
 
 _Relevant fields when using this discovery mode are as follows:_
 
-**Use Service Account Credentials**: use whatever account credentials the WDS service executing the discovery is running as for authentication **Domain Server:** Hostname or IP address of the Active Directory server to run LDAP query against **LDAP username/password:** Authentication credentials used to execute LDAP query against specified domain controller/server **Use FQDN:** Use Fully Qualified Domain Name (FQDN) **LDAP Criteria:** Choose the LDAP Query to execute against AD, the resultant list which will then be targeted for Windows Autodiscovery. Selecting _“Custom”_ allows specification of custom LDAP filter/query.
+- **Use Service Account Credentials**: Use whatever account credentials the WDS service executing the discovery is running as for authentication.
+
+- **Domain Server:** Hostname or IP address of the Active Directory server to run the LDAP query against.
+
+- **LDAP username/password:** Authentication credentials used to execute the LDAP query against the specified domain controller/server.
+
+- **Use FQDN:** Use Fully Qualified Domain Name (FQDN).
+
+- **LDAP Criteria:** Choose the LDAP Query to execute against AD, the resultant list which will then be targeted for Windows Autodiscovery. Selecting _“Custom”_ allows specification of a custom LDAP filter/query.
+
 
 "Query domain controller" LDAP Query Example:
 
@@ -52,7 +83,9 @@ Microsoft LAPS (Local Admin Password Solution) is a method of securing Active Di
 
 Device42 now supports pulling credentials from LAPS when discovering Active Directory domain member servers that are using Microsoft LAPS \[Local Admin Password Solution\] to manage their local admin passwords. **You will see this option _only_ when you have checked "Query domain controller to obtain list of discovery devices"**; once the former is checked, you will see "Use LAPS (only Applies to WDS)".
 
-Check the _"Use LAPS (only Applies to WDS)"_ checkbox to enable it; Ensure "Query domain controller to obtain list of discovery devices" is checked to reveal the option: ![](/assets/images/WEB-728_windows-hyper-v-ad-query-domain-ldap-custom-filter-1.png)
+Check the _"Use LAPS (only Applies to WDS)"_ checkbox to enable it; Ensure "Query domain controller to obtain list of discovery devices" is checked to reveal the option: 
+
+![](/assets/images/WEB-728_windows-hyper-v-ad-query-domain-ldap-custom-filter-1.png)
 
 **Relevant fields / requirements for using LAPS discovery mode are as follows**:
 
@@ -143,7 +176,7 @@ The following requirements represent the **minimum necessary user account permis
 
 **1)** Ensure at least **Enable Account**, **Remote Enable**, and **Read Security**, as well as **WMI permissions** are applied to the autodiscovery user account and to the following WMI Namespaces and subnamespaces:
 
-`<table><tbody><tr><td width="20%"><ul><li>CIMV2</li><li>StandardCimv2</li><li>default</li><li>virtualization <small>(Hyper-V only)</small></li><li>virtualizationv2 <small>(Hyper-V only)</small></li></ul></td><td width="25%"><ul><li>MicrosoftIISv2 <small>(Only for IIS)</small></li><li>WebAdministration <small>(Only for IIS 7+)</small></li><li>MicrosoftSqlServer <small>(Only for SQLServer)</small></li><li>SMS <small>(Only for SCCM)</small></li><li>MSCluster <small>(Only used if 'Discover Cluster Information' is selected)</small></li></ul></td></tr></tbody></table>`
+<table><tbody><tr><td width="20%"><ul><li>CIMV2</li><li>StandardCimv2</li><li>default</li><li>virtualization <small>(Hyper-V only)</small></li><li>virtualizationv2 <small>(Hyper-V only)</small></li></ul></td><td width="25%"><ul><li>MicrosoftIISv2 <small>(Only for IIS)</small></li><li>WebAdministration <small>(Only for IIS 7+)</small></li><li>MicrosoftSqlServer <small>(Only for SQLServer)</small></li><li>SMS <small>(Only for SCCM)</small></li><li>MSCluster <small>(Only used if 'Discover Cluster Information' is selected)</small></li></ul></td></tr></tbody></table>
 
 \*\*Note for HyperV discovery against Windows Server2k12 and newer: _Should discovery fail due to a permissions error, you may need to add your Device42 discovery account to the built in HyperV administrators group due to changes made with the way Microsoft verifies permissions on these newer operating systems._
 
@@ -161,7 +194,25 @@ The following requirements represent the **minimum necessary user account permis
 
 Provided the above is successfully configured for the discovery account (& the data is available), Device42 will successfully gather the following info:
 
-`<table><tbody><tr><td width="20%"><ul><li style="list-style-type: none;"><ul><li>Device Host information</li><li>Operating System</li><li>Service Process</li></ul></li></ul></td><td width="25%"><ul><li>Software Installed</li><li>Installed common Applications and Configuration Files</li></ul></td></tr></tbody></table>`
+<table>
+    <tbody>
+        <tr>
+            <td width="20%">
+                <ul>
+                    <li>Device Host information</li>
+                    <li>Operating System</li>
+                    <li>Service Process</li>
+                </ul>
+            </td>
+            <td width="25%">
+                <ul>
+                    <li>Software Installed</li>
+                    <li>Installed common Applications and Configuration Files</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 Note: If you are discovering servers that do not belong to a domain, there may be issues due to UAC settings. Please refer to this [MSDN article](https://msdn.microsoft.com/en-us/library/aa826699(v=vs.85).aspx) for information regarding UAC's effects on WMI.
 
@@ -185,7 +236,15 @@ When setting up the discovery job if the IPC and ADMIN shares are inaccessible y
 
 #### C) Port Matrix
 
-`<table><tbody><tr><td width="144"><ul><li><strong>Ports</strong></li></ul></td><td width="102"><ul><li><strong>Protocol</strong></li></ul></td><td width="318"><ul><li><strong>Application Protocol</strong></li></ul></td><td width="396"><ul><li><strong>Notes</strong></li></ul></td></tr><tr><td width="144"><ul><li>135</li></ul></td><td width="102"><ul><li>TCP</li></ul></td><td width="318"><ul><li>WMI</li></ul></td><td width="396"><ul><li>Always required.</li></ul></td></tr><tr><td width="144"><ul><li>137</li></ul></td><td width="102"><ul><li>UDP</li></ul></td><td width="318"><ul><li>NetBIOS Name Resolution</li></ul></td><td width="396"><ul><li>Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445.</li></ul></td></tr><tr><td width="144"><ul><li>138</li></ul></td><td width="102"><ul><li>UDP</li></ul></td><td width="318"><ul><li>NetBIOS Datagram Service</li></ul></td><td width="396"><ul><li>Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445.</li></ul></td></tr><tr><td width="144"><ul><li>139</li></ul></td><td width="102"><ul><li>TCP</li></ul></td><td width="318"><ul><li>SMB</li></ul></td><td width="396"><ul><li>Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445.</li></ul></td></tr><tr><td width="144"><ul><li>445</li></ul></td><td width="102"><ul><li>TCP</li></ul></td><td width="318"><ul><li>SMB</li></ul></td><td width="396"><ul><li>Optional. Used by the WDS (Windows Discovery Service) to retrieve UDP communication and configuration files from targets.</li></ul></td></tr><tr><td width="144"><ul><li>1024 – 5000</li></ul></td><td width="102"><ul><li>TCP</li></ul></td><td width="318"><ul><li>RPC randomly allocated low TCP ports</li></ul></td><td width="396"><ul><li>Optional/Legacy. Used in Windows 2000, Windows XP, and Windows Server 2003. Newer versions of Windows use high TCP ports 49152 - 65535.</li></ul></td></tr><tr><td width="144"><ul><li>49152 - 65535</li></ul></td><td width="102"><ul><li>TCP</li></ul></td><td width="318"><ul><li>RPC randomly allocated high TCP ports</li></ul></td><td width="396"><ul><li>Always required (Unless entire environment predates Windows Server 2008). Used in Windows Server 2008 and later versions, and in Windows Vista and later versions.</li></ul></td></tr></tbody></table>`
+| Ports    | Protocol | Application Protocol      | Notes                                                                   |
+| -------- | -------- | ------------------------- | ----------------------------------------------------------------------- |
+| 135      | TCP      | WMI                       | Always required.                                                        |
+| 137      | UDP      | NetBIOS Name Resolution    | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
+| 138      | UDP      | NetBIOS Datagram Service   | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
+| 139      | TCP      | SMB                       | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
+| 445      | TCP      | SMB                       | Optional. Used by the WDS (Windows Discovery Service) to retrieve UDP communication and configuration files from targets. |
+| 1024-5000| TCP      | RPC randomly allocated low TCP ports | Optional/Legacy. Used in Windows 2000, Windows XP, and Windows Server 2003. Newer versions of Windows use high TCP ports 49152 - 65535. |
+| 49152-65535 | TCP   | RPC randomly allocated high TCP ports | Always required (Unless entire environment predates Windows Server 2008). Used in Windows Server 2008 and later versions, and in Windows Vista and later versions. |
 
 * * *
 

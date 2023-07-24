@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Device42",
-  tagline: "A Hitchhiker's Guide",
-  favicon: 'img/favicon.ico',
+  tagline: "The Hitchhiker’s Guide to DEVICE42",
+  favicon: 'https://www.device42.com/wp-content/uploads/2021/08/d42-favicon.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -62,6 +62,7 @@ const config = {
         logo: {
           alt: 'Device42 Logo',
           src: 'img/logo.png',
+          srcDark: 'img/logo-dark.svg',
         },
         items: [
           {
@@ -91,7 +92,7 @@ const config = {
           },
         ],
       },
-      footer: {
+      /*footer: {
         style: 'dark',
         links: [
           {
@@ -131,7 +132,7 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
+      },*/
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,

@@ -35,7 +35,9 @@ Use option 7 to set the time zone on the OS level. If you don't see your exact l
 
 ![Set Time Zone for OS part 2](/assets/images/Set-TZ-console-p2.png)
 
-Once you've completed the TZ settings, you'll be able to see your new Time Zone at the top of the Device42 Console Menu: ![Current Time Zone visible on D42 Console](/assets/images/new_TZ_on_console.png)
+Once you've completed the TZ settings, you'll be able to see your new Time Zone at the top of the Device42 Console Menu: 
+
+![Current Time Zone visible on D42 Console](/assets/images/new_TZ_on_console.png)
 
 ### Restart Application from console.
 

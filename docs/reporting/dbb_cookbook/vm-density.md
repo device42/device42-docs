@@ -5,67 +5,68 @@ sidebar_position: 18
 
 Density of the Virtualization Farms.
 
+```sql
 with
 a as (
      select
-          h.last\_discovered             host\_last\_discovered
-          ,dcm.device\_name              vm\_manager\_name  
-          ,h.device\_name                host\_device\_name
-          ,h.os\_name                    host\_os\_name
-          ,h.total\_cores                host\_total\_cores
-          ,h.ram\_mb                     host\_ram\_mb
-          ,dcm.cloud\_instance\_name
-          ,count(1)                     vm\_count\_allocated
-          ,sum(dc.total\_cores)          total\_vcores\_allocated
-          ,sum(dc.ram\_mb)               total\_ram\_mb\_allocated
-          ,sum(case when dc.in\_service = true
+          h.last_discovered             host_last_discovered
+          ,dcm.device_name              vm_manager_name  
+          ,h.device_name                host_device_name
+          ,h.os_name                    host_os_name
+          ,h.total_cores                host_total_cores
+          ,h.ram_mb                     host_ram_mb
+          ,dcm.cloud_instance_name
+          ,count(1)                     vm_count_allocated
+          ,sum(dc.total_cores)          total_vcores_allocated
+          ,sum(dc.ram_mb)               total_ram_mb_allocated
+          ,sum(case when dc.in_service = true
                     then 1 else 0
-               end)                     vm\_count\_in\_service
-          ,sum(case when dc.in\_service = true
-                    then dc.total\_cpus \* coalesce(dc.core\_per\_cpu,1)
+               end)                     vm_count_in_service
+          ,sum(case when dc.in_service = true
+                    then dc.total_cpus * coalesce(dc.core_per_cpu,1)
                     else 0
-               end)                     total\_vcores\_in\_service
-          ,sum(case when dc.in\_service = true
-                   then dc.ram\_mb else 0
-              end)                     total\_ram\_mb\_in\_service
-          ,string\_agg(dc.device\_name,' | ') vms\_allocated
-          ,string\_agg(case when dc.in\_service = true
-                   then dc.device\_name else null
-             end, ' | ')    vms\_in\_service
-from view\_dbb\_compute\_v2 dc
-     inner join view\_dbb\_compute\_v2 h  
-on h.device\_fk = dc.virtual\_host\_device\_fk
-     left join view\_dbb\_compute\_v2 dcm      
-on dcm.device\_fk = dc.vm\_manager\_device\_fk
-     where dc.device\_type = 'virtual'  and dc.network\_device  = 'f'
-     group by h.device\_name ,h.os\_name ,dcm.device\_name ,h.total\_cores
-               ,h.ram\_mb ,h.last\_discovered ,dcm.cloud\_instance\_name
+               end)                     total_vcores_in_service
+          ,sum(case when dc.in_service = true
+                   then dc.ram_mb else 0
+              end)                     total_ram_mb_in_service
+          ,string_agg(dc.device_name,' | ') vms_allocated
+          ,string_agg(case when dc.in_service = true
+                   then dc.device_name else null
+             end, ' | ')    vms_in_service
+from view_dbb_compute_v2 dc
+     inner join view_dbb_compute_v2 h  
+on h.device_fk = dc.virtual_host_device_fk
+     left join view_dbb_compute_v2 dcm      
+on dcm.device_fk = dc.vm_manager_device_fk
+     where dc.device_type = 'virtual'  and dc.network_device  = 'f'
+     group by h.device_name ,h.os_name ,dcm.device_name ,h.total_cores
+               ,h.ram_mb ,h.last_discovered ,dcm.cloud_instance_name
      )
 select
-     a.\*
-     ,round(case when a.host\_total\_cores =  0
-               then null else 100.0000 \* a.total\_vcores\_allocated
-                     /a.host\_total\_cores
-               end, 2)                  cores\_percent\_allocated
-    ,round(case when a.host\_ram\_mb = 0
-               then null else 100.0000 \* a.total\_ram\_mb\_allocated::decimal
-                    /a.host\_ram\_mb::decimal
-               end, 2)                  ram\_percent\_allocated
-    ,round(case when a.host\_total\_cores =  0
-               then null else 100.0000 \*  a.total\_vcores\_in\_service
-                    /a.host\_total\_cores
-              end, 2)                  cores\_percent\_in\_service
-    ,round(case when a.host\_ram\_mb = 0
+     a.*
+     ,round(case when a.host_total_cores =  0
+               then null else 100.0000 * a.total_vcores_allocated
+                     /a.host_total_cores
+               end, 2)                  cores_percent_allocated
+    ,round(case when a.host_ram_mb = 0
+               then null else 100.0000 * a.total_ram_mb_allocated::decimal
+                    /a.host_ram_mb::decimal
+               end, 2)                  ram_percent_allocated
+    ,round(case when a.host_total_cores =  0
+               then null else 100.0000 *  a.total_vcores_in_service
+                    /a.host_total_cores
+              end, 2)                  cores_percent_in_service
+    ,round(case when a.host_ram_mb = 0
                then null
-               else  100.0000 \* a.total\_ram\_mb\_in\_service::decimal
-              /a.host\_ram\_mb::decimal
-              end, 2)                       ram\_percent\_in\_service
+               else  100.0000 * a.total_ram_mb_in_service::decimal
+              /a.host_ram_mb::decimal
+              end, 2)                       ram_percent_in_service
 from a
-order by host\_device\_name,host\_os\_name,vm\_manager\_name, vm\_count\_in\_service,  host\_last\_discovered
+order by host_device_name,host_os_name,vm_manager_name, vm_count_in_service,  host_last_discovered
+```
 
  
 
-* * *
 
 **NOTES**
 

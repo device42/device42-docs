@@ -35,7 +35,28 @@ The following is a short explanation of the fields present on the "Discovery Sco
 
 ![](/assets/images/Discovery-scores-pie-charts-2-1.png)
 
-**Discovery Quality Scores Page Column List**: **Discovery Target**: The IP or FQDN that was targeted by the discovery job that found this device. **Job Name**: The name of the discovery job that discovered the device **Job Start Time**: Time the discovery job started **Sub Type**: The chosen sub-type for the job **Port Check**: Port check references the first step of each discovery job where an attempt is made to connect to the target discovery port, e.g. a connection is attempted port 22 for a Linux SSH-based discovery - Green Check (success) / Red-X (failure). **Auth**: Reports the status of authentication to a given endpoint using the credentials supplied in the discovery job's settings - Green Check (success) / Red-X (failure). **Discovery Successful**: Success (green check mark) will be shown when both Port check and Auth succeed. If either of those two fail, success column shows Red-X. _Note that only if device is not added, will it be marked as failure - otherwise, based on scores, it will be marked as PARTIAL or OK._ **Sudo Access**: Indicates whether sudo access is allowed for the discovery job. **Ignored**: Indicates a successful connection to a device to which a [Device Ignore Rule](https://docs.device42.com/devices/device-ignore-rules/) was applied, and that the device was ruled out and ignored. **Ignore Rule**: This is the text entered in the _Ignored text contains:_ field when the [Device Ignore Rule](https://docs.device42.com/devices/device-ignore-rules/) was created. **Success**: Indicates whether the device was successfully discovered (and ignored if applicable). **Object**: The discovered device. **Unprocessed Device**: Indicates if this is an unprocessed device requiring further attention. **Inventory**: a count of basic inventory items discovered. **Software**: a count of discovered software. **Services**: a count of discovered services. **Applications**: a count of discovered applications. **Other:** A rating of the success of discovery functions that don’t fall into the four existing categories (basic, software, services, applications). **Queue:** Queue processing success for the job. **Cumulative Score:** The cumulative success score for the actions attempted by the job. Click into the job for a list of attempted actions.
+**Discovery Quality Scores Page Column List**: 
+
+- **Discovery Target**: The IP or FQDN that was targeted by the discovery job that found this device. 
+- **Job Name**: The name of the discovery job that discovered the device 
+- **Job Start Time**: Time the discovery job started 
+- **Sub Type**: The chosen sub-type for the job 
+- **Port Check**: Port check references the first step of each discovery job where an attempt is made to connect to the target discovery port, e.g. a connection is attempted port 22 for a Linux SSH-based discovery - Green Check (success) / Red-X (failure). 
+- **Auth**: Reports the status of authentication to a given endpoint using the credentials supplied in the discovery job's settings - Green Check (success) / Red-X (failure). 
+- **Discovery Successful**: Success (green check mark) will be shown when both Port check and Auth succeed. If either of those two fail, success column shows Red-X. _Note that only if device is not added, will it be marked as failure - otherwise, based on scores, it will be marked as PARTIAL or OK._ 
+- **Sudo Access**: Indicates whether sudo access is allowed for the discovery job. 
+- **Ignored**: Indicates a successful connection to a device to which a [Device Ignore Rule](https**://docs.device42.com/devices/device-ignore-rules/) was applied, and that the device was ruled out and ignored. 
+- **Ignore Rule**: This is the text entered in the _Ignored text contains**:_ field when the [Device Ignore Rule](https**://docs.device42.com/devices/device-ignore-rules/) was created. 
+- **Success**: Indicates whether the device was successfully discovered (and ignored if applicable). 
+- **Object**: The discovered device. 
+- **Unprocessed Device**: Indicates if this is an unprocessed device requiring further attention. 
+- **Inventory**: a count of basic inventory items discovered. 
+- **Software**: a count of discovered software. 
+- **Services**: a count of discovered services. 
+- **Applications**: a count of discovered applications. 
+- **Other**: A rating of the success of discovery functions that don’t fall into the four existing categories (basic, software, services, applications). 
+- **Queue**: Queue processing success for the job. 
+- **Cumulative Score**: The cumulative success score for the actions attempted by the job. Click into the job for a list of attempted actions.
 
 In addition, with the v16.15.00 refactoring of Discovery Scores, the progress section of each supported discovery has been centralized and redone to show more consistent progress. In addition, the objects-added count has been converted to a hyperlink to quickly show all the discovery scores where objects were added to the system.
 

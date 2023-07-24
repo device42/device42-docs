@@ -1,0 +1,118 @@
+
+footer {
+  width: 100%;
+  min-height: 50px;
+  padding: 3rem 0;
+  background-color: #1a1a1a;
+}
+
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  position: relative;
+  float: none;
+}
+
+.footerWidget {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin: 0 -15px 50px -15px;
+  padding: 0;
+}
+
+.footerWidget h4 {
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 120%;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  color: #ffffff;
+  border: none;
+}
+
+.title:after {
+  z-index: 28;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.menuSolutionsMenu {
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.footerSection {
+  display: flex;
+  margin: 1em 0;
+  justify-content: space-between;
+}
+
+.footerSection ul {
+  list-style: none;
+  font-size: 1rem;
+  line-height: 19px;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin: 1.3rem 0;
+  font-size: 0.9rem;
+  line-height: 12px;
+  font-weight: 300;
+}
+
+.footerSection ul li a{
+  color: white;
+}
+
+.footerSection h5 {
+  font-weight: 600;
+  font-family: Sora, sans-serif;
+  font-size: 1rem;
+  line-height: 20px;
+  color: var(--ifm-text-color);
+  opacity: 0.4;
+}
+
+.footerWidget div{
+  color: white;
+}
+
+
+@media screen and (max-width:768px) {
+  .footerSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.socialIcon {
+  padding: 0.5rem;
+  color: white;
+}
+
+.footerAddress div {
+  color: white;
+}
+
+.footerAddress a {
+  color: white;
+}

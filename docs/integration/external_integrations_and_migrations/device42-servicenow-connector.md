@@ -3,7 +3,9 @@ title: "ServiceNow Integration"
 sidebar_position: 27
 ---
 
-The Device42 ServiceNow Integration connects Device42 to ServiceNow. The integration enables users to seamlessly add Device42’s IT infrastructure management capabilities to their ServiceNow solution for an enhanced IT experience. ![](/assets/images/WEB-377_servicenow-logo.png)
+The Device42 ServiceNow Integration connects Device42 to ServiceNow. The integration enables users to seamlessly add Device42’s IT infrastructure management capabilities to their ServiceNow solution for an enhanced IT experience. 
+
+![](/assets/images/WEB-377_servicenow-logo.png)
 
 # Device42-ServiceNow Integration
 
@@ -116,7 +118,17 @@ Then go ahead and add your new data source: ![](/assets/images/SN_Dashboard_3.pn
 
 _Note that you must create a data-source per endpoint to add more than one!_ That's all there is to it! ServiceNow should now have access to your new data source. Should you run into any issues, email [support@device42.com](mailto:support@device42.com).
 
-`<table width="678"><tbody><tr><td width="84"><ul><li>Name</li></ul></td><td width="594"><ul><li>The name of your data source, this can be any value you choose</li></ul></td></tr><tr><td width="84"><ul><li>Import set table</li></ul></td><td width="594"><ul><li>The table which you would like the data to be imported to</li></ul></td></tr><tr><td width="84"><ul><li>Type</li></ul></td><td width="594"><ul><li><em>Default: File</em></li></ul></td></tr><tr><td width="84"><ul><li>Format</li></ul></td><td width="594"><ul><li><em>Default: CSV</em></li></ul></td></tr><tr><td width="84"><ul><li>Server</li></ul></td><td width="594"><ul><li><em>Default: ${x_192652_device42.server}</em></li></ul></td></tr><tr><td width="84"><ul><li>Port</li></ul></td><td width="594"><ul><li><em>Default: 443</em></li></ul></td></tr><tr><td width="84"><ul><li>File Path</li></ul></td><td width="594"><ul><li>Cloud Connector</li><li>sn/route_doql_csv/<strong>YOUR_DOQL_QUERY_NAME</strong></li></ul>&nbsp;<ul><li>Direct Connect</li><li>/services/data/v1.0/query/?saved_query_name=<strong>YOUR_DOQL_QUERY_NAME</strong></li></ul></td></tr><tr><td width="84"><ul><li>Username</li></ul></td><td width="594"><ul><li>Username is required to send credentials with request, use any value eg. “servicenow_data_source”</li></ul></td></tr><tr><td width="84"><ul><li>Password</li></ul></td><td width="594"><ul><li><em>Password will be the verification token of the integration you setup within Device42</em></li></ul></td></tr></tbody></table>`
+| Name             | The name of your data source, this can be any value you choose                                                                         |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Import set table | The table which you would like the data to be imported to                                                                              |
+| Type             | Default: File                                                                                                                          |
+| Format           | Default: CSV                                                                                                                           |
+| Server           | Default: ${x\_192652\_device42.server}                                                                                                   |
+| Port             | Default: 443                                                                                                                           |
+| File Path        | Cloud Connector sn/route\_doql\_csv/YOUR\_DOQL\_QUERY\_NAME Direct Connect /services/data/v1.0/query/?saved\_query\_name=YOUR\_DOQL\_QUERY\_NAME |
+| Username         | Username is required to send credentials with request, use any value eg. “servicenow\_data\_source”                                      |
+| Password         | Password will be the verification token of the integration you setup within Device42                                                   |
+
 
  
 
@@ -154,39 +166,26 @@ Add Device42 as the Datasource choice list record (New York and Orlando+).
 2. Ensure that the script is set to run in the _global_ scope.
 3. Paste the following script into the run script text box and select run script'
 
+
+```javascript
 var discoverySource = 'Device42';
-
-var gr = new GlideRecord('sys\_choice');
-
-gr.addQuery('element', 'discovery\_source');
-
-gr.addQuery('name', 'cmdb\_ci');
-
+var gr = new GlideRecord('sys_choice');
+gr.addQuery('element', 'discovery_source');
+gr.addQuery('name', 'cmdb_ci');
 gr.addQuery('value', discoverySource);
-
 gr.query();
-
 if (!gr.hasNext()) {
-
-var grNew = new GlideRecord('sys\_choice');
-
-grNew.initialize();
-
-grNew.setValue('element', 'discovery\_source');
-
-grNew.setValue('name', 'cmdb\_ci');
-
-grNew.setValue('value', discoverySource);
-
-grNew.setValue('label', discoverySource);
-
-if (!grNew.insert()) {
-
-gs.info('Adding discovery source failed for: ' + discoverySource);
-
+    var grNew = new GlideRecord('sys_choice');
+    grNew.initialize();
+    grNew.setValue('element', 'discovery_source');
+    grNew.setValue('name', 'cmdb_ci');
+    grNew.setValue('value', discoverySource);
+    grNew.setValue('label', discoverySource);
+    if (!grNew.insert()) {
+        gs.info('Adding discovery source failed for: ' + discoverySource);
+    }
 }
-
-}
+```
 
 If you are not on version 3.0.0+, or have completed these steps, continue with the rest of the configuration.
 
@@ -258,11 +257,11 @@ For the ServiceNow integration, there are a few user roles that need to be grant
 
 The specific groups required (for users who _are not_ already ServiceNow admins) for full integration functionality and the ability to edit the CI transform maps and data sources are:
 
-1. 1. - import\_set\_loader
-        - import\_transformer
-        - import\_scheduler
-        - import\_admin
-        - x\_192652\_device42.Device42\_Admin
+- import\_set\_loader
+- import\_transformer
+- import\_scheduler
+- import\_admin
+- x\_192652\_device42.Device42\_Admin
 
 A quick overview of the Device42-ServiceNow connector, screenshots, and links to the ServiceNow store can be found on our [ServiceNow integration page](https://device42.com/integrations/service-now/)
 

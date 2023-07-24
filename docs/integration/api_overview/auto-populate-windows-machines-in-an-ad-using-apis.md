@@ -9,7 +9,10 @@ In this lesson, we would go over how to use device42 APIs to auto-populate the d
 
 ### Why Iron Python?
 
-There are two simple reasons: 1. Python is the Device42 language of choice - You can substitute a language \*you prefer\* in these scripts _as long as it can interact with REST APIs._ 2. There is no installation required. You can simply drop the executables in a folder, and as long as you have .NET 4 framework installed, you're up and running.
+There are two simple reasons: 
+
+1. Python is the Device42 language of choice - You can substitute a language \*you prefer\* in these scripts _as long as it can interact with REST APIs._ 
+2. There is no installation required. You can simply drop the executables in a folder, and as long as you have .NET 4 framework installed, you're up and running.
 
 ### Requirements:
 
@@ -41,7 +44,10 @@ Once you click on the script file, you can click on download and save that file 
 
 **Edit the script and change these sections:**  
 BASE\_URL: This is the URL for your Device42 appliance - please make sure there is no trailing '/' at the end.  
-Example: _BASE\_URL='https://d42app.device42.pvt'_ USER & PASSWORD are the credentials for an Administrator who has access to log into the Device42 appliance.
+
+Example: _BASE\_URL='https://d42app.device42.pvt'_
+
+USER & PASSWORD are the credentials for an Administrator who has access to log into the Device42 appliance.
 
 Simply make those quick changes, and you're ready to run!
 
@@ -58,6 +64,8 @@ _Please note that cmd.exe has to be running as a domain administrator to enumera
 To run cmd.exe as a domain administrator:  
 **Open a command prompt and invoke cmd.exe using runas:**
 
+```
 runas /user:domainAdministrator "cmd.exe"
+```
 
 Finally, cd to the IronPython directory(or use respective paths) and run ipy.exe, passing the Active Directory python script as a parameter as shown in the image in step 4, above. You're all set!

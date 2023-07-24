@@ -5,22 +5,20 @@ sidebar_position: 29
 
 Provides the IP records that have an ‘A’ or ‘AAAA’ record type that don’t have a corresponding device in the system.
 
+```sql
 select
-     ds.ip\_address
-    ,ds.subnet\_network
-    ,ds.subnet\_range\_begin
-    ,ds.subnet\_range\_end
-    ,ds.mask\_bits
-    ,ds.dns\_name
-    ,ds.dns\_type
-    ,ds.dns\_content
-    ,ds.dnszone\_name
-from view\_dbb\_security\_v2 ds
-where ds.is\_ip\_device\_assoc = 'No' and ds.dns\_type in ( 'A', 'AAAA')
-
- 
-
-* * *
+     ds.ip_address
+    ,ds.subnet_network
+    ,ds.subnet_range_begin
+    ,ds.subnet_range_end
+    ,ds.mask_bits
+    ,ds.dns_name
+    ,ds.dns_type
+    ,ds.dns_content
+    ,ds.dnszone_name
+from view_dbb_security_v2 ds
+where ds.is_ip_device_assoc = 'No' and ds.dns_type in ( 'A', 'AAAA')
+```
 
 **NOTES**
 

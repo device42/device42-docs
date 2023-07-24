@@ -5,29 +5,29 @@ sidebar_position: 16
 
 Lists physical devices missing hardware information.
 
+```sql
 select
-    dc.device\_fk
-    ,dc.device\_name
+    dc.device_fk
+    ,dc.device_name
     ,dc.manufacturer
-    ,dc.hardware\_model
-    ,dc.device\_type
-    ,dc.service\_level
-    ,[dc.in](http://dc.in/)\_service
-    ,dc.customer\_department
-    ,dc.server\_location
-    ,dc.building\_address
-    ,dc.room\_name
-    ,dc.row\_name
-    ,dc.rack\_name
-    ,dc.u\_position
-    ,dc.last\_discovered
+    ,dc.hardware_model
+    ,dc.device_type
+    ,dc.service_level
+    ,[dc.in](http://dc.in/)_service
+    ,dc.customer_department
+    ,dc.server_location
+    ,dc.building_address
+    ,dc.room_name
+    ,dc.row_name
+    ,dc.rack_name
+    ,dc.u_position
+    ,dc.last_discovered
     ,dc.tags
-    ,[dc.in](http://dc.in/)\_service
-from view\_dbb\_compute\_v2 dc
-where lower(dc.device\_type)= 'physical' and dc.hardware\_model is null
+    ,[dc.in](http://dc.in/)_service
+from view_dbb_compute_v2 dc
+where lower(dc.device_type)= 'physical' and dc.hardware_model is null
 order by 2
-
-* * *
+```
 
 **NOTES**
 

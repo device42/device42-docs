@@ -1,41 +1,76 @@
 import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
+import ContentCard from "@site/src/components/card";
 import styles from './index.module.css';
+import Footer from "@site/src/components/footer";
+import Icon from "@site/src/components/icon";
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/getting_started">
-                Getting Started
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+const indexCards = [
+  {
+    title: "Getting Started",
+    icon: <Icon fa="fa-regular fa-clipboard" />,
+    link: "/docs/getting_started"
+  },
+  {
+    title: "Discovery",
+    icon: <Icon fa="fa-solid fa-magnifying-glass" />,
+    link: "docs/discovery/"
+  },
+  {
+    title: "Applications",
+    icon: <Icon fa="fa-solid fa-box-archive" />,
+    link: "docs/applications/"
+  },
+  {
+    title: "Infrastructure Management",
+    icon: <Icon fa="fa-regular fa-building" />,
+    link: "/docs/infrastructure_management/"
+  },
+  {
+    title: "Reporting",
+    icon: <Icon fa="fa-solid fa-bug" />,
+    link: "/docs/reporting/"
+  },
+  {
+    title: "Integration",
+    icon: <Icon fa="fa-regular fa-object-group" />,
+    link: "/docs/integration/"
+  },
+  {
+    title: "Administration",
+    icon: <Icon fa="fa-solid fa-screwdriver-wrench" />,
+    link: "/docs/administration/"
+  },
+  {
+    title: "Videos",
+    icon: <Icon fa="fa-solid fa-video" />,
+    link: "/docs/videos/",
+    externalLink: false,
+  },
+];
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      title={`${siteConfig.tagline}`}
+      noFooter={true}>
+      <main className={styles.mainSection}>
+        <section className={styles.heroSection}>
+          <h1>{siteConfig.tagline}</h1>
+        </section>
+        <section className={styles.cardSection}>
+          <div className="container">
+            <div className={styles.contentCard}>
+              {indexCards.map((item) => (
+                <ContentCard key={item.title} {...item} />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
+      <Footer/>
     </Layout>
   );
 }

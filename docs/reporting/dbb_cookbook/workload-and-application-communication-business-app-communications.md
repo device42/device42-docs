@@ -6,71 +6,69 @@ sidebar_position: 6
 Business Application Service Communication
 
 
-```
-/\* Business Application Service Communication \*/
+```sql
+/* Business Application Service Communication */
 
-/\* 
+/* 
 Use the following query if want to move a Business Application to the cloud and need to know what clients communicate with it. 
 This query will also give you the date of the last communication.
 You can get a list of your Business Applications with this query...
-SELECT DISTINCT listener\_business\_app FROM view\_dbb\_adm\_workload\_and\_app\_comm\_v2;
-You can also swap out the 'WHERE ac.listener\_business\_app' clause for 'WHERE ac.listener\_device' 
-if you want to identify all communication to a Device.  \*/
+SELECT DISTINCT listener_business_app FROM view_dbb_adm_workload_and_app_comm_v2;
+You can also swap out the 'WHERE ac.listener_business_app' clause for 'WHERE ac.listener_device' 
+if you want to identify all communication to a Device.  */
 
 WITH 
-    last\_detected\_cte AS (
+    last_detected_cte AS (
        SELECT 
-          ac.listener\_device\_fk ,
-          ac.listener\_resource\_fk,
-          ac.client\_device\_fk,
-          ac.client\_resource\_fk,
-          MAX(ac.comm\_last\_detected) AS last\_detected
+          ac.listener_device_fk ,
+          ac.listener_resource_fk,
+          ac.client_device_fk,
+          ac.client_resource_fk,
+          MAX(ac.comm_last_detected) AS last_detected
       FROM
-          view\_dbb\_adm\_workload\_and\_app\_comm\_v2 ac
+          view_dbb_adm_workload_and_app_comm_v2 ac
       GROUP BY
-          ac.listener\_device\_fk ,
-          ac.listener\_resource\_fk,
-          ac.client\_device\_fk,
-          ac.client\_resource\_fk
+          ac.listener_device_fk ,
+          ac.listener_resource_fk,
+          ac.client_device_fk,
+          ac.client_resource_fk
 ) 
 SELECT 
-    ac.listener\_business\_app,
-    ac.listener\_device,
-    ac.listener\_app\_component,
-    ac.client\_device,
-    compl.in\_service AS listener\_in\_service,
-    compl.service\_level AS listener\_service\_level,
-    ac.client\_resource,
-    ac.client\_business\_app,
-    ac.client\_device\_object\_category,
-    ac.client\_ip,
-    ac.client\_process\_display\_name,
-    ld.last\_detected,
-    ac.port\_communication,
+    ac.listener_business_app,
+    ac.listener_device,
+    ac.listener_app_component,
+    ac.client_device,
+    compl.in_service AS listener_in_service,
+    compl.service_level AS listener_service_level,
+    ac.client_resource,
+    ac.client_business_app,
+    ac.client_device_object_category,
+    ac.client_ip,
+    ac.client_process_display_name,
+    ld.last_detected,
+    ac.port_communication,
     ac.protocol,
-    eu."name" AS client\_end\_user,
-    eu.email AS client\_email,
-    eu.contact AS client\_contact,
-    eu."location" AS cleint\_location,
-    eu.adusername AS client\_end\_user\_adusername,
-    comp.in\_service AS client\_in\_service ,
-    comp.service\_level AS client\_service\_level,
-    comp.customer\_department,
-    comp.customer\_department AS client\_customer\_department
+    eu."name" AS client_end_user,
+    eu.email AS client_email,
+    eu.contact AS client_contact,
+    eu."location" AS cleint_location,
+    eu.adusername AS client_end_user_adusername,
+    comp.in_service AS client_in_service ,
+    comp.service_level AS client_service_level,
+    comp.customer_department,
+    comp.customer_department AS client_customer_department
 FROM
-    view\_dbb\_adm\_workload\_and\_app\_comm\_v2 ac
-LEFT JOIN view\_dbb\_compute\_v2 comp      ON comp.device\_fk = ac.client\_device\_fk
-LEFT JOIN view\_dbb\_compute\_v2 compl     ON compl.device\_fk = ac.listener\_device\_fk
-LEFT JOIN last\_detected\_cte ld          ON ld.listener\_device\_fk = ac.listener\_device\_fk
-LEFT JOIN view\_serviceinstance\_v2 si    ON si.device\_fk = ac.client\_device\_fk
-LEFT JOIN view\_enduser\_v1 eu            ON eu.enduser\_pk = si.enduser\_fk
-WHERE ac.listener\_business\_app = '<Insert Business Application Here>'
--- WHERE ac.listener\_device = '<Insert Device Name Here>' 
+    view_dbb_adm_workload_and_app_comm_v2 ac
+LEFT JOIN view_dbb_compute_v2 comp      ON comp.device_fk = ac.client_device_fk
+LEFT JOIN view_dbb_compute_v2 compl     ON compl.device_fk = ac.listener_device_fk
+LEFT JOIN last_detected_cte ld          ON ld.listener_device_fk = ac.listener_device_fk
+LEFT JOIN view_serviceinstance_v2 si    ON si.device_fk = ac.client_device_fk
+LEFT JOIN view_enduser_v1 eu            ON eu.enduser_pk = si.enduser_fk
+WHERE ac.listener_business_app = '<Insert Business Application Here>'
+-- WHERE ac.listener_device = '<Insert Device Name Here>' 
 ORDER BY
-    comp.service\_level DESC, ac.listener\_device, ac.client\_device
+    comp.service_level DESC, ac.listener_device, ac.client_device
 ```
-
-* * *
 
 **NOTES**
 

@@ -29,4 +29,9 @@ There are fields that you can set in the Hardware Model for the blade chassis th
 
 ![](/assets/images/media_1424516428153.png)
 
-**Max # of normal blade size** : The number of blades that the chassis holds. **Normal Blade Size for regular slot** : The size of blades for the Max # of normal blade size parameter. **Max blades per row** : The number of vertical columns of blades. **Slot Numbering** : How to number the slots. **Module Positioning** : Horizontal or vertical positioning
+- **Max # of normal blade size** : The number of blades that the chassis holds. 
+- **Normal Blade Size for regular slot** : The size of blades for the Max # of normal blade size parameter. 
+- **Max blades per row** : The number of vertical columns of blades. 
+- **Slot Numbering** : How to number the slots. 
+- **Module Positioning** : Horizontal or vertical positioning
+

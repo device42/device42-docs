@@ -7,27 +7,55 @@ You can get to Azure Migrate directly @ [https://portal.azure.com/#create/Micros
 
 ## Setting up Device42 from the Azure Migrate Portal
 
-1\. Begin by signing up for an Azure account if you don’t already have one. You’ll have to provide a credit card to verify your identity, and agree to the conditions to continue: ![Microsoft Azure Migrate](/assets/images/azure_migrate_start_free.png)
+1\. Begin by signing up for an Azure account if you don’t already have one. You’ll have to provide a credit card to verify your identity, and agree to the conditions to continue: 
 
-2\. Click the button to continue to the Azure portal, and once there, choose “Assess and Migrate servers” as pictured below: ![Sign up for Azure](/assets/images/agree_step_2b.png) ![Continue to Azure Portal](/assets/images/Continue_to_Azure_Portal-3.png) ![Assess and Migrate Servers](/assets/images/Assess_and_migrate_servers-4.png) 3. Next, you’ll want to begin adding migration tools; click “Add a tool.” ![Add a tool](/assets/images/add_tool-5.png)
+![Microsoft Azure Migrate](/assets/images/azure_migrate_start_free.png)
 
-4\. Choose an existing Resource Group, or click the “Create new” link (highlighted) to create a new one. The “Resource Group” name represents the group of machines you’ll be migrating, and can be a name of your choosing, but should be descriptive. Then click“OK.” ![Name your Migration Project](/assets/images/add_a_tool-5.1.png) ![Create resource group](/assets/images/add_a_tool-create-resource-group-5.2.png)
+2\. Click the button to continue to the Azure portal, and once there, choose “Assess and Migrate servers” as pictured below: 
 
-5\. Give your migration project a name, and when finished, click“Next” to continue. ![Name the project](/assets/images/name_migration_project_5.3.png)
+![Sign up for Azure](/assets/images/agree_step_2b.png) 
 
-6\. Select Device42 as your Azure Migration assessment tool by clicking on it so it is selected as shown below. Click “Next” to choose Device42. ![Select Device42 as assessment tool](/assets/images/add_tool_select_D42-6.png)
+![Continue to Azure Portal](/assets/images/Continue_to_Azure_Portal-3.png) 
 
-7\. You can add a migration tool at this point if know which you want to use, but the default is to skip adding a migration tool for now (you can choose a tool when you are ready to migrate). Make sure the “Skip adding a migration tool for now” checkbox is checked, and click “Next” to continue. ![Skip adding a migration tool](/assets/images/add_tool_skip_migration-6.1.png)
+![Assess and Migrate Servers](/assets/images/Assess_and_migrate_servers-4.png) 3. Next, you’ll want to begin adding migration tools; click “Add a tool.” 
 
-8\. Review your tool choice(s) and then click “Add tool(s)” to continue. ![Review tool choices](/assets/images/review_add_tool-6.2.png)
+![Add a tool](/assets/images/add_tool-5.png)
+
+4\. Choose an existing Resource Group, or click the “Create new” link (highlighted) to create a new one. The “Resource Group” name represents the group of machines you’ll be migrating, and can be a name of your choosing, but should be descriptive. Then click“OK.” 
+
+![Name your Migration Project](/assets/images/add_a_tool-5.1.png) 
+
+![Create resource group](/assets/images/add_a_tool-create-resource-group-5.2.png)
+
+5\. Give your migration project a name, and when finished, click“Next” to continue. 
+
+![Name the project](/assets/images/name_migration_project_5.3.png)
+
+6\. Select Device42 as your Azure Migration assessment tool by clicking on it so it is selected as shown below. Click “Next” to choose Device42. 
+
+![Select Device42 as assessment tool](/assets/images/add_tool_select_D42-6.png)
+
+7\. You can add a migration tool at this point if know which you want to use, but the default is to skip adding a migration tool for now (you can choose a tool when you are ready to migrate). Make sure the “Skip adding a migration tool for now” checkbox is checked, and click “Next” to continue. 
+
+![Skip adding a migration tool](/assets/images/add_tool_skip_migration-6.1.png)
+
+8\. Review your tool choice(s) and then click “Add tool(s)” to continue. 
+
+![Review tool choices](/assets/images/review_add_tool-6.2.png)
 
 You’ll see confirmation the deployment has been initialized.
 
-9\. Click “Learn more” to head to the Device42 information page. ![Intializing tool deployment](/assets/images/initializing_deployment-7.png)
+9\. Click “Learn more” to head to the Device42 information page. 
 
-10\. From the Device42 information page, click the orange “Try it now, free” button to jump over to the Device42 download page. ![Learn more to install D42](/assets/images/Install_d42_trial-8.png)
+![Intializing tool deployment](/assets/images/initializing_deployment-7.png)
 
-11\. Fill out the form and click “Start your Free Trial” to download Device42. Your download should be e-mailed to you immediately. ![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
+10\. From the Device42 information page, click the orange “Try it now, free” button to jump over to the Device42 download page. 
+
+![Learn more to install D42](/assets/images/Install_d42_trial-8.png)
+
+11\. Fill out the form and click “Start your Free Trial” to download Device42. Your download should be e-mailed to you immediately. 
+
+![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
 
 For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The Getting Started with Installation section is a great place to begin! [https://docs.device42.com/getstarted/installation/](https://docs.device42.com/getstarted/installation/).
 
@@ -109,4 +137,4 @@ After exporting your Business Applications from Device42 _(__as explained in the
 
 ![Device42 Assessment details in Azure Example](/assets/images/Assessment_details_3.png)
 
-**If you need help with steps or processes discussed on this page and haven't found the answer here, please don’t hesitate to reach out to _support@device42.com_!**
+**If you need help with steps or processes discussed on this page and haven't found the answer here, please don’t hesitate to reach out to [support@device42.com](mailto:support@device42.com)!**

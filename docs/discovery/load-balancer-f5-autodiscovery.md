@@ -36,7 +36,21 @@ To discover a UCS or other Cluster Device, select "UCS" from the **Platform:** d
 
 ### Discovery Options Definitions
 
-**Hostname to use**: Discovered Name or Serial #; Choose the hostname format to use for newly discovered devices - _option only exists for UCS & ACI devices_. **Give precedence to hostname**: Select to force overwrite the existing hostname in Device42 for devices that already exist using the hostname option in _hostname to use_ - _ACS/UCI only_. **VRF Group for discovered devices**: Place discovered devices into the following VRF group - _UCS/ACI devices only_. **Object Category for discovered devices**: Place discovered objects into the chosen category in Device42 - _UCS/ACI devices only_. **Overwrite existing object categories**: Select to force overwrite of category on devices that already exist in Device42 - _UCS/ACI devices only_.
+- Hostname to use: Discovered Name or Serial #; Choose the hostname format to use for newly discovered devices.
+  (Note: This option only exists for UCS & ACI devices.)
+
+- Give precedence to hostname: Select to force overwrite the existing hostname in Device42 for devices that already exist using the hostname option in "Hostname to use".
+  (Note: This option is applicable to ACS/UCI devices only.)
+
+- VRF Group for discovered devices: Place discovered devices into the following VRF group.
+  (Note: This option is applicable to UCS/ACI devices only.)
+
+- Object Category for discovered devices: Place discovered objects into the chosen category in Device42.
+  (Note: This option is applicable to UCS/ACI devices only.)
+
+- Overwrite existing object categories: Select to force overwrite of category on devices that already exist in Device42.
+  (Note: This option is applicable to UCS/ACI devices only.)
+
 
 ## Run Now or Schedule
 

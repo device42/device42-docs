@@ -21,7 +21,7 @@ Once you unzip the downloaded raw image, create a new virtual machine. Choose Ne
 
 ![Choosing OS and version](/assets/images/wpid2480-Choosing_OS_and_version.png)
 
-Choose Linux & Ubuntu 14.04 for Operating system type and version. If you don't see the option for 14.04, choose the latest version avaialble(as shown above).
+Choose Linux & Ubuntu 14.04 for Operating system type and version. If you don't see the option for 14.04, choose the latest version available (as shown above).
 
 ![](/assets/images/wpid2484-media_1326264722468.png)
 
@@ -49,8 +49,8 @@ Details > Boot Options > Uncheck Network(PXE).
 - Optional: Create a DNS entry for the new IP address for new virtual appliance.
 - Point your browser to https://FQDN(Fully Qualified Domain Name) or IP address and you are ready to go.
 - Default username is admin and password is adm!nd42, please change that as soon as you login.
-    
-    ![](/assets/images/media_1418268381909.png)
+
+![](/assets/images/media_1418268381909.png)
 
 default login : device42 default password: adm!nd42
 
@@ -66,6 +66,8 @@ Configure Networking.
 
 ![](/assets/images/wpid2486-media_1338939501693.png)
 
-The default username/password is admin/adm!nd42 Make sure to change it after you login!
+The default username/password is admin/adm!nd42
+
+Make sure to change it after you login!
 
 Enjoy!

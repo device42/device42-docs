@@ -56,8 +56,14 @@ To change the password, use console Option 10 (pictured below).
 
 ### Configuring the appliance's IP address
 
-Configure the appliance's IP address via console Option 1: ![Device42 appliance console menu - config IP, v15](/assets/images/d42-console-menu-config-IP-v15.png)
+Configure the appliance's IP address via console Option 1: 
 
-The Device42 appliance IP address configuration screen: ![](/assets/images/wpid6189-media_1326257599676.png)
+![Device42 appliance console menu - config IP, v15](/assets/images/d42-console-menu-config-IP-v15.png)
 
-Last, point your browser to the address at the top of the console menu and you're ready to go... ![Device42 Web Interface Login Screen v15](/assets/images/d42-web-interface-login-screen-v15.png)
+The Device42 appliance IP address configuration screen: 
+
+![](/assets/images/wpid6189-media_1326257599676.png)
+
+Last, point your browser to the address at the top of the console menu and you're ready to go... 
+
+![Device42 Web Interface Login Screen v15](/assets/images/d42-web-interface-login-screen-v15.png)

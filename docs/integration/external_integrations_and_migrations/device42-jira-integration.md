@@ -3,15 +3,14 @@ title: "Jira (self-hosted) Integration"
 sidebar_position: 15
 ---
 
-## Device42-Jira (Self-Hosted) Integration
-
 ### Integration Prerequisites
 
 To use the Device42-Jira integration, users must have:
 
-\- **Device42** virtual appliance, running, properly configured, and populated with CIs (to sync to Jira) - **Jira instance _\[Server, self-hosted for this version\]_**, properly configured, with the Device42 plugin installed.
+- **Device42** virtual appliance, running, properly configured, and populated with CIs (to sync to Jira) 
+- **Jira instance _\[Server, self-hosted for this version\]_**, properly configured, with the Device42 plugin installed.
 
-_\*If you are looking to integration Device42 with Jira Service Management and/or Jira Cloud, see the [Device42-Jira Service Management/Cloud integration page.](/external-integrations/device42-jira-cloud-integration/)_
+_*If you are looking to integration Device42 with Jira Service Management and/or Jira Cloud, see the [Device42-Jira Service Management/Cloud integration page.](/external-integrations/device42-jira-cloud-integration/)_
 
 ### Device42-Jira self-hosted Integration Feature Overview
 
@@ -127,7 +126,10 @@ _To create a new custom field Device42 Custom Field:_
     ```
     
 3. Click the "Add Custom Field" button, the following dialog will be displayed:![Add Custom Field](/assets/images/1375163554-d42-003.png)By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
-4. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:![Look for Device42 Custom Field](/assets/images/2411859984-06_custom_field.png)
+4. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:
+
+![Look for Device42 Custom Field](/assets/images/2411859984-06_custom_field.png)
+
 5. Click Next.
 6. Give it a name, a description. Click Next.
 7. Associate the field to screens. Click Update.

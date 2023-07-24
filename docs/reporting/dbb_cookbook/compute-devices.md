@@ -5,87 +5,87 @@ sidebar_position: 9
 
 Detailed Inventory of Compute Devices
 
+```sql
 select
-       dc.device\_fk
-       ,dc.last\_discovered
-       ,dc.device\_name
-       ,dc.in\_service
-       ,dc.service\_level
-       ,dc.device\_type
-       ,dc.device\_subtype
-       ,dc.virtual\_subtype 
-       ,dc.device\_serial
-       ,dc.virtual\_host
-       ,dc.network\_device
-       ,dc.os\_architecture
-       ,dc.total\_cpus
-       ,dc.core\_per\_cpu
-       ,dc.cpu\_speed
-       ,dc.total\_cores
-       ,dc.is\_hyperthreaded
-       ,round((dc.ram\_mb/1024)::numeric ,0)  ram\_gb
-       ,dc.os\_vendor
-       ,dc.os\_category   
-       ,dc.os\_name
-       ,dc.os\_version
-       ,dc.os\_version\_number
-       ,dc.os\_end\_of\_life
-       ,dc.os\_end\_of\_support
+       dc.device_fk
+       ,dc.last_discovered
+       ,dc.device_name
+       ,dc.in_service
+       ,dc.service_level
+       ,dc.device_type
+       ,dc.device_subtype
+       ,dc.virtual_subtype 
+       ,dc.device_serial
+       ,dc.virtual_host
+       ,dc.network_device
+       ,dc.os_architecture
+       ,dc.total_cpus
+       ,dc.core_per_cpu
+       ,dc.cpu_speed
+       ,dc.total_cores
+       ,dc.is_hyperthreaded
+       ,round((dc.ram_mb/1024)::numeric ,0)  ram_gb
+       ,dc.os_vendor
+       ,dc.os_category   
+       ,dc.os_name
+       ,dc.os_version
+       ,dc.os_version_number
+       ,dc.os_end_of_life
+       ,dc.os_end_of_support
        ,dc.manufacturer
-       ,dc.hardware\_model
-       ,dc.asset\_number
-       ,dc.software\_discovered
-       ,dc.services\_discovered
-       ,dc.application\_components\_discovered
-       ,dc.local\_disk\_count
-       ,dc.mounts\_discovered
-       ,dc.number\_ip\_addresses\_discovered
-       ,dc.parts\_discovered
-       ,dc.parts\_count
-       ,dc.bios\_version
-       ,dc.bios\_revision
-       ,dc.bios\_release\_date
-       ,dc.storage\_room
-       ,dc.building\_name
-       ,dc.building\_address
-       ,dc.room\_name
-       ,dc.row\_name
-       ,dc.rack\_name
-       ,dc.size\_ru
-       ,dc.network\_shares
-       ,dc.mount\_points
+       ,dc.hardware_model
+       ,dc.asset_number
+       ,dc.software_discovered
+       ,dc.services_discovered
+       ,dc.application_components_discovered
+       ,dc.local_disk_count
+       ,dc.mounts_discovered
+       ,dc.number_ip_addresses_discovered
+       ,dc.parts_discovered
+       ,dc.parts_count
+       ,dc.bios_version
+       ,dc.bios_revision
+       ,dc.bios_release_date
+       ,dc.storage_room
+       ,dc.building_name
+       ,dc.building_address
+       ,dc.room_name
+       ,dc.row_name
+       ,dc.rack_name
+       ,dc.size_ru
+       ,dc.network_shares
+       ,dc.mount_points
        ,dc.account
-       ,dc.cloud\_service\_provider
-       ,dc.cloud\_service\_name
-       ,dc.cloud\_instance\_id
-       ,dc.cloud\_instance\_name
-       ,dc.cloud\_instance\_type
-       ,dc.cloud\_instance\_status
-       ,dc.cloud\_location
-       ,dc.cloud\_notes
-       ,dc.first\_po\_date
-       ,dc.last\_po\_date
-       ,dc.all\_po\_costs
-       ,dc.all\_line\_item\_costs
-       ,dc.all\_po\_numbers
-       ,dc.all\_cost\_centers
-       ,dc.all\_cost\_center\_descriptions
-       ,dc.all\_ips
-       ,dc.all\_labels
-       ,dc.dns\_A\_records
-       ,dc.dns\_AAAA\_records
-       ,dc.local\_used\_space\_gb
-       ,dc.remote\_used\_space\_gb   
-       ,dc.local\_total\_space\_gb
-       ,dc.remote\_total\_space\_gb
-       ,dc.local\_free\_space\_gb
-       ,dc.remote\_free\_space\_gb
-       ,dc.cpu\_model
-       ,dc.cpu\_manufacturer
- from view\_dbb\_compute\_v2 dc
- order by device\_name
-
-* * *
+       ,dc.cloud_service_provider
+       ,dc.cloud_service_name
+       ,dc.cloud_instance_id
+       ,dc.cloud_instance_name
+       ,dc.cloud_instance_type
+       ,dc.cloud_instance_status
+       ,dc.cloud_location
+       ,dc.cloud_notes
+       ,dc.first_po_date
+       ,dc.last_po_date
+       ,dc.all_po_costs
+       ,dc.all_line_item_costs
+       ,dc.all_po_numbers
+       ,dc.all_cost_centers
+       ,dc.all_cost_center_descriptions
+       ,dc.all_ips
+       ,dc.all_labels
+       ,dc.dns_A_records
+       ,dc.dns_AAAA_records
+       ,dc.local_used_space_gb
+       ,dc.remote_used_space_gb   
+       ,dc.local_total_space_gb
+       ,dc.remote_total_space_gb
+       ,dc.local_free_space_gb
+       ,dc.remote_free_space_gb
+       ,dc.cpu_model
+       ,dc.cpu_manufacturer
+ from view_dbb_compute_v2 dc
+ order by device_name
+```
 
 **NOTES**
 

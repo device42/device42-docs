@@ -18,13 +18,25 @@ Device42 has enhanced i/AS400 discovery with additional capabilities and device 
 
 ## Creating an IBM i/AS400 \[mid-range\] Discovery Job
 
-To add a new IBM i/AS400 discovery job, head to the main menu and select _Discovery > HyperVisors / \*nix / Windows_. Create a new discovery job, selecting IBM i/AS400 as your ‘Platform’: ![](/assets/images/AD_IBM-AS400-Job.png)
+To add a new IBM i/AS400 discovery job, head to the main menu and select _Discovery > HyperVisors / \*nix / Windows_. Create a new discovery job, selecting IBM i/AS400 as your ‘Platform’: 
+
+![](/assets/images/AD_IBM-AS400-Job.png)
 
 **\*Note: Please do _not_ set up an autodiscovery / scan using critical \[production\] account credentials! Please create a separate, dedicated account to use _only_ for discovery.\*** _Doing so, depending on permissions granted & configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage._
 
 ## IBM System i/AS400 Discovery Options
 
-**Job name** A name of your choosing to identify your IBM i/AS400 autodiscovery job **Remote Collector:** Optionally specify a remote collector from which to run discovery \[instead of from the main appliance\] **Platform:** Select "IBM i/AS400" **Discovery Target(s):** Specify the FQDN or IP address of the IBM i/AS400 to discover. If using FQDN, ensure Device42 is setup to resolve DNS _(VM console, option 1)_ **Port:** IBM i/AS400 discovery uses port 23 by default. Only change if you have configured a custom listening port configuration. **Username & password:** Specify a username with permissions on your IBM i / AS 400 **Debug Level:** Turn debug on for extra troubleshooting output - useful for support tickets. **ADM Sampling Interval:** Off or interval in minutes or hours. **Discover Using FTP**: Run the discovery through FTP instead of Telnet. **Timeout**: The maximum time in seconds per command when performing a Telnet discovery. If there are connection issues or slow loading time, increasing the Timeout may yield better results. ![](/assets/images/WEB-343_AS400-FTP-Timeout-Options.png) **Last Job Status:** Displays the status of the last discovery or task run. **Job Run Report:** This will record what has changed in the last task. **Schedule for autodiscovery:** You can schedule the discovery job to run automatically. ![](/assets/images/AD_IBM-AS400-Job-Options.png) **Discover Lines of Code**: If selected under the _Software and Applications_ section, this will run a script to collect the total lines of code on the machine. If used, we recommend increasing the max timeout of the discovery to 5 minutes or more. ![](/assets/images/WEB-343_AS400-Discover-Code-Option.png)
+**Job name** A name of your choosing to identify your IBM i/AS400 autodiscovery job **Remote Collector:** Optionally specify a remote collector from which to run discovery \[instead of from the main appliance\] **Platform:** Select "IBM i/AS400" **Discovery Target(s):** Specify the FQDN or IP address of the IBM i/AS400 to discover. If using FQDN, ensure Device42 is setup to resolve DNS _(VM console, option 1)_ **Port:** IBM i/AS400 discovery uses port 23 by default. Only change if you have configured a custom listening port configuration. **Username & password:** Specify a username with permissions on your IBM i / AS 400 **Debug Level:** Turn debug on for extra troubleshooting output - useful for support tickets. **ADM Sampling Interval:** Off or interval in minutes or hours. **Discover Using FTP**: Run the discovery through FTP instead of Telnet. **Timeout**: The maximum time in seconds per command when performing a Telnet discovery. If there are connection issues or slow loading time, increasing the Timeout may yield better results. 
+
+![](/assets/images/WEB-343_AS400-FTP-Timeout-Options.png) 
+
+**Last Job Status:** Displays the status of the last discovery or task run. **Job Run Report:** This will record what has changed in the last task. **Schedule for autodiscovery:** You can schedule the discovery job to run automatically. 
+
+![](/assets/images/AD_IBM-AS400-Job-Options.png)
+
+**Discover Lines of Code**: If selected under the _Software and Applications_ section, this will run a script to collect the total lines of code on the machine. If used, we recommend increasing the max timeout of the discovery to 5 minutes or more. 
+
+![](/assets/images/WEB-343_AS400-Discover-Code-Option.png)
 
 ### i/AS400 FTP Discovery
 
@@ -46,11 +58,13 @@ To add a new IBM i/AS400 discovery job, head to the main menu and select _Discov
 
 IBMi/AS400 permissions requirements are configured via the following command. **Have your AS400 admin run the following:**
 
+```
 CRTUSRPRF USRPRF($USERNAME$) PASSWORD($YOURPASSWORD$) USRCLS(\*SECOFR) SPCAUT(\*ALLOBJ \*JOBCTL)
+```
 
-**In the above IBM i / AS400 command:** _$USERNAME$_ = The chosen profile name being set. Substitute '$USERNAME$' in the above command with the profile name of your choice. _$YOURPASSWORD$_ = The password you are setting. Substitute '$YOURPASSWORD$' with a strong password of your choosing. Note: _In USRCLS(\*SECOFR)_ = \[\*SECOFR\] may be substituted with \[\*USER\] or \[\*PGMR\] if desired – however, if you choose \[\*USER\], this option will prevent software from being discovered. For complete discovery access, choose an option higher than \[\*USER\].
+**In the above IBM i / AS400 command:** `$USERNAME$` = The chosen profile name being set. Substitute '$USERNAME$' in the above command with the profile name of your choice. `$YOURPASSWORD$` = The password you are setting. Substitute `$YOURPASSWORD$` with a strong password of your choosing. Note: `In USRCLS(*SECOFR) =   [*SECOFR]` may be substituted with `[*USER]` or `[*PGMR]` if desired – however, if you choose `[*USER]`, this option will prevent software from being discovered. For complete discovery access, choose an option higher than `[*USER]`.
 
-- For Telnet discovery, please ensure that the created user has the default initial menu (MAIN). Customized menus may cause issues when running the discovery.
+- For Telnet discovery, please ensure that the created user has the default initial menu (`MAIN`). Customized menus may cause issues when running the discovery.
 
 ## AS400 Autodiscovery Details
 

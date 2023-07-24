@@ -17,21 +17,13 @@ Doing so, depending on permissions granted & configured password policies could 
 
 **Device42 Autodiscovery agents are available for deployment on the following platforms:**
 
-`<table style="height: 0px;" width="400"><tbody><tr><td><ul><li>Windows (32) NT 4.0</li><li>Windows (32) Win 7+</li><li>Linux (32-bit)</li><li>FreeBSD v10+ (32)</li><li>FreeBSD v1-9 (32)</li><li>OpenBSD v6+ (32)</li><li>OpenBSD pre v6 (32)</li><li>Solaris Sparc (64)</li></ul></td><td><ul><li>Windows (64) NT 4.0</li><li>Windows (64) Win 7+</li><li>Linux (64-bit)</li><li>FreeBSD v10+ (64)</li><li>FreeBSD v1-9 (64)</li><li>OpenBSD v6+ (64)</li><li>OpenBSD pre v6 (64)</li><li>Mac</li></ul></td></tr></tbody></table>`
-
- 
+<table><tbody><tr><td><ul><li>Windows (32) NT 4.0</li><li>Windows (32) Win 7+</li><li>Linux (32-bit)</li><li>FreeBSD v10+ (32)</li><li>FreeBSD v1-9 (32)</li><li>OpenBSD v6+ (32)</li><li>OpenBSD pre v6 (32)</li><li>Solaris Sparc (64)</li></ul></td><td><ul><li>Windows (64) NT 4.0</li><li>Windows (64) Win 7+</li><li>Linux (64-bit)</li><li>FreeBSD v10+ (64)</li><li>FreeBSD v1-9 (64)</li><li>OpenBSD v6+ (64)</li><li>OpenBSD pre v6 (64)</li><li>Mac</li></ul></td></tr></tbody></table>
 
 ## Installation
 
 The client can be downloaded by going to _Discovery > Agent Based Scans_. Enter the URL as it will be accessed by the agent from the remote machine, and choose your platform: Windows, Mac, Linux, FreeBSD, etc.
 
 ![](/assets/images/D42-23312_discovery-agent-1-250x122.png)
-
- 
-
- 
-
- 
 
 It can be run from the command line or can be scheduled using the relevant scheduling program per OS. When running the application, the following switches are available:
 

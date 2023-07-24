@@ -94,22 +94,23 @@ The Discovery section will allow you to setup and save multiple autodiscovery jo
 
 By choosing “New” from the dropdown for Settings you will be able to setup a new autodiscover job. The settings for the fields are as follows:
 
-| Field |  | Description |
-| --- | --- | --- |
-| Settings |  | Select Pre-Configured Jobs from this dropdown |
-| Name |  | Your chosen name for the autodiscovery job |
-| Credentials |  | Choose one credentials for the discovery that were setup in the Settings tab |
-| Device Name |  | Choose from one of the options to set the device name. See below for details |
-| Ignore |  | You can choose to ignore OS name, UUID, Serial Number, Domain Suffix, IPv6 address, and/or Virtual Subtype |
-| Options |  | You can choose to give the host name precedence, Discover Services, and if you have the add-ons, discover software and/or application inventory |
-| Device Category |  | Choose from Device Categories you’ve configured within Device42. Selecting ‘Override’ will replace existing categores with the current selection. |
-| Service Level |  | These values are pulled from Device42 and allow you to set the Service Level on the discovered devices. |
-| Customer |  | These values are pulled from Device42 and allow you to associate discovered servers with the selected Customer. |
-| VRF Group |  | These values are pulled from Device42 and allow you to assign the discovered servers to the selected VRF Group. |
-| Discover by |  | Here you can choose CIDR Blocks, Host Names, or IP Ranges, or Domain Servers to perform the autodiscovery against |
-| Criteria |  | When Using Host Name or CIDR Blocks to autodiscover, you can enter the host names or CIDR blocks in comma separated list form |
-| IP Range |  | When using IP address autodiscovery, you can enter a single IP address or an address range in this section |
-| Exclusions |  | If you would like to ignore IP’s in a range, you can enter them here |
+| Field           | Description                                                                                     |
+|-----------------|-------------------------------------------------------------------------------------------------|
+| Settings        | Select Pre-Configured Jobs from this dropdown                                                  |
+| Name            | Your chosen name for the autodiscovery job                                                      |
+| Credentials     | Choose one credentials for the discovery that were setup in the Settings tab                  |
+| Device Name     | Choose from one of the options to set the device name. See below for details                   |
+| Ignore          | You can choose to ignore OS name, UUID, Serial Number, Domain Suffix, IPv6 address, and/or Virtual Subtype |
+| Options         | You can choose to give the host name precedence, Discover Services, and if you have the add-ons, discover software and/or application inventory |
+| Device Category | Choose from Device Categories you’ve configured within Device42. Selecting ‘Override’ will replace existing categories with the current selection. |
+| Service Level   | These values are pulled from Device42 and allow you to set the Service Level on the discovered devices. |
+| Customer        | These values are pulled from Device42 and allow you to associate discovered servers with the selected Customer. |
+| VRF Group       | These values are pulled from Device42 and allow you to assign the discovered servers to the selected VRF Group. |
+| Discover by     | Here you can choose CIDR Blocks, Host Names, or IP Ranges, or Domain Servers to perform the autodiscovery against |
+| Criteria        | When Using Host Name or CIDR Blocks to autodiscover, you can enter the host names or CIDR blocks in comma separated list form |
+| IP Range        | When using IP address autodiscovery, you can enter a single IP address or an address range in this section |
+| Exclusions      | If you would like to ignore IP’s in a range, you can enter them here                           |
+
 
 For Windows Autodiscovery by Domain Server, if you would like you can use a custom filter by entering an LDAP query to filter the results, excluding discovery of certain non-matching devices.
 
