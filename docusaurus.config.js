@@ -9,7 +9,7 @@ const config = {
   title: "Device42",
   tagline: "The Hitchhiker’s Guide to DEVICE42",
   favicon: 'https://www.device42.com/wp-content/uploads/2021/08/d42-favicon.png',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.device42.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -17,6 +17,21 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/docs/getting_started/getting-started-with-auto-discovery',
+            from: '/getstarted/getting-started-with-auto-discovery/',
+          },
+        ],
+      },
+    ],
+  ],
+
   /** @type {import('@docusaurus/preset-classic').Options} */
   presets: [
     [
@@ -25,7 +40,7 @@ const config = {
 
         docs: {
           editUrl:
-          'https://github.com/device42/docs-device42/tree/main/',
+          'https://github.com/device42/device42-docs/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -80,3 +95,4 @@ const config = {
 };
 
 module.exports = config;
+
