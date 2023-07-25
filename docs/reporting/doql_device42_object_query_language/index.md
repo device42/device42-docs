@@ -7,7 +7,7 @@ sidebar_position: 1
 
 DOQL queries can be run against the Device42 database both using https and via the RESTful API. You can make requests using curl, or can alternatively point your favorite REST API client at the DOQL query endpoints below. Consult the DOQL query parameters, explained below, and example queries that follow can be helpful as well.
 
-Should you have any questions, consult the ["Obtaining DOQL Support"](/device42-doql/#section-6) section on this page.
+Should you have any questions, consult the [Obtaining DOQL Support](#obtaining-doql-support) section on this page.
 
 ### DOQL query API endpoint
 
@@ -41,7 +41,7 @@ The data dictionary is available via the API (in JSON). **API Endpoint for the d
 
  
 
-See the [Device42 DB viewer schema page](/device42-doql/db-viewer-schema/) for information on the [DB viewer schena & Entity Relatinoship Diagram](/device42-doql/db-viewer-schema/), both of which are very handy when authoring queries, providing valuable insight into the Device42 database schema.
+See the [Device42 DB viewer schema page](db-viewer-schema/) for information on the [DB viewer schema & Entity Relationship Diagram](db-viewer-schema/), both of which are very handy when authoring queries, providing valuable insight into the Device42 database schema.
 
 * * *
 
