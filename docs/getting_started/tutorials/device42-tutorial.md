@@ -7,7 +7,7 @@ sidebar_position: 0
 
 So you’ve downloaded the Device42 appliance and fired up the application. That was easy. You've logged in using the default credentials, and now you're looking at the dashboard below - except yours shows zero buildings, no rooms, not a single device ... _and so on_.
 
-If you're wondering what to do next, you're in the right place! **This [Getting Started](/getstarted/) section will quickly get you up to speed on common Device42 terms while also providing a primer to acclimate you with the Device42 UI.**
+If you're wondering what to do next, you're in the right place! **This [Getting Started](../) section will quickly get you up to speed on common Device42 terms while also providing a primer to acclimate you with the Device42 UI.**
 
 ### **Let's get started!**
 

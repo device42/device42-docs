@@ -3,7 +3,7 @@ title: "IBM i/AS400 (Midrange)"
 sidebar_position: 13
 ---
 
-_...looking to discover an [IBM z/OS-powered mainframe? Click here for the z/OS docs page, instead.](/auto-discovery/z-os-ibm-mainframe/)_
+_...looking to discover an [IBM z/OS-powered mainframe? Click here for the z/OS docs page, instead.](z-os-ibm-mainframe)_
 
 ## IBM i/AS400 Discovery Updates
 

@@ -33,4 +33,4 @@ The **Viewer Data Dictionary can be found** via the Device42 UI, _Help Menu -> V
 
 ![](/assets/images/WEB-828_4.jpg)
 
-Note that you can also get the data dictionary from this API endpoint: `/services/data/v1.0/dd/` should you prefer the API; Parameters, and more details about running DOQL queries via the API can be found on the [main D42 DOQL page here](/device42-doql/).
+Note that you can also get the data dictionary from this API endpoint: `/services/data/v1.0/dd/` should you prefer the API; Parameters, and more details about running DOQL queries via the API can be found on the [main D42 DOQL page here](./).

@@ -46,7 +46,6 @@ const indexCards = [
     title: "Videos",
     icon: <Icon fa="fa-solid fa-video" />,
     link: "/docs/videos/",
-    externalLink: false,
   },
 ];
 
