@@ -79,7 +79,7 @@ function MenuItem({ link, title }) {
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.mainFooter}>
       <div className="container">
         <div className="clearfix">
           <div className={clsx(styles.footerWidget, styles.footerSection)}>
