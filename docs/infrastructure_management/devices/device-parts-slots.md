@@ -7,7 +7,7 @@ sidebar_position: 9
 
 Part slots may be added to both new and existing blade-based and non-blade hardware. Parts slots can optionally receive parts. Define parts slots on hardware templates, or add one directly to an existing hardware device.
 
-For information on blade slots, which work similarly, but accept blades instead of parts, see [Blade Slots documentation](/devices/device-blade-slots/)
+For information on blade slots, which work similarly, but accept blades instead of parts, see [Blade Slots documentation](device-blade-slots/)
 
 ## Add Parts slots to hardware models
 

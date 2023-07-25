@@ -13,7 +13,7 @@ SNMP, or Simple Network Management Protocol, is a protocol and a standard that i
 
 ### What can be autodiscovered using SNMP?
 
-Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](/auto-discovery/snmp-san-server-auto-discovery/) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](/auto-discovery/snmp-san-server-auto-discovery/) page. SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. Should the credentials \*not\* be the same, you may instead add devices using different credentials separately, as their own discovery job.
+Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage_arrays_autodiscovery/snmp-san-server-auto-discovery) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](storage_arrays_autodiscovery/snmp-san-server-auto-discovery) page. SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. Should the credentials \*not\* be the same, you may instead add devices using different credentials separately, as their own discovery job.
 
 ### Specific categories of data SNMP can discover
 

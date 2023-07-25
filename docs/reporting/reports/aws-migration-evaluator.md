@@ -3,7 +3,7 @@ title: "AWS Migration Evaluator"
 sidebar_position: 3
 ---
 
-You can generate a Device42 AWS Migration Evaluator report from Device42’s predefined reports and upload the report to the AWS Migration Evaluator portal. To see a sample report, visit [https://d1.awsstatic.com/asset-repository/tso-logic/MigrationEvaluator\_TSOLogic\_AWS\_BusinessCaseSample.pdf](assets/MigrationEvaluator_TSOLogic_AWS_BusinessCaseSample.pdf "https://d1.awsstatic.com/asset-repository/tso-logic/MigrationEvaluator_TSOLogic_AWS_BusinessCaseSample.pdf").To generate the report, follow the steps below.
+You can generate a Device42 AWS Migration Evaluator report from Device42’s predefined reports and upload the report to the AWS Migration Evaluator portal. To see a sample report, visit [https://d1.awsstatic.com/asset-repository/tso-logic/MigrationEvaluator\_TSOLogic\_AWS\_BusinessCaseSample.pdf](https://d1.awsstatic.com/asset-repository/tso-logic/MigrationEvaluator_TSOLogic_AWS_BusinessCaseSample.pdf).To generate the report, follow the steps below.
 
 1\. Navigate to Insights+ via the header menu.
 

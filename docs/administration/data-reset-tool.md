@@ -13,4 +13,4 @@ You can then run the script on any computer with Python 2.7+ installed.
 
 * * *
 
-**Note:** The Device42 reset script does not currently clear subnets from the application, they will need to manually be cleared. WARNING: THIS SCRIPT WILL CLEAR ALL DEVICES FROM DEVICE42 -- [Make a backup](/device42-appliance-manager/setting-up-backup-device42-appliance-manager/) first if you're even a little bit unsure!
+**Note:** The Device42 reset script does not currently clear subnets from the application, they will need to manually be cleared. WARNING: THIS SCRIPT WILL CLEAR ALL DEVICES FROM DEVICE42 -- [Make a backup](appliance_manager/setting-up-backup-device42-appliance-manager) first if you're even a little bit unsure!
