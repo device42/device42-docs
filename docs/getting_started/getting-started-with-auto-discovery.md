@@ -37,7 +37,7 @@ The required fields are Name, Network and mask bits. Others are optional. The be
 
 ### Creating your first discovery job
 
-Once you've installed the [WDS](/installation/windows-discovery-service-installation) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](../discovery/autodisc-best-practices/) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](../discovery/network-auto-discovery/)
+Once you've installed the [WDS](installation/windows-discovery-service-installation) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](../discovery/autodisc-best-practices/) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](../discovery/network-auto-discovery/)
 
 Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](https://docs.device42.com/auto-discovery/network-auto-discovery/) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
 
