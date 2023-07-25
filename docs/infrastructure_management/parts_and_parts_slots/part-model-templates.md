@@ -3,7 +3,7 @@ title: "Part Model Templates"
 sidebar_position: 4
 ---
 
-v15.04.00+ supports parts having ports, parts slots, and more. If you are looking for information about [adding parts slots (and/or blade slots) to devices has its own section.](/device/device-parts-slots/)
+v15.04.00+ supports parts having ports, parts slots, and more. If you are looking for information about [adding parts slots (and/or blade slots) to devices has its own section.](../devices/device-parts-slots/)
 
 ### Part Model Templates
 

@@ -5,7 +5,7 @@ sidebar_position: 24
 
 ## The Device42 Remote Collector (RC)
 
-The Remote Collector _(aka the "RC")_ is a virtual appliance that is deployed separately from the D42 main appliance _(aka Device42 "MA")_. It is sent autodiscovery jobs and controlled from the MA, executing those jobs remotely. All autodiscovery jobs, including Power SNMP jobs \[v14+\] are supported and can be run remotely on an RC! _\[Please note: Windows discovery requires at least one [Windows Discovery Service](/getstarted/installation/windows-discovery-service-installation/) ("WDS") instance be deployed\]._
+The Remote Collector _(aka the "RC")_ is a virtual appliance that is deployed separately from the D42 main appliance _(aka Device42 "MA")_. It is sent autodiscovery jobs and controlled from the MA, executing those jobs remotely. All autodiscovery jobs, including Power SNMP jobs \[v14+\] are supported and can be run remotely on an RC! _\[Please note: Windows discovery requires at least one [Windows Discovery Service](../getting_started/installation/windows-discovery-service-installation) ("WDS") instance be deployed\]._
 
 You may configure an unlimited number of remote collector appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor and other auto discoveries across networks with only https access required, eliminating the need to open numerous ports up across network segments.
 
@@ -102,4 +102,4 @@ Device42 Remote Collectors (RCs) are updated automatically as long as they are c
 
 ## Migrating Existing Power Appliance Jobs to a Remote Collector (RC)
 
-Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](/energy-monitoringmanagement/power-rc-setup-job-migration/) to migrate jobs to the new RC of your choice.
+Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](/infrastructure_management/power_and_environmental_monitoring/power-rc-setup-job-migration) to migrate jobs to the new RC of your choice.

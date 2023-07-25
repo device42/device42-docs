@@ -27,7 +27,7 @@ To allow for discovery in those scenarios, we are happy to announce the availabi
 
 ### Obtaining the offline discovery agent
 
-If you have a Device42 appliance up and running, you already have the discovery agent! It is built-in to your Device42 instance, and can be downloaded for any of the above listed platforms by simply going to the main menu, _Discovery -> Agent Based Scans_. To learn about using the agent for _online_ discovery, see the [discovery agent documentation here](/auto-discovery/agent-based-discovery/).
+If you have a Device42 appliance up and running, you already have the discovery agent! It is built-in to your Device42 instance, and can be downloaded for any of the above listed platforms by simply going to the main menu, _Discovery -> Agent Based Scans_. To learn about using the agent for _online_ discovery, see the [discovery agent documentation here](agent-based-discovery).
 
 ![](/assets/images/AD_Agent-Based-Scans-1.png)
 

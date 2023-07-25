@@ -1,5 +1,5 @@
 ---
-title: "Power RC Setup &amp; Existing Job Migration"
+title: "Power RC Setup & Existing Job Migration"
 sidebar_position: 5
 ---
 

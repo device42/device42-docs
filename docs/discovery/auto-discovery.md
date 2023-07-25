@@ -62,14 +62,14 @@ Click here for the [VMware & VM discovery docs](https://docs.device42.com/auto-d
 
 Discover iLO, iDrac or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS level discovery methods, BMC IP and MAC address show up in device properties.
 
-Discussed here in detail: [https://docs.device42.com/auto-discovery/ipmi-auto-discovery/](https://docs.device42.com/auto-discovery/ipmi-auto-discovery/)
+Discussed here in detail: [https://docs.device42.com/auto-discovery/ipmi-auto-discovery/](ipmi-auto-discovery)
 
 ## Midrange / Mainframe discovery (IBM AS/400 and z/OS)
 
-Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](/auto-discovery/ibm-i-as400/) platform & the [IBM z/OS mainframe platform](/auto-discovery/z-os-ibm-mainframe/).
+Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](ibm-i-as400) platform & the [IBM z/OS mainframe platform](z-os-ibm-mainframe).
 
-- See the [IBM i/AS400 mid-range discovery documentation page here.](https://docs.device42.com/auto-discovery/ibm-i-as400/)
-- See the [IBM z/OS mainframe discovery documentation page here](https://docs.device42.com/auto-discovery/z-os-ibm-mainframe/).
+- See the [IBM i/AS400 mid-range discovery documentation page here.](ibm-i-as400)
+- See the [IBM z/OS mainframe discovery documentation page here](z-os-ibm-mainframe).
 
 ## Network / SNMP Autodiscovery
 
