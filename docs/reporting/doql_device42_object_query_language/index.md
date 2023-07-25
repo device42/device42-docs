@@ -65,7 +65,7 @@ _"region name"_, the query would have to be: `select "region name" from view_tel
 
 With Saved DOQL queries, Device42 user-developers can centrally store, track, and re-use queries written for prior integrations, automation projects, or other efforts. Saved queries are also be leveraged by Device42 integrations as 'system-defined' queries, and at the same time allow easy addition and/or customization of those queries.
 
-![](assets/images/WEB-797_1.png)
+![](/assets/images/WEB-797_1.png)
 
 ### Using Saved DOQL
 
@@ -73,7 +73,7 @@ Use Saved DOQL to store one or more DOQL queries on your D42 instance. Each stor
 
 To add a new query (or modify an existing one), view your Stored DOQL queries via the Device42 main menu, _Tools → Integrations → Saved DOQL Queries_. Simply click "Add Saved DOQL Query" to add a new query.
 
-![](assets/images/WEB-797_2.png)
+![](/assets/images/WEB-797_2.png)
 
 ### DOQL Query URL
 
@@ -83,9 +83,9 @@ Each Query URL links to the DOQL query API endpoint and returns the results of t
 
 ### Edit an existing Saved DOQL Query
 
-To edit an existing DOQL query, simply click the name of the query you'd like to edit, and from the "View Saved DOQL Query" screen, click "Edit" in the upper-right hand corner to edit the query: ![](assets/images/WEB-797_3.png)
+To edit an existing DOQL query, simply click the name of the query you'd like to edit, and from the "View Saved DOQL Query" screen, click "Edit" in the upper-right hand corner to edit the query: ![](/assets/images/WEB-797_3.png)
 
-You can now make any necessary edits to the DOQL query you were looking at, and can even add notes. Click the "Save" button when you are done editing your DOQL Query: ![](assets/images/WEB-797_4.png)
+You can now make any necessary edits to the DOQL query you were looking at, and can even add notes. Click the "Save" button when you are done editing your DOQL Query: ![](/assets/images/WEB-797_4.png)
 
 * * *
 
