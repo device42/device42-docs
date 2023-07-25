@@ -7,8 +7,6 @@ sidebar_position: 1
 
 _Click the title of the integration you're interested in below to jump directly to that integration's documentation page._
 
-\[pagelist child\_of="351"\]
-
 **Browse & download integrations at [https://www.device42.com/integrations/](https://www.device42.com/integrations/)**
 
 Device42's integrates with many popular 3rd party IT tools - Integrate Device42 with your favorite ITSM, CM, SIEM, or IPAM today!
