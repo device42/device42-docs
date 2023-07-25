@@ -1,6 +1,6 @@
 ---
 title: "Import Overview"
-sidebar_position: 6
+sidebar_position: 1
 ---
 
 A number of Excel imports are available for loading data into device42. These imports, along with the API's, are the two ways to load bulk data into device42.

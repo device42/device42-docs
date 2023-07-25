@@ -1,6 +1,6 @@
 ---
 title: "Import IP Sheet"
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 Import spread sheet for IP Addresses.

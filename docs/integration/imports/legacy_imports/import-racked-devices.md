@@ -1,6 +1,6 @@
 ---
 title: "Import Racked Devices"
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 Starting with v310, you can now import racked devices using Excel sheet. Go to Tools > Import > Racked device import to get started.
