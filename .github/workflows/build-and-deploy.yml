@@ -32,5 +32,5 @@ jobs:
         aws-region: us-east-1 # Replace with your AWS region
 
     - name: Sync to S3
-      run: aws s3 sync build/ s3://device42-docs-website-content-dev --delete
+      run: aws s3 sync build/ s3://device42-docs-website-content-dev --size-only --delete
 
