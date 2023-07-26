@@ -73,7 +73,7 @@ plugins: [
           },
           {
             to: '/docs/getting_started/installation/installation-microsoft-hyperv/',
-            from: '/getstarted/installation/installation-microsoft-hyperv/',
+            from: ['/getstarted/installation/installation-microsoft-hyperv/', '/getstarted/installation/installation-microsoft-hyper/']
           },
           {
             to: '/docs/getting_started/installation/installation-virtual-box/',
@@ -97,7 +97,7 @@ plugins: [
           },
           {
             to: '/docs/getting_started/installation/installation-vmware-player/',
-            from: '/getstarted/installation/installation-vmware-player/',
+            from: ['/getstarted/installation/installation-vmware-player/', '/getstarted/installation/installation-vmware-player-workstation-2/']
           },
           {
             to: '/docs/getting_started/installation/windows-discovery-service-installation/',
@@ -105,7 +105,7 @@ plugins: [
           },
           {
             to: '/docs/getting_started/installation/installation-xen-or-kvm-using-virt-manager/',
-            from: '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/',
+            from: ['/getstarted/installation/installation-xen-or-kvm-using-virt-manager/', '/getstarted/installation/installation-xen-kvm-virt-manager/']
           },
           {
             to: '/docs/getting_started/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
@@ -113,19 +113,19 @@ plugins: [
           },
           {
             to: '/docs/getting_started/tutorials/device42-tutorial/',
-            from: '/getstarted/tutorials/device42-tutorial/',
+            from: ['/getstarted/tutorials/device42-tutorial/', '/getstarted/tutorials/tutorials-overview/']
           },
           {
             to: '/docs/getting_started/tutorials/tutorial-loading-data-using-spreadsheets/',
-            from: '/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/']
           },
           {
             to: '/docs/getting_started/tutorials/tutorial-loading-data-using-the-api/',
-            from: '/getstarted/tutorials/tutorial-loading-data-using-the-api/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-the-api/']
           },
           {
             to: '/docs/getting_started/tutorials/tutorial-navigating-the-device42-user-interface/',
-            from: '/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/',
+            from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/']
           },
           {
             to: '/docs/discovery/auto-discovery/',
@@ -153,7 +153,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/blade-systems-auto-discovery/',
-            from: '/auto-discovery/blade-systems-auto-discovery/',
+            from: ['/auto-discovery/blade-systems-auto-discovery/', '/auto-discovery/hp-bladesystem-auto-discovery/']
           },
           {
             to: '/docs/discovery/certificate-auto-discovery/',
@@ -177,7 +177,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/linux-unix-server-auto-discovery/',
-            from: '/auto-discovery/linux-unix-server-auto-discovery/',
+            from: ['/auto-discovery/linux-unix-server-auto-discovery/', '/linux-unix-server-auto-discovery/']
           },
           {
             to: '/docs/discovery/linux-based-autodiscovery-software/',
@@ -205,11 +205,11 @@ plugins: [
           },
           {
             to: '/docs/discovery/d42-ping-sweep/',
-            from: '/auto-discovery/d42-ping-sweep/',
+            from: ['/auto-discovery/d42-ping-sweep/', '/auto-discovery-client/d42-ping-sweep/']
           },
           {
             to: '/docs/discovery/remote-collector-rc/',
-            from: '/auto-discovery/remote-collector-rc/',
+            from: ['/auto-discovery/remote-collector-rc/', '/auto-discovery/remote-collector/']
           },
           {
             to: '/docs/discovery/resource-utilization-overview/',
@@ -221,7 +221,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/network-auto-discovery/',
-            from: '/auto-discovery/network-auto-discovery/',
+            from: ['/auto-discovery/network-auto-discovery/', '/auto-discovery/setup-network-auto-discovery/']
           },
           {
             to: '/docs/discovery/hypervisors-and-containers-supported-in-auto-discovery/',
@@ -249,7 +249,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/virtual-machine-auto-discovery/',
-            from: '/auto-discovery/virtual-machine-auto-discovery/',
+            from: ['/auto-discovery/virtual-machine-auto-discovery/', '/auto-discovery/vmware-auto-discovery/']
           },
           {
             to: '/docs/discovery/warranty-autodiscovery/',
@@ -257,7 +257,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/windows-and-hyper-v-auto-discovery/',
-            from: '/auto-discovery/windows-and-hyper-v-auto-discovery/',
+            from: ['/auto-discovery/windows-and-hyper-v-auto-discovery/', '/auto-discovery/windows-auto-discovery-tool/']
           },
           {
             to: '/docs/discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
@@ -369,7 +369,7 @@ plugins: [
           },
           {
             to: '/docs/applications/application_components/application-component-templates/',
-            from: '/apps/application-components/application-component-templates/',
+            from: ['/apps/application-components/application-component-templates/', '/software/application-components/']
           },
           {
             to: '/docs/applications/affinity_groups/appfocus-filters/',
@@ -385,7 +385,7 @@ plugins: [
           },
           {
             to: '/docs/administration/advanced-routing/',
-            from: '/tools/advanced-routing/',
+            from: ['/tools/advanced-routing/', '/console-menu/advanced-routing/']
           },
           {
             to: '/docs/administration/add-an-active-directory-user-as-a-device42-administrator/',
@@ -517,7 +517,7 @@ plugins: [
           },
           {
             to: '/docs/administration/appliance_manager/warm-ha-setup-failover-and-automated-backups/',
-            from: '/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/',
+            from: ['/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/', '/device42-appliance-manager/warm-ha-and-automated-backups/']
           },
           {
             to: '/docs/administration/passwords/burnt-secret-password-storage/',
@@ -545,7 +545,7 @@ plugins: [
           },
           {
             to: '/docs/administration/role-based_access_control/role-based-permissions-and-access/',
-            from: '/role-based-access-control/role-based-permissions-and-access/',
+            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/']
           },
           {
             to: '/docs/integration/imports/spreadsheet-imports-and-exports/',
@@ -585,7 +585,7 @@ plugins: [
           },
           {
             to: '/docs/integration/api_overview/importing-csv-files-into-d42-using-the-api-helper-utility/',
-            from: '/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility/',
+            from: ['/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility/', '/apis/importing-csv-files-into-d42-using-the-api-helper-utility/']
           },
           {
             to: '/docs/integration/api_overview/limit-api-get-calls/',
@@ -609,7 +609,7 @@ plugins: [
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/device42-cloud-connector-overview/',
-            from: '/external-integrations/device42-cloud-connector-overview/',
+            from: ['/external-integrations/device42-cloud-connector-overview/', '/external-integrations/device42-cloud-connector/']
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/cloud-services-settings/',
@@ -625,7 +625,7 @@ plugins: [
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/external-logging-config/',
-            from: '/external-integrations/external-logging-config/',
+            from: ['/external-integrations/external-logging-config/', '/external-integrations/external-logging/']
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/configuring-splunk/',
@@ -917,7 +917,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/devices/device-blade-slots/',
-            from: '/devices/device-blade-slots/',
+            from: ['/devices/device-blade-slots/', '/device/device-blade-slots/']
           },
           {
             to: '/docs/infrastructure_management/devices/device-cluster/',
@@ -933,7 +933,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/devices/device-parts-slots/',
-            from: '/devices/device-parts-slots/',
+            from: ['/devices/device-parts-slots/', '/device/device-parts-slots/']
           },
           {
             to: '/docs/infrastructure_management/devices/device-parts-tab/',
@@ -977,7 +977,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/devices/hardware-models-templates/',
-            from: '/devices/hardware-models-templates/',
+            from: ['/devices/hardware-models-templates/', '/device/hardware/']
           },
           {
             to: '/docs/infrastructure_management/software/software-license-management/',
@@ -1053,7 +1053,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/power_units/defining-pdu-models/',
-            from: '/power-units/pdus/defining-pdu-models/',
+            from: ['/power-units/pdus/defining-pdu-models/', '/pdu_overview/defining-pdu-models/']
           },
           {
             to: '/docs/infrastructure_management/power_units/pdu-ports/',
@@ -1061,7 +1061,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/power_units/pdu-rack-display/',
-            from: '/power-units/pdus/pdu-rack-display/',
+            from: ['/power-units/pdus/pdu-rack-display/', '/pdu_overview/pdu-rack-display/']
           },
           {
             to: '/docs/infrastructure_management/power_units/supported-pdu-vendors/',
@@ -1069,7 +1069,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/parts_and_parts_slots/importing-part-models/',
-            from: '/parts-and-parts-slots/importing-part-models/',
+            from: ['/parts-and-parts-slots/importing-part-models/', '/spare-parts-management/importing-part-models/']
           },
           {
             to: '/docs/infrastructure_management/parts_and_parts_slots/importing-parts/',
@@ -1081,7 +1081,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/parts_and_parts_slots/part-model-templates/',
-            from: '/parts-and-parts-slots/part-model-templates/',
+            from: ['/parts-and-parts-slots/part-model-templates/', '/spare-parts-management/models-and-parts/']
           },
           {
             to: '/docs/infrastructure_management/parts_and_parts_slots/parts-slots/',
@@ -1141,7 +1141,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/ipam/switch-ports/',
-            from: '/ipam/switch-ports/',
+            from: ['/ipam/switch-ports/', '/ipam/switch-port/']
           },
           {
             to: '/docs/infrastructure_management/ipam/switch-templates/',
@@ -1177,7 +1177,7 @@ plugins: [
           },
           {
             to: '/docs/infrastructure_management/mobile_inventory/understanding-qr-and-bar-codes-in-device42/',
-            from: '/mobile-inventory/understanding-qr-and-bar-codes-in-device42/',
+            from: ['/mobile-inventory/understanding-qr-and-bar-codes-in-device42/', '/qr-codes-asset-tags-inventory-management-mobile-devices/understanding-qr-codes/']
           },
           {
             to: '/docs/infrastructure_management/mobile_inventory/using-mobile-devices-for-asset-management/',
@@ -1193,7 +1193,7 @@ plugins: [
           },
           {
             to: '/docs/videos/add-a-new-route-to-device42/',
-            from: '/how-to-videos/add-a-new-route-to-device42/',
+            from: ['/how-to-videos/add-a-new-route-to-device42/', '/how-to-videos/add-a-route-to-device42/']
           },
           {
             to: '/docs/videos/add-and-bulk-edit-hardware-models-how-to/',
@@ -1209,7 +1209,7 @@ plugins: [
           },
           {
             to: '/docs/videos/api-imports-add-create-hardware-models/',
-            from: '/how-to-videos/api-imports-add-create-hardware-models/',
+            from: ['/how-to-videos/api-imports-add-create-hardware-models/', '/api/']
           },
           {
             to: '/docs/videos/api-imports-adding-devices-to-racks/',
@@ -1261,7 +1261,7 @@ plugins: [
           },
           {
             to: '/docs/videos/update-device42-appliance-how-to/',
-            from: '/how-to-videos/update-device42-appliance-how-to/',
+            from: ['/how-to-videos/update-device42-appliance-how-to/', '/how-to-videos/update-d42-how-to/']
           },
           {
             to: '/docs/videos/wmi-authentication-testing-tool-how-to/',
@@ -1276,6 +1276,7 @@ plugins: [
   presets: [
     [
         '@docusaurus/preset-classic',
+   
       ({
 
         docs: {
@@ -1285,6 +1286,9 @@ plugins: [
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleTagManager: {
+         containerId: 'GTM-56V4NGQ',
+        },   
       }),
     ],
   ],
