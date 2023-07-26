@@ -62,9 +62,9 @@ export default function Home() {
           <h1>{siteConfig.tagline}</h1>
           <div className={styles.searchBox}>
             <DocSearch
-              indexName=""
-              appId=""
-              apiKey=""
+              indexName=“device42”
+              appId=“SCH7N4RLU6"
+              apiKey=“acebf9e8f4b83b8c1e7270713d7f70b8”
             />
           </div>
         </section>
