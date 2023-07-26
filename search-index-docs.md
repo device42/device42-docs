@@ -46,6 +46,7 @@ If necessary, update the `src/pages/index.js` file to reflect the index name, ap
 <h2 id="config"> Indexer configuration</h2>
 
 ```json
+{
     "index_name": "device42",
     "start_urls": ["https://dev.docs.device42.com"],
     "sitemap_urls": ["https://dev.docs.device42.com/sitemap.xml"],
