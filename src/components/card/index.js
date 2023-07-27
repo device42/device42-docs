@@ -1,20 +1,19 @@
-import React from 'react';
-import styles from './card.module.css';
-import Link from '@docusaurus/Link';
+import React from "react";
+import styles from "./card.module.css";
+import Link from "@docusaurus/Link";
+import ThemedImage from "@theme/ThemedImage";
 
-const ContentCard = ({ icon, title, link }) => {
+const ContentCard = ({ title, icon, whiteIcon, link }) => {
   return (
-    <Link href={link}>
-      <div className={styles.cardLink}>
-        <div>
-          {icon}
-        </div>
-        <div>
-          <div className={styles.cardLinkText}>
-            {title}
-          </div>
-        </div>
-      </div>
+    <Link href={link} className={styles.myCard}>
+      <ThemedImage
+        sources={{
+          light: icon,
+          dark: whiteIcon,
+        }}
+        className={styles.myCardIcon}
+      />
+      <p>{title}</p>
     </Link>
   );
 };
