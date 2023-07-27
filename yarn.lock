@@ -1244,7 +1244,7 @@
   resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.5.1.tgz#4adf9884735bbfea621c3716e80ea97baa419b73"
   integrity sha512-2Pu9HDg/uP/IT10rbQ+4OrTQuxIWdKVUEdcw9/w7kZJv9NeHS6skJx1xuRiFyoGKwAzcHXnLp7csE99sj+O1YA==
 
-"@docsearch/react@^3.1.1":
+"@docsearch/react@3.5.1", "@docsearch/react@^3.1.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@docsearch/react/-/react-3.5.1.tgz#35f4a75f948211d8bb6830d2147c575f96a85274"
   integrity sha512-t5mEODdLzZq4PTFAm/dvqcvZFdPDMdfPE5rJS5SC8OUq9mPzxEy6b+9THIqNM9P0ocCb4UC5jqBrxKclnuIbzQ==
