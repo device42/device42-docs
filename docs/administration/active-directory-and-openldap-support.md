@@ -27,4 +27,4 @@ You are able to review the domain found for the user found prior to adding them,
 
 ## Configuring an Active Directory User Sync / Discovery Job
 
-You may now configure an AD Sync Job to pull AD users in bulk and/or keep them synced. Proceed to [the Active Directory Discovery Job docs page](https://docs.device42.com/auto-discovery/active-directory-sync/) to view the AD discovery process.
+You may now configure an AD Sync Job to pull AD users in bulk and/or keep them synced. Proceed to [the Active Directory Discovery Job docs page](discovery/active-directory-sync.md) to view the AD discovery process.

@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![wpid576-Types_of_Records.png](/assets/images/wpid576-Types_of_Records.png)
 
-A/AAAA, CNAME, MX and PTR records are supported and can be automatically populated using [DNS auto-discovery.](https://docs.device42.com/auto-discovery/setup-dns-autodiscovery/)
+A/AAAA, CNAME, MX and PTR records are supported and can be automatically populated using [DNS auto-discovery.](discovery/setup-dns-autodiscovery.md)
 
 A/AAAA records are automatically associated with existing IP addresses (or can be associated with new IP Addresses when they are created).
 

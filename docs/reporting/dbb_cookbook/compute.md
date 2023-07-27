@@ -5,18 +5,18 @@ sidebar_position: 8
 
 **Compute Data Building Blocks**
 
-- [Compute Devices](https://docs.device42.com/dbb-cookbook/compute/compute-devices/)
-- [Device Count by Device Type](https://docs.device42.com/dbb-cookbook/compute/device-count-by-device-type/)
-- [Device Count by Service Level](https://docs.device42.com/dbb-cookbook/compute/device-count-by-service-level/)
-- [Device to Rack Inventory](https://docs.device42.com/dbb-cookbook/compute/device-to-rack-inventory/)
-- [Devices Missing Device_Type or Service_Level](https://docs.device42.com/dbb-cookbook/compute/devices-missing-device_type-or-service_level/)
-- [Physical Device Inventory](https://docs.device42.com/dbb-cookbook/compute/physical-device-inventory/)
-- [Physical Devices by Customer Department](https://docs.device42.com/dbb-cookbook/compute/physical-devices-by-customer-department/)
-- [Physical Devices Without Hardware Model](https://docs.device42.com/dbb-cookbook/compute/physical-devices-without-hardware-model/)
-- [Physical Inventory by Manufacturer](https://docs.device42.com/dbb-cookbook/compute/physical-inventory-by-manufacturer/)
-- [VM Density](https://docs.device42.com/dbb-cookbook/compute/vm-density/)
-- [VM Devices](https://docs.device42.com/dbb-cookbook/compute/vm-devices/)
-- [VM Inventory](https://docs.device42.com/dbb-cookbook/compute/vm-inventory/)
+- [Compute Devices](reporting/dbb_cookbook/compute-devices.md)
+- [Device Count by Device Type](reporting/dbb_cookbook/device-count-by-device-type.md)
+- [Device Count by Service Level](reporting/dbb_cookbook/device-count-by-service-level.md)
+- [Device to Rack Inventory](reporting/dbb_cookbook/device-to-rack-inventory.md)
+- [Devices Missing Device_Type or Service_Level](reporting/dbb_cookbook/devices-missing-device_type-or-service_level.md)
+- [Physical Device Inventory](reporting/dbb_cookbook/physical-device-inventory.md)
+- [Physical Devices by Customer Department](reporting/dbb_cookbook/physical-devices-by-customer-department.md)
+- [Physical Devices Without Hardware Model](reporting/dbb_cookbook/physical-devices-without-hardware-model.md)
+- [Physical Inventory by Manufacturer](reporting/dbb_cookbook/physical-inventory-by-manufacturer.md)
+- [VM Density](reporting/dbb_cookbook/vm-density.md)
+- [VM Devices](reporting/dbb_cookbook/vm-devices.md)
+- [VM Inventory](reporting/dbb_cookbook/vm-inventory.md)
 
  
 

@@ -69,7 +69,7 @@ If your Current System Time is incorrect, \["AWS Regions and Endpoints"\]you wil
 
 ### Important Note for Scheduled Back-Up's
 
-If you intend to use a back-up schedule for an auto-restore configuration to a stand-by appliance, as described in our ["Warm HA Configuration."](https://docs.device42.com/device42-appliance-manager/warm-ha-and-automated-backups/)
+If you intend to use a back-up schedule for an auto-restore configuration to a stand-by appliance, as described in our ["Warm HA Configuration."](administration/appliance_manager/warm-ha-setup-failover-and-automated-backups.md)
 
 It is critical that you select to include "Backup Meta Data" as an option for the Back-up Schedule.
 
