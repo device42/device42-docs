@@ -37,7 +37,7 @@ jobs:
 
     - name: Invalidate CF cache
       run: |
-           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRO }} --paths "*" | jq -r .Invalidation.Id )
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
            aws cloudfront wait invalidation-completed --distribution-id ${{ env.CF_DISTRO }} --id $INVAL_ID
 
     - name: Setup Algolia Config
