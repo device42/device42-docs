@@ -7,6 +7,7 @@ import Footer from "@site/src/components/footer";
 import Icon from "@site/src/components/icon";
 import { DocSearch } from '@docsearch/react';
 import '@docsearch/css';
+import clsx from "clsx";
 
 const indexCards = [
   {
@@ -60,7 +61,7 @@ export default function Home() {
       <main className={styles.mainSection}>
         <section className={styles.heroSection}>
           <h1>{siteConfig.tagline}</h1>
-          <div className={styles.searchBox}>
+          <div className={clsx(styles.searchBox,"indexSearch")}>
             <DocSearch
               indexName=""
               appId=""

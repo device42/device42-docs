@@ -1293,6 +1293,11 @@ plugins: [
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/d42-social-card.png',
+      algolia: {
+        indexName: '',
+        appId: '',
+        apiKey: ''
+      },
       navbar: {
         logo: {
           alt: 'Device42 Logo',
