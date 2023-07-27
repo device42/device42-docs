@@ -9,7 +9,7 @@ sidebar_position: 13
 
 * * *
 
-**See The [Device42 DOQL DOCUMENTATION PAGE](https://docs.device42.com/device42-doql/) for DOQL documentation - https://docs.device42.com/device42-doql/**
+**See The [Device42 DOQL DOCUMENTATION PAGE](reporting/doql_device42_object_query_language.md) for DOQL documentation - reporting/doql_device42_object_query_language.md**
 
 * * *
 

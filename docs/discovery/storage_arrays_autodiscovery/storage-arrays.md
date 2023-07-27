@@ -5,7 +5,7 @@ sidebar_position: 6
 
 ## Introduction
 
-Storage Arrays are identified and returned by Device42 [Storage Arrays autodiscovery](discovery/storage_arrays_autodiscovery.md). Storage Arrays also display their resource details, related resources, and topology map.
+Storage Arrays are identified and returned by Device42 [Storage Arrays autodiscovery](./). Storage Arrays also display their resource details, related resources, and topology map.
 
 ## View All Storage Arrays
 
