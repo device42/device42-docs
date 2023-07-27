@@ -37,14 +37,14 @@ jobs:
 
     - name: Invalidate CF cache
       run: |
-           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
-           aws cloudfront wait invalidation-completed --distribution-id ${{ env.CF_DISTRO }} --id $INVAL_ID
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
 
     - name: Setup Algolia Config
       id: algolia_config
       run: |
-           sed -i 's/<INDEX_NAME>/${{ env.ALGOLIA_INDEX }}/g' algolia.json
-           sed -i 's/<FQDN>/${{ env.FQDN }}/g' algolia.json
+           sed -i 's/<INDEX_NAME>/${{ vars.ALGOLIA_INDEX }}/g' algolia.json
+           sed -i 's/<FQDN>/${{ vars.FQDN }}/g' algolia.json
            echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
 
     - name: Run Algolia Reindex
