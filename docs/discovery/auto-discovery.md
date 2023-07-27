@@ -27,21 +27,21 @@ Enter a _New Name_ for the cloned job and click _Create_.
 
 ## Agent-based Discovery
 
-There exist special situations in which an agent simply makes more sense, and for that reason, we over _optional_ autodiscovery agents for many platforms. Learn more on the [Device42 Agent-based discovery docs page](discovery/agent-based-discovery.md).
+There exist special situations in which an agent simply makes more sense, and for that reason, we over _optional_ autodiscovery agents for many platforms. Learn more on the [Device42 Agent-based discovery docs page](agent-based-discovery.md).
 
 ## Agent-based Offline Discovery & Upload Tool
 
 There are some edge cases where discovery is desired but the network _(or lack of network!)_ doesn’t allow communication back to the main Device42 appliance _(for a variety of reasons)_.
 
-Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](discovery/agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Upload Utility](http://device42.s3.amazonaws.com/d42_uploadtool.zip?X-Amz-Expires=604794&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJIVJCNUSKR6MAOMQ/20190318/us-east-1/s3/aws4_request&X-Amz-Date=20190318T213954Z&X-Amz-SignedHeaders=host&X-Amz-Signature=ad5ce3a01cd88054a5a75465dacf9752c7793e66a5ef92e1555987f1131c10a4).
+Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Upload Utility](http://device42.s3.amazonaws.com/d42_uploadtool.zip?X-Amz-Expires=604794&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJIVJCNUSKR6MAOMQ/20190318/us-east-1/s3/aws4_request&X-Amz-Date=20190318T213954Z&X-Amz-SignedHeaders=host&X-Amz-Signature=ad5ce3a01cd88054a5a75465dacf9752c7793e66a5ef92e1555987f1131c10a4).
 
 ## Blade systems Discovery
 
-HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [discovery/blade-systems-auto-discovery.md](discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [discovery/cisco-ucs-auto-discovery.md](discovery/cisco-ucs-auto-discovery.md)
+HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](/docs/discovery/blade-systems-auto-discovery/). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
 
 ## Cloud Platform Discovery
 
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [discovery/cloud_platforms_autodiscovery.md](discovery/cloud_platforms_autodiscovery.md)
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud_platforms_autodiscovery/)
 
 ## DNS Autodiscovery
 
@@ -56,7 +56,7 @@ Hypervisors, Windows & Linux/UNIX discovery jobs can all be created using the ma
 - VMWare hypervisor host and guest VM details are discovered using appropriate APIs <small(VMware, WMI)
 - Hyper-V hypervisors / guests are discovered as Windows machines using WinRM, and documented separately.
 
-Click here for the [VMware & VM discovery docs](discovery/virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](discovery/linux-unix-server-auto-discovery.md) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](discovery/windows-and-hyper-v-auto-discovery.md).
+Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](discovery/linux-unix-server-auto-discovery.md) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](discovery/windows-and-hyper-v-auto-discovery.md).
 
 ## IPMI Autodiscovery
 
