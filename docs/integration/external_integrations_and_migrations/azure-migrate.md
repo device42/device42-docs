@@ -57,7 +57,7 @@ You’ll see confirmation the deployment has been initialized.
 
 ![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
 
-For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The [Getting Started with Installation section is a great place to begin! [getting_started/installation.md](getting_started/installation.md).
+For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The [Getting Started with Installation section is a great place to begin! [installation](/docs/getting_started/installation/).
 
 2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [getting_started/getting-started-with-auto-discovery.md](getting_started/getting-started-with-auto-discovery.md).
 

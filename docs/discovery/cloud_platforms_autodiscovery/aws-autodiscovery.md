@@ -29,7 +29,7 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 - Select _Discover Main Account_ to have the job discover the main AWS account in addition to any AWS Roles accounts you select.
 - Select the _Available AWS Roles_ whose account(s) you want to discover and use the arrow to add them to the _Chosen AWS Roles_ list.
 
-**Note:** See [Defining AWS Roles](discovery/cloud_platforms_autodiscovery/aws-autodiscovery.md#section-4) below for instruction for creating the AWS Roles that Devices42 displays for AWS cloud autodiscovery jobs.
+**Note:** See [Defining AWS Roles](#addedit-aws-roles) below for instruction for creating the AWS Roles that Devices42 displays for AWS cloud autodiscovery jobs.
 
 - Choose one or more Amazon regions to search. ![](/assets/images/Image_5_Cloud_Disc_AWS.png)
 - You can also select options for adding vendor metadata, choose how to  handle instances not found in subsequent discovery vendor, select device name format options, add tags for discovered devices, etc.
@@ -184,7 +184,7 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
         
     2. We would need an account that uses just accountID and one that would be with the Require ExternalID option - Note no requirement for MFA option at this time
         
-    3. Policy to be added - use the example minimum policy needed for discovery from our docs site [here](discovery/cloud_platforms_autodiscovery.md "discovery/cloud_platforms_autodiscovery.md")
+    3. Policy to be added - use the example minimum policy needed for discovery from our docs site [here](/docs/discovery/cloud_platforms_autodiscovery/)
         
 2. From the Sub (or separate)-account
     

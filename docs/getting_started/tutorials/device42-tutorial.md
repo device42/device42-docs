@@ -81,7 +81,7 @@ Of course, there are forms available for screen-based data entry via the UI, as 
 
 ## Tutorials & How-To Videos
 
-Three tutorials are available to help familiarize you with the Device42 system, and a selection of How-to videos are available that address common questions: ([Check out the how-to videos index here!](videos.md))
+Three tutorials are available to help familiarize you with the Device42 system, and a selection of How-to videos are available that address common questions: ([Check out the how-to videos index here!](/docs/videos/))
 
 1. The [Loading Data Using the API Tutorial](getting_started/tutorials/tutorial-loading-data-using-the-api.md) uses the API to load a fairly robust set of data into Device42 system. Don't be concerned if you are not a programmer. The script used in this tutorial is a very simple bash script. Please send us a note if you would like a sample in PowerShell, Python or other languages.
 2. The [Loading Data Using Spreadsheets Tutorial](getting_started/tutorials/device42-tutorial.md) uses spreadsheets to load data. There is no scripting involved. If you are fairly certain that you will never script API calls, this is the tutorial you should use.
