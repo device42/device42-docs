@@ -24,6 +24,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/docs/getting_started/',
+            from: ['/getstarted/']
+          },
+          {
             to: '/docs/getting_started/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-auto-discovery/', '/getstarted/getting-started-with-a-blank-slate/']
           },
@@ -132,6 +136,10 @@ const config = {
             from: '/auto-discovery/',
           },
           {
+            to: '/docs/discovery/cisco-ucs-auto-discovery/',
+            from: '/auto-discovery/cisco-ucs-auto-discovery/',
+          },
+          {
             to: '/docs/discovery/active-directory-sync/',
             from: '/auto-discovery/active-directory-sync/',
           },
@@ -185,7 +193,7 @@ const config = {
           },
           {
             to: '/docs/discovery/load-balancers/',
-            from: '/auto-discovery/load-balancers/',
+            from: ['/auto-discovery/load-balancers/', '/discovery/load-balancers/', '/load-balancers/']
           },
           {
             to: '/docs/discovery/netflow-collector/',
@@ -301,19 +309,19 @@ const config = {
           },
           {
             to: '/docs/discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery/',
-            from: '/auto-discovery/dell-emc-autodiscovery/',
+            from: ['/auto-discovery/dell-emc-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/']
           },
           {
             to: '/docs/discovery/storage_arrays_autodiscovery/hp-autodiscovery/',
-            from: '/auto-discovery/hp-autodiscovery/',
+            from: ['/auto-discovery/hp-autodiscovery/','/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/']
           },
           {
             to: '/docs/discovery/storage_arrays_autodiscovery/ibm-autodiscovery/',
-            from: '/auto-discovery/ibm-autodiscovery/',
+            from: ['/auto-discovery/ibm-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/']
           },
           {
             to: '/docs/discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery/',
-            from: '/auto-discovery/all-other-storage-autodiscovery/',
+            from: ['/auto-discovery/all-other-storage-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/']
           },
           {
             to: '/docs/discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery/',
@@ -373,7 +381,11 @@ const config = {
           },
           {
             to: '/docs/applications/application_components/application-component-templates/',
-            from: ['/apps/application-components/application-component-templates/', '/software/application-components/']
+            from: ['/apps/application-components/application-component-templates/', '/software/application-components/', '/apps/application-components/']
+          },
+          {
+            to: '/docs/applications/affinity_groups/',
+            from: '/apps/affinity-groups/',
           },
           {
             to: '/docs/applications/affinity_groups/appfocus-filters/',
@@ -549,7 +561,7 @@ const config = {
           },
           {
             to: '/docs/administration/role-based_access_control/role-based-permissions-and-access/',
-            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/']
+            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/', '/role-based-access-control/']
           },
           {
             to: '/docs/integration/imports/spreadsheet-imports-and-exports/',
@@ -780,8 +792,12 @@ const config = {
             from: '/reports/setup-alerts-and-notifications/',
           },
           {
-            to: '/docs/reporting/reports/use-custom-sql-advanced-report/',
-            from: '/reports/use-custom-sql-advanced-report/',
+            to: '/docs/reporting/doql_device42_object_query_language/',
+            from: '/device42-doql/',
+          },
+          {
+            to: '/docs/reporting/doql_device42_object_query_language/db-viewer-schema/',
+            from: '/device42-doql/db-viewer-schema/',
           },
           {
             to: '/docs/reporting/doql_device42_object_query_language/db-viewer-schema/',
@@ -1045,7 +1061,7 @@ const config = {
           },
           {
             to: '/docs/infrastructure_management/connectivity/patch-panel-cable-management-definitions-and-legends-2/',
-            from: '/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/',
+            from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/', '/connectivity/patch-panels/']
           },
           {
             to: '/docs/infrastructure_management/power_units/adding-atss/',
@@ -1061,7 +1077,7 @@ const config = {
           },
           {
             to: '/docs/infrastructure_management/power_units/pdu-ports/',
-            from: '/power-units/pdus/pdu-ports/',
+            from: ['/power-units/pdus/pdu-ports/', '/pdu/']
           },
           {
             to: '/docs/infrastructure_management/power_units/pdu-rack-display/',
@@ -1190,6 +1206,10 @@ const config = {
           {
             to: '/docs/infrastructure_management/accounting/purchases/',
             from: '/accounting/purchases/',
+          },
+          {
+            to: '/docs/videos/',
+            from: '/how-to-videos/',
           },
           {
             to: '/docs/videos/accessing-hidden-menus-for-advanced-customization/',

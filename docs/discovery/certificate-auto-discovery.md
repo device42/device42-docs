@@ -25,6 +25,6 @@ Choosing **"discover cipher suites" can result in a significant slowdown of SSL 
 
 ## Certificate Discovery with Multi-tenancy Enabled - Warning
 
-**Note that certificate discovery can fail if [MultiTenancy](https://docs.device42.com/role-based-access-control) is enabled** and the discovery job targets a VRF group whose subnet doesn't exist within Device42. If you encounter this behavior, simply create the subnet that you are discovering within Device42 (or run a network discovery first, as recommended by the [best practices guide](autodisc-best-practices)).
+**Note that certificate discovery can fail if [MultiTenancy](administration/role-based_access_control/role-based-permissions-and-access.md) is enabled** and the discovery job targets a VRF group whose subnet doesn't exist within Device42. If you encounter this behavior, simply create the subnet that you are discovering within Device42 (or run a network discovery first, as recommended by the [best practices guide](autodisc-best-practices)).
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.

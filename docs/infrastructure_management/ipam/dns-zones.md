@@ -3,7 +3,7 @@ title: "DNS Zones"
 sidebar_position: 2
 ---
 
-DNS zones can be added manually or (preferrably) via DNS auto-discovery as discussed at: [https://docs.device42.com/tools/setup-dns-autodiscovery/](discovery/setup-dns-autodiscovery.md)
+DNS zones can be added manually or (preferrably) via DNS auto-discovery as discussed at: [discovery/setup-dns-autodiscovery.md](discovery/setup-dns-autodiscovery.md)
 
 ## DNS Zone Add/Edit page
 
