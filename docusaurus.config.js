@@ -18,7 +18,7 @@ const config = {
     locales: ['en'],
   },
 
-plugins: [
+  plugins: [
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -1267,7 +1267,7 @@ plugins: [
             to: '/docs/videos/wmi-authentication-testing-tool-how-to/',
             from: '/how-to-videos/wmi-authentication-testing-tool-how-to/',
           },
-         ],
+        ],
       },
     ],
   ],
@@ -1275,12 +1275,12 @@ plugins: [
   /** @type {import('@docusaurus/preset-classic').Options} */
   presets: [
     [
-        '@docusaurus/preset-classic',
+      '@docusaurus/preset-classic',
       ({
 
         docs: {
           editUrl:
-          'https://github.com/device42/device42-docs/tree/main/',
+            'https://github.com/device42/device42-docs/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -1290,7 +1290,7 @@ plugins: [
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/d42-social-card.png',
       algolia: {

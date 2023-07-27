@@ -63,9 +63,9 @@ export default function Home() {
           <h1>{siteConfig.tagline}</h1>
           <div className={clsx(styles.searchBox,"indexSearch")}>
             <DocSearch
-              indexName=""
-              appId=""
-              apiKey=""
+              indexName={siteConfig.themeConfig.algolia.indexName}
+              appId={siteConfig.themeConfig.algolia.appId}
+              apiKey={siteConfig.themeConfig.algolia.apiKey}
             />
           </div>
         </section>
