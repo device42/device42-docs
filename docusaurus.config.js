@@ -60,6 +60,10 @@ const config = {
             from: '/getstarted/language-selection/',
           },
           {
+            to: '/docs/getting_started/installation/',
+            from: '/getstarted/installation/',
+          },
+          {
             to: '/docs/getting_started/installation/installation-amazon-web-services/',
             from: '/getstarted/installation/installation-amazon-web-services/',
           },
@@ -393,7 +397,7 @@ const config = {
           },
           {
             to: '/docs/applications/business_applications/building-business-applications-in-device42/',
-            from: '/apps/business-applications/building-business-applications-in-device42/',
+            from: ['/apps/business-applications/building-business-applications-in-device42/', '/apps/business-applications/' ]
           },
           {
             to: '/docs/administration/active-directory-and-openldap-support/',

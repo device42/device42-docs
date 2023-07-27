@@ -57,11 +57,11 @@ You’ll see confirmation the deployment has been initialized.
 
 ![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
 
-For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The Getting Started with Installation section is a great place to begin! [https://docs.device42.com/getstarted/installation/](https://docs.device42.com/getstarted/installation/).
+For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The [Getting Started with Installation section is a great place to begin! [getting_started/installation.md](getting_started/installation.md).
 
-2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [https://docs.device42.com/getstarted/getting-started-with-auto-discovery/](https://docs.device42.com/getstarted/getting-started-with-auto-discovery/).
+2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [getting_started/getting-started-with-auto-discovery.md](getting_started/getting-started-with-auto-discovery.md).
 
-3\. When you’ve finished with discovery and assessment, you can export your discovered data back to Microsoft Azure. Instructions on exporting can be found here: [https://docs.device42.com/apps/business-applications/#section-15](https://docs.device42.com/apps/business-applications/#section-15).
+3\. When you’ve finished with discovery and assessment, you can export your discovered data back to Microsoft Azure. Instructions on exporting can be found here: [applications/business_applications/building-business-applications-in-device42.md#section-15](applications/business_applications/building-business-applications-in-device42.md#section-15).
 
 * * *
 
