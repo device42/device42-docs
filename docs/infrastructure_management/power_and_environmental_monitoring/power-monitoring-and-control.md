@@ -3,7 +3,7 @@ title: "Power Monitoring and Control"
 sidebar_position: 4
 ---
 
-This section describes Device42's power monitoring capabilities. If you are just getting started, you'll want to first set up one or more [Remote collectors \[RCs\]](https://docs.device42.com/auto-discovery/remote-collector-rc/).
+This section describes Device42's power monitoring capabilities. If you are just getting started, you'll want to first set up one or more [Remote collectors \[RCs\]](discovery/remote-collector-rc.md).
 
 ## Power Heatmaps
 

@@ -5,14 +5,14 @@ sidebar_position: 21
 
 **Security Data Building Blocks**
 
-- [Devices Accessed by External IPs](https://docs.device42.com/dbb-cookbook/security/devices-accessed-by-external-ips/)
-- [Devices Possibly Containing PII That Have Public IPs](https://docs.device42.com/dbb-cookbook/security/devices-possibly-containing-pii-that-have-public-ips/)
-- [Devices Using Commonly Exploited Ports](https://docs.device42.com/dbb-cookbook/security/devices-using-commonly-exploited-ports/)
-- [Devices with Mismatch Between Prod and Non-Prod Environments](https://docs.device42.com/dbb-cookbook/security/devices-with-mismatch-between-prod-and-non-prod-environments/)
-- [Devices with No OSs](https://docs.device42.com/dbb-cookbook/security/devices-with-no-oss/)
-- [Devices with OS but No Software](https://docs.device42.com/dbb-cookbook/security/devices-with-os-but-no-software/)
-- [Devices with Prohibited Software (as designated by customer)](https://docs.device42.com/dbb-cookbook/security/devices-with-prohibited-software-as-designated-by-customer/)
-- [Network Information for IPs Without Attached Devices](https://docs.device42.com/dbb-cookbook/security/network-information-for-ips-without-attached-devices/)
+- [Devices Accessed by External IPs](reporting/dbb_cookbook/devices-accessed-by-external-ips.md)
+- [Devices Possibly Containing PII That Have Public IPs](reporting/dbb_cookbook/devices-possibly-containing-pii-that-have-public-ips.md)
+- [Devices Using Commonly Exploited Ports](reporting/dbb_cookbook/devices-using-commonly-exploited-ports.md)
+- [Devices with Mismatch Between Prod and Non-Prod Environments](reporting/dbb_cookbook/devices-with-mismatch-between-prod-and-non-prod-environments.md)
+- [Devices with No OSs](reporting/dbb_cookbook/devices-with-no-oss.md)
+- [Devices with OS but No Software](reporting/dbb_cookbook/devices-with-os-but-no-software.md)
+- [Devices with Prohibited Software (as designated by customer)](reporting/dbb_cookbook/devices-with-prohibited-software-as-designated-by-customer.md)
+- [Network Information for IPs Without Attached Devices](reporting/dbb_cookbook/network-information-for-ips-without-attached-devices.md)
 
  
 

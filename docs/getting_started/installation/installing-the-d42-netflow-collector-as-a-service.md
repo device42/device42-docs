@@ -7,7 +7,7 @@ sidebar_position: 3
 
 The Device42 Netflow collector is a self-contained, portable utility that collects netflow data, analyzes it, and sends it to your Device42 instance to enhance application dependency mapping discovery. The data Device42 gets from Netflow is used to augment data gathered via Device42’s other autodiscovery methods (e.g. SNMP, WMI / WinRM for Windows, SSH for Linux, etc.), producing a comprehensive map of your infrastructure including accurate details and important inter-relationships -- and all of this without the need to configure expensive span or mirror ports!
 
-**NOTE**: Device42 Remote Collectors (RCs) include built-in Netflow Collector functionality. Device42 recommends using the RC Netflow Collector rather than the stand-alone collector if possible in your environment. For more information about the RC Netflow Collector, see _Auto Discovery > Netflow Collector_: [https://docs.device42.com/auto-discovery/netflow-collector/](https://docs.device42.com/auto-discovery/netflow-collector/).
+**NOTE**: Device42 Remote Collectors (RCs) include built-in Netflow Collector functionality. Device42 recommends using the RC Netflow Collector rather than the stand-alone collector if possible in your environment. For more information about the RC Netflow Collector, see _Auto Discovery > Netflow Collector_: [discovery/netflow-collector.md](discovery/netflow-collector.md).
 
 ## Netflow Collector Architecture High Level Overview:
 

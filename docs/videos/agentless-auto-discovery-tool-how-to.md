@@ -9,6 +9,6 @@ This HowTo quickly walks through working with Device42's Agentless, Windows base
 
 Note that there is also a Linux based version of the tool available for download, and both can be found on the Device42 website at: https://www.device42.com/autodiscovery/
 
-Main (text-based) Documentation page for Device42's Agentless AutoDiscovery Tool: https://docs.device42.com/getstarted/getting-started-with-a-blank-slate/
+Main (text-based) [Documentation page for Device42's Agentless AutoDiscovery Tool](getting_started/getting-started-with-auto-discovery.md)
 
 Please leave any questions about the tool, comments, or requests for new How To's as comments on the video, or e-mail support@device42.com!

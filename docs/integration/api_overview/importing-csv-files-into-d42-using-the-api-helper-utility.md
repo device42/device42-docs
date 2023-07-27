@@ -25,7 +25,7 @@ This sample script can be easily modified to read a comma-delimited csv file of 
 
 Create comma separated CSV file with following:
 
-- The header row (first line) values must match the API field names found in the [documentation](https://docs.device42.com/api/).
+- The header row (first line) values must match the API field names found in the [documentation](videos/api-imports-add-create-hardware-models.md).
 - After the header row, there should be one row of values for each data record that you need to send to the device42 appliance.
 - Each line in the CSV file must have a value for each mandatory field.
 

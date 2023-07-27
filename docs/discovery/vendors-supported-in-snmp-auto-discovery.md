@@ -5,7 +5,7 @@ sidebar_position: 35
 
 ## Have a device you'd like added to SNMP discovery?
 
-Device42 is open to supporting as many vendors as possible for SNMP-based discovery. Should you happen to run across a device that isn't being discovered properly, or if you have hardware you'd like to see supported -- Simply go ahead and [generate an SNMPwalk of the device](https://docs.device42.com/device42-appliance-manager/collecting-snmpwalk-output-for-troubleshooting/) in question.  Within the Appliance Manager, go to Application>Generate SNMP Template.
+Device42 is open to supporting as many vendors as possible for SNMP-based discovery. Should you happen to run across a device that isn't being discovered properly, or if you have hardware you'd like to see supported -- Simply go ahead and [generate an SNMPwalk of the device](administration/appliance_manager/collecting-snmpwalk-output-for-troubleshooting.md) in question.  Within the Appliance Manager, go to Application>Generate SNMP Template.
 
 Fill out the form and attach your MIB Files. Once this processes, select the standard data you're looking to have added. After you've completed this form, it will be routed to our engineers to inclusion!
 

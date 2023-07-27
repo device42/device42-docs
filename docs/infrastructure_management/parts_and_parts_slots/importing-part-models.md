@@ -3,7 +3,7 @@ title: "Importing Part Models"
 sidebar_position: 1
 ---
 
-This document explains how to import part models using API Imports. For detailed explanation of Part Models and Parts, please see: [https://docs.device42.com/spare-parts-management/models-and-parts/](https://docs.device42.com/spare-parts-management/models-and-parts/)
+This document explains how to import part models using API Imports. For detailed explanation of Part Models and Parts, please see: [infrastructure_management/parts_and_parts_slots/part-model-templates.md](infrastructure_management/parts_and_parts_slots/part-model-templates.md)
 
 ### Data example
 

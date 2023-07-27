@@ -25,7 +25,7 @@ plugins: [
         redirects: [
           {
             to: '/docs/getting_started/getting-started-with-auto-discovery/',
-            from: '/getstarted/getting-started-with-auto-discovery/',
+            from: ['/getstarted/getting-started-with-auto-discovery/', '/getstarted/getting-started-with-a-blank-slate/']
           },
           {
             to: '/docs/getting_started/getting-started-discovery-hub/',
@@ -161,7 +161,7 @@ plugins: [
           },
           {
             to: '/docs/discovery/setup-dns-autodiscovery/',
-            from: '/auto-discovery/setup-dns-autodiscovery/',
+            from: ['/auto-discovery/setup-dns-autodiscovery/', '/tools/setup-dns-autodiscovery/']
           },
           {
             to: '/docs/discovery/ibm-i-as400/',
@@ -258,6 +258,10 @@ plugins: [
           {
             to: '/docs/discovery/windows-and-hyper-v-auto-discovery/',
             from: ['/auto-discovery/windows-and-hyper-v-auto-discovery/', '/auto-discovery/windows-auto-discovery-tool/']
+          },
+          {
+            to: '/docs/discovery/cloud_platforms_autodiscovery/',
+            from: '/auto-discovery/cloud-auto-discovery/',
           },
           {
             to: '/docs/discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
@@ -625,7 +629,7 @@ plugins: [
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/external-logging-config/',
-            from: ['/external-integrations/external-logging-config/', '/external-integrations/external-logging/']
+            from: ['/external-integrations/external-logging-config/', '/external-integrations/external-logging/', '/external-integrations/external-logging-in-device42/']
           },
           {
             to: '/docs/integration/external_integrations_and_migrations/configuring-splunk/',

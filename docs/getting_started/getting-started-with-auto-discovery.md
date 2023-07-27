@@ -33,13 +33,13 @@ The required fields are Name, Network and mask bits. Others are optional. The be
 
 ### Set up WDS (Windows Discovery Service)
 
-**Note: All recent releases \[v14+\] of Device42 can run all discoveries from the web UI \[and/or via [Remote Collectors](../discovery/remote-collector-rc)], including WMI discovery as long as the [WDS service](installation/windows-discovery-service-installation/) (Windows Discovery Service) has been configured.** Now is a good time to set up a [Remote Collector (RC)](https://docs.device42.com/auto-discovery/remote-collector-rc/), as RCs, being dedicated to discovery, can handle larger network ranges than your MA. If you'll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it's recommended to connect WDS to it as opposed to connecting it to your MA.
+**Note: All recent releases \[v14+\] of Device42 can run all discoveries from the web UI \[and/or via [Remote Collectors](../discovery/remote-collector-rc)], including WMI discovery as long as the [WDS service](installation/windows-discovery-service-installation/) (Windows Discovery Service) has been configured.** Now is a good time to set up a [Remote Collector (RC)](discovery/remote-collector-rc.md), as RCs, being dedicated to discovery, can handle larger network ranges than your MA. If you'll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it's recommended to connect WDS to it as opposed to connecting it to your MA.
 
 ### Creating your first discovery job
 
 Once you've installed the [WDS](installation/windows-discovery-service-installation) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](../discovery/autodisc-best-practices/) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](../discovery/network-auto-discovery/)
 
-Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](https://docs.device42.com/auto-discovery/network-auto-discovery/) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
+Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](discovery/network-auto-discovery.md) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
 
 ![Add SNMP discovery](/assets/images/add_SNMP_discovery_RC_v15.png)
 

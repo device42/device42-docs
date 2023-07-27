@@ -5,7 +5,7 @@ sidebar_position: 6
 
 ## Introduction
 
-Storage Arrays are identified and returned by Device42 [Storage Arrays autodiscovery](https://docs.device42.com/auto-discovery/storage-arrays-autodiscovery/). Storage Arrays also display their resource details, related resources, and topology map.
+Storage Arrays are identified and returned by Device42 [Storage Arrays autodiscovery](discovery/storage_arrays_autodiscovery.md). Storage Arrays also display their resource details, related resources, and topology map.
 
 ## View All Storage Arrays
 
@@ -17,7 +17,7 @@ Device42 displays the Storage Arrays list page. On this page, you can _Search b
 
 ![](/assets/images/Storage-arrays-filter-by-type.png)
 
-**Note**: The Storage Arrays list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](https://docs.device42.com/getstarted/advanced-search-feature/) documentation page for instructions.
+**Note**: The Storage Arrays list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](getting_started/advanced-search-feature.md) documentation page for instructions.
 
 Click on an array _Name_ to see details about that array. You can use the links in the panel on the right to see details about that related resource.
 

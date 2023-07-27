@@ -5,7 +5,7 @@ sidebar_position: 3
 
 The Device42 Generic Spreadsheet Import Tool enables users to take data in existing spreadsheets or CSV files and easily load them into Device42. The tool supports XLS, XLSX, and CSV formats and enables users to quickly and easily map columns from the spreadsheets to the appropriate fields in Device42.
 
-Here is a [video how-to on this Generic CSV import tool.](https://docs.device42.com/how-to-videos/generic-csv-import-tool-how-to/)
+Here is a [video how-to on this Generic CSV import tool.](videos/generic-csv-import-tool-how-to.md)
 
 The spreadsheet converter is a standalone executable and is available for download [here](https://www.device42.com/bulk-data-management/) .
 
