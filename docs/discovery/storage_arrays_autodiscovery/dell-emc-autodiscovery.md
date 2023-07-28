@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Access Protocols by Array
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_storage_arrays_autodiscovery_dell-emc-autodiscovery.png)
 
 ## Minimum Permissions for Storage Array Autodiscovery
 

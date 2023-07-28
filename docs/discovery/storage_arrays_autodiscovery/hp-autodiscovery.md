@@ -7,7 +7,7 @@ Follow the steps below to set up read-only users for HP Storage Array autodiscov
 
 ## Access Protocols by Array
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_storage_arrays_autodiscovery_hp-autodiscovery.png)
 
 ## Minimum Permissions for Storage Array Autodiscovery
 
