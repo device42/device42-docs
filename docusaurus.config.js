@@ -804,10 +804,6 @@ const config = {
             from: '/device42-doql/db-viewer-schema/',
           },
           {
-            to: '/docs/reporting/doql_device42_object_query_language/db-viewer-schema/',
-            from: '/device42-doql/db-viewer-schema/',
-          },
-          {
             to: '/docs/reporting/dbb_cookbook/app-dependency-mapping/',
             from: '/dbb-cookbook/app-dependency-mapping/',
           },
