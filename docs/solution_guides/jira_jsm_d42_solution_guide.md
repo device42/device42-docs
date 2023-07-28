@@ -48,7 +48,7 @@ We’ll start by preparing Device42 for cloud service integrations. Navigate to 
 * Company Name
 * Email
 
-![Device42 Cloud Services](/assets/jsm-solution-guide/image65.png)
+![Device42 Cloud Services](/assets/images/jsm-solution-guide/image65.png)
 
 _Device42 Cloud services_
 
