@@ -8,6 +8,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
     - name: Checkout code
@@ -33,4 +34,24 @@ jobs:
 
     - name: Sync to S3
       run: aws s3 sync build/ s3://device42-docs-website-content-dev --size-only --delete
+
+    - name: Invalidate CF cache
+      run: |
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
+
+    - name: Setup Algolia Config
+      id: algolia_config
+      run: |
+           sed -i 's/<INDEX_NAME>/${{ vars.ALGOLIA_INDEX }}/g' algolia.json
+           sed -i 's/<FQDN>/${{ vars.FQDN }}/g' algolia.json
+           echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
+
+    - name: Run Algolia Reindex
+      uses: signcl/docsearch-scraper-action@master
+      env:
+        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        CONFIG: ${{ steps.algolia_config.outputs.config }}
+
 

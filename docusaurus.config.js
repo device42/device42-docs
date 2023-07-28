@@ -1275,7 +1275,7 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').Options} */
   presets: [
     [
-       '@docusaurus/preset-classic',
+        '@docusaurus/preset-classic',
       ({
 
         docs: {
@@ -1297,9 +1297,9 @@ const config = {
     ({
       image: 'img/d42-social-card.png',
       algolia: {
-        indexName: '',
-        appId: '',
-        apiKey: ''
+        indexName: 'dev',
+        appId: 'G1PBLM6LHG',
+        apiKey: 'e1a0fe8ee0c7cc229ac937295f499837'
       },
       navbar: {
         logo: {
