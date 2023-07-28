@@ -1,4 +1,4 @@
-name: Build and Deploy to S3
+name: Build and Deploy
 
 on:
   push:
@@ -6,10 +6,8 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  build_artifact:
     runs-on: ubuntu-latest
-    environment: dev
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -24,6 +22,23 @@ jobs:
 
     - name: Build
       run: yarn build
+    
+    - name: Archive build
+      uses: actions/upload-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
+        path: build
+
+jobs:
+  deploy_dev:
+    needs: build_artifact
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -33,7 +48,47 @@ jobs:
         aws-region: us-east-1 # Replace with your AWS region
 
     - name: Sync to S3
-      run: aws s3 sync build/ s3://device42-docs-website-content-dev --size-only --delete
+      run: aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
+
+    - name: Invalidate CF cache
+      run: |
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
+
+    - name: Setup Algolia Config
+      id: algolia_config
+      run: |
+           sed -i 's/<INDEX_NAME>/${{ vars.ALGOLIA_INDEX }}/g' algolia.json
+           sed -i 's/<FQDN>/${{ vars.FQDN }}/g' algolia.json
+           echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
+
+    - name: Run Algolia Reindex
+      uses: signcl/docsearch-scraper-action@master
+      env:
+        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        CONFIG: ${{ steps.algolia_config.outputs.config }}
+
+jobs:
+  deploy_stg:
+    needs: deploy_dev
+    runs-on: ubuntu-latest
+    environment: stg
+    steps:
+     name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1 # Replace with your AWS region
+
+    - name: Sync to S3
+      run: aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
 
     - name: Invalidate CF cache
       run: |
