@@ -40,7 +40,7 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 
 - Scroll down the page and click the _Advanced Features (Show)_ tab to select the different types of resources you want the job to discover (Route53, S3, EBS, Databases, etc.).
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_aws-autodiscovery.png)
 
 - Add an _Autodiscovery Schedule_ to schedule the job if wanted or add _Admin Groups_ for the job.
 - Click _Save_ or _Save and continue editing_ to save the discovery job.
@@ -158,7 +158,7 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 
 - Select _Resources > Secrets > AWS Roles_ from the main menu.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_aws-autodiscovery2.png)
 
 - Device42 displays the AWS Roles list page. Use the _AWS Role_ drop-down to select a role to display or click _Advanced_ to construct more specific searches. See the [Advanced Search Feature](https://docs.device42.com/getstarted/advanced-search-feature/) documentation page for instructions.
 

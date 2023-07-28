@@ -7,7 +7,7 @@ With the scope of Device42 discovery, duplicate items can occur. To help avoid a
 
 In global settings you can set the device matching level. The more aggressive, the more devices will attempt to match existing items in the system.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_unprocessed-device-records.png)
 
 Device Attributes currently used ordered by most significant to least (levels 1-4)
 

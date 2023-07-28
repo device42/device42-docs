@@ -30,7 +30,7 @@ The top left of the page displays the available license modules and whether they
 
 The lower portion of the page displays the number of purchased licenses and the number of license units consumed by the different discovered components.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/administration_licensing.png)
 
 ## Upload a New License
 
