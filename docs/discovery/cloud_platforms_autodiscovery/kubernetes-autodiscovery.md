@@ -15,7 +15,7 @@ Kubernetes Discovery is available as an option for [Amazon AWS](/docs/discovery/
 
 You can also select an _Action for Resources not found:_ option to choose how to handle Kubernetes Cluster children resources not found in subsequent discovery.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery1.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery2.png)
 
 Your cloud discovery job will now also include discovery of Kubernetes resources on the target cloud platform.
 
@@ -25,22 +25,22 @@ To add a Standalone Kubernetes discovery job, you'll need either a Bearer Token 
 
 Optionally, you can also choose a Vendor and a VRF Group. Please note that all Vendors and VRF Groups are user-defined.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery2.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery3.png)
 
 ### View Discovered Kubernetes Resources
 
 Discovered Kubernetes resources appear in the Resources list page. Select _Resources > All Resources_ from the main menu to display the list page. Use the _Vendor Resource Type_ drop-down to choose the Kubernetes resources you want to see.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery3.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery4.png)
 
 Click on a _Resource Name_ to view that resource.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery4.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery5.png)
 
 Click on the available links to see details about those resources.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery5.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery6.png)
 
 Click the Edit button at the top right to edit resource information. Editing is generally limited to adding or editing Notes or Tags or changing the In Service status or Level.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery6.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery7.png)
