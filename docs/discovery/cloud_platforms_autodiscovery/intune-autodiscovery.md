@@ -60,6 +60,6 @@ Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
 
 Scroll down to the bottom of the page to define a schedule for the Intune discovery job to run.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery.png)
 
 Click **Save** to save the Intune discovery job.
