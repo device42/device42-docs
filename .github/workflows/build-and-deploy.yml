@@ -22,12 +22,15 @@ jobs:
 
     - name: Build
       run: yarn build
+
+    - name: Compress
+      run: tar -czf build.tar.gz build/
     
     - name: Archive build
       uses: actions/upload-artifact@v3
       with:
         name: yarn-${{ github.sha }}
-        path: build
+        path: build.tar.gz
 
   deploy_dev:
     needs: build_artifact
@@ -38,6 +41,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: yarn-${{ github.sha }}
+    
+    - name: Unpack artifact
+      run: tar -xvf build.tar.gz
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -77,6 +83,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: yarn-${{ github.sha }}
+    
+    - name: Unpack artifact
+      run: tar -xvf build.tar.gz
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
