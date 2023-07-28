@@ -50,4 +50,14 @@ main {
   .indexSearch .DocSearch {
     width: 25rem;
   }
+  .indexSearch .DocSearch {
+    width: 90% !important;
+  }
+}
+
+/* SEARCH */
+
+.indexSearch .DocSearch {
+  width: 40% !important;
+  padding: 24px 16px !important;
 }

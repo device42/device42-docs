@@ -5,7 +5,10 @@ import styles from "./index.module.css";
 import Footer from "@site/src/components/footer";
 import ContentCard from "@site/src/components/card";
 import Link from "@docusaurus/Link";
+import { DocSearch } from "@docsearch/react";
+import "@docsearch/css";
 import { productDocData, solutionGuideData } from "./dummy-data";
+import clsx from "clsx";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -17,6 +20,13 @@ export default function Home() {
         </section>
         <section className={styles.helpSection}>
           <h2>How can we help you?</h2>
+          <div className={clsx(styles.searchBox, "indexSearch")}>
+            <DocSearch
+              indexName={siteConfig.themeConfig.algolia.indexName}
+              appId={siteConfig.themeConfig.algolia.appId}
+              apiKey={siteConfig.themeConfig.algolia.apiKey}
+            />
+          </div>
         </section>
         <section className={styles.productsSection}>
           <div className={styles.cardContainer}>
