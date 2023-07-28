@@ -7,7 +7,10 @@ import ContentCard from "@site/src/components/card";
 import Link from "@docusaurus/Link";
 import { DocSearch } from "@docsearch/react";
 import "@docsearch/css";
-import { productDocData, solutionGuideData } from "./dummy-data";
+import {
+  productDocData,
+  solutionGuideData,
+} from "@site/src/components/data/dummy-data";
 import clsx from "clsx";
 
 export default function Home() {
