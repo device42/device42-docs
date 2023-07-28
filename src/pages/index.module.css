@@ -145,16 +145,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .cardsContainer {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+ 
   .cardContainer {
     width: 100%;
     margin-bottom: 24px;
   }
-  .solutionsGuidesSeeMore {
-    grid-column: 1 / span 3;
+
+  .cardsContainer_src-pages-index-module{
+    display: block;
   }
+
   .productsSection {
     flex-direction: column;
   }
