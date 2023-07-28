@@ -44,19 +44,11 @@ Connectivity to [connect.device42.io](http://connect.device42.io/) and access 
 
 We’ll start by preparing Device42 for cloud service integrations. Navigate to Tools > Integrations > Cloud Services, and complete the following fields:
 
-
-
 * D42 URL for SaaS apps (the hostname your Device42 instance is accessible on)
 * Company Name
 * Email
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
+![Device42 Cloud Services](/assets/jsm-solution-guide/image65.png)
 
 _Device42 Cloud services_
 
