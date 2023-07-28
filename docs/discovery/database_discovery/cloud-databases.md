@@ -19,7 +19,7 @@ Device42 displays the cloud databases list page. On this page, you can _Search 
 
 You can also click _+More_ to filter by _Vendor Resource Type_, _Role_, _Instance Size_, _In Service, Service Level, and Tags_.
 
-**Note**: The cloud databases list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](https://docs.device42.com/getstarted/advanced-search-feature/) documentation page for instructions.
+**Note**: The cloud databases list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](getting_started/advanced-search-feature.md) documentation page for instructions.
 
 Click on a cloud database _Name_ to see details about that database. You can use the links in the _Related Resources_ panel on the right to see details about that related resource.
 

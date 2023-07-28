@@ -23,14 +23,14 @@ Click _Save_ to save your changes.
 
 - [Atlassian JIRA (cloud)](device42-jira-cloud-integration)
 - [ServiceNow](device42-servicenow-connector)
-- [Freshservice](https://docs.device42.com/external-integrations/freshservice-integration/)
+- [Freshservice](integration/external_integrations_and_migrations/freshservice-integration.md)
 - Insight in JSM Cloud
-- [Opsgenie](https://docs.device42.com/external-integrations/opsgenie-integration/)
-- [PagerDuty](https://docs.device42.com/external-integrations/pagerduty-integration/)
-- [ServiceNow](https://docs.device42.com/external-integrations/device42-servicenow-connector/)
+- [Opsgenie](integration/external_integrations_and_migrations/opsgenie-integration.md)
+- [PagerDuty](integration/external_integrations_and_migrations/pagerduty-integration.md)
+- [ServiceNow](integration/external_integrations_and_migrations/device42-servicenow-connector.md)
 - [ZenDesk](device42-zendesk-connector)
 
-Note that the [Cloud Recommendation Engine](https://docs.device42.com/reports/cloud-recommendation-engine/) also uses the Cloud Connector.
+Note that the [Cloud Recommendation Engine](reporting/reports/cloud-recommendation-engine.md) also uses the Cloud Connector.
 
 ## Why was the Cloud Connector built?
 

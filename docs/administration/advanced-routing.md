@@ -5,7 +5,7 @@ sidebar_position: 2
 
 If you have complex/advanced routing needs for your Device42 appliance – you can now add (or delete) those to the system from the console menu.
 
-**Advanced Routing instructions are also available in [video form, here.](https://docs.device42.com/how-to-videos/add-a-route-to-device42/)**
+**Advanced Routing instructions are also available in [video form, here.](videos/add-a-new-route-to-device42.md)**
 
 1. To configure advanced routing, choose option 15 from the Device42 Setup/Troubleshooting Menu (Log in to the Console of the Device42 VM to access this menu.): ![advanced-routing-option](/assets/images/advanced_routing.png)
     

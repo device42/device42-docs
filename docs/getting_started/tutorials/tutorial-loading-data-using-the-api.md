@@ -23,7 +23,7 @@ Now, let's look at the script we just executed. If you are sure that you will ne
 
 ![wpid3350-media_1375607843550.png](/assets/images/wpid3350-media_1375607843550.png)
 
-Each line in the shell script has a curl statement like this one. Curl is a data transfer tool that is built into Linux and Ubuntu. The -i, -H, and --insecure parameters should be in all device42 API calls: 1. The -i command specifies that the header should be included in the output. 2. The -H command tells the device42 application that a json-formatted response will be accepted. 3. The --insecure command is required because the device42 appliance does not have a certificate. The -X and -d commands will vary according to the device42 API being used as will the url (e.g. '/api/1.0/buildings/' in the example above). The appropriate values for each of these can be by going to the [device42 API list page](https://docs.device42.com/how-to-videos/api-imports-add-create-hardware-models/) and finding the API you need.
+Each line in the shell script has a curl statement like this one. Curl is a data transfer tool that is built into Linux and Ubuntu. The -i, -H, and --insecure parameters should be in all device42 API calls: 1. The -i command specifies that the header should be included in the output. 2. The -H command tells the device42 application that a json-formatted response will be accepted. 3. The --insecure command is required because the device42 appliance does not have a certificate. The -X and -d commands will vary according to the device42 API being used as will the url (e.g. '/api/1.0/buildings/' in the example above). The appropriate values for each of these can be by going to the [device42 API list page](videos/api-imports-add-create-hardware-models.md) and finding the API you need.
 
 ![wpid3351-media_1375610020246.png](/assets/images/wpid3351-media_1375610020246.png)
 
@@ -37,7 +37,7 @@ The documentation for this API command tells you that: (1) The url is /api/1.0/b
 
 ![wpid3353-media_1375610622694.png](/assets/images/wpid3353-media_1375610622694.png)
 
-This is the documentation for the Create/Update Rooms API. Highlighted in red is an optional room\_id parameter. You would use this parameter if you wanted to specify which room the rack is in. There are two ways to get an id (id's are required for parameters whose names end in \_id): First, as specified above, you can do it programmatically via the [Retrieval API](https://docs.device42.com/getstarted/tutorials/tutorial-loading-data-using-the-api/) for the object. However, this method is most appropriate for a more complex program written in a language such as Java or Python. If you are just executing curl commands in a shell script, you can do the following: Click on Datacenter / Rooms. Then, hover over the name of the room for which you wish to find the id.
+This is the documentation for the Create/Update Rooms API. Highlighted in red is an optional room\_id parameter. You would use this parameter if you wanted to specify which room the rack is in. There are two ways to get an id (id's are required for parameters whose names end in \_id): First, as specified above, you can do it programmatically via the [Retrieval API](getting_started/tutorials/tutorial-loading-data-using-the-api.md) for the object. However, this method is most appropriate for a more complex program written in a language such as Java or Python. If you are just executing curl commands in a shell script, you can do the following: Click on Datacenter / Rooms. Then, hover over the name of the room for which you wish to find the id.
 
 ![wpid3354-media_1375694823287.png](/assets/images/wpid3354-media_1375694823287.png)
 
@@ -45,4 +45,4 @@ For example, hover over the "2nd Floor" hyperlink, and look at the lower left co
 
 ![wpid3355-media_1375697151375.png](/assets/images/wpid3355-media_1375697151375.png)
 
-We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](https://docs.device42.com/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
+We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getting_started/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.

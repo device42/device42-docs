@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ## Turning on Application Discovery
 
-To turn on Enterprise Application Mapping, simply check the "Discover Applications" checkbox while configuring your discovery job. If you are new to discovery, see [Getting Started with Auto-Discovery](https://docs.device42.com/getstarted/getting-started-with-auto-discovery/) to get acquainted. If you would like to discover config files, they can also be imported into Device42; select the "Store Application Components Config Files" checkbox.
+To turn on Enterprise Application Mapping, simply check the "Discover Applications" checkbox while configuring your discovery job. If you are new to discovery, see [Getting Started with Auto-Discovery](getting_started/getting-started-with-auto-discovery.md) to get acquainted. If you would like to discover config files, they can also be imported into Device42; select the "Store Application Components Config Files" checkbox.
 
 When autodiscovery is run, Application Components will be created based on related services on a server. For instance, a server with Oracle Database running will have a component created that associates all Oracle Database services together on that machine. The Autodiscovery Application will also find the service-to-service connections so you could, for example, see that your Apache service on _Prod-Server1_ is directly dependent on the MySQL service running on _Prod-Database3_.
 
@@ -23,7 +23,7 @@ To see autodiscovered application dependencies, go to Apps>Application Component
 
 ![Application Component View](/assets/images/select_application_component_view.png)
 
-A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](https://docs.device42.com/enterprise-application-dependency-mapping/adm-supported-applications/).
+A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](applications/application_dependency_mapping/adm-supported-applications.md).
 
 When you view the details page for an application component, you will see the device it was discovered on as well as any other application components that it depends on. You'll also see any services that have been associated with the application component. From here, you can also edit the application to assign responsible and/or affected departments, describe what's impacted by downtime, and edit any custom fields.
 

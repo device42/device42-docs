@@ -5,11 +5,11 @@ sidebar_position: 1
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](https://docs.device42.com/auto-discovery/) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](discovery/auto-discovery.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 
-After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [https://docs.device42.com/enterprise-application-dependency-mapping/adm-supported-applications/](https://docs.device42.com/enterprise-application-dependency-mapping/adm-supported-applications/) .
+After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [applications/application_dependency_mapping/adm-supported-applications.md](applications/application_dependency_mapping/adm-supported-applications.md) .
 
 ![](/assets/images/Web_732_1.png)
 
@@ -45,7 +45,7 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Affinity Groups
 
-Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [https://docs.device42.com/apps/affinity-groups/](https://docs.device42.com/apps/affinity-groups/) to further understand this process.
+Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [affinity groups](/docs/applications/affinity_groups/) to further understand this process.
 
 ### Enabling Affinity Groups
 

@@ -11,7 +11,7 @@ To access the functionality described in this section, you _**must have a licens
 
 ## Power Unit Autodiscovery
 
-The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](https://docs.device42.com/auto-discovery/setup-network-auto-discovery/) Begin by navigating to the Device42 main menu, _Discovery -> SNMP_. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: ![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
+The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](discovery/network-auto-discovery.md) Begin by navigating to the Device42 main menu, _Discovery -> SNMP_. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: ![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
 
 If you haven't yet set up a [Remote Collector Installation](https://www.device42.com/autodiscovery/) docs page.
 
@@ -33,7 +33,7 @@ When sensors are discovered, they are created with Asset records in Device42. If
 
 ## Legacy documentation - Standalone Power Appliance, Depreciated 2017
 
-**Note to Power Monitoring / Control Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring or control going forward. See the [Remote Collector page](https://docs.device42.com/auto-discovery/remote-collector/) for setup details and for information on obtaining a Remote Collector going forward!**
+**Note to Power Monitoring / Control Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring or control going forward. See the [Remote Collector page](discovery/remote-collector-rc.md) for setup details and for information on obtaining a Remote Collector going forward!**
 
 The actual monitoring occurs in a separate virtual appliance from the main Device42 appliance. Please note that you can optionally monitor power using Device42 Remote Collectors from v14.0.0 forward, as well as the dedicated power appliance. This is done for three reasons:
 
@@ -43,14 +43,14 @@ The actual monitoring occurs in a separate virtual appliance from the main Devic
 
 ### Installation
 
-The installation process for one or more monitoring appliances is similar to installation of the Device42 main appliance. If you would like to set up power monitoring using a Remote Collector (RC), see the [instructions for setting up an RC](https://docs.device42.com/auto-discovery/remote-collector/).
+The installation process for one or more monitoring appliances is similar to installation of the Device42 main appliance. If you would like to set up power monitoring using a Remote Collector (RC), see the [instructions for setting up an RC](discovery/remote-collector-rc.md).
 
 Refer to the appropriate link(s) below for installation on your selected virtualization platform:  
-\- [VMWare Player](https://docs.device42.com/getstarted/installation/installation-vmware-player-workstation-2/)  
-\- [Virtual Box](https://docs.device42.com/getstarted/installation/installation-virtual-box/)  
-\- [Citrix Xen Server](https://docs.device42.com/getstarted/installation/installation-citrix-xen-server/)  
-\- [Microsoft Hyper V](https://docs.device42.com/getstarted/installation/installation-microsoft-hyper/)  
-\- [vCenter Server](https://docs.device42.com/getstarted/installation/installation-vcenter-server/)
+\- [VMWare Player](getting_started/installation/installation-vmware-player.md)  
+\- [Virtual Box](getting_started/installation/installation-virtual-box.md)  
+\- [Citrix Xen Server](getting_started/installation/installation-citrix-xen-server.md)  
+\- [Microsoft Hyper V](getting_started/installation/installation-microsoft-hyperv.md)  
+\- [vCenter Server](getting_started/installation/installation-vcenter-server.md)
 
 Follow the steps for your selected virtualization platform to:
 
@@ -82,7 +82,7 @@ You can also enter one or more email addresses of people who should receive emai
 
 You can setup multiple monitoring appliances by entering multiple screens like the one above.
 
-Please also read [this section of the documentation](https://docs.device42.com/energy-monitoringmanagement/manage-monitored-ips/) concerning maintaining the IP's on the monitoring appliance.
+Please also read [this section of the documentation](infrastructure_management/power_and_environmental_monitoring/manage-monitored-ips.md) concerning maintaining the IP's on the monitoring appliance.
 
 ### Capacity Considerations
 

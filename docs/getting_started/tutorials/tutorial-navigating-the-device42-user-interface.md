@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ![Populated D42 Dashboard](/assets/images/d42_dashboard_v15.png)
 
-At this point, you should have data in your Device42 system from following one of the two "Loading Data" tutorials provided. If you go to the Device42 Home Page by clicking the 'Home' button on the menu bar, you will see the Dashboard above if you followed the [Spreadsheets tutorial](https://docs.device42.com/getstarted/tutorials/device42-tutorial/) and you will see a Dashboard with more objects if you followed the [API tutorial](https://docs.device42.com/getstarted/tutorials/tutorial-loading-data-using-the-api/).
+At this point, you should have data in your Device42 system from following one of the two "Loading Data" tutorials provided. If you go to the Device42 Home Page by clicking the 'Home' button on the menu bar, you will see the Dashboard above if you followed the [Spreadsheets tutorial](getting_started/tutorials/device42-tutorial.md) and you will see a Dashboard with more objects if you followed the [API tutorial](getting_started/tutorials/tutorial-loading-data-using-the-api.md).
 
 In either case, let's take a tour through what we've created.
 

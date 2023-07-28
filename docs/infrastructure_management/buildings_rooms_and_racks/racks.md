@@ -131,7 +131,7 @@ In the physical connection layout, you can select a port for a device and the di
 
 ### Adding PDUs to the rack
 
-- You can add PDUs in and around the rack, details for adding and displaying PDUs is discussed in detailed in the PDU section at: [https://docs.device42.com/pdu\_overview/pdu-rack-display/](https://docs.device42.com/pdu_overview/pdu-rack-display/)
+- You can add PDUs in and around the rack, details for adding and displaying PDUs is discussed in detailed in the PDU section at: [PDU Rack Display](infrastructure_management/power_units/pdu-rack-display.md)
 
 ### Bulk operations
 
@@ -215,7 +215,7 @@ Here you can enter device and power information for devices that need to be rack
 
 Adding and/or updating racks in bulk can be done via API and/or API Imports. Tools | Imports (.xls)
 
-Additional information can be found here: [Create / Update Racks via API / API Imports](https://api.device42.com/#create-/-update-racks) [Getting started - importing data from existing spreadsheets](https://docs.device42.com/getstarted/importing-data-from-existing-spreadsheets/)
+Additional information can be found here: [Create / Update Racks via API / API Imports](https://api.device42.com/#create-/-update-racks) [Getting started - importing data from existing spreadsheets](getting_started/importing-data-from-existing-spreadsheets.md)
 
 ### Bulk add - device, assets, PDUs
 
@@ -223,10 +223,10 @@ Additional information can be found here: [Create / Update Racks via API / API I
 
 Devices, assets, and PDUs can be added / updated to racks in bulk via API and/or API Imports.
 
-Devices: How to video: [adding devices to racks via API Import](https://docs.device42.com/how-to-videos/api-imports-adding-devices-to-racks/)
+Devices: How to video: [adding devices to racks via API Import](videos/api-imports-adding-devices-to-racks.md)
 
 Assets: Documentation: bulk add update assets to racks
 
 PDUs: Documentation: bulk add / update PDUs to racks
 
-[Getting started - importing data from existing spreadsheets](https://docs.device42.com/getstarted/importing-data-from-existing-spreadsheets/)
+[Getting started - importing data from existing spreadsheets](getting_started/importing-data-from-existing-spreadsheets.md)

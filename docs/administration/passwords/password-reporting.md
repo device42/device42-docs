@@ -25,4 +25,4 @@ Password Reporting Options:
 - Last Password Change NOT in the last - 1, 2, 3, 6, or 12 months
 - Expiration date NOT in the last - 1, 2, 3, 6, or 12 months (not shown)
 
-See [Reports](https://docs.device42.com/reports/) for more information about creating Device42 reports.
+See [Reports](/docs/reporting) for more information about creating Device42 reports.

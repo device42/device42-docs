@@ -62,7 +62,7 @@ With Device42's Advanced Reporting, you can use DOQL (a SQL derivative) to creat
 
 To create a report based on a DOQL query, name the report, and then **simply choose "Add SQL" during the 'Category' selection step of report creation _(instead of choosing any categories)_**_.
 
-For a full set of steps in more detail, with pictures, see the dedicated ["Use custom SQL in Advanced Report" page](https://docs.device42.com/reports/use-custom-sql-advanced-report/).
+For a full set of steps in more detail, with pictures, see the dedicated ["Use custom SQL in Advanced Report" page](reporting/reports/use-custom-sql-advanced-report.md).
 
 * * *
 
@@ -76,4 +76,4 @@ All data categories in Advanced Reporting are inherited directly from Device42's
 
 The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. Useful for visualizing relationships and writing DOQL queries, you can quickly navigate to the ERD from the Advanced Reporting Screen: ![Entity Relationship Diagram button on Advanced Reporting screen](/assets/images/ERD_button-HL.png)
 
-Clicking the "Entity Relationship Diagram" button brings up the ERD. Here is an example screenshot of the ERD. Note that the ERD has it's own page; for more information check out the dedicated [Device42 ERD/Viewer Schema page](https://docs.device42.com/device42-doql/db-viewer-schema/). In this example, the "Find" field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out while the items that match the 'affinity' search query are visible: ![Device42 entity relationship diagram](/assets/images/entity_relationship_diagram_example.png)_
+Clicking the "Entity Relationship Diagram" button brings up the ERD. Here is an example screenshot of the ERD. Note that the ERD has it's own page; for more information check out the dedicated [Device42 ERD/Viewer Schema page](reporting/doql_device42_object_query_language/db-viewer-schema.md). In this example, the "Find" field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out while the items that match the 'affinity' search query are visible: ![Device42 entity relationship diagram](/assets/images/entity_relationship_diagram_example.png)_

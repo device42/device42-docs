@@ -9,7 +9,7 @@ This document explains how to import parts using the Spreadsheets Import tool fo
 
 ![Importing part models vs. importing parts](/assets/images/wpid4760-media_1400162046800.png)
 
-Please see [Managing Spare Parts](https://docs.device42.com/spare-parts-management/models-and-parts/) for an explanation of part models vs. parts in Device42.
+Please see [Managing Spare Parts](infrastructure_management/parts_and_parts_slots/part-model-templates.md) for an explanation of part models vs. parts in Device42.
 
 Part models can be created using the create or update spare parts import. The parts import can do both models and parts. The create or update spare parts models import can only create models.
 
@@ -17,7 +17,7 @@ Part models can be created using the create or update spare parts import. The pa
 
 ![Download current data](/assets/images/wpid4759-media_1400161961340.png)
 
-This document will demonstrate adding parts to existing part models - building on the imported models covered in the [Importing Part Models document](https://docs.device42.com/spare-parts-management/importing-part-models/).
+This document will demonstrate adding parts to existing part models - building on the imported models covered in the [Importing Part Models document](infrastructure_management/parts_and_parts_slots/importing-part-models.md).
 
 Tools>Imports/Exports (.xls) - download current data for spare parts models as highlighted above
 

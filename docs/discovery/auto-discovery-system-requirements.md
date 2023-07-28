@@ -16,8 +16,8 @@ The following are pre-requisites and other general requirements and guidelines f
 
 Detailed permission info:
 
-- Windows & WMI namespace: [Windows & HyperV Discovery](https://docs.device42.com/auto-discovery/windows-and-hyper-v-auto-discovery/) page
-- Linux / sudo usage info: [Linux & Unix Server Discovery](https://docs.device42.com/auto-discovery/linux-unix-server-auto-discovery/) page
+- Windows & WMI namespace: [Windows & HyperV Discovery](discovery/windows-and-hyper-v-auto-discovery.md) page
+- Linux / sudo usage info: [Linux & Unix Server Discovery](discovery/linux-unix-server-auto-discovery.md) page
 
 \*\*Contact support@device42.com with any further questions regarding specific privilege level requirements for WMI Namespaces, and \*nix commands run with/without sudo.
 

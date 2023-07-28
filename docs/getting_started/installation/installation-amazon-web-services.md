@@ -52,7 +52,7 @@ The configuration will ONLY allow you to "Launch" successfully using one of the 
 
 ![Check for Device42 Update](/assets/images/check_for_update_d42_aws.png)
 
-- You're all set! Now is a good time to check out ["Getting started with Device42" documentation!](https://docs.device42.com/getstarted/) If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
+- You're all set! Now is a good time to check out ["Getting started with Device42" documentation!](/docs/getting_started/) If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
 
 * * *
 
@@ -109,13 +109,13 @@ All maintenance operations are performed through the Device42 appliance manager.
 
 Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from https://www.device42.com/update/.
 
-The following video demonstrates updating your Device42 instance: https://docs.device42.com/how-to-videos/update-d42-how-to/
+The following video demonstrates updating your Device42 instance: videos/update-device42-appliance-how-to.md
 
 ### Backing up and restoring your D42 data on AWS
 
 Device42’s backup facilities are accessible through the appliance manager. Backups can be executed immediately, and users have the ability to download a backup file immediately or on a schedule leveraging automatic saving to an SFTP, NFS, or AWS S3 destination.
 
-For more information on backups / restores, see our documentation: [https://docs.device42.com/device42-appliance-manager/setting-up-backup-device42-appliance-manager/](https://docs.device42.com/device42-appliance-manager/setting-up-backup-device42-appliance-manager/).
+For more information on backups / restores, see our documentation: [administration/appliance_manager/setting-up-backup-device42-appliance-manager.md](administration/appliance_manager/setting-up-backup-device42-appliance-manager.md).
 
 ### Monitoring / Health Checking Device42 on AWS
 
@@ -129,7 +129,7 @@ The above health-check will monitor the following:
 
 ### Configuring High Availability (HA) of Device42 on AWS
 
-If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation page - https://docs.device42.com/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/](https://docs.device42.com/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/). The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
+If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation page - administration/appliance_manager/warm-ha-setup-failover-and-automated-backups.md](administration/appliance_manager/warm-ha-setup-failover-and-automated-backups.md). The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
 
 An example configuration that leverages Nagios to automatically fail-over the instance in case of a failure is also described.
 
