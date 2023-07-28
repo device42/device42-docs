@@ -8,9 +8,16 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  margin: 0 4rem 5rem;
+  margin: 0 !important;
+  background-image: url("./svgs/light-star-warp.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
+[data-theme="dark"] .mainSection {
+  background-image: url("./svgs/dark-star-warp.jpg");
+}
 
 .cardSection {
   display: flex;
@@ -19,21 +26,20 @@
   justify-content: center;
 }
 
-
 .heroSection {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-  margin: 5rem 0 2rem 0;
+  margin: 5rem 0 0 0;
 }
 
 .heroSection h1 {
-  font-weight: 400;
-  font-size: 2.1rem;
-  line-height: 2rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem !important;
   color: var(--ifm-text-color);
+  text-align: center !important;
 }
 
 .heroSection p {
@@ -43,7 +49,7 @@
 
 .searchBox {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,29 +60,102 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.helpSection {
+  background-color: #200264;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem 0;
+  margin-top: 1.6rem;
+  margin-bottom: 2.5rem;
+}
 
-@media screen and (max-width:768px) {
-  .mainSection {
-    margin: 0 1rem;
-  }
+[data-theme="dark"] .helpSection {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.helpSection h2 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+.productsSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.6rem 0;
+  width: 100%;
+  padding: 0 46px;
+}
+.cardContainer {
+  background-color: white;
+  width: 48%;
+  border: 1px solid #200264;
+  padding: 24px;
+  text-align: center;
+}
 
+[data-theme="dark"] .cardContainer {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+.cardContainer h2 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin-bottom: 1.9rem;
+  color: black;
+}
+.solutionsGuidesSeeMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  grid-column: 2 / span 3;
+  font-size: 1.3rem;
+  min-height: 102px;
+}
+[data-theme="dark"] .solutionsGuidesSeeMore,
+[data-theme="dark"] .cardContainer h2 {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
   .contentCard {
     grid-template-columns: 1fr;
   }
 }
 
-
-@media only screen and (max-width:1100px) and (max-width: 1200px) {
-  .contentCard {
+@media only screen and (max-width: 1100px) and (max-width: 1200px) {
+  .cardsContainer {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-
-@media screen and (max-width:768px) {
-  .contentCard {
-    grid-template-columns: 1fr;
+  .solutionsGuidesSeeMore {
+    grid-column: 1 / span 2;
   }
 }
 
-
+@media screen and (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cardContainer {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .solutionsGuidesSeeMore {
+    grid-column: 1 / span 3;
+  }
+  .productsSection {
+    flex-direction: column;
+  }
+}

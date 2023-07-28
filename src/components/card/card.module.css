@@ -1,32 +1,30 @@
-
-.cardLink {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
-    width: 250px;
-    height: 150px;
-    border: 1px solid var(--ifm-text-color);
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin: 1rem 1rem;
+.myCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid #200264;
+  border-radius: 16px;
+  min-height: 102px;
+  color: inherit;
+  text-decoration: none !important;
 }
-
-.cardLink:hover {
-    cursor: pointer;
-    box-shadow: 0px 12px 25px rgba(34, 35, 140, 0.07);
-    text-decoration: none;
+.myCardIcon {
+  width: 28px;
+  object-fit: contain;
 }
-
-.cardLinkText {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 23px;
-    margin-top: 1rem;
-    text-align: center;
-    color: var(--ifm-text-color);
-    text-decoration: none;
+.myCard p {
+  margin: 0;
+  margin-top: 12px;
+  padding: 0;
+  font-weight: 800;
+  font-size: 13px;
+  color: #200264;
 }
-
-
+[data-theme="dark"] .myCard {
+  border: 1px solid white;
+}
+[data-theme="dark"] .myCard p {
+  color: white;
+}
