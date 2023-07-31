@@ -345,15 +345,15 @@ const config = {
             from: '/apps/',
           },
           {
-            to: '/apps/application_dependency_mapping/adm-supported-applications/',
+            to: '/apps/enterprise-application-dependency-mapping/adm-supported-applications/',
             from: '/enterprise-application-dependency-mapping/adm-supported-applications/',
           },
           {
-            to: '/apps/application_dependency_mapping/cloud-application-dependency-mapping/',
+            to: '/apps/enterprise-application-dependency-mapping/cloud-application-dependency-mapping/',
             from: '/enterprise-application-dependency-mapping/cloud-application-dependency-mapping/',
           },
           {
-            to: '/apps/application_dependency_mapping/configure-application-dependency-mapping/',
+            to: '/apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping/',
             from: '/enterprise-application-dependency-mapping/configure-application-dependency-mapping/',
           },
           {
