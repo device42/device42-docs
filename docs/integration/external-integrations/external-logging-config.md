@@ -21,7 +21,7 @@ Webhooks are the best way to get your logs from Device42 to your external loggin
 
 Device42 can be integrated with external logging or SIEM systems, such as Splunk or Logstash, with the use of webhooks. [Webhooks](https://codeburst.io/what-are-webhooks-b04ec2bf9ca2) are a methodology of sending server-side details or events to a receiving client-side application, and are also known as “Reverse APIs”. Device42 can send audit log events in the form of webhooks to these other platforms for external analysis.
 
-This article will walk through setting up this integration using a lab instance of Splunk Enterprise (v6.6.3)at [http://10.42.2.239:8000](http://10.42.2.239:8000/), which does not require any login credentials. Previous documentation on this topic is available here, [External Logging Config – Device42 Documentation | Device42 Documentation](integration/external_integrations_and_migrations/external-logging-config.md).
+This article will walk through setting up this integration using a lab instance of Splunk Enterprise (v6.6.3)at [http://10.42.2.239:8000](http://10.42.2.239:8000/), which does not require any login credentials. Previous documentation on this topic is available here, [External Logging Config – Device42 Documentation | Device42 Documentation](integration/external-integrations/external-logging-config.md).
 
 ## Configuring an HTTP Event Collector (HEC) in Splunk
 

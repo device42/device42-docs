@@ -138,7 +138,7 @@ The ServiceNow integration uses the Device42 Cloud Connector to facilitate commu
 
 This is accomplished by re-use of a WebSocket connection initiated by the Device42 appliance to the Cloud Connector.
 
-For a detailed rundown of the Cloud Connector communication & security architecture, see our [Cloud Connector documentation](integration/external_integrations_and_migrations/device42-cloud-connector-overview.md) here.
+For a detailed rundown of the Cloud Connector communication & security architecture, see our [Cloud Connector documentation](integration/external-integrations/device42-cloud-connector-overview.md) here.
 
 There is also a direct connection option available on version 3.0.0+ of the ServiceNow integration plugin for users who would like to keep their integration in their private network.
 

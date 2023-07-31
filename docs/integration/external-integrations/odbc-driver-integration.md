@@ -25,7 +25,7 @@ To install the Device42 ODBC driver, download the .exe installer from https://de
 
 ## Connecting PowerBI to the Device42 ODBC datasource
 
-Device42's ODBC driver works to connect Microsoft PowerBI directly to your Device42 CMDB. For details on using PowerBI with Device42's ODBC driver, see the [Microsoft PowerBI Integration documentation](integration/external_integrations_and_migrations/powerbi-integration.md).
+Device42's ODBC driver works to connect Microsoft PowerBI directly to your Device42 CMDB. For details on using PowerBI with Device42's ODBC driver, see the [Microsoft PowerBI Integration documentation](integration/external-integrations/powerbi-integration.md).
 
 ## Creating a DSN
 
