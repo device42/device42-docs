@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Purchase Tracking - Legacy Reporting
 
-Device42 can track purchases of devices and assets as well as service and warranty contracts. If you are looking for other types of reports, see the dedicated ["Reporting Section"](../../reporting/reports/creating-reports.md) of the documentation.
+Device42 can track purchases of devices and assets as well as service and warranty contracts. If you are looking for other types of reports, see the dedicated ["Reporting Section"](../../reports/reports/creating-reports.md) of the documentation.
 
 ![add new purchase example](/assets/images/add_purchase_25_dell2950_HL.png)
 
@@ -29,7 +29,7 @@ Here is a full view of the 2 line items. A few things to note:
 
 ## Reporting
 
-Device42 features a brand new ["Advanced Reporting"](../../reporting/reports/creating-reports.md) engine that may eventually lead to the following "Legacy Reports" being depreciated. Find old reports via the Reports menu → Legacy Reports → and then click "Add Report" in the upper right:
+Device42 features a brand new ["Advanced Reporting"](../../reports/reports/creating-reports.md) engine that may eventually lead to the following "Legacy Reports" being depreciated. Find old reports via the Reports menu → Legacy Reports → and then click "Add Report" in the upper right:
 
 ![classic reports menu](/assets/images/classic_reporting_menu_purchases.png)
 

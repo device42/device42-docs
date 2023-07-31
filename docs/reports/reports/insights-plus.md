@@ -24,7 +24,7 @@ The combination of automatic discovered data and visualization empowers you and 
 - Click _DBB Cookbook_ to go to the cookbook documentation pages.
 - Click _Data Dictionary_ to see the available Data Building Blocks.
 - Click _Import_ to get new or updated dashboards as they become available. (Note you must be a super admin user or have the _Feature | Update Insights+ Dashboards_ permission to import.)
-- Click _Reports_ to create or edit email [Reports and Alerts](reporting/reports/insights-plus.md#section-3).
+- Click _Reports_ to create or edit email [Reports and Alerts](reports/reports/insights-plus.md#section-3).
 - Click _How it Works?_ to view the Insights+ documentation page.
 - Click _Repository_ to go to the Insights+ GitHub page.
 - Click on a Dashboard to see its charts and graphs. Note that the list of dashboards and charts now appears in the left panel.

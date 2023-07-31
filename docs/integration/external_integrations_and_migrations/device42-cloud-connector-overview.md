@@ -30,7 +30,7 @@ Click _Save_ to save your changes.
 - [ServiceNow](integration/external_integrations_and_migrations/device42-servicenow-connector.md)
 - [ZenDesk](device42-zendesk-connector.md)
 
-Note that the [Cloud Recommendation Engine](reporting/reports/cloud-recommendation-engine.md) also uses the Cloud Connector.
+Note that the [Cloud Recommendation Engine](reports/reports/cloud-recommendation-engine.md) also uses the Cloud Connector.
 
 ## Why was the Cloud Connector built?
 
