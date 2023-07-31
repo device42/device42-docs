@@ -613,119 +613,119 @@ const config = {
             from: '/api-overview/limit-api-get-calls/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/aperture-vista-to-device42-migration/',
+            to: '/integration/external-integrations/aperture-vista-to-device42-migration/',
             from: '/external-integrations/aperture-vista-to-device42-migration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/azure-migrate/',
+            to: '/integration/external-integrations/azure-migrate/',
             from: '/external-integrations/azure-migrate/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/carbonite-migration/',
+            to: '/integration/external-integrations/carbonite-migration/',
             from: '/external-integrations/carbonite-migration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/cherwell-integration/',
+            to: '/integration/external-integrations/cherwell-integration/',
             from: '/external-integrations/cherwell-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-cloud-connector-overview/',
+            to: '/integration/external-integrations/device42-cloud-connector-overview/',
             from: ['/external-integrations/device42-cloud-connector-overview/', '/external-integrations/device42-cloud-connector/']
           },
           {
-            to: '/integration/external_integrations_and_migrations/cloud-services-settings/',
+            to: '/integration/external-integrations/cloud-services-settings/',
             from: '/external-integrations/cloud-services-settings/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-confluence-connector/',
+            to: '/integration/external-integrations/device42-confluence-connector/',
             from: '/external-integrations/device42-confluence-connector/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/cyberark-integration/',
+            to: '/integration/external-integrations/cyberark-integration/',
             from: '/external-integrations/cyberark-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/external-logging-config/',
+            to: '/integration/external-integrations/external-logging-config/',
             from: ['/external-integrations/external-logging-config/', '/external-integrations/external-logging/', '/external-integrations/external-logging-in-device42/']
           },
           {
-            to: '/integration/external_integrations_and_migrations/configuring-splunk/',
+            to: '/integration/external-integrations/configuring-splunk/',
             from: '/external-integrations/configuring-splunk/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/foreman-smart-proxy-plugin/',
+            to: '/integration/external-integrations/foreman-smart-proxy-plugin/',
             from: '/external-integrations/foreman-smart-proxy-plugin/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/freshservice-integration/',
+            to: '/integration/external-integrations/freshservice-integration/',
             from: '/external-integrations/freshservice-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-hp-service-manager-integration/',
+            to: '/integration/external-integrations/device42-hp-service-manager-integration/',
             from: '/external-integrations/device42-hp-service-manager-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/jenkins-integration/',
+            to: '/integration/external-integrations/jenkins-integration/',
             from: '/external-integrations/jenkins-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-jira-integration/',
+            to: '/integration/external-integrations/device42-jira-integration/',
             from: '/external-integrations/device42-jira-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-jira-cloud-integration/',
+            to: '/integration/external-integrations/device42-jira-cloud-integration/',
             from: '/external-integrations/device42-jira-cloud-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/microsoft-laps-integration/',
+            to: '/integration/external-integrations/microsoft-laps-integration/',
             from: '/external-integrations/microsoft-laps-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/monitor-device42-health-status-in-nagios/',
+            to: '/integration/external-integrations/monitor-device42-health-status-in-nagios/',
             from: '/external-integrations/monitor-device42-health-status-in-nagios/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/odbc-driver-integration/',
+            to: '/integration/external-integrations/odbc-driver-integration/',
             from: '/external-integrations/odbc-driver-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/jdbc-driver-integration/',
+            to: '/integration/external-integrations/jdbc-driver-integration/',
             from: '/external-integrations/jdbc-driver-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/opsgenie-integration/',
+            to: '/integration/external-integrations/opsgenie-integration/',
             from: '/external-integrations/opsgenie-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/pagerduty-integration/',
+            to: '/integration/external-integrations/pagerduty-integration/',
             from: '/external-integrations/pagerduty-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/powerbi-integration/',
+            to: '/integration/external-integrations/powerbi-integration/',
             from: '/external-integrations/powerbi-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/puppet-and-chef-integrations/',
+            to: '/integration/external-integrations/puppet-and-chef-integrations/',
             from: '/external-integrations/puppet-and-chef-integrations/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/collect-node-data-from-device42-for-rundeck/',
+            to: '/integration/external-integrations/collect-node-data-from-device42-for-rundeck/',
             from: '/external-integrations/collect-node-data-from-device42-for-rundeck/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-saltstack-integration/',
+            to: '/integration/external-integrations/device42-saltstack-integration/',
             from: '/external-integrations/device42-saltstack-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-servicenow-connector/',
+            to: '/integration/external-integrations/device42-servicenow-connector/',
             from: '/external-integrations/device42-servicenow-connector/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/webhooks-generic-integration/',
+            to: '/integration/external-integrations/webhooks-generic-integration/',
             from: '/external-integrations/webhooks-generic-integration/',
           },
           {
-            to: '/integration/external_integrations_and_migrations/device42-zendesk-connector/',
+            to: '/integration/external-integrations/device42-zendesk-connector/',
             from: '/external-integrations/device42-zendesk-connector/',
           },
           {
