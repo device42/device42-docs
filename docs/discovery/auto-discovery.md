@@ -37,11 +37,11 @@ Whether remote collectors can’t be deployed or policy simply doesn’t allow i
 
 ## Blade systems Discovery
 
-HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](/docs/discovery/blade-systems-auto-discovery/). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
+HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
 
 ## Cloud Platform Discovery
 
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud_platforms_autodiscovery/)
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud_platforms_autodiscovery/index.md)
 
 ## DNS Autodiscovery
 
@@ -62,14 +62,14 @@ Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.m
 
 Discover iLO, iDrac or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS level discovery methods, BMC IP and MAC address show up in device properties.
 
-Discussed here in detail: [discovery/ipmi-auto-discovery.md](ipmi-auto-discovery)
+Discussed here in detail: [discovery/ipmi-auto-discovery.md](ipmi-auto-discovery.md)
 
 ## Midrange / Mainframe discovery (IBM AS/400 and z/OS)
 
-Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](ibm-i-as400) platform & the [IBM z/OS mainframe platform](z-os-ibm-mainframe).
+Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](ibm-i-as400.md) platform & the [IBM z/OS mainframe platform](z-os-ibm-mainframe.md).
 
-- See the [IBM i/AS400 mid-range discovery documentation page here.](ibm-i-as400)
-- See the [IBM z/OS mainframe discovery documentation page here](z-os-ibm-mainframe).
+- See the [IBM i/AS400 mid-range discovery documentation page here.](ibm-i-as400.md)
+- See the [IBM z/OS mainframe discovery documentation page here](z-os-ibm-mainframe.md).
 
 ## Network / SNMP Autodiscovery
 
