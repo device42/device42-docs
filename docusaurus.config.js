@@ -921,287 +921,287 @@ const config = {
             from: '/dbb-cookbook/security/network-information-for-ips-without-attached-devices/',
           },
           {
-            to: '/infrastructure_management/devices/device-add-edit/',
+            to: '/infrastructure-management/devices/device-add-edit/',
             from: '/devices/device-add-edit/',
           },
           {
-            to: '/infrastructure_management/devices/clone-a-device/',
+            to: '/infrastructure-management/devices/clone-a-device/',
             from: '/devices/clone-a-device/',
           },
           {
-            to: '/infrastructure_management/devices/device-blade-chassis/',
+            to: '/infrastructure-management/devices/device-blade-chassis/',
             from: '/devices/device-blade-chassis/',
           },
           {
-            to: '/infrastructure_management/devices/device-blade-slots/',
+            to: '/infrastructure-management/devices/device-blade-slots/',
             from: ['/devices/device-blade-slots/', '/device/device-blade-slots/']
           },
           {
-            to: '/infrastructure_management/devices/device-cluster/',
+            to: '/infrastructure-management/devices/device-cluster/',
             from: '/devices/device-cluster/',
           },
           {
-            to: '/infrastructure_management/devices/device-lifecycle-tab/',
+            to: '/infrastructure-management/devices/device-lifecycle-tab/',
             from: '/devices/device-lifecycle-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-other-tab/',
+            to: '/infrastructure-management/devices/device-other-tab/',
             from: '/devices/device-other-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-parts-slots/',
+            to: '/infrastructure-management/devices/device-parts-slots/',
             from: ['/devices/device-parts-slots/', '/device/device-parts-slots/']
           },
           {
-            to: '/infrastructure_management/devices/device-parts-tab/',
+            to: '/infrastructure-management/devices/device-parts-tab/',
             from: '/devices/device-parts-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-properties-tab/',
+            to: '/infrastructure-management/devices/device-properties-tab/',
             from: '/devices/device-properties-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-services-tab/',
+            to: '/infrastructure-management/devices/device-services-tab/',
             from: '/devices/device-services-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-software-tab/',
+            to: '/infrastructure-management/devices/device-software-tab/',
             from: '/devices/device-software-tab/',
           },
           {
-            to: '/infrastructure_management/devices/device-virtual-blade/',
+            to: '/infrastructure-management/devices/device-virtual-blade/',
             from: '/devices/device-virtual-blade/',
           },
           {
-            to: '/infrastructure_management/devices/device-name-profiles/',
+            to: '/infrastructure-management/devices/device-name-profiles/',
             from: '/devices/device-name-profiles/',
           },
           {
-            to: '/infrastructure_management/devices/device-custom-fields/',
+            to: '/infrastructure-management/devices/device-custom-fields/',
             from: '/devices/device-custom-fields/',
           },
           {
-            to: '/infrastructure_management/devices/device-ignore-rules/',
+            to: '/infrastructure-management/devices/device-ignore-rules/',
             from: '/devices/device-ignore-rules/',
           },
           {
-            to: '/infrastructure_management/devices/device-list-view-2/',
+            to: '/infrastructure-management/devices/device-list-view-2/',
             from: '/devices/device-list-view-2/',
           },
           {
-            to: '/infrastructure_management/devices/what-if-scenarios/',
+            to: '/infrastructure-management/devices/what-if-scenarios/',
             from: '/devices/what-if-scenarios/',
           },
           {
-            to: '/infrastructure_management/devices/hardware-models-templates/',
+            to: '/infrastructure-management/devices/hardware-models-templates/',
             from: ['/devices/hardware-models-templates/', '/device/hardware/']
           },
           {
-            to: '/infrastructure_management/software/software-license-management/',
+            to: '/infrastructure-management/software/software-license-management/',
             from: '/apps/software/software-license-management/',
           },
           {
-            to: '/infrastructure_management/software/software-licensing-alerts-and-notifications/',
+            to: '/infrastructure-management/software/software-licensing-alerts-and-notifications/',
             from: '/apps/software/software-licensing-alerts-and-notifications/',
           },
           {
-            to: '/infrastructure_management/software/software-components/',
+            to: '/infrastructure-management/software/software-components/',
             from: '/apps/software/software-components/',
           },
           {
-            to: '/infrastructure_management/software/merge-and-assign-software-components/',
+            to: '/infrastructure-management/software/merge-and-assign-software-components/',
             from: '/apps/software/merge-and-assign-software-components/',
           },
           {
-            to: '/infrastructure_management/software/software-in-use/',
+            to: '/infrastructure-management/software/software-in-use/',
             from: '/apps/software/software-in-use/',
           },
           {
-            to: '/infrastructure_management/software/software-eol-eos/',
+            to: '/infrastructure-management/software/software-eol-eos/',
             from: '/apps/software/software-eol-eos/',
           },
           {
-            to: '/infrastructure_management/operating-systems/',
+            to: '/infrastructure-management/operating-systems/',
             from: '/apps/operating-systems/',
           },
           {
-            to: '/infrastructure_management/certificate-management/',
+            to: '/infrastructure-management/certificate-management/',
             from: '/apps/certificate-management/',
           },
           {
-            to: '/infrastructure_management/buildings_rooms_and_racks/auditing-racks/',
+            to: '/infrastructure-management/buildings_rooms_and_racks/auditing-racks/',
             from: '/buildings-rooms-and-racks/auditing-racks/',
           },
           {
-            to: '/infrastructure_management/buildings_rooms_and_racks/buildings-and-rooms/',
+            to: '/infrastructure-management/buildings_rooms_and_racks/buildings-and-rooms/',
             from: '/buildings-rooms-and-racks/buildings-and-rooms/',
           },
           {
-            to: '/infrastructure_management/buildings_rooms_and_racks/impact-charts/',
+            to: '/infrastructure-management/buildings_rooms_and_racks/impact-charts/',
             from: '/buildings-rooms-and-racks/impact-charts/',
           },
           {
-            to: '/infrastructure_management/buildings_rooms_and_racks/racks/',
+            to: '/infrastructure-management/buildings_rooms_and_racks/racks/',
             from: '/buildings-rooms-and-racks/racks/',
           },
           {
-            to: '/infrastructure_management/connectivity/cables/',
+            to: '/infrastructure-management/connectivity/cables/',
             from: '/connectivity/cables/',
           },
           {
-            to: '/infrastructure_management/connectivity/circuits/',
+            to: '/infrastructure-management/connectivity/circuits/',
             from: '/connectivity/circuits/',
           },
           {
-            to: '/infrastructure_management/connectivity/creating-wall-jacks/',
+            to: '/infrastructure-management/connectivity/creating-wall-jacks/',
             from: '/connectivity/creating-wall-jacks/',
           },
           {
-            to: '/infrastructure_management/connectivity/patch-panel-cable-management-definitions-and-legends-2/',
+            to: '/infrastructure-management/connectivity/patch-panel-cable-management-definitions-and-legends-2/',
             from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/', '/connectivity/patch-panels/']
           },
           {
-            to: '/infrastructure_management/power_units/adding-atss/',
+            to: '/infrastructure-management/power_units/adding-atss/',
             from: '/power-units/adding-atss/',
           },
           {
-            to: '/infrastructure_management/power_units/adding-pdus/',
+            to: '/infrastructure-management/power_units/adding-pdus/',
             from: '/power-units/pdus/adding-pdus/',
           },
           {
-            to: '/infrastructure_management/power_units/defining-pdu-models/',
+            to: '/infrastructure-management/power_units/defining-pdu-models/',
             from: ['/power-units/pdus/defining-pdu-models/', '/pdu_overview/defining-pdu-models/']
           },
           {
-            to: '/infrastructure_management/power_units/pdu-ports/',
+            to: '/infrastructure-management/power_units/pdu-ports/',
             from: ['/power-units/pdus/pdu-ports/', '/pdu/']
           },
           {
-            to: '/infrastructure_management/power_units/pdu-rack-display/',
+            to: '/infrastructure-management/power_units/pdu-rack-display/',
             from: ['/power-units/pdus/pdu-rack-display/', '/pdu_overview/pdu-rack-display/']
           },
           {
-            to: '/infrastructure_management/power_units/supported-pdu-vendors/',
+            to: '/infrastructure-management/power_units/supported-pdu-vendors/',
             from: '/power-units/supported-pdu-vendors/',
           },
           {
-            to: '/infrastructure_management/parts_and_parts_slots/importing-part-models/',
+            to: '/infrastructure-management/parts_and_parts_slots/importing-part-models/',
             from: ['/parts-and-parts-slots/importing-part-models/', '/spare-parts-management/importing-part-models/']
           },
           {
-            to: '/infrastructure_management/parts_and_parts_slots/importing-parts/',
+            to: '/infrastructure-management/parts_and_parts_slots/importing-parts/',
             from: '/parts-and-parts-slots/importing-parts/',
           },
           {
-            to: '/infrastructure_management/parts_and_parts_slots/managing-spare-parts/',
+            to: '/infrastructure-management/parts_and_parts_slots/managing-spare-parts/',
             from: '/parts-and-parts-slots/managing-spare-parts/',
           },
           {
-            to: '/infrastructure_management/parts_and_parts_slots/part-model-templates/',
+            to: '/infrastructure-management/parts_and_parts_slots/part-model-templates/',
             from: ['/parts-and-parts-slots/part-model-templates/', '/spare-parts-management/models-and-parts/']
           },
           {
-            to: '/infrastructure_management/parts_and_parts_slots/parts-slots/',
+            to: '/infrastructure-management/parts_and_parts_slots/parts-slots/',
             from: '/parts-and-parts-slots/parts-slots/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/environmental-monitoring/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/environmental-monitoring/',
             from: '/energy-monitoringmanagement/environmental-monitoring/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/getting-started-with-power-and-environmental-monitoring/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/getting-started-with-power-and-environmental-monitoring/',
             from: '/energy-monitoringmanagement/getting-started-with-power-and-environmental-monitoring/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/manage-monitored-ips/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/manage-monitored-ips/',
             from: '/energy-monitoringmanagement/manage-monitored-ips/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/power-monitoring-and-control/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/power-monitoring-and-control/',
             from: '/energy-monitoringmanagement/power-monitoring-and-control/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/power-rc-setup-job-migration/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/power-rc-setup-job-migration/',
             from: '/energy-monitoringmanagement/power-rc-setup-job-migration/',
           },
           {
-            to: '/infrastructure_management/power_and_environmental_monitoring/unit-display-settings/',
+            to: '/infrastructure-management/power_and_environmental_monitoring/unit-display-settings/',
             from: '/energy-monitoringmanagement/unit-display-settings/',
           },
           {
-            to: '/infrastructure_management/ipam/dns-records/',
+            to: '/infrastructure-management/ipam/dns-records/',
             from: '/ipam/dns-records/',
           },
           {
-            to: '/infrastructure_management/ipam/dns-zones/',
+            to: '/infrastructure-management/ipam/dns-zones/',
             from: '/ipam/dns-zones/',
           },
           {
-            to: '/infrastructure_management/ipam/ip-addresses/',
+            to: '/infrastructure-management/ipam/ip-addresses/',
             from: '/ipam/ip-addresses/',
           },
           {
-            to: '/infrastructure_management/ipam/ip-nat-map/',
+            to: '/infrastructure-management/ipam/ip-nat-map/',
             from: '/ipam/ip-nat-map/',
           },
           {
-            to: '/infrastructure_management/ipam/mac-addresses/',
+            to: '/infrastructure-management/ipam/mac-addresses/',
             from: '/ipam/mac-addresses/',
           },
           {
-            to: '/infrastructure_management/ipam/subnet-tree-view/',
+            to: '/infrastructure-management/ipam/subnet-tree-view/',
             from: '/ipam/subnet-tree-view/',
           },
           {
-            to: '/infrastructure_management/ipam/subnets/',
+            to: '/infrastructure-management/ipam/subnets/',
             from: '/ipam/subnets/',
           },
           {
-            to: '/infrastructure_management/ipam/switch-ports/',
+            to: '/infrastructure-management/ipam/switch-ports/',
             from: ['/ipam/switch-ports/', '/ipam/switch-port/']
           },
           {
-            to: '/infrastructure_management/ipam/switch-templates/',
+            to: '/infrastructure-management/ipam/switch-templates/',
             from: '/ipam/switch-templates/',
           },
           {
-            to: '/infrastructure_management/ipam/vlans/',
+            to: '/infrastructure-management/ipam/vlans/',
             from: '/ipam/vlans/',
           },
           {
-            to: '/infrastructure_management/ipam/vrf-groups/',
+            to: '/infrastructure-management/ipam/vrf-groups/',
             from: '/ipam/vrf-groups/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/asset-tag-printing/',
+            to: '/infrastructure-management/mobile_inventory/asset-tag-printing/',
             from: '/mobile-inventory/asset-tag-printing/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/auto-assign-asset-numbers/',
+            to: '/infrastructure-management/mobile_inventory/auto-assign-asset-numbers/',
             from: '/mobile-inventory/auto-assign-asset-numbers/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/bulk-qr-printing/',
+            to: '/infrastructure-management/mobile_inventory/bulk-qr-printing/',
             from: '/mobile-inventory/bulk-qr-printing/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/printing-qr-codes-from-ie/',
+            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-ie/',
             from: '/mobile-inventory/printing-qr-codes-from-ie/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/printing-qr-codes-from-firefox/',
+            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-firefox/',
             from: '/mobile-inventory/printing-qr-codes-from-firefox/',
           },
           {
-            to: '/infrastructure_management/mobile_inventory/understanding-qr-and-bar-codes-in-device42/',
+            to: '/infrastructure-management/mobile_inventory/understanding-qr-and-bar-codes-in-device42/',
             from: ['/mobile-inventory/understanding-qr-and-bar-codes-in-device42/', '/qr-codes-asset-tags-inventory-management-mobile-devices/understanding-qr-codes/']
           },
           {
-            to: '/infrastructure_management/mobile_inventory/using-mobile-devices-for-asset-management/',
+            to: '/infrastructure-management/mobile_inventory/using-mobile-devices-for-asset-management/',
             from: '/mobile-inventory/using-mobile-devices-for-asset-management/',
           },
           {
-            to: '/infrastructure_management/accounting/purchases/',
+            to: '/infrastructure-management/accounting/purchases/',
             from: '/accounting/purchases/',
           },
           {
