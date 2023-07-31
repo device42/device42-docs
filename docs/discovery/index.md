@@ -17,8 +17,8 @@
     - [Kubernetes Autodiscovery](discovery/cloud_platforms_autodiscovery/kubernetes-autodiscovery.md)
     - [Other Cloud Autodiscoveries](discovery/cloud_platforms_autodiscovery/other-cloud-autodiscoveries.md)
 - Database Discovery
-    - [Cloud Databases](discovery/database_discovery/cloud-databases.md)
-    - [On-Prem Databases](discovery/database_discovery/on-premise-databases.md)
+    - [Cloud Databases](discovery/database-discovery/cloud-databases.md)
+    - [On-Prem Databases](discovery/database-discovery/on-premise-databases.md)
 - [DNS Autodiscovery](discovery/setup-dns-autodiscovery.md)
 - [IBM i/AS400 (Midrange)](discovery/ibm-i-as400.md)
 - [IBM z/OS (Mainframe)](discovery/z-os-ibm-mainframe.md)
