@@ -581,19 +581,19 @@ const config = {
             from: '/imports/spreadsheet-converter-tool/',
           },
           {
-            to: '/integration/imports/legacy_imports/',
+            to: '/integration/imports/legacy-imports/',
             from: '/imports/legacy-imports/',
           },
           {
-            to: '/integration/imports/legacy_imports/import-ip-sheet/',
+            to: '/integration/imports/legacy-imports/import-ip-sheet/',
             from: '/imports/import-ip-sheet/',
           },
           {
-            to: '/integration/imports/legacy_imports/import-overview/',
+            to: '/integration/imports/legacy-imports/import-overview/',
             from: '/imports/import-overview/',
           },
           {
-            to: '/integration/imports/legacy_imports/import-racked-devices/',
+            to: '/integration/imports/legacy-imports/import-racked-devices/',
             from: '/imports/import-racked-devices/',
           },
           {
