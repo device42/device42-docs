@@ -43,7 +43,7 @@ export default function Home() {
           <div className={styles.cardContainerSolution}>
             <h2>Solution Guides</h2>
 
-            <div className={styles.cardsContainer}>
+            <div className={styles.cardsContainerSolution}>
               {solutionGuideData.map((card, idx) => (
                 <ContentCard key={idx} {...card} />
               ))}
