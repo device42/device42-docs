@@ -56,24 +56,8 @@ const solutionGuideData = [
     whiteIcon: "assets/icons/white/jsm-integration-icon.svg",
     link: "/",
   },
-  {
-    title: "Software License Management",
-    icon: "assets/icons/purple/slm-icon.svg",
-    whiteIcon: "assets/icons/white/slm-icon.svg",
-    link: "/",
-  },
-  {
-    title: "Cloud Management",
-    icon: "assets/icons/purple/cloud-mgmt-icon.svg",
-    whiteIcon: "assets/icons/white/cloud-mgmt-icon.svg",
-    link: "/",
-  },
-  {
-    title: "ADM",
-    icon: "assets/icons/purple/adm-icon.svg",
-    whiteIcon: "assets/icons/white/adm-icon.svg",
-    link: "/",
-  },
+
+
   {
     title: "Advanced Reporting/DOQL",
     icon: "assets/icons/purple/advanced-reporting-icon.svg",
