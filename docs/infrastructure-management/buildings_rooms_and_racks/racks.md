@@ -131,7 +131,7 @@ In the physical connection layout, you can select a port for a device and the di
 
 ### Adding PDUs to the rack
 
-- You can add PDUs in and around the rack, details for adding and displaying PDUs is discussed in detailed in the PDU section at: [PDU Rack Display](infrastructure_management/power_units/pdu-rack-display.md)
+- You can add PDUs in and around the rack, details for adding and displaying PDUs is discussed in detailed in the PDU section at: [PDU Rack Display](infrastructure-management/power_units/pdu-rack-display.md)
 
 ### Bulk operations
 

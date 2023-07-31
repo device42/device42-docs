@@ -57,7 +57,7 @@ The following device types have a hardware model. Each hardware model can be one
 
 Once you change a hardware type, all the corresponding devices that refer to that hardware and are type unknown, will automatically be categorized accordingly.
 
-The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](../how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](../infrastructure_management/devices/hardware-models-templates.md) for more information!
+The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](../how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](../infrastructure-management/devices/hardware-models-templates.md) for more information!
 
 Also, once a hardware type is defined, any new imported or discovered devices will go into the right category.
 
