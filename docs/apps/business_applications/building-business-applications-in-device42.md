@@ -9,7 +9,7 @@ This is a technical guide that will walk you through a step-by-step process to b
 
 ## Viewing Discovery Data
 
-After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [applications/application_dependency_mapping/adm-supported-applications.md](applications/application_dependency_mapping/adm-supported-applications.md) .
+After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/application_dependency_mapping/adm-supported-applications.md) .
 
 ![](/assets/images/Web_732_1.png)
 
@@ -45,7 +45,7 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Affinity Groups
 
-Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [affinity groups](docs/applications/affinity_groups/index.md) to further understand this process.
+Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [affinity groups](apps/affinity_groups/index.md) to further understand this process.
 
 ### Enabling Affinity Groups
 

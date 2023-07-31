@@ -9,7 +9,7 @@ Enterprise Application Dependency Mapping will discover **_all running services,
 
 The following is a list of applications that Enterprise Application Dependency Mapping can additionally create application components for.
 
-Additionally, for any application not on this list you can leverage the use of [Application Component Templates](applications/application_components/application-component-templates.md) to automate Application Component creation with custom logic that will supplement the discovery processes of Device42.
+Additionally, for any application not on this list you can leverage the use of [Application Component Templates](apps/application_components/application-component-templates.md) to automate Application Component creation with custom logic that will supplement the discovery processes of Device42.
 
 | Application | Services Discovered | Configuration Information Imported |
 | --- | --- | --- |

@@ -3,7 +3,7 @@ const productDocData = [
     title: "Getting Started",
     icon: "assets/icons/purple/getting-started-icon.svg",
     whiteIcon: "assets/icons/white/getting-started-icon.svg",
-    link: "/getting_started/",
+    link: "/getstarted/",
   },
   {
     title: "Discovery",
@@ -15,7 +15,7 @@ const productDocData = [
     title: "Applications",
     icon: "assets/icons/purple/applications-icon.svg",
     whiteIcon: "assets/icons/white/applications-icon.svg",
-    link: "/applications/",
+    link: "/apps/",
   },
   {
     title: "Infrastructure Management",
@@ -27,7 +27,7 @@ const productDocData = [
     title: "Reporting",
     icon: "assets/icons/purple/reporting-icon.svg",
     whiteIcon: "assets/icons/white/reporting-icon.svg",
-    link: "/reporting/",
+    link: "/reports/",
   },
   {
     title: "Integration",
@@ -45,7 +45,7 @@ const productDocData = [
     title: "Videos",
     icon: "assets/icons/purple/videos-icon.svg",
     whiteIcon: "assets/icons/white/videos-icon.svg",
-    link: "/videos/",
+    link: "/how-to-videos/",
   },
 ];
 

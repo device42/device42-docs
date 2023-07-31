@@ -23,7 +23,7 @@ To see autodiscovered application dependencies, go to Apps>Application Component
 
 ![Application Component View](/assets/images/select_application_component_view.png)
 
-A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](applications/application_dependency_mapping/adm-supported-applications.md).
+A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](apps/application_dependency_mapping/adm-supported-applications.md).
 
 When you view the details page for an application component, you will see the device it was discovered on as well as any other application components that it depends on. You'll also see any services that have been associated with the application component. From here, you can also edit the application to assign responsible and/or affected departments, describe what's impacted by downtime, and edit any custom fields.
 
