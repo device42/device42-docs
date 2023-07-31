@@ -597,19 +597,19 @@ const config = {
             from: '/imports/import-racked-devices/',
           },
           {
-            to: '/integration/api_overview/auto-populate-windows-machines-in-an-ad-using-apis/',
+            to: '/integration/api-overview/auto-populate-windows-machines-in-an-ad-using-apis/',
             from: '/api-overview/auto-populate-windows-machines-in-an-ad-using-apis/',
           },
           {
-            to: '/integration/api_overview/device42-api-documentation/',
+            to: '/integration/api-overview/device42-api-documentation/',
             from: '/api-overview/device42-api-documentation/',
           },
           {
-            to: '/integration/api_overview/importing-csv-files-into-d42-using-the-api-helper-utility/',
+            to: '/integration/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility/',
             from: ['/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility/', '/apis/importing-csv-files-into-d42-using-the-api-helper-utility/']
           },
           {
-            to: '/integration/api_overview/limit-api-get-calls/',
+            to: '/integration/api-overview/limit-api-get-calls/',
             from: '/api-overview/limit-api-get-calls/',
           },
           {
