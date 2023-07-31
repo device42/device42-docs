@@ -565,7 +565,7 @@ const config = {
             from: '/password-management/password-reporting/',
           },
           {
-            to: '/administration/role-based_access_control/role-based-permissions-and-access/',
+            to: '/administration/role-based-access-control/role-based-permissions-and-access/',
             from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/', '/role-based-access-control/']
           },
           {
