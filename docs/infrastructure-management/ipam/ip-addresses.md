@@ -31,7 +31,7 @@ Click on an IP address to view its page.
 
 The view IP page shows the details for an IP and you can see the history of changes for that IP from the _History (Audit Logs)_ button (similar to all other view pages in the application). If you have appropriate permissions, you will see the _Edit_ button to edit. All DNS records that use this IP are shown in the view page as well.
 
-**Note**: Entries in the _Configuration Resource_ and _Configuration Resource Item_ fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](docs/discovery/cloud_platforms_autodiscovery/index.md)) and are filled in automatically. These field should not be populated for a regular IP address.
+**Note**: Entries in the _Configuration Resource_ and _Configuration Resource Item_ fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud_platforms_autodiscovery/index.md)) and are filled in automatically. These field should not be populated for a regular IP address.
 
 In the example above, the _Configuration Resource_ link will take you to the K8s cluster that is currently holding that IP, and _Configuation Resource Item_ contains the name and type of resource. In this case, the name is **Tiller-….jkfpl** and the resource type is a **p****od**.
 
