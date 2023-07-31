@@ -52,7 +52,7 @@ You can use the basic filters (+ button) to add or remove filters for the search
 
 ![](/assets/images/18.06.00_auto-clean-add-device-search-2-filters.png)
 
-You can also use the [Advanced Search](getting_started/advanced-search-feature.md) feature (binocular button) to build a search criteria.
+You can also use the [Advanced Search](getstarted/advanced-search-feature.md) feature (binocular button) to build a search criteria.
 
 ![](/assets/images/18.06.00_auto-clean-add-device-search-3-advanced-search.png)
 

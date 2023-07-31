@@ -215,7 +215,7 @@ Here you can enter device and power information for devices that need to be rack
 
 Adding and/or updating racks in bulk can be done via API and/or API Imports. Tools | Imports (.xls)
 
-Additional information can be found here: [Create / Update Racks via API / API Imports](https://api.device42.com/#create-/-update-racks) [Getting started - importing data from existing spreadsheets](getting_started/importing-data-from-existing-spreadsheets.md)
+Additional information can be found here: [Create / Update Racks via API / API Imports](https://api.device42.com/#create-/-update-racks) [Getting started - importing data from existing spreadsheets](getstarted/importing-data-from-existing-spreadsheets.md)
 
 ### Bulk add - device, assets, PDUs
 
@@ -229,4 +229,4 @@ Assets: Documentation: bulk add update assets to racks
 
 PDUs: Documentation: bulk add / update PDUs to racks
 
-[Getting started - importing data from existing spreadsheets](getting_started/importing-data-from-existing-spreadsheets.md)
+[Getting started - importing data from existing spreadsheets](getstarted/importing-data-from-existing-spreadsheets.md)

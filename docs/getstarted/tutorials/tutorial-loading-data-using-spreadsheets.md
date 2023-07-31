@@ -93,4 +93,4 @@ Now, load this spreadsheet and also load the 'Add Devices to Racks' and 'Applica
 
 At this point, our demo system has multiple buildings, rooms, racks, and devices.
 
-We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getting_started/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
+We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.

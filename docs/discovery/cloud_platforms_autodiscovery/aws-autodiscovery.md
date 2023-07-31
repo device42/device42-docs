@@ -160,7 +160,7 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_aws-autodiscovery2.png)
 
-- Device42 displays the AWS Roles list page. Use the _AWS Role_ drop-down to select a role to display or click _Advanced_ to construct more specific searches. See the [Advanced Search Feature](getting_started/advanced-search-feature.md) documentation page for instructions.
+- Device42 displays the AWS Roles list page. Use the _AWS Role_ drop-down to select a role to display or click _Advanced_ to construct more specific searches. See the [Advanced Search Feature](getstarted/advanced-search-feature.md) documentation page for instructions.
 
 ![](/assets/images/Image_9_Cloud_Disc_AWS_Roles_2.png)
 
