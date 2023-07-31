@@ -1320,6 +1320,12 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
+     docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },  
       image: 'img/d42-social-card.png',
       algolia: {
         indexName: 'dev',
