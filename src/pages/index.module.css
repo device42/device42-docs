@@ -161,6 +161,10 @@
   .contentCard {
     grid-template-columns: 1fr;
   }
+
+  .productsSection {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 1100px) and (max-width: 1200px) {
@@ -197,5 +201,6 @@
 
   .productsSection {
     flex-direction: column;
+    width: 100%;
   }
 }
