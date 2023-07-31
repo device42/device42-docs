@@ -63,4 +63,4 @@ You are now ready to discover using your new WDS! When creating a new Windows WM
 
 Please note that you **Do not need to update your WDS installation separately**. Once it has made its initial connection, updates to the WDS service are pushed automatically and are distributed with regular Device42 Updates.
 
-If you are concerned you aren't running the latest version of WDS, please [update your main Device42 appliance](videos/update-device42-appliance-how-to.md) to the latest version.
+If you are concerned you aren't running the latest version of WDS, please [update your main Device42 appliance](how-to-videos/update-device42-appliance-how-to.md) to the latest version.

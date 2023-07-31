@@ -115,7 +115,7 @@ Windows discovery scripts can be found here: [Device42 GitHub repository](https:
 
 ## Using REST APIs
 
-You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as discussed at : [Device42 API docs](videos/api-imports-add-create-hardware-models.md).
+You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as discussed at : [Device42 API docs](how-to-videos/api-imports-add-create-hardware-models.md).
 
 ## VMware / Citrix XenServer / oVirt / Redhat Virtualization / KVM
 

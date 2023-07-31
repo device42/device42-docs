@@ -9,7 +9,7 @@ The following how-to runs down quickly enumerating network objects with Device42
 
 **If you're new** to Device42, you'll want to start with our [**getting started videos** \[new window\]](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to get your RC (Remote Collector) set up, connect a WDS (Windows Discovery Service) instance to that RC, and you'll run your first discovery job! [Watch 'em now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2), and you'll be an expert in no time!
 
-Ready to learn more? For those that prefer videos, there's a [video-based Device42 "How-To" series on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) (it's got its own [section](../videos/index.md)). Have a specific question and you don't see what you're looking for here in the docs, email support@device42 and let us know -- there's a good chance other people are wondering the same thing, and we'll be happy to create a new video ... _Happy discovering!_
+Ready to learn more? For those that prefer videos, there's a [video-based Device42 "How-To" series on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) (it's got its own [section](../how-to-videos/index.md)). Have a specific question and you don't see what you're looking for here in the docs, email support@device42 and let us know -- there's a good chance other people are wondering the same thing, and we'll be happy to create a new video ... _Happy discovering!_
 
 ## Autodiscovery Account WARNING
 
@@ -57,7 +57,7 @@ The following device types have a hardware model. Each hardware model can be one
 
 Once you change a hardware type, all the corresponding devices that refer to that hardware and are type unknown, will automatically be categorized accordingly.
 
-The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](../videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](../infrastructure_management/devices/hardware-models-templates.md) for more information!
+The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](../how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](../infrastructure_management/devices/hardware-models-templates.md) for more information!
 
 Also, once a hardware type is defined, any new imported or discovered devices will go into the right category.
 
