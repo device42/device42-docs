@@ -729,195 +729,195 @@ const config = {
             from: '/external-integrations/device42-zendesk-connector/',
           },
           {
-            to: '/reporting/',
+            to: '/reports/',
             from: '/reports/',
           },
           {
-            to: '/reporting/reports/insights-plus/',
+            to: '/reports/reports/insights-plus/',
             from: '/insights-plus/',
           },
           {
-            to: '/reporting/reports/advanced-reporting/',
+            to: '/reports/reports/advanced-reporting/',
             from: '/reports/advanced-reporting/',
           },
           {
-            to: '/reporting/reports/aws-migration-evaluator/',
+            to: '/reports/reports/aws-migration-evaluator/',
             from: '/reports/aws-migration-evaluator/',
           },
           {
-            to: '/reporting/reports/aws-migration-hub/',
+            to: '/reports/reports/aws-migration-hub/',
             from: '/reports/aws-migration-hub/',
           },
           {
-            to: '/reporting/reports/cloud-endure-device42/',
+            to: '/reports/reports/cloud-endure-device42/',
             from: '/reports/cloud-endure-device42/',
           },
           {
-            to: '/reporting/reports/cloud-recommendation-engine/',
+            to: '/reports/reports/cloud-recommendation-engine/',
             from: '/reports/cloud-recommendation-engine/',
           },
           {
-            to: '/reporting/reports/creating-reports/',
+            to: '/reports/reports/creating-reports/',
             from: '/reports/creating-reports/',
           },
           {
-            to: '/reporting/reports/discovery-quality-scores/',
+            to: '/reports/reports/discovery-quality-scores/',
             from: '/reports/discovery-quality-scores/',
           },
           {
-            to: '/reporting/reports/export-records/',
+            to: '/reports/reports/export-records/',
             from: '/reports/export-records/',
           },
           {
-            to: '/reporting/reports/jobs-dashboard/',
+            to: '/reports/reports/jobs-dashboard/',
             from: '/reports/jobs-dashboard/',
           },
           {
-            to: '/reporting/reports/object-history-aka-audit-log/',
+            to: '/reports/reports/object-history-aka-audit-log/',
             from: '/reports/object-history-aka-audit-log/',
           },
           {
-            to: '/reporting/reports/periodic-jobs-page/',
+            to: '/reports/reports/periodic-jobs-page/',
             from: '/reports/periodic-jobs-page/',
           },
           {
-            to: '/reporting/reports/relutech-for-aws-migration/',
+            to: '/reports/reports/relutech-for-aws-migration/',
             from: '/reports/relutech-for-aws-migration/',
           },
           {
-            to: '/reporting/reports/run-book/',
+            to: '/reports/reports/run-book/',
             from: '/reports/run-book/',
           },
           {
-            to: '/reporting/reports/save-and-schedule-reports/',
+            to: '/reports/reports/save-and-schedule-reports/',
             from: '/reports/save-and-schedule-reports/',
           },
           {
-            to: '/reporting/reports/setup-alerts-and-notifications/',
+            to: '/reports/reports/setup-alerts-and-notifications/',
             from: '/reports/setup-alerts-and-notifications/',
           },
           {
-            to: '/reporting/doql_device42_object_query_language/',
+            to: '/reports/doql_device42_object_query_language/',
             from: '/device42-doql/',
           },
           {
-            to: '/reporting/doql_device42_object_query_language/db-viewer-schema/',
+            to: '/reports/doql_device42_object_query_language/db-viewer-schema/',
             from: '/device42-doql/db-viewer-schema/',
           },
           {
-            to: '/reporting/dbb_cookbook/app-dependency-mapping/',
+            to: '/reports/dbb_cookbook/app-dependency-mapping/',
             from: '/dbb-cookbook/app-dependency-mapping/',
           },
           {
-            to: '/reporting/dbb_cookbook/business-app-dependencies/',
+            to: '/reports/dbb_cookbook/business-app-dependencies/',
             from: '/dbb-cookbook/app-dependency-mapping/business-app-dependencies/',
           },
           {
-            to: '/reporting/dbb_cookbook/business-app-device-impacts/',
+            to: '/reports/dbb_cookbook/business-app-device-impacts/',
             from: '/dbb-cookbook/app-dependency-mapping/business-app-device-impacts/',
           },
           {
-            to: '/reporting/dbb_cookbook/business-app-hardware-eol-eos-impact/',
+            to: '/reports/dbb_cookbook/business-app-hardware-eol-eos-impact/',
             from: '/dbb-cookbook/app-dependency-mapping/business-app-hardware-eol-eos-impact/',
           },
           {
-            to: '/reporting/dbb_cookbook/business-app-operating-system-eol-eos/',
+            to: '/reports/dbb_cookbook/business-app-operating-system-eol-eos/',
             from: '/dbb-cookbook/app-dependency-mapping/business-app-operating-system-eol-eos/',
           },
           {
-            to: '/reporting/dbb_cookbook/workload-and-application-communication-business-app-communications/',
+            to: '/reports/dbb_cookbook/workload-and-application-communication-business-app-communications/',
             from: '/dbb-cookbook/app-dependency-mapping/workload-and-application-communication-business-app-communications/',
           },
           {
-            to: '/reporting/dbb_cookbook/workload-and-application-communication-ip-service-communications/',
+            to: '/reports/dbb_cookbook/workload-and-application-communication-ip-service-communications/',
             from: '/dbb-cookbook/app-dependency-mapping/workload-and-application-communication-ip-service-communications/',
           },
           {
-            to: '/reporting/dbb_cookbook/compute/',
+            to: '/reports/dbb_cookbook/compute/',
             from: '/dbb-cookbook/compute/',
           },
           {
-            to: '/reporting/dbb_cookbook/compute-devices/',
+            to: '/reports/dbb_cookbook/compute-devices/',
             from: '/dbb-cookbook/compute/compute-devices/',
           },
           {
-            to: '/reporting/dbb_cookbook/device-count-by-device-type/',
+            to: '/reports/dbb_cookbook/device-count-by-device-type/',
             from: '/dbb-cookbook/compute/device-count-by-device-type/',
           },
           {
-            to: '/reporting/dbb_cookbook/device-count-by-service-level/',
+            to: '/reports/dbb_cookbook/device-count-by-service-level/',
             from: '/dbb-cookbook/compute/device-count-by-service-level/',
           },
           {
-            to: '/reporting/dbb_cookbook/device-to-rack-inventory/',
+            to: '/reports/dbb_cookbook/device-to-rack-inventory/',
             from: '/dbb-cookbook/compute/device-to-rack-inventory/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-missing-device_type-or-service_level/',
+            to: '/reports/dbb_cookbook/devices-missing-device_type-or-service_level/',
             from: '/dbb-cookbook/compute/devices-missing-device_type-or-service_level/',
           },
           {
-            to: '/reporting/dbb_cookbook/physical-device-inventory/',
+            to: '/reports/dbb_cookbook/physical-device-inventory/',
             from: '/dbb-cookbook/compute/physical-device-inventory/',
           },
           {
-            to: '/reporting/dbb_cookbook/physical-devices-by-customer-department/',
+            to: '/reports/dbb_cookbook/physical-devices-by-customer-department/',
             from: '/dbb-cookbook/compute/physical-devices-by-customer-department/',
           },
           {
-            to: '/reporting/dbb_cookbook/physical-devices-without-hardware-model/',
+            to: '/reports/dbb_cookbook/physical-devices-without-hardware-model/',
             from: '/dbb-cookbook/compute/physical-devices-without-hardware-model/',
           },
           {
-            to: '/reporting/dbb_cookbook/physical-inventory-by-manufacturer/',
+            to: '/reports/dbb_cookbook/physical-inventory-by-manufacturer/',
             from: '/dbb-cookbook/compute/physical-inventory-by-manufacturer/',
           },
           {
-            to: '/reporting/dbb_cookbook/vm-density/',
+            to: '/reports/dbb_cookbook/vm-density/',
             from: '/dbb-cookbook/compute/vm-density/',
           },
           {
-            to: '/reporting/dbb_cookbook/vm-devices/',
+            to: '/reports/dbb_cookbook/vm-devices/',
             from: '/dbb-cookbook/compute/vm-devices/',
           },
           {
-            to: '/reporting/dbb_cookbook/vm-inventory/',
+            to: '/reports/dbb_cookbook/vm-inventory/',
             from: '/dbb-cookbook/compute/vm-inventory/',
           },
           {
-            to: '/reporting/dbb_cookbook/security/',
+            to: '/reports/dbb_cookbook/security/',
             from: '/dbb-cookbook/security/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-accessed-by-external-ips/',
+            to: '/reports/dbb_cookbook/devices-accessed-by-external-ips/',
             from: '/dbb-cookbook/security/devices-accessed-by-external-ips/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-possibly-containing-pii-that-have-public-ips/',
+            to: '/reports/dbb_cookbook/devices-possibly-containing-pii-that-have-public-ips/',
             from: '/dbb-cookbook/security/devices-possibly-containing-pii-that-have-public-ips/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-using-commonly-exploited-ports/',
+            to: '/reports/dbb_cookbook/devices-using-commonly-exploited-ports/',
             from: '/dbb-cookbook/security/devices-using-commonly-exploited-ports/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-with-mismatch-between-prod-and-non-prod-environments/',
+            to: '/reports/dbb_cookbook/devices-with-mismatch-between-prod-and-non-prod-environments/',
             from: '/dbb-cookbook/security/devices-with-mismatch-between-prod-and-non-prod-environments/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-with-no-oss/',
+            to: '/reports/dbb_cookbook/devices-with-no-oss/',
             from: '/dbb-cookbook/security/devices-with-no-oss/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-with-os-but-no-software/',
+            to: '/reports/dbb_cookbook/devices-with-os-but-no-software/',
             from: '/dbb-cookbook/security/devices-with-os-but-no-software/',
           },
           {
-            to: '/reporting/dbb_cookbook/devices-with-prohibited-software-as-designated-by-customer/',
+            to: '/reports/dbb_cookbook/devices-with-prohibited-software-as-designated-by-customer/',
             from: '/dbb-cookbook/security/devices-with-prohibited-software-as-designated-by-customer/',
           },
           {
-            to: '/reporting/dbb_cookbook/network-information-for-ips-without-attached-devices/',
+            to: '/reports/dbb_cookbook/network-information-for-ips-without-attached-devices/',
             from: '/dbb-cookbook/security/network-information-for-ips-without-attached-devices/',
           },
           {
