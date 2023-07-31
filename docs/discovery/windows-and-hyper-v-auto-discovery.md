@@ -7,7 +7,7 @@ sidebar_position: 38
 
 Prior to running a Windows Discovery, you must install an instance of the Windows Discovery Service (WDS) on at least one Windows system which will connect to the Device42 main appliance (MA) or a Remote Collector (RC). WDS can be downloaded from [the Auto-Discovery Software page](https://device42.com/autodiscovery/).
 
-For WDS installation instructions and detailed information, visit the [Windows Discovery Service (WDS) installation](getting_started/installation/windows-discovery-service-installation.md) documentation.
+For WDS installation instructions and detailed information, visit the [Windows Discovery Service (WDS) installation](getstarted/installation/windows-discovery-service-installation.md) documentation.
 
 Your OS must be at Windows 8.1, Windows Server 2012 R2 or above with the latest patches installed.
 

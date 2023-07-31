@@ -52,7 +52,7 @@ The configuration will ONLY allow you to "Launch" successfully using one of the 
 
 ![Check for Device42 Update](/assets/images/check_for_update_d42_aws.png)
 
-- You're all set! Now is a good time to check out ["Getting started with Device42" documentation!](docs/getting_started/index.md) If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
+- You're all set! Now is a good time to check out ["Getting started with Device42" documentation!](getstarted/index.md) If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
 
 * * *
 

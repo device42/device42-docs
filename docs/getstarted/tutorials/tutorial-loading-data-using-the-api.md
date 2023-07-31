@@ -37,7 +37,7 @@ The documentation for this API command tells you that: (1) The url is /api/1.0/b
 
 ![wpid3353-media_1375610622694.png](/assets/images/wpid3353-media_1375610622694.png)
 
-This is the documentation for the Create/Update Rooms API. Highlighted in red is an optional room\_id parameter. You would use this parameter if you wanted to specify which room the rack is in. There are two ways to get an id (id's are required for parameters whose names end in \_id): First, as specified above, you can do it programmatically via the [Retrieval API](getting_started/tutorials/tutorial-loading-data-using-the-api.md) for the object. However, this method is most appropriate for a more complex program written in a language such as Java or Python. If you are just executing curl commands in a shell script, you can do the following: Click on Datacenter / Rooms. Then, hover over the name of the room for which you wish to find the id.
+This is the documentation for the Create/Update Rooms API. Highlighted in red is an optional room\_id parameter. You would use this parameter if you wanted to specify which room the rack is in. There are two ways to get an id (id's are required for parameters whose names end in \_id): First, as specified above, you can do it programmatically via the [Retrieval API](getstarted/tutorials/tutorial-loading-data-using-the-api.md) for the object. However, this method is most appropriate for a more complex program written in a language such as Java or Python. If you are just executing curl commands in a shell script, you can do the following: Click on Datacenter / Rooms. Then, hover over the name of the room for which you wish to find the id.
 
 ![wpid3354-media_1375694823287.png](/assets/images/wpid3354-media_1375694823287.png)
 
@@ -45,4 +45,4 @@ For example, hover over the "2nd Floor" hyperlink, and look at the lower left co
 
 ![wpid3355-media_1375697151375.png](/assets/images/wpid3355-media_1375697151375.png)
 
-We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getting_started/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
+We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
