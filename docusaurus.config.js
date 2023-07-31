@@ -301,11 +301,11 @@ const config = {
             from: '/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/',
           },
           {
-            to: '/discovery/database_discovery/cloud-databases/',
+            to: '/discovery/database-discovery/cloud-databases/',
             from: '/databases/cloud-databases/',
           },
           {
-            to: '/discovery/database_discovery/on-premise-databases/',
+            to: '/discovery/database-discovery/on-premise-databases/',
             from: '/databases/on-premise-databases/',
           },
           {
@@ -397,7 +397,7 @@ const config = {
             from: '/apps/affinity-groups/appfocus-filters/',
           },
           {
-            to: '/apps/business_applications/building-business-applications-in-device42/',
+            to: '/apps/business-applications/building-business-applications-in-device42/',
             from: ['/apps/business-applications/building-business-applications-in-device42/', '/apps/business-applications/' ]
           },
           {
