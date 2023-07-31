@@ -341,63 +341,63 @@ const config = {
             from: '/managed-resources/cloud-resources/',
           },
           {
-            to: '/applications/',
+            to: '/apps/',
             from: '/apps/',
           },
           {
-            to: '/applications/application_dependency_mapping/adm-supported-applications/',
+            to: '/apps/application_dependency_mapping/adm-supported-applications/',
             from: '/enterprise-application-dependency-mapping/adm-supported-applications/',
           },
           {
-            to: '/applications/application_dependency_mapping/cloud-application-dependency-mapping/',
+            to: '/apps/application_dependency_mapping/cloud-application-dependency-mapping/',
             from: '/enterprise-application-dependency-mapping/cloud-application-dependency-mapping/',
           },
           {
-            to: '/applications/application_dependency_mapping/configure-application-dependency-mapping/',
+            to: '/apps/application_dependency_mapping/configure-application-dependency-mapping/',
             from: '/enterprise-application-dependency-mapping/configure-application-dependency-mapping/',
           },
           {
-            to: '/applications/services/',
+            to: '/apps/services/',
             from: '/apps/services/',
           },
           {
-            to: '/applications/services/service-instances/',
+            to: '/apps/services/service-instances/',
             from: '/apps/services/service-instances/',
           },
           {
-            to: '/applications/services/scheduled-tasks/',
+            to: '/apps/services/scheduled-tasks/',
             from: '/apps/services/scheduled-tasks/',
           },
           {
-            to: '/applications/services/service-listener-ports/',
+            to: '/apps/services/service-listener-ports/',
             from: '/apps/services/service-listener-ports/',
           },
           {
-            to: '/applications/services/service-communications/',
+            to: '/apps/services/service-communications/',
             from: '/apps/services/service-communications/',
           },
           {
-            to: '/applications/services/ignored-services/',
+            to: '/apps/services/ignored-services/',
             from: '/apps/services/ignored-services/',
           },
           {
-            to: '/applications/services/network-shares/',
+            to: '/apps/services/network-shares/',
             from: '/apps/services/network-shares/',
           },
           {
-            to: '/applications/application_components/application-component-templates/',
+            to: '/apps/application_components/application-component-templates/',
             from: ['/apps/application-components/application-component-templates/', '/software/application-components/', '/apps/application-components/']
           },
           {
-            to: '/applications/affinity_groups/',
+            to: '/apps/affinity_groups/',
             from: '/apps/affinity-groups/',
           },
           {
-            to: '/applications/affinity_groups/appfocus-filters/',
+            to: '/apps/affinity_groups/appfocus-filters/',
             from: '/apps/affinity-groups/appfocus-filters/',
           },
           {
-            to: '/applications/business_applications/building-business-applications-in-device42/',
+            to: '/apps/business_applications/building-business-applications-in-device42/',
             from: ['/apps/business-applications/building-business-applications-in-device42/', '/apps/business-applications/' ]
           },
           {
