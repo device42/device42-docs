@@ -109,7 +109,7 @@ All maintenance operations are performed through the Device42 appliance manager.
 
 Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from https://www.device42.com/update/.
 
-The following video demonstrates updating your Device42 instance: videos/update-device42-appliance-how-to.md
+The following video demonstrates updating your Device42 instance: how-to-videos/update-device42-appliance-how-to.md
 
 ### Backing up and restoring your D42 data on AWS
 

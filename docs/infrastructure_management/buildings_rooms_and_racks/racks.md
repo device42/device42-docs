@@ -223,7 +223,7 @@ Additional information can be found here: [Create / Update Racks via API / API I
 
 Devices, assets, and PDUs can be added / updated to racks in bulk via API and/or API Imports.
 
-Devices: How to video: [adding devices to racks via API Import](videos/api-imports-adding-devices-to-racks.md)
+Devices: How to video: [adding devices to racks via API Import](how-to-videos/api-imports-adding-devices-to-racks.md)
 
 Assets: Documentation: bulk add update assets to racks
 

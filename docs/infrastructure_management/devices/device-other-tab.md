@@ -30,7 +30,7 @@ The following variables can be used:
 - {{device.serial\_no}} = serial number associated with this device
 - {{device.asset\_no}} = asset number associated with this device
 
-See also - [How to video adding links and other URLs](videos/adding-links-and-other-urls-to-devices.md)
+See also - [How to video adding links and other URLs](how-to-videos/adding-links-and-other-urls-to-devices.md)
 
 ### Ports in PDU
 
