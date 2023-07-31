@@ -25,115 +25,115 @@ const config = {
       {
         redirects: [
           {
-            to: '/getting_started/',
+            to: '/getstarted/',
             from: ['/getstarted/']
           },
           {
-            to: '/getting_started/getting-started-with-auto-discovery/',
+            to: '/getstarted/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-auto-discovery/', '/getstarted/getting-started-with-a-blank-slate/']
           },
           {
-            to: '/getting_started/getting-started-discovery-hub/',
+            to: '/getstarted/getting-started-discovery-hub/',
             from: '/getstarted/getting-started-discovery-hub/',
           },
           {
-            to: '/getting_started/importing-data-from-existing-spreadsheets/',
+            to: '/getstarted/importing-data-from-existing-spreadsheets/',
             from: '/getstarted/importing-data-from-existing-spreadsheets/',
           },
           {
-            to: '/getting_started/advanced-search-feature/',
+            to: '/getstarted/advanced-search-feature/',
             from: '/getstarted/advanced-search-feature/',
           },
           {
-            to: '/getting_started/arrange-and-save-list-page-column-layout/',
+            to: '/getstarted/arrange-and-save-list-page-column-layout/',
             from: '/getstarted/arrange-and-save-list-page-column-layout/',
           },
           {
-            to: '/getting_started/basic-navigation-tips-for-adding-editing/',
+            to: '/getstarted/basic-navigation-tips-for-adding-editing/',
             from: '/getstarted/basic-navigation-tips-for-adding-editing/',
           },
           {
-            to: '/getting_started/home-page-widgets-and-global-search/',
+            to: '/getstarted/home-page-widgets-and-global-search/',
             from: '/getstarted/home-page-widgets-and-global-search/',
           },
           {
-            to: '/getting_started/language-selection/',
+            to: '/getstarted/language-selection/',
             from: '/getstarted/language-selection/',
           },
           {
-            to: '/getting_started/installation/',
+            to: '/getstarted/installation/',
             from: '/getstarted/installation/',
           },
           {
-            to: '/getting_started/installation/installation-amazon-web-services/',
+            to: '/getstarted/installation/installation-amazon-web-services/',
             from: '/getstarted/installation/installation-amazon-web-services/',
           },
           {
-            to: '/getting_started/installation/installation-citrix-xen-server/',
+            to: '/getstarted/installation/installation-citrix-xen-server/',
             from: '/getstarted/installation/installation-citrix-xen-server/',
           },
           {
-            to: '/getting_started/installation/installing-the-d42-netflow-collector-as-a-service/',
+            to: '/getstarted/installation/installing-the-d42-netflow-collector-as-a-service/',
             from: '/getstarted/installation/installing-the-d42-netflow-collector-as-a-service/',
           },
           {
-            to: '/getting_started/installation/installation-microsoft-azure/',
+            to: '/getstarted/installation/installation-microsoft-azure/',
             from: '/getstarted/installation/installation-microsoft-azure/',
           },
           {
-            to: '/getting_started/installation/installation-microsoft-hyperv/',
+            to: '/getstarted/installation/installation-microsoft-hyperv/',
             from: ['/getstarted/installation/installation-microsoft-hyperv/', '/getstarted/installation/installation-microsoft-hyper/']
           },
           {
-            to: '/getting_started/installation/installation-virtual-box/',
+            to: '/getstarted/installation/installation-virtual-box/',
             from: '/getstarted/installation/installation-virtual-box/',
           },
           {
-            to: '/getting_started/installation/getting-started-on-a-mac/',
+            to: '/getstarted/installation/getting-started-on-a-mac/',
             from: '/getstarted/installation/getting-started-on-a-mac/',
           },
           {
-            to: '/getting_started/installation/getting-started-on-a-pc/',
+            to: '/getstarted/installation/getting-started-on-a-pc/',
             from: '/getstarted/installation/getting-started-on-a-pc/',
           },
           {
-            to: '/getting_started/installation/remote-collector-rc-installation/',
+            to: '/getstarted/installation/remote-collector-rc-installation/',
             from: '/getstarted/installation/remote-collector-rc-installation/',
           },
           {
-            to: '/getting_started/installation/installation-vcenter-server/',
+            to: '/getstarted/installation/installation-vcenter-server/',
             from: '/getstarted/installation/installation-vcenter-server/',
           },
           {
-            to: '/getting_started/installation/installation-vmware-player/',
+            to: '/getstarted/installation/installation-vmware-player/',
             from: ['/getstarted/installation/installation-vmware-player/', '/getstarted/installation/installation-vmware-player-workstation-2/']
           },
           {
-            to: '/getting_started/installation/windows-discovery-service-installation/',
+            to: '/getstarted/installation/windows-discovery-service-installation/',
             from: '/getstarted/installation/windows-discovery-service-installation/',
           },
           {
-            to: '/getting_started/installation/installation-xen-or-kvm-using-virt-manager/',
+            to: '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/',
             from: ['/getstarted/installation/installation-xen-or-kvm-using-virt-manager/', '/getstarted/installation/installation-xen-kvm-virt-manager/']
           },
           {
-            to: '/getting_started/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
+            to: '/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
             from: '/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
           },
           {
-            to: '/getting_started/tutorials/device42-tutorial/',
+            to: '/getstarted/tutorials/device42-tutorial/',
             from: ['/getstarted/tutorials/device42-tutorial/', '/getstarted/tutorials/tutorials-overview/']
           },
           {
-            to: '/getting_started/tutorials/tutorial-loading-data-using-spreadsheets/',
+            to: '/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/',
             from: ['/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/']
           },
           {
-            to: '/getting_started/tutorials/tutorial-loading-data-using-the-api/',
+            to: '/getstarted/tutorials/tutorial-loading-data-using-the-api/',
             from: ['/getstarted/tutorials/tutorial-loading-data-using-the-api/']
           },
           {
-            to: '/getting_started/tutorials/tutorial-navigating-the-device42-user-interface/',
+            to: '/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/',
             from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/']
           },
           {
