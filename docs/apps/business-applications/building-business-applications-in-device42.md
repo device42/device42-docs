@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](discovery/auto-discovery.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/auto-discovery.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 

@@ -5,7 +5,7 @@ sidebar_position: 16
 
 ## Intro to D42 Packet Capture
 
-**If you'd prefer written instructions for Packet Capture, see [the Packet Capture documentation page here.](discovery/packet-capture.md)**
+**If you'd prefer written instructions for Packet Capture, see [the Packet Capture documentation page here.](auto-discovery/packet-capture.md)**
 
 With Device42 Packet Capture you can discover service communications happening in real-time for any service listeners known to Device42. By listening directly to all network communications, you'll easily discover communications that happen infrequently.
 

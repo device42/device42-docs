@@ -37,7 +37,7 @@ Whether remote collectors can’t be deployed or policy simply doesn’t allow i
 
 ## Blade systems Discovery
 
-HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
+HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
 
 ## Cloud Platform Discovery
 
@@ -56,7 +56,7 @@ Hypervisors, Windows & Linux/UNIX discovery jobs can all be created using the ma
 - VMWare hypervisor host and guest VM details are discovered using appropriate APIs <small(VMware, WMI)
 - Hyper-V hypervisors / guests are discovered as Windows machines using WinRM, and documented separately.
 
-Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](discovery/linux-unix-server-auto-discovery.md) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](discovery/windows-and-hyper-v-auto-discovery.md).
+Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](auto-discovery/linux-unix-server-auto-discovery.md) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](auto-discovery/windows-and-hyper-v-auto-discovery.md).
 
 ## IPMI Autodiscovery
 
@@ -83,7 +83,7 @@ Using SNMP v1/v2c/v3 discovery for network devices, you can automate discovery o
 - MAC to switch port associations
 - Switch port status and remote port associations
 
-SNMP Network discovery is covered in more detail at: [discovery/network-auto-discovery.md](discovery/network-auto-discovery.md)
+SNMP Network discovery is covered in more detail at: [discovery/network-auto-discovery.md](auto-discovery/network-auto-discovery.md)
 
 ## Node data from Chef and Puppet
 
@@ -93,7 +93,7 @@ Another Puppet integration script is available on [API Autodisc repo](https://gi
 
 ## Other SNMP-based discovery
 
-SNMP discoveries can also be used to discover many other types of devices: Power devices are usually discovered using SNMP, e.g. UPS, ATS, and other SNMP-compatible network-connected hardware; Many environmental sensors also support SNMP discovery/polling. To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see the SNMP section of [the SNMP/Network Discovery DOCS page](discovery/network-auto-discovery.md).
+SNMP discoveries can also be used to discover many other types of devices: Power devices are usually discovered using SNMP, e.g. UPS, ATS, and other SNMP-compatible network-connected hardware; Many environmental sensors also support SNMP discovery/polling. To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see the SNMP section of [the SNMP/Network Discovery DOCS page](auto-discovery/network-auto-discovery.md).
 
 ## Ping Sweep Utility
 
@@ -105,7 +105,7 @@ There is also a ping sweep tool built in to Device42. Find it in the UI via the 
 
 The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed wherever is necessary, for example, places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Simply choose the desired RC from the _"Remote Collector"_ drop-down when initially setting up a new autodiscovery job, or edit an existing discovery job, selecting the desired RC. Most autodiscovery jobs that can be launched from the Device42 "Discovery" menu support running from a deployed RC.
 
-For more information, and full RC documentation, head to the dedicated [Remote Collector page](discovery/remote-collector-rc.md)
+For more information, and full RC documentation, head to the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.md)
 
 ## Scripts for Linux, Solaris, Windows and Mac
 
@@ -121,6 +121,6 @@ You can automate inventory management and integrate with your own scripts or oth
 
 Hypervisors are discovered via the Device42 web UI: _Discovery > HyperVisors / \*nix / Windows_. Using native APIs, Device42 connects to your VMWare vCenter server(s), ESX server(s), Citrix XenServer, oVirt, or Redhat Virtualization servers and retrieves host details, inventory details, and guest VM details.
 
-Discussed in depth: [discovery/virtual-machine-auto-discovery.md](discovery/virtual-machine-auto-discovery.md)
+Discussed in depth: [discovery/virtual-machine-auto-discovery.md](auto-discovery/virtual-machine-auto-discovery.md)
 
 * * *

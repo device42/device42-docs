@@ -69,7 +69,7 @@ Other Device42 object types include:
 
 ## Discovering your infrastructure: Getting your data into Device42
 
-There are numerous ways to get data into (and out of!) Device42. As a **best practice**, we suggest most users start with autodiscovery. It's best to begin by discovering your network, working your way up from there. Learn about the recommended infrastructure discovery order and more in the [Auto-Discovery Best Practices section](discovery/autodisc-best-practices.md).
+There are numerous ways to get data into (and out of!) Device42. As a **best practice**, we suggest most users start with autodiscovery. It's best to begin by discovering your network, working your way up from there. Learn about the recommended infrastructure discovery order and more in the [Auto-Discovery Best Practices section](auto-discovery/autodisc-best-practices.md).
 
 Device42's autodiscovery tools can be run in any order, and most can be scheduled to keep things up-to-date automatically. Device42's [advanced device matching](https://support.device42.com/hc/en-us/articles/360009292494-Release-Summary-15-09-02) algorithm will take care of correlating and de-duplicating discovered information to ensure you don't end up with multiple entries for the same CIs (where possible!). For example, should one autodiscovery tool find a server, its serial number, its IP address, and its MAC address, while another autodiscovery job or tool finds that same MAC address connected to a switch port, these details are all automatically reconciled.
 

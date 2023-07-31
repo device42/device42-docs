@@ -5,7 +5,7 @@ sidebar_position: 20
 
 ## Nmap Autodiscovery
 
-Nmap (network mapper) is a tool primarily used for security scanning. However, it can be used to “guess” which services are running on which ports. Device42 uses Nmap to discover which services are running on which ports and automatically marries this data to [NetFlow](discovery/netflow-collector.md) data to automatically create a map of services and application dependencies.
+Nmap (network mapper) is a tool primarily used for security scanning. However, it can be used to “guess” which services are running on which ports. Device42 uses Nmap to discover which services are running on which ports and automatically marries this data to [NetFlow](auto-discovery/netflow-collector.md) data to automatically create a map of services and application dependencies.
 
 ## Add an Nmap Autodiscovery Job
 

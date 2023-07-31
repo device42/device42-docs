@@ -21,7 +21,7 @@ The initial recommended approach starts by performing Operating System level sca
 
 ## Hypervisor/\*nix/Windows Job Creation
 
-- Set up Discovery jobs for device inventory discovery with the [\*Hypevisor / \*nix / Windows](discovery/linux-unix-server-auto-discovery.md) jobs. Set up a standard discovery scan for each type of device focusing on the physical devices (Hypervisors, \*nix and Windows).
+- Set up Discovery jobs for device inventory discovery with the [\*Hypevisor / \*nix / Windows](auto-discovery/linux-unix-server-auto-discovery.md) jobs. Set up a standard discovery scan for each type of device focusing on the physical devices (Hypervisors, \*nix and Windows).
     - For the Windows and \*nix jobs, ensure that the Discover Parts is checked. In the Host Discovery section.
     - For the Hypervisor jobs, the “Discover Parts” option is enabled as default and not changeable.
 
@@ -29,7 +29,7 @@ The initial recommended approach starts by performing Operating System level sca
 
 ## SNMP Job Creation
 
-- For the [SNMP](discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
+- For the [SNMP](auto-discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
     - For 1 and 2, set up as standard access settings
     - 3 is the community string for the device(s)
     - 4 enter the IP/FQDN of all the devices that the credentials and access apply to.
@@ -38,7 +38,7 @@ The initial recommended approach starts by performing Operating System level sca
 
 ## Warranty Job Creation
 
-- See the [Warranty Sync](discovery/warranty-autodiscovery.md) documentation for instructions on setting up the Warranty Sync autodiscovery.
+- See the [Warranty Sync](auto-discovery/warranty-autodiscovery.md) documentation for instructions on setting up the Warranty Sync autodiscovery.
 
 ## Recommended Automated Scheduling
 

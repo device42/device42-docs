@@ -3,7 +3,7 @@ title: "SNMP - Network Autodiscovery"
 sidebar_position: 27
 ---
 
-The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you had a device that needs additional support!
+The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you had a device that needs additional support!
 
 ## Intro to SNMP-based discovery
 

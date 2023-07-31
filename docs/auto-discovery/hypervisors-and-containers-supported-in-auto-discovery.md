@@ -4,12 +4,12 @@ sidebar_position: 30
 ---
 
 If you were looking for how-to instructions to get started with Hypervisor, Linux (\*nix), or Windows discovery, see either: 
-- the [Windows / Hyper-V Discovery](discovery/windows-and-hyper-v-auto-discovery.md) page 
-- or the [Linux / UNIX server auto-discovery](discovery/linux-unix-server-auto-discovery.md) page.
+- the [Windows / Hyper-V Discovery](auto-discovery/windows-and-hyper-v-auto-discovery.md) page 
+- or the [Linux / UNIX server auto-discovery](auto-discovery/linux-unix-server-auto-discovery.md) page.
 
 ## Supported Hypervisor / Container Platforms
 
-Device42 is constantly expanding its list of hypervisor and container platforms supported by autodiscovery. For instructions on how to configure and run these discovery jobs, please refer to [Hypervisor Autodiscovery](discovery/virtual-machine-auto-discovery.md). The list of supported platforms currently includes:
+Device42 is constantly expanding its list of hypervisor and container platforms supported by autodiscovery. For instructions on how to configure and run these discovery jobs, please refer to [Hypervisor Autodiscovery](auto-discovery/virtual-machine-auto-discovery.md). The list of supported platforms currently includes:
 
 ![](/assets/images/D42-25011_supported-hyperv-platforms.png)
 
