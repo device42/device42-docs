@@ -797,11 +797,11 @@ const config = {
             from: '/reports/setup-alerts-and-notifications/',
           },
           {
-            to: '/reports/doql_device42_object_query_language/',
+            to: '/reports/device42-doql/',
             from: '/device42-doql/',
           },
           {
-            to: '/reports/doql_device42_object_query_language/db-viewer-schema/',
+            to: '/reports/device42-doql/db-viewer-schema/',
             from: '/device42-doql/db-viewer-schema/',
           },
           {
