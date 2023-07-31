@@ -7,7 +7,7 @@ sidebar_position: 5
 
 The SNMP autodiscovery method can be used for any SNMP-compatible devices. For [SNMP Network Device discovery, see our Network Device discovery documentation here](../network-auto-discovery.md). For SNMP based Server autodiscovery, read below. This page discusses discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](../linux-unix-server-auto-discovery.md). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines and have Dell OpenManage installed, it will additionally find serial #, model, and some other relevant information.
 
-**Note:** Device42 recommends that you execute Hypervisor server discovery using our specialized Hypervisor job types. See the  [Windows / Hyper-V Discovery](discovery/windows-and-hyper-v-auto-discovery.md) page and the [Linux / UNIX server auto-discovery](discovery/linux-unix-server-auto-discovery.md) page for more information.
+**Note:** Device42 recommends that you execute Hypervisor server discovery using our specialized Hypervisor job types. See the  [Windows / Hyper-V Discovery](auto-discovery/windows-and-hyper-v-auto-discovery.md) page and the [Linux / UNIX server auto-discovery](auto-discovery/linux-unix-server-auto-discovery.md) page for more information.
 
 ## NetApp, EMC, & Dell NAS/SAN Storage Discovery
 

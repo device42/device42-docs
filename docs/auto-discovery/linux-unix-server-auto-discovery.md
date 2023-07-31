@@ -3,7 +3,7 @@ title: "Linux & Unix Server Autodiscovery"
 sidebar_position: 16
 ---
 
-Device42 supports SSH-based Linux and UNIX discovery from within the main appliance (v13.2+). For a full list of supported Linux/UNIX operating systems, please visit [Device42 Supported Operating Systems.](discovery/operating-systems-supported-in-auto-discovery.md)
+Device42 supports SSH-based Linux and UNIX discovery from within the main appliance (v13.2+). For a full list of supported Linux/UNIX operating systems, please visit [Device42 Supported Operating Systems.](auto-discovery/operating-systems-supported-in-auto-discovery.md)
 
 ## Setting up Linux/Unix Autodiscovery
 
@@ -41,7 +41,7 @@ Depending on permissions granted and your configured password policies, account 
 **Domains to strip**: Ordered list of domains to strip from hostname, one per line - if blank, full domain stripped; if specified, the first match is stripped.  
 **Set the device name as the name given in the server field of the autodiscovery job**: if checked & discovering via hostname/FQDN, the device will be named using the discovery target name provided.  
 **Overwrite existing device hostname with discovered hostname**: Check this option to give precedence to the discovered hostname.  
-**Device Name Format**: select desired device naming format; see ["Configuring hostname discovery details"](discovery/linux-unix-server-auto-discovery.md#section-7) below for explanations.
+**Device Name Format**: select desired device naming format; see ["Configuring hostname discovery details"](auto-discovery/linux-unix-server-auto-discovery.md#section-7) below for explanations.
 
 ![](/assets/images/WEB-728_linux-unix-ad-exclusions.png)
 

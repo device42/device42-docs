@@ -137,207 +137,207 @@ const config = {
             from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/']
           },
           {
-            to: '/discovery/auto-discovery/',
+            to: '/auto-discovery/auto-discovery/',
             from: '/auto-discovery/',
           },
           {
-            to: '/discovery/cisco-ucs-auto-discovery/',
+            to: '/auto-discovery/cisco-ucs-auto-discovery/',
             from: '/auto-discovery/cisco-ucs-auto-discovery/',
           },
           {
-            to: '/discovery/active-directory-sync/',
+            to: '/auto-discovery/active-directory-sync/',
             from: '/auto-discovery/active-directory-sync/',
           },
           {
-            to: '/discovery/agent-based-discovery/',
+            to: '/auto-discovery/agent-based-discovery/',
             from: '/auto-discovery/agent-based-discovery/',
           },
           {
-            to: '/discovery/agent-based-offline-discovery/',
+            to: '/auto-discovery/agent-based-offline-discovery/',
             from: '/auto-discovery/agent-based-offline-discovery/',
           },
           {
-            to: '/discovery/autodisc-best-practices/',
+            to: '/auto-discovery/autodisc-best-practices/',
             from: '/auto-discovery/autodisc-best-practices/',
           },
           {
-            to: '/discovery/auto-discovery-system-requirements/',
+            to: '/auto-discovery/auto-discovery-system-requirements/',
             from: '/auto-discovery/auto-discovery-system-requirements/',
           },
           {
-            to: '/discovery/blade-systems-auto-discovery/',
+            to: '/auto-discovery/blade-systems-auto-discovery/',
             from: ['/auto-discovery/blade-systems-auto-discovery/', '/auto-discovery/hp-bladesystem-auto-discovery/']
           },
           {
-            to: '/discovery/certificate-auto-discovery/',
+            to: '/auto-discovery/certificate-auto-discovery/',
             from: '/auto-discovery/certificate-auto-discovery/',
           },
           {
-            to: '/discovery/setup-dns-autodiscovery/',
+            to: '/auto-discovery/setup-dns-autodiscovery/',
             from: ['/auto-discovery/setup-dns-autodiscovery/', '/tools/setup-dns-autodiscovery/']
           },
           {
-            to: '/discovery/ibm-i-as400/',
+            to: '/auto-discovery/ibm-i-as400/',
             from: '/auto-discovery/ibm-i-as400/',
           },
           {
-            to: '/discovery/z-os-ibm-mainframe/',
+            to: '/auto-discovery/z-os-ibm-mainframe/',
             from: '/auto-discovery/z-os-ibm-mainframe/',
           },
           {
-            to: '/discovery/ipmi-auto-discovery/',
+            to: '/auto-discovery/ipmi-auto-discovery/',
             from: '/auto-discovery/ipmi-auto-discovery/',
           },
           {
-            to: '/discovery/linux-unix-server-auto-discovery/',
+            to: '/auto-discovery/linux-unix-server-auto-discovery/',
             from: ['/auto-discovery/linux-unix-server-auto-discovery/', '/linux-unix-server-auto-discovery/']
           },
           {
-            to: '/discovery/linux-based-autodiscovery-software/',
+            to: '/auto-discovery/linux-based-autodiscovery-software/',
             from: '/auto-discovery/linux-based-autodiscovery-software/',
           },
           {
-            to: '/discovery/load-balancers/',
+            to: '/auto-discovery/load-balancers/',
             from: ['/auto-discovery/load-balancers/', '/load-balancers/']
           },
           {
-            to: '/discovery/netflow-collector/',
+            to: '/auto-discovery/netflow-collector/',
             from: '/auto-discovery/netflow-collector/',
           },
           {
-            to: '/discovery/nmap-autodiscovery/',
+            to: '/auto-discovery/nmap-autodiscovery/',
             from: '/auto-discovery/nmap-autodiscovery/',
           },
           {
-            to: '/discovery/operating-systems-supported-in-auto-discovery/',
+            to: '/auto-discovery/operating-systems-supported-in-auto-discovery/',
             from: '/auto-discovery/operating-systems-supported-in-auto-discovery/',
           },
           {
-            to: '/discovery/packet-capture/',
+            to: '/auto-discovery/packet-capture/',
             from: '/auto-discovery/packet-capture/',
           },
           {
-            to: '/discovery/d42-ping-sweep/',
+            to: '/auto-discovery/d42-ping-sweep/',
             from: ['/auto-discovery/d42-ping-sweep/', '/auto-discovery-client/d42-ping-sweep/']
           },
           {
-            to: '/discovery/remote-collector-rc/',
+            to: '/auto-discovery/remote-collector-rc/',
             from: ['/auto-discovery/remote-collector-rc/', '/auto-discovery/remote-collector/']
           },
           {
-            to: '/discovery/resource-utilization-overview/',
+            to: '/auto-discovery/resource-utilization-overview/',
             from: '/auto-discovery/resource-utilization-overview/',
           },
           {
-            to: '/discovery/sccm-discovery-net-tool/',
+            to: '/auto-discovery/sccm-discovery-net-tool/',
             from: '/auto-discovery/sccm-discovery-net-tool/',
           },
           {
-            to: '/discovery/network-auto-discovery/',
+            to: '/auto-discovery/network-auto-discovery/',
             from: ['/auto-discovery/network-auto-discovery/', '/auto-discovery/setup-network-auto-discovery/']
           },
           {
-            to: '/discovery/hypervisors-and-containers-supported-in-auto-discovery/',
+            to: '/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery/',
             from: '/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery/',
           },
           {
-            to: '/discovery/tcp-port-scan-auto-discovery/',
+            to: '/auto-discovery/tcp-port-scan-auto-discovery/',
             from: '/auto-discovery/tcp-port-scan-auto-discovery/',
           },
           {
-            to: '/discovery/load-balancer-f5-autodiscovery/',
+            to: '/auto-discovery/load-balancer-f5-autodiscovery/',
             from: '/auto-discovery/load-balancer-f5-autodiscovery/',
           },
           {
-            to: '/discovery/unprocessed-device-records/',
+            to: '/auto-discovery/unprocessed-device-records/',
             from: '/auto-discovery/unprocessed-device-records/',
           },
           {
-            to: '/discovery/using-apis-for-custom-auto-discovery/',
+            to: '/auto-discovery/using-apis-for-custom-auto-discovery/',
             from: '/auto-discovery/using-apis-for-custom-auto-discovery/',
           },
           {
-            to: '/discovery/vendors-supported-in-snmp-auto-discovery/',
+            to: '/auto-discovery/vendors-supported-in-snmp-auto-discovery/',
             from: '/auto-discovery/vendors-supported-in-snmp-auto-discovery/',
           },
           {
-            to: '/discovery/virtual-machine-auto-discovery/',
+            to: '/auto-discovery/virtual-machine-auto-discovery/',
             from: ['/auto-discovery/virtual-machine-auto-discovery/', '/auto-discovery/vmware-auto-discovery/']
           },
           {
-            to: '/discovery/warranty-autodiscovery/',
+            to: '/auto-discovery/warranty-autodiscovery/',
             from: '/auto-discovery/warranty-autodiscovery/',
           },
           {
-            to: '/discovery/windows-and-hyper-v-auto-discovery/',
+            to: '/auto-discovery/windows-and-hyper-v-auto-discovery/',
             from: ['/auto-discovery/windows-and-hyper-v-auto-discovery/', '/auto-discovery/windows-auto-discovery-tool/']
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/aws-autodiscovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/azure-autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/azure-autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/azure-autodiscovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/google-cloud-platform-autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/google-cloud-platform-autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/intune-autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/intune-autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/intune-autodiscovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/kubernetes-autodiscovery/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/kubernetes-autodiscovery/',
             from: '/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/',
           },
           {
-            to: '/discovery/cloud_platforms_autodiscovery/other-cloud-autodiscoveries/',
+            to: '/auto-discovery/cloud_platforms_autodiscovery/other-cloud-autodiscoveries/',
             from: '/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/',
           },
           {
-            to: '/discovery/database-discovery/cloud-databases/',
+            to: '/auto-discovery/database-discovery/cloud-databases/',
             from: '/databases/cloud-databases/',
           },
           {
-            to: '/discovery/database-discovery/on-premise-databases/',
+            to: '/auto-discovery/database-discovery/on-premise-databases/',
             from: '/databases/on-premise-databases/',
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/',
             from: '/auto-discovery/storage-arrays-autodiscovery/',
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery/',
             from: ['/auto-discovery/dell-emc-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/']
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/hp-autodiscovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/hp-autodiscovery/',
             from: ['/auto-discovery/hp-autodiscovery/','/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/']
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/ibm-autodiscovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/ibm-autodiscovery/',
             from: ['/auto-discovery/ibm-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/']
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery/',
             from: ['/auto-discovery/all-other-storage-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/']
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery/',
             from: '/auto-discovery/snmp-san-server-auto-discovery/',
           },
           {
-            to: '/discovery/storage_arrays_autodiscovery/storage-arrays/',
+            to: '/auto-discovery/storage_arrays_autodiscovery/storage-arrays/',
             from: '/auto-discovery/storage-arrays/',
           },
           {
-            to: '/discovery/resources/cloud-resources/',
+            to: '/auto-discovery/resources/cloud-resources/',
             from: '/managed-resources/cloud-resources/',
           },
           {

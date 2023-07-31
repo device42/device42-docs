@@ -9,7 +9,7 @@ The RC is shipped as a virtual appliance, which can be downloaded on our [Discov
 
 ## Install Instructions
 
-[**Click HERE to jump to RC Install instructions** on the dedicated RC docs page.](discovery/remote-collector-rc.md). See the _"Installation and Configuration"_ section of that doc.
+[**Click HERE to jump to RC Install instructions** on the dedicated RC docs page.](auto-discovery/remote-collector-rc.md). See the _"Installation and Configuration"_ section of that doc.
 
 ## Default RC credentials
 
