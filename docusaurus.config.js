@@ -1205,87 +1205,87 @@ const config = {
             from: '/accounting/purchases/',
           },
           {
-            to: '/videos/',
+            to: '/how-to-videos/',
             from: '/how-to-videos/',
           },
           {
-            to: '/videos/accessing-hidden-menus-for-advanced-customization/',
+            to: '/how-to-videos/accessing-hidden-menus-for-advanced-customization/',
             from: '/how-to-videos/accessing-hidden-menus-for-advanced-customization/',
           },
           {
-            to: '/videos/add-a-new-route-to-device42/',
+            to: '/how-to-videos/add-a-new-route-to-device42/',
             from: ['/how-to-videos/add-a-new-route-to-device42/', '/how-to-videos/add-a-route-to-device42/']
           },
           {
-            to: '/videos/add-and-bulk-edit-hardware-models-how-to/',
+            to: '/how-to-videos/add-and-bulk-edit-hardware-models-how-to/',
             from: '/how-to-videos/add-and-bulk-edit-hardware-models-how-to/',
           },
           {
-            to: '/videos/adding-links-and-other-urls-to-devices/',
+            to: '/how-to-videos/adding-links-and-other-urls-to-devices/',
             from: '/how-to-videos/adding-links-and-other-urls-to-devices/',
           },
           {
-            to: '/videos/agentless-auto-discovery-tool-how-to/',
+            to: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
             from: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
           },
           {
-            to: '/videos/api-imports-add-create-hardware-models/',
+            to: '/how-to-videos/api-imports-add-create-hardware-models/',
             from: ['/how-to-videos/api-imports-add-create-hardware-models/', '/api/']
           },
           {
-            to: '/videos/api-imports-adding-devices-to-racks/',
+            to: '/how-to-videos/api-imports-adding-devices-to-racks/',
             from: '/how-to-videos/api-imports-adding-devices-to-racks/',
           },
           {
-            to: '/videos/backup-and-restore-how-to/',
+            to: '/how-to-videos/backup-and-restore-how-to/',
             from: '/how-to-videos/backup-and-restore-how-to/',
           },
           {
-            to: '/videos/building-hierarchy-view-how-to/',
+            to: '/how-to-videos/building-hierarchy-view-how-to/',
             from: '/how-to-videos/building-hierarchy-view-how-to/',
           },
           {
-            to: '/videos/bulk-export-import-how-to/',
+            to: '/how-to-videos/bulk-export-import-how-to/',
             from: '/how-to-videos/bulk-export-import-how-to/',
           },
           {
-            to: '/videos/create-and-connect-patch-panels-and-switch-ports-how-to/',
+            to: '/how-to-videos/create-and-connect-patch-panels-and-switch-ports-how-to/',
             from: '/how-to-videos/create-and-connect-patch-panels-and-switch-ports-how-to/',
           },
           {
-            to: '/videos/device-discovery-troubleshooting-how-to/',
+            to: '/how-to-videos/device-discovery-troubleshooting-how-to/',
             from: '/how-to-videos/device-discovery-troubleshooting-how-to/',
           },
           {
-            to: '/videos/device42-object-query-language-doql/',
+            to: '/how-to-videos/device42-object-query-language-doql/',
             from: '/how-to-videos/device42-object-query-language-doql/',
           },
           {
-            to: '/videos/generic-csv-import-tool-how-to/',
+            to: '/how-to-videos/generic-csv-import-tool-how-to/',
             from: '/how-to-videos/generic-csv-import-tool-how-to/',
           },
           {
-            to: '/videos/',
-            from: '/videos/index/',
+            to: '/how-to-videos/',
+            from: '/how-to-videos/index/',
           },
           {
-            to: '/videos/jira-integration-how-to/',
+            to: '/how-to-videos/jira-integration-how-to/',
             from: '/how-to-videos/jira-integration-how-to/',
           },
           {
-            to: '/videos/packet-capture-101/',
+            to: '/how-to-videos/packet-capture-101/',
             from: '/how-to-videos/packet-capture-101/',
           },
           {
-            to: '/videos/ping-sweep-tool-how-to/',
+            to: '/how-to-videos/ping-sweep-tool-how-to/',
             from: '/how-to-videos/ping-sweep-tool-how-to/',
           },
           {
-            to: '/videos/update-device42-appliance-how-to/',
+            to: '/how-to-videos/update-device42-appliance-how-to/',
             from: ['/how-to-videos/update-device42-appliance-how-to/', '/how-to-videos/update-d42-how-to/']
           },
           {
-            to: '/videos/wmi-authentication-testing-tool-how-to/',
+            to: '/how-to-videos/wmi-authentication-testing-tool-how-to/',
             from: '/how-to-videos/wmi-authentication-testing-tool-how-to/',
           },
         ],
