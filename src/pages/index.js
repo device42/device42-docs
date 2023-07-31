@@ -40,7 +40,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className={styles.cardContainer}>
+          <div className={styles.cardContainerSolution}>
             <h2>Solution Guides</h2>
 
             <div className={styles.cardsContainer}>
