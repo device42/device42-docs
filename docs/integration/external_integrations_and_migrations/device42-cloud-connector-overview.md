@@ -21,14 +21,14 @@ Click _Save_ to save your changes.
 
 ## List of external integrations that utilize the Cloud Connector:
 
-- [Atlassian JIRA (cloud)](device42-jira-cloud-integration)
-- [ServiceNow](device42-servicenow-connector)
+- [Atlassian JIRA (cloud)](device42-jira-cloud-integration.md)
+- [ServiceNow](device42-servicenow-connector.md)
 - [Freshservice](integration/external_integrations_and_migrations/freshservice-integration.md)
 - Insight in JSM Cloud
 - [Opsgenie](integration/external_integrations_and_migrations/opsgenie-integration.md)
 - [PagerDuty](integration/external_integrations_and_migrations/pagerduty-integration.md)
 - [ServiceNow](integration/external_integrations_and_migrations/device42-servicenow-connector.md)
-- [ZenDesk](device42-zendesk-connector)
+- [ZenDesk](device42-zendesk-connector.md)
 
 Note that the [Cloud Recommendation Engine](reporting/reports/cloud-recommendation-engine.md) also uses the Cloud Connector.
 

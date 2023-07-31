@@ -11,7 +11,7 @@ Device42 will poll your Cisco UCS (Unified Computing System) Manager to discover
 
 UCS jobs will discover chassis, blades, and service profile information, while ACI jobs will discover network policy details that are controlling both your and/or physical network.
 
-Should you be looking to discover a load balancer (which shares this discovery job page), see the [F5/Load balancer discovery docs](load-balancer-f5-autodiscovery).
+Should you be looking to discover a load balancer (which shares this discovery job page), see the [F5/Load balancer discovery docs](load-balancer-f5-autodiscovery.md).
 
 ![Cisco UCS Cluster/ACI Fabric Discovery Job](/assets/images/ucs_aci_load-bal-discovery_menu-2019.png)
 

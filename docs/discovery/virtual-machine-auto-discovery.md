@@ -5,7 +5,7 @@ sidebar_position: 36
 
 VMWare platforms e.g. ESX and ESXi, Citrix XenServer, HyperV, oVirt, Redhat, KVM/libvirt, OpenVZ, AIX HMC,  Nutanix Prism, Nutanix Prism Central, Docker, and LXC virtualization platforms can all be discovered directly from the Device42 UI.
 
-While configuring the job, you may elect to have your primary Device42 appliance directly perform the discovery, or you may designate a [remote collector](remote-collector-rc) to run each task.
+While configuring the job, you may elect to have your primary Device42 appliance directly perform the discovery, or you may designate a [remote collector](remote-collector-rc.md) to run each task.
 
 ## Setting up VMware/Citrix Xenserver/oVirt/KVM/LXC autodiscovery
 

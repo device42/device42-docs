@@ -26,7 +26,7 @@ If you're discovering an F5, do the following. You'll want to scan your F5 pool 
 
 ### Create a cluster device (UCS) discovery job
 
-To discover a UCS or other Cluster Device, select "UCS" from the **Platform:** drop down (pictured above). _Visit the [dedicated Cisco UCS / ACI discovery docs page](cisco-ucs-auto-discovery) for more information._
+To discover a UCS or other Cluster Device, select "UCS" from the **Platform:** drop down (pictured above). _Visit the [dedicated Cisco UCS / ACI discovery docs page](cisco-ucs-auto-discovery.md) for more information._
 
 1. Give your job a descriptive name that is meaningful to you, and specify the server hostnames, IP addresses, IP ranges, or CIDR blocks for your cluster devices.
 2. Choose an RC, if desired, specify the correct port, and select or un-select the SSL option as needed
