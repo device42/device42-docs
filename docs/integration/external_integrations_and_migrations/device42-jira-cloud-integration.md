@@ -9,7 +9,7 @@ sidebar_position: 16
 
 To use the Device42-Jira integration, users must have:
 
-\- **Device42 v15.11.01+** virtual appliance, running, properly configured, and populated with CIs (to sync to Jira) - **Jira instance _\[ServiceDesk, or Cloud for this version\]_**, properly configured, with the Device42 plugin installed. _\*This version of the integration is for Jira Service Desk / Cloud only. If you are looking to integration Device42 with a self-hosted version of Jira software, see the [Device42-Jira (Self-Hosted) integration page.](device42-jira-integration)_
+\- **Device42 v15.11.01+** virtual appliance, running, properly configured, and populated with CIs (to sync to Jira) - **Jira instance _\[ServiceDesk, or Cloud for this version\]_**, properly configured, with the Device42 plugin installed. _\*This version of the integration is for Jira Service Desk / Cloud only. If you are looking to integration Device42 with a self-hosted version of Jira software, see the [Device42-Jira (Self-Hosted) integration page.](device42-jira-integration.md)_
 
 ### Configuring Device42
 

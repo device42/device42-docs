@@ -29,7 +29,7 @@ To generate a CSR (Certificate Signing Request), open a terminal that has the _o
     $ openssl rsa -in server.key -out key_file
 ```
 
-Adding a new certificate is easy; See [add a new certificate via appliance manager instructions here](appliance_manager/set-up-https-cert).
+Adding a new certificate is easy; See [add a new certificate via appliance manager instructions here](appliance_manager/set-up-https-cert.md).
 
 ## Generating non-production CSRs
 
