@@ -5,18 +5,18 @@ sidebar_position: 8
 
 **Compute Data Building Blocks**
 
-- [Compute Devices](reporting/dbb_cookbook/compute-devices.md)
-- [Device Count by Device Type](reporting/dbb_cookbook/device-count-by-device-type.md)
-- [Device Count by Service Level](reporting/dbb_cookbook/device-count-by-service-level.md)
-- [Device to Rack Inventory](reporting/dbb_cookbook/device-to-rack-inventory.md)
-- [Devices Missing Device_Type or Service_Level](reporting/dbb_cookbook/devices-missing-device_type-or-service_level.md)
-- [Physical Device Inventory](reporting/dbb_cookbook/physical-device-inventory.md)
-- [Physical Devices by Customer Department](reporting/dbb_cookbook/physical-devices-by-customer-department.md)
-- [Physical Devices Without Hardware Model](reporting/dbb_cookbook/physical-devices-without-hardware-model.md)
-- [Physical Inventory by Manufacturer](reporting/dbb_cookbook/physical-inventory-by-manufacturer.md)
-- [VM Density](reporting/dbb_cookbook/vm-density.md)
-- [VM Devices](reporting/dbb_cookbook/vm-devices.md)
-- [VM Inventory](reporting/dbb_cookbook/vm-inventory.md)
+- [Compute Devices](reports/dbb_cookbook/compute-devices.md)
+- [Device Count by Device Type](reports/dbb_cookbook/device-count-by-device-type.md)
+- [Device Count by Service Level](reports/dbb_cookbook/device-count-by-service-level.md)
+- [Device to Rack Inventory](reports/dbb_cookbook/device-to-rack-inventory.md)
+- [Devices Missing Device_Type or Service_Level](reports/dbb_cookbook/devices-missing-device_type-or-service_level.md)
+- [Physical Device Inventory](reports/dbb_cookbook/physical-device-inventory.md)
+- [Physical Devices by Customer Department](reports/dbb_cookbook/physical-devices-by-customer-department.md)
+- [Physical Devices Without Hardware Model](reports/dbb_cookbook/physical-devices-without-hardware-model.md)
+- [Physical Inventory by Manufacturer](reports/dbb_cookbook/physical-inventory-by-manufacturer.md)
+- [VM Density](reports/dbb_cookbook/vm-density.md)
+- [VM Devices](reports/dbb_cookbook/vm-devices.md)
+- [VM Inventory](reports/dbb_cookbook/vm-inventory.md)
 
  
 

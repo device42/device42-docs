@@ -7,7 +7,7 @@ You can exclude devices from discovery jobs by applying Device Ignore Rules to t
 
 Note that using Device Ignore Rules does not affect device data that has already been discovered by previous discovery jobs. Any Device Ignore Rules you apply affect only discovery jobs you run _after_ you have applied the rules. Device Ignore Rules work for all discovery jobs, including cloud discovery.
 
-You can see Device Ignore Rule discovery results and details in the [Discovery Scores](reporting/reports/discovery-quality-scores.md) page (select _Reports > Discovery Scores_ to view the page).
+You can see Device Ignore Rule discovery results and details in the [Discovery Scores](reports/reports/discovery-quality-scores.md) page (select _Reports > Discovery Scores_ to view the page).
 
 ### Add a Device Ignore Rule
 
