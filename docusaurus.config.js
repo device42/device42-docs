@@ -10,7 +10,7 @@ const config = {
   tagline: "The Hitchhiker’s Guide to DEVICE42",
   favicon: 'https://www.device42.com/wp-content/uploads/2021/08/d42-favicon.png',
   url: 'https://docs.device42.com',
-  baseUrl: '/d42/',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
