@@ -9,7 +9,7 @@ The following how-to runs down quickly enumerating network objects with Device42
 
 **If you're new** to Device42, you'll want to start with our [**getting started videos** \[new window\]](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to get your RC (Remote Collector) set up, connect a WDS (Windows Discovery Service) instance to that RC, and you'll run your first discovery job! [Watch 'em now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2), and you'll be an expert in no time!
 
-Ready to learn more? For those that prefer videos, there's a [video-based Device42 "How-To" series on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) (it's got its own [section](../how-to-videos/index.md)). Have a specific question and you don't see what you're looking for here in the docs, email support@device42 and let us know -- there's a good chance other people are wondering the same thing, and we'll be happy to create a new video ... _Happy discovering!_
+Ready to learn more? For those that prefer videos, there's a [video-based Device42 "How-To" series on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) (it's got its own [section](how-to-videos/index.md)). Have a specific question and you don't see what you're looking for here in the docs, email support@device42 and let us know -- there's a good chance other people are wondering the same thing, and we'll be happy to create a new video ... _Happy discovering!_
 
 ## Autodiscovery Account WARNING
 
@@ -33,11 +33,11 @@ The required fields are Name, Network and mask bits. Others are optional. The be
 
 ### Set up WDS (Windows Discovery Service)
 
-**Note: All recent releases \[v14+\] of Device42 can run all discoveries from the web UI \[and/or via [Remote Collectors](../discovery/remote-collector-rc.md)], including WMI discovery as long as the [WDS service](installation/windows-discovery-service-installation.md) (Windows Discovery Service) has been configured.** Now is a good time to set up a [Remote Collector (RC)](auto-discovery/remote-collector-rc.md), as RCs, being dedicated to discovery, can handle larger network ranges than your MA. If you'll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it's recommended to connect WDS to it as opposed to connecting it to your MA.
+**Note: All recent releases \[v14+\] of Device42 can run all discoveries from the web UI \[and/or via [Remote Collectors](auto-discovery/remote-collector-rc.md)], including WMI discovery as long as the [WDS service](installation/windows-discovery-service-installation.md) (Windows Discovery Service) has been configured.** Now is a good time to set up a [Remote Collector (RC)](auto-discovery/remote-collector-rc.md), as RCs, being dedicated to discovery, can handle larger network ranges than your MA. If you'll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it's recommended to connect WDS to it as opposed to connecting it to your MA.
 
 ### Creating your first discovery job
 
-Once you've installed the [WDS](installation/windows-discovery-service-installation.md) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](../discovery/autodisc-best-practices.md) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](../discovery/network-auto-discovery.md)
+Once you've installed the [WDS](installation/windows-discovery-service-installation.md) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](auto-discovery/autodisc-best-practices.md) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](auto-discovery/network-auto-discovery.md)
 
 Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](auto-discovery/network-auto-discovery.md) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
 
@@ -57,7 +57,7 @@ The following device types have a hardware model. Each hardware model can be one
 
 Once you change a hardware type, all the corresponding devices that refer to that hardware and are type unknown, will automatically be categorized accordingly.
 
-The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](../how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](../infrastructure-management/devices/hardware-models-templates.md) for more information!
+The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](infrastructure-management/devices/hardware-models-templates.md) for more information!
 
 Also, once a hardware type is defined, any new imported or discovered devices will go into the right category.
 
