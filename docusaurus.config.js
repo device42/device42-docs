@@ -137,10 +137,6 @@ const config = {
             from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/']
           },
           {
-            to: '/auto-discovery/auto-discovery/',
-            from: '/auto-discovery/',
-          },
-          {
             to: '/auto-discovery/cisco-ucs-auto-discovery/',
             from: '/auto-discovery/cisco-ucs-auto-discovery/',
           },
@@ -1029,19 +1025,19 @@ const config = {
             from: '/apps/certificate-management/',
           },
           {
-            to: '/infrastructure-management/buildings_rooms_and_racks/auditing-racks/',
+            to: '/infrastructure-management/buildings-rooms-and-racks/auditing-racks/',
             from: '/buildings-rooms-and-racks/auditing-racks/',
           },
           {
-            to: '/infrastructure-management/buildings_rooms_and_racks/buildings-and-rooms/',
+            to: '/infrastructure-management/buildings-rooms-and-racks/buildings-and-rooms/',
             from: '/buildings-rooms-and-racks/buildings-and-rooms/',
           },
           {
-            to: '/infrastructure-management/buildings_rooms_and_racks/impact-charts/',
+            to: '/infrastructure-management/buildings-rooms-and-racks/impact-charts/',
             from: '/buildings-rooms-and-racks/impact-charts/',
           },
           {
-            to: '/infrastructure-management/buildings_rooms_and_racks/racks/',
+            to: '/infrastructure-management/buildings-rooms-and-racks/racks/',
             from: '/buildings-rooms-and-racks/racks/',
           },
           {
@@ -1338,7 +1334,7 @@ const config = {
         },
         items: [
           {
-            href: '/getting_started',
+            href: '/getstarted',
             label: 'Documentation',
             position: 'left',
           },

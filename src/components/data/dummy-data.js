@@ -9,7 +9,7 @@ const productDocData = [
     title: "Discovery",
     icon: "assets/icons/purple/discovery-icon.svg",
     whiteIcon: "assets/icons/white/discovery-icon.svg",
-    link: "/discovery/",
+    link: "/auto-discovery/",
   },
   {
     title: "Applications",
@@ -21,7 +21,7 @@ const productDocData = [
     title: "Infrastructure Management",
     icon: "assets/icons/purple/infrastructure-mgmt-icon.svg",
     whiteIcon: "assets/icons/white/infrastructure-mgmt-icon.svg",
-    link: "/infrastructure_management/",
+    link: "/infrastructure-management/",
   },
   {
     title: "Reporting",

@@ -9,7 +9,7 @@ This is a technical guide that will walk you through a step-by-step process to b
 
 ## Viewing Discovery Data
 
-After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/application_dependency_mapping/adm-supported-applications.md) .
+After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md) .
 
 ![](/assets/images/Web_732_1.png)
 
