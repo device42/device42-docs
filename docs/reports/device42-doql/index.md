@@ -190,3 +190,8 @@ Note that wherever possible, DOQL Syntax are equivalent to PostgreSQL syntax.
     "view": "view_asset_custom_fields_v1"
     },
 ```
+
+
+## Table of contents
+
+- [Database Viewer Schema](reports/device42-doql/db-viewer-schema.md)

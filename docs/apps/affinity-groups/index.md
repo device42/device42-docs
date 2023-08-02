@@ -75,3 +75,8 @@ Select the Business Application you want, or add a new one, and click _Add obje
 The Affinity Groups added will be visible on the Business Application canvas. The Devices in each Affinity Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Affinity Group.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic11.png)
+
+
+## Table of contents
+
+- [AppFocus Filters](apps/affinity-groups/appfocus-filters.md)

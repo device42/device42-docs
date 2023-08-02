@@ -1,5 +1,6 @@
 ---
 title: "EnrichAI Opt Out"
+sidebar_position: 100
 ---
 
 EnrichAI Data is a Device42 service to enrich discovered data – currently Device42 supports enrichment of discovered device OS data and Vendor data – additional data types will be added in future releases. This section details the steps to take if you choose to disable this enrichment service. Please note that if you re-discover data that was previously enriched, then you will lose that data until you opt back into the EnrichAI cloud service.

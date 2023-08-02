@@ -171,3 +171,8 @@ The following views support the applications and relationships in Business Appli
 - `view_businessapplication_v1`
 - `view_businessapplicationelement_v1`
 - `view_businessapplicationconnection_v1`
+
+
+## Table of contents
+
+- [Building Business Applications in Device42](apps/business-applications/building-business-applications-in-device42.md)
