@@ -82,7 +82,7 @@ You can also enter one or more email addresses of people who should receive emai
 
 You can setup multiple monitoring appliances by entering multiple screens like the one above.
 
-Please also read [this section of the documentation](infrastructure-management/power_and_environmental_monitoring/manage-monitored-ips.md) concerning maintaining the IP's on the monitoring appliance.
+Please also read [this section of the documentation](infrastructure-management/power-and-environmental-monitoring/manage-monitored-ips.md) concerning maintaining the IP's on the monitoring appliance.
 
 ### Capacity Considerations
 

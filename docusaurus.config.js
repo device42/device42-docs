@@ -877,27 +877,27 @@ const config = {
             from: ['/parts-and-parts-slots/parts-slots/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/environmental-monitoring/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/',
             from: ['/energy-monitoringmanagement/environmental-monitoring/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/getting-started-with-power-and-environmental-monitoring/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
             from: ['/energy-monitoringmanagement/getting-started-with-power-and-environmental-monitoring/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/manage-monitored-ips/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/manage-monitored-ips/',
             from: ['/energy-monitoringmanagement/manage-monitored-ips/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/power-monitoring-and-control/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/power-monitoring-and-control/',
             from: ['/energy-monitoringmanagement/power-monitoring-and-control/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/power-rc-setup-job-migration/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration/',
             from: ['/energy-monitoringmanagement/power-rc-setup-job-migration/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/unit-display-settings/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/unit-display-settings/',
             from: ['/energy-monitoringmanagement/unit-display-settings/'],
           },
           {
@@ -945,31 +945,31 @@ const config = {
             from: ['/ipam/vrf-groups/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/asset-tag-printing/',
+            to: '/infrastructure-management/mobile-inventory/asset-tag-printing/',
             from: ['/mobile-inventory/asset-tag-printing/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/auto-assign-asset-numbers/',
+            to: '/infrastructure-management/mobile-inventory/auto-assign-asset-numbers/',
             from: ['/mobile-inventory/auto-assign-asset-numbers/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/bulk-qr-printing/',
+            to: '/infrastructure-management/mobile-inventory/bulk-qr-printing/',
             from: ['/mobile-inventory/bulk-qr-printing/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-ie/',
+            to: '/infrastructure-management/mobile-inventory/printing-qr-codes-from-ie/',
             from: ['/mobile-inventory/printing-qr-codes-from-ie/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-firefox/',
+            to: '/infrastructure-management/mobile-inventory/printing-qr-codes-from-firefox/',
             from: ['/mobile-inventory/printing-qr-codes-from-firefox/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/understanding-qr-and-bar-codes-in-device42/',
+            to: '/infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42/',
             from: ['/mobile-inventory/understanding-qr-and-bar-codes-in-device42/', '/qr-codes-asset-tags-inventory-management-mobile-devices/understanding-qr-codes/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/using-mobile-devices-for-asset-management/',
+            to: '/infrastructure-management/mobile-inventory/using-mobile-devices-for-asset-management/',
             from: ['/mobile-inventory/using-mobile-devices-for-asset-management/'],
           },
           {
