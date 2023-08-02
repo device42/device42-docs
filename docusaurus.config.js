@@ -833,27 +833,27 @@ const config = {
             from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/', '/connectivity/patch-panels/'],
           },
           {
-            to: '/infrastructure-management/power_units/adding-atss/',
+            to: '/infrastructure-management/power-units/adding-atss/',
             from: ['/power-units/adding-atss/'],
           },
           {
-            to: '/infrastructure-management/power_units/adding-pdus/',
+            to: '/infrastructure-management/power-units/adding-pdus/',
             from: ['/power-units/pdus/adding-pdus/'],
           },
           {
-            to: '/infrastructure-management/power_units/defining-pdu-models/',
+            to: '/infrastructure-management/power-units/defining-pdu-models/',
             from: ['/power-units/pdus/defining-pdu-models/', '/pdu_overview/defining-pdu-models/'],
           },
           {
-            to: '/infrastructure-management/power_units/pdu-ports/',
+            to: '/infrastructure-management/power-units/pdu-ports/',
             from: ['/power-units/pdus/pdu-ports/', '/pdu/'],
           },
           {
-            to: '/infrastructure-management/power_units/pdu-rack-display/',
+            to: '/infrastructure-management/power-units/pdu-rack-display/',
             from: ['/power-units/pdus/pdu-rack-display/', '/pdu_overview/pdu-rack-display/'],
           },
           {
-            to: '/infrastructure-management/power_units/supported-pdu-vendors/',
+            to: '/infrastructure-management/power-units/supported-pdu-vendors/',
             from: ['/power-units/supported-pdu-vendors/'],
           },
           {
