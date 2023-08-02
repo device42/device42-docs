@@ -9,7 +9,7 @@ sidebar_position: 6
 
 ### Kubernetes Discovery for AWS, Google Cloud, and MS Azure
 
-Kubernetes Discovery is available as an option for [Amazon AWS](auto-discovery/cloud_platforms_autodiscovery/index.md), [Google Cloud](auto-discovery/cloud_platforms_autodiscovery/index.md), and [Microsoft Azure](auto-discovery/cloud_platforms_autodiscovery/index.md) cloud autodiscovery jobs. Scroll down the Add Cloud Discovery page to select the _Kubernetes Discovery_ option.
+Kubernetes Discovery is available as an option for [Amazon AWS](auto-discovery/cloud-platforms-autodiscovery/index.md), [Google Cloud](auto-discovery/cloud-platforms-autodiscovery/index.md), and [Microsoft Azure](auto-discovery/cloud-platforms-autodiscovery/index.md) cloud autodiscovery jobs. Scroll down the Add Cloud Discovery page to select the _Kubernetes Discovery_ option.
 
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery1.png)
 
