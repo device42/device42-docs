@@ -9,7 +9,6 @@ These sections cover entries found in the reporting menu of the Device42 applian
 
 ## Table of contents
 
-- [EnrichAI Data](reports/enrichai-data.md)
 - [Reports](reports/reports/)
     - [Insights+](reports/reports/insights-plus.md)
     - [Advanced Reporting](reports/reports/advanced-reporting.md)
@@ -107,4 +106,3 @@ These sections cover entries found in the reporting menu of the Device42 applian
 - [Devices with OS but No Software](reports/dbb-cookbook/devices-with-os-but-no-software.md)
 - [Devices with Prohibited Software (as designated by customer)](reports/dbb-cookbook/devices-with-prohibited-software-as-designated-by-customer.md)
 - [Network Information for IPs Without Attached Devices](reports/dbb-cookbook/network-information-for-ips-without-attached-devices.md)
-- [EnrichAI Opt Out](reports/enrichai-opt-out.md)
