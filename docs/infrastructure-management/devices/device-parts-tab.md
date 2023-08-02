@@ -9,4 +9,4 @@ sidebar_position: 10
 
 The Parts tab track spare parts that have been assigned to the device.
 
-See [Managing Spare Parts](../parts_and_parts_slots/managing-spare-parts.md) for more information.
+See [Managing Spare Parts](../parts-and-parts-slots/managing-spare-parts.md) for more information.

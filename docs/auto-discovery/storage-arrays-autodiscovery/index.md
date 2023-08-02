@@ -17,7 +17,7 @@ Use the links below for additional information about access protocols and minimu
 
 ### Dell/EMC Arrays
 
-[See Dell/EMC Autodiscovery](auto-discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery.md) for more information about the following storage arrays:
+[See Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md) for more information about the following storage arrays:
 
 - Dell Compellent
 - VNX or VMAX using EMC SMIS Providor
@@ -28,7 +28,7 @@ Use the links below for additional information about access protocols and minimu
 
 ### HP Arrays
 
-[See HP Autodiscovery](auto-discovery/storage_arrays_autodiscovery/hp-autodiscovery.md) for more information about the following storage arrays:
+[See HP Autodiscovery](auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.md) for more information about the following storage arrays:
 
 - HP Nimble
 - HPE StoreEasy
@@ -36,13 +36,13 @@ Use the links below for additional information about access protocols and minimu
 
 ### IBM Arrays
 
-[See IBM Autodiscovery](auto-discovery/storage_arrays_autodiscovery/ibm-autodiscovery.md) for more information about the following storage array:
+[See IBM Autodiscovery](auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.md) for more information about the following storage array:
 
 - IBM V7000/Storwize
 
 ### All Other Storage Arrays
 
-[See All Other Storage Autodiscovery](auto-discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery.md) for more information about the following storage arrays:
+[See All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md) for more information about the following storage arrays:
 
 - Infinidat
 - Netapp Filers

@@ -117,31 +117,31 @@ const config = {
             from: ['/databases/on-premise-databases/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/',
             from: ['/auto-discovery/storage-arrays-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/',
             from: ['/auto-discovery/dell-emc-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/hp-autodiscovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/',
             from: ['/auto-discovery/hp-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/ibm-autodiscovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/',
             from: ['/auto-discovery/ibm-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/',
             from: ['/auto-discovery/all-other-storage-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery/',
             from: ['/auto-discovery/snmp-san-server-auto-discovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/storage-arrays/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/storage-arrays/',
             from: ['/auto-discovery/storage-arrays/'],
           },
           {
@@ -857,23 +857,23 @@ const config = {
             from: ['/power-units/supported-pdu-vendors/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/importing-part-models/',
+            to: '/infrastructure-management/parts-and-parts-slots/importing-part-models/',
             from: ['/parts-and-parts-slots/importing-part-models/', '/spare-parts-management/importing-part-models/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/importing-parts/',
+            to: '/infrastructure-management/parts-and-parts-slots/importing-parts/',
             from: ['/parts-and-parts-slots/importing-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/managing-spare-parts/',
+            to: '/infrastructure-management/parts-and-parts-slots/managing-spare-parts/',
             from: ['/parts-and-parts-slots/managing-spare-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/part-model-templates/',
+            to: '/infrastructure-management/parts-and-parts-slots/part-model-templates/',
             from: ['/parts-and-parts-slots/part-model-templates/', '/spare-parts-management/models-and-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/parts-slots/',
+            to: '/infrastructure-management/parts-and-parts-slots/parts-slots/',
             from: ['/parts-and-parts-slots/parts-slots/'],
           },
           {
