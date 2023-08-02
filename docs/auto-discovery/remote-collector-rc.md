@@ -102,4 +102,4 @@ Device42 Remote Collectors (RCs) are updated automatically as long as they are c
 
 ## Migrating Existing Power Appliance Jobs to a Remote Collector (RC)
 
-Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](../infrastructure-management/power_and_environmental_monitoring/power-rc-setup-job-migration.md) to migrate jobs to the new RC of your choice.
+Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](../infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) to migrate jobs to the new RC of your choice.
