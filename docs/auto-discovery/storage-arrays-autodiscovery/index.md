@@ -79,3 +79,13 @@ Select _Discovery > Storage Arrays_ in the Device42 menu to display the Storag
 Use the Auto Discovery Schedule section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and time to run the job.  When you are done, click _Save_ to save the discovery job. Device42 adds the job to the Storage Arrays discovery list page. You can run the job immediately from this page. 
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
+
+
+## Table of contents
+
+- [Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md)
+- [HP Autodiscovery](auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.md)
+- [IBM Autodiscovery](auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.md)
+- [All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md)
+- [SNMP SAN/Server Autodiscovery](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md)
+- [Viewing Storage Arrays](auto-discovery/storage-arrays-autodiscovery/storage-arrays.md)

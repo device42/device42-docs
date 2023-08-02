@@ -296,3 +296,9 @@ Discovered databases are added to the On-Prem Databases list page.
 - Click the _Resource Name_ of the database you want to see.
 
 ![](/assets/images/placeholder.png)
+
+
+## Table of contents
+
+- [Cloud Databases](auto-discovery/database-discovery/cloud-databases.md)
+- [On-Prem Databases](auto-discovery/database-discovery/on-premise-databases.md)

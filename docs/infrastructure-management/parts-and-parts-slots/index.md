@@ -7,3 +7,12 @@ Parts management was complete re-vamped in v15.04+. With many powerful new featu
 To learn about **Parts Slots**, see https://docs.device42.com/devices/device-parts-slots/ for a page dedicated to that topic.
 
 
+
+
+## Table of contents
+
+- [Importing Part Models](infrastructure-management/parts-and-parts-slots/importing-part-models.md)
+- [Importing Parts](infrastructure-management/parts-and-parts-slots/importing-parts.md)
+- [Managing Spare Parts](infrastructure-management/parts-and-parts-slots/managing-spare-parts.md)
+- [Part Model Templates](infrastructure-management/parts-and-parts-slots/part-model-templates.md)
+- [Parts Slots](infrastructure-management/parts-and-parts-slots/parts-slots.md)

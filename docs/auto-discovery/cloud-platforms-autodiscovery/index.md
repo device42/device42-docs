@@ -27,3 +27,13 @@ The Device view and edit pages will now show _Cloud Instance Information_ at the
 ![](/assets/images/placeholder.png)
 
 ![](/assets/images/placeholder.png)
+
+
+## Table of contents
+
+- [AWS Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery.md)
+- [Azure Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery.md)
+- [Google Cloud Platform Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery.md)
+- [Intune Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery.md)
+- [Kubernetes Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery.md)
+- [Other Cloud Autodiscoveries](auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries.md)

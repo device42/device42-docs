@@ -977,7 +977,7 @@ const config = {
             from: ['/how-to-videos/update-d42-how-to/'],
           },
           {
-            to: '/reports/enrichai-data/',
+            to: '/auto-discovery/enrichai-data/',
             from: ['/enrichai-data/'],
           },
         ],
