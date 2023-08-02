@@ -1017,9 +1017,9 @@ const config = {
       },  
       image: 'img/d42-social-card.png',
       algolia: {
-        indexName: 'dev',
-        appId: 'G1PBLM6LHG',
-        apiKey: 'e1a0fe8ee0c7cc229ac937295f499837'
+        indexName: '<ENV_ALGOLIA_INDEX>',
+        appId: '<ENV_ALGOLIA_APP_ID>',
+        apiKey: '<ENV_ALGOLIA_READ_KEY>'
       },
       navbar: {
         logo: {
