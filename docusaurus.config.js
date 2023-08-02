@@ -24,7 +24,7 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          {
+ {
             to: '/getstarted/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
           },
@@ -117,24 +117,20 @@ const config = {
             from: ['/databases/on-premise-databases/'],
           },
           {
-            to: '/auto-discovery/storage-arrays-autodiscovery/',
-            from: ['/auto-discovery/storage-arrays-autodiscovery/'],
-          },
-          {
             to: '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/',
-            from: ['/auto-discovery/dell-emc-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/'],
+            from: ['/auto-discovery/dell-emc-autodiscovery/'],
           },
           {
             to: '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/',
-            from: ['/auto-discovery/hp-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/'],
+            from: ['/auto-discovery/hp-autodiscovery/'],
           },
           {
             to: '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/',
-            from: ['/auto-discovery/ibm-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/'],
+            from: ['/auto-discovery/ibm-autodiscovery/'],
           },
           {
             to: '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/',
-            from: ['/auto-discovery/all-other-storage-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/'],
+            from: ['/auto-discovery/all-other-storage-autodiscovery/'],
           },
           {
             to: '/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery/',
@@ -162,15 +158,7 @@ const config = {
           },
           {
             to: '/apps/application-components/application-component-templates/',
-            from: ['/apps/application-components/application-component-templates/', '/software/application-components/', '/apps/application-components/'],
-          },
-          {
-            to: '/apps/affinity-groups/',
-            from: ['/apps/affinity-groups/'],
-          },
-          {
-            to: '/apps/affinity-groups/appfocus-filters/',
-            from: ['/apps/affinity-groups/appfocus-filters/'],
+            from: ['/software/application-components/', '/apps/application-components/'],
           },
           {
             to: '/apps/business-applications/building-business-applications-in-device42/',
