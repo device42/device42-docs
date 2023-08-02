@@ -19,3 +19,18 @@ There are multiple ways Device42 can discover IP Addresses and related informati
 Importing existing IP addresses from [Microsoft Excel & CSV spreadsheets](getstarted/importing-data-from-existing-spreadsheets.md) is easy - Take advantage of this powerful feature to import existing IP Address data from MS Excel and/or .CSV _\[Comma Separated Value\]_ spreadsheets into Device42 IPAM.
 
  
+
+
+## Table of contents
+
+- [DNS Records](infrastructure-management/ipam/dns-records.md)
+- [DNS Zones](infrastructure-management/ipam/dns-zones.md)
+- [IP Addresses](infrastructure-management/ipam/ip-addresses.md)
+- [IP NAT/Map](infrastructure-management/ipam/ip-nat-map.md)
+- [MAC Addresses](infrastructure-management/ipam/mac-addresses.md)
+- [Subnet Tree View](infrastructure-management/ipam/subnet-tree-view.md)
+- [Subnets](infrastructure-management/ipam/subnets.md)
+- [Switch Ports](infrastructure-management/ipam/switch-ports.md)
+- [Switch Templates](infrastructure-management/ipam/switch-templates.md)
+- [VLANs](infrastructure-management/ipam/vlans.md)
+- [VRF Groups](infrastructure-management/ipam/vrf-groups.md)

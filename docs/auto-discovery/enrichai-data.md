@@ -1,6 +1,6 @@
 ---
 title: "EnrichAI Data"
-sidebar_position: 1
+sidebar_position: 99
 ---
 
 EnrichAI Data is a Device42 service to enrich discovered data – currently Device42 supports enrichment of discovered device OS data and Vendor data – additional data types will be added in future releases.
