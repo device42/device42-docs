@@ -161,15 +161,15 @@ const config = {
             from: ['/enterprise-application-dependency-mapping/configure-application-dependency-mapping/'],
           },
           {
-            to: '/apps/application_components/application-component-templates/',
+            to: '/apps/application-components/application-component-templates/',
             from: ['/apps/application-components/application-component-templates/', '/software/application-components/', '/apps/application-components/'],
           },
           {
-            to: '/apps/affinity_groups/',
+            to: '/apps/affinity-groups/',
             from: ['/apps/affinity-groups/'],
           },
           {
-            to: '/apps/affinity_groups/appfocus-filters/',
+            to: '/apps/affinity-groups/appfocus-filters/',
             from: ['/apps/affinity-groups/appfocus-filters/'],
           },
           {
@@ -241,79 +241,79 @@ const config = {
             from: ['/tools/transferring-devices-assets-and-parts-to-other-data-centers/'],
           },
           {
-            to: '/administration/appliance_manager/adding-multiple-network-interface-cardsnic-to-device42-vm/',
+            to: '/administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm/',
             from: ['/device42-appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm/'],
           },
           {
-            to: '/administration/appliance_manager/api-limits/',
+            to: '/administration/appliance-manager/api-limits/',
             from: ['/device42-appliance-manager/api-limits/'],
           },
           {
-            to: '/administration/appliance_manager/changing-device42-appliance-hostname/',
+            to: '/administration/appliance-manager/changing-device42-appliance-hostname/',
             from: ['/device42-appliance-manager/changing-device42-appliance-hostname/'],
           },
           {
-            to: '/administration/appliance_manager/collecting-snmpwalk-output-for-troubleshooting/',
+            to: '/administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting/',
             from: ['/device42-appliance-manager/collecting-snmpwalk-output-for-troubleshooting/'],
           },
           {
-            to: '/administration/appliance_manager/delete-history-logs/',
+            to: '/administration/appliance-manager/delete-history-logs/',
             from: ['/device42-appliance-manager/delete-history-logs/'],
           },
           {
-            to: '/administration/appliance_manager/device42-appliance-manager-login/',
+            to: '/administration/appliance-manager/device42-appliance-manager-login/',
             from: ['/device42-appliance-manager/device42-appliance-manager-login/'],
           },
           {
-            to: '/administration/appliance_manager/device42-restore/',
+            to: '/administration/appliance-manager/device42-restore/',
             from: ['/device42-appliance-manager/device42-restore/'],
           },
           {
-            to: '/administration/appliance_manager/enable-or-disable-tls-versions-from-appliance-manager/',
+            to: '/administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager/',
             from: ['/device42-appliance-manager/enable-or-disable-tls-versions-from-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/enabling-ssl-in-appliance-manager/',
+            to: '/administration/appliance-manager/enabling-ssl-in-appliance-manager/',
             from: ['/device42-appliance-manager/enabling-ssl-in-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/generate-log-bundle/',
+            to: '/administration/appliance-manager/generate-log-bundle/',
             from: ['/device42-appliance-manager/generate-log-bundle/'],
           },
           {
-            to: '/administration/appliance_manager/generating-ipmi-output-for-troubleshooting/',
+            to: '/administration/appliance-manager/generating-ipmi-output-for-troubleshooting/',
             from: ['/device42-appliance-manager/generating-ipmi-output-for-troubleshooting/'],
           },
           {
-            to: '/administration/appliance_manager/global-and-password-manager-session-timeout/',
+            to: '/administration/appliance-manager/global-and-password-manager-session-timeout/',
             from: ['/device42-appliance-manager/global-and-password-manager-session-timeout/'],
           },
           {
-            to: '/administration/appliance_manager/installing-vmware-or-xenserver-tools/',
+            to: '/administration/appliance-manager/installing-vmware-or-xenserver-tools/',
             from: ['/device42-appliance-manager/installing-vmware-or-xenserver-tools/'],
           },
           {
-            to: '/administration/appliance_manager/pendo-guided-tours-and-usage-information-collection/',
+            to: '/administration/appliance-manager/pendo-guided-tours-and-usage-information-collection/',
             from: ['/device42-appliance-manager/pendo-guided-tours-and-usage-information-collection/'],
           },
           {
-            to: '/administration/appliance_manager/securing-the-vm-console-with-password/',
+            to: '/administration/appliance-manager/securing-the-vm-console-with-password/',
             from: ['/device42-appliance-manager/securing-the-vm-console-with-password/'],
           },
           {
-            to: '/administration/appliance_manager/set-fqdn-for-web-access/',
+            to: '/administration/appliance-manager/set-fqdn-for-web-access/',
             from: ['/device42-appliance-manager/set-fqdn-for-web-access/'],
           },
           {
-            to: '/administration/appliance_manager/set-up-https-cert/',
+            to: '/administration/appliance-manager/set-up-https-cert/',
             from: ['/device42-appliance-manager/set-up-https-cert/'],
           },
           {
-            to: '/administration/appliance_manager/setting-up-backup-device42-appliance-manager/',
+            to: '/administration/appliance-manager/setting-up-backup-device42-appliance-manager/',
             from: ['/device42-appliance-manager/setting-up-backup-device42-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/warm-ha-setup-failover-and-automated-backups/',
+            to: '/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups/',
             from: ['/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/', '/device42-appliance-manager/warm-ha-and-automated-backups/'],
           },
           {
