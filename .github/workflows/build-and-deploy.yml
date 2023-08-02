@@ -17,6 +17,12 @@ jobs:
       with:
         node-version: '16.14'
 
+    - name: Setup Algolia Access
+      run: |
+           sed -i 's/<ENV_ALGOLIA_INDEX>/${{ vars.ENV_ALGOLIA_INDEX }}/g' docusaurus.config.js
+           sed -i 's/<ENV_ALGOLIA_APP_ID>/${{ secrets.ENV_ALGOLIA_APP_ID }}/g' docusaurus.config.js
+           sed -i 's/<ENV_ALGOLIA_READ_KEY>/${{ secrets.ENV_ALGOLIA_READ_KEY }}/g' docusaurus.config.js
+
     - name: Install Dependencies
       run: yarn
 
@@ -53,29 +59,17 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 # Replace with your AWS region
+        aws-region: us-east-1
 
     - name: Sync to S3
-      run: aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
+      run: |
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --delete --exclude assets/images/* --exclude assets/videos/*
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
 
     - name: Invalidate CF cache
       run: |
            INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
            aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
-
-    - name: Setup Algolia Config
-      id: algolia_config
-      run: |
-           sed -i 's/<INDEX_NAME>/${{ vars.ALGOLIA_INDEX }}/g' algolia.json
-           sed -i 's/<FQDN>/${{ vars.FQDN }}/g' algolia.json
-           echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
-
-    - name: Run Algolia Reindex
-      uses: signcl/docsearch-scraper-action@master
-      env:
-        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-        CONFIG: ${{ steps.algolia_config.outputs.config }}
 
   deploy_stg:
     needs: deploy_dev
@@ -98,10 +92,45 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 # Replace with your AWS region
+        aws-region: us-east-1
 
     - name: Sync to S3
-      run: aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
+      run: |
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --delete --exclude assets/images/* --exclude assets/videos/*
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
+
+    - name: Invalidate CF cache
+      run: |
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
+
+  deploy_prod:
+    needs: deploy_stg
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
+
+    - name: Unpack artifact
+      run: tar -xvf build.tar.gz
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1 
+
+    - name: Sync to S3
+      run: |
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --delete --exclude assets/images/* --exclude assets/videos/*
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
 
     - name: Invalidate CF cache
       run: |
