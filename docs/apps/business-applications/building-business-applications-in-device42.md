@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/auto-discovery.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 
@@ -45,7 +45,7 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Affinity Groups
 
-Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [affinity groups](apps/affinity_groups/index.md) to further understand this process.
+Affinity Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [affinity groups](apps/affinity-groups/index.md) to further understand this process.
 
 ### Enabling Affinity Groups
 

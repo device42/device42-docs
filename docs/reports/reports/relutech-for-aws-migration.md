@@ -29,7 +29,7 @@ The initial recommended approach starts by performing Operating System level sca
 
 ## SNMP Job Creation
 
-- For the [SNMP](auto-discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
+- For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
     - For 1 and 2, set up as standard access settings
     - 3 is the community string for the device(s)
     - 4 enter the IP/FQDN of all the devices that the credentials and access apply to.

@@ -24,7 +24,7 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          {
+ {
             to: '/getstarted/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
           },
@@ -81,31 +81,31 @@ const config = {
             from: ['/auto-discovery/windows-auto-discovery-tool/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/aws-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/azure-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/azure-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/google-cloud-platform-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/intune-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/intune-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/kubernetes-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/other-cloud-autodiscoveries/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries/',
             from: ['/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/'],
           },
           {
@@ -117,31 +117,27 @@ const config = {
             from: ['/databases/on-premise-databases/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/',
-            from: ['/auto-discovery/storage-arrays-autodiscovery/'],
+            to: '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/',
+            from: ['/auto-discovery/dell-emc-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/dell-emc-autodiscovery/',
-            from: ['/auto-discovery/dell-emc-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery/'],
+            to: '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/',
+            from: ['/auto-discovery/hp-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/hp-autodiscovery/',
-            from: ['/auto-discovery/hp-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery/'],
+            to: '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/',
+            from: ['/auto-discovery/ibm-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/ibm-autodiscovery/',
-            from: ['/auto-discovery/ibm-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery/'],
+            to: '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/',
+            from: ['/auto-discovery/all-other-storage-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/all-other-storage-autodiscovery/',
-            from: ['/auto-discovery/all-other-storage-autodiscovery/', '/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/storage_arrays_autodiscovery/snmp-san-server-auto-discovery/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery/',
             from: ['/auto-discovery/snmp-san-server-auto-discovery/'],
           },
           {
-            to: '/auto-discovery/storage_arrays_autodiscovery/storage-arrays/',
+            to: '/auto-discovery/storage-arrays-autodiscovery/storage-arrays/',
             from: ['/auto-discovery/storage-arrays/'],
           },
           {
@@ -161,16 +157,8 @@ const config = {
             from: ['/enterprise-application-dependency-mapping/configure-application-dependency-mapping/'],
           },
           {
-            to: '/apps/application_components/application-component-templates/',
-            from: ['/apps/application-components/application-component-templates/', '/software/application-components/', '/apps/application-components/'],
-          },
-          {
-            to: '/apps/affinity_groups/',
-            from: ['/apps/affinity-groups/'],
-          },
-          {
-            to: '/apps/affinity_groups/appfocus-filters/',
-            from: ['/apps/affinity-groups/appfocus-filters/'],
+            to: '/apps/application-components/application-component-templates/',
+            from: ['/software/application-components/', '/apps/application-components/'],
           },
           {
             to: '/apps/business-applications/building-business-applications-in-device42/',
@@ -241,79 +229,79 @@ const config = {
             from: ['/tools/transferring-devices-assets-and-parts-to-other-data-centers/'],
           },
           {
-            to: '/administration/appliance_manager/adding-multiple-network-interface-cardsnic-to-device42-vm/',
+            to: '/administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm/',
             from: ['/device42-appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm/'],
           },
           {
-            to: '/administration/appliance_manager/api-limits/',
+            to: '/administration/appliance-manager/api-limits/',
             from: ['/device42-appliance-manager/api-limits/'],
           },
           {
-            to: '/administration/appliance_manager/changing-device42-appliance-hostname/',
+            to: '/administration/appliance-manager/changing-device42-appliance-hostname/',
             from: ['/device42-appliance-manager/changing-device42-appliance-hostname/'],
           },
           {
-            to: '/administration/appliance_manager/collecting-snmpwalk-output-for-troubleshooting/',
+            to: '/administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting/',
             from: ['/device42-appliance-manager/collecting-snmpwalk-output-for-troubleshooting/'],
           },
           {
-            to: '/administration/appliance_manager/delete-history-logs/',
+            to: '/administration/appliance-manager/delete-history-logs/',
             from: ['/device42-appliance-manager/delete-history-logs/'],
           },
           {
-            to: '/administration/appliance_manager/device42-appliance-manager-login/',
+            to: '/administration/appliance-manager/device42-appliance-manager-login/',
             from: ['/device42-appliance-manager/device42-appliance-manager-login/'],
           },
           {
-            to: '/administration/appliance_manager/device42-restore/',
+            to: '/administration/appliance-manager/device42-restore/',
             from: ['/device42-appliance-manager/device42-restore/'],
           },
           {
-            to: '/administration/appliance_manager/enable-or-disable-tls-versions-from-appliance-manager/',
+            to: '/administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager/',
             from: ['/device42-appliance-manager/enable-or-disable-tls-versions-from-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/enabling-ssl-in-appliance-manager/',
+            to: '/administration/appliance-manager/enabling-ssl-in-appliance-manager/',
             from: ['/device42-appliance-manager/enabling-ssl-in-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/generate-log-bundle/',
+            to: '/administration/appliance-manager/generate-log-bundle/',
             from: ['/device42-appliance-manager/generate-log-bundle/'],
           },
           {
-            to: '/administration/appliance_manager/generating-ipmi-output-for-troubleshooting/',
+            to: '/administration/appliance-manager/generating-ipmi-output-for-troubleshooting/',
             from: ['/device42-appliance-manager/generating-ipmi-output-for-troubleshooting/'],
           },
           {
-            to: '/administration/appliance_manager/global-and-password-manager-session-timeout/',
+            to: '/administration/appliance-manager/global-and-password-manager-session-timeout/',
             from: ['/device42-appliance-manager/global-and-password-manager-session-timeout/'],
           },
           {
-            to: '/administration/appliance_manager/installing-vmware-or-xenserver-tools/',
+            to: '/administration/appliance-manager/installing-vmware-or-xenserver-tools/',
             from: ['/device42-appliance-manager/installing-vmware-or-xenserver-tools/'],
           },
           {
-            to: '/administration/appliance_manager/pendo-guided-tours-and-usage-information-collection/',
+            to: '/administration/appliance-manager/pendo-guided-tours-and-usage-information-collection/',
             from: ['/device42-appliance-manager/pendo-guided-tours-and-usage-information-collection/'],
           },
           {
-            to: '/administration/appliance_manager/securing-the-vm-console-with-password/',
+            to: '/administration/appliance-manager/securing-the-vm-console-with-password/',
             from: ['/device42-appliance-manager/securing-the-vm-console-with-password/'],
           },
           {
-            to: '/administration/appliance_manager/set-fqdn-for-web-access/',
+            to: '/administration/appliance-manager/set-fqdn-for-web-access/',
             from: ['/device42-appliance-manager/set-fqdn-for-web-access/'],
           },
           {
-            to: '/administration/appliance_manager/set-up-https-cert/',
+            to: '/administration/appliance-manager/set-up-https-cert/',
             from: ['/device42-appliance-manager/set-up-https-cert/'],
           },
           {
-            to: '/administration/appliance_manager/setting-up-backup-device42-appliance-manager/',
+            to: '/administration/appliance-manager/setting-up-backup-device42-appliance-manager/',
             from: ['/device42-appliance-manager/setting-up-backup-device42-appliance-manager/'],
           },
           {
-            to: '/administration/appliance_manager/warm-ha-setup-failover-and-automated-backups/',
+            to: '/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups/',
             from: ['/device42-appliance-manager/warm-ha-setup-failover-and-automated-backups/', '/device42-appliance-manager/warm-ha-and-automated-backups/'],
           },
           {
@@ -833,71 +821,71 @@ const config = {
             from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/', '/connectivity/patch-panels/'],
           },
           {
-            to: '/infrastructure-management/power_units/adding-atss/',
+            to: '/infrastructure-management/power-units/adding-atss/',
             from: ['/power-units/adding-atss/'],
           },
           {
-            to: '/infrastructure-management/power_units/adding-pdus/',
+            to: '/infrastructure-management/power-units/adding-pdus/',
             from: ['/power-units/pdus/adding-pdus/'],
           },
           {
-            to: '/infrastructure-management/power_units/defining-pdu-models/',
+            to: '/infrastructure-management/power-units/defining-pdu-models/',
             from: ['/power-units/pdus/defining-pdu-models/', '/pdu_overview/defining-pdu-models/'],
           },
           {
-            to: '/infrastructure-management/power_units/pdu-ports/',
+            to: '/infrastructure-management/power-units/pdu-ports/',
             from: ['/power-units/pdus/pdu-ports/', '/pdu/'],
           },
           {
-            to: '/infrastructure-management/power_units/pdu-rack-display/',
+            to: '/infrastructure-management/power-units/pdu-rack-display/',
             from: ['/power-units/pdus/pdu-rack-display/', '/pdu_overview/pdu-rack-display/'],
           },
           {
-            to: '/infrastructure-management/power_units/supported-pdu-vendors/',
+            to: '/infrastructure-management/power-units/supported-pdu-vendors/',
             from: ['/power-units/supported-pdu-vendors/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/importing-part-models/',
+            to: '/infrastructure-management/parts-and-parts-slots/importing-part-models/',
             from: ['/parts-and-parts-slots/importing-part-models/', '/spare-parts-management/importing-part-models/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/importing-parts/',
+            to: '/infrastructure-management/parts-and-parts-slots/importing-parts/',
             from: ['/parts-and-parts-slots/importing-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/managing-spare-parts/',
+            to: '/infrastructure-management/parts-and-parts-slots/managing-spare-parts/',
             from: ['/parts-and-parts-slots/managing-spare-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/part-model-templates/',
+            to: '/infrastructure-management/parts-and-parts-slots/part-model-templates/',
             from: ['/parts-and-parts-slots/part-model-templates/', '/spare-parts-management/models-and-parts/'],
           },
           {
-            to: '/infrastructure-management/parts_and_parts_slots/parts-slots/',
+            to: '/infrastructure-management/parts-and-parts-slots/parts-slots/',
             from: ['/parts-and-parts-slots/parts-slots/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/environmental-monitoring/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/',
             from: ['/energy-monitoringmanagement/environmental-monitoring/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/getting-started-with-power-and-environmental-monitoring/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
             from: ['/energy-monitoringmanagement/getting-started-with-power-and-environmental-monitoring/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/manage-monitored-ips/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/manage-monitored-ips/',
             from: ['/energy-monitoringmanagement/manage-monitored-ips/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/power-monitoring-and-control/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/power-monitoring-and-control/',
             from: ['/energy-monitoringmanagement/power-monitoring-and-control/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/power-rc-setup-job-migration/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration/',
             from: ['/energy-monitoringmanagement/power-rc-setup-job-migration/'],
           },
           {
-            to: '/infrastructure-management/power_and_environmental_monitoring/unit-display-settings/',
+            to: '/infrastructure-management/power-and-environmental-monitoring/unit-display-settings/',
             from: ['/energy-monitoringmanagement/unit-display-settings/'],
           },
           {
@@ -945,31 +933,31 @@ const config = {
             from: ['/ipam/vrf-groups/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/asset-tag-printing/',
+            to: '/infrastructure-management/mobile-inventory/asset-tag-printing/',
             from: ['/mobile-inventory/asset-tag-printing/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/auto-assign-asset-numbers/',
+            to: '/infrastructure-management/mobile-inventory/auto-assign-asset-numbers/',
             from: ['/mobile-inventory/auto-assign-asset-numbers/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/bulk-qr-printing/',
+            to: '/infrastructure-management/mobile-inventory/bulk-qr-printing/',
             from: ['/mobile-inventory/bulk-qr-printing/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-ie/',
+            to: '/infrastructure-management/mobile-inventory/printing-qr-codes-from-ie/',
             from: ['/mobile-inventory/printing-qr-codes-from-ie/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/printing-qr-codes-from-firefox/',
+            to: '/infrastructure-management/mobile-inventory/printing-qr-codes-from-firefox/',
             from: ['/mobile-inventory/printing-qr-codes-from-firefox/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/understanding-qr-and-bar-codes-in-device42/',
+            to: '/infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42/',
             from: ['/mobile-inventory/understanding-qr-and-bar-codes-in-device42/', '/qr-codes-asset-tags-inventory-management-mobile-devices/understanding-qr-codes/'],
           },
           {
-            to: '/infrastructure-management/mobile_inventory/using-mobile-devices-for-asset-management/',
+            to: '/infrastructure-management/mobile-inventory/using-mobile-devices-for-asset-management/',
             from: ['/mobile-inventory/using-mobile-devices-for-asset-management/'],
           },
           {

@@ -32,7 +32,7 @@ Options are: Clear all IPs: Clear any IP addresses associated with the device. C
 1. Assign existing asset QR code profile to the device, or create a new profile by clicking green plus sign
 2. Print asset tag for the device by clicking QR Code
 
-See also - working with [QR asset tags](infrastructure-management/mobile_inventory/understanding-qr-and-bar-codes-in-device42.md) in Device42
+See also - working with [QR asset tags](infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42.md) in Device42
 
 ### Purchase/Support Info
 

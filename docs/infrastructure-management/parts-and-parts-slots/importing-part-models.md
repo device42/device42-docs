@@ -3,7 +3,7 @@ title: "Importing Part Models"
 sidebar_position: 1
 ---
 
-This document explains how to import part models using API Imports. For detailed explanation of Part Models and Parts, please see: [infrastructure-management/parts_and_parts_slots/part-model-templates.md](infrastructure-management/parts_and_parts_slots/part-model-templates.md)
+This document explains how to import part models using API Imports. For detailed explanation of Part Models and Parts, please see: [infrastructure-management/parts-and-parts-slots/part-model-templates.md](infrastructure-management/parts-and-parts-slots/part-model-templates.md)
 
 ### Data example
 

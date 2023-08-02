@@ -5,7 +5,7 @@ sidebar_position: 2
 
 **If you'd prefer written instructions for adding a route, they can also be found on the docs site at: [Setup & Troubleshooting -> Advanced Routing](administration/advanced-routing.md).**
 
-NOTE: This demo assumes you have already added a NIC that can connect to your new network! To Add supplemental interfaces (NO GATEWAY IP or DNS for secondary NICs!!!) for connectivity to the appropriate network segments, see our HowTo add a NIC to Device42 walkthrough on our Docs Site: administration/appliance_manager/adding-multiple-network-interface-cardsnic-to-device42-vm.md
+NOTE: This demo assumes you have already added a NIC that can connect to your new network! To Add supplemental interfaces (NO GATEWAY IP or DNS for secondary NICs!!!) for connectivity to the appropriate network segments, see our HowTo add a NIC to Device42 walkthrough on our Docs Site: administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.md
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Eplu1UgxqEE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
