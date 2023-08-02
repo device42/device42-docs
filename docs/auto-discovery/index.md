@@ -41,7 +41,7 @@ HP & IBM Blade System (or Blade Center) chassis and blade details can be discove
 
 ## Cloud Platform Discovery
 
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud_platforms_autodiscovery/index.md)
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud-platforms-autodiscovery/index.md)
 
 ## DNS Autodiscovery
 

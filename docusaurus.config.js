@@ -81,31 +81,31 @@ const config = {
             from: ['/auto-discovery/windows-auto-discovery-tool/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/aws-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/aws-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/azure-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/azure-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/google-cloud-platform-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/intune-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/intune-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/kubernetes-autodiscovery/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud_platforms_autodiscovery/other-cloud-autodiscoveries/',
+            to: '/auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries/',
             from: ['/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/'],
           },
           {
