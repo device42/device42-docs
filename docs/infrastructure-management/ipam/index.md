@@ -19,5 +19,3 @@ There are multiple ways Device42 can discover IP Addresses and related informati
 Importing existing IP addresses from [Microsoft Excel & CSV spreadsheets](getstarted/importing-data-from-existing-spreadsheets.md) is easy - Take advantage of this powerful feature to import existing IP Address data from MS Excel and/or .CSV _\[Comma Separated Value\]_ spreadsheets into Device42 IPAM.
 
  
-
-\[pagelist child\_of="371"\]
