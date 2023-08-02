@@ -115,7 +115,7 @@ The following video demonstrates updating your Device42 instance: how-to-videos/
 
 Device42’s backup facilities are accessible through the appliance manager. Backups can be executed immediately, and users have the ability to download a backup file immediately or on a schedule leveraging automatic saving to an SFTP, NFS, or AWS S3 destination.
 
-For more information on backups / restores, see our documentation: [administration/appliance_manager/setting-up-backup-device42-appliance-manager.md](administration/appliance_manager/setting-up-backup-device42-appliance-manager.md).
+For more information on backups / restores, see our documentation: [administration/appliance-manager/setting-up-backup-device42-appliance-manager.md](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md).
 
 ### Monitoring / Health Checking Device42 on AWS
 
@@ -129,7 +129,7 @@ The above health-check will monitor the following:
 
 ### Configuring High Availability (HA) of Device42 on AWS
 
-If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation page - administration/appliance_manager/warm-ha-setup-failover-and-automated-backups.md](administration/appliance_manager/warm-ha-setup-failover-and-automated-backups.md). The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
+If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation page - administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md). The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
 
 An example configuration that leverages Nagios to automatically fail-over the instance in case of a failure is also described.
 

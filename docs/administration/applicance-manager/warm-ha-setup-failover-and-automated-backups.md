@@ -33,7 +33,7 @@ Without the meta data, restore and passphrase settings will not be in the back-u
 
 A back-up file without meta data can still be used for an on-demand “Restore”.
 
-You will be able to find additional details for [Backup Meta Data](administration/appliance_manager/setting-up-backup-device42-appliance-manager.md#backing-up-metadata) and [Scheduling the Backup.](administration/appliance_manager/setting-up-backup-device42-appliance-manager.md#scheduling-the-backup)
+You will be able to find additional details for [Backup Meta Data](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md#backing-up-metadata) and [Scheduling the Backup.](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md#scheduling-the-backup)
 
 ### Setting Appliance mode via API
 
