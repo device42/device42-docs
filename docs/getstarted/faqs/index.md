@@ -102,3 +102,8 @@ If you are trying to install the Device42 appliance on Xen or KVM based platform
 ## Where can I get help with something not covered here?
 
 We always recommend searching the [Device42 support portal](https://device42.zendesk.com/) when faced with a question that doesn't seem to be addressed in our documentation. That said, if you do find one, or get stuck, go ahead and open a support ticket. Send a note to support@device42.com or visit the 'support' tab at the top of this page.
+
+
+## Table of contents
+
+- [Main Appliance & Remote Collector FAQ](getstarted/faqs/main-appliance-remote-collector-faq.md)

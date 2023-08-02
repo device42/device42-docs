@@ -37,3 +37,8 @@ Then we will add an Outlook Web Access(OWA) component that depends on the Exchan
 ![wpid2072-media_1334740452246.png](/assets/images/wpid2072-media_1334740452246.png)
 
 All of the dependencies we just created will show up in impact charts, impact lists, and dependency graphs.
+
+
+## Table of contents
+
+- [Application Component Templates](apps/application-components/application-component-templates.md)

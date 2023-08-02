@@ -184,3 +184,8 @@ The “Building hierarchy” option applies to building hierarchy objects, speci
 The “Other objects” option applies to purchases and customers. For example, if this option is checked, a non-super can view and change any purchase that has no groups assigned to it.
 
  
+
+
+## Table of contents
+
+- [Role-based Permissions and Access](administration/role-based-access-control/role-based-permissions-and-access.md)
