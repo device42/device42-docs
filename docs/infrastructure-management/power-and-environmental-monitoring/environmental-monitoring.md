@@ -15,4 +15,3 @@ When sensors are discovered, they are created along with an asset record in Devi
 
 * * *
 
-**Related Topics:** \[pagelist child\_of="250"\]

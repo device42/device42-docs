@@ -158,11 +158,7 @@ const config = {
           },
           {
             to: '/apps/application-components/application-component-templates/',
-            from: ['/software/application-components/', '/apps/application-components/'],
-          },
-          {
-            to: '/apps/business-applications/building-business-applications-in-device42/',
-            from: ['/apps/business-applications/'],
+            from: ['/software/application-components/'],
           },
           {
             to: '/administration/active-directory-and-openldap-support/',
@@ -979,6 +975,10 @@ const config = {
           {
             to: '/how-to-videos/update-device42-appliance-how-to/',
             from: ['/how-to-videos/update-d42-how-to/'],
+          },
+          {
+            to: '/reports/enrichai-data/',
+            from: ['/enrichai-data/'],
           },
         ],
       },
