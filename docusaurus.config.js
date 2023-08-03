@@ -81,31 +81,31 @@ const config = {
             from: ['/auto-discovery/windows-auto-discovery-tool/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/',
             from: ['/auto-discovery/cloud-auto-discovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/aws-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/aws-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/azure-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/azure-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/intune-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/intune-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery/',
+            to: '/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/',
             from: ['/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/'],
           },
           {
-            to: '/auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries/',
+            to: '/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/',
             from: ['/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/'],
           },
           {
@@ -813,8 +813,8 @@ const config = {
             from: ['/connectivity/creating-wall-jacks/'],
           },
           {
-            to: '/infrastructure-management/connectivity/patch-panel-cable-management-definitions-and-legends-2/',
-            from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/', '/connectivity/patch-panels/'],
+            to: '/infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/',
+            from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends/'],
           },
           {
             to: '/infrastructure-management/power-units/adding-atss/',
