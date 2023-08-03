@@ -152,7 +152,7 @@ The `D42_Jira_Cloud_Sync_Devices` query is the default. Additional predefined qu
 
 ### More Information
 
-The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](https://docs.device42.com/external-integrations/device42-jira-cloud-integration/)
+The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](integrations/external-integrations/device42-jira-cloud-integration.md)
 
 
 ### Jira Service Management Integration
@@ -319,7 +319,7 @@ Select the **_Add object to sync_** button. Complete the form for the new object
 Complete the following steps to add a new object to sync.
 
 
-1. **DOQL.** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](https://docs.device42.com/device42-doql/)).
+1. **DOQL.** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](reports/device42-doql/)).
 2. **Object Type Name**. This field is required to create the new object type. The field shows all object types for the object schema.
    
    a. In the scenario that we want to create a new object in Insight, we will have to click on the following **_Object type_** icon.
