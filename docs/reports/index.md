@@ -9,7 +9,7 @@ These sections cover entries found in the reporting menu of the Device42 applian
 
 ## Table of contents
 
-- [Reports](reports/reports/)
+- [Reports](reports/reports/index.md)
     - [Insights+](reports/reports/insights-plus.md)
     - [Advanced Reporting](reports/reports/advanced-reporting.md)
     - [AWS Migration Evaluator](reports/reports/aws-migration-evaluator.md)
@@ -44,10 +44,10 @@ These sections cover entries found in the reporting menu of the Device42 applian
 - [Save and Schedule Classic Reports](reports/reports/save-and-schedule-reports.md)
 - [Setup Alerts and Notifications](reports/reports/setup-alerts-and-notifications.md)
 - [Use custom SQL in advanced report](reports/reports/use-custom-sql-advanced-report.md)
-- [DOQL Device42 Object Query Language](reports/device42-doql/)
+- [DOQL Device42 Object Query Language](reports/device42-doql/index.md)
     - [Database Viewer Schema](reports/device42-doql/db-viewer-schema.md)
 - [Database Viewer Schema](reports/device42-doql/db-viewer-schema.md)
-- [DBB Cookbook](reports/dbb-cookbook/)
+- [DBB Cookbook](reports/dbb-cookbook/index.md)
     - [Application Dependency Mapping](reports/dbb-cookbook/app-dependency-mapping.md)
     - [Business App Dependencies](reports/dbb-cookbook/business-app-dependencies.md)
     - [Business App Device Impacts](reports/dbb-cookbook/business-app-device-impacts.md)
