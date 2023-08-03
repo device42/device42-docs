@@ -24,9 +24,13 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
- {
+          {
             to: '/getstarted/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
+          },
+          {
+            to: '/getstarted/public-deployment-best-practices/',
+            from: ['/public-deployment-best-practices/'],
           },
           {
             to: '/getstarted/installation/installation-microsoft-hyperv/',
@@ -81,32 +85,8 @@ const config = {
             from: ['/auto-discovery/windows-auto-discovery-tool/'],
           },
           {
-            to: '/auto-discovery/cloud-auto-discovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/aws-autodiscovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/aws-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/azure-autodiscovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/azure-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/intune-autodiscovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/intune-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/',
-            from: ['/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery/'],
-          },
-          {
-            to: '/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/',
-            from: ['/auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries/'],
+            to: '/auto-discovery/database-discovery/',
+            from: ['/databases/'],
           },
           {
             to: '/auto-discovery/database-discovery/cloud-databases/',
@@ -141,8 +121,16 @@ const config = {
             from: ['/auto-discovery/storage-arrays/'],
           },
           {
+            to: '/auto-discovery/resources/',
+            from: ['/managed-resources/'],
+          },
+          {
             to: '/auto-discovery/resources/cloud-resources/',
             from: ['/managed-resources/cloud-resources/'],
+          },
+          {
+            to: '/apps/enterprise-application-dependency-mapping/',
+            from: ['/enterprise-application-dependency-mapping/'],
           },
           {
             to: '/apps/enterprise-application-dependency-mapping/adm-supported-applications/',
@@ -155,6 +143,14 @@ const config = {
           {
             to: '/apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping/',
             from: ['/enterprise-application-dependency-mapping/configure-application-dependency-mapping/'],
+          },
+          {
+            to: '/infrastructure-management/devices/archiving-devices-and-resources/',
+            from: ['/archiving-devices-and-resources/'],
+          },
+          {
+            to: '/infrastructure-management/software/',
+            from: ['/apps/software/'],
           },
           {
             to: '/apps/application-components/application-component-templates/',
@@ -223,6 +219,10 @@ const config = {
           {
             to: '/administration/transferring-devices-assets-and-parts-to-other-data-centers/',
             from: ['/tools/transferring-devices-assets-and-parts-to-other-data-centers/'],
+          },
+          {
+            to: '/administration/appliance-manager/',
+            from: ['/device42-appliance-manager/'],
           },
           {
             to: '/administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm/',
@@ -325,8 +325,12 @@ const config = {
             from: ['/password-management/password-reporting/'],
           },
           {
+            to: '/administration/role-based-access-control/',
+            from: ['/role-based-access-control/'],
+          },
+          {
             to: '/administration/role-based-access-control/role-based-permissions-and-access/',
-            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/', '/role-based-access-control/'],
+            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/'],
           },
           {
             to: '/integration/imports/spreadsheet-imports-and-exports/',
@@ -339,6 +343,10 @@ const config = {
           {
             to: '/integration/imports/spreadsheet-converter-tool/',
             from: ['/imports/spreadsheet-converter-tool/'],
+          },
+          {
+            to: '/integration/imports/',
+            from: ['/imports/'],
           },
           {
             to: '/integration/imports/legacy-imports/',
@@ -355,6 +363,10 @@ const config = {
           {
             to: '/integration/imports/legacy-imports/import-racked-devices/',
             from: ['/imports/import-racked-devices/'],
+          },
+          {
+            to: '/integration/api-overview/',
+            from: ['/api-overview/'],
           },
           {
             to: '/integration/api-overview/auto-populate-windows-machines-in-an-ad-using-apis/',
@@ -559,6 +571,10 @@ const config = {
           {
             to: '/reports/device42-doql/db-viewer-schema/',
             from: ['/device42-doql/db-viewer-schema/'],
+          },
+          {
+            to: '/reports/dbb-cookbook/',
+            from: ['/dbb-cookbook/'],
           },
           {
             to: '/reports/dbb-cookbook/app-dependency-mapping/',
@@ -785,6 +801,10 @@ const config = {
             from: ['/apps/certificate-management/'],
           },
           {
+            to: '/infrastructure-management/buildings-rooms-and-racks/',
+            from: ['/buildings-rooms-and-racks/'],
+          },
+          {
             to: '/infrastructure-management/buildings-rooms-and-racks/auditing-racks/',
             from: ['/buildings-rooms-and-racks/auditing-racks/'],
           },
@@ -801,6 +821,10 @@ const config = {
             from: ['/buildings-rooms-and-racks/racks/'],
           },
           {
+            to: '/infrastructure-management/connectivity/',
+            from: ['/connectivity/'],
+          },
+          {
             to: '/infrastructure-management/connectivity/cables/',
             from: ['/connectivity/cables/'],
           },
@@ -813,12 +837,28 @@ const config = {
             from: ['/connectivity/creating-wall-jacks/'],
           },
           {
+            to: '/infrastructure-management/connectivity/patch-panels/',
+            from: ['/connectivity/patch-panels/'],
+          },
+          {
+            to: '/infrastructure-management/connectivity/patch-panels/creating-patch-panels-from-scratch-in-device42-an-example/',
+            from: ['/connectivity/patch-panels/creating-patch-panels-from-scratch-in-device42-an-example/'],
+          },
+          {
             to: '/infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2/',
             from: ['/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends/'],
           },
           {
+            to: '/infrastructure-management/power-units/',
+            from: ['/power-units/'],
+          },
+          {
             to: '/infrastructure-management/power-units/adding-atss/',
             from: ['/power-units/adding-atss/'],
+          },
+          {
+            to: '/infrastructure-management/power-units/',
+            from: ['/power-units/pdus/'],
           },
           {
             to: '/infrastructure-management/power-units/adding-pdus/',
@@ -839,6 +879,10 @@ const config = {
           {
             to: '/infrastructure-management/power-units/supported-pdu-vendors/',
             from: ['/power-units/supported-pdu-vendors/'],
+          },
+          {
+            to: '/infrastructure-management/parts-and-parts-slots/',
+            from: ['/parts-and-parts-slots/'],
           },
           {
             to: '/infrastructure-management/parts-and-parts-slots/importing-part-models/',
@@ -862,7 +906,7 @@ const config = {
           },
           {
             to: '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/',
-            from: ['/energy-monitoringmanagement/environmental-monitoring/'],
+            from: ['/energy-monitoringmanagement/environmental-monitoring/', '/energy-monitoringmanagement/'],
           },
           {
             to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
@@ -929,6 +973,10 @@ const config = {
             from: ['/ipam/vrf-groups/'],
           },
           {
+            to: '/infrastructure-management/mobile-inventory/',
+            from: ['/mobile-inventory/'],
+          },
+          {
             to: '/infrastructure-management/mobile-inventory/asset-tag-printing/',
             from: ['/mobile-inventory/asset-tag-printing/'],
           },
@@ -961,6 +1009,10 @@ const config = {
             from: ['/accounting/purchases/'],
           },
           {
+            to: '/infrastructure-management/accounting/',
+            from: ['/accounting/'],
+          },
+          {
             to: '/how-to-videos/add-a-new-route-to-device42/',
             from: ['/how-to-videos/add-a-route-to-device42/'],
           },
@@ -975,6 +1027,10 @@ const config = {
           {
             to: '/how-to-videos/update-device42-appliance-how-to/',
             from: ['/how-to-videos/update-d42-how-to/'],
+          },
+          {
+            to: '/auto-discovery/enrichai-data/enrichai-opt-out',
+            from: ['/enrichai-data/enrichai-opt-out/'],
           },
           {
             to: '/auto-discovery/enrichai-data/',
