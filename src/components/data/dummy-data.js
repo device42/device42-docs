@@ -54,7 +54,7 @@ const solutionGuideData = [
     title: "JSM Integration",
     icon: "assets/icons/purple/jsm-integration-icon.svg",
     whiteIcon: "assets/icons/white/jsm-integration-icon.svg",
-    link: "/",
+    link: "solution-guides/jira-jsm-device42-solution-guide/",
   },
 
 
