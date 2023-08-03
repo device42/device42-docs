@@ -20,7 +20,7 @@ This section covers items in in the _Applications_, including
 - [ADM Detected Applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md)
 - [Cloud Application Dependency Mapping](apps/enterprise-application-dependency-mapping/cloud-application-dependency-mapping.md)
 - [Configure Application Dependency Mapping](apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping.md)
-- [Services](apps/services/index.md)
+- [Services](services/index.md)
     - [Service Instances](apps/services/service-instances.md)
     - [Scheduled Tasks](apps/services/scheduled-tasks.md)
     - [Service Listener Ports](apps/services/service-listener-ports.md)
