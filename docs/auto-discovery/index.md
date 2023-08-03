@@ -41,7 +41,7 @@ HP & IBM Blade System (or Blade Center) chassis and blade details can be discove
 
 ## Cloud Platform Discovery
 
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud-platforms-autodiscovery/index.md)
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud-auto-discovery/index.md)
 
 ## DNS Autodiscovery
 
@@ -136,19 +136,19 @@ Discussed in depth: [discovery/virtual-machine-auto-discovery.md](auto-discovery
 - [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md)
 - [Certificate Autodiscovery](auto-discovery/certificate-auto-discovery.md)
 - [Cisco UCS Cluster / ACI Fabric Autodiscovery](auto-discovery/cisco-ucs-auto-discovery.md)
-- [Cloud Platforms Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/index.md)
-    - [AWS Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery.md)
-    - [Azure Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery.md)
-    - [Google Cloud Platform Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery.md)
-    - [Intune Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery.md)
-    - [Kubernetes Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery.md)
-    - [Other Cloud Autodiscoveries](auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries.md)
-- [AWS Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery.md)
-- [Azure Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery.md)
-- [Google Cloud Platform Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery.md)
-- [Intune Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery.md)
-- [Kubernetes Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery.md)
-- [Other Cloud Autodiscoveries](auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries.md)
+- [Cloud Platforms Autodiscovery](auto-discovery/cloud-auto-discovery/index.md)
+    - [AWS Autodiscovery](auto-discovery/cloud-auto-discovery/aws-autodiscovery.md)
+    - [Azure Autodiscovery](auto-discovery/cloud-auto-discovery/azure-autodiscovery.md)
+    - [Google Cloud Platform Autodiscovery](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.md)
+    - [Intune Autodiscovery](auto-discovery/cloud-auto-discovery/intune-autodiscovery.md)
+    - [Kubernetes Autodiscovery](auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery.md)
+    - [Other Cloud Autodiscoveries](auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries.md)
+- [AWS Autodiscovery](auto-discovery/cloud-auto-discovery/aws-autodiscovery.md)
+- [Azure Autodiscovery](auto-discovery/cloud-auto-discovery/azure-autodiscovery.md)
+- [Google Cloud Platform Autodiscovery](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.md)
+- [Intune Autodiscovery](auto-discovery/cloud-auto-discovery/intune-autodiscovery.md)
+- [Kubernetes Autodiscovery](auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery.md)
+- [Other Cloud Autodiscoveries](auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries.md)
 - [Database Discovery](auto-discovery/database-discovery/index.md)
     - [Cloud Databases](auto-discovery/database-discovery/cloud-databases.md)
     - [On-Prem Databases](auto-discovery/database-discovery/on-premise-databases.md)
