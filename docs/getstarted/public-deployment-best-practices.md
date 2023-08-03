@@ -30,9 +30,9 @@ For the Main Appliance (MA) this means changing the following sets of credential
 
 \*\*Do note that if you are deploying through the AWS or Azure marketplaces then the passwords above are not the default values used. Review the below documentation for more information:\*\*
 
-\- \[AMAZON WEB SERVICES – INSTALLATION\] ([getstarted/installation/installation-amazon-web-services/](getstarted/installation/installation-amazon-web-services/))
+\- \[AMAZON WEB SERVICES – INSTALLATION\] ([getstarted/installation/installation-amazon-web-services/](getstarted/installation/installation-amazon-web-services.md))
 
-\- \[MICROSOFT AZURE – INSTALLATION\] ([getstarted/installation/installation-microsoft-azure/?msclkid=9eaae2a3b67511ecaa2e4170df3a1898](getstarted/installation/installation-microsoft-azure/?msclkid=9eaae2a3b67511ecaa2e4170df3a1898))
+\- \[MICROSOFT AZURE – INSTALLATION\] ([getstarted/installation/installation-microsoft-azure/](getstarted/installation/installation-microsoft-azure.md))
 
 For the Remote Collector (RC) this means changing the System Console User (Default Credential: client | device42).
 
