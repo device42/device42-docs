@@ -22,8 +22,8 @@ Various other useful integrations, import, sample scripts, and open source tools
 
 ## Table of contents
 
-- [Imports](integration/imports/)
-    - [Legacy Imports](integration/imports/legacy-imports/)
+- [Imports](integration/imports/index.md)
+    - [Legacy Imports](integration/imports/legacy-imports/index.md)
         - [Import Overview](integration/imports/legacy-imports/import-overview.md)
         - [Import IP Sheet](integration/imports/legacy-imports/import-ip-sheet.md)
         - [Import Racked Devices](integration/imports/legacy-imports/import-racked-devices.md)
@@ -42,7 +42,7 @@ Various other useful integrations, import, sample scripts, and open source tools
 - [Spreadsheet Imports and Exports](integration/imports/spreadsheet-imports-and-exports.md)
 - [Using the re-importable export feature](integration/imports/using-the-re-importable-export-feature.md)
 - [Generic Spreadsheet Import Tool](integration/imports/spreadsheet-converter-tool.md)
-- [API Overview](integration/api-overview/)
+- [API Overview](integration/api-overview/index.md)
     - [Auto-populate Windows Machines in an AD using APIs](integration/api-overview/auto-populate-windows-machines-in-an-ad-using-apis.md)
     - [Device42 API Documentation](integration/api-overview/device42-api-documentation.md)
     - [Importing CSV files into D42 using the API helper utility](integration/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility.md)
@@ -51,7 +51,7 @@ Various other useful integrations, import, sample scripts, and open source tools
 - [Device42 API Documentation](integration/api-overview/device42-api-documentation.md)
 - [Importing CSV files into D42 using the API helper utility](integration/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility.md)
 - [Limit API GET Calls](integration/api-overview/limit-api-get-calls.md)
-- [External Integrations and Migrations](integration/external-integrations/)
+- [External Integrations and Migrations](integration/external-integrations/index.md)
     - [Aperture VISTA to Device42 Migration](integration/external-integrations/aperture-vista-to-device42-migration.md)
     - [Azure Migrate](integration/external-integrations/azure-migrate.md)
     - [Carbonite Migration](integration/external-integrations/carbonite-migration.md)
