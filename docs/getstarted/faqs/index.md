@@ -51,7 +51,7 @@ Current releases of Device42 support ALL discovery jobs, now including WMI & Pow
 
 ## How do I Migrate Existing Power Appliance Jobs to a Remote Collector (RC)?
 
-Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](/energy-monitoringmanagement/power-rc-setup-job-migration/) to migrate jobs to the new RC of your choice.
+Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) to migrate jobs to the new RC of your choice.
 
 ## How do I add blade servers to Device42?
 
