@@ -22,10 +22,10 @@ If you aren't able to find an answer to your question in the menu or using searc
 
 ## Table of contents
 
-- [FAQs](getstarted/faqs/)
+- [FAQs](getstarted/faqs/index.md)
     - [Main Appliance & Remote Collector FAQ](getstarted/faqs/main-appliance-remote-collector-faq.md)
 - [Main Appliance & Remote Collector FAQ](getstarted/faqs/main-appliance-remote-collector-faq.md)
-- [Installation](getstarted/installation/)
+- [Installation](getstarted/installation/index.md)
     - [Amazon Web Services - Installation](getstarted/installation/installation-amazon-web-services.md)
     - [Citrix Xen Server - Installation](getstarted/installation/installation-citrix-xen-server.md)
     - [D42 Netflow Collector - Install as Service](getstarted/installation/installing-the-d42-netflow-collector-as-a-service.md)
@@ -57,7 +57,7 @@ If you aren't able to find an answer to your question in the menu or using searc
 - [Xen/KVM - Import disk Alternate Install](getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing.md)
 - [Sizing Recommendations](getstarted/installation/sizing-recommendations.md)
 - [Getting Started with Autodiscovery](getstarted/getting-started-with-auto-discovery.md)
-- [Tutorials](getstarted/tutorials/)
+- [Tutorials](getstarted/tutorials/index.md)
     - [Tutorials Overview](getstarted/tutorials/device42-tutorial.md)
     - [Tutorial:  Loading Data Using Spreadsheets](getstarted/tutorials/tutorial-loading-data-using-spreadsheets.md)
     - [Tutorial:  Loading Data using the API](getstarted/tutorials/tutorial-loading-data-using-the-api.md)
