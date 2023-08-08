@@ -139,50 +139,38 @@ A full sync will be forced upon certain upgrades to get all the new data from D4
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|
-| Device with physical type and Laptop subtype                                                                             | Assets/Inventory             | Laptop                             |
-| Device with physical type and WorkStation subtype                                                                        | Assets/Inventory             | Desktop                            |
-| Device with physical type and Network Printer subtype                                                                    | Assets/Inventory             | Printer                            |
-| Device with physical type and Router subtype (this is not a built-in subtype and would need to be created by the user)   | Assets/Inventory             | Router                             |
-| Device with physical type and Firewall subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory             | Firewall                           |
-| Device with OS of F5 or NetScaler                                                                                        | Assets/Inventory             | Load Balancer                      |
-| Device with Network Device flag set                                                                                      | Assets/Inventory             | Switch                             |
-| Device with physical type and Windows Server OS                                                                          | Assets/Inventory             | Windows Server                     |
-| Device with physical type and Unix or Linux OS                                                                           | Assets/Inventory             | Unix Server                        |
-| Device with physical type and AIX OS                                                                                     | Assets/Inventory             | AIX Server                         |
-| Device with physical type and SunOS or Solaris OS                                                                        | Assets/Inventory             | Solaris Server                     |
-| Device with Virtual/Container Host flag set and ESXi OS                                                                  | Assets/Inventory             | VMware VCenter Host                |
-| Device with Virtual/Container Host flag set                                                                              | Assets/Inventory             | Host                               |
-| Device with virtual type and VMWare subtype                                                                              | Assets/Inventory             | VMware VCenter VM                  |
-| Device with virtual type and Amazon EC2 Instance subtype                                                                 | Assets/Inventory             | AWS VM                             |
-| Device with virtual type and Azure Virtual Machine subtype                                                               | Assets/Inventory             | Azure VM                           |
-| Device with physical type and does not match one of the more specific asset types above.                                 | Assets/Inventory             | Server                             |
-| Device with virtual type and does not match one of the more specific asset types above.                                  | Assets/Inventory             | Virtual Machine                    |
-| Device that doesn’t match one of the more specific asset types above                                                     | Assets/Inventory             | Computer                           |
-| Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
-| Software                                                                                                                 | Assets/Software              | Desktop                            |
-| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: BASE                                                                                         | Assets/Contracts             | Warranty                           |
-| (IBM & Lenovo vendors)                                                                                                   |                              |                                    |
-| PO Line Item/Contract Type: UPGRADE                                                                                      | Assets/Contracts             | Warranty                           |
-| (IBM & Lenovo vendors)                                                                                                   |                              |                                    |
-| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
-| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
-| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
-| Business Applications Device-to-Device Relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
-| Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
-| Affinity Group Device-to-Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
-| Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
-| Software                                                                                                                 | Assets/Software              | Desktop                            |
-| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: BASE (IBM & Lenovo vendors)                                                                  | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: UPGRADE (IBM & Lenovo vendors)                                                               | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
-| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
-| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
-| Business Applications Device-to-Device Relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
-| Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
-| Affinity Group Device-to-Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
-| VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
+| Device with physical type and Laptop subtype                                                                             | Assets/Inventory                | Laptop                             |
+| Device with physical type and WorkStation subtype                                                                        | Assets/Inventory                | Desktop                            |
+| Device with physical type and Network Printer subtype                                                                    | Assets/Inventory                | Printer                            |
+| Device with physical type and Router subtype (this is not a built-in subtype and would need to be created by the user)   | Assets/Inventory                | Router                             |
+| Device with physical type and Firewall subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory                | Firewall                           |
+| Device with OS of F5 or NetScaler                                                                                        | Assets/Inventory                | Load Balancer                      |
+| Device with Network Device flag set                                                                                      | Assets/Inventory                | Switch                             |
+| Device with physical type and Windows Server OS                                                                          | Assets/Inventory                | Windows Server                     |
+| Device with physical type and Unix or Linux OS                                                                           | Assets/Inventory                | Unix Server                        |
+| Device with physical type and AIX OS                                                                                     | Assets/Inventory                | AIX Server                         |
+| Device with physical type and SunOS or Solaris OS                                                                        | Assets/Inventory                | Solaris Server                     |
+| Device with Virtual/Container Host flag set and ESXi OS                                                                  | Assets/Inventory                | VMware VCenter Host                |
+| Device with Virtual/Container Host flag set                                                                              | Assets/Inventory                | Host                               |
+| Device with virtual type and VMWare subtype                                                                              | Assets/Inventory                | VMware VCenter VM                  |
+| Device with virtual type and Amazon EC2 Instance subtype                                                                 | Assets/Inventory                | AWS VM                             |
+| Device with virtual type and Azure Virtual Machine subtype                                                               | Assets/Inventory                | Azure VM                           |
+| Device with physical type and does not match one of the more specific asset types above                                  | Assets/Inventory                | Server                             |
+| Device with virtual type and does not match one of the more specific asset types above                                   | Assets/Inventory                | Virtual Machine                    |
+| Device that doesnt match one of the more specific asset types above                                                      | Assets/Inventory                | Computer                           |
+| Business Applications                                                                                                    | Assets/Inventory                | Business Service                   |
+| Software                                                                                                                 | Assets/Software                 | Desktop                            |
+| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts                | Warranty                           |
+| PO Line Item/Contract Type: BASE (IBM & Lenovo vendors)                                                                  | Assets/Contracts                | Warranty                           |
+| PO Line Item/Contract Type: UPGRADE (IBM & Lenovo vendors)                                                               | Assets/Contracts                | Warranty                           |
+| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts                | Lease                              |
+| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts                | Maintenance                        |
+| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts                | Software License                   |
+| Business Applications Device to Device relationship                                                                      | Relationships between assets    | Sends Data To / Receives Data From |
+| Business Application to Device Relationships                                                                             | Relationships between assets    | Hosted On / Hosts                  |
+| Affinity Group Device to Device Relationships                                                                            | Relationships between assets    | Depends On / Used By               |
+| VM to Host Relationships                                                                                                 | Relationships between assets    | Virtualized by / Virtualizes       |
+
 
 
 ### New Contract Type “Warranty” Added
