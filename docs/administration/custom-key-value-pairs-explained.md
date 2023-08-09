@@ -45,4 +45,4 @@ Please note that mandatory only applies when editing or adding an object via the
 
 ## REST APIs for custom values
 
-Device custom values: [https://docs.device42.com/apis/device-custom-field-apis/](https://docs.device42.com/apis/device-custom-field-apis/)
+Device custom values: [https://api.device42.com/#Devices_putCustom_Field_Devices](https://api.device42.com/#Devices_putCustom_Field_Devices)
