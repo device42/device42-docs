@@ -3,7 +3,7 @@ title: "Cloud Services Settings"
 sidebar_position: 6
 ---
 
-Device42 includes a new Cloud Services page that you can use to specify external integration settings. Device42 cloud services includes product registration services and [EnrichAI Data](https://docs.device42.com/enrichai-data/) normalization for discovered data. This information was formerly part of the Global Settings page.
+Device42 includes a new Cloud Services page that you can use to specify external integration settings. Device42 cloud services includes product registration services and [EnrichAI Data](auto-discovery/enrichai-data/index.md) normalization for discovered data. This information was formerly part of the Global Settings page.
 
 ## Integration Settings
 

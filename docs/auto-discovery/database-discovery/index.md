@@ -69,7 +69,7 @@ You can see the newly discovered SQL Server instances in the example below -- Cl
 
 Scroll to the bottom, and click the database instance name to view database details: ![](/assets/images/click-to-view-SQL-details.png)
 
-For a rundown of the database details discovery provides, jump to the ["Available SQL database instance information"](auto-discovery/database-discovery/#section-6) section.
+For a rundown of the database details discovery provides, jump to the ["Available SQL database instance information"](#available-sql-database-instance-information) section.
 
 ### Another way to view SQL Database details
 
