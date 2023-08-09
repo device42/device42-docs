@@ -1051,7 +1051,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           editUrl:
-            'https://github.com/device42/device42-docs/tree/main/',
+            'https://github.com/device42/device42-docs/blob/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
