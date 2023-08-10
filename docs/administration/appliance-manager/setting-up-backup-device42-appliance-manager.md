@@ -49,7 +49,7 @@ The backup file can be scheduled to be sent to an NFS server. All fields are req
 
 The backup file can be scheduled to be sent to Amazon S3 as well by visiting the "Amazon S3 Settings" sub-menu.
 
-Note that _Region Endpoint_ field **is not** simply the endpoint name, as each region has many endpoints. Endpoint URLs, if not known, can be looked up in the ["AWS Regions and Endpoints"](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) section of the AWS Documentation. All fields are required.
+Note that _Region Endpoint_ field **is not** simply the endpoint name, as each region has many endpoints. Endpoint URLs, if not known, can be looked up in the ["AWS Regions and Endpoints"](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) section of the AWS Documentation. All fields are required.
 
 ### Scheduling the Backup
 

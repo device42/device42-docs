@@ -5,7 +5,7 @@ sidebar_position: 38
 
 ## Installation Prerequisites for Windows discovery
 
-Prior to running a Windows Discovery, you must install an instance of the Windows Discovery Service (WDS) on at least one Windows system which will connect to the Device42 main appliance (MA) or a Remote Collector (RC). WDS can be downloaded from [the Auto-Discovery Software page](https://device42.com/autodiscovery/).
+Prior to running a Windows Discovery, you must install an instance of the Windows Discovery Service (WDS) on at least one Windows system which will connect to the Device42 main appliance (MA) or a Remote Collector (RC). WDS can be downloaded from [the Auto-Discovery Software page](https://www.device42.com/autodiscovery/).
 
 For WDS installation instructions and detailed information, visit the [Windows Discovery Service (WDS) installation](getstarted/installation/windows-discovery-service-installation.md) documentation.
 
@@ -79,7 +79,7 @@ _Relevant fields when using this discovery mode are as follows:_
 
 ### Discovery with Microsoft LAPS \[Local Admin Password Solution\]
 
-Microsoft LAPS (Local Admin Password Solution) is a method of securing Active Directory member servers whereby the server's local admin password is randomly generated and stored as an attribute of that servers AD object in Active Directory. This password can then be looked up on demand via an Active Directory / LDAP query, and is often used to support scripted / automated actions that iterate through lists of AD member servers. If you are looking to [Download LAPS from Microsoft, click here](https://www.microsoft.com/en-us/download/details.aspx?id=46899). For more information on LAPS, see [this article from Microsoft](https://support.microsoft.com/en-us/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps target=), or if you'd like to deploy LAPS, [you might find this "Deploying LAPS" guide on 'FlamingKeys.com'](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/) helpful.
+Microsoft LAPS (Local Admin Password Solution) is a method of securing Active Directory member servers whereby the server's local admin password is randomly generated and stored as an attribute of that servers AD object in Active Directory. This password can then be looked up on demand via an Active Directory / LDAP query, and is often used to support scripted / automated actions that iterate through lists of AD member servers. If you are looking to [Download LAPS from Microsoft, click here](https://www.microsoft.com/en-us/download/details.aspx?id=46899). For more information on LAPS, see [this article from Microsoft](https://support.microsoft.com/en-us/topic/microsoft-security-advisory-local-administrator-password-solution-laps-now-available-may-1-2015-404369c3-ea1e-80ff-1e14-5caafb832f53 target=), or if you'd like to deploy LAPS, [you might find this "Deploying LAPS" guide on 'FlamingKeys.com'](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/) helpful.
 
 Device42 now supports pulling credentials from LAPS when discovering Active Directory domain member servers that are using Microsoft LAPS \[Local Admin Password Solution\] to manage their local admin passwords. **You will see this option _only_ when you have checked "Query domain controller to obtain list of discovery devices"**; once the former is checked, you will see "Use LAPS (only Applies to WDS)".
 
@@ -214,7 +214,7 @@ Provided the above is successfully configured for the discovery account (& the d
     </tbody>
 </table>
 
-Note: If you are discovering servers that do not belong to a domain, there may be issues due to UAC settings. Please refer to this [MSDN article](https://msdn.microsoft.com/en-us/library/aa826699(v=vs.85).aspx) for information regarding UAC's effects on WMI.
+Note: If you are discovering servers that do not belong to a domain, there may be issues due to UAC settings. Please refer to this [MSDN article](https://learn.microsoft.com/en-us/windows/win32/wmisdk/user-account-control-and-wmi?redirectedfrom=MSDN) for information regarding UAC's effects on WMI.
 
 * * *
 

@@ -3,7 +3,7 @@ title: "Azure Autodiscovery"
 sidebar_position: 3
 ---
 
-It’s important to have a complete inventory of all your IT assets, including on-prem and cloud-based resources. Device42 can provide insight into your Azure resources and services by using an application service principal in accordance with [Microsoft’s security recommendations](https://docs.microsoft.com/en-us/azure/active-directory/develop/secure-least-privileged-access).
+It’s important to have a complete inventory of all your IT assets, including on-prem and cloud-based resources. Device42 can provide insight into your Azure resources and services by using an application service principal in accordance with [Microsoft’s security recommendations](https://learn.microsoft.com/en-us/azure/active-directory/develop/secure-least-privileged-access).
 
 This page will walk through the process of creating an application service principal with limited permissions, enabling quick and easy inventory of Azure resources using Device42.
 

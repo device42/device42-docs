@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## Generating a certificate via OpenSSL
 
-Instructions to generate certificates with openSSL can also be found [documented here, on our support site.](https://support.device42.com/hc/en-us/articles/222221348-My-demo-certificate-for-https-expired-how-can-I-add-a-new-one-)
+Instructions to generate certificates with openSSL can also be found [documented here, on our support site.](https://support.device42.com/hc/en-us/en-us/articles/222221348-My-demo-certificate-for-https-expired-how-can-I-add-a-new-one-)
 
 To generate a CSR (Certificate Signing Request), open a terminal that has the _openssl_ package installed. The following commands will generate a (self-signed) SSL certificate from a new or existing OpenSSL installation:
 

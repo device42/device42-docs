@@ -7,7 +7,7 @@ If you use Jenkins, the popular open-source automation server, it's likely your 
 
 Simply add or update a secret/password in Device42, and with the Jenkins integration, your automation instantly has access to the updated credentials. Forget manual credentials updates across your infrastructure!
 
-If you like this integration, check out the [Device42 integration page](https://device42.com/integrations/) for even more time saving & efficiency boosting features!
+If you like this integration, check out the [Device42 integration page](https://www.device42.com/integrations/) for even more time saving & efficiency boosting features!
 
  
 
@@ -61,4 +61,4 @@ If you have any questions about the Device42-Jenkins plugin, or are experiencing
 
 Download the [Device42 Jenkins integration plugin](https://github.com/device42/device42-jenkins-credentials-plugin/) today.
 
-_Note that Device42 is required to use the Device42-Jenkins plugin_. [Download a free trial](https://device42.com/download) _\[all features, no nag-ware\]_ now!
+_Note that Device42 is required to use the Device42-Jenkins plugin_. [Download a free trial](https://www.device42.com/download/) _\[all features, no nag-ware\]_ now!

@@ -16,7 +16,7 @@ The raw image for Xen/KVM has been compressed using bzip2. Once you get the file
 ![Install](/assets/images/wpid6123-Download_and_Install.png)
 
 Once you unzip the downloaded raw image, create a new virtual machine with setting of "Import existing disk image".  
-If you don't see the option to "Import existing disk Image", please follow these instructions : [How do I Install device42 xen/kvm appliance if import existing disk image option is missing?](https://device42.zendesk.com/entries/22412668)
+If you don't see the option to "Import existing disk Image", please follow these instructions : [How do I Install device42 xen/kvm appliance if import existing disk image option is missing?](https://support.device42.com/hc/en-usentries/22412668)
 
 ## Choosing OS and version
 

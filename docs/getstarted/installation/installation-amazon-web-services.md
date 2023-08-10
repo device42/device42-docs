@@ -11,7 +11,7 @@ sidebar_position: 1
 
 Device42 on AWS operates using the _**Bring Your Own License (BYOL)**_ model, meaning there is no additional charge from Device42 to run on AWS. Aside from the yearly fee for your Device42 license, the only costs you will incur via AWS are the costs they bill you for the use of your instances; usually an hourly fee, depending on the instance size you select; larger instances usually cost more. See the next section for EC2 instance sizing information for Device42.
 
-Device42 License Pricing information is available on the [Device42 Pricing Page @ https://device42.com/pricing](https://device42.com/pricing).
+Device42 License Pricing information is available on the [Device42 Pricing Page @ https://www.device42.com/pricing/](https://www.device42.com/pricing/).
 
 ![Choose EC2 Instance Size for Device42](/assets/images/EC2_instance_sizing.png)
 
@@ -48,7 +48,7 @@ The configuration will ONLY allow you to "Launch" successfully using one of the 
 
 ![update license d42 aws](/assets/images/update_license_AWS_d42.png)
 
-5. Check to make sure your AMI is running the latest version of Device42 and update if necessary. From the web interface of your Device42 appliance, head to the main menu, _TOOLS -> Update_. Make note of the "Current Version" number displayed, then follow the "[Check for latest version](https://www.device42.com/update/)" link or visit [https://device42.com/update/](https://www.device42.com/update/) to check for an update. Should the update page offer a newer release, enter your work email to download and install it by following the [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/articles/222221228-Upgrade-Steps-Device42) (since this is a brand new appliance with no data, you may skip the backup noted in step 1 this time only!): 
+5. Check to make sure your AMI is running the latest version of Device42 and update if necessary. From the web interface of your Device42 appliance, head to the main menu, _TOOLS -> Update_. Make note of the "Current Version" number displayed, then follow the "[Check for latest version](https://www.device42.com/update/)" link or visit [https://www.device42.com/update/](https://www.device42.com/update/) to check for an update. Should the update page offer a newer release, enter your work email to download and install it by following the [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/en-us/articles/222221228-Upgrade-Steps-Device42) (since this is a brand new appliance with no data, you may skip the backup noted in step 1 this time only!): 
 
 ![Check for Device42 Update](/assets/images/check_for_update_d42_aws.png)
 

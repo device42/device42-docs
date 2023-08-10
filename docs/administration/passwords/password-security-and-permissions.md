@@ -15,7 +15,7 @@ Password permissions are assigned to each password and can be done at a user and
 - The view and list pages don't display the password by default. It is only displayed when "show password" is requested. (The edit page has password display for editing).
 - All change/add/delete/view operations are logged in an audit trail.
 
-Here is a blog post discussing these: [https://www.device42.com/blog/2012/05/introducing-centralized-device-password-management/](https://www.device42.com/blog/2012/05/introducing-centralized-device-password-management/)
+Here is a blog post discussing these: [https://www.device42.com/blog/2012/05/04/introducing-centralized-device-password-management/](https://www.device42.com/blog/2012/05/04/introducing-centralized-device-password-management/)
 
 ### Global Permissions
 

@@ -7,7 +7,7 @@ The following simple steps in list format are followed the same steps in picture
 
 ## Installing Device42 on vCenter Server
 
-Begin by [downloading the compressed Device42 virtual appliance](https://device42.com/download) and connecting to your vCenter Server. Next:
+Begin by [downloading the compressed Device42 virtual appliance](https://www.device42.com/download/) and connecting to your vCenter Server. Next:
 
 1. Use 7zip to decompress the downloaded Device42 virtual appliance image.
 2. Open vCenter server & deploy the image: _**File → Deploy**_ the template, browsing to the location of the unzipped files selecting the extracted .ovf.

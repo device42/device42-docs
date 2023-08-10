@@ -47,4 +47,4 @@ Select _Network > DNS Records_ from the main menu to can add DNS A/AAAA records 
 
 ### IP Address Management from the Command Line
 
-With Device42, you can find if an IP is already in a D42 instance, suggest a next available IP and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/ip-address-management-from-the-command-line/)
+With Device42, you can find if an IP is already in a D42 instance, suggest a next available IP and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/)

@@ -47,7 +47,7 @@ To setup the Freshservice integration with Device42, you need a Freshservice API
 
 1. Select _Tools > Integrations > External Integrations_ from the menu bar.
 2. Click _Add External Integration_ at the top right of the page.
-3. Enter the required fields on the page starting with your Freshservice _URL_ (e.g., [https://demo-instance.freshservice.com/](https://device42-demo.freshservice.com/)).
+3. Enter the required fields on the page starting with your Freshservice _URL_ (e.g., [https://demo-instance.freshservice.com/](https://device42-demo.freshservice.com/support/home)).
 4. From the _Type_ drop-down field, select the _Freshservice_ option.
 5. For the _Token_ field, select the magnifying glass and the secret containing your Freshservice API token.
 6. After you enter all required fields,  copy the _Verification Token_ displayed on the page. You'll use this later to install the Device42 Freshservice App.

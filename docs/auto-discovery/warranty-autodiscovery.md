@@ -37,7 +37,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
 
 3. Get your API keys (Dell and Meraki):
 
-    **Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://techdirect.dell.com/portal/AboutAPIs.aspx).
+    **Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://tdm.dell.com/td-auth?lang=en_UShttps://techdirect.dell.com/Portal/Login.aspx?ReturnUrl=%2Fportal%2FAboutAPIs.aspxtdLegacyUrl=%2Fportal%2FAboutAPIs.aspx).
 
     **Meraki API Keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Instructions to obtain Meraki API key: https://developer.cisco.com/meraki/api/#/rest/getting-started. These instructions from Meraki offer details around their process for obtaining their API key.
 
@@ -89,7 +89,7 @@ As long as your API key is active, and devices have a valid model, vendor, and s
 
 As noted above, this functionality is now built into the main UI:
 
-The latest version of the standalone script can be [downloaded from GitHub](https://github.com/device42/warranty_check/archive/master.zip)
+The latest version of the standalone script can be [downloaded from GitHub](https://codeload.github.com/device42/warranty_check/zip/refs/heads/master)
 
 ## Cisco Support API Info
 
