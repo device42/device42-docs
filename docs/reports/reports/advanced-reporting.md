@@ -13,7 +13,7 @@ Simply head to the Reports menu → Advanced reporting to get started:
 
 Device42's Advanced Reporting engine is extremely flexible, and you can use it to take your reporting to the next level, extracting insight and business intelligence from your infrastructure data.
 
-In this section, you'll learn how to select data and build reports in advanced reporting. If you prefer a video, see [this advanced reporting blog post](https://www.device42.com/blog/2018/04/advanced-reporting-video-walk-through/) for a quick advanced reporting walkthrough!
+In this section, you'll learn how to select data and build reports in advanced reporting. If you prefer a video, see [this advanced reporting blog post](https://www.device42.com/blog/2018/04/25/advanced-reporting-video-walk-through/) for a quick advanced reporting walkthrough!
 
 ### Running an existing report
 

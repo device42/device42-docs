@@ -27,7 +27,7 @@ You must contact the Device42 Support team ([support@device42.com](mailto:suppor
 
 Installation requirements and instructions for setting up auto discovery client.
 
-1. Install the Microsoft .NET Framework 4. There is a Standalone Installer available at: https://www.microsoft.com/download/en/details.aspx?id=17718
+1. Install the Microsoft .NET Framework 4. There is a Standalone Installer available at: https://www.microsoft.com/en-us/download/details.aspx?id=17718
 2. To install the Autodiscovery client, please contact the Device42 Support team ([support@device42.com](mailto:support@device42.com)).
 
 After running installation, you can find the application in your Start Menu.

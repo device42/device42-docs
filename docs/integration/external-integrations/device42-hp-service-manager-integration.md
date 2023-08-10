@@ -59,4 +59,4 @@ Integrating Device42 data to HPSM is easily accomplished using the Device42-hpsm
 
 ### Accessing the hpsm Integration Connector
 
-Device42 and HP Service Manager users can access the free Integration Connector Script on our website: https://www.device42.com/integrations/hpsm
+Device42 and HP Service Manager users can access the free Integration Connector Script on our website: https://www.device42.com/integrations/hpsm/

@@ -243,7 +243,7 @@ These can be scheduled to run at certain times – they should be run in the ord
 
 The scheduled imports first run the respective data source to collect and store data into the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow’s internal tables. Version 3.0.0 of the ServiceNow integration plugin leverages ServiceNow’s IRE module. For more information on this feature, please visit ServiceNow’s documentation page:
 
-[https://docs.servicenow.com/bundle/newyork-servicenow-platform/page/product/configuration-management/concept/c\_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/newyork-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html)
+[https://docs.servicenow.com/bundle/newyork-servicenow-platform/page/product/configuration-management/concept/c\_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/tokyo-servicenow-platform/)
 
 ![](/assets/images/SN_Imports_1.png)
 
@@ -263,7 +263,7 @@ The specific groups required (for users who _are not_ already ServiceNow admins)
 - import\_admin
 - x\_192652\_device42.Device42\_Admin
 
-A quick overview of the Device42-ServiceNow connector, screenshots, and links to the ServiceNow store can be found on our [ServiceNow integration page](https://device42.com/integrations/service-now/)
+A quick overview of the Device42-ServiceNow connector, screenshots, and links to the ServiceNow store can be found on our [ServiceNow integration page](https://www.device42.com/integrations/service-now/)
 
 If you have any questions that weren't covered here, feel free to reach out to [support@device42.com](mailto:support@device42.com).
 

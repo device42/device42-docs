@@ -39,6 +39,6 @@ Give the file a name and save the data locally
 
 Click [here](https://www.device42.com/bulk-data-management/) to download the bulk import tool.
 
-For instructions on how to use the bulk import tool to map your fields click [here](https://www.device42.com/blog/2015/07/bulk-import-your-data-from-any-format-easily-with-new-device42-import-tool/)
+For instructions on how to use the bulk import tool to map your fields click [here](https://www.device42.com/blog/2015/07/02/bulk-import-your-data-from-any-format-easily-with-new-device42-import-tool/)
 
 If there are any questions please feel free to contact support: support@device42.com

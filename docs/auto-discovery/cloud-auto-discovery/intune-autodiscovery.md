@@ -9,7 +9,7 @@ Microsoft Intune is a cloud-based service that focuses on **mobile device manag
 
 Please use the following link to provide admin consent in the azure portal for the D42 discovery job:
 
-https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent
+https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent
 
 ### Minimum Requirements
 
@@ -28,7 +28,7 @@ Recommended Steps:
 - Client ID and Secret: Located in Certificates & secrets
 - API Permissions:
     - Microsoft Graph application permissions listed above
-    - Grant admin consent – Azure [How to Link](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent)
+    - Grant admin consent – Azure [How to Link](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent)
 
 2\. Take the values from 1b (Client ID & Secret)  and enter them into the D42 job options
 

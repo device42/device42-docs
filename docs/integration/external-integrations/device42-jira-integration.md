@@ -480,8 +480,8 @@ The addon can be downloaded via the link [found on this page @ device42.com as f
 https://www.device42.com/integrations/jira/
 ```
 
-...or [click here](https://marketplace.atlassian.com/plugins/com.device42.atlas.jira.d42jira/server/overview) to download @ Atlassian Marketplace (or copy and paste URL below):
+...or [click here](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter) to download @ Atlassian Marketplace (or copy and paste URL below):
 
 ```
-https://marketplace.atlassian.com/plugins/com.device42.atlas.jira.d42jira/server/overview
+https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter
 ```
