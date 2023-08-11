@@ -15,7 +15,7 @@ To use the Device42-Jira integration, users must have:
 
 1. You must be a Jira Administrator to install & configure the Device42 Jira Service Desk / Jira Cloud Addon.
 2. In the Device42 Menu, TOOLS → Settings → Global Settings → \[External Integration Settings\]: ![Add external Jira integration](/assets/images/add_external_Jira_integration_menu.png)
-3. Input the URL of your Jira Service Desk / Jira Cloud instance: _\[ https://YOURURL.atlassian.net/ \]_ & select _Jira Cloud_ as the integration "Type". ![Jira Service Desk external integration settings](/assets/images/external_integration_settings.png)
+3. Input the URL of your Jira Service Desk / Jira Cloud instance: `https://YOURURL.atlassian.net/` & select _Jira Cloud_ as the integration "Type". ![Jira Service Desk external integration settings](/assets/images/external_integration_settings.png)
 4. Head to the Global Settings Page _Tools menu -> Settings -> Global Settings_ and scroll all the way to the bottom. Ensure all three required settings under heading "External Integration Settings” are correctly configured _(D42 URL for SaaS apps, Company Name, and Email):_ ![Global integration settings SaaS](/assets/images/global_SaaS_settings.png)
 5. Proceed to the next section (below) to complete Jira-side configuration & install the integration plugin!
 
