@@ -288,7 +288,7 @@ To give your project the ability to request the next free IP address from Device
 
 ![Edit Workflow](/assets/images/1117685725-WF01_edit_workflow.png)
 
-1. Inside the opened workflow for the edit mode click the transition you want to automate. If you don't have the needed transition or your workflow is not configured the way you like, please follow the guides https://confluence.atlassian.com/adminjiraserver072/workingwithworkflows828787890.html and https://confluence.atlassian.com/adminjiraserver072/advancedworkflowconfiguration828787971.html
+1. Inside the opened workflow for the edit mode click the transition you want to automate. If you don't have the needed transition or your workflow is not configured the way you like, please follow the guides https://confluence.atlassian.com/adminjiraserver/working-with-workflows-938847362.html and https://confluence.atlassian.com/adminjiraserver/advanced-workflow-configuration-938847443.html
 
 ![Edit Transition](/assets/images/3481454388-WF02_edit_transition.png)
 
@@ -324,7 +324,7 @@ Device42’s Jira plugin has the possibility to validate the Device42 data insid
 
 ### **Condition specific setup**
 
-For the detailed information on condition setup please refer to the https://confluence.atlassian.com/adminjiraserver073/advancedworkflowconfiguration861253591.html#Advancedworkflowconfigurationconditions section
+For the detailed information on condition setup please refer to the https://confluence.atlassian.com/adminjiraserver/advanced-workflow-configuration-938847443.html#conditions section
 
 1. Edit the workflow as described in sections 1 and 2 for the post functions
 2. Select the "Conditions" configuration tab and click the "Add Condition" button to add the new condition
@@ -341,7 +341,7 @@ For the detailed information on condition setup please refer to the https://conf
 
 ### Validator specific setup
 
-For the detailed information on validator setup please refer to the https://confluence.atlassian.com/adminjiraserver073/advancedworkflowconfiguration861253591.html#Advancedworkflowconfigurationvalidators
+For the detailed information on validator setup please refer to the https://confluence.atlassian.com/adminjiraserver/advanced-workflow-configuration-938847443.html#validators
 
 1. Edit the workflow as described in sections 1 and 2 for the post functions
 2. Select the "Validators" configuration tab and click the "Add Validator" button to add the new validator

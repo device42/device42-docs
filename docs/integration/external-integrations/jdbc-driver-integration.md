@@ -25,7 +25,7 @@ To install the Device42 JDBC driver, download the JAR file from [https://www.dev
 
 These steps are for SQL Workbench; other JDBC-compatible clients will have similar steps.
 
-1. Install SQL Workbench/J ([http://www.sql-workbench.eu/manual/install.html)](http://www.sql-workbench.eu/manual/install.html).
+1. Install SQL Workbench/J ([https://dev.mysql.com/doc/workbench/en/wb-installing.html)](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
 2. Run SQL Workbench/J.
 3. Click **File** -> **Connect Window** -> **Manage Drivers**.
 4. Create new driver using the path to the downloaded JDBC driver JAR file and the classname _com.device42.jdbc.D42Driver_.

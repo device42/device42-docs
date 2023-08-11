@@ -13,8 +13,7 @@ With Device42 Packet Capture you can discover service communications happening i
 
 <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
 
-![](https://fast.wistia.com/embed/medias/pz35w51w8t/swatch)
-
+<script src="https://fast.wistia.com/embed/medias/pz35w51w8t/swatch" async></script>
 * * *
 
 ## Packet Capture Prerequisites
