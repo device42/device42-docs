@@ -51,7 +51,7 @@ Once you click on the script file, you can click on download and save that file 
 
 ![3. Get Sample Script ready for your environment](/assets/images/wpid2788-3.png)
 
-Edit the script and change these sections: BASE\_URL: Change this to the url for the Device42 appliance. Please make sure there is no trailing '/' at the end of the url. Example: BASE\_URL='https://d42app.device42.pvt'
+Edit the script and change these sections: `BASE\_URL:` Change this to the url for the Device42 appliance. Please make sure there is no trailing '/' at the end of the url. Example: `BASE\_URL='https://d42app.device42.pvt'`
 
 USER & PASSWORD should be credentials for an Administrator who has access to log into the Device42 appliance.
 

@@ -24,7 +24,7 @@ Compellent discovery requires use of an associated Dell Storage Manager applianc
 
 ### VNX or VMAX using EMC SMIS Provider
 
-Login to SMIS provider using [`http://<SMIS-Provider-IP>:5988/ECOMConfig`](http://localhost:5988/ECOMConfig) or [`https://<SMIS-Provider-IP>:5989/ECOMConfig`](http://localhost:5988/ECOMConfig).
+Login to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `https://<SMIS-Provider-IP>:5989/ECOMConfig`.
 
 - Click on _Add User_ and create a user with the **monitor** role.
 

@@ -21,7 +21,7 @@ Webhooks are the best way to get your logs from Device42 to your external loggin
 
 Device42 can be integrated with external logging or SIEM systems, such as Splunk or Logstash, with the use of webhooks. [Webhooks](https://codeburst.io/what-are-webhooks-b04ec2bf9ca2) are a methodology of sending server-side details or events to a receiving client-side application, and are also known as “Reverse APIs”. Device42 can send audit log events in the form of webhooks to these other platforms for external analysis.
 
-This article will walk through setting up this integration using a lab instance of Splunk Enterprise (v6.6.3)at [http://10.42.2.239:8000](http://10.42.2.239:8000/), which does not require any login credentials. Previous documentation on this topic is available here, [External Logging Config – Device42 Documentation | Device42 Documentation](integration/external-integrations/external-logging-config.md).
+This article will walk through setting up this integration using a lab instance of Splunk Enterprise (v6.6.3)at `http://10.42.2.239:8000`, which does not require any login credentials. Previous documentation on this topic is available here, [External Logging Config – Device42 Documentation | Device42 Documentation](integration/external-integrations/external-logging-config.md).
 
 ## Configuring an HTTP Event Collector (HEC) in Splunk
 
@@ -37,7 +37,7 @@ In order to catch the webhooks Device42 produces, an [HTTP Event Collector](htt
 In Device42, a webhook endpoint needs to be defined that can catch the audit log events Device42 delivers- the newly-configured HEC in Splunk will do this. This section will detail the endpoint creation process, and a screenshot of successful settings will be included at the bottom.
 
 1. Navigate to Tools > Webhooks > Endpoints > Add Webhook Endpoint.
-2. Name the endpoint and define the endpoint URL like https://ENDPOINT-URL:HEC-PORT/services/collector/raw. The endpoint used in this example is https://10.42.2.239:8088/services/collector/raw. Depending on the HEC settings, http or https may need to be defined. The services/collector/raw REST API endpoint is where Device42 is sending the raw json data to the HEC.
+2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, http or https may need to be defined. The services/collector/raw REST API endpoint is where Device42 is sending the raw json data to the HEC.
 3. Leave the Endpoint value as the default “Custom”, define credentials if required (not used in this demonstration), set a Retry interval, and Ignore SSL Certificate Errors if necessary.
 4. Two Webhook Headers also need to be defined, the first has a Header Name of “Authorization”, with a Header Token of `Splunk <HEC Token>`, where `<HEC Token>` is replaced by the HEC token value created earlier in Splunk.
 5. The second has a Header Name of “X-Splunk-Request-Channel” with a Header Token of a randomly generated UUID. This can be created with a Linux utility such as _uuidgen._ The X-Splunk-Request-Channel header field is required because the request sent to the HEC includes raw data.![](/assets/images/uuidgen.png)
