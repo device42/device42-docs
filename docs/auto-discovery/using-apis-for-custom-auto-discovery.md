@@ -4,7 +4,7 @@ sidebar_position: 34
 ---
 If you find that there are autodiscovery methods that you need and that aren't provided by Device42, you can create your own autodiscovery tools that use Device42's APIs to load data into a Device42 instance.
 
-Device42 provides a number of sample scripts that you can use as a basis for your own custom autodiscovery tools. These tools are available at [Device42's Auto-Discovery Tools Site](https://github.com/device42/Device42-API) and include the following scripts:
+Device42 provides a number of sample scripts that you can use as a basis for your own custom autodiscovery tools. These tools are available at [Device42's Auto-Discovery Tools Site](https://github.com/device42/Device42-AutoDiscovery-Scripts) and include the following scripts:
 
 - `api-sample.py`: Runs against a single Windows server and uploads info to the Device42 appliance.
 
@@ -31,9 +31,9 @@ The remainder of this document will show an example of how to use one of these s
 ### Requirements:
 
 - Iron Python, available [here](https://ironpython.net/download/)
-- .Net 4 framework, available here: [https://www.microsoft.com/download/en/details.aspx?id=17851](https://www.microsoft.com/download/en/details.aspx?id=17851)
+- .Net 4 framework, available here: [https://www.microsoft.com/en-us/download/details.aspx?id=17851](https://www.microsoft.com/en-us/download/details.aspx?id=17851)
 - PowerShell. v1 or 2(preferred)
-- Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-API](https://github.com/device42/Device42-API)
+- Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-AutoDiscovery-Scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts)
 
 ![1. Install IronPython Binaries](/assets/images/wpid2786-1._Install_IronPython_Binaries.png)
 
@@ -43,7 +43,7 @@ Assuming that you have Powershell and the .Net 4 framework installed already, yo
 
 ![2. Download the sample script (api-sample.py)](/assets/images/wpid2787-2._Download_the_sample_script__api-sample.py_.png)
 
-You can download the latest script at [https://github.com/device42/Device42-API/tree/master/src.](https://github.com/device42/Device42-API/tree/master/src)
+You can download the latest script at [https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src.](https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src)
 
 Once you click on the script file, you can click on download and save that file (File>Save Page As...); preferably in same folder as binaries for IronPython are unzipped.
 

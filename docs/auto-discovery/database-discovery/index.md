@@ -10,7 +10,7 @@ Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+
 
 As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
 
-You can also use [Database Connections Discovery](auto-discovery/database-discovery/#section-19) jobs (see below) to discover databases.
+You can also use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
 
 ## MS SQL Server DB Discovery (on Windows targets)
 
@@ -47,7 +47,7 @@ The snippet shown below is necessary to get data from some of the preceding view
 
 ![](/assets/images/D42-21939_Unencrypted-conns-for-SQL-db-2.png)
 
-Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the Microsoft SQL database itself and the second (_Discovery Targets Credentials_) to authenticate to the Windows server itself (like you’re used to for [regular Windows-based discovery targets](auto-discovery/windows-and-hyper-v-auto-discovery/)).
+Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the Microsoft SQL database itself and the second (_Discovery Targets Credentials_) to authenticate to the Windows server itself (like you’re used to for [regular Windows-based discovery targets](auto-discovery/windows-and-hyper-v-auto-discovery.md)).
 
 You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_ when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
@@ -69,7 +69,7 @@ You can see the newly discovered SQL Server instances in the example below -- Cl
 
 Scroll to the bottom, and click the database instance name to view database details: ![](/assets/images/click-to-view-SQL-details.png)
 
-For a rundown of the database details discovery provides, jump to the ["Available SQL database instance information"](auto-discovery/database-discovery/#section-6) section.
+For a rundown of the database details discovery provides, jump to the ["Available SQL database instance information"](#available-sql-database-instance-information) section.
 
 ### Another way to view SQL Database details
 

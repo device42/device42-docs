@@ -11,7 +11,7 @@ The SNMP autodiscovery method can be used for any SNMP-compatible devices. For [
 
 ## NetApp, EMC, & Dell NAS/SAN Storage Discovery
 
-Netapp and EMC SANs are supported. Inventory data such as name, hardware model, serial #, OS, mac address, and IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
+Netapp and EMC SANs are supported. Inventory data such as name, hardware model, serial #, OS, mac address, and IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
 
 ## Setting up a NAS/SAN Storage autodiscovery job
 

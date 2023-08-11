@@ -41,7 +41,7 @@ HP & IBM Blade System (or Blade Center) chassis and blade details can be discove
 
 ## Cloud Platform Discovery
 
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud-platforms-autodiscovery/index.md)
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and Openstack from the cloud discovery under _Discovery > Cloud_. Cloud discovery details can be found here: [Cloud Platforms Autodiscovery](./cloud-auto-discovery/index.md)
 
 ## DNS Autodiscovery
 
@@ -111,7 +111,7 @@ For more information, and full RC documentation, head to the dedicated [Remote C
 
 Alternatively, there are a selection of open-source scripts on the Device42 GitHub page available for use: For Mac, Linux, and Solaris autodiscovery, use this repo: [https://github.com/device42/nix\_bsd\_mac\_inventory](https://github.com/device42/nix_bsd_mac_inventory)
 
-Windows discovery scripts can be found here: [Device42 GitHub repository](https://github.com/device42/Device42-API). Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and/or to get Windows machines from AD. Details are relayed to the Device42 Main Appliance (MA) via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via Device42's RESTful API.
+Windows discovery scripts can be found here: [Device42 GitHub repository](docs/auto-discovery/index.md). Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and/or to get Windows machines from AD. Details are relayed to the Device42 Main Appliance (MA) via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via Device42's RESTful API.
 
 ## Using REST APIs
 
@@ -136,24 +136,16 @@ Discussed in depth: [discovery/virtual-machine-auto-discovery.md](auto-discovery
 - [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md)
 - [Certificate Autodiscovery](auto-discovery/certificate-auto-discovery.md)
 - [Cisco UCS Cluster / ACI Fabric Autodiscovery](auto-discovery/cisco-ucs-auto-discovery.md)
-- [Cloud Platforms Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/)
-    - [AWS Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery.md)
-    - [Azure Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery.md)
-    - [Google Cloud Platform Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery.md)
-    - [Intune Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery.md)
-    - [Kubernetes Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery.md)
-    - [Other Cloud Autodiscoveries](auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries.md)
-- [AWS Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/aws-autodiscovery.md)
-- [Azure Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/azure-autodiscovery.md)
-- [Google Cloud Platform Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/google-cloud-platform-autodiscovery.md)
-- [Intune Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/intune-autodiscovery.md)
-- [Kubernetes Autodiscovery](auto-discovery/cloud-platforms-autodiscovery/kubernetes-autodiscovery.md)
-- [Other Cloud Autodiscoveries](auto-discovery/cloud-platforms-autodiscovery/other-cloud-autodiscoveries.md)
-- [Database Discovery](auto-discovery/database-discovery/)
+- [Cloud Platforms Autodiscovery](auto-discovery/cloud-auto-discovery/index.md)
+    - [AWS Autodiscovery](auto-discovery/cloud-auto-discovery/aws-autodiscovery.md)
+    - [Azure Autodiscovery](auto-discovery/cloud-auto-discovery/azure-autodiscovery.md)
+    - [Google Cloud Platform Autodiscovery](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.md)
+    - [Intune Autodiscovery](auto-discovery/cloud-auto-discovery/intune-autodiscovery.md)
+    - [Kubernetes Autodiscovery](auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery.md)
+    - [Other Cloud Autodiscoveries](auto-discovery/cloud-auto-discovery/other-cloud-autodiscoveries.md)
+- [Database Discovery](auto-discovery/database-discovery/index.md)
     - [Cloud Databases](auto-discovery/database-discovery/cloud-databases.md)
     - [On-Prem Databases](auto-discovery/database-discovery/on-premise-databases.md)
-- [Cloud Databases](auto-discovery/database-discovery/cloud-databases.md)
-- [On-Prem Databases](auto-discovery/database-discovery/on-premise-databases.md)
 - [DNS Autodiscovery](auto-discovery/setup-dns-autodiscovery.md)
 - [IBM i/AS400 (Midrange)](auto-discovery/ibm-i-as400.md)
 - [IBM z/OS (Mainframe)](auto-discovery/z-os-ibm-mainframe.md)
@@ -170,19 +162,13 @@ Discussed in depth: [discovery/virtual-machine-auto-discovery.md](auto-discovery
 - [Resource Utilization Overview](auto-discovery/resource-utilization-overview.md)
 - [SCCM Discovery (.NET Tool)](auto-discovery/sccm-discovery-net-tool.md)
 - [SNMP - Network Autodiscovery](auto-discovery/network-auto-discovery.md)
-- [Storage Arrays Autodiscovery](auto-discovery/storage-arrays-autodiscovery/)
+- [Storage Arrays Autodiscovery](auto-discovery/storage-arrays-autodiscovery/index.md)
     - [Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md)
     - [HP Autodiscovery](auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.md)
     - [IBM Autodiscovery](auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.md)
     - [All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md)
     - [SNMP SAN/Server Autodiscovery](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md)
     - [Viewing Storage Arrays](auto-discovery/storage-arrays-autodiscovery/storage-arrays.md)
-- [Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md)
-- [HP Autodiscovery](auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.md)
-- [IBM Autodiscovery](auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.md)
-- [All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md)
-- [SNMP SAN/Server Autodiscovery](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md)
-- [Viewing Storage Arrays](auto-discovery/storage-arrays-autodiscovery/storage-arrays.md)
 - [Supported Hypervisors and Containers List](auto-discovery/hypervisors-and-containers-supported-in-auto-discovery.md)
 - [TCP Port Scan Autodiscovery](auto-discovery/tcp-port-scan-auto-discovery.md)
 - [UCS / ACI / Load Balancer / F5 Autodiscovery](auto-discovery/load-balancer-f5-autodiscovery.md)
@@ -192,6 +178,5 @@ Discussed in depth: [discovery/virtual-machine-auto-discovery.md](auto-discovery
 - [VM (Virtual Machine) Autodiscovery](auto-discovery/virtual-machine-auto-discovery.md)
 - [Warranty Autodiscovery](auto-discovery/warranty-autodiscovery.md)
 - [Windows and Hyper-V Autodiscovery](auto-discovery/windows-and-hyper-v-auto-discovery.md)
-- [Resources](auto-discovery/resources/)
+- [Resources](auto-discovery/resources/index.md)
     - [Cloud Resources](auto-discovery/resources/cloud-resources.md)
-- [Cloud Resources](auto-discovery/resources/cloud-resources.md)

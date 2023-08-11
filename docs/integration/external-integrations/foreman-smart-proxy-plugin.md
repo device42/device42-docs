@@ -44,6 +44,6 @@ Configuration options for this plugin are in /etc/foreman-proxy/settings.d/dhcp\
 :password: API Password
 ```
 
-Note that you can find the above configuration details in the README.MD file included with the [Device42-Foreman Smart Proxy plugin download](https://github.com/theforeman/smart_proxy_dhcp_device42/archive/master.zip) on the [Device42 Github](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
+Note that you can find the above configuration details in the README.MD file included with the [Device42-Foreman Smart Proxy plugin download](https://codeload.github.com/theforeman/smart_proxy_dhcp_device42/zip/refs/heads/master) on the [Device42 Github](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
 
 Should you have issues, please check to see installation instructions haven't changed per the Foreman manual (linked above). If they have changed, or have not changed and your are still experiencing trouble, please do let us know – simply email support@device42.com. Thanks!

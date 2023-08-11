@@ -140,14 +140,14 @@ jobs:
     - name: Setup Algolia Config
       id: algolia_config
       run: |
-           sed -i 's/<INDEX_NAME>/${{ vars.ALGOLIA_INDEX }}/g' algolia.json
+           sed -i 's/<INDEX_NAME>/${{ vars.ENV_ALGOLIA_INDEX }}/g' algolia.json
            sed -i 's/<FQDN>/${{ vars.FQDN }}/g' algolia.json
            echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
 
     - name: Run Algolia Reindex
       uses: signcl/docsearch-scraper-action@master
       env:
-        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        APPLICATION_ID: ${{ secrets.ENV_ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         CONFIG: ${{ steps.algolia_config.outputs.config }}
 

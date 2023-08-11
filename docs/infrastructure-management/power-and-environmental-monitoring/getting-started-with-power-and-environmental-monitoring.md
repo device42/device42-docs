@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## The Power and Environmental Monitoring Add-ons
 
-To access the functionality described in this section, you _**must have a license for one of the optional Power Modules**_. Much of the power and environmental monitoring capabilities are present in the base power monitoring option, with the exception of control. To turn outlets on and off, the power control add-on option is required in addition to the base Power and Environment monitoring add-on. _See the [Device42 power pricing page](https://www.device42.com/pricing-power/) for more details!_
+To access the functionality described in this section, you _**must have a license for one of the optional Power Modules**_. Much of the power and environmental monitoring capabilities are present in the base power monitoring option, with the exception of control. To turn outlets on and off, the power control add-on option is required in addition to the base Power and Environment monitoring add-on. _See the [Device42 power pricing page](https://www.device42.com/) for more details!_
 
 * * *
 

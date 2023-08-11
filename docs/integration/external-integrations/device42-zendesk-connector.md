@@ -26,7 +26,7 @@ sidebar_position: 29
 
 ### Installing the Device42 add-on for ZenDesk
 
-To begin installing the Device42-Zendesk integration, head to the [ZenDesk marketplace](https://www.zendesk.com/apps/support/device42-connector-for-zendesk/). ![ZenDesk Marketplace D42 App](/assets/images/D42_connector_zendesk_marketplace.png)
+To begin installing the Device42-Zendesk integration, head to the [ZenDesk marketplace](https://www.zendesk.com/marketplace/apps/). ![ZenDesk Marketplace D42 App](/assets/images/D42_connector_zendesk_marketplace.png)
 
 If you are having trouble with the link, You might need to sign in to your Zendesk account \[if you aren't already signed in\]. Next, click the gear icon (lower left), then click the “Marketplace” link. Search for “Device42 for Zendesk” to locate the integration add-on.
 

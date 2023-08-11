@@ -14,7 +14,7 @@ Device42's AWS Autodiscovery ensures you have full visibility into your AWS envi
 
 **Note**: Device42 encourages customers to follow AWS best practices for managing your IAM credentials, including using strong passwords, regular password rotation, applying the principle of least privilege to users and their passwords, etc.
 
-For more information, see the article _Best Practices for Managing AWS Access Keys_ at [https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).
+For more information, see the article _Best Practices for Managing AWS Access Keys_ at [https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html](https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html).
 
 ### Initiating an AWS Discovery
 
@@ -184,7 +184,7 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
         
     2. We would need an account that uses just accountID and one that would be with the Require ExternalID option - Note no requirement for MFA option at this time
         
-    3. Policy to be added - use the example minimum policy needed for discovery from our docs site [here](auto-discovery/cloud-platforms-autodiscovery/index.md)
+    3. Policy to be added - use the example minimum policy needed for discovery from our docs site [here](auto-discovery/cloud-auto-discovery/index.md)
         
 2. From the Sub (or separate)-account
     

@@ -47,7 +47,7 @@ To setup the Freshservice integration with Device42, you need a Freshservice API
 
 1. Select _Tools > Integrations > External Integrations_ from the menu bar.
 2. Click _Add External Integration_ at the top right of the page.
-3. Enter the required fields on the page starting with your Freshservice _URL_ (e.g., [https://demo-instance.freshservice.com/](https://device42-demo.freshservice.com/)).
+3. Enter the required fields on the page starting with your Freshservice _URL_ (e.g., [https://demo-instance.freshservice.com/](https://device42-demo.freshservice.com/support/home)).
 4. From the _Type_ drop-down field, select the _Freshservice_ option.
 5. For the _Token_ field, select the magnifying glass and the secret containing your Freshservice API token.
 6. After you enter all required fields,  copy the _Verification Token_ displayed on the page. You'll use this later to install the Device42 Freshservice App.
@@ -155,22 +155,9 @@ A full sync will be forced upon certain upgrades to get all the new data from D4
 | Device with virtual type and VMWare subtype                                                                              | Assets/Inventory             | VMware VCenter VM                  |
 | Device with virtual type and Amazon EC2 Instance subtype                                                                 | Assets/Inventory             | AWS VM                             |
 | Device with virtual type and Azure Virtual Machine subtype                                                               | Assets/Inventory             | Azure VM                           |
-| Device with physical type and does not match one of the more specific asset types above.                                 | Assets/Inventory             | Server                             |
-| Device with virtual type and does not match one of the more specific asset types above.                                  | Assets/Inventory             | Virtual Machine                    |
-| Device that doesn’t match one of the more specific asset types above                                                     | Assets/Inventory             | Computer                           |
-| Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
-| Software                                                                                                                 | Assets/Software              | Desktop                            |
-| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: BASE                                                                                         | Assets/Contracts             | Warranty                           |
-| (IBM & Lenovo vendors)                                                                                                   |                              |                                    |
-| PO Line Item/Contract Type: UPGRADE                                                                                      | Assets/Contracts             | Warranty                           |
-| (IBM & Lenovo vendors)                                                                                                   |                              |                                    |
-| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
-| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
-| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
-| Business Applications Device-to-Device Relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
-| Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
-| Affinity Group Device-to-Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
+| Device with physical type and does not match one of the more specific asset types above                                  | Assets/Inventory             | Server                             |
+| Device with virtual type and does not match one of the more specific asset types above                                   | Assets/Inventory             | Virtual Machine                    |
+| Device that doesnt match one of the more specific asset types above                                                      | Assets/Inventory             | Computer                           |
 | Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
 | Software                                                                                                                 | Assets/Software              | Desktop                            |
 | PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
@@ -179,10 +166,11 @@ A full sync will be forced upon certain upgrades to get all the new data from D4
 | PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
 | PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
 | Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
-| Business Applications Device-to-Device Relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
+| Business Applications Device to Device relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
 | Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
-| Affinity Group Device-to-Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
+| Affinity Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
 | VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
+
 
 
 ### New Contract Type “Warranty” Added

@@ -7,7 +7,7 @@ sidebar_position: 8
 
 ### Prerequisites
 
-To use Device42 you will need a hypervisor like Virtualbox, VMWare player or VMware Workstation that can manage and run virtual machine images. If you don't already have one, you can download one Virtualbox for free @ [https://www.virtualbox.org](https://www.virtualbox.org), or alternatively, get [VMware Player here](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/15_0). 
+To use Device42 you will need a hypervisor like Virtualbox, VMWare player or VMware Workstation that can manage and run virtual machine images. If you don't already have one, you can download one Virtualbox for free @ [https://www.virtualbox.org](https://www.virtualbox.org), or alternatively, get [VMware Player here](https://customerconnect.vmware.com/en/downloads/free#desktop_end_user_computing/vmware_workstation_player/15_0). 
 
 ![Virtualbox Download page 2019](/assets/images/virtualbox_DL-hl-2019.png)
 
@@ -25,7 +25,7 @@ To download Device42, visit [Device42](https://www.device42.com/download/) and e
 
 ![Download Device42 Virtual Box OVF](/assets/images/DL_d42_HL-2019.png)
 
-Once the file has downloaded, you can unzip it using 7-Zip, which is a free program available through the App store or from their website, [7-Zip](http://www.7-zip.org/). 
+Once the file has downloaded, you can unzip it using 7-Zip, which is a free program available through the App store or from their website, [7-Zip](https://7-zip.org/). 
 
 ![7-Zip installation](/assets/images/2016-01-25-get-started-pc-1.png)
 

@@ -10,7 +10,7 @@ Couple of updates to following:
 1. Excel sheet import now supported. Tools > Import > Import IP Sheet(xls). Sample excel file included.
 2. You can use D42 ping sweep utility to find IP addresses on your network(s) and create the excel sheet in ready format.
 
-More: [https://www.device42.com/blog/2012/06/basic-ping-sweep-utility-ip-address-information-date/](https://www.device42.com/blog/2012/06/basic-ping-sweep-utility-ip-address-information-date/)
+More: [https://www.device42.com/blog/2012/06/13/basic-ping-sweep-utility-ip-address-information-date/](https://www.device42.com/blog/2012/06/13/basic-ping-sweep-utility-ip-address-information-date/)
 
 ![wpid843-media_1326480414715.png](/assets/images/wpid843-media_1326480414715.png)
 

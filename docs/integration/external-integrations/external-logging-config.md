@@ -7,7 +7,7 @@ sidebar_position: 9
 
 You will need an http plugin for Logstash or Splunk to send the data to the SIEM / logging platform of your choice. You can get more information and find the downloads at the following links:
 
-**Splunk:** [http://dev.splunk.com/view/event-collector/SP-CAAAE6M](http://dev.splunk.com/view/event-collector/SP-CAAAE6M) **Logstash:**[https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
+**Splunk:** [https://dev.splunk.com/view/event-collector/SP-CAAAE6M](https://dev.splunk.com/view/event-collector/SP-CAAAE6M) **Logstash:**[https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
 
 ## Configure External Logging
 

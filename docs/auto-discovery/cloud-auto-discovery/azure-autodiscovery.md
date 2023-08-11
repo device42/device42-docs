@@ -3,7 +3,7 @@ title: "Azure Autodiscovery"
 sidebar_position: 3
 ---
 
-It’s important to have a complete inventory of all your IT assets, including on-prem and cloud-based resources. Device42 can provide insight into your Azure resources and services by using an application service principal in accordance with [Microsoft’s security recommendations](https://docs.microsoft.com/en-us/azure/active-directory/develop/secure-least-privileged-access).
+It’s important to have a complete inventory of all your IT assets, including on-prem and cloud-based resources. Device42 can provide insight into your Azure resources and services by using an application service principal in accordance with [Microsoft’s security recommendations](https://learn.microsoft.com/en-us/azure/active-directory/develop/secure-least-privileged-access).
 
 This page will walk through the process of creating an application service principal with limited permissions, enabling quick and easy inventory of Azure resources using Device42.
 
@@ -25,7 +25,7 @@ Next, we will create a role with limited permissions that will be applied to thi
 
 Navigate to Access Control (IAM) >  Roles > Add > Add Custom Role. Give the custom role a name, an optional description, then select either Start from scratch or Start from JSON.
 
-1. If using the Start from scratch option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-platforms-autodiscovery/index.md). Select Add permissions, search for and select the desired permission, check the relevant box and choose Add. Repeat this for any desired permissions.
+1. If using the Start from scratch option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.md). Select Add permissions, search for and select the desired permission, check the relevant box and choose Add. Repeat this for any desired permissions.
 2. If using the Start from JSON option, copy and paste the below JSON data, pulling in the necessary permissions from the list in Discovery section, and save it as a .json file. Upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
 
 ```

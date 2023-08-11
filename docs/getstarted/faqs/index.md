@@ -25,7 +25,7 @@ Device42 recommends using the web browsers (or more recent versions) listed belo
 
 - [**Device42 Auto-discovery**](auto-discovery/index.md): D42 features a variety of autodiscovery methods, the best of which depends on your needs: SNMP network device discovery, VMware auto-discovery, ping sweep, Windows and Linux auto-discovery, and more; you may also use individual python/powershell scripts to customize & automate your discovery and/or inventory process. Read about the [recommended initial discovery sequence](auto-discovery/autodisc-best-practices.md) here, as well!
 - [**Microsoft Excel / CSV (spreadsheet) import**:](integration/imports/index.md) _Tools > Imports/Exports (xls)_ has options for MS Excel spreadsheet import, including sample Excel sheets that will help you format your existing spread sheets to make bringing your existing data into Device42 as easy as possible.
-- The [**Device42 Generic Import Tool**](https://www.device42.com/blog/2018/06/new-features-added-to-the-generic-import-tool/) is another way to import data from existing spreadsheets of just about any format, mapping fields as appropriate via the Device42 generic import tool. For manual spreadsheet import, see this [walkthrough on how to best format an existing spreadsheet for import into Device42.](getstarted/importing-data-from-existing-spreadsheets.md)
+- The [**Device42 Generic Import Tool**](https://www.device42.com/blog/2018/06/19/new-features-added-to-the-generic-import-tool/) is another way to import data from existing spreadsheets of just about any format, mapping fields as appropriate via the Device42 generic import tool. For manual spreadsheet import, see this [walkthrough on how to best format an existing spreadsheet for import into Device42.](getstarted/importing-data-from-existing-spreadsheets.md)
 - [**RESTful APIs**](https://api.device42.com): Programatically automate your network documentation and/or leverage your asset data for scripts & automation! Add these to your regular work flow to leverage Device42 as single source of truth for systems such as provisioning and monitoring.
 - [**API-based CSV Import**](integration/api-overview/importing-csv-files-into-d42-using-the-api-helper-utility.md): This API helper utility is perfect if you aren't feeling the Excel import option _(or for any other reason!)_. This Python-based CSV utility makes it easy to feed just about any CSV to Device42's RESTful APIs.
 - The **Device42 Web UI**: Of course, you can always use the web-UI _(user interface)_ to add data :)
@@ -51,11 +51,11 @@ Current releases of Device42 support ALL discovery jobs, now including WMI & Pow
 
 ## How do I Migrate Existing Power Appliance Jobs to a Remote Collector (RC)?
 
-Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](/energy-monitoringmanagement/power-rc-setup-job-migration/) to migrate jobs to the new RC of your choice.
+Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) to migrate jobs to the new RC of your choice.
 
 ## How do I add blade servers to Device42?
 
-This topic has been discussed on support portal : [How to represent blade servers in Device42?](https://device42.zendesk.com/entries/23369387) tldr; Add a new device with "blade chassis" selected. Then you add devices, type "blade", and choose the blade chassis device as the host device. _Note that blade chassis accept blades in "blade slots", which you can custom-configure to match your chassis & port layout!_
+This topic has been discussed on support portal : [How to represent blade servers in Device42?](https://support.device42.com/hc/en-usentries/23369387) tldr; Add a new device with "blade chassis" selected. Then you add devices, type "blade", and choose the blade chassis device as the host device. _Note that blade chassis accept blades in "blade slots", which you can custom-configure to match your chassis & port layout!_
 
 ## How do I handle unknown device types?
 
@@ -89,11 +89,11 @@ This is also discussed under section : [appliance manager.](/administration/appl
 2. From the D42 main menu: _Tools > Update;_ Click _"Link to Appliance Manager"_, then browse to the downloaded update file ; Click "Upload".
 3. Choose Option #3 on the Main Appliance's VM console to apply the update; follow the on-screen prompts.
 
-This is also detailed on the support portal: [D42 Upgrade steps.](https://device42.zendesk.com/entries/21783332)
+This is also detailed on the support portal: [D42 Upgrade steps.](https://support.device42.com/hc/en-usentries/21783332)
 
 For more information about Main Appliance and Remote Collector updates, see the  [Main Appliance and Remote Collector](/administration/appliance-manager/) page.
 
-You can subscribe to the [Device42 Blog rss feed](https://www.device42.com/blog/feed/) or follow us on [twitter](https://www.twitter.com/device42) to get immediate notifications for new releases.
+You can subscribe to the [Device42 Blog rss feed](https://www.device42.com/blog/feed/) or follow us on [twitter](https://twitter.com/device42) to get immediate notifications for new releases.
 
 ## How do I Install Device42 xen/kvm appliance if import existing disk image option is missing?
 
@@ -101,7 +101,7 @@ If you are trying to install the Device42 appliance on Xen or KVM based platform
 
 ## Where can I get help with something not covered here?
 
-We always recommend searching the [Device42 support portal](https://device42.zendesk.com/) when faced with a question that doesn't seem to be addressed in our documentation. That said, if you do find one, or get stuck, go ahead and open a support ticket. Send a note to support@device42.com or visit the 'support' tab at the top of this page.
+We always recommend searching the [Device42 support portal](https://support.device42.com/hc/en-us) when faced with a question that doesn't seem to be addressed in our documentation. That said, if you do find one, or get stuck, go ahead and open a support ticket. Send a note to support@device42.com or visit the 'support' tab at the top of this page.
 
 
 ## Table of contents

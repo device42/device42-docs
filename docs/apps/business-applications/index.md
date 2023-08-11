@@ -141,9 +141,9 @@ Device42 can export one or more of your business applications directly to Carbon
 
 ### Exporting to Microsoft Azure Migrate (cloud migrations)
 
-Device42 can export one or more of your business applications directly to the Microsoft [Azure cloud platform](https://portal.azure.com/#home) via [Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/).
+Device42 can export one or more of your business applications directly to the Microsoft [Azure cloud platform](https://portal.azure.com/#home) via [Azure Migrate](https://azure.microsoft.com/en-us/products/azure-migrate/).
 
-For detailed instructions on [how to export a business application to the Azure cloud](integration/external-integrations/azure-migrate.md), go to the dedicated [Azure Migrate integration page](/external-integrations/azure-migrate/), at [Azure migrate](integration/external-integrations/azure-migrate.md).
+For detailed instructions on [how to export a business application to the Azure cloud](integration/external-integrations/azure-migrate.md), go to the dedicated Azure Migrate integration page at [Azure migrate](integration/external-integrations/azure-migrate.md).
 
 ### Exporting to RiverMeadow Data Migration
 

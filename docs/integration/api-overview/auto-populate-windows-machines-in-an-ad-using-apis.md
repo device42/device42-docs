@@ -19,7 +19,7 @@ There are two simple reasons:
 - Iron Python, available here: [https://ironpython.net](https://ironpython.net/download/)
 - .Net 4 framework, available here: [https://www.microsoft.com/download/en/details.aspx?id=17851](https://www.microsoft.com/download/en/details.aspx?id=17851)
 - PowerShell. v1.0 or 2.0 (preferred)
-- Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-API](https://github.com/device42/Device42-API)
+- Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-AutoDiscovery-Scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts)
 
 * * *
 
@@ -33,7 +33,7 @@ Assuming you have Powershell and have the .NET 4 framework installed, you're rea
 
 ![wpid350-2._Download_the_sample_script__ad-sample.py_.png](/assets/images/wpid350-2._Download_the_sample_script__ad-sample.py_.png)
 
-You can download the latest script at [https://github.com/device42/Device42-API/tree/master/src.](https://github.com/device42/Device42-API/tree/master/src)  
+You can download the latest script at [https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src.](https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src)  
 Once you click on the script file, you can click on download and save that file (File>Save Page As...); preferably in same folder as binaries for IronPython are unzipped.
 
 * * *

@@ -31,7 +31,7 @@ Click on an IP address to view its page.
 
 The view IP page shows the details for an IP and you can see the history of changes for that IP from the _History (Audit Logs)_ button (similar to all other view pages in the application). If you have appropriate permissions, you will see the _Edit_ button to edit. All DNS records that use this IP are shown in the view page as well.
 
-**Note**: Entries in the _Configuration Resource_ and _Configuration Resource Item_ fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud-platforms-autodiscovery/index.md)) and are filled in automatically. These field should not be populated for a regular IP address.
+**Note**: Entries in the _Configuration Resource_ and _Configuration Resource Item_ fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud-auto-discovery/index.md)) and are filled in automatically. These field should not be populated for a regular IP address.
 
 In the example above, the _Configuration Resource_ link will take you to the K8s cluster that is currently holding that IP, and _Configuation Resource Item_ contains the name and type of resource. In this case, the name is **Tiller-….jkfpl** and the resource type is a **p****od**.
 
@@ -47,4 +47,4 @@ Select _Network > DNS Records_ from the main menu to can add DNS A/AAAA records 
 
 ### IP Address Management from the Command Line
 
-With Device42, you can find if an IP is already in a D42 instance, suggest a next available IP and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/ip-address-management-from-the-command-line/)
+With Device42, you can find if an IP is already in a D42 instance, suggest a next available IP and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/)

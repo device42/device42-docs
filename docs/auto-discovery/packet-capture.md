@@ -12,7 +12,7 @@ Device42 Packet capture supports both individual and Promiscuous interfaces allo
 - A functioning Device42 MA _(destination for captured data), running v16.00.00+ or newer_
 - Network communication allowed from the machine you'll be capturing packets on to your Device42 MA.
 - An active network adapter connected to the target traffic capture network
-- If using **Windows**, a _WinPcap-compatible library (like_ [_npcap_](https://nmap.org/npcap/)_)_ must be installed - **_Be sure to select the option “install in API-Compatible mode”during setup!_**
+- If using **Windows**, a _WinPcap-compatible library (like_ [_npcap_](https://npcap.com/)_)_ must be installed - **_Be sure to select the option “install in API-Compatible mode”during setup!_**
 - If using **Linux**_, libpcap_ must be installed to support packet capture.
 - OPTIONAL: Promiscuous mode _\[aka ‘monitor’ mode\]_ enabled for the network and/or the interface of interest.
 

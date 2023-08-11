@@ -104,7 +104,7 @@ Type = asset type is required. Patch panel models must be created manually, this
 3. Click Import, the following message will appear _"Importing File Please Wait..."_ Upon completion, results of the import will be displayed
 4. the imported data can be viewed here: Devices | Assets | Assets
 
-\*Note: [Creating Patch Panel Models](https://docs.device42.com/patch-panels/creating-patch-panels-from-scratch-in-device42-an-example/#section-2)
+\*Note: [Creating Patch Panel Models](infrastructure-management/connectivity/patch-panels/creating-patch-panels-from-scratch-in-device42-an-example.md)
 
 ## Adding Assets to Racks
 

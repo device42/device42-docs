@@ -29,7 +29,7 @@ We use many different applications and tools on a day-to-day basis that have mad
 - **[WinSCP](https://winscp.net/eng/download.php)** Secure File Transfers - Windows
 - **[CyberDuck](https://cyberduck.io)** Secure File Transfers - Mac
 - **[Greenshot](https://getgreenshot.org/)** Advanced Screenshots - Windows
-- **[Shutter](http://shutter-project.org/)** Advanced Screenshots - Linux
+- **[Shutter](https://shutter-project.org/)** Advanced Screenshots - Linux
 
 ## Misc. Tips & Tricks
 

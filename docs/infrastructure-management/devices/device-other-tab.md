@@ -44,4 +44,4 @@ If this device has associated PDU ports, the ports would be shown here.
 
 Any files you have uploaded and/or associated with this device will be shown here.
 
-See also - managing [patch panels](infrastructure-management/connectivity/patch-panel-cable-management-definitions-and-legends-2.md) and [switch ports](infrastructure-management/ipam/switch-ports.md) in Device42
+See also - managing [patch panels](infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2.md) and [switch ports](infrastructure-management/ipam/switch-ports.md) in Device42
