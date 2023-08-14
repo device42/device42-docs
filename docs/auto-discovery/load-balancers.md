@@ -19,7 +19,7 @@ Save the SNMP job and schedule it to run or choose _Run Now_ from the SNMP dis
 
 ## Managed Resources Views
 
-Discovered F5 load balancers are included in the Managed Resources list. Select _Resources > Managed Resources_ from the Device42 menu to display the list. See the [Managed Resources](https://stagedocs.device42.com/managed-resources/) page for more information.
+Discovered F5 load balancers are included in the Managed Resources list. Select _Resources > Managed Resources_ from the Device42 menu to display the list. See the [Managed Resources](https://docs.device42.com/auto-discovery/resources/) page for more information.
 
 Click the _Vendor Resource Type_ filter drop-down and select _F5_ to display load balancer resources.
 

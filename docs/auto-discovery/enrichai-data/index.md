@@ -13,8 +13,8 @@ Payload: \[{"client\_id":"D42","client\_version":"999.99.99.9999999999","items":
 
 Note: The Main Appliance will need to be able to reach the following domains for cloud services to be registered.
 
-- - [https://crs.device42.io/](https://crs.device42.io/) 
-    - _[https://enrichai.device42.io/api/normalizations](https://enrichai.device42.io/api/normalizations)_
+- `https://crs.device42.io/`](https://crs.device42.io/) 
+    - `https://enrichai.device42.io/api/normalizations`
 
  
 

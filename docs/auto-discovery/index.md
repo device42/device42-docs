@@ -33,7 +33,7 @@ There exist special situations in which an agent simply makes more sense, and fo
 
 There are some edge cases where discovery is desired but the network _(or lack of network!)_ doesn’t allow communication back to the main Device42 appliance _(for a variety of reasons)_.
 
-Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Upload Utility](http://device42.s3.amazonaws.com/d42_uploadtool.zip?X-Amz-Expires=604794&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJIVJCNUSKR6MAOMQ/20190318/us-east-1/s3/aws4_request&X-Amz-Date=20190318T213954Z&X-Amz-SignedHeaders=host&X-Amz-Signature=ad5ce3a01cd88054a5a75465dacf9752c7793e66a5ef92e1555987f1131c10a4).
+Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
 
 ## Blade systems Discovery
 
@@ -87,7 +87,7 @@ SNMP Network discovery is covered in more detail at: [discovery/network-auto-dis
 
 ## Node data from Chef and Puppet
 
-Send Ohai node data from Chef server to Device42: [Sync node data from Chef](https://github.com/device42/chef_to_device42_sync_py) Sync puppet facts to Device42: [Script to sync Puppet nodes information](https://github.com/device42/puppet_to_device42_sync_py)
+Send Ohai node data from Chef server to Device42: Sync node data from Chef `https://github.com/device42/chef_to_device42_sync_py` Sync puppet facts to Device42: Script to sync Puppet nodes information `https://github.com/device42/puppet_to_device42_sync_py`
 
 Another Puppet integration script is available on [API Autodisc repo](https://github.com/device42/Device42-AutoDiscovery-Scripts) that reads the YAML factor files and populates inventory details in Device42 using the RESTful API.
 
