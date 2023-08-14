@@ -43,9 +43,9 @@ Once you click on the script file, you can click on download and save that file 
 ![wpid351-3.png](/assets/images/wpid351-3.png)
 
 **Edit the script and change these sections:**  
-`BASE\_URL:` This is the URL for your Device42 appliance - please make sure there is no trailing '/' at the end.  
+`BASE_URL:` This is the URL for your Device42 appliance - please make sure there is no trailing '/' at the end.  
 
-Example: `BASE\_URL='https://d42app.device42.pvt'`
+Example: `BASE_URL='https://d42app.device42.pvt'`
 
 USER & PASSWORD are the credentials for an Administrator who has access to log into the Device42 appliance.
 
