@@ -16,8 +16,8 @@ There are two simple reasons:
 
 ### Requirements:
 
-- Iron Python, available here: [https://ironpython.codeplex.com/releases/view/62475](https://ironpython.codeplex.com/releases/view/62475)
-- .Net 4 framework, available here: [https://www.microsoft.com/en-us/download/details.aspx?id=17851](https://www.microsoft.com/en-us/download/details.aspx?id=17851)
+- Iron Python, available here: [https://ironpython.net](https://ironpython.net/download/)
+- .Net 4 framework, available here: [https://www.microsoft.com/download/en/details.aspx?id=17851](https://www.microsoft.com/download/en/details.aspx?id=17851)
 - PowerShell. v1.0 or 2.0 (preferred)
 - Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-AutoDiscovery-Scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts)
 
@@ -43,9 +43,9 @@ Once you click on the script file, you can click on download and save that file 
 ![wpid351-3.png](/assets/images/wpid351-3.png)
 
 **Edit the script and change these sections:**  
-BASE\_URL: This is the URL for your Device42 appliance - please make sure there is no trailing '/' at the end.  
+`BASE\_URL:` This is the URL for your Device42 appliance - please make sure there is no trailing '/' at the end.  
 
-Example: _BASE\_URL='https://d42app.device42.pvt'_
+Example: `BASE\_URL='https://d42app.device42.pvt'`
 
 USER & PASSWORD are the credentials for an Administrator who has access to log into the Device42 appliance.
 

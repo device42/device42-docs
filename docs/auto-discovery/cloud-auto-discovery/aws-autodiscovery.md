@@ -72,8 +72,8 @@ Note that some Discovery items require enabling the feature and cannot be discov
 
 _**Regular Discovery**_
 
-- [sts.amazonaws.com](http://sts.amazonaws.com)
-- [organizations.us-east-1.amazonaws.com](http://organizations.us-east-1.amazonaws.com) _(Only if one of any of the available features is enabled.)_
+- [sts.amazonaws.com](https://sts.amazonaws.com)
+- `https://organizations.us-east-1.amazonaws.com` _(Only if one of any of the available features is enabled.)_
 
 _**K8s cluster endpoints access per K8s RBAC setup**_
 
@@ -81,7 +81,7 @@ _**K8s cluster endpoints access per K8s RBAC setup**_
 - /api/v1/nodes?watch=False
 - /api/v1/services?watch=False
 - /apis/apps/v1/deployments?watch=False OR /apis/extensions/v1beta1/deployments?watch=False (depends on k8s version)
-- /apis/[networking.k8s.io/v1beta1/ingresses?watch=False](http://networking.k8s.io/v1beta1/ingresses?watch=False) OR /apis/extensions/v1beta1/ingresses?watch=False (depends on k8s version)
+- /apis/networking.k8s.io/v1beta1/ingresses?watch=False OR /apis/extensions/v1beta1/ingresses?watch=False (depends on k8s version)
 
 _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
 
@@ -89,30 +89,30 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
 {
 
     "Version": "2012-10-17",
-    "Statement": \[
+    "Statement": [
 
         {
                    "Effect": "Allow",
-                   "Action": \[
+                   "Action": [
                        "acm:DescribeCertificate",
-                       "acm:List\*",
+                       "acm:List*",
                        "dynamodb:DescribeLimits",
                        "dynamodb:ListTables",
                        "dynamodb:ListGlobalTables",
                        "dynamodb:DescribeTable",
                        "dynamodb:DescribeGlobalTable",
-                       "lambda:List\*",
+                       "lambda:List*",
                        "lambda:GetFunction",
                        "lambda:GetAccountSettings",
                        "organizations:ListRoots",
                        "organizations:ListAccountsForParent",
                        "organizations:ListOrganizationalUnitsForParent",
                        "organizations:DescribeAccount",
-                       "autoscaling:Describe\*",
+                       "autoscaling:Describe*",
                        "logs:DescribeLogStreams",  
                        "cloudwatch:GetMetricData",
                        "cloudwatch:GetMetricStatistics",
-                       "cloudwatch:Describe\*",  
+                       "cloudwatch:Describe*",  
                        "route53:ListHostedZones",
                        "route53:ListTagsForResource",
                        "cloudwatch:ListMetrics",
@@ -121,8 +121,8 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
                        "elasticfilesystem:DescribeAccessPoints",
                        "elasticfilesystem:DescribeAccountPreferences",
                        "elasticfilesystem:DescribeMountTargets",
-                       "ec2:Describe\*",
-                       "rds:Describe\*",
+                       "ec2:Describe*",
+                       "rds:Describe*",
                        "rds:ListTagsForResource",
                        "redshift:DescribeClusters",
                        "redshift:DescribeReservedNodes",
@@ -144,10 +144,10 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
                        "eks:DescribeCluster"  
                        "config:SelectResourceConfig"  
                        "s3:GetEncryptionConfiguration"
-            \],
-            "Resource": "\*"
+            ],
+            "Resource": "*"
         }
-    \]
+    ]
 }
 ```
 * * *

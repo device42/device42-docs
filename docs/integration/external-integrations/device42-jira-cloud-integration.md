@@ -53,7 +53,7 @@ For the new version of the integration, D42 15.11.01+, specify: `https://connect
     
     ### Device42 - Jira Service Desk / Jira Cloud ITSM Integration Interface Overview
     
-    Once the Device42 CMDB for Jira Service Desk integration has been installed, you will see a new entry for _"Jira - Your Jira instance name"_ at the bottom of your Device42 Assets pages (e.g. "Jira - https://d42assets.atlassian.net" below):
+    Once the Device42 CMDB for Jira Service Desk integration has been installed, you will see a new entry for _"Jira - Your Jira instance name"_ at the bottom of your Device42 Assets pages (e.g. `Jira - https://d42assets.atlassian.net` below):
     
     ![Jira Service Desk tickets on Device42 Asset](/assets/images/Jira-integration-interface-on-D42-Asset-HL.png)
     
