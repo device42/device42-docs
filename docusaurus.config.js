@@ -1103,14 +1103,7 @@ const config = {
             position: 'left',
           },
 
-          {
-            type: 'html',
-            position: 'right', value:
-              `<a href=# class=navbar__link data-fr-widget>
-                Page feedback
-              </a>`
-          },
-          {
+         {
             href: 'https://www.device42.com/device42-product/',
             label: 'Product',
             position: 'right',
@@ -1130,7 +1123,15 @@ const config = {
             label: 'Company',
             position: 'right',
           },
-        ],
+          {
+            type: 'html',
+            position: 'right', value:
+              `<a href=# class=navbar__link data-fr-widget>
+                Page feedback
+              </a>`,
+
+          },
+         ],
       },
       prism: {
         theme: lightCodeTheme,
