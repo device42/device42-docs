@@ -13,6 +13,18 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+
+  // Load the Feedback Rocket SDK on every page
+  scripts: [
+    {
+      async: true,
+      src: 'https://www.feedbackrocket.io/sdk/v1.1.js',
+      'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
+      'data-fr-reply': "",
+      'data-fr-theme': 'dynamic',
+    }
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -1051,7 +1063,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           editUrl:
-            'https://github.com/device42/device42-docs/blob/main/',
+            'https://github.com/device42/device42-docs/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -1090,7 +1102,8 @@ const config = {
             label: 'Documentation',
             position: 'left',
           },
-          {
+
+         {
             href: 'https://www.device42.com/device42-product/',
             label: 'Product',
             position: 'right',
@@ -1110,7 +1123,15 @@ const config = {
             label: 'Company',
             position: 'right',
           },
-        ],
+          {
+            type: 'html',
+            position: 'right', value:
+              `<a href=# class=navbar__link data-fr-widget>
+                Page feedback
+              </a>`,
+
+          },
+         ],
       },
       prism: {
         theme: lightCodeTheme,

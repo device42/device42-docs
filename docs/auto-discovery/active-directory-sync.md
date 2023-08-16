@@ -32,7 +32,7 @@ To begin, you'll want to configure the Active Directory Settings in Device42. Th
 - **SSL**: Check this box if you want to query AD or LDAP using SSL. _Be sure to change the port to 636 or your configured SSL port if you check this box!_
 - **Username/Password**: This is the user/pw that will be used for authentication against AD
 - **Username login Style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. **WARNING**: changing this setting only affects users imported after the settings change. To change account & logon format for all users, delete existing D42 accounts, change the setting, and _then_ re-sync accounts from AD.
-- **Netbios name**: NETBIOS name is an up-to-15-character representation (sometimes shortened) of your domain name, and _can and may actually be entirely different_ from the domain name. [Click for help locating domain's NETBIOS name.](https://smallcitydesign.com/netbios-name/)
+- **Netbios name**: NETBIOS name is an up-to-15-character representation (sometimes shortened) of your domain name, and _can and may actually be entirely different_ from the domain name. [Click for help locating domain's NETBIOS name.](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help)
 3. Once you've configured the AD/LDAP settings here, proceed to creating an AD/LDAP sync job \[main menu -> Discovery -> Active Directory/LDAP settings\] to configure user import and run an initial sync, as discussed in the next section.
 
 ## Configure an Active Directory / LDAP User Discovery Job
