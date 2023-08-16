@@ -1063,7 +1063,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           editUrl:
-            'https://github.com/device42/device42-docs/blob/main/',
+            'https://github.com/device42/device42-docs/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
