@@ -1,4 +1,7 @@
-## How to submit feedback for Device42 Documentation
+---
+title: "How to submit feedback for Device42 Documentation"
+sidebar_position: 100
+---
 
 At Device42 we strive for accurate, clear and informative documentation. If you encounter issues with the content or functionality of our documentation, please let us know. Your feedback ensures that our documentation remains a reliable resource.
 
@@ -10,42 +13,49 @@ You can alert us to a concern in two ways:
 
 This option is suitable for general reporting including comments and compliments! You can alert us to issues such as broken links, missing images, documentation requests, and more.
 
-Click the "Page feedback" tab at the top of the documentation page. Describe the issue that you encountered in the form that opens. Remember to include the URL or title of the article where you found the issue, if applicable.
+Click the "Page feedback" tab at the top of the documentation page. Describe your issue or concern in the window that opens. Remember to include the URL or title of the article where you encountered the issue.
 
 ![](/assets/images/feedback_widget.png)
 
-If you'd like us to let you know when we've made the necessary changes you've suggested, please include your email address.
+If you'd like us to let you know when we've implemented your suggestions, please include your email address.
 
-### How do I edit the document on Github?
+### How do I edit a document on Github?
 
-In this section we'll outline how to locate the document to edit, make changes to different aspects of the file, and submit those changes by opening a Pull Request. 
+This option is suitable if you're able to make changes to the documentation yourself. After editing to the documentation you'll submit it to us by creating a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) on Github. We'll then review your proposed changes before making them live on our website.
 
-### How to find the markdown file
-
-This option is suitable if you're able to make changes to the documentation yourself. After editing to the documentation you'll submit it to us by opening a Pull Request on Github. We'll then review the proposed changes before implementing it on our website.
-
-1. Sign in to [GitHub](https://github.com/login) and go to the [Device42 documentation](https://github.com/device42/device42-docs) repository.
-2. Make a copy of the repository by clicking on the "Fork" button and then click on "Create fork". By forking the repository you create a copy of it that you can make changes to without affecting the original.
+To get started, click on the "Edit this page" link on the document you want to edit.
 
 ![](/assets/images/feedback_fork_repo.png)
 
+You'll be prompted to sign in to [GitHub](https://github.com/login) if you're not already logged in to Github on your browser. Once you're signed in you'll be directed to [Device42's documentation](https://github.com/device42/device42-docs) repository. 
+
+Next make your own copy of the Device42 document repository by clicking on the "Fork" button.  By 'forking' the repository you create a copy that you can safely make changes to without affecting the original.
+
+![](/assets/images/feedback_fork_repo.png)
+
+In the next dialog box that opens click on "Create fork".
+
 ![](/assets/images/feedback_fork_repo_create.png)
 
-3. Open the "Docs" folder to locate the [markdown](https://www.markdownguide.org/getting-started/) file of the document you want to edit. Markdown files end with the `.md` extension. Note that the folder structure of the repository matches that on the website.
+### Opening a pull request if you've forked the Device42 documentation before.
 
-![](/assets/images/feedback_docs_folder.png)
+If you've previously forked Device42's documentation and are signed into Github on your browser, you'll be directed to Device42's repository on GitHub when clicking the "Edit this page" link. 
 
-In this example, we selected `installation-virtual-box.md` from the `docs/getstarted/installation` location. Clicking it opens a preview view of the file to the right-hand side.
+In this case, after clicking "commit changes..." in edit mode you'll see the "you can’t commit to main because it is a protected branch" message on the "Propose changes" modal window. 
 
-![](/assets/images/feedback_locate_md.png)
+![](/assets/images/feedback_existing_repo.png)
+
+You can still click on the "Propose changes" button to create a pull request. However, you'll be directed to create a pull request targeting your repository instead of Device42's repository. To rectify this, click on "compare across forks" and in the "base repository" dropdown menu select `device42/device42-docs` before creating the pull request.
+
+![](/assets/images/feedback_choose_base_repo.png)
 
 ### How to make changes to the markdown file
 
-Open the editing mode by clicking on the pen icon on the top-right of the preview view to get started.
+If you're not in "Edit" mode already, enter it by clicking the pen icon on the top-right of the preview view.
 
 ![](/assets/images/feedback_edit_mode.png)
 
-You'll notice that markdown files have syntax to format the text, add links, and add images. We'll outline how to make changes to each of these.
+[Markdown](https://www.markdownguide.org/getting-started/) are plain text documents with specific syntax to format text and add links and images. We'll outline how to add text, bullet points, and work with link and image syntax.
 
 In this example, we've added some text to the document.
 
@@ -61,7 +71,7 @@ Images begin with an exclamation mark (`!`) followed by [alt text](https://www.w
 
 ![](/assets/images/feedback_link_image_example.png)
 
-Device42 main headings are preceded with `##` and secondary headings with `###`. Text written between `**` is **bold** and text between the `_` symbols are _italicized_. 
+In addition, note that Device42 main headings are preceded with `##` and secondary headings with `###`. Text written between `**` is **bold** and text between the `_` symbols are _italicized_. Sections are demarcated with `* * *` before and after the section's content.
 
 Visit [markdownguide.org](https://www.markdownguide.org/cheat-sheet/) for more information on markdown syntax.
 
@@ -89,9 +99,11 @@ Once you're done editing you'll need to commit your changes before opening a pul
 
     ![](/assets/images/feedback_choose_base_repo.png)
 
-6. Create a pull request by clicking on "create pull request" and click on "create pull request" again in the dialog box that opens next. 
+6. Create a pull request by clicking on "create pull request". 
 
     ![](/assets/images/feedback_create_pr.png)
+
+You'll be prompted to click on "create pull request" again in the dialog box that opens next. 
 
     ![](/assets/images/feedback_create_pr_2.png)
 
@@ -101,4 +113,4 @@ Once you're done editing you'll need to commit your changes before opening a pul
 
 For more information about Github's fork and pull model refer to the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models). If you need more assistance please [contact us](https://www.device42.com/contact/).
 
-Thank you for helping us to improve our documentation and enhance the experience for everyone using our documentation. We truly appreciate your active involvement in our journey toward excellence.
+Thank you for helping us to improve our documentation and enhance the experience for everyone using our documentation.
