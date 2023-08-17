@@ -19,15 +19,15 @@ Click the "Page feedback" tab at the top of the documentation page. Describe you
 
 If you'd like us to let you know when we've implemented your suggestions, please include your email address.
 
-### How do I edit a document on Github?
+### How do I edit a document on GitHub?
 
-This option is suitable if you're able to make changes to the documentation yourself. After editing to the documentation you'll submit it to us by creating a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) on Github. We'll then review your proposed changes before making them live on our website.
+This option is suitable if you're able to make changes to the documentation yourself. After editing to the documentation you'll submit it to us by creating a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) on GitHub. We'll then review your proposed changes before making them live on our website.
 
 To get started, click on the "Edit this page" link on the document you want to edit.
 
-![](/assets/images/feedback_fork_repo.png)
+![](/assets/images/feedback_editing_link.png)
 
-You'll be prompted to sign in to [GitHub](https://github.com/login) if you're not already logged in to Github on your browser. Once you're signed in you'll be directed to [Device42's documentation](https://github.com/device42/device42-docs) repository. 
+You'll be prompted to sign in to [GitHub](https://github.com/login) if you're not already logged in to GitHub on your browser. Once you're signed in you'll be directed to [Device42's documentation](https://github.com/device42/device42-docs) repository. 
 
 Next make your own copy of the Device42 document repository by clicking on the "Fork" button.  By 'forking' the repository you create a copy that you can safely make changes to without affecting the original.
 
@@ -39,7 +39,7 @@ In the next dialog box that opens click on "Create fork".
 
 ### Opening a pull request if you've forked the Device42 documentation before.
 
-If you've previously forked Device42's documentation and are signed into Github on your browser, you'll be directed to Device42's repository on GitHub when clicking the "Edit this page" link. 
+If you've previously forked Device42's documentation and are signed into GitHub on your browser, you'll be directed to Device42's repository on GitHub when clicking the "Edit this page" link. 
 
 In this case, after clicking "commit changes..." in edit mode you'll see the "you can’t commit to main because it is a protected branch" message on the "Propose changes" modal window. 
 
@@ -81,36 +81,36 @@ Once you're done editing you'll need to commit your changes before opening a pul
 
 1. Review the changes you've made by entering the Preview mode.
 
-    ![](/assets/images/feedback_preview_changes.png)
+![](/assets/images/feedback_preview_changes.png)
 
 2. Click on the "Commit changes" button.
 
-    ![](/assets/images/feedback_commit_changes.png)
+![](/assets/images/feedback_commit_changes.png)
 
 3. In the modal window that opens you can describe the changes you made. Then select the "Create a **new branch** for this commit and start a pull request" option. Name your branch in the text field below. Note that have to be separated using dashes `-`. Click on propose changes to continue.
 
-    ![](/assets/images/feedback_propose_changes.png)
+![](/assets/images/feedback_propose_changes.png)
 
 4. It's important to create a pull request to the main branch of _Device42's repository_ and not to your own forked copy. Click on the "compare across forks" link on the "Comparing changes" page.
 
-    ![](/assets/images/feedback_compare_across_forks.png)
+![](/assets/images/feedback_compare_across_forks.png)
 
 5. Change the "base repository" from your forked repository to `device42/device42-docs`.
 
-    ![](/assets/images/feedback_choose_base_repo.png)
+![](/assets/images/feedback_choose_base_repo.png)
 
 6. Create a pull request by clicking on "create pull request". 
 
-    ![](/assets/images/feedback_create_pr.png)
+![](/assets/images/feedback_create_pr.png)
 
 You'll be prompted to click on "create pull request" again in the dialog box that opens next. 
 
-    ![](/assets/images/feedback_create_pr_2.png)
+![](/assets/images/feedback_create_pr_2.png)
 
 7. You'll see the details of your now open pull request including its number (#48 in the example). Your proposed changes will be reviewed by our team before going through an internal test environment. Once successful your changes will be publicly visible.
 
-    ![](/assets/images/feedback_open_pr.png)
+![](/assets/images/feedback_open_pr.png)
 
-For more information about Github's fork and pull model refer to the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models). If you need more assistance please [contact us](https://www.device42.com/contact/).
+For more information about GitHub's fork and pull model refer to the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models). If you need more assistance please [contact us](https://www.device42.com/contact/).
 
 Thank you for helping us to improve our documentation and enhance the experience for everyone using our documentation.
