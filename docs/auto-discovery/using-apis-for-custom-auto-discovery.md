@@ -35,7 +35,7 @@ The remainder of this document will show an example of how to use one of these s
 - PowerShell. v1 or 2(preferred)
 - Device42 sample scripts, latest version available here(under src folder): [https://github.com/device42/Device42-AutoDiscovery-Scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts)
 
-![1. Install IronPython Binaries](/assets/images/wpid2786-1._Install_IronPython_Binaries.png)
+![1. Install IronPython](/assets/images/install_ironpython.png)
 
 Assuming that you have Powershell and the .Net 4 framework installed already, you can just download the Installer or Binaries for IronPython. We suggest the binaries because you can just unzip the folder and you are ready to go.
 
