@@ -1,23 +1,11 @@
 ---
-title: "How To Submit Feedback on Device42 Documentation"
+title: "How To Contribute Documentation Fixes "
 sidebar_position: 100
 ---
 
-At Device42, we strive for accurate, clear, informative documentation. If you encounter issues with the content or functionality of our documentation, please let us know. Your feedback ensures that our documentation remains a reliable resource.
+If you notice a problem in the Device42 documentation that you know how to fix, we appreciate contributions! Here's how you can submit edits to our open source GitHub repository.
 
-You can alert us to a problem or error in one of two ways:
-- Provide feedback describing the problem from our feedback widget on our docs site.
-- Edit the documentation on GitHub.
-
-### How Do I Provide Feedback Using the Device42 Feedback Widget?
-
-Use the Device42 feedback widget on our docs site for general reporting, including comments and compliments! You can alert us to issues such as broken links or missing images, or make a request for documentation.
-
-From the documentation page you want to comment on, click "Page feedback" in the navigation bar. In the window that opens, describe the issue or make a comment in the text field.
-
-![](/assets/images/feedback_open_widget.png)
-
-If you'd like to, you can include your email address.
+If you see a problem but you're not sure how to fix it, or don't have the time, hit [the feedback button](./how-to-submit-documentation-feedback.md) at the top of each page and our team will address it!
 
 ### How Do I Edit a Document on GitHub?
 
