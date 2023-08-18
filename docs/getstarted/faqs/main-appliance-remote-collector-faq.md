@@ -24,10 +24,10 @@ Yes, just as in the past, when you download the MA update, it will subsequently 
 
 ## What if I’m on a much older version of the MA?
 
-If you’re more than three or four versions behind our current Main Appliance release (the website will give the specific cut off point), you will need to contact support for upgrade assistance.
+If you’re more than three or four versions behind our current Main Appliance release (the website will give the specific cut-off point), you will need to contact support for upgrade assistance.
 
 If you’re less than three versions behind, downloading the new MA file will bring you fully up to date.
 
 ## If I am on the latest MA release, how do I update my Remote Collectors?
 
-This update will need to be pushed via the Appliance Manager once you have the upgrade file. Step by step instructions can be found here: [https://docs.device42.com/getstarted/faqs/](getstarted/faqs/index.md).
+This update will need to be pushed via the Appliance Manager once you have the upgrade file. Step-by-step instructions can be found here: [https://docs.device42.com/getstarted/faqs/](getstarted/faqs/index.md).
