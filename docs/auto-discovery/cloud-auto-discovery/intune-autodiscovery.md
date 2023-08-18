@@ -46,7 +46,7 @@ Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
 - **Name** – name for the discovery job.
 - **VRF Group** – select or add a VRF group.
 - **Remote Collector** – select the RC to use for the job.
-- **URL** – enter the URL for the job (for example: `https://login.microsoftonline.com/\[tenant domain or ID\]`).
+- **URL** – enter the URL for the job (for example: `https://login.microsoftonline.com/[tenant domain or ID]).
 - **Client ID** – enter or add the client ID secret for the job.
 - **Client Credential** – enter or add the client credential secret for the job.
 - **Strip domain name** – strip the domain suffix from discovered device names (yes/no).
