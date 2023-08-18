@@ -1,0 +1,19 @@
+---
+title: "How To Submit Feedback on Device42 Documentation"
+sidebar_position: 99
+---
+
+At Device42, we strive for accurate, clear, informative documentation. If you encounter issues with the content or functionality of our documentation, please let us know. Your feedback ensures that our documentation remains a reliable resource.
+
+If you know exactly what change needs to be made, you can [contribute edits directly](./how-to-contribute-documentation-fixes.md).
+
+### How Do I Provide Feedback Using the Device42 Feedback Widget?
+
+Use the Device42 feedback widget on our docs site for general reporting, including comments and compliments! You can alert us to issues such as broken links or missing images, or make a request for documentation.
+
+From the documentation page you want to comment on, click "Page feedback" in the navigation bar. In the window that opens, describe the issue or make a comment in the text field.
+
+![](/assets/images/feedback_open_widget.png)
+
+If you'd like to, you can include your email address, in which case we'll let you know once we've addressed the problem.
+
