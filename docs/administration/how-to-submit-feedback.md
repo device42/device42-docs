@@ -15,13 +15,13 @@ Use the Device42 feedback widget on our docs site for general reporting, includi
 
 From the documentation page you want to comment on, click "Page feedback" in the navigation bar. In the window that opens, describe the issue or make a comment in the text field.
 
-![](/assets/images/feedback_widget.png)
+![](/assets/images/feedback_open_widget.png)
 
 If you'd like to, you can include your email address.
 
 ### How Do I Edit a Document on GitHub?
 
-To edit a document in GitHub, you can create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) with your changes, and we'll review them before making them live on our website.
+To edit a document on GitHub, you can create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) with your changes, and we'll review them before making them live on our website.
 
 Start by clicking the "Edit this page" link at the bottom of the documentation page you want to edit.
 
