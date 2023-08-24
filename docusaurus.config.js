@@ -1126,7 +1126,7 @@ const config = {
           {
             type: 'html',
             position: 'right', value:
-              `<a href=# class=navbar__link data-fr-widget>
+              `<a href=# class=navbar__button data-fr-widget>
                 Page feedback
               </a>`,
 
