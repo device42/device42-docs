@@ -82,5 +82,7 @@ main {
 .navbar__button:hover {
   color: white;
   background-color: var(--ifm-color-primary-light);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.85;
 }
-
