@@ -3,6 +3,9 @@ title: "How To Submit Feedback on Device42 Documentation"
 sidebar_position: 99
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 At Device42, we strive for accurate, clear, informative documentation. If you encounter issues with the content or functionality of our documentation, please let us know. Your feedback ensures that our documentation remains a reliable resource.
 
 If you know exactly what change needs to be made, you can [contribute edits directly](./how-to-contribute-documentation-fixes.md).
@@ -13,7 +16,13 @@ Use the Device42 feedback widget on our docs site for general reporting, includi
 
 From the documentation page you want to comment on, click "Page feedback" in the navigation bar. In the window that opens, describe the issue or make a comment in the text field.
 
-![](/assets/images/feedback_open_widget.png)
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/feedback-widget-light.png'),
+    dark: useBaseUrl('/assets/images/feedback-widget-dark.png'),
+  }}
+/>;
 
 If you'd like to, you can include your email address, in which case we'll let you know once we've addressed the problem.
 
