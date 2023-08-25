@@ -69,7 +69,7 @@ If you need help with this integration, please contact **_Device42 Support_** us
 1. From the Device42 Dashboard, select **Tools > Settings > Global Settings**.
 2. Select the **Edit** button on the top right of the page.
 3. Scroll to the bottom of the form to the section labeled **External Integration Settings**.
-4. Fill in the information in this section starting with the **D42 URL for SaaS apps.** This field will contain the URL of your Device42 instance (e.g., https://192.168.92.130/).
+4. Fill in the information in this section starting with the **D42 URL for SaaS apps.** This field will contain the URL of your Device42 instance (e.g., `https://192.168.92.130/`).
 5. Fill in the **Company Name** and **Email**. The email entered will be used as a contact for any integration-related incidents.
 6. Select the **USA** option from the **Cloud Connector** drop down list if this is the region closest to you, otherwise select **Europe (ServiceNow Only)**.
 7. Select the **Save** button on the bottom right of the page; the page will reload.

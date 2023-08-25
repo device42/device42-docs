@@ -66,3 +66,22 @@ main {
     width: 70% !important;
   }
 }
+
+.navbar__button {
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: nowrap;
+  background-color: var(--ifm-color-primary-light);
+  color: white;
+
+  border-radius: var(--ifm-global-radius);
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+.navbar__button:hover {
+  color: white;
+  background-color: var(--ifm-color-primary-light);
+  text-decoration: none;
+  opacity: 0.85;
+}

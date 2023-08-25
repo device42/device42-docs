@@ -172,7 +172,7 @@ To configure SAML2 integration between OneLogin and Device42, you have to create
 
 **In Device42 Appliance Manager Configuration**
 
-Login to Device42 Appliance Manager, [https://yourdevice42address:4343](https://yourdevice42address:4343/ "https://yourdevice42address:4343/"), and go to the SAML 2.0 settings on the left, then set the Metadata url you obtained above.
+Login to Device42 Appliance Manager, `https://yourdevice42address:4343`, and go to the SAML 2.0 settings on the left, then set the Metadata url you obtained above.
 
 ![](/assets/images/D42-26961_saml_config_10.jpg)
 
@@ -217,7 +217,7 @@ Now you can log into Device42 using the OneLogin account.
 
 ### Device42 Appliance Manager Configuration
 
-Login to Device42 Appliance Manager, https://yourdevice42address:4343, and go to the SAML 2.0 settings on the left, then set the Metadata url you obtained above. Set the "username" field to match the value you saved in the SAML configuration.
+Login to Device42 Appliance Manager, `https://yourdevice42address:4343`, and go to the SAML 2.0 settings on the left, then set the Metadata url you obtained above. Set the "username" field to match the value you saved in the SAML configuration.
 
 ![](/assets/images/D42-26961_saml_config_10.jpg)
 
