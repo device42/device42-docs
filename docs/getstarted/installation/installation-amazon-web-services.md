@@ -2,9 +2,6 @@
 title: "Amazon Web Services - Installation"
 sidebar_position: 1
 ---
-
-![Device42 on AWS](/assets/images/Device42-on-AWS-2019.png)
-
 ## Device42 on AWS FAQ
 
 ### Costs/Licensing
