@@ -1,5 +1,5 @@
 ---
-title: "Device42 Public-Facing Deployment Best Practices & Recommendations"
+title: "Device42 Deployment Best Practices & Recommendations"
 ---
 
 ## Device42 Application Hardening
