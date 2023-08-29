@@ -1025,6 +1025,10 @@ const config = {
             from: ['/accounting/'],
           },
           {
+            to: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
+            from: ['/getstarted/getting-started-with-auto-discovery/'],
+          },
+          {
             to: '/how-to-videos/add-a-new-route-to-device42/',
             from: ['/how-to-videos/add-a-route-to-device42/'],
           },
