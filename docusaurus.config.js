@@ -174,7 +174,7 @@ const config = {
           },
           {
             to: '/getstarted/',
-            from: ['/administration/tools-of-the-trade/'],
+            from: ['/tools/tools-of-the-trade/', '/administration/tools-of-the-trade/'],
           },
           {
             to: '/administration/active-directory-and-openldap-support/',
@@ -231,10 +231,6 @@ const config = {
           {
             to: '/administration/tags/',
             from: ['/tools/tags/'],
-          },
-          {
-            to: '/administration/tools-of-the-trade/',
-            from: ['/tools/tools-of-the-trade/'],
           },
           {
             to: '/administration/transferring-devices-assets-and-parts-to-other-data-centers/',
@@ -1037,8 +1033,8 @@ const config = {
             from: ['/how-to-videos/ping-sweep-tool-how-to/'],
           },
           {
-            to: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
-            from: ['/getstarted/getting-started-with-auto-discovery/'],
+            to: '/getstarted/getting-started-with-auto-discovery/',
+            from: ['/how-to-videos/agentless-auto-discovery-tool-how-to/'],
           },
           {
             to: '/how-to-videos/add-a-new-route-to-device42/',
