@@ -169,6 +169,10 @@ const config = {
             from: ['/software/application-components/'],
           },
           {
+            to: '/getstarted/',
+            from: ['/administration/tools-of-the-trade/'],
+          },
+          {
             to: '/administration/active-directory-and-openldap-support/',
             from: ['/tools/active-directory-and-openldap-support/'],
           },
@@ -1026,7 +1030,7 @@ const config = {
           },
           {
             to: '/auto-discovery/d42-ping-sweep/',
-            from: ['how-to-videos/ping-sweep-tool-how-to/'],
+            from: ['/how-to-videos/ping-sweep-tool-how-to/'],
           },
           {
             to: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
