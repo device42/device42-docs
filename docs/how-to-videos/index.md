@@ -24,7 +24,6 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 - [Generic (.CSV) Import Tool How to](how-to-videos/generic-csv-import-tool-how-to.md)
 - [Jira Integration How To](how-to-videos/jira-integration-how-to.md)
 - [Packet Capture 101](how-to-videos/packet-capture-101.md)
-- [Ping Sweep Tool How To](how-to-videos/ping-sweep-tool-how-to.md)
 - [Update Device42 Appliance How To](how-to-videos/update-device42-appliance-how-to.md)
 - [WMI Authentication Testing Tool How To](how-to-videos/wmi-authentication-testing-tool-how-to.md)
 

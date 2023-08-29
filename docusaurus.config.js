@@ -1025,6 +1025,10 @@ const config = {
             from: ['/accounting/'],
           },
           {
+            to: '/auto-discovery/d42-ping-sweep/',
+            from: ['how-to-videos/ping-sweep-tool-how-to/'],
+          },
+          {
             to: '/how-to-videos/agentless-auto-discovery-tool-how-to/',
             from: ['/getstarted/getting-started-with-auto-discovery/'],
           },
