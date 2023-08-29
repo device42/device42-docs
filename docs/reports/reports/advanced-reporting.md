@@ -3,6 +3,10 @@ title: "Advanced Reporting"
 sidebar_position: 2
 ---
 
+:::danger
+TO BE DEPRECATED.
+:::
+
 ## Advanced Reporting Engine Overview
 
 Device42's Advanced Reporting engine is a quantum leap forward in functionality. It is a fully incorporated, schedulable BI/reporting platform that lets you create both ad-hoc reports that may include visualizations, and export the output in different formats as desired. A changing selection of pre-defined reports is included with Advanced Reporting, while an unlimited number may be added under "User-Defined" reports, exported, imported, and shared!
