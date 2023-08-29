@@ -13,7 +13,6 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 - [Add a new route to Device42](how-to-videos/add-a-new-route-to-device42.md)
 - [Add and Bulk Edit Hardware models How to](how-to-videos/add-and-bulk-edit-hardware-models-how-to.md)
 - [Adding links and other URLs to devices](how-to-videos/adding-links-and-other-urls-to-devices.md)
-- [Agentless Auto Discovery Tool How to](how-to-videos/agentless-auto-discovery-tool-how-to.md)
 - [API Imports – add/create hardware models](how-to-videos/api-imports-add-create-hardware-models.md)
 - [API Imports – adding devices to racks](how-to-videos/api-imports-adding-devices-to-racks.md)
 - [Backup and Restore How to](how-to-videos/backup-and-restore-how-to.md)
@@ -25,7 +24,6 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 - [Generic (.CSV) Import Tool How to](how-to-videos/generic-csv-import-tool-how-to.md)
 - [Jira Integration How To](how-to-videos/jira-integration-how-to.md)
 - [Packet Capture 101](how-to-videos/packet-capture-101.md)
-- [Ping Sweep Tool How To](how-to-videos/ping-sweep-tool-how-to.md)
 - [Update Device42 Appliance How To](how-to-videos/update-device42-appliance-how-to.md)
 - [WMI Authentication Testing Tool How To](how-to-videos/wmi-authentication-testing-tool-how-to.md)
 

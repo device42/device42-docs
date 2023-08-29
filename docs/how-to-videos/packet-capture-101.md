@@ -7,6 +7,8 @@ sidebar_position: 16
 
 **If you'd prefer written instructions for Packet Capture, see [the Packet Capture documentation page here.](auto-discovery/packet-capture.md)**
 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=y1U37Xc9V2k" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 With Device42 Packet Capture you can discover service communications happening in real-time for any service listeners known to Device42. By listening directly to all network communications, you'll easily discover communications that happen infrequently.
 
 <script src="https://fast.wistia.com/embed/medias/pz35w51w8t.jsonp" async></script>
@@ -25,4 +27,4 @@ With Device42 Packet Capture you can discover service communications happening i
 - If using Linux, libpcap must be installed to support packet capture.
 - OPTIONAL: Promiscuous mode \[aka ‘monitor’ mode\] enabled for the network and/or the interface of interest.
 
-  You can also watch [Packet Capture 101 on on YouTube](https://www.youtube.com/watch?v=y1U37Xc9V2k).
+

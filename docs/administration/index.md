@@ -22,7 +22,6 @@ sidebar_position: 1
 - [Setting Time Zone and NTP](administration/setting-time-zone-and-ntp.md)
 - [Setup & Troubleshooting Menu](administration/console-menu.md)
 - [Tags](administration/tags.md)
-- [Tools of the Trade](administration/tools-of-the-trade.md)
 - [Transferring devices, assets, and parts to other data centers](administration/transferring-devices-assets-and-parts-to-other-data-centers.md)
 - [Appliance Manager](administration/appliance-manager/index.md)
     - [Adding multiple Network Interface Cards(NIC) to Device42 VM](administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.md)

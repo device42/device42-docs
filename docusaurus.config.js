@@ -41,8 +41,12 @@ const config = {
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
           },
           {
-            to: '/getstarted/public-deployment-best-practices/',
-            from: ['/public-deployment-best-practices/'],
+            to: '/administration/main-appliance-remote-collector-faq/',
+            from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
+          },
+          {
+            to: '/getstarted/deployment-best-practices/',
+            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
           },
           {
             to: '/getstarted/installation/installation-microsoft-hyperv/',
@@ -169,6 +173,10 @@ const config = {
             from: ['/software/application-components/'],
           },
           {
+            to: '/getstarted/',
+            from: ['/tools/tools-of-the-trade/', '/administration/tools-of-the-trade/'],
+          },
+          {
             to: '/administration/active-directory-and-openldap-support/',
             from: ['/tools/active-directory-and-openldap-support/'],
           },
@@ -223,10 +231,6 @@ const config = {
           {
             to: '/administration/tags/',
             from: ['/tools/tags/'],
-          },
-          {
-            to: '/administration/tools-of-the-trade/',
-            from: ['/tools/tools-of-the-trade/'],
           },
           {
             to: '/administration/transferring-devices-assets-and-parts-to-other-data-centers/',
@@ -1023,6 +1027,14 @@ const config = {
           {
             to: '/infrastructure-management/accounting/',
             from: ['/accounting/'],
+          },
+          {
+            to: '/auto-discovery/d42-ping-sweep/',
+            from: ['/how-to-videos/ping-sweep-tool-how-to/'],
+          },
+          {
+            to: '/getstarted/getting-started-with-auto-discovery/',
+            from: ['/how-to-videos/agentless-auto-discovery-tool-how-to/'],
           },
           {
             to: '/how-to-videos/add-a-new-route-to-device42/',
