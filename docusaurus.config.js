@@ -41,8 +41,12 @@ const config = {
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
           },
           {
-            to: '/getstarted/public-deployment-best-practices/',
-            from: ['/public-deployment-best-practices/'],
+            to: '/administration/main-appliance-remote-collector-faq/',
+            from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
+          },
+          {
+            to: '/getstarted/deployment-best-practices/',
+            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
           },
           {
             to: '/getstarted/installation/installation-microsoft-hyperv/',
