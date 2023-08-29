@@ -13,7 +13,6 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 - [Add a new route to Device42](how-to-videos/add-a-new-route-to-device42.md)
 - [Add and Bulk Edit Hardware models How to](how-to-videos/add-and-bulk-edit-hardware-models-how-to.md)
 - [Adding links and other URLs to devices](how-to-videos/adding-links-and-other-urls-to-devices.md)
-- [Agentless Auto Discovery Tool How to](how-to-videos/agentless-auto-discovery-tool-how-to.md)
 - [API Imports – add/create hardware models](how-to-videos/api-imports-add-create-hardware-models.md)
 - [API Imports – adding devices to racks](how-to-videos/api-imports-adding-devices-to-racks.md)
 - [Backup and Restore How to](how-to-videos/backup-and-restore-how-to.md)
