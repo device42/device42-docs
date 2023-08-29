@@ -22,8 +22,6 @@ If you aren't able to find an answer to your question in the menu or using searc
 
 ## Table of contents
 
-- [FAQs](getstarted/faqs/index.md)
-    - [Main Appliance & Remote Collector FAQ](getstarted/faqs/main-appliance-remote-collector-faq.md)
 - [Installation](getstarted/installation/index.md)
     - [Amazon Web Services - Installation](getstarted/installation/installation-amazon-web-services.md)
     - [Citrix Xen Server - Installation](getstarted/installation/installation-citrix-xen-server.md)
@@ -53,4 +51,4 @@ If you aren't able to find an answer to your question in the menu or using searc
 - [Basic Navigation Tips for Adding/Editing](getstarted/basic-navigation-tips-for-adding-editing.md)
 - [Home Page Widgets and Global Search](getstarted/home-page-widgets-and-global-search.md)
 - [Language Selection](getstarted/language-selection.md)
-- [Device42 Public-Facing Deployment Best Practices & Recommendations](getstarted/public-deployment-best-practices.md)
+- [Device42 Public-Facing Deployment Best Practices & Recommendations](getstarted/deployment-best-practices.md)
