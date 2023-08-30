@@ -1,6 +1,6 @@
 ---
 title: "Remote Collector (RC) Installation"
-sidebar_position: 9
+sidebar_position: 4
 ---
 
 ## Installing the Device42 Remote Collector
