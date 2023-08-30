@@ -3,6 +3,8 @@ title: "How To Contribute Documentation Fixes "
 sidebar_position: 100
 ---
 
+This is a test PR. Please reject changes
+
 If you notice a problem in the Device42 documentation that you know how to fix, we appreciate contributions! Here's how you can submit edits to our open source GitHub repository.
 
 If you see a problem but you're not sure how to fix it, or don't have the time, hit [the feedback button](./how-to-submit-documentation-feedback.mdx) at the top of each page and our team will address it!
