@@ -1,0 +1,41 @@
+name: Build Commit
+
+on:
+  workflow_call
+
+jobs:
+  build_artifact:
+    concurrency: 
+      group: build-${{ github.ref_name }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.14'
+
+    - name: Setup Algolia Access
+      run: |
+           sed -i 's/<ENV_ALGOLIA_INDEX>/${{ vars.ENV_ALGOLIA_INDEX }}/g' docusaurus.config.js
+           sed -i 's/<ENV_ALGOLIA_APP_ID>/${{ secrets.ENV_ALGOLIA_APP_ID }}/g' docusaurus.config.js
+           sed -i 's/<ENV_ALGOLIA_READ_KEY>/${{ secrets.ENV_ALGOLIA_READ_KEY }}/g' docusaurus.config.js
+
+    - name: Install Dependencies
+      run: yarn
+
+    - name: Build
+      run: yarn build
+
+    - name: Compress
+      run: tar -czf build.tar.gz build/
+
+    - name: Artifact Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
+        path: build.tar.gz
+        retention-days: 5
