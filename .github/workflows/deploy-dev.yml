@@ -3,7 +3,7 @@ name: Build and Deploy Dev
 on:
   push:
     branches:
-      - DO-4304
+      - dev
 
 jobs:
   build_artifact:
@@ -12,6 +12,9 @@ jobs:
 
   deploy_dev:
     needs: build_artifact
+    concurrency:
+      group: build-${{ github.ref_name }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     environment: dev
     steps:
