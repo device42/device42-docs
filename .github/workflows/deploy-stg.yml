@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/build-commit.yml
     secrets: inherit
 
-  deploy_dev:
+  deploy_stg:
     needs: build_artifact
     concurrency:
       group: build-${{ github.ref_name }}
