@@ -4,12 +4,10 @@ on:
   workflow_call
 
 jobs:
-  set_concurrency:
+  build_artifact:
     concurrency: 
       group: build-${{ github.ref_name }}
       cancel-in-progress: true
-
-  build_artifact:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
