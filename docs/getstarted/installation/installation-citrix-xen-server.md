@@ -1,6 +1,6 @@
 ---
 title: "Citrix Xen Server - Installation"
-sidebar_position: 2
+sidebar_position: 8
 ---
 
 ## Installation Citrix Xen Server
