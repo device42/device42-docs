@@ -8,6 +8,7 @@ on:
 jobs:
   build_artifact:
     uses: ./.github/workflows/build-commit.yml
+    secrets: inherit
 
   deploy_dev:
     needs: build_artifact
