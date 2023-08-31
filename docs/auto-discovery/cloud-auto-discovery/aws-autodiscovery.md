@@ -59,11 +59,14 @@ Note that some Discovery items require enabling the feature and cannot be discov
 | Elastic File System (EFS) | Resources --> All Resources       | elasticfilesystemr_egion.amazonaws.com  | File system, access points, mount targets               |
 | Elastic Load Balancer (ELB) | Resources --> All Resources      | elasticloadbalancing._region_.amazonaws.com | Attributes, description, rules, tags, target groups  |
 | Lambda                   | Resources --> All Resources       | lambda._region_.com                    | Name, ARN, code size, memory, runtime                   |
+| KMS                      | Resources --> All Resources       | kms._region_.amazonaws.com             | Region, categories, access points, ACLs, notes, tags, custom fields |
 | Kubernetes (EKS)         | Resources --> All Resources       | eks._region_.amazonaws.com              | Containers, nodes, clusters                              |
 | RDS Instances             | Resources --> All Resources       | rds._region_.amazonaws.com              | Account info, status, location                          |
 | Redshift                 | Resources --> All Resources       | redshift._region_.amazonaws.com         | Backup details, contributor insights, tables, limits    |
 | Route 53                 | Resources --> All Resources       | route53.amazonaws.com                  | Type, content, tags                                     |
 | S3                        | Resources --> Storage --> Cloud Storage | *.s3._region_.amazonaws.com s3._region_.amazonaws.com *.s3.amazonaws.com s3.amazonaws.com | Storage utilization, bucket, bucket policies           |
+| SNS                       | Resources --> All Resources     | sns._region_.amazon.aws.com             | Topic, endpoints, attributes, subscriptions  |
+| SQS                       |  Resources --> All Resources     | sqs._region_.amazon.aws.com            | Queues, tags, queue attributes |
 | Subnets                   | Network --> Subnets              |                                       | Subnets                                                |
 | VPCs                      | Resources --> VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       |
 
@@ -96,54 +99,70 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
                    "Action": [
                        "acm:DescribeCertificate",
                        "acm:List*",
+                       "apigateway:GET",
+                       "autoscaling:Describe*",
+                       "cloudfront:ListDistributions",
+                       "cloudsearch:DescribeDomains",
+                       "cloudfront:ListTagsForResource",
+                       "cloudwatch:GetMetricData",
+                       "cloudwatch:GetMetricStatistics",
+                       "cloudwatch:Describe*",
+                       "cloudwatch:ListMetrics",
+                       "config:SelectResourceConfig"
                        "dynamodb:DescribeLimits",
                        "dynamodb:ListTables",
                        "dynamodb:ListGlobalTables",
                        "dynamodb:DescribeTable",
                        "dynamodb:DescribeGlobalTable",
-                       "lambda:List*",
-                       "lambda:GetFunction",
-                       "lambda:GetAccountSettings",
-                       "organizations:ListRoots",
-                       "organizations:ListAccountsForParent",
-                       "organizations:ListOrganizationalUnitsForParent",
-                       "organizations:DescribeAccount",
-                       "autoscaling:Describe*",
-                       "logs:DescribeLogStreams",  
-                       "cloudwatch:GetMetricData",
-                       "cloudwatch:GetMetricStatistics",
-                       "cloudwatch:Describe*",  
-                       "route53:ListHostedZones",
-                       "route53:ListTagsForResource",
-                       "cloudwatch:ListMetrics",
-                       "elasticache:Describe\*",
+                       "ec2:Describe*",
+                       "eks:ListClusters",  
+                       "eks:DescribeNodegroup",  
+                       "eks:DescribeUpdate",  
+                       "eks:ListNodegroups",  
+                       "eks:ListUpdates",
+                       "eks:DescribeCluster"
+                       "elasticache:Describe\*",
                        "elasticfilesystem:DescribeFileSystems",
                        "elasticfilesystem:DescribeAccessPoints",
                        "elasticfilesystem:DescribeAccountPreferences",
                        "elasticfilesystem:DescribeMountTargets",
-                       "ec2:Describe*",
+                       "elasticloadbalancing:Describe\*",
+                       "kms:ListResourceTags"
+                       "kms:ListKeys",
+                       "lambda:List*",
+                       "lambda:GetFunction",
+                       "lambda:GetAccountSettings",
+                       "lambda:GetPolicy",
+                       "logs:DescribeLogStreams",
+                       "logs:GetLogEvents",
+                       "organizations:ListRoots",
+                       "organizations:ListAccountsForParent",
+                       "organizations:ListOrganizationalUnitsForParent",
+                       "organizations:DescribeAccount",
                        "rds:Describe*",
                        "rds:ListTagsForResource",
                        "redshift:DescribeClusters",
                        "redshift:DescribeReservedNodes",
+                       "route53:ListResourceRecordSets",
+                       "route53domains:ListDomains",
+                       "route53:ListHostedZones",
+                       "route53:ListTagsForResource",
                        "s3:ListAllMyBuckets",  
                        "s3:GetBucketPublicAccessBlock",  
                        "s3:GetBucketPolicyStatus",  
                        "s3:GetBucketAcl",  
                        "s3:GetBucketLocation",  
                        "s3:ListAccessPoints",    
-                       "s3:GetAccessPointPolicyStatus",  
-                       "route53:ListResourceRecordSets",
-                       "logs:GetLogEvents",
-                       "elasticloadbalancing:Describe\*",
-                       "eks:ListClusters",  
-                       "eks:DescribeNodegroup",  
-                       "eks:DescribeUpdate",  
-                       "eks:ListNodegroups",  
-                       "eks:ListUpdates",
-                       "eks:DescribeCluster"  
-                       "config:SelectResourceConfig"  
-                       "s3:GetEncryptionConfiguration"
+                       "s3:GetAccessPointPolicyStatus",
+                       "s3:GetEncryptionConfiguration" 
+                       "sns:GetTopicAttributes",
+                       "sns:ListTagsForResource",
+                       "sns:ListTopics",
+                       "sqs:listQueues",
+                       "sqs:GetQueueAttributes",
+                       "sqs:listQueueTags   ",                 
+                         
+                       
             ],
             "Resource": "*"
         }
