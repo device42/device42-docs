@@ -1,6 +1,6 @@
 ---
 title: "Setting Time Zone and NTP"
-sidebar_position: 13
+sidebar_position: 14
 ---
 
 Here is brief run down on setting or changing your time zone in Device42. This is probably one of the first steps you should take so that autodiscovery scheduling and log history work correctly. The virtual appliance takes the clock from virtual host, so make sure the time is correct on the host and it's not a bad idea to set up an NTP time source to ensure the time stays correct.
