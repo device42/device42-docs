@@ -1,0 +1,47 @@
+name: Build and Deploy Dev
+
+on:
+  push:
+    branches:
+      - stg
+
+jobs:
+  build_artifact:
+    uses: ./.github/workflows/build-commit.yml
+    secrets: inherit
+
+  deploy_dev:
+    needs: build_artifact
+    concurrency:
+      group: build-${{ github.ref_name }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    environment: stg
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: yarn-${{ github.sha }}
+
+    - name: Unpack artifact
+      run: tar -xvf build.tar.gz
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Sync to S3
+      run: |
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --delete --exclude assets/images/* --exclude assets/videos/*
+           aws s3 sync build/ s3://${{ vars.S3_BUCKET }} --size-only --delete
+
+    - name: Invalidate CF cache
+      run: |
+           INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
