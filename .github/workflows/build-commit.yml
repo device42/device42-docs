@@ -33,7 +33,7 @@ jobs:
     - name: Compress
       run: tar -czf build.tar.gz build/
 
-    - name: Archive build
+    - name: Artifact Upload
       uses: actions/upload-artifact@v3
       with:
         name: yarn-${{ github.sha }}
