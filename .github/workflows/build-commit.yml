@@ -38,3 +38,4 @@ jobs:
       with:
         name: yarn-${{ github.sha }}
         path: build.tar.gz
+        retention-days: 5
