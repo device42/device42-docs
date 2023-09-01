@@ -23,4 +23,5 @@ You will need to restart the application to see the new cert.
 
 ### Creating your own cert
 
-If you create your own certs, these can be uploaded via the Appliance Manager. Device42 is unable to assist in the creation and signing of certificates. A certifcate authority like Thawte or a local CA can be used.
+If you create your own certs, these can be uploaded via the Appliance Manager. Device42 is unable to assist in the creation and signing of certificates, please use a CA like Thawte for creation and signing.
+
