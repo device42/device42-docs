@@ -39,7 +39,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
 
     **Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://tdm.dell.com/td-auth?lang=en_UShttps://techdirect.dell.com/Portal/Login.aspx?ReturnUrl=%2Fportal%2FAboutAPIs.aspxtdLegacyUrl=%2Fportal%2FAboutAPIs.aspx).
 
-    **Meraki API Keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Instructions to obtain Meraki API key: https://developer.cisco.com/meraki/api/#/rest/getting-started. These instructions from Meraki offer details around their process for obtaining their API key.
+    **Meraki API Keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Instructions to obtain Meraki API key: https://docs.device42.com/auto-discovery/warranty-autodiscovery/#section-9 . These instructions from Meraki offer details around their process for obtaining their API key.
 
     **Note:** If using the standalone warranty script (instructions in  the _STANDALONE_ section below), Python 2.7 must be installed along with the python library requests.
 

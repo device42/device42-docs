@@ -49,16 +49,16 @@ Navigate to Access Control (IAM) >  Roles > Add > Add Custom Role. Give the cus
 "Microsoft.DocumentDB/databaseAccounts/tables/read",
 "Microsoft.DBforPostgreSQL/serverGroupsv2/*",
 "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read", "Microsoft.Network/privateEndpoints/read",
-"Microsoft.OperationalInsights/workspaces/read"
+"Microsoft.OperationalInsights/workspaces/read",
 "Microsoft.SqlVirtualMachine/sqlVirtualMachines/read", "Microsoft.Web/sites/read", 
 "Microsoft.Web/sites/functions/read", "Microsoft.ContainerService/managedClusters/read", 
-"Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action"
-"Microsoft.Network/loadBalancers/read", Microsoft.Network/publicIPAddresses/read", "Microsoft.Network/virtualNetworks/read",
+"Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+"Microsoft.Network/loadBalancers/read", "Microsoft.Network/publicIPAddresses/read", "Microsoft.Network/virtualNetworks/read",
 "Microsoft.Network/virtualNetworks/read",
 "Microsoft.Network/networkInterfaces/read", 
 "Microsoft.Network/publicIPAddresses/read", "Microsoft.Storage/storageAccounts/read", 
 "Microsoft.Storage/storageAccounts/blobServices/containers/read", 
-"Microsoft.Storage/storageAccounts/privateEndpointConnections/read"
+"Microsoft.Storage/storageAccounts/privateEndpointConnections/read",
 "Microsoft.Network/privateEndpoints/read", "Microsoft.OperationalInsights/workspaces/read"]
 			"notActions": [],
 			"dataActions": [],
