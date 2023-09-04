@@ -41,7 +41,7 @@ Assuming that you have Powershell and the .Net 4 framework installed already, yo
 
 ## Download the sample script (api-sample.py)
 
-![2. Download the sample script (api-sample.py)](/assets/images/wpid2787-2._Download_the_sample_script__api-sample.py_.png)
+![2. Download the sample script (api-sample.py)](/assets/images/autodiscovery-scripts-download.png)
 
 You can download the latest script at [https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src.](https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src)
 
