@@ -5,9 +5,9 @@ sidebar_position: 3
 
 import ReactPlayer from 'react-player' 
 
-Each page of our documentation exists as a [markdown](https://www.markdownguide.org/getting-started/) file located on our open source [GitHub repository](https://github.com/device42/device42-docs). The process to update an image consists of two broad steps: uploading it to the `static/assets/images` folder and editing the link to the image in the relevant markdown file. 
+Each page of our documentation exists as a [markdown](https://www.markdownguide.org/getting-started/) file located on our open source [GitHub repository](https://github.com/device42/device42-docs). The process to update an image consists of two broad steps: upload the images to the `static/assets/images` folder and edit the link to the image in the relevant markdown file. 
 
-You won't have the necessary permissions to make changes to the Device42 repository directly. Instead, make changes to your forked repository and submit those changes for review. After being reviewed, the changes will be live on our website. 
+You won't have permission to make changes to the Device42 repository directly. Instead, make changes to your forked repository and submit those changes for review in the form of a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). The changes you’ve suggested will be implemented on the website after being reviewed by our team.
 
 The process consists of the following steps:
 * Fork the Device42 repository OR navigate to your existing forked Device42 repository.
@@ -33,7 +33,7 @@ Let's get started.
 
 ### Prerequisites: Fork the Repository
 
-Create a GitHub account and fork the [Device42 repository](https://github.com/device42/device42-docs) by clicking on the "Fork" button. Forking a repository creates a copy that you can safely make changes to without affecting the original.
+Create a GitHub account and fork the [Device42 repository](https://github.com/device42/device42-docs) by clicking on the "Fork" button. Forking a repository creates a copy of the repository that you can safely make changes to without affecting the original.
 
 ![](/assets/images/feedback_fork_repo.png)
 
@@ -43,11 +43,11 @@ In the dialog box that opens, click "Create fork".
 
 ### Navigate to your Forked Device42 Repository
 
-If you click on the "Edit this page" link at the bottom of the document you want to edit, you'll be directed to Device42's repository. On the top-left hand corner you'll see "device42 / device42-docs" meaning that "device42" is the owner of the repository named "device42-docs".  When we navigate to our forked copy it'll display "your-github-account-name / device42-docs"
+If you click on the "Edit this page" link at the bottom of the document you want to edit, you'll be directed to Device42's repository. On the top-left-hand corner, you'll see "device42 / device42-docs" meaning that "device42" is the owner of the repository called "device42-docs".  When we navigate to our forked copy it'll display "your-github-account-name / device42-docs"
 
 [](/static/assets/images/feedback-update-images-step1a-repo.png)
 
-To navigate to your forked repository, click on the 'hamburger' menu icon with three horizontal lines on the top-left hand corner. On the panel that opens, find and select "your-github-account-name/device42-docs" repository from the list.
+To navigate to your forked repository, click on the 'hamburger' menu icon with three horizontal lines in the top-left-hand corner. On the panel that opens, find and select "your-github-account-name/device42-docs" repository from the list.
 
 [](assets/images/feedback-update-images-step1b-side-panel.png)
 
@@ -61,13 +61,13 @@ Find and select the "device42-docs" repository.
 
 [](assets/images/feedback-update-images-step1d-locate.png)
 
-You should now see "your-github-account-name / device42-docs" on the top-left hand corner. 
+You should now see "your-github-account-name / device42-docs" in the top-left-hand corner. 
 
 ### Create a New Branch
 
 A [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) is a contained area where you can make changes to the repository without them immediately affecting it.  
 
-By default, you'll be on the "main" branch. To create a new branch, click on the dropdown menu that says "main" (1). In the text box (2), name the new branch something descriptive. In this example, we named the branch `update-api-sample-image`. Note that words are separated by a dash symbol. Click on the "Create branch: update-api-sample-image" option that appears (3).
+By default, you'll be on the `main` branch. To create a new branch, click on the dropdown menu that says "main" (1). In the text box (2), name the new branch something descriptive. In this example, we named the branch `update-api-sample-image`. Note that words are separated by a dash symbol. Click on the "Create branch: update-api-sample-image" option that appears (3).
 
 [](assets/images/feedback-update-images-step2a-create-branch.png)
 
@@ -81,7 +81,7 @@ Now that we are 'on' our new `update-api-sample-image` branch, we can make our c
 
 [](assets/images/feedback-update-images-step3a-folder.png)
 
-In the navigation in window that opens on the left, click on the `assets` folder (1) and `images` subfolder (2).
+In the navigation window that opens on the left, click on the `assets` folder (1) and `images` subfolder (2).
 
 [](assets/images/feedback-update-images-step3b-subfolder.png)
 
@@ -91,7 +91,7 @@ To upload your image to the `images` folder, click on the "Add file" dropdown me
 
 [](assets/images/feedback-update-images-step4a-upload-files.png)
 
-Add the image by either dragging the file to the box or selecting it from your file explorer (1). Save this change by [committing](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits) it. Add a short explanation of the change you made (2) and keep the "Commit directly to the `update-api-sample-image` branch" option selected (3). 
+Add the image by either dragging the file to the box or selecting it from your file explorer (1). Save this change by [committing](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits) it. Next, write a short explanation of the change you made (2) and keep the "Commit directly to the `update-api-sample-image` branch" option selected (3). 
 
 [](assets/images/feedback-update-images-step4b-upload-commit.png)
 
@@ -101,21 +101,21 @@ You'll see a notification on a yellow background saying "update-api-sample-image
 
 ### Update The Markdown Link and Commit
 
-Determine the location of the markdown file of the page you want to include the new image on my going to the documentation website and making a note of the folder structure at the top of the article. In this example, the "Using API's for Custom Autodiscovery" page is located in the "Discovery" folder.
+Determine the location of the markdown file of the page you want to include the new image on. Go to the documentation website and make a note of the folder structure at the top of the article. In this example, the "Using API's for Custom Autodiscovery" page is located in the "Discovery" folder.
 
 [](assets/images/feedback-update-images-step5a-note-location.png)
 
-On GitHub look for the `Discovery` folder of the `docs` parent folder. The closest match to "Discovery" in this case is the folder named `auto-discovery`(2). In most cases, the folder names on the website will match that on the GitHub repository exactly.
+On GitHub look for the `Discovery` folder of the `docs` parent folder. The closest match to "Discovery" in this case is the folder named `auto-discovery`(2). In most cases, the folder names on the website will match those on the GitHub repository exactly.
 
 Find the markdown file corresponding to the title of the page you want to add the image to. In this example the article's title is "Using API's for custom Autodiscovery" and the markdown folder is named `using-apis-for-custom-auto-discovery.md`.
 
 [](assets/images/feedback-update-images-step5b-sub-folder.png)
 
-Open the file and click on the pen icon on the right-hand corner to enter edit mode.
+Open the file and click on the pen icon in the right-hand corner to enter edit mode.
 
 [](assets/images/feedback-update-images-step5c-edit-mode.png)
 
-Find the link to the current image in the markdown file by comparing the website's text to it. In markdown syntax, headings are denoted by one or more hash symbols. In this example, the heading "Download the sample script (api-sample.py)" on the website is written as `## Download the sample script (api-sample.py)` in the markdown file. 
+Find the link to the current image in the markdown file by comparing the website's text to it. In markdown syntax, [headings](https://www.markdownguide.org/basic-syntax/#headings) are denoted by one or more hash symbols. In this example, the heading "Download the sample script (api-sample.py)" on the website is written as `## Download the sample script (api-sample.py)` in the markdown file. 
 
 [](assets/images/feedback-update-images-step5d-find-link.png)
 
@@ -139,13 +139,13 @@ When the changes have been saved and the modal window closes, click on the "Code
 
 [](assets/images/feedback-update-images-step6a-code-button.png)
 
-We'll now create a pull request to submit both the changes we made. You'll see the yellow notification box with a message saying your branch "had recent pushes". In this example, the notification is "update-api-sample-image had recent pushes 6 minutes ago". 
+We'll now create a pull request to submit both of the changes we made. You'll see the yellow notification box with a message saying your branch "had recent pushes". In this example, the notification is "update-api-sample-image had recent pushes 6 minutes ago". 
 
 Click on the "Compare & pull request" button on the right of the yellow notification box. 
 
 [](assets/images/feedback-update-images-step6b-compare-and-pr.png)
 
-The "Open a pull request' page will open. Double-check that the base repository is `device42-device42-docs` (1). The base repository is where we're submitting the changes we made to our forked repository (called the "head repository") to. 
+The "Open a pull request' page will open. Double-check that the base repository is `device42-device42-docs` (1). The base repository is where we're submitting the changes we made to our forked repository (called the "head repository"). 
 
 You can give additional information about why you made the changes you did in the text box (2). Click on the "Create pull request" button to make the pull request.
 
@@ -153,7 +153,7 @@ You can give additional information about why you made the changes you did in th
 
 ### Wait for Review 
 
-When your pull request has been submitted, you'll be directed to a page with the name and number of your pull request listed at the top (1). You can view can view the changes you've made by clicking on the "Files changed" tap (2). You'll see that the commits you made listed on a timeline (3). Below that you'll see crosses with "Review required" and "Merging is blocked" messages next to them. Under that you'll be able to add additional comments about the pull request if need. 
+When your pull request has been submitted, you'll be directed to a page with the name and number of your pull request listed at the top (1). You can view the changes you've made by clicking on the "Files changed" tap (2). You'll see the commits you made listed on a timeline (3). Below that you'll see crosses with "Review required" and "Merging is blocked" messages next to them. Under that, you'll be able to add additional comments about the pull request if needed. 
 
 We can now wait for Device42 to review these changes. If our changes are approved, they will be shown on the website.
 
@@ -165,4 +165,4 @@ If you click on the "Files changed" tab, you'll see the changes you've made and 
 
 [](assets/images/feedback-update-images-step7b-view-changes.png)
 
-Thank you! Your image contributions help maintain our documentation for all Device42 users and is greatly appreciated!
+Thank you for taking the time to contribute to Device42’s documentation. It helps us maintain our documentation for all Device42 users and is greatly appreciated!
