@@ -49,17 +49,17 @@ If you click on the "Edit this page" link at the bottom of the document you want
 
 To navigate to your forked repository, click on the 'hamburger' menu icon with three horizontal lines in the top-left-hand corner. On the panel that opens, find and select "your-github-account-name/device42-docs" repository from the list.
 
-[](assets/images/feedback-update-images-step1b-side-panel.png)
+![](assets/images/feedback-update-images-step1b-side-panel.png)
 
 You can also navigate to your repositories as follows:
 
 Click on your GitHub profile picture on the top-right and select "Your repositories".  
 
-[](assets/images/feedback-update-images-step1c-your-repo.png)
+![](assets/images/feedback-update-images-step1c-your-repo.png)
 
 Find and select the "device42-docs" repository. 
 
-[](assets/images/feedback-update-images-step1d-locate.png)
+![](assets/images/feedback-update-images-step1d-locate.png)
 
 You should now see "your-github-account-name / device42-docs" in the top-left-hand corner. 
 
@@ -69,87 +69,87 @@ A [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requ
 
 By default, you'll be on the `main` branch. To create a new branch, click on the dropdown menu that says "main" (1). In the text box (2), name the new branch something descriptive. In this example, we named the branch `update-api-sample-image`. Note that words are separated by a dash symbol. Click on the "Create branch: update-api-sample-image" option that appears (3).
 
-[](assets/images/feedback-update-images-step2a-create-branch.png)
+![](assets/images/feedback-update-images-step2a-create-branch.png)
 
 You'll see the "Branch created." message when the page reloads. The dropdown menu will display the name of the new branch instead of the original "main" branch. 
 
-[](assets/images/feedback-update-images-step2b-branch-created.png)
+![](assets/images/feedback-update-images-step2b-branch-created.png)
 
 ### Open the Images Folder
 
 Now that we are 'on' our new `update-api-sample-image` branch, we can make our changes and upload the new image to the `images` folder.  Make your way to the `static/assets/images` folder by clicking on the `static` parent folder.
 
-[](assets/images/feedback-update-images-step3a-folder.png)
+![](assets/images/feedback-update-images-step3a-folder.png)
 
 In the navigation window that opens on the left, click on the `assets` folder (1) and `images` subfolder (2).
 
-[](assets/images/feedback-update-images-step3b-subfolder.png)
+![](assets/images/feedback-update-images-step3b-subfolder.png)
 
 ### Upload and Commit the New Image
 
 To upload your image to the `images` folder, click on the "Add file" dropdown menu on the right of the page (1). Select "Upload files (2).
 
-[](assets/images/feedback-update-images-step4a-upload-files.png)
+![](assets/images/feedback-update-images-step4a-upload-files.png)
 
 Add the image by either dragging the file to the box or selecting it from your file explorer (1). Save this change by [committing](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits) it. Next, write a short explanation of the change you made (2) and keep the "Commit directly to the `update-api-sample-image` branch" option selected (3). 
 
-[](assets/images/feedback-update-images-step4b-upload-commit.png)
+![](assets/images/feedback-update-images-step4b-upload-commit.png)
 
 You'll see a notification on a yellow background saying "update-api-sample-image had recent pushes less than a minute ago". This means that the commit you made is now saved to the new branch that was made. Before we click on "Compare & pull request", let's update the link to the image in the markdown file. Begin locating the markdown file by opening the `docs` parent folder.
 
-[](assets/images/feedback-update-images-step4c-locate-markdown.png)
+![](assets/images/feedback-update-images-step4c-locate-markdown.png)
 
 ### Update The Markdown Link and Commit
 
 Determine the location of the markdown file of the page you want to include the new image on. Go to the documentation website and make a note of the folder structure at the top of the article. In this example, the "Using API's for Custom Autodiscovery" page is located in the "Discovery" folder.
 
-[](assets/images/feedback-update-images-step5a-note-location.png)
+![](assets/images/feedback-update-images-step5a-note-location.png)
 
 On GitHub look for the `Discovery` folder of the `docs` parent folder. The closest match to "Discovery" in this case is the folder named `auto-discovery`(2). In most cases, the folder names on the website will match those on the GitHub repository exactly.
 
 Find the markdown file corresponding to the title of the page you want to add the image to. In this example the article's title is "Using API's for custom Autodiscovery" and the markdown folder is named `using-apis-for-custom-auto-discovery.md`.
 
-[](assets/images/feedback-update-images-step5b-sub-folder.png)
+![](assets/images/feedback-update-images-step5b-sub-folder.png)
 
 Open the file and click on the pen icon in the right-hand corner to enter edit mode.
 
-[](assets/images/feedback-update-images-step5c-edit-mode.png)
+![](assets/images/feedback-update-images-step5c-edit-mode.png)
 
 Find the link to the current image in the markdown file by comparing the website's text to it. In markdown syntax, [headings](https://www.markdownguide.org/basic-syntax/#headings) are denoted by one or more hash symbols. In this example, the heading "Download the sample script (api-sample.py)" on the website is written as `## Download the sample script (api-sample.py)` in the markdown file. 
 
-[](assets/images/feedback-update-images-step5d-find-link.png)
+![](assets/images/feedback-update-images-step5d-find-link.png)
 
 We can see the image that we want to update below this heading on the website. The image image link looks like `![2. Download the sample script (api-sample.py)](/assets/images/wpid2787-2._Download_the_sample_script__api-sample.py_.png)` in the markdown file. In markdown syntax, image links begin with an exclamation mark (`!`) followed by square brackets and then parentheses. The text between the square brackets is called alt text and is only displayed on the website when the image cannot be displayed. The text between the parentheses is the file path to the image in the repository. We need to update the image's name to that of our new image's name.
 
-[](assets/images/feedback-update-images-step5e-link.png)
+![](assets/images/feedback-update-images-step5e-link.png)
 
 In this example, we change the old image's name of `wpid2787-2._Download_the_sample_script__api-sample.py_.png` to `autodiscovery-scripts-download.png` (1). The `/assets/images/` location preceding the image name will remain the same because the location of the image hasn't changed. 
 
 Click on the "Commit changes..." button on the top-right corner (2) has become active now that we've made a change.  
 
-[](assets/images/feedback-update-images-step5f-link-changes.png)
+![](assets/images/feedback-update-images-step5f-link-changes.png)
 
 A modal window will open where we can briefly explain (1) the change we are going to commit to our `update-api-sample-image` branch. Keep the "" option selected (2) and click the "commit changes" button (3).
 
-[](assets/images/feedback-update-images-step5g-modal-window.png)
+![](assets/images/feedback-update-images-step5g-modal-window.png)
 
 ### Create a Pull Request
 
 When the changes have been saved and the modal window closes, click on the "Code" button to go back to the repository overview page. 
 
-[](assets/images/feedback-update-images-step6a-code-button.png)
+![](assets/images/feedback-update-images-step6a-code-button.png)
 
 We'll now create a pull request to submit both of the changes we made. You'll see the yellow notification box with a message saying your branch "had recent pushes". In this example, the notification is "update-api-sample-image had recent pushes 6 minutes ago". 
 
 Click on the "Compare & pull request" button on the right of the yellow notification box. 
 
-[](assets/images/feedback-update-images-step6b-compare-and-pr.png)
+![](assets/images/feedback-update-images-step6b-compare-and-pr.png)
 
 The "Open a pull request' page will open. Double-check that the base repository is `device42-device42-docs` (1). The base repository is where we're submitting the changes we made to our forked repository (called the "head repository"). 
 
 You can give additional information about why you made the changes you did in the text box (2). Click on the "Create pull request" button to make the pull request.
 
-[](assets/images/feedback-update-images-step6c-open-pr.png)
+![](assets/images/feedback-update-images-step6c-open-pr.png)
 
 ### Wait for Review 
 
@@ -157,12 +157,12 @@ When your pull request has been submitted, you'll be directed to a page with the
 
 We can now wait for Device42 to review these changes. If our changes are approved, they will be shown on the website.
 
-[](assets/images/feedback-update-images-step7a-wait-for-review.png)
+![](assets/images/feedback-update-images-step7a-wait-for-review.png)
 
 ### View the Changes (optional)
 
 If you click on the "Files changed" tab, you'll see the changes you've made and compare them to the previous markdown version. The red highlighting on the left is the original version and the green highlighting on the right shows the changes we made. In this example, we see that the name of the `.png` image was changed from  `wpid2787-2._Download_the_sample_script__api-sample.py_` to `autodiscovery-scripts-download` in the markdown file. Below that we see a preview of the new image we added.
 
-[](assets/images/feedback-update-images-step7b-view-changes.png)
+![](assets/images/feedback-update-images-step7b-view-changes.png)
 
 Thank you for taking the time to contribute to Device42’s documentation. It helps us maintain our documentation for all Device42 users and is greatly appreciated!
