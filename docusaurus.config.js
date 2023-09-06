@@ -41,6 +41,10 @@ const config = {
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
           },
           {
+            to: '/administration/feedback-and-contributions/how-to-contribute-documentation-fixes/',
+            from: ['/administration/how-to-contribute-documentation-fixes/'],
+          },
+          {
             to: '/administration/main-appliance-remote-collector-faq/',
             from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
           },
