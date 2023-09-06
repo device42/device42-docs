@@ -32,8 +32,3 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 
 [Getting Started with Device42](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR) (on YouTube, opens new window)
 
-
-## Table of contents
-
-- [API Imports - add/create hardware models](how-to-videos/api-imports-add-create-hardware-models.md)
-- [API Imports - adding devices to racks](how-to-videos/api-imports-adding-devices-to-racks.md)
