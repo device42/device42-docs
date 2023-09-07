@@ -43,7 +43,7 @@ When you have installed PowerShell and the .NET Framework 4, download the instal
 
 Download the latest script [here](https://github.com/device42/Device42-AutoDiscovery-Scripts/tree/master/src).
 
-![2. Download the Sample Script](/assets/images/wpid2787-2._Download_the_sample_script__api-sample.py_.png)
+![2. Download the sample script (api-sample.py)](/assets/images/autodiscovery-scripts-download.png)
 
 Click on the script file to open it, then click the download button and save the file in the same folder as the unzipped binaries for IronPython.
 
