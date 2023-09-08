@@ -1,6 +1,6 @@
 ---
 title: "VMware Player - Installation"
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 ## Setup appliance in vmware player or workstation

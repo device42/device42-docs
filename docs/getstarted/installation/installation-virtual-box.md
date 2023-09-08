@@ -1,6 +1,6 @@
 ---
 title: "Virtual Box - Installation"
-sidebar_position: 6
+sidebar_position: 9
 ---
 
 Instructions for installing the Device42 virtual appliance on Oracle VM Virtual Box ( Please use for trial / demo purposes **only**).

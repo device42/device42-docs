@@ -1,5 +1,6 @@
 ---
 title: "Main Appliance & Remote Collector FAQ"
+sidebar_position: 12
 ---
 
 ## How do I get the download files?

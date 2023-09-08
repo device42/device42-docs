@@ -1,13 +1,20 @@
 ---
-title: "How To Contribute Documentation Fixes "
-sidebar_position: 100
+title: "How To Contribute Documentation Fixes"
+sidebar_position: 2
 ---
 
-If you notice a problem in the Device42 documentation that you know how to fix, we appreciate contributions! Here's how you can submit edits to our open source GitHub repository.
+import ReactPlayer from 'react-player'
+
+If you notice a problem in the Device42 documentation that you know how to fix, we appreciate contributions! Watch the video below, or read the article that follows to find out how to submit edits to our open source [GitHub repository](https://github.com/device42/device42-docs).
 
 If you see a problem but you're not sure how to fix it, or don't have the time, hit [the feedback button](./how-to-submit-documentation-feedback.mdx) at the top of each page and our team will address it!
 
-### How Do I Edit a Document on GitHub?
+### How Do I Edit a Document on GitHub? (Video)
+
+<ReactPlayer controls url='https://device42.wistia.com/medias/tv5o91zv4w' />
+
+
+### How Do I Edit a Document on GitHub? (Article)
 
 To edit a document on GitHub, you can create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) with your changes, and we'll review them before making them live on our website.
 
