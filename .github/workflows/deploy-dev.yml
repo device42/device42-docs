@@ -1,12 +1,14 @@
 name: Build and Deploy Dev
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - dev
 
 jobs:
   build_artifact:
+    if: github.event.pull_request.merged == true
     uses: ./.github/workflows/build-commit.yml
     secrets: inherit
 
