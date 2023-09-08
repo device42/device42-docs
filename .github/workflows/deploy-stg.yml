@@ -1,9 +1,10 @@
 name: Build and Deploy Stg
 
 on:
-  push:
+  pull_request:
+    types: [opened,reopened,synchronize]
     branches:
-      - stg
+      - release
 
 jobs:
   build_artifact:
@@ -24,7 +25,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:
-        name: yarn-${{ github.sha }}
+        name: yarn-${{ github.ref_name }}-${{ github.event.number }}
 
     - name: Unpack artifact
       run: tar -xvf build.tar.gz
@@ -44,4 +45,4 @@ jobs:
     - name: Invalidate CF cache
       run: |
            INVAL_ID=$(aws cloudfront create-invalidation --distribution-id ${{ vars.CF_DISTRO }} --paths "/*" | jq -r .Invalidation.Id )
-           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID
+           aws cloudfront wait invalidation-completed --distribution-id ${{ vars.CF_DISTRO }} --id $INVAL_ID || echo "Wait expired on validation"

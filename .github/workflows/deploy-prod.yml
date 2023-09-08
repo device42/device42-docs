@@ -1,22 +1,19 @@
-name: Build and Deploy Dev
+name: Deploy Prod
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - dev
+      - release
 
 jobs:
-  build_artifact:
-    uses: ./.github/workflows/build-commit.yml
-    secrets: inherit
-
-  deploy_dev:
-    needs: build_artifact
+  deploy_prod:
+    if: github.event.pull_request.merged == true
     concurrency:
       group: build-${{ github.ref_name }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
-    environment: dev
+    environment: stg
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
