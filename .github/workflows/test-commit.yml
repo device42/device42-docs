@@ -1,13 +1,13 @@
-name: Build Commit
+name: Test Commit
 
 on:
-  workflow_call
+  pull_request:
+    types: [opened,reopened,synchronize]
+    branches:
+      - dev
 
 jobs:
   test_build:
-    concurrency: 
-      group: build-${{ github.ref_name }}
-      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -29,13 +29,3 @@ jobs:
 
     - name: Build
       run: yarn build
-
-    - name: Compress
-      run: tar -czf build.tar.gz build/
-
-    - name: Artifact Upload
-      uses: actions/upload-artifact@v3
-      with:
-        name: yarn-${{ github.ref_name }}-${{ github.event.number }}
-        path: build.tar.gz
-        retention-days: 5
