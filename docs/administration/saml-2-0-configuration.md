@@ -1,6 +1,6 @@
 ---
 title: "SAML 2.0 Configuration"
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 Device42 integrates with SAML 2.0 in conjunction with AD or LDAP user synchronizations to provide Single Sign On (SSO) support in Device42. Once users are added to Device42 via Active Directory or LDAP, they will automatically be logged into Device42 when they load the site.

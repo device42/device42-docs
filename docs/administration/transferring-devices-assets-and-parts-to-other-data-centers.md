@@ -1,6 +1,6 @@
 ---
 title: "Transferring devices, assets, and parts to other data centers"
-sidebar_position: 17
+sidebar_position: 16
 ---
 
 Sometimes it is necessary to ship devices, assets, and spare parts from one building to another. This function provides a means of keeping track of which devices, assets, and parts are in transit, and for keeping a log of the receipt data and receiving party.
@@ -9,7 +9,7 @@ Sometimes it is necessary to ship devices, assets, and spare parts from one buil
 
 ![](/assets/images/wpid4486-media_1395944172022.png)
 
-The list view for Transfers show all pending and completed transfers. For each transfer, you can see the user who initiated the transfer as well as the device, assets, and parts that are being transfered.
+The list view for Transfers show all pending and completed transfers. For each transfer, you can see the user who initiated the transfer as well as the device, assets, and parts that are being transferred.
 
 ![](/assets/images/wpid4487-media_1395944291003.png)
 

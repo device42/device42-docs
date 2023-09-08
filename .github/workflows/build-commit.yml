@@ -4,7 +4,7 @@ on:
   workflow_call
 
 jobs:
-  test_build:
+  build_and_upload:
     concurrency: 
       group: build-${{ github.ref_name }}
       cancel-in-progress: true

@@ -1,5 +1,6 @@
 ---
 title: "Sizing Recommendations"
+sidebar_position: 1
 ---
 
 | Device42 Item                                    | Sizing/Notes                                                                                                                                                                                                                                                                                                                                                                                                                                         |
