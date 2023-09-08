@@ -15,7 +15,7 @@ jobs:
   deploy_dev:
     needs: build_artifact
     concurrency:
-      group: build-${{ env.GITHUB_REF_NAME }}
+      group: build-${{ github.base_ref }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
     environment: dev
@@ -26,7 +26,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v3
       with:
-        name: yarn-${{ github.ref_name }}-${{ github.event.number }}
+        name: yarn-${{ github.base_ref }}-${{ github.event.number }}
 
     - name: Unpack artifact
       run: tar -xvf build.tar.gz
