@@ -50,5 +50,5 @@ If you aren't able to find an answer to your question in the menu or using searc
 - [Arrange and Save List Page Column Layout](getstarted/arrange-and-save-list-page-column-layout.md)
 - [Basic Navigation Tips for Adding/Editing](getstarted/basic-navigation-tips-for-adding-editing.md)
 - [Home Page Widgets and Global Search](getstarted/home-page-widgets-and-global-search.md)
-- [Language Selection](getstarted/language-selection.md)
+- [Language Selection](getstarted/language-selection.mdx)
 - [Device42 Public-Facing Deployment Best Practices & Recommendations](getstarted/deployment-best-practices.md)
