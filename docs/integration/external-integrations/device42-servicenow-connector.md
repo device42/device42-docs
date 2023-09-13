@@ -154,7 +154,7 @@ Download the Device42 - ServiceNow connector from the [ServiceNow Marketplace](h
 
 If you have the latest version of the ServiceNow integration plugin, you will be required to follow a few additional steps to configure the plugin and utilize ServiceNow’s Identification and Reconciliation Engine (IRE).
 
-Install needed dependencies on ServiceNow (NewYork only; Orlando has this dependency pre-installed).
+Install needed dependencies on ServiceNow (New York only; Orlando+ has this dependency pre-installed).
 
 1. Navigate to System Definition > Plugins.
 2. Search for _Configuration Management For Scoped Apps (CMDB)_.
@@ -189,13 +189,17 @@ if (!gr.hasNext()) {
 
 If you are not on version 3.0.0+, or have completed these steps, continue with the rest of the configuration.
 
-1) Begin by ensuring that the _External Integration Settings_ section of your Device42 Global Configuration (the _D42 URL for SaaS apps:_ field) is correctly set. Head to the Device42 main menu, _Tools -> Settings -> Global Settings_, go to the _External Integration Settings_ section, and enter your Device42 instance's URL or IP address in this field (e.g., `https://myd42url.com`). If you aren't based in the USA, you can change to the optional Europe-based Cloud connector in the same section: ![External Integration / Cloud Connector config](/assets/images/External-Integration-config-SaaS-URL.png)
+1) Begin by ensuring that the _External Integration Settings_ section of your Cloud Services Configuration is correctly set. Head to the Device42 main menu, _Tools -> Cloud Services_ and enter your Device42 instance’s URL or IP address in the the _D42 URL for SaaS apps_ field (e.g. `https://myd42url.com`) along with your company name and email address. If you aren’t based in the USA, you can change to the optional Europe-based Cloud connector in the same section:
+
+![External Integration / Cloud Connector config](/assets/images/WEB-813_1.jpg)
+
+![External Integration / Cloud Connector config](/assets/images/WEB-813_2.jpg)
 
 2) Login to Device42, go to _Tools > Integrations > External Integrations._
 
 3) Create a new External Integration using ServiceNow from the drop down, and set the URL as your ServiceNow URL.
 
-![](/assets/images/D42_Ext_Integration_2.png)
+![](/assets/images/WEB-813_3.jpg)
 
 **For version 3.0.0+:**
 
@@ -241,9 +245,9 @@ These can be scheduled to run at certain times – they should be run in the ord
 
 ![](/assets/images/SN_Store_Download_5.png)
 
-The scheduled imports first run the respective data source to collect and store data into the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow’s internal tables. Version 3.0.0 of the ServiceNow integration plugin leverages ServiceNow’s IRE module. For more information on this feature, please visit ServiceNow’s documentation page:
+The scheduled imports first run the respective data source to collect and store data into the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow’s internal tables. Version 3.0.0+ of the ServiceNow integration plugin leverages ServiceNow’s IRE module. For more information on this feature, please visit ServiceNow’s documentation page:
 
-[https://docs.servicenow.com/bundle/newyork-servicenow-platform/page/product/configuration-management/concept/c\_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/tokyo-servicenow-platform/)
+[https://docs.servicenow.com/bundle/utah-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/tokyo-servicenow-platform/)
 
 ![](/assets/images/SN_Imports_1.png)
 
