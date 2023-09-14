@@ -38,4 +38,4 @@ jobs:
       with:
         name: yarn-${{ github.base_ref }}-${{ github.event.number }}
         path: build.tar.gz
-        retention-days: 5
+        retention-days: 10
