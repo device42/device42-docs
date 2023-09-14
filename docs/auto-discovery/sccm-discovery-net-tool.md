@@ -3,6 +3,10 @@ title: "SCCM Discovery (.NET Tool)"
 sidebar_position: 26
 ---
 
+:::danger
+THIS TOOL IS DEPRECATED.
+:::
+
 _The Auto Discovery Client is an external tool \[.NET based\] that runs on Windows machines, either standalone or as a service. It autodiscovers detailed information about Windows Servers, Linux / UNIX / \*nix Servers, Hyper-V Hypervisor and Virtual Machine Guest inventories, and can also import CI data \[API –> API\] from Microsoft SCCM Instances._ 
 
  
