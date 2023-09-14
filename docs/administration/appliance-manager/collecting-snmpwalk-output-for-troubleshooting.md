@@ -1,9 +1,9 @@
 ---
-title: "Collecting SNMPWALK output for troubleshooting"
+title: "Collecting SNMPWALK Output"
 sidebar_position: 4
 ---
 
-You can collect SNMP walk's output for a network device or a PDU right from the GUI, and can send the output to us for further troubleshooting.
+You can collect SNMP walk's output for a network device or a PDU right from the GUI, and can send the output to us for further troubleshooting or for adding a specific device into discovery.
 
 ### Collect SNMPWALK output
 
