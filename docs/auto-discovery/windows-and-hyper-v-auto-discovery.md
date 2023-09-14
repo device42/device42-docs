@@ -7,7 +7,7 @@ sidebar_position: 38
 
 Device42 discovery can utilize multiple protocols to communicate with the target devices. Either WinRM or WMI can be utilized for windows discovery. As of 18.10.00, WMI is the default protocol.
 
-When using WMI and before setting up your Windows Discovery job, you must first install WDS and connect to your Remote Collectors. For WDS installation instructions and information, visit the [Windows Discovery Service (WDS) installation](https://docs.device42.com/getstarted/installation/windows-discovery-service-installation/) documentation.
+When using WMI and before setting up your Windows Discovery job, you must first install WDS and connect to your Remote Collectors. For WDS installation instructions and information, visit the [Windows Discovery Service (WDS) installation](getstarted/installation/windows-discovery-service-installation.md) documentation.
 
 Your OS must be at Windows 8.1, Windows Server 2012 R2 or above with the latest patches installed.
 
