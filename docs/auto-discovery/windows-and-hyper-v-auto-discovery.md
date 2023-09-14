@@ -3,28 +3,43 @@ title: "Windows and Hyper-V Autodiscovery"
 sidebar_position: 38
 ---
 
-## Installation Prerequisites for Windows discovery
+## Prerequisites & Information for Windows discovery
 
-Prior to running a Windows Discovery, you must install an instance of the Windows Discovery Service (WDS) on at least one Windows system which will connect to the Device42 main appliance (MA) or a Remote Collector (RC). WDS can be downloaded from [the Auto-Discovery Software page](https://www.device42.com/autodiscovery/).
+Device42 discovery can utilize multiple protocols to communicate with the target devices. Either WinRM or WMI can be utilized for windows discovery. As of 18.10.00, WMI is the default protocol.
 
-For WDS installation instructions and detailed information, visit the [Windows Discovery Service (WDS) installation](getstarted/installation/windows-discovery-service-installation.md) documentation.
+When using WMI and before setting up your Windows Discovery job, you must first install WDS and connect to your Remote Collectors. For WDS installation instructions and information, visit the [Windows Discovery Service (WDS) installation](https://docs.device42.com/getstarted/installation/windows-discovery-service-installation/) documentation.
 
 Your OS must be at Windows 8.1, Windows Server 2012 R2 or above with the latest patches installed.
 
-## Creating & running Windows WMI/WinRM discovery jobs
+## Network Requirements for WinRM vs WMI
+
+**WinRM**
+
+WinRM uses port 5985 (HTTP) or 5986 (HTTPS), depending on the configuration on the target host. These connections come from the RC selected at the top of the jobs page. For configuring within your environment, please refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) here. Note that you must enable this on your Windows machines which can be configured through a GPO.
+
+**WMI**
+
+WMI is based on DCOM/RPC. This means a connection is first initiated on port 135 to determine what dynamic port to use. The connection then proceeds to use the dynamic port negotiated. The following [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/wmisdk/connecting-to-wmi-remotely-starting-with-vista) can be used for configuring WMI. 
+Network Issues
+
+Our support team can provide best effort assistance in trying to resolve issues. However, for both protocols, it is best to reach out to your network or system admin, in order to resolve connection issues.
+
+
+
+## Creating & running Windows discovery jobs
 
 Navigate to the _Discovery_ menu and select _HyperVisors / \*Nix / Windows_, this section will allow you to setup and save multiple autodiscovery jobs for Windows, Hyper-V, and other platforms.
 
 ![](/assets/images/WEB-728_windows-hyper-v-ad-menu.png)
 
 1. **Select _"Add Hypervisors/\*nix/Win for Autodiscovery"_ to setup a new Windows / Hyper-V Autodiscovery job.**
-2. To specify **Windows WMI-based** or **Hyper-V** discovery, select **Windows** as the Platform.
-    -  As of 18.08.00, you can select WinRM as the default method within the Windows discovery (pictured below) and the URL prefix and port will default.
+2. For  **Windows** or **Hyper-V** discovery, select Windows as the Platform.
+    -  As of 18.08.00, you can select WinRM as the default method within the Windows discovery (pictured below) and the URL prefix and port will default accordingly.
 3. Include a "Job Name" to identify this autodiscovery job: 
 
 ![](/assets/images/New-WinRM.png)
 
-\*Classic WinRM could be deprecated in the future but there are currently no plans in place to do so.
+\*Classic WinRM is no longer a Platform type as of 18.08.00. Existing Classic WinRM jobs will continue to function.
 
 ### Windows/Hyper-V discovery options & definitions:
 
@@ -79,7 +94,7 @@ _Relevant fields when using this discovery mode are as follows:_
 
 ### Discovery with Microsoft LAPS \[Local Admin Password Solution\]
 
-Microsoft LAPS (Local Admin Password Solution) is a method of securing Active Directory member servers whereby the server's local admin password is randomly generated and stored as an attribute of that servers AD object in Active Directory. This password can then be looked up on demand via an Active Directory / LDAP query, and is often used to support scripted / automated actions that iterate through lists of AD member servers. If you are looking to [Download LAPS from Microsoft, click here](https://www.microsoft.com/en-us/download/details.aspx?id=46899). For more information on LAPS, see [this article from Microsoft](https://support.microsoft.com/en-us/topic/microsoft-security-advisory-local-administrator-password-solution-laps-now-available-may-1-2015-404369c3-ea1e-80ff-1e14-5caafb832f53 target=), or if you'd like to deploy LAPS, [you might find this "Deploying LAPS" guide on 'FlamingKeys.com'](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/) helpful.
+Microsoft LAPS (Local Admin Password Solution) is a method of securing Active Directory member servers whereby the server's local admin password is randomly generated and stored as an attribute of that servers AD object in Active Directory. This password can then be looked up on demand via an Active Directory / LDAP query, and is often used to support scripted / automated actions that iterate through lists of AD member servers. If you are looking to [Download LAPS from Microsoft, click here](https://www.microsoft.com/en-us/download/details.aspx?id=46899). For more information on LAPS, see this article from [Microsoft](https://support.microsoft.com/en-us/topic/microsoft-security-advisory-local-administrator-password-solution-laps-now-available-may-1-2015-404369c3-ea1e-80ff-1e14-5caafb832f53), or if you'd like to deploy LAPS, you might find this "Deploying LAPS" [guide ](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/) helpful.
 
 Device42 now supports pulling credentials from LAPS when discovering Active Directory domain member servers that are using Microsoft LAPS \[Local Admin Password Solution\] to manage their local admin passwords. **You will see this option _only_ when you have checked "Query domain controller to obtain list of discovery devices"**; once the former is checked, you will see "Use LAPS (only Applies to WDS)".
 
@@ -98,11 +113,10 @@ Check the _"Use LAPS (only Applies to WDS)"_ checkbox to enable it; Ensure "Quer
 
 ## Additional Options
 
-Scroll down the discovery job page to see additional job options including _Exclusions_, _Naming_, _Host Discovery,_ _Hypervisor Options_, _Software and Applications_, and _Miscellaneous_ options.
+After completing the required options for your Windows or Hyper-V discovery, scroll down the discovery job page to see additional job options including _Exclusions_, _Naming_, _Host Discovery_, _Hypervisor Options_, _Software and Applications_, and _Miscellaneous_ options.Click “Show” to expand those options.
 
-![](/assets/images/WEB-728_windows-hyper-v-ad-host-hypervisor-opts.png)
 
-![](/assets/images/WEB-728_windows-hyper-v-ad-software-misc-opts-1.png)
+
 
 * * *
 
@@ -165,12 +179,15 @@ Note that your "Device Name Format" setting works in \*conjunction\* with the "s
 
 _Windows permissions requirements are broken down into two parts:_
 
-- **A) Minimum required permissions for discovery of Windows hosts/guests**
-- **B) Minimum required permissions for ADM - discovery of services & application data for dependency mapping on Windows**
+ **A) Minimum required permissions for discovery of Windows hosts/guests**
+ 
+ **B) Minimum required permissions for ADM - discovery of services & application data for dependency mapping on Windows**
+
+ Note that where applicable, WinRM specific items are listed but permissions themselves must be enabled on the target machine.
 
 * * *
 
-#### A) Windows Autodiscovery minimum permissions:
+#### A) Windows WMI Autodiscovery minimum permissions:
 
 The following requirements represent the **minimum necessary user account permissions** that should allow Device42 to connect and discover a Windows host:
 
@@ -182,6 +199,11 @@ The following requirements represent the **minimum necessary user account permis
 
 **2) Firewall Rules** to Enable:
 
+**WinRM**
+- HTTP (5985)
+- HTTPS (5986)
+
+**WMI**
 - Windows Management Instrumentation (DCOM-In)
 - Windows Management Instrumentation (WMI-In)
 
@@ -230,7 +252,7 @@ There are two options for configuring Application Dependency Mapping permissions
 
 **Alternate Method:**
 
-When setting up the discovery job if the IPC and ADMIN shares are inaccessible you can now specify a network share to use. The share can be local to the device or a shared location on your network. You will need to give the scanning account read and write privileges to the new share location
+When setting up the discovery job if the IPC and ADMIN shares are inaccessible you can now specify a network share to use. The share can be local to the device or a shared location on your network. You will need to give the scanning account read and write privileges to the new share location. Note, this method also requires local admin permissions.
 
 ![](/assets/images/Screen-Shot-2022-05-23-at-10.18.26-AM.png)
 
@@ -238,7 +260,9 @@ When setting up the discovery job if the IPC and ADMIN shares are inaccessible y
 
 | Ports    | Protocol | Application Protocol      | Notes                                                                   |
 | -------- | -------- | ------------------------- | ----------------------------------------------------------------------- |
-| 135      | TCP      | WMI                       | Always required.                                                        |
+| 5985     | HTTP     | WinRM                      | Always required for WinRM.                                             |
+| 5986     | HTTPS    | WinRM                      | Always required for WinRM.                                              |
+| 135      | TCP      | WMI                       | Always required for WMI.                                                        |
 | 137      | UDP      | NetBIOS Name Resolution    | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
 | 138      | UDP      | NetBIOS Datagram Service   | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
 | 139      | TCP      | SMB                       | Optional/Legacy. Windows 2000 and newer versions of Windows can work over port 445. |
