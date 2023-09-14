@@ -94,7 +94,7 @@ The latest version of the standalone script can be [downloaded from GitHub](http
 ## Cisco Support API Info
 
 Cisco discovery specifically uses Cisco’s Support API labeled `Serial Number to Information`. The endpoint used is: 
-`https://api.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
+`https://apix.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
 
 Click this link for more information: [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!serial-number-to-information/get-coverage-summary-by-serial-numbers)
 
