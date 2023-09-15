@@ -61,7 +61,7 @@ Copy metadata url from endpoints
 
 ![](/assets/images/image2.png)
 
-3\. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
+3\. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs/` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
 
 ![](/assets/images/image3.png)
 
