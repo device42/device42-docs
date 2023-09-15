@@ -1,6 +1,6 @@
 ---
 title: "Security Posture and High-level Permissions"
-sidebar_position: 17
+sidebar_position: 2
 ---
 
 The section outlines how Device42 ensures data security in transit and at rest, emphasizing the principle of least privilege in agentless discovery.

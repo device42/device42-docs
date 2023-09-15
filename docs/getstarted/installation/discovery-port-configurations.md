@@ -1,6 +1,6 @@
 ---
 title: "Discovery Port Configurations"
-sidebar_position: 18
+sidebar_position: 3
 ---
 
 Below is a complete reference list of all ports that may be used to access targets in discovery and their directionality.

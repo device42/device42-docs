@@ -1,6 +1,6 @@
 ---
 title: "Resource and Deployment Architecture Overview"
-sidebar_position: 16
+sidebar_position: 1
 ---
 Learn about the Device42 core resources and how they fit into our deployment architecture.
 
