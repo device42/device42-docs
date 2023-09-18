@@ -61,7 +61,7 @@ Copy metadata url from endpoints
 
 ![](/assets/images/image2.png)
 
-3\. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
+3\. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs/` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
 
 ![](/assets/images/image3.png)
 
@@ -69,10 +69,14 @@ Copy metadata url from endpoints
 
 ![](/assets/images/image4.png)
 
-5\. While still in the SAML 2.0 settings of the Appliance Manager, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/**SAML_Attribute**` to map the Azure AD value to the appropriate SAML attribute. Save and restart the appliance from the VM console menu with option 4. You may wish to complete steps 6 and 7 before saving/restarting so that you can still login to D42 and create users with the local admin account you've used so far. The SAML attributes tested successfully are listed below-
+5\. While still in the SAML 2.0 settings of the Appliance Manager, enter `username` or other appropriate SAML attribute.
 
-- **emailaddress**\- Email address associated with user account in Azure AD
-- **name**\- User Principal Name (UPN) associated with user account in Azure AD ![](/assets/images/image-2021-04-26-17-29-20-178.png)
+Save and restart the appliance from the VM console menu with option 4. You may wish to complete steps 6 and 7 before saving/restarting so that you can still login to D42 and create users with the local admin account you've used so far. The SAML attributes tested successfully are listed below:
+
+- **emailaddress** - Email address associated with user account in Azure AD
+- **name** - User Principal Name (UPN) associated with user account in Azure AD 
+
+![Enter SAML username](/assets/images/saml-username.png)
 
 6\. Assign users/groups to the SAML enterprise app you created in Azure AD. These should be users/groups that you want to allow authentication into Device42 via this SAML integration.
 

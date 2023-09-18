@@ -1,6 +1,6 @@
 ---
 title: "Xen or KVM using virt-manager - Installation"
-sidebar_position: 13
+sidebar_position: 16
 ---
 
 Here are the installation instructions for installing the Device42 appliance on Xen or KVM based platforms...

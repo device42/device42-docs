@@ -1,6 +1,6 @@
 ---
 title: "Xen/KVM - Import disk Alternate Install"
-sidebar_position: 14
+sidebar_position: 17
 ---
 
 **NOTE:** These are _SPECIAL CASE_ installation instructions for installing the Device42 appliance on Xen or KVM based platforms if the import disk image option is missing. **Otherwise, please refer to [device42 xen/kvm install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.md)!**

@@ -1,6 +1,6 @@
 ---
 title: "Getting Started on a PC"
-sidebar_position: 11
+sidebar_position: 14
 ---
 
 ## From the Start - How to Setup Device42 on a PC hypervisor
