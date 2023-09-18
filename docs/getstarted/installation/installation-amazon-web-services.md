@@ -1,6 +1,6 @@
 ---
 title: "Amazon Web Services - Installation"
-sidebar_position: 6
+sidebar_position: 9
 ---
 ## Device42 on AWS FAQ
 
