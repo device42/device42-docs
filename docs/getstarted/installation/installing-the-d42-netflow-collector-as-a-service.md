@@ -1,6 +1,6 @@
 ---
 title: "D42 Netflow Collector - Install as Service"
-sidebar_position: 15
+sidebar_position: 18
 ---
 
 ## The Device42 Netflow Collector

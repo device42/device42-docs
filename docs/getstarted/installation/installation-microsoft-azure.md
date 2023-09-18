@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure - Installation"
-sidebar_position: 7
+sidebar_position: 10
 ---
 
 ## Get Device42 from the Azure Marketplace

@@ -1,6 +1,6 @@
 ---
 title: "Getting Started on a Mac"
-sidebar_position: 10
+sidebar_position: 13
 ---
 
 ## From the Start - How to Setup Device42 from the Beginning on a Mac
