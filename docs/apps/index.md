@@ -3,30 +3,12 @@ title: "Applications"
 sidebar_position: 1
 ---
 
-This section covers items in in the _Applications_, including
+These sections cover the following entries found in the applications menu of the Device42 appliance:
 
-* Affinity groups
-* Application components
-* Business applications
-* Services
+- See [Application Components](application-components/index.md) for information on capturing what is often thought of as an "application". Application components can be linked to multiple, one, or even no underlying services.
+- To design and customize your map of critical business functions, see the [Business Applications](business-applications/index.md) section.
+- [Application Dependency Mapping](enterprise-application-dependency-mapping/index.md) provides information about the autodiscovery of application and service dependencies throughout a network.
+- The [Services](services/index.md) section details the available actions of the Services menu.
+- See [Affinity Groups](affinity-groups/index.md) for assistance with application grouping based on observed communication patterns.
 
-
-## Table of contents
-
-- [Application Dependency Mapping](apps/enterprise-application-dependency-mapping/index.md)
-    - [ADM Detected Applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md)
-    - [Cloud Application Dependency Mapping](apps/enterprise-application-dependency-mapping/cloud-application-dependency-mapping.md)
-    - [Configure Application Dependency Mapping](apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping.md)
-- [Services](services/index.md)
-    - [Service Instances](apps/services/service-instances.md)
-    - [Scheduled Tasks](apps/services/scheduled-tasks.md)
-    - [Service Listener Ports](apps/services/service-listener-ports.md)
-    - [Service Communications](apps/services/service-communications.md)
-    - [Ignored Services](apps/services/ignored-services.md)
-    - [Network Shares](apps/services/network-shares.md)
-- [Application Components](apps/application-components/index.md)
-    - [Application Component Templates](apps/application-components/application-component-templates.md)
-- [Affinity Groups](apps/affinity-groups/index.md)
-    - [AppFocus Filters](apps/affinity-groups/appfocus-filters.md)
-- [Business Applications](apps/business-applications/index.md)
-    - [Building Business Applications in Device42](apps/business-applications/building-business-applications-in-device42.md)
+Explore these categories and dive into specific sub-pages in more detail using the sidebar on the left.
