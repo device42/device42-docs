@@ -1,6 +1,6 @@
 ---
 title: "How To Contribute Documentation Fixes"
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 import ReactPlayer from 'react-player'
