@@ -93,7 +93,6 @@ You can now make any necessary edits to the DOQL query you were looking at, and 
 
 DOQL support is NOT included. We will _NOT_ write queries for you! That said...
 
-- If you need help writing a query, Device42 can only offer paid professional services.
 - If you happen to come across a BUG, please submit it. We will fix it as part of our normal bug-fix process. There is, of course, no charge for bug fixes.
 
 ## About Device42 DOQL
