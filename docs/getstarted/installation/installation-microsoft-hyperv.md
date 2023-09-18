@@ -1,6 +1,6 @@
 ---
 title: "Microsoft HyperV - Installation"
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 ## Download the Device42 VM image & un-zip

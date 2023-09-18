@@ -1,6 +1,6 @@
 ---
 title: "vCenter Server - Installation"
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 The following simple steps in list format are followed the same steps in pictures, both of which will guide you through the import of the Device42 appliance into a vCenter Server so you can start mapping our your IT Infrastructure!

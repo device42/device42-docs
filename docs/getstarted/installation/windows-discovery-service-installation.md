@@ -1,6 +1,6 @@
 ---
 title: "Windows Discovery Service Installation"
-sidebar_position: 5
+sidebar_position: 8
 ---
 
 - The Windows Discovery Service (WDS) should be connected directly to a Remote Collectors (RC) to enable WMI discovery directly from the Device42 UI.
