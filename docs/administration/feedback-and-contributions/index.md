@@ -1,0 +1,13 @@
+---
+title: "Feedback and Contributions"
+---
+
+This section includes the following guides:
+
+- Describe and submit issues about our documentation using the "Page Feedback" widget at the top of the page. For more information see the [How To Submit Feedback on Device42 Documentation](how-to-submit-documentation-feedback.mdx) page.
+
+- If you'd like to make changes to the documentation's text yourself, see [How To Contribute Documentation Fixes](how-to-contribute-documentation-fixes.md) for detailed instructions.
+
+- See [How To Update or Contribute Images](how-to-update-or-contribute-images.mdx) to learn about making image changes.
+
+Thank you for your contributions to our documentation!

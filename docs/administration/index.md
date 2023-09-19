@@ -3,52 +3,11 @@ title: "Administration"
 sidebar_position: 1
 ---
 
+This guide is designed to assist administrators in efficiently managing and configuring the Device42 platform. Navigate through the topics regarding various advanced features and configuration settings using the sidebar on the left.
 
+The following subsections contain further topic breakdowns: 
 
-## Table of contents
-
-- [Active Directory and OpenLDAP Support](administration/active-directory-and-openldap-support.md)
-- [Advanced Routing](administration/advanced-routing.md)
-- [Add an Active Directory User as a Device42 Administrator](administration/add-an-active-directory-user-as-a-device42-administrator.md)
-- [Auto Clean Feature](administration/auto-clean-feature.md)
-- [Bulk add Active Directory group members as Device42 users](administration/bulk-add-active-directory-group-members-as-device42-users.md)
-- [Custom Column Views](administration/custom-column-views.md)
-- [Custom Fields](administration/custom-key-value-pairs-explained.md)
-- [Customizing Device42](administration/customizing-device42.md)
-- [Data Reset Tool](administration/data-reset-tool.md)
-- [Generating CSRs](administration/generating-csrs.md)
-- [Licensing](administration/licensing.md)
-- [SAML 2.0 Configuration](administration/saml-2-0-configuration.md)
-- [Setting Time Zone and NTP](administration/setting-time-zone-and-ntp.md)
-- [Setup & Troubleshooting Menu](administration/console-menu.md)
-- [Tags](administration/tags.md)
-- [Transferring devices, assets, and parts to other data centers](administration/transferring-devices-assets-and-parts-to-other-data-centers.md)
-- [Appliance Manager](administration/appliance-manager/index.md)
-    - [Adding multiple Network Interface Cards(NIC) to Device42 VM](administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.md)
-    - [API Limits](administration/appliance-manager/api-limits.md)
-    - [Changing Device42 Appliance Hostname](administration/appliance-manager/changing-device42-appliance-hostname.md)
-    - [Collecting SNMPWALK output for troubleshooting](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md)
-    - [Delete History Logs](administration/appliance-manager/delete-history-logs.md)
-    - [Device42 Appliance Manager login](administration/appliance-manager/device42-appliance-manager-login.md)
-    - [Device42 Restore](administration/appliance-manager/device42-restore.md)
-    - [Enable or Disable TLS versions from Appliance Manager](administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager.md)
-    - [Enabling SSL in Appliance Manager](administration/appliance-manager/enabling-ssl-in-appliance-manager.md)
-    - [Generate log bundle](administration/appliance-manager/generate-log-bundle.md)
-    - [Generating IPMI output for troubleshooting](administration/appliance-manager/generating-ipmi-output-for-troubleshooting.md)
-    - [Global and Password manager session timeout](administration/appliance-manager/global-and-password-manager-session-timeout.md)
-    - [Installing VMWare or Xenserver tools](administration/appliance-manager/installing-vmware-or-xenserver-tools.md)
-    - [Pendo Guided Tours and Usage Information Collection](administration/appliance-manager/pendo-guided-tours-and-usage-information-collection.md)
-    - [Securing the VM console with password](administration/appliance-manager/securing-the-vm-console-with-password.md)
-    - [Set FQDN for Web Access](administration/appliance-manager/set-fqdn-for-web-access.md)
-    - [Set up HTTPS cert](administration/appliance-manager/set-up-https-cert.md)
-    - [Setting up backup via Device42 Appliance Manager](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md)
-    - [Warm HA Setup, Failover, and Automated Backups](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md)
-- [Passwords](administration/passwords/index.md)
-    - [Burnt Secret Password Storage](administration/passwords/burnt-secret-password-storage.md)
-    - [Password Security and Permissions](administration/passwords/password-security-and-permissions.md)
-    - [Set Default Password Management Group](administration/passwords/set-default-password-management-group.md)
-    - [Password Operations](administration/passwords/password-operations.md)
-    - [Password Policy](administration/passwords/password-policy.md)
-    - [Password Reporting](administration/passwords/password-reporting.md)
-- [Role-Based Access Control](administration/role-based-access-control/index.md)
-    - [Role-based Permissions and Access](administration/role-based-access-control/role-based-permissions-and-access.md)
+- The [Appliance Manager](appliance-manager/index.md) section includes information on how to change your appliance hostname, make backups, manage HTTP certificates, generate logs, and more.
+- See [Passwords](passwords/index.md) for information on password security, storage, permissions, operations, policy and reporting.
+- [Role-Based Access Control](role-based-access-control/index.md) explains how to restrict access based on various criteria, including managing [permission groups](role-based-access-control/role-based-permissions-and-access.md)
+- For information on how to provide feedback or contribute to our documentation, see the [Feedback and Contributions](feedback-and-contributions/index.md) section.
