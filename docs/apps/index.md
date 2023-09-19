@@ -8,7 +8,7 @@ These sections cover the following entries found in the applications menu of the
 - See [Application Components](application-components/index.md) for how to define and map dependencies of the components (for example, databases, web servers, load balancers) that make up your applications.
 - To design and customize your map of critical business functions, see the [Business Applications](business-applications/index.md) section.
 - [Application Dependency Mapping](enterprise-application-dependency-mapping/index.md) provides information about the autodiscovery of application and service dependencies throughout a network.
-- The [Services](services/index.md) section details the available actions of the Services menu.
+- The [Services](services/index.mdx) section details the available actions on the Services menu.
 - See [Affinity Groups](affinity-groups/index.md) for assistance with application grouping based on observed communication patterns.
 
 Explore these categories and dive into specific sub-pages in more detail using the sidebar on the left.
