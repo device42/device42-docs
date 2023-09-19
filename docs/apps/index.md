@@ -5,7 +5,7 @@ sidebar_position: 1
 
 These sections cover the following entries found in the applications menu of the Device42 appliance:
 
-- See [Application Components](application-components/index.md) for information on capturing what is often thought of as an "application". Application components can be linked to multiple, one, or even no underlying services.
+- See [Application Components](application-components/index.md) for how to define and map dependencies of the components (for example, databases, web servers, load balancers) that make up your applications.
 - To design and customize your map of critical business functions, see the [Business Applications](business-applications/index.md) section.
 - [Application Dependency Mapping](enterprise-application-dependency-mapping/index.md) provides information about the autodiscovery of application and service dependencies throughout a network.
 - The [Services](services/index.md) section details the available actions of the Services menu.
