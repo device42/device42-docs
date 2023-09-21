@@ -1,0 +1,96 @@
+---
+title: "Application Components"
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Application Components are intended to capture what people generally think of as "Applications." An application might be a CEO Dashboard that requires a web server/farm, an app server, and a database server. An application component might also be linked to just one service. Or an application component might be defined without any underlying service.
+
+### Defining Application Components Based on Services
+
+Each Service Instance edit form has an option to link that service with an Application Component.
+
+<ThemedImage
+  alt="Edit service instance"
+  sources={{
+    light: useBaseUrl('/assets/images/edit-service-instance-light.png'),
+    dark: useBaseUrl('/assets/images/edit-service-instance-dark.png'),
+  }}
+/>
+
+In the example above, we've linked the oracle\_proce233442 service with the "Oracle Server 0006" Application Component.
+
+If you navigate to the edit form for an Application Component, you can also link one or more services from that screen:
+
+<ThemedImage
+  alt="Editing the application component"
+  sources={{
+    light: useBaseUrl('/assets/images/edit-app-component-light.png'),
+    dark: useBaseUrl('/assets/images/edit-app-component-dark.png'),
+  }}
+/>
+
+### Defining Application Components Not Based on Services
+
+<ThemedImage
+  alt="Application components list view"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-view-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-view-dark.png'),
+  }}
+/>
+
+Device42 now automatically categorizes application components by the following categories: Database, Application Layer, Web Server, Load Balancer, and Other. You can filter the list page based on application component category, and can categorize your custom components as well.
+
+<ThemedImage
+  alt="Add affected groups to application component"
+  sources={{
+    light: useBaseUrl('/assets/images/SAN-store-edit-light.png'),
+    dark: useBaseUrl('/assets/images/SAN-store-edit-dark.png'),
+  }}
+/>
+
+In the example above, we are defining a "SAN Store" that depends on a device named "sh-SAN-Cluster01". If we'd like, we can also identify the Responsible Department, and choose which organizational groups are affected by this application component.
+
+Next we will define an "exchange server" component as shown below.
+
+<ThemedImage
+  alt="Defining an exchange server component top screen"
+  sources={{
+    light: useBaseUrl('/assets/images/exchange-server-component-1-light.png'),
+    dark: useBaseUrl('/assets/images/exchange-server-component-1-dark.png'),
+  }}
+/>
+<ThemedImage
+  alt="Defining an exchange server component bottom screen"
+  sources={{
+    light: useBaseUrl('/assets/images/exchange-server-component-2-light.png'),
+    dark: useBaseUrl('/assets/images/exchange-server-component-2-dark.png'),
+  }}
+/>
+
+Then we will add an Outlook Web Access(OWA) component that depends on the Exchange component as shown below:
+
+<ThemedImage
+  alt="Adding an OWA component top screen"
+  sources={{
+    light: useBaseUrl('/assets/images/OWA-add-component-1-light.png'),
+    dark: useBaseUrl('/assets/images/OWA-add-component-1-dark.png'),
+  }}
+/>
+<ThemedImage
+  alt="Adding an OWA component bottom screen"
+  sources={{
+    light: useBaseUrl('/assets/images/OWA-add-component-2-light.png'),
+    dark: useBaseUrl('/assets/images/OWA-add-component-2-dark.png'),
+  }}
+/>
+
+
+All of the dependencies we just created will show up in impact charts, impact lists, and dependency graphs.
+
+
+## Table of contents
+
+- [Application Component Templates](apps/application-components/application-component-templates.md)
