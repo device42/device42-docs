@@ -8,7 +8,7 @@ sidebar_position: 16
 **If you'd prefer written instructions for Packet Capture, see [the Packet Capture documentation page here.](auto-discovery/packet-capture.md)**
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=y1U37Xc9V2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y1U37Xc9V2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 With Device42 Packet Capture you can discover service communications happening in real-time for any service listeners known to Device42. By listening directly to all network communications, you'll easily discover communications that happen infrequently.
 
