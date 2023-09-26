@@ -14,7 +14,7 @@ Device42 License Pricing information is available on the [Device42 Pricing Page 
 
 ### EC2 Instance Sizing for Device42
 
-When running Device42 on AWS, it is recommended you size your Device42 Main Appliance (MA) to run on a t2.xlarge EC2 instance; this is the default. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. Only two EC2 instance sizes are currently permitted: `t2.xlarge` or a `t2.large` EC2 instance.
+When running Device42 on AWS, it is recommended you size your Device42 Main Appliance (MA) to run on a t3.xlarge EC2 instance; this is the default. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. Only the `t3.xlarge` EC2 instance size is currently permitted.
 
 The configuration will ONLY allow you to "Launch" successfully using one of the above listed sizes.
 
@@ -86,7 +86,7 @@ Note: if you installed on AWS manually (using a downloaded image), reference the
     - AWS Region for Device42 Deployment
     - AWS Account Number
 2. After Device42 Support has granted access to the Device42 AMI, navigate to your EC2 Dashboard and launch a new instance.
-3. Select “My AMIs” (ensure to select “Shared with Me”), and deploy your appliance. **Device42 recommends a t2.xlarge as the minimum instance size.**
+3. Select “My AMIs” (ensure to select “Shared with Me”), and deploy your appliance. **Device42 recommends t3.xlarge as the instance size.**
 
 ### Configuring instance access
 
