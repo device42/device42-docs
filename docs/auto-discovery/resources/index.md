@@ -63,7 +63,3 @@ Confirm the deletion if prompted.
 
 ![](/assets/images/Resources-3-Action-MenuDelete-Confirm.png)
 
-
-## Table of contents
-
-- [Cloud Resources](auto-discovery/resources/cloud-resources.md)

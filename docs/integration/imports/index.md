@@ -2,14 +2,12 @@
 title: "Imports"
 ---
 
-Sections covering importing data in Excel spreadsheets. Topics:
+This section provides information on how to import various types of data into Device42 using Excel spreadsheets.
 
+- **General Import**: Refer to [Spreadsheet Import and Exports](spreadsheet-imports-and-exports.md) for instructions on importing, editing, and exporting data.
 
-## Table of contents
+- **Legacy Imports**: If you're working with the legacy Microsoft 97-2003 XLS format, follow the instructions in [Legacy Imports](legacy-imports/index.md) for importing data.
 
-- [Import Overview](integration/imports/legacy-imports/import-overview.md)
-- [Import IP Sheet](integration/imports/legacy-imports/import-ip-sheet.md)
-- [Import Racked Devices](integration/imports/legacy-imports/import-racked-devices.md)
-- [Spreadsheet Imports and Exports](integration/imports/spreadsheet-imports-and-exports.md)
-- [Using the re-importable export feature](integration/imports/using-the-re-importable-export-feature.md)
-- [Generic Spreadsheet Import Tool](integration/imports/spreadsheet-converter-tool.md)
+- **Using the Generic Spreadsheet Import Tool**: Use the [Generic Spreadsheet Import Tool](spreadsheet-converter-tool.md) to load existing XLS, XLSX, and CSV data into Device42.
+
+- **Bulk Changes**: Make bulk changes to devices by utilizing the "Do a re-importable export for selected devices" option. See [Using the re-importable export feature](using-the-re-importable-export-feature.md) for an example of renaming multiple devices using this feature.
