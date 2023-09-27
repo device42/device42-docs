@@ -3,6 +3,9 @@ title: "SNMP - Network Autodiscovery"
 sidebar_position: 27
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you had a device that needs additional support!
 
 ## Intro to SNMP-based discovery
@@ -42,7 +45,13 @@ MAC to switch port association brings only switch ports that have MAC addresses 
 
 ### Create or edit an SNMP discovery job
 
-![](/assets/images/SNMP-menuadd-job-700x395.png)
+<ThemedImage
+  alt="SNMP menu location"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-menu-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-menu-dark.png'),
+  }}
+/>
 
 **Note**: when creating an SNMP job for Cisco Nexus, you must setup an SNMP server context for the management VRF (this actually needs to be done for any Cisco VRF contexts that you want to query over SNMP): snmp\-server context mymgmt vrf management
 
@@ -60,7 +69,13 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 - **Delete older mac association after**: Delete any mac addresses not found for the specified number of days.
 - **ICMP/TCP Port Check**: If you experience any issues with mulitcast IP's, then you will need to uncheck the ICMP/TCP Port Check option.
 
-![](/assets/images/Screen-Shot-2022-05-01-at-2.28.26-PM.png)
+<ThemedImage
+  alt="ICMP/TCP Port Check option"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-icmp-port-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-icmp-port-dark.png'),
+  }}
+/>
 
 ### Device-specific SNMP v3 info
 
@@ -91,20 +106,46 @@ Switches with older IOS releases (versions that don't support "match prefix wild
 
 You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. 
 
-![](/assets/images/SNMP-multi-creds-1-700x338.png)
+<ThemedImage
+  alt="Add SNMP credentials in order"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-credentials-dark.png'),
+  }}
+/>
 
 - Click _Add another community string_ and use the magnifying glass icon to select the secret for the community string.
 - Click _Move Up_ or _Move Down_ to order the credentials.
 
-![](/assets/images/v3_creds.png)
+<ThemedImage
+  alt="Move SNMP credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-credentials-move-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-credentials-move-dark.png'),
+  }}
+/>
 
 ## Network Device Options
 
-Expanding the "Network Device Options" section will reveal the following settings, specific to the discovery of network connected hardware and devices: ![](/assets/images/SNMP-add-job-net-device-options-700x323.png)
+Expanding the "Network Device Options" section will reveal the following settings, specific to the discovery of network connected hardware and devices: 
+
+<ThemedImage
+  alt="Network device options"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-network-device-options-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-network-device-options-dark.png'),
+  }}
+/>
 
 ### Get all switch ports
 
-![](/assets/images/SNMP-add-job-net-device-options-2-700x399.png) 
+<ThemedImage
+  alt="Network port types"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-port-types-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-port-types-dark.png'),
+  }}
+/>
 
 If you select _Get all switch ports_, you will see 6 extra form items:
 
@@ -120,11 +161,23 @@ If you select _Get all switch ports_, you will see 6 extra form items:
 
 ## Run Now or Schedule
 
-![](/assets/images/image-700x115.png)
+<ThemedImage
+  alt="SNMP job run now"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-job-run-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-job-run-dark.png'),
+  }}
+/>
 
 Select **Run Now** from the list page to run the job right away.
 
-![](/assets/images/AD_Blade-Discovery-Run-Schedule.png)
+<ThemedImage
+  alt="SNMP job schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-schedule-dark.png'),
+  }}
+/>
 
 Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
 
@@ -132,10 +185,36 @@ A note on autodiscovery scheduling behavior: newly created jobs will not run on 
 
 ## Status
 
-You can view the status and/or results of a discovery job during or after the job has run by visting the job edit screen: ![](/assets/images/SNMP-job-status-tab-700x233.png) You can also see a real-time report of all running jobs and their statuses by visiting _Reports > Job Status:_ ![](/assets/images/SNMP-job-status-dashboard-700x223.png) Status information can be viewed in full after each execution of the resptive job.
+You can view the status and/or results of a discovery job during or after the job has run by visiting the job edit screen: 
+
+<ThemedImage
+  alt="SNMP job status"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-job-status-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-job-status-dark.png'),
+  }}
+/>
+
+You can also see a real-time report of all running jobs and their statuses by visiting _Reports > Job Status:_ 
+
+<ThemedImage
+  alt="SNMP job status"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-completed-jobs-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-completed-jobs-dark.png'),
+  }}
+/>
+
+Status information can be viewed in full after each execution of the respective job.
 
 ## Run network discovery
 
-![Run network discovery](/assets/images/run_network_discovery-2018v15.png) 
+<ThemedImage
+  alt="SNMP job status"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-run-network-discovery-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-run-network-discovery-dark.png'),
+  }}
+/>
 
 Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, you can click on "Run now" button on list, view or edit page.
