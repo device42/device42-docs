@@ -11,7 +11,7 @@ To access the functionality described in this section, you _**must have a licens
 
 ## Power Unit Autodiscovery
 
-The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](auto-discovery/network-auto-discovery.md) Begin by navigating to the Device42 main menu, _Discovery -> SNMP_. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: ![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
+The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](auto-discovery/network-auto-discovery.mdx) Begin by navigating to the Device42 main menu, _Discovery -> SNMP_. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: ![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
 
 If you haven't yet set up a [Remote Collector Installation](https://www.device42.com/autodiscovery/) docs page.
 

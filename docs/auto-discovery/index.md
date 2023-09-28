@@ -83,7 +83,7 @@ Using SNMP v1/v2c/v3 discovery for network devices, you can automate discovery o
 - MAC to switch port associations
 - Switch port status and remote port associations
 
-SNMP Network discovery is covered in more detail at: [discovery/network-auto-discovery.md](auto-discovery/network-auto-discovery.md)
+SNMP Network discovery is covered in more detail at: [discovery/network-auto-discovery.mdx](auto-discovery/network-auto-discovery.mdx)
 
 ## Node data from Chef and Puppet
 
@@ -93,7 +93,7 @@ Another Puppet integration script is available on [API Autodisc repo](https://gi
 
 ## Other SNMP-based discovery
 
-SNMP discoveries can also be used to discover many other types of devices: Power devices are usually discovered using SNMP, e.g. UPS, ATS, and other SNMP-compatible network-connected hardware; Many environmental sensors also support SNMP discovery/polling. To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see the SNMP section of [the SNMP/Network Discovery DOCS page](auto-discovery/network-auto-discovery.md).
+SNMP discoveries can also be used to discover many other types of devices: Power devices are usually discovered using SNMP, e.g. UPS, ATS, and other SNMP-compatible network-connected hardware; Many environmental sensors also support SNMP discovery/polling. To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see the SNMP section of [the SNMP/Network Discovery DOCS page](auto-discovery/network-auto-discovery.mdx).
 
 ## Ping Sweep Utility
 
