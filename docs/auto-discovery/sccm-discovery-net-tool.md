@@ -3,7 +3,7 @@ title: "SCCM Discovery (.NET Tool)"
 sidebar_position: 26
 ---
 
-:::notice
+:::note
 THIS TOOL WILL BE DEPRECATED with v18.11.00 of Device42, and functionality of SCCM integration will be available natively from Device42, or using the WDS service.
 :::
 
