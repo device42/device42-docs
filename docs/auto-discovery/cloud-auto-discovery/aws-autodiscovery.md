@@ -90,83 +90,64 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
 
 ```
 {
-
-    "Version": "2012-10-17",
-    "Statement": [
-
-        {
-                   "Effect": "Allow",
-                   "Action": [
-                       "acm:DescribeCertificate",
-                       "acm:List*",
-                       "apigateway:GET",
-                       "autoscaling:Describe*",
-                       "cloudfront:ListDistributions",
-                       "cloudsearch:DescribeDomains",
-                       "cloudfront:ListTagsForResource",
-                       "cloudwatch:GetMetricData",
-                       "cloudwatch:GetMetricStatistics",
-                       "cloudwatch:Describe*",
-                       "cloudwatch:ListMetrics",
-                       "config:SelectResourceConfig"
-                       "dynamodb:DescribeLimits",
-                       "dynamodb:ListTables",
-                       "dynamodb:ListGlobalTables",
-                       "dynamodb:DescribeTable",
-                       "dynamodb:DescribeGlobalTable",
-                       "ec2:Describe*",
-                       "eks:ListClusters",  
-                       "eks:DescribeNodegroup",  
-                       "eks:DescribeUpdate",  
-                       "eks:ListNodegroups",  
-                       "eks:ListUpdates",
-                       "eks:DescribeCluster"
-                       "elasticache:Describe\*",
-                       "elasticfilesystem:DescribeFileSystems",
-                       "elasticfilesystem:DescribeAccessPoints",
-                       "elasticfilesystem:DescribeAccountPreferences",
-                       "elasticfilesystem:DescribeMountTargets",
-                       "elasticloadbalancing:Describe\*",
-                       "kms:ListResourceTags"
-                       "kms:ListKeys",
-                       "lambda:List*",
-                       "lambda:GetFunction",
-                       "lambda:GetAccountSettings",
-                       "lambda:GetPolicy",
-                       "logs:DescribeLogStreams",
-                       "logs:GetLogEvents",
-                       "organizations:ListRoots",
-                       "organizations:ListAccountsForParent",
-                       "organizations:ListOrganizationalUnitsForParent",
-                       "organizations:DescribeAccount",
-                       "rds:Describe*",
-                       "rds:ListTagsForResource",
-                       "redshift:DescribeClusters",
-                       "redshift:DescribeReservedNodes",
-                       "route53:ListResourceRecordSets",
-                       "route53domains:ListDomains",
-                       "route53:ListHostedZones",
-                       "route53:ListTagsForResource",
-                       "s3:ListAllMyBuckets",  
-                       "s3:GetBucketPublicAccessBlock",  
-                       "s3:GetBucketPolicyStatus",  
-                       "s3:GetBucketAcl",  
-                       "s3:GetBucketLocation",  
-                       "s3:ListAccessPoints",    
-                       "s3:GetAccessPointPolicyStatus",
-                       "s3:GetEncryptionConfiguration" 
-                       "sns:GetTopicAttributes",
-                       "sns:ListTagsForResource",
-                       "sns:ListTopics",
-                       "sqs:listQueues",
-                       "sqs:GetQueueAttributes",
-                       "sqs:listQueueTags   ",                 
-                         
-                       
-            ],
-            "Resource": "*"
-        }
-    ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "acm:DescribeCertificate",
+                "acm:List*",
+                "autoscaling:Describe*",
+                "cloudwatch:Describe*",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics",
+                "dynamodb:DescribeGlobalTable",
+                "dynamodb:DescribeLimits",
+                "dynamodb:DescribeTable",
+                "dynamodb:ListGlobalTables",
+                "dynamodb:ListTables",
+                "ec2:Describe*",
+                "eks:DescribeCluster",
+                "eks:DescribeNodegroup",
+                "eks:DescribeUpdate",
+                "eks:ListClusters",
+                "eks:ListNodegroups",
+                "eks:ListUpdates",
+                "elasticache:Describe*",
+                "elasticfilesystem:DescribeAccessPoints",
+                "elasticfilesystem:DescribeAccountPreferences",
+                "elasticfilesystem:DescribeFileSystems",
+                "elasticfilesystem:DescribeMountTargets",
+                "elasticloadbalancing:Describe*",
+                "lambda:GetAccountSettings",
+                "lambda:GetFunction",
+                "lambda:List*",
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents",
+                "organizations:DescribeAccount",
+                "organizations:ListAccountsForParent",
+                "organizations:ListOrganizationalUnitsForParent",
+                "organizations:ListRoots",
+                "rds:Describe*",
+                "rds:ListTagsForResource",
+                "redshift:DescribeClusters",
+                "redshift:DescribeReservedNodes",
+                "route53:ListHostedZones",
+                "route53:ListResourceRecordSets",
+                "route53:ListTagsForResource",
+                "s3:GetAccessPointPolicyStatus",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetBucketTagging",
+                "s3:ListAccessPoints",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 ```
 * * *
