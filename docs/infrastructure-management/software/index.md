@@ -18,6 +18,6 @@ When you create a discovery job, remember to select the _Discover Software_ opti
 - [Software License Models and Management](infrastructure-management/software/software-license-management.md)
 - [Software Licensing Alerts and Notifications](infrastructure-management/software/software-licensing-alerts-and-notifications.md)
 - [Software Components](infrastructure-management/software/software-components.md)
-- [Merge and Assign Software Components](infrastructure-management/software/merge-and-assign-software-components.md)
+- [Merge and Assign Software Components](infrastructure-management/software/merge-and-assign-software-components.mdx)
 - [Software In Use](infrastructure-management/software/software-in-use.md)
 - [Software EOL / EOS](infrastructure-management/software/software-eol-eos.md)
