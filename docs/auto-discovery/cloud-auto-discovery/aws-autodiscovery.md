@@ -158,8 +158,8 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
         "sns:ListTagsForResource",
         "sns:ListTopics",
         "sqs:GetQueueAttributes",
-        "sqs:listQueues",
-        "sqs:listQueueTags "
+        "sqs:ListQueues",
+        "sqs:ListQueueTags"
       ],
       "Resource": "*"
     }
