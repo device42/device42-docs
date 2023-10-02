@@ -38,6 +38,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
 
 1. For the script to successfully retrieve warranty information for a given device, the device’s model and serial number fields must be correctly filled out (entered or discovered). If you have more than one Vendor entry for a given vendor, the best option is to merge them prior to discovery. For example, to merge all lexical variations of "Dell" into a single vendor, head to _Infrastructure -> Vendors_ and check the boxes next to all variations of 'dell': 
 
+
 <ThemedImage
   alt="Merge lexically similar vendors"
   sources={{
@@ -46,6 +47,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
   }}
   
 />
+<br/><br/>
 
 2. The Device42 _Model field_ must be set to one of the following: _Dell, IBM, Lenovo, or Meraki_ – hardware with different vendor name variations will not return a warranty. You can easily add the proper Alias to each vendor if your vendors are named differently. On the vendor edit screen, simply add _dell_ to the Dell vendor entry, _ibm_ for IBM, _meraki_ for Meraki, and finally _lenovo_ to the Lenovo vendor entry: 
 
@@ -64,6 +66,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
     dark: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-dark.png'),
   }}
 />
+<br/><br/>
 
 3. Get your API keys (Dell and Meraki):
 
