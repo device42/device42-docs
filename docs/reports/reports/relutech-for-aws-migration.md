@@ -44,7 +44,7 @@ For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-
 
 ## Warranty Job Creation
 
-- See the [Warranty Sync](auto-discovery/warranty-autodiscovery.md) documentation for instructions on setting up the Warranty Sync autodiscovery.
+- See the [Warranty Sync](auto-discovery/warranty-autodiscovery.mdx) documentation for instructions on setting up the Warranty Sync autodiscovery.
 
 ## Recommended Automated Scheduling
 

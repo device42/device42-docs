@@ -3,13 +3,22 @@ title: "Warranty Autodiscovery"
 sidebar_position: 37
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 # Discover Warranty Details with Device42
 
 Device42 supports autodiscovery of hardware warranties, making tracking within Device42 a breeze.
 
 The Device42 warranty autodiscovery and management tools will find and help you keep track of your hardware warranties from Dell, IBM, Lenovo, and Meraki. The functionality originally started as a standalone script, which still functions, and is now integrated into the main UI – select _Discovery > Warranty Sync_ from the main menu.
 
-![](/assets/images/WEB-598_warranty-ad-menu-700x346.png)
+<ThemedImage
+  alt="Warranty sync menu"
+  sources={{
+    light: useBaseUrl('/assets/images/discover-warranty-menu-light.png'),
+    dark: useBaseUrl('/assets/images/discover-warranty-menu-dark.png'),
+  }}
+/>
 
 To configure automatic warranty discovery, you'll need to simply request API keys from the vendors that require them (currently Dell and Meraki), and once you've provided Device42 with your API access keys, simply let Device42 loose! As long as your device CIs have a model and serial number present so Device42 knows what vendor to ask, and the ID of the machine, warranty autodiscovery does the rest, automatically discovering and populating your hardware's service contract information.
 
@@ -29,11 +38,35 @@ To configure automatic warranty discovery, you'll need to simply request API key
 
 1. For the script to successfully retrieve warranty information for a given device, the device’s model and serial number fields must be correctly filled out (entered or discovered). If you have more than one Vendor entry for a given vendor, the best option is to merge them prior to discovery. For example, to merge all lexical variations of "Dell" into a single vendor, head to _Infrastructure -> Vendors_ and check the boxes next to all variations of 'dell': 
 
-![](/assets/images/WEB-598_warranty-ad-merge-vendors.png)
+
+<ThemedImage
+  alt="Merge lexically similar vendors"
+  sources={{
+    light: useBaseUrl('/assets/images/discover-warranty-merge-light.png'),
+    dark: useBaseUrl('/assets/images/discover-warranty-merge-dark.png'),
+  }}
+  
+/>
+<br/><br/>
 
 2. The Device42 _Model field_ must be set to one of the following: _Dell, IBM, Lenovo, or Meraki_ – hardware with different vendor name variations will not return a warranty. You can easily add the proper Alias to each vendor if your vendors are named differently. On the vendor edit screen, simply add _dell_ to the Dell vendor entry, _ibm_ for IBM, _meraki_ for Meraki, and finally _lenovo_ to the Lenovo vendor entry: 
 
-![](/assets/images/WEB-598_warranty-ad-vendor-change-1-700x523.png)
+<ThemedImage
+  alt="Edit vendor"
+  sources={{
+    light: useBaseUrl('/assets/images/discover-warranty-vendor-light.png'),
+    dark: useBaseUrl('/assets/images/discover-warranty-vendor-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="Add vendor aliases"
+  sources={{
+    light: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-light.png'),
+    dark: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-dark.png'),
+  }}
+/>
+<br/><br/>
 
 3. Get your API keys (Dell and Meraki):
 
@@ -72,7 +105,13 @@ Meraki - api.meraki.com https port 443
 4. Choose your Order Number Generation and Debug Level options, set a schedule if desired, and save the job.
 5. Go ahead and run the job!
 
-![](/assets/images/WEB-598_warranty-ad-add-Dell-access-key-700x333.png)
+<ThemedImage
+  alt="Add API key"
+  sources={{
+    light: useBaseUrl('/assets/images/discover-warranty-api-key-light.png'),
+    dark: useBaseUrl('/assets/images/discover-warranty-api-key-dark.png'),
+  }}
+/>
 
 As long as your API key is active, and devices have a valid model, vendor, and serial information the sync will gather warranty information. On each device in the _LifeCycle_ tab or in _Infrastructure > Purchases_, you will find past and present warranty information. This includes order details, contract/service types, and dates.
 
@@ -82,7 +121,16 @@ As long as your API key is active, and devices have a valid model, vendor, and s
 
 1. Create a working directory. Copy the files from [Device42’s GitHub warranty\_check Repo](https://github.com/device42/warranty_check/)
 2. Copy the file _warranty.cfg.example_ to _warranty.cfg_
-3. Set the required parameters in warranty.cfg _\[D42 instance info & API keys\]_:![](/assets/images/WEB-598_warranty-ad-standalone-script-700x334.png)
+3. Set the required parameters in warranty.cfg _\[D42 instance info & API keys\]_:
+
+<ThemedImage
+  alt="Warranty script"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-warranty-script-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-warranty-script-dark.png'),
+  }}
+/>
+
 4. Run the script! `$ python starter.py`
 
 ## Obtaining the Standalone Script (note: may be deprecated in the future)
