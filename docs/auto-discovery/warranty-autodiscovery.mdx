@@ -81,7 +81,7 @@ To configure automatic warranty discovery, you'll need to simply request API key
 Both the UI and the warranty script transmit the same information (relevant serial number(s)) to the appropriate vendor via port 443 SSL, including the API key entered into Device42 for this purpose _only_ if required by the vendor (Dell/Meraki). Payload looks as follows:
 
 ```
-payload = {'id': inline\_serials, 'apikey': self.api\_key, 'accept': 'Application/json'}
+payload = {'id': inline_serials, 'apikey': self.api_key, 'accept': 'Application/json'}
 ```
 
 Warranty lookup queries the APIs at the following URLs:
@@ -119,9 +119,9 @@ As long as your API key is active, and devices have a valid model, vendor, and s
 
 ## If you are using the STANDALONE Warranty Script:
 
-1. Create a working directory. Copy the files from [Device42’s GitHub warranty\_check Repo](https://github.com/device42/warranty_check/)
+1. Create a working directory. Copy the files from [Device42’s GitHub `warranty_check` Repo](https://github.com/device42/warranty_check/)
 2. Copy the file _warranty.cfg.example_ to _warranty.cfg_
-3. Set the required parameters in warranty.cfg _\[D42 instance info & API keys\]_:
+3. Set the required parameters in warranty.cfg _[D42 instance info & API keys]_:
 
 <ThemedImage
   alt="Warranty script"
