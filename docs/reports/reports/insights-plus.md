@@ -3,6 +3,9 @@ title: "Insights+"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction
 
 Device42 **Insights+** provides integrated analytics that leverage the breadth and depth of Device42 discovery to help you make sense of your data through visuals and dashboards so that you can make better, more informed business decisions _quickly_.
@@ -265,3 +268,39 @@ FROM rack_ports
 WHERE
            total_network_port_count = used_network_port_count
 ```
+
+### How To Delete a Custom Dataset
+
+You can quickly delete a saved dataset by following these steps. Note that deleting a custom dataset will affect any charts and dashboards based on that dataset.
+
+1. From the "Insights+" main menu, click on the "Create" button and select the "Create Chart" option.
+
+<ThemedImage
+  alt="Select create new chart"
+  sources={{
+    light: useBaseUrl('/assets/images/insights-create-chart-light.png'),
+    dark: useBaseUrl('/assets/images/insights-create-chart-dark.png'),
+  }}
+/>
+<br/><br/>
+
+2. You'll be directed to a table listing your existing datasets. Identify the dataset you want to delete and move your cursor to the far right, under the "Actions" column. A trashcan and pencil icon will appear as you hover over it. Click on the trashcan icon.
+
+<ThemedImage
+  alt="Dataset delete option"
+  sources={{
+    light: useBaseUrl('/assets/images/insights-delete-option-light.png'),
+    dark: useBaseUrl('/assets/images/insights-delete-option-dark.png'),
+  }}
+/>
+<br/><br/>
+
+3. A modal window will appear informing you of the number of charts and dashboards that will be affected by deleting the selected dataset. Type ‘DELETE’ into the text box and click on the "Delete" button to delete the dataset.
+
+<ThemedImage
+  alt="Confirm deletion"
+  sources={{
+    light: useBaseUrl('/assets/images/insights-delete-confirm-light.png'),
+    dark: useBaseUrl('/assets/images/insights-delete-confirm-dark.png'),
+  }}
+/>
