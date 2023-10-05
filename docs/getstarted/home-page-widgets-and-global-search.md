@@ -7,7 +7,7 @@ The Device42 home page Classic Dashboard features our updated widgets that give 
 
 ## Widgets and Dashboards
 
-- You can use the Dashboard drop-down to select one of the [Insights+](reports/reports/insights-plus.md) dashboards to use for the home page instead of the Classic Dashboard if you want.
+- You can use the Dashboard drop-down to select one of the [Insights+](../reports/reports/insights-plus.mdx) dashboards to use for the home page instead of the Classic Dashboard if you want.
 
 ![](/assets/images/D42-21560_home-page-dashboard-menu.png)
 
