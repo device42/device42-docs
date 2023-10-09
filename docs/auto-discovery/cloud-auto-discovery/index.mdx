@@ -1,0 +1,55 @@
+---
+title: "Cloud Platforms Autodiscovery"
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+## Device42 Cloud Platform Autodiscovery
+
+Knowing what's happening in all your environments, on-prem and cloud, is key to optimizing your cloud costs, reducing shadow IT and ensuring you can pass audits with ease. To that end, Device42 is continuously adding more discovery functionality within all major hyperscale clouds so we can help you maintain your edge.
+
+Device42 supports autodiscovery of cloud instances (virtual devices) on Amazon AWS, Amazon API, Microsoft Azure, Linode, DigitalOcean, OpenStack, Google Cloud, Alibaba Cloud, Oracle Cloud, and Standalone Kubernetes. Native discovery for new cloud platforms is added according to customer needs _\[and please do let us know!\]_.
+
+Device42 will autodiscover your cloud virtual machines, databases, and storage as devices. You can then work with your cloud devices just like like you would any other device. You can define application components, store passwords, create custom keys, and so on, just as you would for any other physical or virtual device.
+
+<ThemedImage
+  alt="Cloud Discovery menu"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-01-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-01-dark.png'),
+  }}
+/>
+
+The Discovery menu includes the option for discovery of Cloud instances. The list page shows all of your existing cloud autodiscovery jobs. You’ll typically create one job per account. As with other types of autodiscovery jobs, cloud discovery jobs can be run immediately and/or scheduled. Click Add Cloud Autodiscovery in the top right corner to create a new job, then simply select your cloud type.
+
+<ThemedImage
+  alt="Choose Cloud Type"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-02-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-02-dark.png'),
+  }}
+/>
+
+## Viewing Cloud Instance Information
+
+Select _Resources > All Devices_ and then select "Virtual" from the _Type_ filter to display virtual devices.
+
+<ThemedImage
+  alt="Filter virtual devices"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-03-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-03-dark.png'),
+  }}
+/>
+
+The Device view and edit pages will now show "Cloud Instance Information" at the bottom of the page.
+
+<ThemedImage
+  alt="View instance info"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-04-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-04-dark.png'),
+  }}
+/>
+
