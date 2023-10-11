@@ -14,7 +14,7 @@ The Other Tab includes:
 - **BIOS info** - BIOS version details
 - **Patch Panel Ports** - see below
 - **Device direct connection** - see below
-- **[Custom Key / Values](administration/custom-key-value-pairs-explained.md)** - create and store custom attributes
+- **[Custom Key / Values](administration/custom-key-value-pairs-explained.mdx)** - create and store custom attributes
 - **File Attachments** - attach files associated to this device
 - **Power Monitoring** - see below
 
