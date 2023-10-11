@@ -13,7 +13,7 @@ Find the "Add A Cable" screen under _DATACENTER --> Cables_
 
 ![Add A Cable](/assets/images/201802add-cables.png)
 
-Cables also have their own unique properties (see "Add Cable" screen in the above image). Aside from length, connector type, and location, cables support [custom fields](../../administration/custom-key-value-pairs-explained.md), as well.
+Cables also have their own unique properties (see "Add Cable" screen in the above image). Aside from length, connector type, and location, cables support [custom fields](../../administration/custom-key-value-pairs-explained.mdx), as well.
 
 ### Drag and Drop Cabling from the Rack View
 
