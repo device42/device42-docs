@@ -64,7 +64,21 @@ In Device42, configure an autodiscovery job to scan systems for installed softwa
 
 Configure the autodiscovery job for the system's platform and network location. To enable software discovery, ensure the *Discover Software* option is selected under the *Software and Applications* section.
 
-![](add_autodiscovery_job.png)
+<ThemedImage
+  alt="Add autodiscovery job image 1"
+  sources={{
+    light: useBaseUrl('/assets/images/add-autodiscovery-job-1-light.png'),
+    dark: useBaseUrl('/assets/images/add-autodiscovery-job-1-dark.png'),
+  }}
+/>
+<ThemedImage
+  alt="Add autodiscovery job image 2"
+  sources={{
+    light: useBaseUrl('/assets/images/add-autodiscovery-job-2-light.png'),
+    dark: useBaseUrl('/assets/images/add-autodiscovery-job-2-dark.png'),
+  }}
+/>
+
 
 Note that for this option to appear, a supported platform such as *\*nix* or *Windows* must be selected for the autodiscovery job first.
 
@@ -99,7 +113,13 @@ The All Software Components view represents a library of all software managed by
 
 As with other list views in Device42, you can sort this table by the column headers, select filters for the view from the top-right of the page, search components using the search box at the top-left, and take bulk actions on items in the list.
 
-![](software_components_list.png)
+<ThemedImage
+  alt="Software components list"
+  sources={{
+    light: useBaseUrl('/assets/images/software-components-list-light.png'),
+    dark: useBaseUrl('/assets/images/software-components-list-dark.png'),
+  }}
+/>
 
 Some of the bulk actions that can be taken here include:
 
@@ -109,28 +129,45 @@ Some of the bulk actions that can be taken here include:
 
 You can merge software components by assigning them to a suite. Select the components to merge from the list view, then select "Assign Software to Suite" from the *Select an Action* dropdown. Select the software suite from the list and submit the form.
 
-![](assign_to_suite.png)
 <ThemedImage
-  alt="Docusaurus themed image"
+  alt="Assign to suite"
   sources={{
-    light: useBaseUrl('/assets/images/feedback-widget-light.png'),
-    dark: useBaseUrl('/assets/images/feedback-widget-dark.png'),
+    light: useBaseUrl('/assets/images/assign-to-suite-light.png'),
+    dark: useBaseUrl('/assets/images/assign-to-suite-dark.png'),
   }}
 />
 
 You can manually add software components in the All Software Components view. Click the *Add Software Component* button at the top right. In the form that opens, enter the name of the component, type, license model, vendor, and other needed fields, then save the form. The newly created software component will be displayed in the list alongside any autodiscovered software.
 
-![](add_software_component.png)
+<ThemedImage
+  alt="Add software component"
+  sources={{
+    light: useBaseUrl('/assets/images/add-software-component-light.png'),
+    dark: useBaseUrl('/assets/images/add-software-component-dark.png'),
+  }}
+/>
 
 ### Software In Use
 
 The Software In Use page will list the software components assigned to or used by each device, including when it was first detected on the device and when it was last updated. As with the All Software Components page, this view can be sorted by column headers, filtered, and searched, and you can perform bulk actions.
 
-![](software_in_use_list.png)
+<ThemedImage
+  alt="Software in use list"
+  sources={{
+    light: useBaseUrl('/assets/images/software-in-use-list-light.png'),
+    dark: useBaseUrl('/assets/images/software-in-use-list-dark.png'),
+  }}
+/>
 
 You can manually add a piece of software to the Software In Use page by clicking the *Add Software In Use* button at the top right of the page. In the form that opens, find and select the created software component that represents the software in use, any licensing information, and the device that it is used on, then save the form. The newly created software-in-use record will be displayed in the list alongside other records.
 
-![](add_software_in_use.png)
+<ThemedImage
+  alt="Add software in use"
+  sources={{
+    light: useBaseUrl('/assets/images/add-software-in-use-light.png'),
+    dark: useBaseUrl('/assets/images/add-software-in-use-dark.png'),
+  }}
+/>
 
 ## License Models
 
@@ -152,7 +189,13 @@ Additionally, for each license type, the following options are configurable to f
 
 Device42 comes with the license models outlined above predefined in *Resources* > *Software Components* > *Software Licensing Models*. You can also define custom license models if none of the predefined models suit your needs by selecting *Add Software Licensing Model* from the software licensing models page. The screenshot below demonstrates adding a new licensing model for open-source software.
 
-![](add_license_model.png)
+<ThemedImage
+  alt="Add license model"
+  sources={{
+    light: useBaseUrl('/assets/images/add-license-model-light.png'),
+    dark: useBaseUrl('/assets/images/add-license-model-dark.png'),
+  }}
+/>
 
 ## Alerts and Notifications
 
@@ -168,7 +211,13 @@ To create an alert, navigate to *Analytics* > *Reports* > *Setup Alerts* > *Add 
 
 The recipient for an alert is set in the Escalation Profile field. If a profile is already configured, you can select it from the prepopulated list. If not, click the plus icon next to the Escalation Profile field to open a form to configure one.
 
-![](add_alert.png)
+<ThemedImage
+  alt="Add alert"
+  sources={{
+    light: useBaseUrl('/assets/images/add-alert-light.png'),
+    dark: useBaseUrl('/assets/images/add-alert-dark.png'),
+  }}
+/>
 
 Once an alert has been created and its criteria met, both open and acknowledged notifications for these alerts can be viewed at *Analytics* > *Reports* > *Notifications*.
 
@@ -178,7 +227,13 @@ Manage end-of-life (EOL) and end-of-service (EOS) information for your software 
 
 EOL and EOS dates are imported manually. To define EOL or EOS for a software component, select *Add Software EOL / EOS* at the top right of the page. In the Add Software EOL / EOS form, select the relevant software component and its corresponding EOL or EOS dates.
 
-![](add_end_of_life.png)
+<ThemedImage
+  alt="Add end of life"
+  sources={{
+    light: useBaseUrl('/assets/images/add-end-of-life-light.png'),
+    dark: useBaseUrl('/assets/images/add-end-of-life-dark.png'),
+  }}
+/>
 
 Note that it's not necessary to specify both end-of-life and end-of-service dates. These are similar concepts, but not all software will have both. 
 
@@ -193,10 +248,46 @@ Let's create a simple report that finds all managed Adobe software to illustrate
 
 First, create a new report at *Analytics* > *Classic Reports* > *Add Report* > *Software*. In the New Report form, select "Adobe" in the Available Vendor field and "Managed" in the Available Software Type field. Select search criteria for the report and which columns to include in the report. In our example, we selected the "Name", "Software type", and "Vendor" columns.
 
-![](add_report.png)
+<ThemedImage
+  alt="Add report image 1"
+  sources={{
+    light: useBaseUrl('/assets/images/add-report-1-of-4-light.png'),
+    dark: useBaseUrl('/assets/images/add-report-1-of-4-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="Add report image 2"
+  sources={{
+    light: useBaseUrl('/assets/images/add-report-2-of-4-light.png'),
+    dark: useBaseUrl('/assets/images/add-report-2-of-4-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="Add report image 3"
+  sources={{
+    light: useBaseUrl('/assets/images/add-report-3-of-4-light.png'),
+    dark: useBaseUrl('/assets/images/add-report-3-of-4-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="Add report image 4"
+  sources={{
+    light: useBaseUrl('/assets/images/add-report-4-of-4-light.png'),
+    dark: useBaseUrl('/assets/images/add-report-4-of-4-dark.png'),
+  }}
+/>
 
 Select "Display On Screen" at the bottom right. In this case, "Adobe Acrobat Reader" was found that matched the criteria in the report.
 
-![](report_results.png)
+<ThemedImage
+  alt="Report results"
+  sources={{
+    light: useBaseUrl('/assets/images/report-results-light.png'),
+    dark: useBaseUrl('/assets/images/report-results-dark.png'),
+  }}
+/>
 
 There are, of course, many other reporting configurations that Device42 supports. See the [full documentation on creating reports in Device42](https://docs.device42.com/reports/) for more details.
