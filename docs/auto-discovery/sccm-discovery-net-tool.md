@@ -5,12 +5,13 @@ sidebar_position: 26
 
 :::note
 THIS TOOL WILL BE DEPRECATED in the near future. With v18.11.00 of Device42 and functionality of SCCM integration will be available natively from Device42, or using the WDS service. You can continue to use the tool for now, but we recommend that you cut over to the native functionality.
+
+Please see our new [SCCM documentation](auto-discovery/sccm-discovery.mdx).
 :::
 
 _The Auto Discovery Client is an external tool \[.NET based\] that runs on Windows machines, either standalone or as a service. It auto-discovers detailed information about Windows Servers, Linux / UNIX / \*nix Servers, Hyper-V Hypervisor, and Virtual Machine Guest inventories, and can also import CI data \[API –> API\] from Microsoft SCCM Instances._ 
 
  
-
 * * *
 
 ### SCCM Information
