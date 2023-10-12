@@ -27,28 +27,112 @@ The client can be downloaded by going to _Discovery > Agent Based Scans_. Enter
 
 It can be run from the command line or can be scheduled using the relevant scheduling program per OS. When running the application, the following switches are available:
 
-| Switch | Description |
-| --- | --- |
-| \-collect-responses | collects all shell commands responses to collected-responses.log |
-| \-debug | prints the data being sent and result of post operation |
-| \-device-customer string | default device customer |
-| \-device-object-category string | default device object category |
-| \-device-service-level string | default device service level |
-| \-device-tags string | default device tags |
-| \-dry-run | doesn't do a post, just prints the data to be sent |
-| \-extended-logs | enables extended logs |
-| \-hostname-precedence | sets device name as new name to prevent creation of new device if only hostname was changed |
-| \-ignore-domain | ignore domain |
-| \-ignore-ipv6 | ignore IPv6 addresses |
-| \-ignore-local-ips string | sets list of local IPs to ignore |
-| \-ignore-local-ports string | sets list of local ports to ignore |
-| \-ignore-remote-ips string | sets list of remote IPs to ignore |
-| \-ignore-remote-ports string | sets list of remote ports to ignore |
-| \-ip-vrf-group string | default IP VRF group |
-| \-light-mode | reduces CPU utilization by cost of discovery speed |
-| \-quiet | enables extended logs |
-| \-sudo-password string | sudo password used in some OSes (Mac, Linux) to get information about the system |
-| \-version | print version number and exit |
+```
+  -capture-host-files
+    	capture hosts files
+  -debug
+    	prints the data being sent and result of post operation
+  -device-customer string
+    	default device customer
+  -device-name-format int
+    	1 - hostname, 2 - hostname + domain, 3 - hostname and hostname+domain as alias, 4 - hostname+doman and hostname as alias (default 1)
+  -device-object-category string
+    	default device object category
+  -device-service-level string
+    	default device service level
+  -device-tags string
+    	default device tags
+  -discover-last-login
+    	discover last login
+  -dry-run
+    	doesn't do a post, just prints the data to be sent
+  -extended-logs
+    	enables extended logs
+  -host string
+    	overrides built-in host
+  -hostname-precedence
+    	sets device name as 'new name' to prevent creation of new device if only hostname was changed
+  -ignore-domain
+    	ignore domain
+  -ignore-ipv6
+    	ignore IPv6 addresses
+  -ignore-local-ips string
+    	sets list of local IPs to ignore
+  -ignore-local-ports string
+    	sets list of local ports to ignore
+  -ignore-remote-ips string
+    	sets list of remote IPs to ignore
+  -ignore-remote-ports string
+    	sets list of remote ports to ignore
+  -ignore-subnets
+    	ignore subnets
+  -ip-vrf-group string
+    	default IP VRF group
+  -light-mode
+    	reduces CPU utilization by cost of discovery speed
+  -offline
+    	doesn't connect with Device42, just prints the encrypted data to be sent
+  -quiet
+    	disables all logs
+  -service-ports-only
+    	returns only service ports data
+  -skip-aws-instance-info
+    	disables AWS instance info discovery (default true)
+  -skip-bios
+    	disables bios discovery
+  -skip-cluster-info
+    	disables cluster info discovery (Windows only) (default true)
+  -skip-cpu-info
+    	disables CPU info discovery
+  -skip-database-info
+    	disables database discovery (default true)
+  -skip-hardware-info
+    	disables hardware discovery
+  -skip-hba
+    	disables HBA discovery
+  -skip-hdd
+    	disables HDD discovery
+  -skip-memory-info
+    	disables memory discovery
+  -skip-mount-points
+    	disables mount points discovery
+  -skip-network
+    	disables network discovery
+  -skip-os-details
+    	disables OS discovery
+  -skip-parts
+    	disables parts discovery
+  -skip-serials
+    	disables serial numbers discovery
+  -skip-service-ports
+    	disables service ports discovery
+  -skip-services
+    	disables services discovery
+  -skip-software
+    	disables software discovery
+  -skip-virtual-machines
+    	disables VM discovery
+  -software-initial-group string
+    	default software group
+  -store-config-files
+    	store configuration files
+  -store-filesystem-info
+    	store filesystem information
+  -store-registry-info
+    	store registry information
+  -store-software-config-files
+    	store software configuration files
+  -sudo-password string
+    	sudo password used in some OSes (Mac, Linux) to get information about the system
+  -use-aws-token
+    	use generated token to get AWS instance info
+  -use-global-ignore-software-file
+    	use global ignore software file
+  -use-global-ignore-software-pattern-file
+    	use global ignore software pattern file
+  -version
+    	print version number and exit
+```
 
 ## Scheduling With Crontab in Linux
 
