@@ -159,23 +159,50 @@ The full documentation for integrating Jira with Device42 can be found in our [J
 
 In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://d42example.atlassian.net/jira/marketplace/discover/app/com.device42.insight-cloud-synchronization?installDialogOpen=true&source=mpac). See the Jira Marketplace page for details on configuration.
 
+## Working with your Device42 Data on the Jira Service Management Cloud
+
+In order to create a data import on the "Device42 for Service Management Assets" app, we need to create an object schema first. 
+
+### Create a New Object Schema
+
+Creating a new object schema requires a generated token for the schema on the **Assets** tab (formerly Insight). Follow these steps to obtain the token:
+   
+1. Go to the **Assets** plugin. Click on the "+" button to open the "Create object schema" modal    window. Give the schema a name, and press "Create".
+
+![](/assets/images/jsm-solution-guide/image56.png)
+
+2. On the schema you just created, click on the three drops (ellipsis) and click on **Configure.**
+
+![](/assets/images/jsm-solution-guide/image11.png)
+
+3. Click on the **Import** tab.
+
+![](/assets/images/jsm-solution-guide/image64.png)
+
+4. Click on **_Create Import_** and create a new **External Import**.
+
+5. Click the **_ellipsis_** and select **_Generate new token_.**
+
+![](/assets/images/jsm-solution-guide/image55.png)
+
+The token will be generated. Note that the token will only appears once so save it to a password manager.
 
 
-## Implementation
+### Add a New Import
 
+Now that you have created the external import token you can add a new import. We work within the **Synchronization** tab to add and configure object schema. 
 
-### 1.0 Sync Tab
-
-The **Synchronization** tab is used to configure the respective object schema. Initially, the only button that will appear in the **Synchronization** tab will be **_Add Import,_** as shown in the image.
+Initially, the only button that will appear in the **Synchronization** tab will be **_Add Import,_** as shown in the image.
 
 ![Add import](/assets/images/jsm-solution-guide/image52.png)
 
-### 1.1. Add a New Object Schema Import
+Click on the **_Add Import _** button for the **New Object Schema Import** form to appear.
 
-When you click the **_Add Import _** button, the **New Object Schema Import** form will appear.
 ![Object schema](/assets/images/jsm-solution-guide/image49.jpg)
 
-1. **Object schema.** This field is required to create the new object schema import. The field shows all object schemes on Insight
+Fill in the required fields as follows: 
+
+1. **Object schema.** This field is required to create the new object schema import. The field shows all object schemes on Insight.
 2. **External Import Token.** This field is required to create the new object schema import _(See section, Generate token for Schema on Insight.)_
 3. **Cron (UTC).** This field is required to create the new object schema import and is used to automatically launch the synchronization process.
    ![Schedule](/assets/images/jsm-solution-guide/image80.jpg)
@@ -189,38 +216,20 @@ When you click the **_Add Import _** button, the **New Object Schema Import** fo
     d. **Monthly.** You can choose among the day specific of the month, the last day of every month, the last weekday of every month, and the day(s) before the end of the month in an hour specific to execute the cron job.
 
 4. **Create with default schema.** This field is optional. If this field is checked, it automatically creates default object types, and attributes in Assets (formerly Insight) needed to sync with Device42.
-   ![Override schema](/assets/images/jsm-solution-guide/image15.jpg)
+
+This is an example of an import created with default schema option.
+
+![](/assets/images/jsm-solution-guide/image82.png)
+
+This is an example of an import without the default schema option selected.
+
+![](/assets/images/jsm-solution-guide/image81.png)
+   
 5. **Save.** When you have completed all fields, click on the **_Save_** button.
 
 The finished register shows the next object schema import list. All schema import registers are grouped by the schedule.
 
-**Scenario 1:** Created without the default schema option.
-
-
-![](/assets/images/jsm-solution-guide/image81.png)
-
-
-**Scenario 2:** Created with default schema option.
-
-![](/assets/images/jsm-solution-guide/image82.png)
-
-
-**Generate the Token for Schema on Assets (formerly Insight)**
-   
-1. Go to the **Assets** plugin.
-   ![](/assets/images/jsm-solution-guide/image56.png)
-2. Select the desired schema to obtain the token. Click on the option **Object schema → Configure.**
-   ![](/assets/images/jsm-solution-guide/image11.png)
-3. Click on the **Import** tab.
-   ![](/assets/images/jsm-solution-guide/image64.png)
-4. Click on **_Create Import_** and create a new **External Import**.
-5. Click the **_ellipsis_** and select **_Generate new token_.**
-   ![](/assets/images/jsm-solution-guide/image55.png)
-
-The token will be generated.
-
-
-### 1.2. Edit Object Schema Import
+### How To Edit a Object Schema Import
 
 To be able to edit an object schema import, click the **_Edit_** button. The **Object schema import** form will display.
 
@@ -266,18 +275,12 @@ The **Sync Status** window will appear with the following information:
 5. **Started.** The date and time that the sync started.
 6. **Ended.** The date and time that the sync ended.
 7. **Execution time.** The time it takes to finish the synchronization.
-
-
-
 ![](/assets/images/jsm-solution-guide/image58.jpg)
-
-
 
 
 ### 1.4. Synchronization States
 
 There are four possible states for synchronization:
-
 
   **Launched.** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
 
@@ -413,6 +416,8 @@ To delete a field, select the **_Remove_** button. This action will delete the r
 ![alt_text](/assets/images/jsm-solution-guide/image1.jpg)
 
 
+
+
 ### 2.0 Settings Tab
 
 The **_Settings_** tab is used to configure access to Device42. Complete the following steps with the appropriate information.
@@ -442,13 +447,9 @@ Possible status for the settings:
 
 ### 3.0 Security Tab
 
-
 The **Security** tab configures access to the application.
 
-
 ![](/assets/images/jsm-solution-guide/image3.jpg)
-
-
 
 To configure security access, follow the steps below.
 
