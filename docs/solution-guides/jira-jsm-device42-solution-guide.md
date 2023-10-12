@@ -40,7 +40,7 @@ Connectivity to [connect.device42.io](http://connect.device42.io/) and access to
 
 #### Setting up Device42
 
-We’ll start by preparing Device42 for cloud service integrations. Navigate to Tools > Integrations > Cloud Services, and complete the following fields:
+We’ll start by preparing Device42 for cloud service integrations. Navigate to **Tools > Integrations > Cloud Services**, and complete the following fields:
 
 * D42 URL for SaaS apps (the hostname your Device42 instance is accessible on)
 * Company Name
@@ -48,7 +48,7 @@ We’ll start by preparing Device42 for cloud service integrations. Navigate to 
 
 ![Device42 Cloud Services](/assets/images/jsm-solution-guide/image67.png)
 
-Next we’ll set up a Jira integration. Navigate to Tools > Integrations > External Integrations and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
+Next we’ll set up a Jira integration. Navigate to **Tools > Integrations > External Integrations** and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
 
 ![Device42 external integrations](/assets/images/jsm-solution-guide/image66.png)
 
@@ -60,11 +60,11 @@ The next step is to configure Jira.
 
 First, on the Atlassian Marketplace, install the [Device42 for Jira Service Management](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app.
 
-After installing the app to your Jira account, configure it from Apps > Manage Your Apps > Device42 Jira Service Management > Configure.
+After installing the app to your Jira account, configure it from **Apps > Manage Your Apps > Device42 Jira Service Management > Configure**.
 
 ![Jira app configuration](/assets/images/jsm-solution-guide/image70.png)
 
-You’ll need your verification token from Device42. To find it, return to Device42 and select Tools > Integrations > External Integrations.
+You’ll need your verification token from Device42. To find it, return to Device42 and select **Tools > Integrations > External Integrations**.
 
 ![Verification token](/assets/images/jsm-solution-guide/image69.png)
 
@@ -76,7 +76,7 @@ Once you’ve entered your verification token in the Jira configuration and save
 
 Now, we need to configure the Jira fields to use the data in Device42.
 
-In Jira, go to Projects > Project Settings > Issue Type and add the “External asset platform” field type to the issue types your use case requires.
+In Jira, go to **Projects > Project Settings > Issue Type** and add the “External asset platform” field type to the issue types your use case requires.
 
 ![Field configuration](/assets/images/jsm-solution-guide/image71.png)
 
@@ -152,7 +152,7 @@ Creating a new object schema requires a generated token for the schema on the **
 
 4. Click on **Create Import** and create a new **External Import**.
 
-5. Click the **...** menu and select **Generate new token**.
+5. Click the ellipsis menu symbol **...** and select **Generate new token**.
 
 ![](/assets/images/jsm-solution-guide/image7.jpg)
 
@@ -174,13 +174,13 @@ Click on the **Add Import** button for the **New Object Schema Import** form to 
 
 Fill in the required fields: 
 
-1. **Object schema.** This field is required to create the new object schema import. The field shows all object schemes on Insight.
-2. **External Import Token.** This field is required to create the new object schema import. See the [Generate an External Token for an Object Schema](#generate-an-external-token-for-an-object-schema) section above for more information.
-3. **Cron (UTC).** This field is required and will generate a cron expression, which is a string consisting of sub-expressions describing individual details of the schedule. This schedule is when the sync between Device42 and Insight will run in UTC timezone. The four tabs: Hourly, Daily, Weekly, and Monthly determines how often a cron job runs. The "Monthly" option offers varied monthly scheduling, including specific days or weekdays, all at a specific hour.
+1. **Object schema** This field is required to create the new object schema import. The field shows all object schemes on Insight.
+2. **External Import Token** This field is required to create the new object schema import. See the [Generate an External Token for an Object Schema](#generate-an-external-token-for-an-object-schema) section above for more information.
+3. **Cron (UTC)** This field is required and will generate a cron expression, which is a string consisting of sub-expressions describing individual details of the schedule. This schedule is when the sync between Device42 and Insight will run in UTC timezone. The four tabs: Hourly, Daily, Weekly, and Monthly determines how often a cron job runs. The "Monthly" option offers varied monthly scheduling, including specific days or weekdays, all at a specific hour.
 
 [Schedule](/assets/images/jsm-solution-guide/image80.jpg)
 
-4. **Create with default schema.** If this optional field is checked, it automatically creates default object types and attributes in Assets (formerly Insight) needed to sync with Device42.
+4. **Create with default schema** If this optional field is checked, it automatically creates default object types and attributes in Assets (formerly Insight) needed to sync with Device42.
 
 This is an example of an import created with default schema option.
 
@@ -206,10 +206,10 @@ The **Sync Status** window will appear with information about the current synchr
 
 There are four possible synchronization states:
 
-1. **Launched.** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
-2. **In Progress.** This state is when the synchronization has started to get information from Device42 to be processed and registered/updated in Assets (formerly Insight).
-3. **Done.** This state is when the synchronization has finished and no problems were encountered.
-4. **Failed.** This state is when the synchronization has finished, but there are some problems. In this scenario, we have the option to download the log errors.
+1. **Launched** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
+2. **In Progress** This state is when the synchronization has started to get information from Device42 to be processed and registered/updated in Assets (formerly Insight).
+3. **Done** This state is when the synchronization has finished and no problems were encountered.
+4. **Failed** This state is when the synchronization has finished, but there are some problems. In this scenario, we have the option to download the log errors.
 
 ![Download logs](/assets/images/jsm-solution-guide/image30.png)
 
@@ -217,15 +217,15 @@ The **Sync Status** window also contains the following additional details:
 
 ![Sync status](/assets/images/jsm-solution-guide/image53.jpg)
 
-1. **Created.** The date and time that the sync was created. 
-2. **Identifier.** The synchronization identifier.
-3. **Type.** The type of execution.
+1. **Created** The date and time that the sync was created. 
+2. **Identifier** The synchronization identifier.
+3. **Type** The type of execution.
     * Manual is the execution of the cron job when you select the Sync button.
     * Automatic is the process when a cron job is executed according to the schedule.
-4. **Processed.** The count of items that were synced with Assets (formerly Insight).
-5. **Started.** The date and time that the sync started.
-6. **Ended.** The date and time that the sync ended.
-7. **Execution time.** The time it takes to finish the synchronization.
+4. **Processed** The count of items that were synced with Assets (formerly Insight).
+5. **Started** The date and time that the sync started.
+6. **Ended** The date and time that the sync ended.
+7. **Execution time** The time it takes to finish the synchronization.
 
 ![Update frequency](/assets/images/jsm-solution-guide/image58.jpg)
 
@@ -239,9 +239,9 @@ Complete the following steps to edit the **Object schema import** form.
 
 ![Edit button](/assets/images/jsm-solution-guide/image57.jpg)
 
-1. **External Import Token.** The token generated by the schema on Assets (formerly Insight) should be entered into this  required field.
-2. **Cron (UTC).** This field is required to create the new object schema import and is used to automatically launch the synchronization process. The Hourly, Daily, Weekly and Monthly options give you the option of selecting a desired frequency (like every hour) or specific time (e.g. 08h00) in which to periodically perform the  data synchronization.
-3. When you have completed the form, click on the **Save_** button to save the information.
+1. **External Import Token** The token generated by the schema on Assets (formerly Insight) should be entered into this  required field.
+2. **Cron (UTC)** This field is required to create the new object schema import and is used to automatically launch the synchronization process. The Hourly, Daily, Weekly and Monthly options give you the option of selecting a desired frequency (like every hour) or specific time (e.g. 08h00) in which to periodically perform the  data synchronization.
+3. When you have completed the form, click on the **Save** button to save the information.
 
 ![Role requirement](/assets/images/jsm-solution-guide/image51.jpg)
 
@@ -267,9 +267,9 @@ Select the **Add object to sync** button. Complete the form for the new object t
 
 Complete the following steps to add a new object to sync.
 
-1. **DOQL.** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](https://docs.device42.com/device42-doql/)). You can [edit the object DOQL](#edit-doql-of-object-to-sync) as needed later. 
+1. **DOQL** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](https://docs.device42.com/device42-doql/)). You can [edit the object DOQL](#edit-doql-of-object-to-sync) as needed later. 
 
-2. **Object Type Name**. This field is required to create the new object type. The field shows all object types for the object schema.
+2. **Object Type Name** This field is required to create the new object type. The field shows all object types for the object schema.
    
    a. In the scenario that we want to create a new object we will have to click on the following **Object type** icon.
    ![](/assets/images/jsm-solution-guide/image48.png)
@@ -292,11 +292,11 @@ To edit an object DOQL, click the **Edit DOQL** button. The form for editing the
 
 ![](/assets/images/jsm-solution-guide/image47.jpg)
 
-1. **DOQL.** This text field is required to create the new object. The field supports [DOQL syntax](https://docs.device42.com/device42) for complex queries, and it is also the DOQL name of the query stored in Device42.
+1. **DOQL** This text field is required to create the new object. The field supports [DOQL syntax](https://docs.device42.com/device42) for complex queries, and it is also the DOQL name of the query stored in Device42.
 
 ![](/assets/images/jsm-solution-guide/image68.jpg)
 
-2. **Save.** When all the form fields are complete, click the **Save** button to save the information.
+2. **Save** When all the form fields are complete, click the **Save** button to save the information.
 
 ### Disable An Object to Sync
 
@@ -330,15 +330,15 @@ Click on an enabled asset type to open a row of inputs.
 
 Fill in the following required information to create a new field for the given asset type:
 
-1. **ID.** The field is a checkbox indicating the ID of the selected object. There will only be one ID for the object.
-2. **Device42 attribute.** This field is the name of the field for Device42 and must be the name of the attribute existing in the DOQL query.
-3. **Insight attribute**. Select the Insight registered field from the dropdown menu.
-4. **Object attribute mapping.** This field is required whenever the Insight attribute has a reference object type. TSelect the option that indicates the attributes of the object that it will be related to.
-5. **Query DOQL.** This field is required when the Insight attribute has an unlimited reference. The value corresponds to a DOQL query or a saved DOQL, for example, `selectbusinessapplication_fk`.
+1. **ID** The field is a checkbox indicating the ID of the selected object. There will only be one ID for the object.
+2. **Device42 attribute** This field is the name of the field for Device42 and must be the name of the attribute existing in the DOQL query.
+3. **Insight attribute** Select the Insight registered field from the dropdown menu.
+4. **Object attribute mapping** This field is required whenever the Insight attribute has a reference object type. TSelect the option that indicates the attributes of the object that it will be related to.
+5. **Query DOQL** This field is required when the Insight attribute has an unlimited reference. The value corresponds to a DOQL query or a saved DOQL, for example, `selectbusinessapplication_fk`.
 
 **Important:** The ID that you set in the mapping must be in the DOQL.
 
-6. **Internal filter.**This field is required when the Insight attribute has an unlimited reference, the field allows filtering the DOQL results and supports simple conditions For example,  `businessaplication_fk = ${businessaplication_pk}`
+6. **Internal filter**This field is required when the Insight attribute has an unlimited reference, the field allows filtering the DOQL results and supports simple conditions For example,  `businessaplication_fk = ${businessaplication_pk}`
 
 It's important to note that `${businessaplication_pk}` will be replaced with each value that the main DOQL query retrieved.
 
@@ -386,8 +386,8 @@ The **Security** tab configures access to the application.
 
 Follow the steps below to assign roles to users with different permissions.
 
-1. **Administrator role.** This field is required and is multi-dropdown with all existing roles in Jira; those users with these roles selected will be able to manage the object schema configurations.
-2. **User role.** This field is required and is multi-dropdown with all existing roles in Jira. Users with these roles selected will only be able to view the object schema configurations and perform manual syncs.
+1. **Administrator role** This field is required and is multi-dropdown with all existing roles in Jira; those users with these roles selected will be able to manage the object schema configurations.
+2. **User role** This field is required and is multi-dropdown with all existing roles in Jira. Users with these roles selected will only be able to view the object schema configurations and perform manual syncs.
 3. Select the **Save** button to save the choices.
 
 ![](/assets/images/jsm-solution-guide/image4.png)
@@ -412,7 +412,7 @@ This specific example will cover modifying the Device import to include a device
 1. Identify the custom field of choice (take note of the name as we will need to reference it in a few places)
 2. Add a new attribute to the Device object type
 
-   a. From within Assets, select your object schema -> Device -> Attributes. You’ll see the list of all the attributes like in the screenshot below. 
+   a. From within Assets, select your object schema -> Device -> Attributes. You’ll see the list of all the attributes like in the screenshot below:
    
    ![](/assets/images/jsm-solution-guide/image9.png)
 
