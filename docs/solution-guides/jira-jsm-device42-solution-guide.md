@@ -163,7 +163,7 @@ In addition to integrating with regular Jira issues, Device42 can also be integr
 
 In order to create a data import on the "Device42 for Service Management Assets" app, we need to create an object schema first. 
 
-### Create a New Object Schema
+### Generate an External Token for an Object Schema
 
 Creating a new object schema requires a generated token for the schema on the **Assets** tab (formerly Insight). Follow these steps to obtain the token:
    
@@ -181,12 +181,13 @@ Creating a new object schema requires a generated token for the schema on the **
 
 4. Click on **_Create Import_** and create a new **External Import**.
 
-5. Click the **_ellipsis_** and select **_Generate new token_.**
+5. Click the **_ellipsis (...)_** and select **_Generate new token_.**
 
-![](/assets/images/jsm-solution-guide/image55.png)
+![](/assets/images/jsm-solution-guide/image7.jpg)
 
 The token will be generated. Note that the token will only appears once so save it to a password manager.
 
+![](/assets/images/jsm-solution-guide/image8.png)
 
 ### Add a New Import
 
@@ -229,6 +230,42 @@ This is an example of an import without the default schema option selected.
 
 The finished register shows the next object schema import list. All schema import registers are grouped by the schedule.
 
+### View the Synchronization Status
+
+If you have a new object schema import, click on the **Sync** button to fetch your Device42 data as it's unlikely that the automated data sync has run. 
+
+To view the sync status of the object schema import, click the link **Sync** status button.
+
+![](/assets/images/jsm-solution-guide/image35.png)
+
+The **Sync Status** window will appear with information about the current synchronization state along with additional details.
+
+There are four possible synchronization states:
+
+**Launched.** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
+
+**In Progress.** This state is when the synchronization has started to get information from Device42 to be processed and registered/updated in Assets (formerly Insight).
+
+**Done.** This state is when the synchronization has finished and no problems were encountered.
+
+**Failed.** This state is when the synchronization has finished, but there are some problems. In this scenario, we have the option to download the log errors.
+![](/assets/images/jsm-solution-guide/image30.png)
+
+The **Sync Status** window also contains the following details:
+
+![](/assets/images/jsm-solution-guide/image53.jpg)
+
+1. **Created.** The date and time that the sync was created. 
+2. **Identifier.** The synchronization identifier.
+3. **Type.** The type of execution.
+    * Manual is the execution of the cron job when you select the Sync button.
+    * Automatic is the process when a cron job is executed according to the schedule.
+4. **Processed.** The count of items that were synced with Assets (formerly Insight).
+5. **Started.** The date and time that the sync started.
+6. **Ended.** The date and time that the sync ended.
+7. **Execution time.** The time it takes to finish the synchronization.
+![](/assets/images/jsm-solution-guide/image58.jpg)
+
 ### How To Edit a Object Schema Import
 
 To be able to edit an object schema import, click the **_Edit_** button. The **Object schema import** form will display.
@@ -256,55 +293,13 @@ Complete the following steps to edit the **Object schema import** form.
 
 ![](/assets/images/jsm-solution-guide/image51.jpg)
 
-### 1.3. View the Synchronization Status
-
-To view the sync status of the object schema import, click the link **_Sync _** status button.
-
-![](/assets/images/jsm-solution-guide/image35.png)
-
-The **Sync Status** window will appear with the following information:
-
-![](/assets/images/jsm-solution-guide/image53.jpg)
-
-1. **Created.** The date and time that the sync was created. 
-2. **Identifier.** The synchronization identifier.
-3. **Type.** The type of execution.
-    * Manual is the execution of the cron job when you select the Sync button.
-    * Automatic is the process when a cron job is executed according to the schedule.
-4. **Processed.** The count of items that were synced with Assets (formerly Insight).
-5. **Started.** The date and time that the sync started.
-6. **Ended.** The date and time that the sync ended.
-7. **Execution time.** The time it takes to finish the synchronization.
-![](/assets/images/jsm-solution-guide/image58.jpg)
-
-
-### 1.4. Synchronization States
-
-There are four possible states for synchronization:
-
-  **Launched.** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
-
-
-  **In Progress.** This state is when the synchronization has started to get information from Device42 to be processed and registered/updated in Assets (formerly Insight).
-
-
-  **Done.** This state is when the synchronization has finished and no problems were encountered.
-
-
-  **Failed.** This state is when the synchronization has finished, but there are some problems.
-
-In this scenario, we have the option to download the log errors.
-
-![](/assets/images/jsm-solution-guide/image30.png)
-
-### 1.5. Delete An Object Schema Import
+### Delete An Object Schema Import
 
 The **Object schema import** window will appear. To delete an object schema import, click the **_Delete _** button.
 
 ![](/assets/images/jsm-solution-guide/image26.png)
 
 A confirmation window will appear, verifying that the object schema import has been deleted.
-
 
 ![](/assets/images/jsm-solution-guide/image5.png)
 
@@ -315,12 +310,9 @@ A confirmation window will appear, verifying that the object schema import has b
 
 Select the **_Add object to sync_** button. Complete the form for the new object to sync.
 
-
 ![](/assets/images/jsm-solution-guide/image60.png)
 
-
 Complete the following steps to add a new object to sync.
-
 
 1. **DOQL.** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](https://docs.device42.com/device42-doql/)).
 2. **Object Type Name**. This field is required to create the new object type. The field shows all object types for the object schema.
@@ -348,7 +340,6 @@ The finished register shows the next objects list.
 To edit an object DOQL, click the button **_Edit DOQL_**. The form for editing the information for the object will appear. Complete the following steps to edit a DOQL object.
 
 ![](/assets/images/jsm-solution-guide/image47.jpg)
-
 
 1. **DOQL.** This text field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. [https://docs.device42.com/device42doql/](https://docs.device42.com/device42)
 ![](/assets/images/jsm-solution-guide/image68.jpg)
@@ -395,28 +386,21 @@ When you click the object to sync, showing a table with all fields registered; i
 4. **Object attribute mapping.** This field is required whenever the Insight attribute has a reference object type. The drop-down field indicates the attributes of the object with which it will be related.
 5. **Query DOQL.** This field is required when the Insight attribute has an unlimited reference. The field corresponds to a DOQL query or a Saved DOQL. **Example:** selectbusinessapplication_fk,device_fkfrom iew_businessapplicationelement_v1
 
-  **Important:** The field ID that you set in the mapping must be in the DOQL.
+**Important:** The field ID that you set in the mapping must be in the DOQL.
 
 6. **Internal filter.**This field is required when the Insight attribute has an unlimited reference, the field allows filtering the DOQL results and supports simple conditions **Example:** businessaplication_fk = ${businessaplication_pk}
 
-  **Important:** ${businessaplication_pk} will be replaced with each value of the main DOQL query retrieved.
-
+**Important:** ${businessaplication_pk} will be replaced with each value of the main DOQL query retrieved.
 
 ![](/assets/images/jsm-solution-guide/image14.png)
-
 
 ### 1.11. Remove a Field
 
 To delete a field, select the **_Remove_** button. This action will delete the row from the table. Keep in mind that there will always have to be a field as ID.
 
-
 ![alt_text](/assets/images/jsm-solution-guide/image18.jpg)
 
-
 ![alt_text](/assets/images/jsm-solution-guide/image1.jpg)
-
-
-
 
 ### 2.0 Settings Tab
 
@@ -453,47 +437,16 @@ The **Security** tab configures access to the application.
 
 To configure security access, follow the steps below.
 
-
 1. **Administrator role.** This field is required and is multi-dropdown with all existing roles in Jira; those users with these roles selected will be able to manage the object schema configurations.
 2. **User role.** This field is required and is multi-dropdown with all existing roles in Jira. Users with these roles selected will only be able to view the object schema configurations and perform manual syncs.
 3. **Save.** Select the **_Save_** button to save the choices.
 
-
 ![](/assets/images/jsm-solution-guide/image4.png)
-
-
-### 4.0 Generate External Token for Schema on Insight
-
-
-Go to the Insight plugin.
-
-![](/assets/images/jsm-solution-guide/image31.png)
-
-
-Let's Select the desired schema to obtain the token. Click on the option _Object schema → Configure_
-
-
-![](/assets/images/jsm-solution-guide/image6.png)
-
-
-![](/assets/images/jsm-solution-guide/image7.jpg)
-
-
-Click on the **Import tab.**
-
-Click on **Create Import, **and create a new **External Import.**
-
- Click the **eclipse (⋯)**, **and select **Generate token**. The token will be generated.
-
-
-![](/assets/images/jsm-solution-guide/image8.png)
 
 
 ## Custom Examples
 
-
 ### Example #1: Adding an additional attribute to an object type in the default object schema
-
 
 #### **Use Case**
 
