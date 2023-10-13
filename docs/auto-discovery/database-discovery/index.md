@@ -6,7 +6,7 @@ title: "Database Discovery"
 
 Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+)_, and currently supports Windows and \*nix-based discovery jobs to discover Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
 
-**Note**: Database discovery requires an **Enterprise Application Discovery** license. Go to _Tools > Settings > Licensing_ to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
+**Note**: Database discovery requires an **Application Dependency Mapping** license. Go to _Tools > Settings > Licensing_ to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
 
 As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
 
