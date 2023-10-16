@@ -259,7 +259,7 @@ Click the **Add object to sync** button to open the new object sync form.
 
 Complete the two required fields to add a new object to sync.
 
-* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](https://docs.device42.com/device42-doql/). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-doql-of-object-to-sync) later if you need to.
+* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](https://docs.device42.com/device42-doql/). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
 
 * **Object Type Name** Select the object type from the list, or create a new object type by clicking **+ Object type**.
 
@@ -390,17 +390,17 @@ A device custom field exists of type text. We are using one called ‘Applicatio
 First, identify the custom field of choice taking note of the name to reference it in a few places.
 Now, add a new attribute to the Device object type as follows:
 
-   1. From within the **Assets** tab, select **your object schema -> Device -> Attributes**. You’ll see the list of all the attributes, like in the screenshot below:
-   
-   ![](/assets/images/jsm-solution-guide/image9.png)
+1. From within the **Assets** tab, select **your object schema -> Device -> Attributes**. You’ll see the list of all the attributes, like in the screenshot below:
 
-   2. Scroll to the bottom to see a toolbar for adding a new attribute.
+![](/assets/images/jsm-solution-guide/image9.png)
 
-   ![](/assets/images/jsm-solution-guide/image10.png)
+2. Scroll to the bottom to see a toolbar for adding a new attribute.
 
-  3. Fill out the **Name** and **Description** fields and choose “Default” as the Type and “Text” as the Type Value. 
+![](/assets/images/jsm-solution-guide/image10.png)
 
-   4. Click on the **Add** button when you’re ready to commit the attribute to the schema. 
+3. Fill out the **Name** and **Description** fields and choose “Default” as the Type and “Text” as the Type Value. 
+
+4. Click on the **Add** button when you’re ready to commit the attribute to the schema. 
 
 Next, we will switch over to our Device42 Main Appliance and navigate to **Tools -> Saved DOQL Queries**. Search for `D42_Insight_Cloud_Sync_Devices`. Note that this is the System Defined Query, meaning we cannot edit this query but we can clone it. 
 
@@ -417,53 +417,56 @@ To include our device custom field, we need to modify the query slightly. We nee
 Note that for the sake of brevity, the full query isn’t included, but below are the necessary modifications.
 
 Copy and paste the following directly after the line from `view_device_v2 d`:
+
 ```sql
 left outer join view_device_custom_fields_flat_v2 dcf ON d.device_pk = dcf.device_fk
-``` 
+```
 
 Copy and paste the following directly above the line from `view_device_v2 d`: 
+
 ```sql
 dcf."Application Owner" AS application_owner
 ```
+
 Remember to add a comma after the previous column or you will get a syntax error when trying to save the DOQL query.
- 
-At this point, you can copy and paste the query back into the Saved DOQL Query in Device42 and hit save. Note that it won’t let you save invalid SQL. Click on the **Test SQL** button as well to ensure the query is syntactically valid. 
+
+At this point, you can copy and paste the query back into the Saved DOQL Query in Device42 and hit save. Note that it won’t let you save invalid SQL. Click on the **Test SQL** button as well to ensure the query is syntactically valid.
 
 Next, we will switch back over to JSM Cloud and navigate to **Apps -> Device42 Insight Connect** and do the following:
 
-   1. Expand the Device object import and click on the **Edit DOQL** button.
+1. Expand the Device object import and click on the **Edit DOQL** button.
 
-   ![](/assets/images/jsm-solution-guide/image36.png)
+![](/assets/images/jsm-solution-guide/image36.png)
 
-   2. The text area should contain the value of ‘D42_Insight_Cloud_Sync_Devices’, which is the name of the default saved DOQL query that we cloned earlier. 
+2. The text area should contain the value of ‘D42_Insight_Cloud_Sync_Devices’, which is the name of the default saved DOQL query that we cloned earlier. 
 
-   ![](/assets/images/jsm-solution-guide/image37.png)
+![](/assets/images/jsm-solution-guide/image37.png)
 
-   3. We’re going to change this to the name of the new saved DOQL query we just created that we called `CF_D42_Insight_Cloud_Sync_Devices`. Replace the query name and hit save to update the query.
+3. We’re going to change this to the name of the new saved DOQL query we just created that we called `CF_D42_Insight_Cloud_Sync_Devices`. Replace the query name and hit save to update the query.
 
 The very last thing we need to do before we can run the sync is to add our attribute to the import: 
 
-   1. You will see a dropdown box in the top row that you can click to search for the Insight attribute that we defined earlier.
+1. You will see a dropdown box in the top row that you can click to search for the Insight attribute that we defined earlier.
 
-   ![](/assets/images/jsm-solution-guide/image39.png)
+![](/assets/images/jsm-solution-guide/image39.png)
 
-   2. In the **Device42 attribute** text box, enter `application_owner`. This is the same name that was used for the column name or alias in the query in our example.
+2. In the **Device42 attribute** text box, enter `application_owner`. This is the same name that was used for the column name or alias in the query in our example.
 
-   ![](/assets/images/jsm-solution-guide/image40.png)
+![](/assets/images/jsm-solution-guide/image40.png)
 
-   3. Click the **Add** button when you are ready to commit the attribute to the import. You should see a message that says “The field was successfully registered”. 
+3. Click the **Add** button when you are ready to commit the attribute to the import. You should see a message that says “The field was successfully registered”. 
 
 At this point, we are done and can run the sync. Scroll back up and click on the **Sync button**. You should see a message that says “Sync task was launched successfully”. You can check the status of the sync by clicking on **Sync status**.
 
 Once the sync completes, navigate back to the object schema in **Assets** and search for a device that would have a value for the specified custom field. 
 
-   1. We can see our new attribute `Application Owner` has been added and the value from the custom field in Device42.
+1. We can see our new attribute `Application Owner` has been added and the value from the custom field in Device42.
 
-   ![](/assets/images/jsm-solution-guide/image41.png)
+![](/assets/images/jsm-solution-guide/image41.png)
 
-   2. We can also see the specific date and time when a value for that field was added to our object in **Assets**.
+2. We can also see the specific date and time when a value for that field was added to our object in **Assets**.
 
-   ![alt_text](/assets/images/jsm-solution-guide/image42.png)
+![alt_text](/assets/images/jsm-solution-guide/image42.png)
 
 While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42.  Data with a one-one relationship cardinality to the desired object is easily added in the JSM integration. 
 
@@ -488,11 +491,11 @@ Start by adding a new object type in the **Assets** tab by clicking on the **+**
 
 Now we’ll add attributes to the new “Software In Use” object type. From within the **Assets** tab, select **your object schema -> Software In Use -> Attributes**. 
 
-   ![](/assets/images/jsm-solution-guide/image44.png)
+![](/assets/images/jsm-solution-guide/image44.png)
 
 Next, create a list of attributes that will appear for your “Software In Use” object. Use the toolbar at the bottom to add a new attribute.
 
-   ![](/assets/images/jsm-solution-guide/image45.png)
+![](/assets/images/jsm-solution-guide/image45.png)
 
 Add the **Name**, **description**, **Type**, and **Type Value** for each of the attributes. Then click on the **Add** button to commit the attribute to the object schema. 
 
