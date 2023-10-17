@@ -128,23 +128,25 @@ In Jira, navigate to the **Assets** tab (formerly **Insight**) and follow these 
    
 1. Click on the **+** button to open the "Create object schema" modal window. 
 
+![](/assets/images/jsm-solution-guide/image83.png)
+
 2. Give the schema a name and click **Create**.
 
-![](/assets/images/jsm-solution-guide/image56.png)
+![](/assets/images/jsm-solution-guide/image84.png)
 
-3. Click the three dots (ellipsis) next to the schema you created and select **Configure**.
+3. Click the three dots (ellipsis) next to the schema you created and select **Configuration**.
 
-![](/assets/images/jsm-solution-guide/image11.png)
+![](/assets/images/jsm-solution-guide/image85.png)
 
 4. Click on the **Import** tab.
 
-![](/assets/images/jsm-solution-guide/image64.png)
+5. Click on the **Import** tab and the **Create Import** button and choose the **External Import** option.
 
-5. Click on **Create Import** and create a new **External Import**.
+![](/assets/images/jsm-solution-guide/image86.png)
 
 6. Click the ellipsis menu symbol **...** and select **Generate new token**.
 
-![](/assets/images/jsm-solution-guide/image7.jpg)
+![](/assets/images/jsm-solution-guide/image87.png)
 
 The token you generate will only appear once, so save it to a password manager.
 
@@ -160,7 +162,7 @@ Navigate to the **Sync tab**. Initially, only an **Add Import** button is displa
 
 1. Click on the **Add Import** button to open the **New Object Schema Import** form.
 
-![Object schema](/assets/images/jsm-solution-guide/image49.jpg)
+![Object schema](/assets/images/jsm-solution-guide/image89.png)
 
 2. Complete in the required fields: 
 
@@ -171,7 +173,7 @@ Navigate to the **Sync tab**. Initially, only an **Add Import** button is displa
 
 This is an example of an import created with the default schema option selected.
 
-![Default schema option](/assets/images/jsm-solution-guide/image82.png)
+![Default schema option](/assets/images/jsm-solution-guide/image90.png)
 
 This is an example of an import without the default schema option selected.
 
@@ -191,7 +193,7 @@ When you have created an object schema import, click the **Sync** button to fetc
 
 In the **Object Schema Import** window, click the **Sync status** link to view your Device42 data sync status.
 
-![Sync button](/assets/images/jsm-solution-guide/image35.png)
+![](/assets/images/jsm-solution-guide/image88.png)
 
 A **Sync status** window will open containing information about the object schema's current synchronization state along with additional details.
 
@@ -222,7 +224,7 @@ The **Sync status** window also contains the following additional details:
 
 Click the **Edit** button to edit an object schema import.
 
-![](/assets/images/jsm-solution-guide/image76.png)
+![](/assets/images/jsm-solution-guide/image91.png)
 
 In the **Object schema import** form that opens, you can edit the following information:
 
@@ -231,13 +233,11 @@ In the **Object schema import** form that opens, you can edit the following info
 
 Click the **Save** button to save your changes.
 
-![Edit button](/assets/images/jsm-solution-guide/image57.jpg)
-
 ### Delete An Object Schema Import
 
 To delete an object schema import, click the **Delete** button under the **Sync** tab.
 
-![](/assets/images/jsm-solution-guide/image26.png)
+![](/assets/images/jsm-solution-guide/image92.png)
 
 A confirmation window will appear, verifying that the object schema import has been deleted.
 
@@ -255,7 +255,7 @@ If you didn't select the **Create with default schema** option when you created 
 
 Click the **Add object to sync** button to open the new object sync form.
 
-![](/assets/images/jsm-solution-guide/image60.png)
+![](/assets/images/jsm-solution-guide/image93.png)
 
 Complete the two required fields to add a new object to sync.
 
@@ -438,7 +438,7 @@ Next, we will switch back over to JSM Cloud and navigate to **Apps -> Device42 I
 
 ![](/assets/images/jsm-solution-guide/image36.png)
 
-2. The text area should contain the value of ‘D42_Insight_Cloud_Sync_Devices’, which is the name of the default saved DOQL query that we cloned earlier. 
+2. The text area should contain the value of `D42_Insight_Cloud_Sync_Devices``, which is the name of the default saved DOQL query that we cloned earlier. 
 
 ![](/assets/images/jsm-solution-guide/image37.png)
 
@@ -468,9 +468,9 @@ Once the sync completes, navigate back to the object schema in **Assets** and se
 
 ![alt_text](/assets/images/jsm-solution-guide/image42.png)
 
-While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42.  Data with a one-one relationship cardinality to the desired object is easily added in the JSM integration. 
+While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42. Data with a one-one relationship cardinality to the desired object is easily added in the JSM integration. 
 
-It can even be used to do nifty things like create additional URL fields or quick linkbacks to pages within Device42. For example, you could include an attribute called ‘D42 Software URL’ that acts as a quick link to a filtered list of all software on the device by adding a column like, `format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk)` as `d42_software_url` to the query. 
+It can even be used to do nifty things like create additional URL fields or quick linkbacks to pages within Device42. For example, you could include an attribute called `D42 Software URL` that acts as a quick link to a filtered list of all software on the device by adding a column like, `format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk)` as `d42_software_url` to the query. 
 
 ## Workflow Example Two: Adding an Additional Object Type to the Default Schema
 
