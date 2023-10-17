@@ -23,7 +23,7 @@ Default username and password: d42admin / default
 
 ## Accessing the D42 Appliance Manager from the AWS Marketplace
 
-Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?ref_=device42&searchTerms=Device42) 1-Click feature. Log in to appliance manager using the default Device42 username \[ d42admin \], the password being your **AWS instance ID**. 
+Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?ref_=device42&searchTerms=Device42) 1-Click feature. Log in to appliance manager using the default Device42 username \[ d42admin \], the password being your **AWS AMI instance ID**. 
 
 ![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
 
