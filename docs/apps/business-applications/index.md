@@ -67,12 +67,62 @@ Click a device, affinity group, or application component object on the canvas to
 
 ### Add Affinity Groups
 
-- To add an affinity group to an application, drag an _Affinity Group_ block to the canvas – this will bring up the Add Affinity Group box.  You can _Search_ by group type, group name, tag, primary device name, or service name
+Efficiently keep track of changes and additions of devices by setting up an affinity group. After adding an affinity group to an application, configure an alert to send notifications when devices are added or changed to the affinity group. First, add a new affinity group as follows: 
+
+- Drag an _Affinity Group_ block to the canvas – this will bring up the Add Affinity Group box.  You can _Search_ by group type, group name, tag, primary device name, or service name
 - When you click on a group in the list, you will see the number of devices in that group.
 - Select an affinity group from the list, and then click **Add**. Device42 adds the Affinity Group with all its devices and connections to the canvas.
 
 ![](/assets/images/D42-23306_biz-app-add-affinity-group-popup.png)
 
+#### Add an Alert
+
+Next set up the alert. Select _Analytics > Setup Alerts_ from the Device42 menu bar and then click _Add Alert_ on the Select Alert to view page.
+
+![](/assets/images/WEB-219_Alerts_Add-Alert-page.jpg)
+
+- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers, which define the conditions that will generate an alert.
+- Select the **Trigger** you want for the Rule Type you selected.
+- Select the **Alert Type**.
+    - If you select **D42 Notification**, select or add the **Escalation Profile** to use for the alert. You use Escalation Profiles to set up email notification escalation tiers. Select _Tools > Admins & Permissions > Escalation Profiles_ to add or edit escalation profiles.
+    - If you select **Alert Integration**, select or add the alert integration (for example, PagerDuty, Opsgenie, etc.) to use for the alert. Select _Tools > Integrations > External Integrations_ to view or add external integrations. Also see [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
+
+As you construct your alert, Device42 displays the alert definition based on the options you select or enter. The example below shows an Operating System Count alert that sends a notification to the Alert Group 1 escalation profile.
+
+![](/assets/images/WEB-219_Alerts_Contructed-OS-alert-example.jpg)
+
+Depending on the alert Rule Type you select, you may also see an **Apply To:** option that you use to select the objects you want to apply the alert to. Use the _Available objects_ list on the left to select the objects you want to add to the _Chosen objects_ list on the right.
+
+**Additional Options**
+
+- **Priority** — Critical, High Priority, Medium Priority, Low Priority
+- **Resend Notification** — Amount of time (in seconds) to wait before sending an email notification for the alert. Leave this field blank to send the email only once.
+- **Seconds Before Action** — Amount of time (in seconds) that the alert condition (the trigger) exists before the Device42 generates the alert.
+- **Job Interval Factor Before Action** — (Displayed for specific power alerts in place of Seconds Before Action.) Trigger the action only if the condition persists for the Job Interval Factor times the polling rate for associated jobs. Default value is 1.
+
+![](/assets/images/D42-26290_alerts-job-interval.jpg)
+
+- **Notes** — Any notes about the alert.
+- **Notification Template** — Text fields you can use to create templates for the Subject and Message of the alert email.
+
+When you are done, click **Save** at the bottom of the page to save the alert.
+
+![](/assets/images/WEB-219_Alerts_Add-Alert-additional-options.jpg)
+
+See [Alert Rule Types and Triggers](/reports/reports/setup-alerts-and-notifications/#alert-rule-types-and-triggers) for more information.
+#### View Notifications
+
+If you select _D42 Notification_ as the _Alert Type_ when you create an alert, Device42 generates a notification when the alert condition triggers the alert. 
+
+Select _Analytics > Notifications_ from the menu bar to go to the **Notifications** page.
+
+![](/assets/images/WEB-219_Alerts_Banner-Bell-icon-1.jpg)
+
+The page displays notifications for all triggered alerts whose _Alert Type_ is _Device42 Notification_. Click **My Notifications** or **All Notifications** to see the notification lists.
+
+![](/assets/images/WEB-219_Alerts_Notifications-page-1.jpg)
+
+See [Notifications](/reports/reports/setup-alerts-and-notifications/#notifications) and the following [Customizing Alerts with Notification Variables](/reports/reports/setup-alerts-and-notifications/#customizing-alerts-with-notification-variables) section on the Alerts and Notifications page for more details.
 ### Add Application Components
 
 - To add an application component to a business application, drag a _Application Component_ block to the canvas – this will open the Add Application Component box.  You can _Search_ for a component by its name or its device name.
