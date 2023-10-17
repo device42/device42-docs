@@ -35,4 +35,4 @@ The appliance manager listens on port 4343 (https://YOUR\_DEVICE42\_INSTANCE:434
 
 Note: if you installed on AWS manually (using a downloaded image), you can log on to appliance manager using the default Device42 username/password [d42admin/default].
 
-See [Amazon Web Services - Installation](/getstarted/installation/installation-amazon-web-services/) for more information on administration od Device42 on AWS.
+See [Amazon Web Services - Installation](/getstarted/installation/installation-amazon-web-services/) for more information on administration of Device42 on AWS.
