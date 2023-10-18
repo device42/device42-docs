@@ -3,432 +3,354 @@ title: Jira Service Management Assets Integration
 sidebar_position: 1
 ---
 
-## Device42 JIRA Service Management discovery
+Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
 
-A Configuration Management Database (CMDB) serves as a centralized database in an organization's IT environment, housing records of Configuration Items (CIs). It is a single source of truth for IT asset information, allowing your team to track and manage changes to items and their maintenance effectively.
+JSM Cloud seamlessly integrates with Device42 using the [Device42 for Jira Service Management app available from the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management). The Device42 JSM app efficiently transmits data and augments JSM Cloud capabilities.
 
-Utilizing a CMDB in your team's workflows offers several advantages:
+If you handle infrastructure assets, operate on a large scale, or have plans for future scalability, integrating Device42 with JSM enables you to manage your team's tasks efficiently and directly associate Jira tickets with the relevant assets controlled through Device42. The Device42-JSM combination brings the benefits of an enterprise configuration management database (CMDB) to Jira Service Management.
 
-* Improved Visibility: A well-maintained CMDB offers a comprehensive and accurate view of the assets under your management. However, basic CMDBs may have data that becomes outdated and is not updated in real time.
-* Better Change Management: With a CMDB, your team can monitor changes made to assets over time, including details like who made the changes when they were made, and the reasons behind them. This ensures proper documentation and approval of all changes, protecting assets from unauthorized modifications.
-* Increased Efficiency: As a reliable source of asset information, a CMDB streamlines your team's work, reducing the time and effort needed to manage and maintain assets effectively.
+Now we’ll show you how easy it is to set up the Device42-JSM integration.
 
-Jira Service Management Cloud is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, change management, and service request handling, resulting in enhanced customer satisfaction and operational efficiency.
-
-Furthermore, it seamlessly integrates with the Device42 + Jira connector available on the Atlassian marketplace, utilizing our cloud connector to efficiently transmit data and further augment its capabilities.
-
-
-## Integrate Device42 and Jira Service Management.
-
-If your organization operates on a smaller scale or primarily deals with employee-facing IT assets or tickets, the JSM-Jira issue-tracking combination might meet your requirements adequately. However, if you need to handle infrastructure assets, operate on a larger scale, or have plans for future scalability, opting for Device42 in conjunction with Jira is the more suitable option. This combination enables you to manage your team's tasks efficiently and directly associate them with the relevant assets controlled through Device42, serving as your Configuration Management Database (CMDB). Now we’ll show you how easy it is to set up the Device42-Jira integration.
-
-
-### Integrating Device42 and JSM
+## Integrate Device42 and Jira Service Management
 
 With just a few minutes of setup, your Device42-Jira integration will allow you to link assets between the two systems.
 
-
 ### Prerequisites:
 
-* A running Device42 v18.03.02+ virtual appliance (or newer)! 
-* Update [https://device42.com/update](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
-* Requires either the JSM Cloud Premium or Enterprise version.
+* Administrator privileges to a running Device42 v18.03.02 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
+* Administrator privileges to a JSM Cloud Premium or Enterprise plan.
 
-Connectivity to [connect.device42.io](http://connect.device42.io/) and access to *.atlassian.net are also required for setup.
+### Setting Up Device42
 
+We’ll start by preparing Device42 for cloud service integrations. Navigate to **Tools > Integrations > Cloud Services**, and complete the following fields:
 
-1. Main Appliance must be able to reach [connect.device42.io](http://connect.device42.io/) and *.[atlassian.net](http://atlassian.net/)
-2. An Atlassian user account and API Token will be required for authentication.
-
-
-#### Setting up Device42
-
-We’ll start by preparing Device42 for cloud service integrations. Navigate to Tools > Integrations > Cloud Services, and complete the following fields:
-
-* D42 URL for SaaS apps (the hostname your Device42 instance is accessible on)
-* Company Name
-* Email
+* **D42 URL for SaaS apps:** This is the hostname your Device42 instance is accessible on.
+* **Company Name:** Your company name.
+* **Email:** Your email address.
 
 ![Device42 Cloud Services](/assets/images/jsm-solution-guide/image67.png)
 
-
-Next we’ll set up a Jira integration. Navigate to Tools > Integrations > External Integrations and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
-
-
+Next we’ll set up a Jira integration. Navigate to **Tools > Integrations > External Integrations** and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
 
 ![Device42 external integrations](/assets/images/jsm-solution-guide/image66.png)
 
-
-
-
-#### Installing the Device42 Jira App
+### Installing the Device42 JSM App
 
 The next step is to configure Jira.
 
-**Note that the instructions below assume you are using a Jira Cloud team-managed project.**
+**Note that the instructions below assume you are using a JSM Cloud team-managed project.**
 
 First, on the Atlassian Marketplace, install the [Device42 for Jira Service Management](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app.
 
-After installing the app to your Jira account, configure it from Apps > Manage Your Apps > Device42 Jira Service Management > Configure.
-
-
+When the app is installed to your Jira account, configure it from **Apps > Manage Your Apps > Device42 Jira Service Management > Configure**.
 
 ![Jira app configuration](/assets/images/jsm-solution-guide/image70.png)
 
-
-You’ll need your verification token from Device42. To find it, return to Device42 and select Tools > Integrations > External Integrations.
-
-
+You’ll need your verification token from Device42. To find it, return to Device42 and select **Tools > Integrations > External Integrations**.
 
 ![Verification token](/assets/images/jsm-solution-guide/image69.png)
 
-
 Once you’ve entered your verification token in the Jira configuration and saved the settings, the Device42 account status should show as “Linked”:
-
-
-
-
 
 ![Jira Device42 account linked](/assets/images/jsm-solution-guide/image72.png)
 
+### Configuring Jira Issue Type Fields
 
+Now we need to configure the Jira fields to use the data in Device42.
 
-
-#### Configuring Jira Issue Type Fields
-
-Now, we need to configure the Jira fields to use the data in Device42.
-
-In Jira, go to Projects > Project Settings > Issue Type and add the “External asset platform” field type to the issue types your use case requires.
-
+In Jira, go to **Projects > Project Settings > Issue Type** and add the “External asset platform” field type to the issue types your use case requires.
 
 ![Field configuration](/assets/images/jsm-solution-guide/image71.png)
 
-
-
-#### Linking Device42 Records from Jira
+### Linking Device42 Records from Jira
 
 Now we can link Jira records to Device42 records.
 
-From any issue type that is configured with the “External asset platform” field, select the “Link Asset” function:
-
+From any issue type that is configured with the “External asset platform” field, select the **+ Link Asset** function:
 
 ![Link asset](/assets/images/jsm-solution-guide/image74.png)
 
-
 Once a record is linked, it will be present on the Jira record. Selecting it will display its associated information present in Device42:
-
 
 ![Jira Device42 linked record](/assets/images/jsm-solution-guide/image73.png)
 
-
 ![Jira Device42 linked record details](/assets/images/jsm-solution-guide/image78.png)
 
+Click **View in Device42** to view the full details of the record in Device42.
+
+![alt_text](/assets/images/jsm-solution-guide/image28.png)
 
 Finally, back in Device42, the linked Jira record will be displayed at the bottom of the corresponding Device42 record:
 
-
 ![Linked issue](/assets/images/jsm-solution-guide/image75.png)
 
+### Linking Jira Records from Device42
 
-#### Linking Jira Records from Device42
+You can also browse to a configuration item in Device42 and create or attach Jira tickets there.
 
-Alternatively, it’s possible to link to or create a Jira issue from within Device42. To do this, go to the Jira section of the record in Device42 and select either “Add Jira Issue” or “Link to Jira issue.”
-
+Go to the **Jira** section of the record in Device42 and select either **+ Add Jira Issue** or **+ Link to Jira issue**.
 
 ![Linking from device42](/assets/images/jsm-solution-guide/image77.png)
 
+New tickets are linked and immediately viewable in JSM.
 
-#### Customizing Syncing D42 Record Types with Jira
+![](/assets/images/jsm-solution-guide/image27.png)
 
-It’s important to note that, by default, only a subset of Device42 information is synchronized with Jira. This is controlled by a DOQL query and is customizable. You can change the DOQL queries in your Jira integration settings in Device42 at Tools > Integrations > External Integrations:
+### Customizing Syncing Device42 Record Types with Jira
 
+It’s important to note that, by default, only a subset of Device42 information is synchronized with Jira. This is controlled by a DOQL query and is customizable. You can change the DOQL queries in your Jira integration settings in **Device42 at Tools > Integrations > External Integrations**:
 
 ![DOQL query](/assets/images/jsm-solution-guide/image79.png)
 
-
-
 The `D42_Jira_Cloud_Sync_Devices` query is the default. Additional predefined queries can be selected or you can write a custom query to have more control over what is synchronized with Jira.
-
 
 ### More Information
 
-The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](https://docs.device42.com/external-integrations/device42-jira-cloud-integration/)
-
+The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](https://docs.device42.com/external-integrations/device42-jira-cloud-integration/).
 
 ### Jira Service Management Integration
 
 In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://d42example.atlassian.net/jira/marketplace/discover/app/com.device42.insight-cloud-synchronization?installDialogOpen=true&source=mpac). See the Jira Marketplace page for details on configuration.
 
+## Working With Device42 Data on the JSM Cloud: The Sync Tab
 
+In the Device42 Jira app, add and edit Device42 data in the **Sync tab**.
 
-## Implementation
+The Device42 Jira app synchronizes data from your main Device42 instance using an object schema. You will need a Jira external import token to import an object schema to the app.
 
+Once you have created an object schema and synced Device42 data in the app, you can edit the object schema to add or remove objects for import and customize asset fields.
 
-### 1.0 Sync Tab
+Let's begin by creating an object schema and generating the external token.
 
-The **Synchronization** tab is used to configure the respective object schema. Initially, the only button that will appear in the **Synchronization** tab will be **_Add Import,_** as shown in the image.
+### Create an Object Schema and Generate an External Import Token in Jira
+
+In Jira, navigate to the **Assets** tab (formerly **Insight**) and follow these steps:
+   
+1. Click on the **+** button to open the "Create object schema" modal window. 
+
+![](/assets/images/jsm-solution-guide/image83.png)
+
+2. Give the schema a name and click **Create**.
+
+![](/assets/images/jsm-solution-guide/image84.png)
+
+3. Click the three dots (ellipsis) next to the schema you created and select **Configuration**.
+
+![](/assets/images/jsm-solution-guide/image85.png)
+
+4. Click on the **Import** tab.
+
+5. Click on the **Import** tab and the **Create Import** button and choose the **External Import** option.
+
+![](/assets/images/jsm-solution-guide/image86.png)
+
+6. Click the ellipsis menu symbol **...** and select **Generate new token**.
+
+![](/assets/images/jsm-solution-guide/image87.png)
+
+The token you generate will only appear once, so save it to a password manager.
+
+![](/assets/images/jsm-solution-guide/image8.png)
+
+### Add a New Object Schema Import
+
+Now you can use the external import token from Jira to add and configure the object schema in the app.
+
+Navigate to the **Sync tab**. Initially, only an **Add Import** button is displayed in this view.
 
 ![Add import](/assets/images/jsm-solution-guide/image52.png)
 
-### 1.1. Add a New Object Schema Import
+1. Click on the **Add Import** button to open the **New Object Schema Import** form.
 
-When you click the **_Add Import _** button, the **New Object Schema Import** form will appear.
-![Object schema](/assets/images/jsm-solution-guide/image49.jpg)
+![Object schema](/assets/images/jsm-solution-guide/image89.png)
 
-1. **Object schema.** This field is required to create the new object schema import. The field shows all object schemes on Insight
-2. **External Import Token.** This field is required to create the new object schema import _(See section, Generate token for Schema on Insight.)_
-3. **Cron (UTC).** This field is required to create the new object schema import and is used to automatically launch the synchronization process.
-   ![Schedule](/assets/images/jsm-solution-guide/image80.jpg)
+2. Complete in the required fields: 
 
-    a. **Hourly.** You have the option of choosing discovery to run between every hour(s) and a specific time to execute the cron job.
+* **Object schema** (Required) This field is prepopulated with the object schema available in Jira **Assets**. Select the object schema you created.
+* **External Import Token** (Required) Copy the external import token generated in the previous section into this field.
+* **Cron (UTC)** (Required) In this field, you configure a cron job to sync Device42 and Jira according to a schedule in Coordinated Universal Time (UTC). Select **Hourly**, **Daily**, **Weekly**, or **Monthly** from the tabs. If you opt to sync monthly, you can specify the day and hour the cron job should run.
+* **Create with default schema** (Optional) Check this field if the app should create default object types and attributes in Jira Assets as needed when syncing. The default asset types created are End User, Customer or Department, Building, Business Application, and Device. You can [customize the available fields of enabled asset types](#asset-type-create-a-field).
 
-    b. **Daily.** You can choose either every day(s) of the month or every weekday (MONDAY - FRIDAY) in a specific hour to execute the cron job.
+This is an example of an import created with the default schema option selected.
 
-    c. **Weekly.** You can choose between any day(s) of the week and a specific hour to execute the cron job.
+![Default schema option](/assets/images/jsm-solution-guide/image90.png)
 
-    d. **Monthly.** You can choose among the day specific of the month, the last day of every month, the last weekday of every month, and the day(s) before the end of the month in an hour specific to execute the cron job.
+This is an example of an import without the default schema option selected.
 
-4. **Create with default schema.** This field is optional. If this field is checked, it automatically creates default object types, and attributes in Assets (formerly Insight) needed to sync with Device42.
-   ![Override schema](/assets/images/jsm-solution-guide/image15.jpg)
-5. **Save.** When you have completed all fields, click on the **_Save_** button.
-
-The finished register shows the next object schema import list. All schema import registers are grouped by the schedule.
-
-**Scenario 1:** Created without the default schema option.
-
-
-![](/assets/images/jsm-solution-guide/image81.png)
-
-
-**Scenario 2:** Created with default schema option.
-
-![](/assets/images/jsm-solution-guide/image82.png)
-
-
-**Generate the Token for Schema on Assets (formerly Insight)**
+![No default schema](/assets/images/jsm-solution-guide/image81.png)
    
-1. Go to the **Assets** plugin.
-   ![](/assets/images/jsm-solution-guide/image56.png)
-2. Select the desired schema to obtain the token. Click on the option **Object schema → Configure.**
-   ![](/assets/images/jsm-solution-guide/image11.png)
-3. Click on the **Import** tab.
-   ![](/assets/images/jsm-solution-guide/image64.png)
-4. Click on **_Create Import_** and create a new **External Import**.
-5. Click the **_ellipsis_** and select **_Generate new token_.**
-   ![](/assets/images/jsm-solution-guide/image55.png)
+3. Click **Save**.
 
-The token will be generated.
+The finished register shows the object schema import list. All schema import registers are grouped by the schedule.
 
+You can easily edit and delete object schema in the app as necessary.
 
-### 1.2. Edit Object Schema Import
+### Fetch Device42 Data
 
-To be able to edit an object schema import, click the **_Edit_** button. The **Object schema import** form will display.
+When you have created an object schema import, click the **Sync** button to fetch your Device42 data. After this initial sync, data will be added to your object schema according to the cron job sync schedule you specified. 
 
-![](/assets/images/jsm-solution-guide/image76.png)
+### View the Synchronization Status
 
-Complete the following steps to edit the **Object schema import** form.
+In the **Object Schema Import** window, click the **Sync status** link to view your Device42 data sync status.
 
-![](/assets/images/jsm-solution-guide/image57.jpg)
+![](/assets/images/jsm-solution-guide/image88.png)
 
-1. **External Import Token.** This field is required to create the new object schema import. The token generated by the schema on Assets (formerly Insight) should be included in this field.
-2. **Cron (UTC).** This field is required to create the new object schema import. This field is a user interface to generate a cron expression, which is a string consisting of subexpressions that describe individual details of the schedule. This schedule is when the sync between Device42 and Insight will run in UTC timezone. The user interface for this field has four tabs: Hourly, Daily, Weekly, and Monthly.
+A **Sync status** window will open containing information about the object schema's current synchronization state along with additional details.
 
-   The user interface for this field has four tabs: Hourly, Daily, Weekly, and Monthly.
+There are four possible synchronization states:
 
-   a. **Hourly.** You can choose between every hour(s) and a specific time to execute the cron job.
+* **Launched** Synchronization has started but no information is available yet.
+* **In Progress** Information from Device42 is being processed and registered or updated in **Assets**.
+* **Done** Synchronization is complete and no problems were encountered.
+* **Failed** Synchronization could not be completed due to one or more errors. If the **Sync status** window shows your sync failed, it will provide a link for you to download the log errors.
 
-   b. **Daily.** You can choose between every day(s) of the month and every weekday (MONDAY - FRIDAY) in a specific hour to execute the cron job.
+![Download logs](/assets/images/jsm-solution-guide/image30.png)
 
-   c. **Weekly.** You can choose between any day(s) of the week in a specific hour to execute the cron job. 
-   
-   d. **Monthly.** Choose among a specific day of the month, the last day of every month, the last weekday of every month, and the day(s) before the end of the month in a specific hour to execute the cron job.
-   
-3. **Save.** When you have completed the form, click on the **_Save_** button to save the information.
+The **Sync status** window also contains the following additional details:
 
-![](/assets/images/jsm-solution-guide/image51.jpg)
+1. **Created** The date and time that the sync was created. 
+2. **Identifier** The synchronization identifier.
+3. **Type** The type of execution.
+    * **Manual** indicates the cron job was executed by pressing the **Sync button**.
+    * **Automatic** tells you the cron job was automatically executed according to the schedule.
+4. **Processed** The count of items synced to **Assets**.
+5. **Started** The date and time that the sync started.
+6. **Ended** The date and time that the sync ended.
+7. **Execution time** The time taken to complete the synchronization.
 
-### 1.3. View the Synchronization Status
+![Sync status](/assets/images/jsm-solution-guide/image53.jpg)
 
-To view the sync status of the object schema import, click the link **_Sync _** status button.
+### Edit an Object Schema Import
 
-![](/assets/images/jsm-solution-guide/image35.png)
+Click the **Edit** button to edit an object schema import.
 
-The **Sync Status** window will appear with the following information:
+![](/assets/images/jsm-solution-guide/image91.png)
 
-![](/assets/images/jsm-solution-guide/image53.jpg)
+In the **Object schema import** form that opens, you can edit the following information:
 
-1. **Created.** The date and time that the sync was created. 
-2. **Identifier.** The synchronization identifier.
-3. **Type.** The type of execution.
-    * Manual is the execution of the cron job when you select the Sync button.
-    * Automatic is the process when a cron job is executed according to the schedule.
-4. **Processed.** The count of items that were synced with Assets (formerly Insight).
-5. **Started.** The date and time that the sync started.
-6. **Ended.** The date and time that the sync ended.
-7. **Execution time.** The time it takes to finish the synchronization.
+1. **External Import Token** The external import token generated when you created the object schema in **Assets**.
+2. **Cron (UTC)** The deployment frequency (in UTC) of the synchronization cron job.
 
+Click the **Save** button to save your changes.
 
+### Delete An Object Schema Import
 
-![](/assets/images/jsm-solution-guide/image58.jpg)
+To delete an object schema import, click the **Delete** button under the **Sync** tab.
 
-
-
-
-### 1.4. Synchronization States
-
-There are four possible states for synchronization:
-
-
-  **Launched.** This state is when the synchronization has started, but the information to synchronize is not yet obtained.
-
-
-  **In Progress.** This state is when the synchronization has started to get information from Device42 to be processed and registered/updated in Assets (formerly Insight).
-
-
-  **Done.** This state is when the synchronization has finished and no problems were encountered.
-
-
-  **Failed.** This state is when the synchronization has finished, but there are some problems.
-
-In this scenario, we have the option to download the log errors.
-
-![](/assets/images/jsm-solution-guide/image30.png)
-
-### 1.5. Delete An Object Schema Import
-
-The **Object schema import** window will appear. To delete an object schema import, click the **_Delete _** button.
-
-![](/assets/images/jsm-solution-guide/image26.png)
+![](/assets/images/jsm-solution-guide/image92.png)
 
 A confirmation window will appear, verifying that the object schema import has been deleted.
-
 
 ![](/assets/images/jsm-solution-guide/image5.png)
 
 ![](/assets/images/jsm-solution-guide/image59.png)
 
+### Add a New Object to an Object Schema
 
-### 1.6. Add A New Object to Sync
+You can edit an object schema to include a new object to synchronize data from in the app and customize what data is synchronized to the app.
 
-Select the **_Add object to sync_** button. Complete the form for the new object to sync.
+You will need the name of a [Device42 Object Query Language (DOQL)](https://docs.device42.com/device42-doql/) query to complete the object creation form. The created DOQL object can be edited, disabled, and deleted from the object schema import sync.
 
+If you didn't select the **Create with default schema** option when you created a [new object schema import](#add-a-new-object-schema-import), you can add data of selected asset types by adding a new object to sync.
 
-![](/assets/images/jsm-solution-guide/image60.png)
+Click the **Add object to sync** button to open the new object sync form.
 
+![](/assets/images/jsm-solution-guide/image93.png)
 
-Complete the following steps to add a new object to sync.
+Complete the two required fields to add a new object to sync.
 
+* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](https://docs.device42.com/device42-doql/). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
 
-1. **DOQL.** This field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. ([https://docs.device42.com/device42-doql/](https://docs.device42.com/device42-doql/)).
-2. **Object Type Name**. This field is required to create the new object type. The field shows all object types for the object schema.
-   
-   a. In the scenario that we want to create a new object in Insight, we will have to click on the following **_Object type_** icon.
+* **Object Type Name** Select the object type from the list, or create a new object type by clicking **+ Object type**.
+
    ![](/assets/images/jsm-solution-guide/image48.png)
 
-   b. With this option, the form has two new fields for the object type name and icon.
+   If you're adding a new object type, two further required fields will open for you to complete.
 
    ![](/assets/images/jsm-solution-guide/image61.png)
 
-
-3. **Save.** Select the **Save button** to save the information.
+When you're done, click the **Save** button to save the information.
 
 ![alt_text](/assets/images/jsm-solution-guide/image12.jpg)
 
+### Edit the DOQL of an Object
 
-The finished register shows the next objects list.
-
-![](/assets/images/jsm-solution-guide/image13.png)
-
-
-### 1.7. Edit DOQL of Object to Sync
-
-To edit an object DOQL, click the button **_Edit DOQL_**. The form for editing the information for the object will appear. Complete the following steps to edit a DOQL object.
+To edit the DOQL of an object, click the **Edit DOQL** button. 
 
 ![](/assets/images/jsm-solution-guide/image47.jpg)
 
+In the DOQL field that opens, add the name of the DOQL query stored in Device42. This field supports [DOQL syntax](https://docs.device42.com/device42) for complex queries.
 
-1. **DOQL.** This text field is required to create the new object. The field supports DOQL syntax for complex queries, and it is also the DOQL name of the query stored in Device42. [https://docs.device42.com/device42doql/](https://docs.device42.com/device42)
 ![](/assets/images/jsm-solution-guide/image68.jpg)
 
-2. **Save.** When all the form fields are complete, click the **_Save_** button to save the information.
+Click the **Save** button to save the DOQL query.
 
+### Disable an Object in the Object Schema
 
-### 1.8. Disable An Object to Sync
-
-To disable an object, click the **_Disable_** button. The state of the object will change to Disabled.
+To disable an object, click the **Disable** button. 
 
 ![](/assets/images/jsm-solution-guide/image63.jpg)
 
-Once selected, the object will be displayed as follows.
+The state of the object will change to "Disabled" in the objects list.
 
 ![](/assets/images/jsm-solution-guide/image50.png)
 
-### 1.9. Delete An Object from the Sync
+### Delete an Object from the Object Schema
 
-To delete an object from the sync, click the **_Delete_** button. The window for deleting the object will appear.
+To delete an object from an object schema, click the **Delete** button. 
 
 ![](/assets/images/jsm-solution-guide/image54.jpg)
 
-After you have selected the **_Delete_** button, the confirmation window will appear to confirm the deletion of the object.
+Confirm the object delete action in the window that appears.
 
 ![](/assets/images/jsm-solution-guide/image32.png)
 
-![](/assets/images/jsm-solution-guide/image16.jpg)
+### Asset Type: Create a Field
 
-### 1.10. Create a Field
-
-When you click the object to sync, showing a table with all fields registered; in the first row exists some inputs for creating the new field.
-
+To create a new field for an enabled asset type, click on the asset type. 
 
 ![](/assets/images/jsm-solution-guide/image46.png)
 
+A row of inputs will open for the asset type.
 
 ![](/assets/images/jsm-solution-guide/image17.jpg)
 
+Fill in the following required information to create a new field for the given asset type:
 
-1. **ID.** This field is required as the first field that we register for the selected object. The field is a checkbox indicating the ID of the selected object. There will only be one ID for the object.
-2. **Device42 attribute.** This field is a required field. The input indicates the name of the field for Device42, this name must be the name of the attribute that must exist in the DOQL query
-3. **Insight attribute**. This field is required. The field is a dropdown indicating the Insight registered field.
-4. **Object attribute mapping.** This field is required whenever the Insight attribute has a reference object type. The drop-down field indicates the attributes of the object with which it will be related.
-5. **Query DOQL.** This field is required when the Insight attribute has an unlimited reference. The field corresponds to a DOQL query or a Saved DOQL. **Example:** selectbusinessapplication_fk,device_fkfrom iew_businessapplicationelement_v1
-
-  **Important:** The field ID that you set in the mapping must be in the DOQL.
-
-6. **Internal filter.**This field is required when the Insight attribute has an unlimited reference, the field allows filtering the DOQL results and supports simple conditions **Example:** businessaplication_fk = ${businessaplication_pk}
-
-  **Important:** ${businessaplication_pk} will be replaced with each value of the main DOQL query retrieved.
-
+1. **ID** This option must be checked to associate the field with the ID of the selected object. There will only be one ID for the object.
+2. **Device42 attribute** This field is the name of the field for Device42 and must be the name of the existing attribute in the DOQL query.
+3. **Insight attribute** Select the Insight-registered field from the dropdown menu.
+4. **Object attribute mapping** This field is required if the Insight attribute has a reference object type. Select the attributes the object will be related to.
+5. **Query DOQL** This field is required if the Insight attribute has an unlimited reference. The value corresponds to a DOQL query or a saved DOQL, for example, `selectbusinessapplication_fk`. **Note: The ID you set in the mapping must be in the DOQL.**
+6. **Internal filter** This field is required when the Insight attribute has an unlimited reference. You can filter the DOQL results in this field, and it supports simple conditions, for example,  `businessaplication_fk = ${businessaplication_pk}` (note that `${businessaplication_pk}` will be replaced with each value the main DOQL query retrieves).
 
 ![](/assets/images/jsm-solution-guide/image14.png)
 
+### Asset Type: Remove a Field
 
-### 1.11. Remove a Field
-
-To delete a field, select the **_Remove_** button. This action will delete the row from the table. Keep in mind that there will always have to be a field as ID.
-
+To delete a field from an asset type, click the **Remove** button. 
 
 ![alt_text](/assets/images/jsm-solution-guide/image18.jpg)
 
+The field row will be deleted from the table but the ID field will persist.
 
-![alt_text](/assets/images/jsm-solution-guide/image1.jpg)
+## Configure Access to Device42: The Settings Tab
 
+To connect to Device42 from the app in the JSM cloud, navigate to the **Settings** tab and complete the two required fields.
 
-### 2.0 Settings Tab
+1. **Device42 Cloud Connector** Enter URL of the Device42 connector here, for example, `connect.device42.io`.
+2. **Device42 Verification Token** To get the verification token from your Device42 instance, follow these steps:
+    * In Device42, navigate to **Tools -> Integrations -> External integrations -> Add External integration**.
+    * Copy the token.
+    * Return to the app and paste the token into the verification token field.
 
-The **_Settings_** tab is used to configure access to Device42. Complete the following steps with the appropriate information.
+![](/assets/images/jsm-solution-guide/image62.png)
 
+Click the **Save** button and the app will attempt to connect to Device42.
 
-1. **Device42 Cloud Connector**
-2. **Device42 Verification Token**
-   ![](/assets/images/jsm-solution-guide/image62.png)
+![](/assets/images/jsm-solution-guide/image38.png)
 
-3. Select the **_Save_** button to save the information.
-   ![](/assets/images/jsm-solution-guide/image38.png)
-
-### 2.1 States for Device42 Configuration
-
-
-Possible status for the settings:
+Following the app attempting to connect to Device42, the connection will display one of six states in the **Settings** tab:
 
 * Connection enabled.
 * Connection not enabled.
@@ -437,192 +359,147 @@ Possible status for the settings:
 * Request URL not found.
 * An error occurred on Device42.
 
-![](/assets/images/jsm-solution-guide/image2.jpg)
+## Set User Access to the App: The Security Tab
 
+You can configure user access to the application in the **Security** tab.
 
-### 3.0 Security Tab
+Follow the steps below to assign roles to users with different permissions.
 
-
-The **Security** tab configures access to the application.
-
+1. **Administrator role** (Required) This field contains a dropdown list of all the existing roles in Jira. Select those roles that should be given administrative privileges. Users with these roles will be able to manage the object schema configurations.
+2. **User role** (Required) This field contains a dropdown list of all the existing roles in Jira. Select those roles that should be given basic user permissions. Users with these roles will be able to view the object schema configurations and perform manual syncs.
 
 ![](/assets/images/jsm-solution-guide/image3.jpg)
 
+Click **Save** to save your access settings.
 
+## Workflow Example One: Adding an Additional Attribute to an Object Type in the Default Object Schema
 
-To configure security access, follow the steps below.
+Let’s work through the process of adding a property to an object type. A user might want to include data from custom device fields in Device42 that are getting pulled in from a VMware or Cloud discovery job, into an object schema import. 
 
+This process is a perfect way to add any custom fields and additional properties that aren’t included in the out-of-the-box schema import
+ 
+In this example we’ll modify the device import to include a custom field called ‘Application Owner’. 
 
-1. **Administrator role.** This field is required and is multi-dropdown with all existing roles in Jira; those users with these roles selected will be able to manage the object schema configurations.
-2. **User role.** This field is required and is multi-dropdown with all existing roles in Jira. Users with these roles selected will only be able to view the object schema configurations and perform manual syncs.
-3. **Save.** Select the **_Save_** button to save the choices.
+### Assumptions
 
+The default object schema in the integration was used. 
+A device custom field exists of type text. We are using one called ‘Application Owner’ in our example and have assigned values to it on a few devices.
 
-![](/assets/images/jsm-solution-guide/image4.png)
+### Procedure
 
+First, identify the custom field of choice taking note of the name to reference it in a few places.
+Now, add a new attribute to the Device object type as follows:
 
-### 4.0 Generate External Token for Schema on Insight
+1. From within the **Assets** tab, select **your object schema -> Device -> Attributes**. You’ll see the list of all the attributes, like in the screenshot below:
 
+![](/assets/images/jsm-solution-guide/image9.png)
 
-Go to the Insight plugin.
+2. Scroll to the bottom to see a toolbar for adding a new attribute.
 
-![](/assets/images/jsm-solution-guide/image31.png)
+![](/assets/images/jsm-solution-guide/image10.png)
 
+3. Fill out the **Name** and **Description** fields and choose “Default” as the Type and “Text” as the Type Value. 
 
-Let's Select the desired schema to obtain the token. Click on the option _Object schema → Configure_
+4. Click on the **Add** button when you’re ready to commit the attribute to the schema. 
 
+Next, we will switch over to our Device42 Main Appliance and navigate to **Tools -> Saved DOQL Queries**. Search for `D42_Insight_Cloud_Sync_Devices`. Note that this is the System Defined Query, meaning we cannot edit this query but we can clone it. 
 
-![](/assets/images/jsm-solution-guide/image6.png)
-
-
-![](/assets/images/jsm-solution-guide/image7.jpg)
-
-
-Click on the **Import tab.**
-
-Click on **Create Import, **and create a new **External Import.**
-
- Click the **eclipse (⋯)**, **and select **Generate token**. The token will be generated.
-
-
-![](/assets/images/jsm-solution-guide/image8.png)
-
-
-## Custom Examples
-
-
-### Example #1: Adding an additional attribute to an object type in the default object schema
-
-
-#### **Use Case**
-
-We’re likely to get requests from users to add X property to Y object type. For example, maybe they are using device custom fields in Device42 that are getting pulled in from a VMware or Cloud discovery job and they want to include that data in the object schema import or maybe there is some specific field we aren’t syncing OOTB that they would like to include. 
-
-Now, while the below procedure covers the specific process that a user could take to add a Device Custom Field to the default object schema import in the integration, it is important to note that this same process could be applied to virtually any field/column/data point within Device42 with a one-one cardinality to the desired object type; **meaning**: this is a perfect way to add custom fields or include additional properties that we may not include in the out of the box schema. 
-
-It can even be used to do nifty things like create additional URL fields/quick linkbacks to pages within Device42. For example, you could include an attribute called ‘D42 Software URL’ that acts as a quick link to a filtered list of all software on the device by adding a column like format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk) as d42_software_url to the query. 
-
-This specific example will cover modifying the Device import to include a device custom field called ‘Application Owner’. 
-
-
-#### Assumptions
-
-1. The default object schema in the integration was used. 
-2. A device custom field exists of type text – Note: We are using one called ‘Application Owner’ in our example and we have assigned values to it on a few devices.
-
-#### Procedure
-
-
-1. Identify the custom field of choice (take note of the name as we will need to reference it in a few places)
-2. Add a new attribute to the Device object type
-
-   a. From within Assets, select your object schema -> Device -> Attributes. You’ll see the list of all the attributes like in the screenshot below. 
-   
-   ![](/assets/images/jsm-solution-guide/image9.png)
-
-   b. Scroll to the bottom and you will see a toolbar for adding a new attribute.
-
-   ![](/assets/images/jsm-solution-guide/image10.png)
-
-   c. Fill out the Name and Description fields and choose Default / Text as the Type / Type Value. 
-
-   d. Click the Add button when you’re ready to commit the attribute to the schema. 
-
-
-- Next, we will switch over to our Device42 MA and navigate to Tools -> Saved DOQL Queries. Search for ‘D42_Insight_Cloud_Sync_Devices’ and note that this is the System Defined Query, meaning we cannot edit this query but we can clone it. 
-
-- Click on the query name and click Clone DOQL Query. 
+Click on the query name and click the **Clone DOQL Query** button. 
 
    ![](/assets/images/jsm-solution-guide/image34.png)
 
-- Give the query a unique name: In our example, we will call it ‘CF_D42_Insight_Cloud_Sync_Devices’
+2. Give the query a unique name. In our example, we will call it `CF_D42_Insight_Cloud_Sync_Devices`.
 
-- Click into the DOQL query textbox and hit ctrl + a ctrl + c and copy it to a text editor
+3. Click into the DOQL query textbox and select all the contents (ctrl + a), copy them (ctrl + c), and paste (ctrl + v) into a text editor.
 
-- In order for us to include our device custom field we need to modify the query slightly, specifically we need to add a left join to view_device_custom_fields_flat_v2 and add the desired column (our custom field) to the body of the select statement. 
+To include our device custom field, we need to modify the query slightly. We need to add a left join to `view_device_custom_fields_flat_v2` and add our custom field to the body of the select statement. 
 
-- To keep this document concise/legible, the full query isn’t included but below are the modifications that need to be made
+Note that for the sake of brevity, the full query isn’t included, but below are the necessary modifications.
 
-- Copy: left outer join view_device_custom_fields_flat_v2 dcf ON d.device_pk = dcf.device_fk and paste it directly after the line from view_device_v2 d
+Copy and paste the following directly after the line from `view_device_v2 d`:
 
-- Copy: dcf."Application Owner" AS application_owner and paste it directly above the line from view_device_v2 d (remember to add a comma after the previous column or you will get a syntax error when trying to save the DOQL query)
- 
-- At this point you can copy/paste the query back into the Saved DOQL Query in Device42 and hit save. Note: It won’t let you save invalid SQL and you can hit the Test SQL button as well to ensure the query is syntactically valid. 
+```sql
+left outer join view_device_custom_fields_flat_v2 dcf ON d.device_pk = dcf.device_fk
+```
 
-- Next we will switch back over to JSM, navigate to Apps -> Device42 Insight Connect
+Copy and paste the following directly above the line from `view_device_v2 d`: 
 
-   a. Expand the Device object import and click on the Edit DOQL button
+```sql
+dcf."Application Owner" AS application_owner
+```
 
-   ![](/assets/images/jsm-solution-guide/image36.png)
+Remember to add a comma after the previous column or you will get a syntax error when trying to save the DOQL query.
 
-   b. You should see that it says ‘D42_Insight_Cloud_Sync_Devices’ – That is the name of the default saved doql query that we cloned earlier. 
+At this point, you can copy and paste the query back into the Saved DOQL Query in Device42 and hit save. Note that it won’t let you save invalid SQL. Click on the **Test SQL** button as well to ensure the query is syntactically valid.
 
-   ![](/assets/images/jsm-solution-guide/image37.png)
+Next, we will switch back over to JSM Cloud and navigate to **Apps -> Device42 Insight Connect** and do the following:
 
-   c. We’re going to change this to the name of the new Saved DOQL Query we just created. If you’re following along, we called ours ‘CF_D42_Insight_Cloud_Sync_Devices’. So go ahead and change the name to that and hit save to update the query.
+1. Expand the Device object import and click on the **Edit DOQL** button.
 
-- The very last thing we need to do now before we can run the sync is to add our attribute to the import. 
+![](/assets/images/jsm-solution-guide/image36.png)
 
-   a. You will see a dropdown box in the top row that you can click to search for the Insight attribute that we defined earlier
+2. The text area should contain the value of `D42_Insight_Cloud_Sync_Devices``, which is the name of the default saved DOQL query that we cloned earlier. 
 
-   ![](/assets/images/jsm-solution-guide/image39.png)
+![](/assets/images/jsm-solution-guide/image37.png)
 
+3. We’re going to change this to the name of the new saved DOQL query we just created that we called `CF_D42_Insight_Cloud_Sync_Devices`. Replace the query name and hit save to update the query.
 
-   b. In the Device42 Attribute text box, enter the same name that was used for the column name/alias in the query, in our example that is application_owner
+The very last thing we need to do before we can run the sync is to add our attribute to the import: 
 
-   ![](/assets/images/jsm-solution-guide/image40.png)
+1. You will see a dropdown box in the top row that you can click to search for the Insight attribute that we defined earlier.
 
+![](/assets/images/jsm-solution-guide/image39.png)
 
-   c.Click the Add button when you are ready to commit the attribute to the import. You should see a message that says ‘The field was successfully registered’. 
+2. In the **Device42 attribute** text box, enter `application_owner`. This is the same name that was used for the column name or alias in the query in our example.
 
-- At this point we are done and can run the sync (scroll back up and click on Sync) – you should see a message that says ‘Sync task was launched successfully’
+![](/assets/images/jsm-solution-guide/image40.png)
 
-   a. Check the status of the sync by clicking on Sync status
+3. Click the **Add** button when you are ready to commit the attribute to the import. You should see a message that says “The field was successfully registered”. 
 
-   b. Once the sync completes, navigate back to the object schema in Assets and search for a device that would have a value for the specified custom field. 
+At this point, we are done and can run the sync. Scroll back up and click on the **Sync button**. You should see a message that says “Sync task was launched successfully”. You can check the status of the sync by clicking on **Sync status**.
 
-   c. We can see our new attribute ‘Application Owner’ has been added and the value from the custom field in D42
+Once the sync completes, navigate back to the object schema in **Assets** and search for a device that would have a value for the specified custom field. 
 
-   ![](/assets/images/jsm-solution-guide/image41.png)
+1. We can see our new attribute `Application Owner` has been added and the value from the custom field in Device42.
 
-   d. We can also see the specific date/time when a value for that field was added to our object in Assets
+![](/assets/images/jsm-solution-guide/image41.png)
 
-   ![alt_text](/assets/images/jsm-solution-guide/image42.png)
+2. We can also see the specific date and time when a value for that field was added to our object in **Assets**.
 
+![alt_text](/assets/images/jsm-solution-guide/image42.png)
 
-### Example #2: Adding an additional object type to the default schema
+While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42. Data with a one-one relationship cardinality to the desired object is easily added in the JSM integration. 
 
+It can even be used to do nifty things like create additional URL fields or quick linkbacks to pages within Device42. For example, you could include an attribute called `D42 Software URL` that acts as a quick link to a filtered list of all software on the device by adding a column like, `format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk)` as `d42_software_url` to the query. 
 
-#### Use Case
+## Workflow Example Two: Adding an Additional Object Type to the Default Schema
 
-We’re likely to get requests from users to add additional objects and attributes into Assets with the Device42 JSM Assets integration. For example: Device42 discovers installed Software and Certificates that exist on a device. These are 2 objects that are NOT created as part of the out-of-the-box default schema with the integration. However, following the guided steps below, this can be accomplished within the integration to enrich and automate the data that exists within JSM Assets. Now, while the below procedure covers the specific process that a user could take to add installed Software on a device, it is important to note that this same process could be applied to virtually any configuration item/object and attribute that exists within Device42. 
+Let’s consider the use case of adding additional objects and attributes into Assets. In this example, let’s  say that Device42 has discovered installed Software and Certificates that exist on a device. However, these two objects are not created as part of the out-of-the-box default schema with the integration. 
 
+Following the guided steps below, we can add the Software and Certificates objects within the JSM integration to enrich and automate the existing Assets data. 
 
-#### Assumptions
+### Assumptions
 
+The default object schema in the integration was used. 
+A device has been discovered in Device42 with installed Software (Software in Use) records.
 
-1. The default object schema in the integration was used. 
-2. A device has been discovered in Device42 with installed Software (Software in Use) records.
+### Procedure
 
-
-#### Procedure
-
-
-1. Add a new object type in JSM Assets and call it Software In Use or your name of choice. Select Create when completed.
+Start by adding a new object type in the **Assets** tab by clicking on the **+** button to the right of the object type list. In this example, we’ll call the new object type “Software In Use”. Click on the **Create** button.
 
 ![](/assets/images/jsm-solution-guide/image43.png)
 
-2. Now you will want to add attributes to this Software In Use object type.
+Now we’ll add attributes to the new “Software In Use” object type. From within the **Assets** tab, select **your object schema -> Software In Use -> Attributes**. 
 
-   ![](/assets/images/jsm-solution-guide/image44.png)
+![](/assets/images/jsm-solution-guide/image44.png)
 
-   a. From within Assets, select your object schema -> Software In Use -> Attributes. 
+Next, create a list of attributes that will appear for your “Software In Use” object. Use the toolbar at the bottom to add a new attribute.
 
-   b. You will now want to create a list of attributes that will appear for your Software In Use object. Use the toolbar for adding a new attribute
+![](/assets/images/jsm-solution-guide/image45.png)
 
-   ![](/assets/images/jsm-solution-guide/image45.png)
+Add the **Name**, **description**, **Type**, and **Type Value** for each of the attributes. Then click on the **Add** button to commit the attribute to the object schema. 
 
-   c. Use the view above or table below to add the: Name, description, Type and Type Value for each of the attributes. You will need to select Add to commit the attribute to the Object schema. **Note:** For the last attribute, Device, the Type needs to be set to Object the Type Value is going to be Device with an Additional Value set to Reference. This is what will relate Software in Use (Installed Software) to the Device object in JSM Assets. When configuring the reference, keep the Cardinality to 1 as the Software in Use record can only have 1 device related to it.
+The last attribute, “Device”, **Type** is set to “Object” and the **Type Value** is “Device” with an **Additional Value** set to “Reference”. These values will relate the “Software in Use” object (the installed software that’s being discovered) to the device object in JSM Assets. When configuring the reference, keep the **Cardinality** as “1” because the “Software in Use” record can only have one device related to it.
 
 | Name         | Description                              | Type    | Type Value | Additional Value   |
 |--------------|------------------------------------------|---------|------------|--------------------|
@@ -637,17 +514,12 @@ We’re likely to get requests from users to add additional objects and attribut
 | Last Updated | Last updated date for installed software package | Default | Date       |                    |
 | Device       | Device for Software in Use record        | Object  | Device     | Reference          |
 
+Next, we will switch over to our Device42 Main Appliance and navigate to **Tools ->Integrations -> Saved DOQL Queries**. You’ll notice there are a number of **System Defined** queries that you could leverage by selecting the query and then clicking on the **Clone DOQL Query** button. 
 
-
-
-Configurations on to the Device42 side:
-
-
-   - Next, we will switch over to our Device42 Main Appliance and navigate to Tools ->Integrations -> Saved DOQL Queries. You’ll notice there are a number of System Defined queries that you can leverage or even clone by selecting the query and then selecting ‘Clone DOQL Query’. 
-
-   - For this example, we are going to create a new query so select ‘Add Saved DOQL Query’ in the top right.
-
-   - Now type a Name for the query, we used ‘Insight_Cloud_Sync_Software_In_Use_V2’ and paste the following query in the DOQL Query section:
+However, in this example, we are going to create a new query: 
+Select the **Add Saved DOQL Query** button at the top right.
+Now type in the following query **Name**:  “Insight_Cloud_Sync_Software_In_Use_V2”.
+Paste the following query in the **DOQL Query** section:
 
    ```
    SELECT
@@ -664,126 +536,50 @@ Configurations on to the Device42 side:
    WHERE siu.last_updated >= NOW() - INTERVAL '1 DAY'
    ```
 
-   - You can select ‘Test’ to validate it is correct and then Save it and you should see the following:
-   ![](/assets/images/jsm-solution-guide/image33.png)
+In this example, we are looking at software that we are currently running daily discoveries on that was updated within a `1 DAY` interval. 
 
-   **Note:** In this example, we are looking at any software that was updated now until the last 1 day, to look for software on devices where we are currently running daily discoveries on. 
+Click on the **Test SQL** button to validate that the query is correct and then click on the **Save** button.  You should see a summary of the saved query.
 
+![](/assets/images/jsm-solution-guide/image33.png)
 
-Back to JSM Assets side:
+Next, switch back over to the **Sync tab** in our JSM app. Click on the  **Add object to sync** button to sync the “Software In Use” data from Device42.
 
-   - Next we will switch back over to JSM Assets, navigate to Apps -> Device42 Insight Connect
+![](/assets/images/jsm-solution-guide/image19.png)
 
-   - Select ‘Add object to sync’ so we can sync the Software In Use or Installed Software from Device42
+Now enter the name of the saved DOQL query in the **DOQL** text area and then select the new “Software in Use” object type we’ve created.
 
+![](/assets/images/jsm-solution-guide/image20.png)
 
-   ![](/assets/images/jsm-solution-guide/image19.png)
+Next, obtain the names of the Device42 attributes from the name of the columns you’ve indicated in your query saved in Device42. 
 
+![alt_text](/assets/images/jsm-solution-guide/image21.png)
 
-   - Now enter the name of the Saved DOQL Query that you saved in step 3 in the box ‘DOQL’ and then select the new object type you’ve created in JSM Assets called ‘Software in Use’
+Enter each of the Device42 attributes and then select the corresponding JSM attribute you want that value to map to. Click on **Add** to commit each attribute to the import. 
 
-   ![](/assets/images/jsm-solution-guide/image20.png)
+When you add the first attribute, you will have to select the “Id” checkbox next to it so it can register the attribute or you will see the following error:
 
+![](/assets/images/jsm-solution-guide/image22.png)
 
-   - Next you will want to enter each of the Device42 attributes and then select the Insight attribute you want that value to map to. Select ‘Add’ when you are ready to commit each attribute to the import. 
+The very last attribute titled “device_fk” will map to the device attribute in Insight and is the only attribute requiring a value for the object attribute mapping. Please select “D42 ID” to link the “Software In Use” object to the device. 
 
-   * You can obtain the name of the Device42 attributes from the name of the columns you’ve indicated in your query saved in Device42. 
+Once you have entered all the attributes, it should look something like this:
 
-   ![alt_text](/assets/images/jsm-solution-guide/image21.png)
+![](/assets/images/jsm-solution-guide/image23.png)
 
+At this point, scroll back up and click on the **Sync button**. You should see a message that says “Sync task was launched successfully”. Check on the status of the sync by clicking on the **Sync status** link.
 
-   * **Note:** When you add the first attribute, you will have to check the ‘Id’ box next to it so it can register the attribute or you will see the following error:
+Once the sync completes, navigate back to the object schema in the **Assets tab** and you should start to see values populating for “Software In Use”. 
 
-   ![](/assets/images/jsm-solution-guide/image22.png)
+If you look at a device with software on it, you should now see “Software In Use” for that device in the **Inbound References** section.
 
+![](/assets/images/jsm-solution-guide/image24.png)
 
-   * Once you are have entered in all the attributes, you should see something like the below:
+While the workflow above includes a specific process that a user could take to add installed Software on a device, this process could be applied to any configuration item, object, or attribute that exists within Device42. 
 
-   ![](/assets/images/jsm-solution-guide/image23.png)
+## Additional Resources
 
+Video: [How to set up Jira Service Management assets integration with Device42](https://device42.wistia.com/medias/b087w5fps8) 
 
-   * **Note:** For the very last attribute titled device_fk, this will map to the Device attribute in Insight and it is also the only mapping that will require you to enter a value for the Object attribute mapping. Please select the ‘D42 ID’. This is what will link the Software In Use to the Device. 
+[Device42 for Jira Service Management app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?hosting=cloud&tab=overview)
 
-
-   - At this point we are done and can run the sync (scroll back up and click on Sync) – you should see a message that says ‘Sync task was launched successfully’
-
-
-   - Check the status of the sync by clicking on Sync status
-
-   - Once the sync completes, navigate back to the object schema in Assets and you should start to see values populating for Software In Use. 
-
-   - If you look at a device that should have Software on it, you should now see an Inbound Reference to the Software In Use for that device.
-
-   ![](/assets/images/jsm-solution-guide/image24.png)
-
-
-
-## Connect Device42 to Jira Service Management. (1)
-
-
-#### Feature-packed integration with Jira
-
-Connecting tickets to the assets they relate to is a logical step, and with the combination of Device42 + Jira, you have the capability to achieve precisely that, along with a plethora of other functionalities.
-
-Quickly browse to a CI in Device42, and create or attach Jira Service Management tickets.
-
-
-![](/assets/images/jsm-solution-guide/image25.png)
-
-
-
-#### Create New Jira tickets from Device42
-
-See attached Jira Service Management Cloud issues from Device42 CIs, and create new ones with a click from the Device42 UI.
-
-New tickets are linked and immediately viewable in Jira Service Management.
-
-![](/assets/images/jsm-solution-guide/image27.png)
-
-
-
-#### View Device42 CI details from Jira Tickets
-
-Once the Device42 CMDB Add-on is installed, users can see details from Device42 for that CI in Jira Service Management.
-
-Click the device name hyperlink to immediately view full CI details in Device42.
-
-
-![alt_text](/assets/images/jsm-solution-guide/image28.png)
-
-
-
-## Conclusion
-
-Bring the benefits of an Enterprise CMDB to Jira Service Management! Integrate your existing Device42 CMDB instance with Jira Service Management for top-notch Asset Management and enjoy a wealth of other features that improve your ITSM:
-
-
-
-* Business leaders can report on customers, inventories, finances, change management, and more.
-* IT teams can track assets like servers, computers, phones, accessories, and related tickets, etc. with synced CIs
-* Enjoy the ultimate maintenance planning toolkit with Affinity Groups & Cloud Recommendation Engine
-* Write your own DOQL queries or modify the included "saved" queries to control exactly what Asset (CI) data you want synced to Jira Service Management
-
-
-#### Additional details
-
-Video: [How to Set Up Jira Service Management Assets Integration with Device42.](https://device42.wistia.com/medias/b087w5fps8) 
-
-[Device42 Jira Service Management Assets Integration on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?hosting=cloud&tab=overview)
-
-[Troubleshoot email notifications in Jira Service Management (JSM) ](https://confluence.atlassian.com/jirakb/troubleshoot-customer-notifications-in-jira-service-management-projects-777026983.html)
-
-[https://device42.com/update/,](https://device42.com/update/,) or download a free trial @ device42.com/download/.
-
-Bring the benefits of an Enterprise CMDB to Jira Service Management! Integrate your existing Device42 CMDB instance with Jira Service Management for top-notch Asset Management and enjoy a wealth of other features that improve your ITSM:
-
-Business leaders can report on customers, inventories, finances, change management, and more.
-
-IT teams can track assets like servers, computers, phones, accessories, and related tickets etc. with synced CIs
-
-Enjoy the ultimate maintenance planning toolkit with Affinity Groups & Cloud Recommendation Engine
-
-Write your own DOQL queries or modify the included "saved" queries to control exactly what Asset (CI) data you want synced to Jira Service Management
-
-
-https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?tab=overview&hosting=cloud
+[Troubleshoot email notifications in Jira Service Management](https://confluence.atlassian.com/jirakb/troubleshoot-customer-notifications-in-jira-service-management-projects-777026983.html)
