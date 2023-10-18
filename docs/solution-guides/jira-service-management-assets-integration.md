@@ -404,7 +404,7 @@ Now, add a new attribute to the Device object type as follows:
 
 Next, we will switch over to our Device42 Main Appliance and navigate to **Tools -> Saved DOQL Queries**. Search for `D42_Insight_Cloud_Sync_Devices`. Note that this is the System Defined Query, meaning we cannot edit this query but we can clone it. 
 
-Click on the query name and click the **Clone DOQL Query** button. 
+1. Click on the query name and click the **Clone DOQL Query** button. 
 
    ![](/assets/images/jsm-solution-guide/image34.png)
 
@@ -458,7 +458,7 @@ The very last thing we need to do before we can run the sync is to add our attri
 
 At this point, we are done and can run the sync. Scroll back up and click on the **Sync button**. You should see a message that says “Sync task was launched successfully”. You can check the status of the sync by clicking on **Sync status**.
 
-Once the sync completes, navigate back to the object schema in **Assets** and search for a device that would have a value for the specified custom field. 
+Once the sync completes, navigate back to the object schema in **Assets** and search for a device that has a value for the specified custom field. 
 
 1. We can see our new attribute `Application Owner` has been added and the value from the custom field in Device42.
 
@@ -468,7 +468,7 @@ Once the sync completes, navigate back to the object schema in **Assets** and se
 
 ![alt_text](/assets/images/jsm-solution-guide/image42.png)
 
-While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42. Data with a one-one relationship cardinality to the desired object is easily added in the JSM integration. 
+While this process covers the steps you can take to add a device custom field to the default object schema import, it’s useful to note that the process applies to any field, column, or data point within Device42. Data with a one-to-one relationship cardinality to the desired object is easily added in the JSM integration. 
 
 It can even be used to do nifty things like create additional URL fields or quick linkbacks to pages within Device42. For example, you could include an attribute called `D42 Software URL` that acts as a quick link to a filtered list of all software on the device by adding a column like, `format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk)` as `d42_software_url` to the query. 
 
@@ -518,7 +518,7 @@ Next, we will switch over to our Device42 Main Appliance and navigate to **Tools
 
 However, in this example, we are going to create a new query: 
 Select the **Add Saved DOQL Query** button at the top right.
-Now type in the following query **Name**:  “Insight_Cloud_Sync_Software_In_Use_V2”.
+Now type in the following query **Name**:  `Insight_Cloud_Sync_Software_In_Use_V2`.
 Paste the following query in the **DOQL Query** section:
 
    ```
