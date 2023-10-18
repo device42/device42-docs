@@ -438,7 +438,7 @@ Next, we will switch back over to JSM Cloud and navigate to **Apps -> Device42 I
 
 ![](/assets/images/jsm-solution-guide/image36.png)
 
-2. The text area should contain the value of `D42_Insight_Cloud_Sync_Devices``, which is the name of the default saved DOQL query that we cloned earlier. 
+2. The text area should contain the value of `D42_Insight_Cloud_Sync_Devices`, which is the name of the default saved DOQL query that we cloned earlier. 
 
 ![](/assets/images/jsm-solution-guide/image37.png)
 
