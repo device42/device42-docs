@@ -13,11 +13,11 @@ You can elect to have AD/LDAP users added to Device42 as either regular end-user
 
 To begin, you'll want to configure the Active Directory Settings in Device42. These settings will control authentication to AD like which servers to authenticate against, base DNs, and how users that are discovered are added. _**You'll want to do this \*before\* you create/run your Active Directory/LDAP discovery jobs.**_
 
-1. From the main menu, head to _Tools -> Settings -> Active Directory Settings._:
+1. From the main menu, head to **Tools -> Settings -> Active Directory Settings**:
 
 ![](/assets/images/AD1.png)
 
-2. On the Active Directory Settings page, Click the _"Active Directory / LDAP Settings"_ button to acess the actual AD settings, and enter values that are appropriate for your Active Directory (or LDAP) domain: 
+2. On the Active Directory Settings page, Click the **Active Directory / LDAP Settings** button to access the actual AD settings, and enter values that are appropriate for your Active Directory (or LDAP) domain: 
 
 ![](/assets/images/AD3.png)
 
@@ -37,7 +37,7 @@ To begin, you'll want to configure the Active Directory Settings in Device42. Th
 
 ## Configure an Active Directory / LDAP User Discovery Job
 
-1) The AD/LDAP sync tool can be found at Discovery>>AD/LDAP Users.
+1) The AD/LDAP sync tool can be found at **Discovery > AD/LDAP Users**.
 
 ![Add AD LDAP user sync job](/assets/images/add_ad-LDAP_sync.png)
 
@@ -49,7 +49,31 @@ Enter the exact Group Distinguished Name and authentication information. Check t
 
 ![](/assets/images/media_1424428858240.png)
 
-3) If End Users was chosen as the user type, you may optionally choose which AD/LDAP attributes should be used to import contact, location, and notes if desired. Go ahead an run the discovery job, and/or configure a schedule - Similar to all other autodiscovery jobs, you can create a schedule to keep your Device42 users in sync with AD automatically!
+3) If "End Users" was chosen as the user type, you may optionally choose which AD/LDAP attributes should be used to import contact, location, and notes if desired. Go ahead an run the discovery job, and/or configure a schedule - Similar to all other autodiscovery jobs, you can create a schedule to keep your Device42 users in sync with AD automatically!
+
+### Specify a Custom LDAP Filter
+
+You can set a custom LDAP filter in the **Custom Filter** field to define which objects are synced. 
+
+![Custom filter](/assets/images/LDAP-sync-custom-filter.png)
+
+By default, the LDAP filter is set to retrieve objects of type `group` or `user`, and is denoted by:
+
+```
+(|(objectCategory=group)(|objectCategory=user))
+```
+
+Similarly, the default LDAP filter for Open LDAP sync is `(objectClass=inetOrgperson)` which gets the `inetOrgperson` object type.
+
+You can specify your own LDAP filter as follows to fetch all active users and groups as follows:
+
+```
+(&(|(objectCategory=group)(|objectCategory=user))(!(userAccountControl:1.2.840.113556.1.4.803:=2)))
+```
+
+The `userAccountControl` attribute uses a bitwise filter to look for specific flags and is set to `2` for disabled accounts. The preceding exclamation point `!` in the command excludes such accounts.
+
+Now, disabled accounts will be ignored when Active Directory accounts are synced. You can use similar commands of LDAP attributes to filter which objects get synced.
 
 ## Example of how to get a Group DN in Active Directory
 
