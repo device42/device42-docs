@@ -39,9 +39,9 @@ You can change the password with option 10 below.
 
 ## Configure a static IP & networking options
 
-![Option 1 - Configure IP and Networking](/assets/images/wpid6181-media_1338939233735.png)
+Configure an IP address for the Device42 appliance — either a static IP or a DHCP address reservation. Ensure that DNS entries are created for every appliance to be used in a production setting. Note that DNS server configuration is a necessary step.
 
-Next, configure an IP address for the Device42 appliance. A static IP or a DHCP address reservation should be created for the Device42 appliance along with DNS entries for any appliance that will be used in a production setting.
+![Option 1 - Configure IP and Networking](/assets/images/wpid6181-media_1338939233735.png)
 
 ![Configure eth0](/assets/images/wpid6178-media_1338939254095.png)
 
