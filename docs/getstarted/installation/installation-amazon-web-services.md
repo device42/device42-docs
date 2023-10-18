@@ -37,7 +37,7 @@ The configuration will ONLY allow you to "Launch" successfully using one of the 
 
 ![Instance ID, public ip, DNS address on EC2 dash](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
 
-3. Navigate to the Device42 login screen by visiting `https://DEVICE42_AWS_ADDRESS` \[where _DEVICE42\_AWS\_ADDRESS_ is the DNS name (preferred) or IP address found on the AWS UI\]. Login to the Device42 web-UI using the default username _admin_, and provide your _AWS instance ID_ as your temporary PW.It's a good idea to change these credentials to something more secure as soon as you log in!
+3. Navigate to the Device42 login screen by visiting `https://DEVICE42_AWS_ADDRESS` \[where _DEVICE42\_AWS\_ADDRESS_ is the DNS name (preferred) or IP address found on the AWS UI\]. Login to the Device42 web-UI using the default username _admin_, and provide your _AWS AMI instance ID_ as your temporary PW.It's a good idea to change these credentials to something more secure as soon as you log in!
 
 ![Device42 Web UI login](/assets/images/Log_in_to_D42_WebUI-hl.png)
 
@@ -70,7 +70,7 @@ All maintenance operations are performed through the Device42 appliance manager.
 
 ![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
 
-For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username \[ d42admin \], the password being your _AWS instance ID_. Once logged in, you'll see the appliance manager main menu: 
+For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username \[ d42admin \], the password being your _AWS AMI instance ID_. Once logged in, you'll see the appliance manager main menu: 
 
 ![D42 Appliance Manager menu](/assets/images/appliance_manager_main.png)
 
