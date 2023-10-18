@@ -411,7 +411,7 @@ First, add a new attribute to the "Device" object type as follows:
 
 Next, switch to your Device42 Main Appliance and navigate to **Tools -> Saved DOQL Queries**. Search for `D42_Insight_Cloud_Sync_Devices`. Note that this is a system-defined query, so you cannot edit this query but you can clone it. 
 
-Click on the query name and click the **Clone DOQL Query** button. 
+1. Click on the query name and click the **Clone DOQL Query** button. 
 
    ![](/assets/images/jsm-solution-guide/image34.png)
 
@@ -445,7 +445,9 @@ Expand the "Device" object import and click the **Edit DOQL** button.
 
 ![](/assets/images/jsm-solution-guide/image36.png)
 
+
 The text area should contain the value of `D42_Insight_Cloud_Sync_Devices`, which is the name of the default saved DOQL query that we cloned earlier. 
+
 
 ![](/assets/images/jsm-solution-guide/image37.png)
 
@@ -467,7 +469,9 @@ Click the **Add** button and you should get the message "The field was successfu
 
 Now you can run the sync. Scroll up and click the **Sync button**. You should get the message "Sync task was launched successfully". Check the status of the sync by clicking on **Sync status**.
 
+
 When the sync is complete, navigate to the object schema in **Assets** and search for a device that has a value for the new custom field. 
+
 
 We can see our new attribute "Application Owner" and its value from the custom field in Device42.
 
@@ -477,9 +481,11 @@ We can also see the date and time the value for that field was added to our obje
 
 ![alt_text](/assets/images/jsm-solution-guide/image42.png)
 
+
 You can modify this process to do nifty things like create additional URL fields or quick linkbacks to pages in Device42. For example, you could include an attribute called "D42 Software URL" that acts as a quick link to a filtered list of all software on the device. Do this by adding a column `format('%s/admin/core/software_in_use/?advanced=device_id=%s', {d42_url}, d.device_pk)` as `d42_software_url` to the query. 
 
 ### Adding an Object Type to the Default Object Schema
+
 
 Now we'll show you how to add object types and attributes to the default object schema. This example demonstrates how you can add installed software and certificates discovered by Device42 to the existing assets data, but you can follow the same process to add any configuration item, object, or attribute that exists in Device42 that isn't created in the default object schema.
 
@@ -533,9 +539,11 @@ However, in this example, we will create a new query.
 
 Click the **Add Saved DOQL Query** button at the top right.
 
+
 Type `Insight_Cloud_Sync_Software_In_Use_V2` in the query **Name** field.
 
 Copy the following query and paste it into the **DOQL Query** section:
+
 
    ```
    SELECT
