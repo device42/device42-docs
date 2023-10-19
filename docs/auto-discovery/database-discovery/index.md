@@ -6,7 +6,7 @@ title: "Database Discovery"
 
 Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+)_, and currently supports Windows and \*nix-based discovery jobs to discover Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
 
-**Note**: Database discovery requires an **Application Dependency Mapping** license. Go to _Tools > Settings > Licensing_ to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
+**Note**: Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
 
 As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
 
@@ -43,7 +43,7 @@ The snippet shown below is necessary to get data from some of the preceding view
 
 ### Setting up your MSSQL discovery job
 
-1) To begin discovering your MSSQL Databases \[running on Windows\], create a new Windows discovery job and be sure to enable database discovery by checking the _Collect database server information_ checkbox. Select _Allow Unencrypted Connections_ if you want to discover MSSQL 2005 or MSSQL 2008 databases.
+1) To begin discovering your MSSQL Databases \[running on Windows\], create a new Windows discovery job and be sure to enable database discovery by checking the **Collect database server information** checkbox. Select **Allow Unencrypted Connections** if you want to discover MSSQL 2005 or MSSQL 2008 databases.
 
 ![](/assets/images/D42-21939_Unencrypted-conns-for-SQL-db-2.png)
 
@@ -65,7 +65,7 @@ You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_�
 
 There are a couple different ways to see the database details; the most direct is via the discovered MSSQL Application components themselves. Head to the Device42 main menu, Apps menu -> Application Components. If you don't see your SQL Server instances right at the top of the list, you can search for "SQL" to narrow the list down.
 
-You can see the newly discovered SQL Server instances in the example below -- Click any one of the Application Component Names for more details: ![MSSQL Application Componenets](/assets/images/Apps-Application-Components-menu-annotated.png)
+You can see the newly discovered SQL Server instances in the example below -- Click any one of the Application Component Names for more details: ![MSSQL Application Components](/assets/images/Apps-Application-Components-menu-annotated.png)
 
 Scroll to the bottom, and click the database instance name to view database details: ![](/assets/images/click-to-view-SQL-details.png)
 
@@ -139,7 +139,7 @@ For discovery to return detailed info about your database instance, you will req
 
 ### Setting up your Oracle discovery job
 
-1) To begin discovering your Oracle databases, create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the _Collect database server information_ checkbox.
+1) To begin discovering your Oracle databases, create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the **Collect database server information** checkbox.
 
 Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the Oracle database itself and the second (_Discovery Targets Credentials_) to authenticate to the Windows or \*nix server itself.
 
@@ -185,11 +185,14 @@ Postgres SQL database discovery (introduced in v17.11.00) is for \*nix discovery
 
 For discovery to return detailed info about your database instance, you will need access to tables:
 
-<table><tbody><tr><td width="288"><ul><li>pg_database</li><li>pg_tablespace</li><li>pg_stat_activity</li></ul></td><td width="288"><ul><li>pg_stat_activity</li><li>init_server_addr (function)</li></ul></td></tr></tbody></table>
+* pg_database
+* pg_tablespace
+* pg_stat_activity
+* init_server_addr (function)
 
 ### Setting up your Postgres SQL discovery job
 
-1) To begin discovering your Postgres SQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the _Collect database server information_ checkbox.
+1) To begin discovering your Postgres SQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
 Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the Postgres database itself and the second (_Discovery Targets Credentials_) to authenticate to the \*nix server itself.
 
@@ -201,17 +204,11 @@ You can enter and ordered list of preferred _Discovery Target(s) Credential(s)_
 
 ### Viewing Postgres SQL DB discovery job results
 
-3) Once the job finishes, you can view the results of your database discovery. There are a couple different ways to see the database details; the most direct is via the discovered Postgres application components themselves. On the the Device42 main menu, select **Applications -> Application Components**. If you don’t see your Postgres DB instances right at the top of the list, you can search for _Postgres_ to narrow down the list, or filter the list _By Category > Database_.
+3) Once the job finishes, you can view the results of your database discovery. There are a couple different ways to see the database details; the most direct is via the discovered Postgres application components themselves. On the the Device42 main menu, select **Applications -> Application Components**. If you don’t see your Postgres DB instances right at the top of the list, you can search for _Postgres_ to narrow down the list, or filter the list **By Category > Database**.
 
 ![](/assets/images/postgresSQL.jpg)
 
- 
-
- 
-
- 
-
-You can also select _Resources > Databases > On-Prem Databases_ to display a list of databases.
+You can also select **Resources > Databases > On-Prem Databases** to display a list of databases.
 
 ![](/assets/images/AD2-700x407.png)
 
@@ -221,7 +218,7 @@ DB2 database discovery (introduced in v18.02.00) is for \*nix discovery targets,
 
 ### Setting up your DB2 discovery job
 
-1) To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the _Collect database server information_ checkbox.
+1) To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
 Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the DB2 database itself and the second (_Discovery Targets Credentials_) to authenticate to the \*nix server itself.
 
@@ -231,13 +228,11 @@ You can enter and ordered list of preferred _Discovery Target(s) Credential(s)_
 
 ### Viewing DB2 discovery job results
 
-3) Once the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the the Device42 main menu, select _Resources -> Databases > On-Prem Databases_ to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
+3) Once the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
 
-![](/assets/images/SA-4-delete-confirm-700x305.png)
+Click on your DB2 instance name under the _Resource Name_ column to see more information about that database.
 
-Click the _Resource Name_ to see more information about that database.
-
-![](/assets/images/placeholder.png)
+![](/assets/images/on-prem-databases-list.png)
 
 ## Database Connections Discovery Jobs
 
@@ -245,15 +240,15 @@ Device42 v18.01.00 adds a new Database discovery job type that you can use to di
 
 **Note**: If you have already discovered cloud databases using cloud autodiscovery jobs, and you then perform a Database Connections discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
 
-- Select _Discovery > Database_ from the main menu to display the Database discovery list page.
+- Select **Discovery > Database** from the main menu to display the Database discovery list page.
 
-![](/assets/images/D42-26290_alerts-job-interval-700x168.jpg)
+![](/assets/images/discovery-database-menu.png)
 
-- Click on a Database discovery _Name_ to view that job. Click _+Add_ at the top right of the page to add a new Database discovery job.
+- Click on a Database discovery _Name_ to view that job. Click **+Add** at the top right of the page to add a new Database discovery job.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/database-discovery-list.png)
 
-- Click _Edit_ at the top right of the page to edit an  existing job. Click _+Add More_ to add additional Database Connection information for the job.
+- Click **Edit** at the bottom right of the page to edit an existing job. Click **+Add More** to add additional Database Connection information for the job.
 
 ![](/assets/images/D42-25010_db-AD-job-1.png)
 
@@ -267,32 +262,32 @@ Device42 v18.01.00 adds a new Database discovery job type that you can use to di
     - **Extra** – DB-type specific: _Instance_ for Oracle, _Database_ for Postgres and DB2
 - Use the _Trash_ icon to remove a Connections line.
 - Scroll down the page to add or edit the _Discovery Schedule_ for the job.
-- Click _Save_ to save the job.
+- Click **Save** to save the job.
 
 ### Database Discovery Job Scores
 
 You can view Discovery Scores for Database jobs that have run.
 
-- Select _Analytics > Discovery Status > Discovery Scores_ to display the Scores list page.
+- Select **Analytics > Discovery Status > Discovery Scores** to display the Discovery Scores list page.
 
-![](/assets/images/18.04.00_EnrichAI_data-list-page-700x336.jpg)
+![](/assets/images/discovery-scores-menu.png)
 
-- Click the _Discovery Target_ link for the job you want to see.
+- Click on the job you want to see under the _Discovery Target_ column.
 
-![](/assets/images/18.04.00_EnrichAI_data-view-page-os-700x274.jpg)
+![](/assets/images/discovery-target.png)
 
-- Click _Detailed Discovery Scores_ to see additional information.
+- Click on **Detailed Discovery Scores** to see additional information.
 
-![](/assets/images/18.04.00_EnrichAI_data-view-page-vendor-700x270.jpg)
+![](/assets/images/detailed-discovery-scores.png)
 
 ### View Discovered Databases
 
 Discovered databases are added to the On-Prem Databases list page.
 
-- Select _Resources > Databases > On-Prem Databases_ to display the list page.
+- Select **Resources > Databases > On-Prem Databases** to display the list page.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/on-prem-databases-menu.png)
 
-- Click the _Resource Name_ of the database you want to see.
+- Click on the name of the database you want to see in the _Resource Name_ column.
 
-![](/assets/images/placeholder.png)
+![](/assets/images/on-prem-databases-resource-name.png)
