@@ -40,7 +40,7 @@ $ yarn
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
 ### Build
 
@@ -49,3 +49,4 @@ $ yarn build
 ```
 
 This command generates static content into the `build` directory which can be served using any hosting service such as S3 or GitHub Pages.
+
