@@ -70,7 +70,7 @@ All maintenance operations are performed through the Device42 appliance manager.
 
 ![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
 
-For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username \[ d42admin \], the password being your _AWS instance ID_. Once logged in, you'll see the appliance manager main menu: 
+For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username `d42admin` , the password being your **AWS instance ID**. Once logged in, you'll see the appliance manager main menu: 
 
 ![D42 Appliance Manager menu](/assets/images/appliance_manager_main.png)
 
@@ -138,7 +138,7 @@ The following permissions are required to support discovery:
 
 <table><tbody><tr><td width="288"><ul><li>AmazonEc2ReadOnly</li><li>AmazonElastiCacheReadOnlyAccess</li></ul></td><td width="288"><ul><li>AmazonRDSReadOnlyAccess</li><li>AmazonS3ReadOnlyAccess</li></ul></td></tr></tbody></table>
 
-The following is a \*\*sample IAM policy\*\* _(with minimum appropriate permissions)_ that allows Device42 to discover and inventory instances running on AWS; you may want to modify it, and should not use it if you do not understand it:
+The following is a sample IAM policy _(with minimum appropriate permissions)_ that allows Device42 to discover and inventory instances running on AWS; you may want to modify it, and should not use it if you do not understand it:
 
 ```json
 {

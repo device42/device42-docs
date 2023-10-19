@@ -21,6 +21,6 @@ Alternatively, the main app login page has a link to appliance manager as well.
 
 ## AWS Login 
 
-For *marketplace* AWS installations, use `d42admin` as the username and your *AWS Instance ID* as the default password. See [the AWS installation instructions](https://docs.device42.com/getstarted/installation/installation-amazon-web-services/#accessing-the-d42-appliance-manager---aws-marketplace-installs) for more information.
+For *marketplace* AWS installations, use `d42admin` as the username and your **AWS Instance ID** as the default password. See [the AWS installation instructions](https://docs.device42.com/getstarted/installation/installation-amazon-web-services/#accessing-the-d42-appliance-manager---aws-marketplace-installs) for more information.
 
 If you *manually* installed AWS using a downloaded image, use the default Device42 username, `d42admin`, and password, `default`, to log into the Appliance Manager.
