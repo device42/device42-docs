@@ -15,4 +15,4 @@ Below is a complete reference list of all ports that may be used to access targe
 | Remote Collector(s) (RC)      | 443 (TCP)          | APIs<br/>SMIS      | RC to targets  | Hypervisor, Cloud and Cisco ACI/UCS Discovery |
 | Remote Collector(s) (RC)      | 80/443 (TCP)<br/>5988/5989 (TCP)       | APIs      | RC to targets  | Storage Discovery                          |
 | Windows Discovery Service (WDS)| 135 (TCP)<br/>137 (UDP)<br/>139 (TCP)<br/>445 (TCP)<br/>1024-65535 (TCP)          | WMI       | WDS to targets | WMI based discovery of Windows infrastructure |
-
+| Windows Discovery Service (WDS)| 5985 (TCP)<br/>5986 (TCP) | WinRM | WDS to targets | WinRM discovery of Windows infrastructure |
