@@ -59,7 +59,7 @@ Navigate to Access Control (IAM) >  Roles > Add > Add Custom Role. Give the cus
 "Microsoft.Network/publicIPAddresses/read", "Microsoft.Storage/storageAccounts/read", 
 "Microsoft.Storage/storageAccounts/blobServices/containers/read", 
 "Microsoft.Storage/storageAccounts/privateEndpointConnections/read",
-"Microsoft.Network/privateEndpoints/read", "Microsoft.OperationalInsights/workspaces/read"]
+"Microsoft.Network/privateEndpoints/read", "Microsoft.OperationalInsights/workspaces/read"],
 			"notActions": [],
 			"dataActions": [],
 			"notDataActions": []
@@ -76,7 +76,7 @@ In order to apply the role, go back to the Access Control (IAM) > Add > Add Role
 
 Now, we will configure an Azure discovery job in Device42 using the application details we made note of earlier. The limited role we applied will prevent access to unnecessary resources while still allowing for visibility and discovery of what is in scope.
 
-Log in to the Device42 main appliance web console and navigate to Discovery > Cloud > Add Cloud Autodiscovery. Give your cloud discovery job a name, select “Microsoft Azure” in the Cloud Type dropdown, choose an appropriate remote collector, and select “Service Principal”. The 4 Azure values that were noted earlier will now be used to configure the discovery job.
+Log in to the Device42 main appliance web console and navigate to **Discovery > Cloud > Add Cloud Autodiscovery**. Give your cloud discovery job a name, select “Microsoft Azure” in the Cloud Type dropdown, choose an appropriate remote collector, and select “Service Principal”. The 4 Azure values that were noted earlier will now be used to configure the discovery job.
 
 1. Click the magnifying glass icon for the Client ID value and choose Add Secret in the resulting window that opens. The username field requires a value, so use it as a label i.e. Azure Client ID. The **Application (client) ID** value for the Azure application will go in the Password field, then select Save.
 2. Repeat this process for the Subscription ID and Client Secret fields, where the **Subscription ID** and **Client Secret ID** values go in the respective Password fields of their Secret entries.
