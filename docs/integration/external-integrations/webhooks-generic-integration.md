@@ -13,8 +13,13 @@ For example, when a Device42 auto-discovery job finds a new device, when details
 
 Configuring Device42 to send a webhook is a simple two-step process:
 
-1. Define one or more **Webhook Endpoints:** the HTTP URLs Device42 should send your webhooks to via _Tools -> Webhooks -> Endpoints -> Add Webhook Endpoint_ ![](/assets/images/WEB-806_1.png)
-2. Define a **Webhook Action:** the Device42 action(s) that will trigger your webhook, and the endpoints they should go to via _Tools -> Webhooks -> Actions -> Add Webhook Actions_ ![](/assets/images/WEB-806_2.png)
+1. Define one or more **Webhook Endpoints:** the HTTP URLs Device42 should send your webhooks to via **Tools -> Webhooks -> Endpoints -> Add Webhook Endpoint**.
+
+![](/assets/images/WEB-806_1.png)
+
+2. Define a **Webhook Action:** the Device42 action(s) that will trigger your webhook, and the endpoints they should go to via **Tools -> Webhooks -> Actions -> Add Webhook Actions**. 
+
+![](/assets/images/WEB-806_2.png)
 
 ## Webhook Options
 
@@ -25,7 +30,7 @@ Configuring Device42 to send a webhook is a simple two-step process:
 - **Available Categories:** Specify the CI categories you'd like to trigger the webhook on 
 - **Process Add Events:** Trigger a webhook if a new CI is added to a _Chosen Categories_ 
 - **Process Delete Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is deleted 
-- **Process Chaange Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is Changed 
+- **Process Change Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is Changed 
 - **Process View Events:** Trigger a webhook if a "View event" is logged on a CI in _Chosen Categories_ 
 - **Process Login Events:** Trigger a webhook if a "Login event" is recorded on a CI in _Chosen Categories_ 
 - **Destination:** Choose the defined endpoint(s) to receive triggered webhook events
