@@ -1,6 +1,6 @@
 ---
 title: "Opsgenie Integration"
-sidebar_position: 21
+sidebar_position: 22
 ---
 
 ## Set Up an API Key in Opsgenie

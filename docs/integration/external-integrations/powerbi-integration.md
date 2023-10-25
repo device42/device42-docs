@@ -1,6 +1,6 @@
 ---
 title: "PowerBI Integration"
-sidebar_position: 23
+sidebar_position: 24
 ---
 
 ## Microsoft PowerBI Integration - Device42 ODBC driver

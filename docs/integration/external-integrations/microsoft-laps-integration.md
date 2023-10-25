@@ -1,6 +1,6 @@
 ---
 title: "Microsoft LAPS Integration"
-sidebar_position: 17
+sidebar_position: 18
 ---
 
 ## Microsoft LAPS (Local Admin Password Solution) Integration

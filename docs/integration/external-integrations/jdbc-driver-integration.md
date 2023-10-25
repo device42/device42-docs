@@ -1,6 +1,6 @@
 ---
 title: "JDBC Driver Integration"
-sidebar_position: 20
+sidebar_position: 21
 ---
 
 ## Device42 JDBC Driver
