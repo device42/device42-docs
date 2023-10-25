@@ -21,7 +21,7 @@ With just a few minutes of setup, your Device42-Jira integration will allow you 
 
 ### Prerequisites:
 
-* Administrator privileges to a running Device42  v15.11.01 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
+* Administrator privileges to a running Device42 v15.11.01 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
 * Administrator privileges to a JSM Cloud account.
 
 ### Setting Up Device42
@@ -125,7 +125,9 @@ In addition to integrating with regular Jira issues, Device42 can also be integr
 ***
 ## Configure Device42 for JSM Assets: The Settings Tab
 
-To connect to Device42 from the app in the JSM cloud, navigate to the **Settings** tab and complete the two required fields.
+Get started with the [Device42 for Jira Service Management Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=support) app by connecting your Device42 virtual appliance to it following these steps:
+
+Navigate to the **Settings** tab and complete the two required fields.
 
 1. **Device42 Cloud Connector** Enter URL of the Device42 connector here, for example, `connect.device42.io`.
 2. **Device42 Verification Token** To get the verification token from your Device42 instance, follow these steps:
@@ -133,7 +135,7 @@ To connect to Device42 from the app in the JSM cloud, navigate to the **Settings
     * Copy the token.
     * Return to the app and paste the token into the verification token field.
 
-See [Connecting to Device42 for JSM assets](/integration/external-integrations/device42-jira-assets-integration/#create-a-jira-token) for guidance on creating an external integration on Device42.
+See [Connecting to Device42 for JSM assets](/integration/external-integrations/device42-jira-assets-integration/#create-a-jira-token) for more detailed guidance on creating an external integration on Device42.
 
 ![](/assets/images/jsm-solution-guide/image62.png)
 
@@ -149,7 +151,6 @@ Following the app attempting to connect to Device42, the connection will display
 * Error in verifying Device42 account.
 * Request URL not found.
 * An error occurred on Device42.
-
 
 ## Working With Device42 Data on the JSM Cloud: The Sync Tab
 
