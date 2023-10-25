@@ -115,7 +115,7 @@ The full documentation for integrating Jira with Device42 can be found in our [J
 
 In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview). See the following section or watch our [Device42 JSM Assets integration](https://device42.wistia.com/medias/b087w5fps8) video for more details.
 
-### Resources 
+### Resources
 
 [Device42 for Jira Service Management app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?hosting=cloud&tab=overview)
 
@@ -614,7 +614,7 @@ If you look at a device with software on it, you should now see "Software In Use
 
 ![](/assets/images/jsm-solution-guide/image24.png)
 
-## AdResources
+## Additional Resources
 
 Video: [How to set up Jira Service Management assets integration with Device42](https://device42.wistia.com/medias/b087w5fps8) 
 
