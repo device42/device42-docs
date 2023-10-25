@@ -4,9 +4,10 @@ sidebar_position: 1
 ---
 
 Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
+
 ## Device42 for Jira Service Management
 
-_This section is about [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) integration. Refer to [JSM Assets](#configure-device42-for-jsm-assets-the-settings-tab) section and below for information on using the [Device42 for JSM Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
+_This section is about [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) integration. Refer to [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab), and the sections that follow, for information on using the [Device42 for JSM Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
 
 JSM Cloud seamlessly integrates with Device42 using the [Device42 for Jira Service Management app available from the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management). The Device42 JSM app efficiently transmits data and augments JSM Cloud capabilities.
 
@@ -121,7 +122,7 @@ In addition to integrating with regular Jira issues, Device42 can also be integr
 
 [Troubleshoot email notifications in Jira Service Management](https://confluence.atlassian.com/jirakb/troubleshoot-customer-notifications-in-jira-service-management-projects-777026983.html)
 
-****
+***
 ## Configure Device42 for JSM Assets: The Settings Tab
 
 To connect to Device42 from the app in the JSM cloud, navigate to the **Settings** tab and complete the two required fields.
