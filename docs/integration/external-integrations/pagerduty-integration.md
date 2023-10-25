@@ -1,6 +1,6 @@
 ---
 title: "PagerDuty Integration"
-sidebar_position: 22
+sidebar_position: 23
 ---
 
 ## PagerDuty + Device42 Integration Benefits

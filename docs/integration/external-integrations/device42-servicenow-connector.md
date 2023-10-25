@@ -1,6 +1,6 @@
 ---
 title: "ServiceNow Integration"
-sidebar_position: 27
+sidebar_position: 28
 ---
 
 The Device42 ServiceNow Integration connects Device42 to ServiceNow. The integration enables users to seamlessly add Device42’s IT infrastructure management capabilities to their ServiceNow solution for an enhanced IT experience. 

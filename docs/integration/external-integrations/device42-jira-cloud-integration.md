@@ -1,6 +1,6 @@
 ---
 title: "Jira Service Desk & Jira Cloud Integration"
-sidebar_position: 16
+sidebar_position: 17
 ---
 
 ## Prerequisites and Installation

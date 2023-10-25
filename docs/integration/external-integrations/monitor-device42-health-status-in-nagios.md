@@ -1,6 +1,6 @@
 ---
 title: "Nagios Integration"
-sidebar_position: 18
+sidebar_position: 19
 ---
 
 # Monitor Device42 Health Status in Nagios

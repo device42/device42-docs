@@ -1,0 +1,100 @@
+---
+title: "Jira Service Management Assets Integration"
+sidebar_position: 16
+---
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Integrate your Device42 instance with Atlassian Jira Service Management (JSM) Cloud to benefit from our autodiscovery capabilities and have your latest IT management information available.
+
+The instructions below describe the initial setup process of integrating Device42 with your JSM Cloud account.
+
+### Prerequisites
+
+This integration requires that you have:
+
+* admin privileges to a running Device42 v18.03.02+ virtual appliance 
+* a Jira Service Management Cloud Premium or Enterprise account
+
+### Create a Jira Token
+
+The Jira token is an API key generated from your personal Jira account and is not an Atlassian API key. The Jira token is used when adding the JSM cloud external integration to your Device42 virtual appliance. 
+
+Locate your personal [Jira account settings](https://id.atlassian.com/manage-profile/security) by clicking on your initials at the top right corner of the page. The name of the account settings button is different depending on where you're navigating from:
+
+* If navigating from your _atlassian.net_ page, click on the **Manage account** button. 
+
+    ![Jira manage account](/assets/images/jsm-assets-integration/jira-manage-account.png)
+
+* From a _admin.atlassian.com_ page click on the **Account settings** button to go to your account settings page.
+
+    ![Jira manage account](/assets/images/jsm-assets-integration/jira-account-settings.png)
+
+From your Jira account settings options, click on the **[Security](https://id.atlassian.com/manage-profile/security)** tab at the top of the page. Next, click on the **Create and manage API tokens** link. 
+
+![Jira security tab](/assets/images/jsm-assets-integration/security-tab.png)
+
+Click on the **Create API token** button. Type in an appropriate label to name the token and click the **Create** button. Copy the token and save it to a password manager as it will only be displayed once. 
+
+![Jira API token](/assets/images/jsm-assets-integration/jira-account-token.png)
+
+### Add a Device42 Secret
+
+Add the Jira token as a secret to Device42 to use when creating an external integration in the next step. 
+
+Go to **Resources > Secrets > All Secrets** in Device42 and click on the **Add Secret** button at the top right of the page. 
+
+<ThemedImage
+  alt="All secrets menu"
+  sources={{
+    light: useBaseUrl('/assets/images/jsm-assets-integration/all-secrets-menu-light.png'),
+    dark: useBaseUrl('/assets/images/jsm-assets-integration/all-secrets-menu-dark.png'),
+  }}
+/>
+<br/><br/>
+
+Fill in the following required fields:
+
+* **Username**: your Device42 admin email
+* **Label**: add a relevant label to identify the secret 
+* **Password**: the Jira API token 
+
+<ThemedImage
+  alt="Add secret form"
+  sources={{
+    light: useBaseUrl('/assets/images/jsm-assets-integration/add-secret-light.png'),
+    dark: useBaseUrl('/assets/images/jsm-assets-integration/add-secret-dark.png'),
+  }}
+/>
+
+### Add an External Integration to Device42 
+
+Create a Jira external integration in Device42 by going to the **Tools > Integrations > External Integration** page. Click on the **Add External Integration** button on the top left corner to open a form. 
+
+Fill in the URL you chose when creating your Jira account and select "Insight in JSM Cloud" as the "Type" value. Add the secret you created to the "Verification Token" field and click on the **Save** button at the bottom right of the page. 
+
+Copy the Device42 "Verification Token" from the external integration you just created. 
+
+<ThemedImage
+  alt="Add external integration form"
+  sources={{
+    light: useBaseUrl('/assets/images/jsm-assets-integration/add-external-integration-token-light.png'),
+    dark: useBaseUrl('/assets/images/jsm-assets-integration/add-external-integration-token-dark.png'),
+  }}
+/>
+
+### Add the Device42 Assets App to Jira
+
+Go to the **Apps** tab in Jira and search for "Device42". Select the [Device42 for Jira Service Management Assets](https://marketplace.atlassian.com/search?query=device42) app and click on the yellow **Get app** button. 
+
+Next, open the Device42 JSM Assets app and configure it by clicking on the **Settings** tab. In the "Device42 Cloud Connector" field type in `connect.device42.io`. Paste the verification token that you copied from the Device42 external integration into the "Device42 Verification Token" field. Click on the **Save** button. 
+
+![JSM Device42 app settings](/assets/images/jsm-assets-integration/jira-d42-app-settings.png)
+
+A successful connection will display the green "Connection Enabled" status. 
+
+![connection enabled status](/assets/images/jsm-solution-guide/image38.png)
+
+See the [JSM solution guide](/solution-guides/jira-service-management-assets-integration.md) for information on connection statuses, using object schema imports, and setting user permissions.
+
+You can also watch our [How to install the Device42 JSM Assets integration](https://device42.wistia.com/medias/b087w5fps8) video for more information. 

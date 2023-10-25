@@ -1,6 +1,6 @@
 ---
 title: "Zendesk Integration"
-sidebar_position: 29
+sidebar_position: 30
 ---
 
 ## Device42-Zendesk Integration
