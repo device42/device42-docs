@@ -1072,6 +1072,10 @@ const config = {
             to: '/auto-discovery/enrichai-data/',
             from: ['/enrichai-data/'],
           },
+          {
+            to: '/solution-guides/jira-service-management-integration/',
+            from: ['/solution-guides/jira-service-management-assets-integration/'],
+          },
         ],
       },
     ],
