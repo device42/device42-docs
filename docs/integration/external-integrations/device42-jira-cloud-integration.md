@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Integrate your Device42 instance with Jira Service Management (JSM) to manage your team's tasks, linking them directly to the affected assets. 
 
-_For installation of the [Device42 for JSM **Assets**](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app, see the [JSM Assets integration](jira-assests-itegration.mdx) page. This version of the integration is for Jira Service Management Cloud only. If you are looking to integrate Device42 with a self-hsoted version of Jira software, see [Device42-Jira (Self-Hosted) integration page.](device42-jira-integration.md)._
+_For installation of the [Device42 for JSM **Assets**](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app, see the [JSM Assets integration](jira-assests-itegration.mdx) page. This version of the integration is for Jira Service Management Cloud only. If you are looking to integrate Device42 with a self-hosted version of Jira software, see [Device42-Jira (Self-Hosted) integration page.](device42-jira-integration.md)._
 
 ## Installation and Configuration
 
@@ -54,11 +54,11 @@ To install and configure the Jira-side integration, log in to your Jira Cloud ac
 
     ![Linked Issues field configuration](/assets/images/Linked_issues_field_config.png) 
 
-### Configuring, uninstalling, or verifying installation of the JSM app
+### Configuring, Uninstalling, or Verifying the Installation of the JSM App
 
 1. You can view and manage the JSM app from your Jira instance. Go to **Apps > Manage your apps** and click on the "Device42 Jira Service Management" app under the "User-installed apps" heading.
 2. Click on "Configure" to link your Device42 instance as detailed in the [previous section](#configuring-jira).
-3. Click on the "Uninstall" button and confirm to remove the app from you Jira product instance.
+3. Click on the "Uninstall" button and confirm to remove the app from your Jira product instance.
 
 [image]
 
@@ -78,57 +78,56 @@ Note: you can go to **Resources > Compute > All Devices** and select or search f
 
 * Under the "Action" column, click on the red "x" to the right of a linked issue to remove that issue from the Asset. _Note this will not delete the issue from Jira._
 
-You can create a brand new Jira issue or link an existing issue using the 'control links' located at the bottom of the interface. 
+You can create a brand new Jira issue or link an existing issue using the 'control links' located at the bottom of the interface. Refer to the [Create a New Jira Issue](#create-a-new-jira-issue-from-device42) section or the [Link an Existing Jira Issue](#link-an-existing-jira-issue-from-device42) section for more information.
 
 [image]
 
-### Create a New Jira issue from Device42
+### Create a New Jira Issue From Device42
 
-In both cases, you'll need a Jira project name. By default, it's the first three letters (e.g. 'KAN') of your Jira issue key (e.g.'KAN-3`).
+1. Click on "Add Jira Issue" and search for your Jira project name. By default, a Jira project name is the first three letters of the automatically assigned issue keys (e.g.'KAN-3`).
+2. Choose a Jira issue "Type" from the dropdown menu. 
+3. The "Reporter" value is visible but is fixed by the Jira integration configuration process.
+4. Fill in the "Assignee", "Summary", and "Description" fields, and add any attachments if needed.
+5. Submit the issue. A confirmation box will display the new Jira issue ID.
 
-* Click on "Add Jira Issue" and type in your Jira project name before filling in the rest of the form.
-    [image]
-    
-1. Choose "Add Jira Issue" - You'll see a "Select Project" Popup; autocomplete field- type project name & click "Select"
-2. You'll now choose a Jira 'issue type' - choose the type ('task'…) and 'reporter' is visible, but fixed by the Jira integration configuration.
-3. Add assignee, summary, description, and any attachments.
-4. Submit the issue; you'll get a box confirming creation with the issue ID
-5. The new issue will now be attached to the CI
+Now, the new issue is attached to the CI.
 
 ![Linking an issue](/assets/images/Add_Jira_Issue_Magnified.PNG)
 
-### Link an existing Jira issue from Device42
+### Link an Existing Jira Issue From Device42
 
-To link to an existing Jira issue to the CI, choose “Link to Jira Issue” and provide your Jira project name followed by the issue key or issue link. 
+1. Click on the “Link to Jira Issue” option and input your Jira project name. Note that the project name is the first three letters of an issue ID by default.
+2. Provide the issue ID or a link to the issue you'd like to link to the CI.
+3. A confirmation notification will open displaying the linked issue ID. 
 
 [image]
 
-### Customizing which assets sync - DOQL & sync settings
+### Customizing Which Assets Sync
 
-Default syncs run daily at 2AM and sync "Devices" only. Users can customize what is synced by adding new Sync DOQL queries, customizing, or writing their own: 
+By default, syncs run daily at 2 AM and only sync "Devices". You can customize the data that is synced from Device42 by adding new Sync [DOQL queries](reports/device42-doql/index.md), customizing them, or writing your own.
 
 ![Add new DOQL](/assets/images/Sync_DOQL_queries.png)
 
-The following data element types can be synced over with the default saved DOQLs:
+The following data element types can be synced with the default saved DOQLs:
 
-- Application Components
-- Buildings
-- Customers
-- Devices
-- End Users
-- Parts
-- Power Units
-- Purchases
-- Racks
-- Rooms
+* Application Components
+* Buildings
+* Customers
+* Devices
+* End Users
+* Parts
+* Power Units
+* Purchases
+* Racks
+* Rooms
 
-**NOTE: _When adding or modifying DOQL settings or queries, be \*\*SURE\*\* to reset the last synced time. Default queries are time-constrained and if not reset, newly selected categories will NOT sync!\*\*\*_** 
+NOTE: When adding or modifying DOQL settings or queries, be sure to reset the last synced time. Default queries are time-constrained and if not reset, newly selected categories will NOT sync.
 
 ![Reset last successful DOQL sync](/assets/images/Reset_last_run_success_Time-1.png)
 
 ### Working with Device42 Assets from Jira
 
-1. To add an asset to an issue, click on the "+ Link Asset" link from that issue. Start typing the name of the Asset you would like to add, and it should be match against your partial entry. Click the asset of interest from the search results. Repeat to attach another: 
+1. To add an asset to an issue, click on the "+ Link Asset" link from that issue. Start typing the name of the Asset you would like to add, and it will be matched against your partial entry. Click the asset of interest from the search results. Repeat to attach another: 
 
     ![Add D42 asset Jira](/assets/images/add_d42_asset_jira.png)
 
@@ -136,21 +135,16 @@ The following data element types can be synced over with the default saved DOQLs
 
     ![assets from d42 on a Jira Service Desk ticket](/assets/images/D42_assets_in_Jira.png)
 
-3. To unlink an issue from the Jira Cloud interface, hover your cursor on the left of the down arrow symbol on CI you'd like to detach; click on the revealed ellipsis icon. Then select "Unlink asset" to confirm. 
+3. To unlink an issue from the Jira Cloud interface, hover your cursor on the left of the down arrow symbol on the CI you'd like to detach; click on the revealed ellipsis icon. Then select "Unlink asset" to confirm. 
 
     [image placeholder]
 
 ### JSM Integration Feature Highlights
 
-* Attach Device42 Assets directly to Jira Service Desk and/or Jira Cloud issues / tickets
-* View Device42 Asset data natively from Jira Service Desk
-* Create Jira Service Desk tickets and attach existing tickets right from the Device42 interface, from any Device / Asset (CI) details view
-* See all Jira Service Desk issues associated with a particular Device or Asset CI
-* Filter a set of Device42 Assets / Devices to display within the custom field of a specific project and/or custom field set
-* Full control over which assets are available within Jira Service Desk - users may modify the default 'saved DOQL query' _(the integration leverages Device42 Object Query Language)_, or can create their own completely custom DOQL
+Integrate Device42 with your Jira Service Management account to do the following: 
 
-## Additional Resources
-
-videos
-that blog post
-the guide
+* Attach Device42 Assets directly to Jira tickets (known as issues).
+* Create new Jira tickets and attach existing tickets right from the Device42 interface; i.e. from any Device or Asset CI detail view.
+* See all Jira issues associated with a particular Device or Asset CI.
+* Filter a set of Device42 Assets or Devices to display within the custom field of a specific project or custom field set
+* Control which assets are available within Jira Service Management. You can modify the default saved DOQL query _(the integration leverages Device42 Object Query Language)_, or create your own completely custom DOQL.
