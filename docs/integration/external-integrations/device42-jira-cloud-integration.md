@@ -22,21 +22,46 @@ To make the Device42-Jira integration, users must have:
 
 Prepare your Device42 instance for cloud service integrations by navigating to **Tools > Integrations > Cloud Services** and inputting the required details. Fill in the "D42 URL for SaaS apps" field with the hostname from which your Device42 instance can be accessed, along with your "Company Name" and "Email".
 
-[image placeholder]
+<ThemedImage
+  alt="Cloud services setup"
+  sources={{
+    light: useBaseUrl('/assets/images/jsm-integration/cloud-services-light.png'),
+    dark: useBaseUrl('/assets/images/jsm-integration/cloud-services-dark.png'),
+  }}
+/>
 
 ### Configuring Device42
 
 1. From the Device42 menu, go to **Tools > Integrations > External Integrations** and click on the **Add External Integration** button.
 
-    ![Add external Jira integration](/assets/images/add_external_Jira_integration_menu.png)
+    <ThemedImage
+        alt="Add external integration menu"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/add-external-integration-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/add-external-integration-dark.png'),
+        }}
+    />
 
 2. Input the URL of your Jira Cloud instance: `https://YOURURL.atlassian.net/` and select _Jira Cloud_ as the integration "Type". 
 
-    ![Jira Service Desk external integration settings](/assets/images/external_integration_settings.png)
+    <ThemedImage
+        alt="Add external integration url and type"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/external-integration-url-type-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/external-integration-url-type-dark.png'),
+        }}
+    />
+    
 
 3. Copy the Device42 "Verification Token" which you'll use to configure the JSM app in the next section. 
 
-    ![Global integration settings SaaS](/assets/images/global_SaaS_settings.png)
+    <ThemedImage
+        alt="Add external integration url and type"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/external-integration-token-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/external-integration-token-dark.png'),
+        }}
+    />
 
 ### Configuring Jira
 
@@ -44,15 +69,15 @@ To install and configure the Jira-side integration, log in to your Jira Cloud ac
 
 1. Locate the [Device42 for Jira Service Management](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?tab=overview&hosting=cloud) app from the Atlassian Marketplace and click on the yellow "Get it now" button to install it.
 
-    [placeholder image]
+    ![Atlassian marketplace](/assets/images/jsm-integration/atlassian-marketplace.png)
 
 2. Navigate to **Apps > Manage Your Apps > Device42 Jira Service Management > Configure**. Paste your verification token in the "Linking" field and click on the "Link to Device42" button. The account status will display a green "Linked" label once complete. 
 
-    [placeholder image]
+    ![Link external integration](/assets/images/jsm-integration/link-d42-external-integration.png)
 
 3. Now add the _Linked Assets_ field as an issue type in Jira; your Device42 data is related to Jira using this field. Go to **Projects > Project Settings > Issue Type** and select the "External asset platform" option then provide a relevant name for this field in the textbox to its left.
 
-    ![Linked Issues field configuration](/assets/images/Linked_issues_field_config.png) 
+    ![Linked Issues field configuration](/assets/images/jsm-integration/external-asset-platform.png)
 
 ### Configuring, Uninstalling, or Verifying the Installation of the JSM App
 
@@ -60,7 +85,7 @@ To install and configure the Jira-side integration, log in to your Jira Cloud ac
 2. Click on "Configure" to link your Device42 instance as detailed in the [previous section](#configuring-jira).
 3. Click on the "Uninstall" button and confirm to remove the app from your Jira product instance.
 
-[image]
+    ![Uninstall D42 for JSM](/assets/images/jsm-integration/jira-manage-apps.png)
 
 * * *
 
@@ -68,45 +93,86 @@ To install and configure the Jira-side integration, log in to your Jira Cloud ac
 
 ### The JSM Interface in Device42 
 
-Once the Device42 for Jira Service Desk app has been installed and configured, you will see a new entry for _"Jira - your-Jira-instance-address"_ (e.g. `Jira - https://d42product.atlassian.net`) at the bottom of your Device42 assets pages.
-
-Note: you can go to **Resources > Compute > All Devices** and select or search for an asset from your list of devices.
-
-![Jira Service Desk tickets on Device42 Asset](/assets/images/Jira-integration-interface-on-D42-Asset-HL.png)
+Once the Device42 for Jira Service Desk app has been installed and configured, you will see a new entry for _"Jira - your-Jira-instance-address"_ (e.g. `Jira - https://d42product.atlassian.net`) at the bottom of your Device42 assets pages. You can go to **Resources > Compute > All Devices** and select an asset or search for one from the list of devices.
 
 * Linked Jira issues to a given CI will display information about the issue's "Reporter", "Assignee", and "Status".
 
-* Under the "Action" column, click on the red "x" to the right of a linked issue to remove that issue from the Asset. _Note this will not delete the issue from Jira._
+* Under the "Action" column, click on the red "x" to the right of a linked issue to remove that issue from the Asset. **Note this will not delete the issue from Jira.**
+
+<ThemedImage
+  alt="JSM interface in Device42"
+  sources={{
+    light: useBaseUrl('/assets/images/jsm-integration/jsm-interface-in-d42-light.png'),
+    dark: useBaseUrl('/assets/images/jsm-integration/jsm-interface-in-d42-dark.png'),
+  }}
+/>
 
 You can create a brand new Jira issue or link an existing issue using the 'control links' located at the bottom of the interface. Refer to the [Create a New Jira Issue](#create-a-new-jira-issue-from-device42) section or the [Link an Existing Jira Issue](#link-an-existing-jira-issue-from-device42) section for more information.
-
-[image]
 
 ### Create a New Jira Issue From Device42
 
 1. Click on "Add Jira Issue" and search for your Jira project name. By default, a Jira project name is the first three letters of the automatically assigned issue keys (e.g.'KAN-3`).
+
+    <ThemedImage
+        alt="Jira project search"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-search-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-search-dark.png'),
+        }}
+    />
+
 2. Choose a Jira issue "Type" from the dropdown menu. 
 3. The "Reporter" value is visible but is fixed by the Jira integration configuration process.
 4. Fill in the "Assignee", "Summary", and "Description" fields, and add any attachments if needed.
+
+    <ThemedImage
+        alt="Jira project search"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-form-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-form-dark.png'),
+        }}
+    />
+
 5. Submit the issue. A confirmation box will display the new Jira issue ID.
 
-Now, the new issue is attached to the CI.
+    <ThemedImage
+        alt="Confirmation of issue creation"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-confirmation-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/create-jira-issue-confirmation-dark.png'),
+        }}
+    />
 
-![Linking an issue](/assets/images/Add_Jira_Issue_Magnified.PNG)
+Now, the new issue is attached to the CI.
 
 ### Link an Existing Jira Issue From Device42
 
 1. Click on the “Link to Jira Issue” option and input your Jira project name. Note that the project name is the first three letters of an issue ID by default.
 2. Provide the issue ID or a link to the issue you'd like to link to the CI.
-3. A confirmation notification will open displaying the linked issue ID. 
 
-[image]
+    <ThemedImage
+        alt="Link existing Jira issue"
+        sources={{
+            light: useBaseUrl('/assets/images/jsm-integration/link-existing-jira-issue-light.png'),
+            dark: useBaseUrl('/assets/images/jsm-integration/link-existing-jira-issue-dark.png'),
+        }}
+    />
+
+3. A confirmation notification will open displaying the linked issue ID. 
 
 ### Customizing Which Assets Sync
 
 By default, syncs run daily at 2 AM and only sync "Devices". You can customize the data that is synced from Device42 by adding new Sync [DOQL queries](reports/device42-doql/index.md), customizing them, or writing your own.
 
-![Add new DOQL](/assets/images/Sync_DOQL_queries.png)
+Edit the DOQL selection for sync by going to  **Tools > Integrations > External Integrations** and selecting the JSM external integration.
+
+<ThemedImage
+    alt="External integration DOQL sync"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-integration/external-integration-doql-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-integration/external-integration-doql-dark.png'),
+    }}
+/>
 
 The following data element types can be synced with the default saved DOQLs:
 
@@ -121,23 +187,35 @@ The following data element types can be synced with the default saved DOQLs:
 * Racks
 * Rooms
 
-NOTE: When adding or modifying DOQL settings or queries, be sure to reset the last synced time. Default queries are time-constrained and if not reset, newly selected categories will NOT sync.
+**When adding or modifying DOQL settings or queries, be sure to reset the last synced time. Default queries are time-constrained and if not reset, newly selected categories will NOT sync.**
 
-![Reset last successful DOQL sync](/assets/images/Reset_last_run_success_Time-1.png)
+<ThemedImage
+    alt="Reset the last successful sync"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-integration/external-integration-reset-last-doql-run-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-integration/external-integration-reset-last-doql-run-dark.png'),
+    }}
+/>
 
 ### Working with Device42 Assets from Jira
 
-1. To add an asset to an issue, click on the "+ Link Asset" link from that issue. Start typing the name of the Asset you would like to add, and it will be matched against your partial entry. Click the asset of interest from the search results. Repeat to attach another: 
+Add a Device42 asset to an existing Jira issue as follows:
 
-    ![Add D42 asset Jira](/assets/images/add_d42_asset_jira.png)
+1. Within the "Details" box of the issue, click on the link under the name of the [issue type](#configuring-jira) created when initially configuring the integration. If there are multiple assets already linked, the link will display "View linked assets". If that issue already has one linked Device42 asset, click on that asset's name.
 
-2. Once a record is linked, it will be present on the Jira record. Selecting it will display its associated information present in Device42:
+    ![D42 Asset](/assets/images/jsm-integration/jira-issue-asset-1-menu.png)
 
-    ![assets from d42 on a Jira Service Desk ticket](/assets/images/D42_assets_in_Jira.png)
+2. Next, click on "+ Link Asset" to open a search bar. Start typing the name of the Asset you would like to add, and it will be matched against your partial entry. Click the asset of interest from the search results. Repeat to attach another:  
 
-3. To unlink an issue from the Jira Cloud interface, hover your cursor on the left of the down arrow symbol on the CI you'd like to detach; click on the revealed ellipsis icon. Then select "Unlink asset" to confirm. 
+    ![D42 Asset](/assets/images/jsm-integration/jira-issue-asset-2-link-asset.png)
 
-    [image placeholder]
+3. Once a record is linked, it will be present on the Jira record. Selecting it will display its associated information present in Device42. Click on "View in Device42" to be directed to the asset record in your Device42 instance.
+
+    ![D42 Asset info](/assets/images/jsm-integration/jira-issue-asset-3-view-history.png)
+
+4. To unlink an issue from the Jira Cloud interface, hover your cursor on the left of the down arrow symbol on the CI you'd like to detach; click on the revealed ellipsis icon. Then select "Unlink asset" to confirm. 
+
+    ![Unlink asset from Jira issue](/assets/images/jsm-integration/jira-issue-asset-unlink-asset.png)
 
 ### JSM Integration Feature Highlights
 
