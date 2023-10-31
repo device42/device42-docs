@@ -106,7 +106,7 @@ The `D42_Jira_Cloud_Sync_Devices` query is the default. Additional predefined qu
 
 ### More Information
 
-The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](https://docs.device42.com/external-integrations/device42-jira-cloud-integration/).
+The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](integration/external-integrations/device42-jira-cloud-integration.mdx).
 
 ### Jira Service Management Integration
 
