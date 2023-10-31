@@ -1,5 +1,5 @@
 ---
-title: "Jira (self-hosted) Integration"
+title: "Jira (self-managed) Integration"
 sidebar_position: 15
 ---
 
