@@ -7,7 +7,7 @@ Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk sol
 
 ## Device42 for Jira Service Management
 
-_This section is about [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) integration. Refer to [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab), and the sections that follow, for information on using the [Device42 for JSM Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
+_This section is about the [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app. Refer to the [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab) for information on the [Device42 for JSM Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
 
 JSM Cloud seamlessly integrates with Device42 using the [Device42 for Jira Service Management app available from the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management). The Device42 JSM app efficiently transmits data and augments JSM Cloud capabilities.
 
