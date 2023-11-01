@@ -3,7 +3,9 @@ title: "Jira (self-managed) Integration"
 sidebar_position: 15
 ---
 
-Note: The Atlassian server is being discontinued. Read more about it on the [Atlassian blog](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps).
+:::info
+The Atlassian server is being discontinued. Read more about it on the [Atlassian blog](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps).
+:::
 
 ### Integration Prerequisites
 
