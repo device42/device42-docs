@@ -27,6 +27,21 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 - [Update Device42 Appliance How To](how-to-videos/update-device42-appliance-how-to.md)
 - [WMI Authentication Testing Tool How To](how-to-videos/wmi-authentication-testing-tool-how-to.md)
 
+Title: Product Release Highlights Reels
+sidebar_position: 1
+---
+## Device42 Product Release Highlights
+- [Product Release v.18.10.00](https://device42.wistia.com/medias/hag4m368we)
+- [Product Release v.18.09.00](https://device42.wistia.com/medias/gb4syoi0wx)
+- [Product Release v.18.08.00](https://device42.wistia.com/medias/l3x1y01udz)
+- [Product Release v.18.07.00](https://device42.wistia.com/medias/erimhq4j28)
+- [Product Release v.18.06.00](https://device42.wistia.com/medias/erimhq4j28)
+- [Product Release v.18.05.00](https://device42.wistia.com/medias/5m8tqfpqyq)
+- [Product Release v.18.04.00](https://device42.wistia.com/medias/42cd5o1jhq)
+- [Product Release v.18.03.00](https://device42.wistia.com/medias/ru8vw54kha)
+- [Product Release v.18.01.00](https://www.youtube.com/watch?v=ieiVtbjL-q4)
+
+
 
 ## Getting Started Videos (YouTube)
 
