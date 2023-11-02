@@ -1,9 +1,13 @@
 ---
-title: Jira Service Management Assets Integration
+title: Jira Service Management Integration
 sidebar_position: 1
 ---
 
 Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
+
+## Device42 for Jira Service Management
+
+_This section is about the [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app. Refer to the [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab) for information about the [Device42 for JSM **Assets**](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
 
 JSM Cloud seamlessly integrates with Device42 using the [Device42 for Jira Service Management app available from the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management). The Device42 JSM app efficiently transmits data and augments JSM Cloud capabilities.
 
@@ -11,14 +15,14 @@ If you handle infrastructure assets, operate on a large scale, or have plans for
 
 Now we'll show you how easy it is to set up the Device42-JSM integration.
 
-## Integrate Device42 and Jira Service Management
+### Integrate Device42 and Jira Service Management
 
 With just a few minutes of setup, your Device42-Jira integration will allow you to link assets between the two systems.
 
 ### Prerequisites:
 
-* Administrator privileges to a running Device42 v18.03.02 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
-* Administrator privileges to a JSM Cloud Premium or Enterprise plan.
+* Administrator privileges to a running Device42 v15.11.01 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
+* Administrator privileges to a JSM Cloud account.
 
 ### Setting Up Device42
 
@@ -106,11 +110,47 @@ The `D42_Jira_Cloud_Sync_Devices` query is the default. Additional predefined qu
 
 ### More Information
 
-The full documentation for integrating Jira with Device42 can be found in our [Jira Service Desk and Jira Cloud Integration pages](integration/external-integrations/device42-jira-cloud-integration.mdx).
+See the [Jira Cloud Integration](integration/external-integrations/device42-jira-cloud-integration.mdx) page for more information.
 
 ### Jira Service Management Integration
 
-In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://d42example.atlassian.net/jira/marketplace/discover/app/com.device42.insight-cloud-synchronization?installDialogOpen=true&source=mpac). See the Jira Marketplace page for details on configuration.
+In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview). See the following section or watch our [Device42 JSM Assets integration](https://device42.wistia.com/medias/b087w5fps8) video for more details.
+
+### Resources
+
+[Device42 for Jira Service Management app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?hosting=cloud&tab=overview)
+
+[Troubleshoot email notifications in Jira Service Management](https://confluence.atlassian.com/jirakb/troubleshoot-customer-notifications-in-jira-service-management-projects-777026983.html)
+
+***
+## Configure Device42 for JSM Assets: The Settings Tab
+
+Get started with the [Device42 for Jira Service Management Assets](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=support) app by connecting your Device42 virtual appliance to it following these steps:
+
+Navigate to the **Settings** tab and complete the two required fields.
+
+1. **Device42 Cloud Connector** Enter URL of the Device42 connector here, for example, `connect.device42.io`.
+2. **Device42 Verification Token** To get the verification token from your Device42 instance, follow these steps:
+    * In Device42, navigate to **Tools -> Integrations -> External integrations -> Add External integration**.
+    * Copy the token.
+    * Return to the app and paste the token into the verification token field.
+
+See [Jira Service Management Assets Integration](integration/external-integrations/device42-jira-assets-integration.mdx/#create-a-jira-token) for more detailed guidance on creating an external integration on Device42.
+
+![](/assets/images/jsm-solution-guide/image62.png)
+
+Click the **Save** button and the app will attempt to connect to Device42.
+
+![](/assets/images/jsm-solution-guide/image38.png)
+
+Following the app attempting to connect to Device42, the connection will display one of six states in the **Settings** tab:
+
+* Connection enabled.
+* Connection not enabled.
+* Credentials do not exist.
+* Error in verifying Device42 account.
+* Request URL not found.
+* An error occurred on Device42.
 
 ## Working With Device42 Data on the JSM Cloud: The Sync Tab
 
@@ -249,7 +289,7 @@ A confirmation window will appear, verifying that the object schema import has b
 
 You can edit an object schema to include a new object to synchronize data from in the app and customize what data is synchronized to the app.
 
-You will need the name of a [Device42 Object Query Language (DOQL)](https://docs.device42.com/device42-doql/) query to complete the object creation form. The created DOQL object can be edited, disabled, and deleted from the object schema import sync.
+You will need the name of a [Device42 Object Query Language (DOQL)](reports/device42-doql/index.md) query to complete the object creation form. The created DOQL object can be edited, disabled, and deleted from the object schema import sync.
 
 If you didn't select the **Create with default schema** option when you created a [new object schema import](#add-a-new-object-schema-import), you can add data of selected asset types by adding a new object to sync.
 
@@ -259,7 +299,7 @@ Click the **Add object to sync** button to open the new object sync form.
 
 Complete the two required fields to add a new object to sync.
 
-* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](https://docs.device42.com/device42-doql/). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
+* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](reports/device42-doql/index.md). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
 
 * **Object Type Name** Select the object type from the list, or create a new object type by clicking **+ Object type**.
 
@@ -279,7 +319,7 @@ To edit the DOQL of an object, click the **Edit DOQL** button.
 
 ![](/assets/images/jsm-solution-guide/image47.jpg)
 
-In the DOQL field that opens, add the name of the DOQL query stored in Device42. This field supports [DOQL syntax](https://docs.device42.com/device42) for complex queries.
+In the DOQL field that opens, add the name of the DOQL query stored in Device42. This field supports [DOQL syntax](reports/device42-doql/index.md) for complex queries.
 
 ![](/assets/images/jsm-solution-guide/image68.jpg)
 
@@ -334,30 +374,6 @@ To delete a field from an asset type, click the **Remove** button.
 
 The field row will be deleted from the table but the ID field will persist.
 
-## Configure Access to Device42: The Settings Tab
-
-To connect to Device42 from the app in the JSM cloud, navigate to the **Settings** tab and complete the two required fields.
-
-1. **Device42 Cloud Connector** Enter URL of the Device42 connector here, for example, `connect.device42.io`.
-2. **Device42 Verification Token** To get the verification token from your Device42 instance, follow these steps:
-    * In Device42, navigate to **Tools -> Integrations -> External integrations -> Add External integration**.
-    * Copy the token.
-    * Return to the app and paste the token into the verification token field.
-
-![](/assets/images/jsm-solution-guide/image62.png)
-
-Click the **Save** button and the app will attempt to connect to Device42.
-
-![](/assets/images/jsm-solution-guide/image38.png)
-
-Following the app attempting to connect to Device42, the connection will display one of six states in the **Settings** tab:
-
-* Connection enabled.
-* Connection not enabled.
-* Credentials do not exist.
-* Error in verifying Device42 account.
-* Request URL not found.
-* An error occurred on Device42.
 
 ## Set User Access to the App: The Security Tab
 
@@ -372,7 +388,7 @@ Follow the steps below to assign roles to users with different permissions.
 
 Click **Save** to save your access settings.
 
-## Workflow Examples
+## JSM Assets: Workflow Examples
 
 Let's work through two examples to demonstrate adding an object type to the default object schema and adding an attribute to an object type in the default object schema.
 
@@ -600,12 +616,8 @@ If you look at a device with software on it, you should now see "Software In Use
 
 ![](/assets/images/jsm-solution-guide/image24.png)
 
-
-
 ## Additional Resources
 
 Video: [How to set up Jira Service Management assets integration with Device42](https://device42.wistia.com/medias/b087w5fps8) 
 
-[Device42 for Jira Service Management app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management?hosting=cloud&tab=overview)
-
-[Troubleshoot email notifications in Jira Service Management](https://confluence.atlassian.com/jirakb/troubleshoot-customer-notifications-in-jira-service-management-projects-777026983.html)
+[Device42 for Jira Service Management Assets app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview)
