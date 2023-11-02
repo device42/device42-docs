@@ -21,7 +21,7 @@ Click _Save_ to save your changes.
 
 ## List of external integrations that utilize the Cloud Connector:
 
-- [Atlassian JIRA (cloud)](device42-jira-cloud-integration.md)
+- [Atlassian JIRA (cloud)](device42-jira-cloud-integration.mdx)
 - [ServiceNow](device42-servicenow-connector.md)
 - [Freshservice](integration/external-integrations/freshservice-integration.md)
 - Insight in JSM Cloud
