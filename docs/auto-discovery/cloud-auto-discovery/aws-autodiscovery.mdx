@@ -3,6 +3,9 @@ title: "AWS Autodiscovery"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 Device42's AWS Autodiscovery ensures you have full visibility into your AWS environments. This visibility gives you insights into your total AWS consumption - allowing you optimize on spend and services consumed. We are adding new discoveries all the time, specifically based on customer need.
 
 ## Getting Started with AWS Autodiscovery
@@ -22,7 +25,13 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 - Enter a _Name_ for the job.
 - Select the _Cloud Type_ > _Amazon AWS_ from the drop-down menu.
 
-![](/assets/images/Image_4_Cloud_Disc_AWS.png)
+<ThemedImage
+  alt="Create AWS cloud discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-1-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-1-dark.png'),
+  }}
+/>
 
 - Select the _Remote Collector_ for the job.
 - Add your Amazon _Access Key ID_ and your _Secret Key_ for the account(s) to be discovered. (Do this by clicking the magnifying glass, and then clicking _Add Password_ in the upper right corner. Enter your Access Key ID or Secret Key in the field labeled _Password_.  Device42 will store the keys encrypted_._)
@@ -31,16 +40,30 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 
 **Note:** See [Defining AWS Roles](#addedit-aws-roles) below for instruction for creating the AWS Roles that Devices42 displays for AWS cloud autodiscovery jobs.
 
-- Choose one or more Amazon regions to search. ![](/assets/images/Image_5_Cloud_Disc_AWS.png)
+- Choose one or more Amazon regions to search. 
+
+<ThemedImage
+  alt="Choose AWS Regions"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-2-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-2-dark.png'),
+  }}
+/>
+
+
 - You can also select options for adding vendor metadata, choose how to  handle instances not found in subsequent discovery vendor, select device name format options, add tags for discovered devices, etc.
 - Check _Kubernetes Discovery_ to discover Kubernetes clusters hosted on your cloud platform.
 - Add object categories, tags, and a customer for discovered devices, etc.
-
-![](/assets/images/K8s-Discovery-Option_AWSAzureGoogle.png)
-
 - Scroll down the page and click the _Advanced Features (Show)_ tab to select the different types of resources you want the job to discover (Route53, S3, EBS, Databases, etc.).
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_aws-autodiscovery.png)
+<ThemedImage
+  alt="Advanced features to choose AWS resources"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-3-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-3-dark.png'),
+  }}
+/>
+
 
 - Add an _Autodiscovery Schedule_ to schedule the job if wanted or add _Admin Groups_ for the job.
 - Click _Save_ or _Save and continue editing_ to save the discovery job.
@@ -174,15 +197,36 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 
 - Select _Resources > Secrets > AWS Roles_ from the main menu.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_aws-autodiscovery2.png)
+<ThemedImage
+  alt="Choose AWS Roles menu item"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-4-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-4-dark.png'),
+  }}
+/>
+
 
 - Device42 displays the AWS Roles list page. Use the _AWS Role_ drop-down to select a role to display or click _Advanced_ to construct more specific searches. See the [Advanced Search Feature](getstarted/advanced-search-feature.md) documentation page for instructions.
 
-![](/assets/images/Image_9_Cloud_Disc_AWS_Roles_2.png)
+<ThemedImage
+  alt="View AWS roles"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-5-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-5-dark.png'),
+  }}
+/>
+
 
 - Click _Add_ at the top right to add a new role – click a role _Name_ to view or edit that role.
 
-![](/assets/images/Image_10_and_11_Cloud_Disc_AWS_Roles.png)
+<ThemedImage
+  alt="Add a new AWS role"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-6-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-6-dark.png'),
+  }}
+/>
+
 
 - Enter a _Name_ for the role.
 - Enter the _AWS Role_ label and an optional _AWS Role Description_.
@@ -215,11 +259,25 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
 
 <table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td>Accessed API</td><td>Information Generated</td></tr><tr><td>EC2 Instances</td><td>Devices --&gt; All Devices</td><td>&nbsp;</td><td>Service name, instance ID, OS platform, image ID, Status, etc.</td></tr></tbody></table>
 
-![](/assets/images/Image_28_Cloud_Disc_AMZN_API.png)
+<ThemedImage
+  alt="Create AWS cloud discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-7-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-7-dark.png'),
+  }}
+/>
+
 
 When discovering your Amazon Cloud via the Amazon API, Device42 authenticates against the **API URL** with your **AWS API Access Key** and **Secret Key**. To create a discovery job, please ensure you have these available. You can find or generate new AWS API Access keys via the AWS Console -> UserName Menu --> "My Security Credentials". Expand the "Access keys (access key ID and secret access key)" item, and "Create New Access Key" (or reference an existing one): 
 
-![create aws api access key](/assets/images/create_AWS_API-access_key.png)
+<ThemedImage
+  alt="Create an access key in AWS"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-8-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-8-dark.png'),
+  }}
+/>
+
 
 1. Begin by setting **Cloud Type:** ‘Amazon AWS’ via the dropdown \[pictured\].
 2. Enter a ‘Name’ for your Amazon AWS API discovery job.
