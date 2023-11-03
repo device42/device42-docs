@@ -3,7 +3,9 @@ title: "Jira (self-managed) Integration"
 sidebar_position: 15
 ---
 
-Note: The Atlassian server is being discontinued. Read more about it on the [Atlassian blog](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps).
+:::info
+Atlassian Server is in the process of being [discontinued](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps) and the future of self-managed products is with [Atlassian Data Center](https://www.atlassian.com/enterprise/data-center).
+:::
 
 ### Integration Prerequisites
 
@@ -42,7 +44,11 @@ _To install the add-on:_
 
 1. Log in as a user with the **'Jira System Administrators'** global permission.
 2. From the Jira administration console, click the **Add-ons**. Select _Find add-ons_.
-3. In the search field type _'Device42'_ and press **'Enter'**.See screenshot:![01_install_addon.png](/assets/images/1160955568-01_install_addon.png)
+3. In the search field type _'Device42'_ and press **'Enter'**.See screenshot:
+
+![01_install_addon.png](/assets/images/1160955568-01_install_addon.png)
+![Search for app in Jira](/assets/images/jira-self-managed/automatic-installation-menu.png)
+
 4. Click the _'Install'_ button
 5. A confirmation message appears when the add-on is successfully installed. You can now manage the add-on from the user installed add-on list on the Manage add-ons page.
 
@@ -51,11 +57,20 @@ _To install the add-on:_
 _To install the add-on:_
 
 1. Download the latest version of add-on from the link. If you don't have an internet connection available (i.e. a secured sandbox environment), you can download the JAR file on a network with internet access, and transfer it via an USB thumb drive or other external media.
+
+    ![Download .jar file](/assets/images/jira-self-managed/manual-download-jar.png)
+
 2. Log in as a user with 'Jira System Administrators' global permission.
 3. From the Jira administration console, click the Add-ons. Select Manage add-ons.
-4. Click the Upload add-on link at the top right side of the page. The following dialog appears:![jira-connector-002.png](/assets/images/2796820748-jira-connector-002.png)
+4. Click the Upload add-on link at the top right side of the page. The following dialog appears:
+
+    ![jira-connector-002.png](/assets/images/2796820748-jira-connector-002.png)
+    ![Upload app](/assets/images/jira-self-managed/manual-choose-file.png)
+
 5. Enter the location of the JAR file (downloaded in step 1) to upload using the file browser or by specifying a network location by entering a URI.
 6. Click Upload. A confirmation message appears when the add-on is successfully installed. You can now manage the add-on from the user installed add-on list on the Manage add-ons page.
+
+    ![Installation success confirmation](/assets/images/jira-self-managed/manual-confirmation.png)
 
 * * *
 
@@ -74,23 +89,46 @@ _To configure the Jira add-on:_
     Initially the configuration shows only links for the base configuration of the plugin:
     
     ![03_config_addon.png](/assets/images/3788493776-03_config_addon.png)
+    ![Initial connection config](/assets/images/jira-self-managed/connection-settings.png)
 
 ### Set up the Device42 connection
 
-1. On the configuration page click Edit or follow the Configure link to setup connection to Device42 instance._The following page opens:_![02_config_addon.png](/assets/images/245683236-02_config_addon.png)
+1. On the configuration page click Edit or follow the Configure link to setup connection to Device42 instance._The following page opens:_
+
+    ![02_config_addon.png](/assets/images/245683236-02_config_addon.png)
+    ![Initial connection config](/assets/images/jira-self-managed/connection-edit.png)
+
 2. Enter the connection information
 3. Click 'Save'.
 4. You will see the saved details on the configuration view screen
 
-### Manual Syncronization
+### Manual Synchronization
 
 The data from the Device42 instance is cached inside the internal Jira database. To ensure it is up-to-date, it should be periodically synchronized. To manually perform an immediate synchronization:
 
 1. On the configuration information page, simply click the _'Update Data'_ button
-2. A confirmation dialog will appear; Press the _'Update Data'_ button on that dialog to confirm.![Synchronize manually](/assets/images/3663324212-29_manual_scan_start.png)
-3. The dialog will be closed and you will see current collection statistics data (for manual scan you will see the warning message that scan is pending to be started that is shown for about 15 seconds)![Manual Scan Init](/assets/images/1071301296-30_manual_scan_init.png) ![Manual Scan Progress](/assets/images/74876009-31_manual_scan_progress.png)
-4. If you wish to stop current scan you can abort the scan. Click the 'Abort' button and confirm the abort. Please note, that the currently scanned Configuration Item list will be synchronized partially.![Abort Scan](/assets/images/3166586938-32_manual_scan_abort.png)
-5. You will see current scan statistics on the main screen (it could be started manually or automatically). After the synchronization completed the warning message will disappear![Scan Complete Statistics](/assets/images/950194180-33_manual_scan_ready.png)
+2. A confirmation dialog will appear; Press the _'Update Data'_ button on that dialog to confirm.
+
+    ![Synchronize manually](/assets/images/3663324212-29_manual_scan_start.png)
+    ![Initial connection config](/assets/images/jira-self-managed/update-data-confirm.png)
+
+3. The dialog will be closed and you will see current collection statistics data (for manual scan you will see the warning message that scan is pending to be started that is shown for about 15 seconds)
+
+    ![Manual Scan Init](/assets/images/1071301296-30_manual_scan_init.png) 
+    ![Manual Scan Progress](/assets/images/74876009-31_manual_scan_progress.png)
+
+    ![Initial scan statistics](/assets/images/jira-self-managed/initial-collection-statistics.png)
+    ![Statistics when scan in progress](/assets/images/jira-self-managed/scan-in-progress.png)
+
+4. If you wish to stop current scan you can abort the scan. Click the 'Abort' button and confirm the abort. Please note, that the currently scanned Configuration Item list will be synchronized partially.
+
+    ![Abort Scan](/assets/images/3166586938-32_manual_scan_abort.png)
+    ![Abort scan confirmation](/assets/images/jira-self-managed/abort-scan-confirmation.png)
+
+5. You will see current scan statistics on the main screen (it could be started manually or automatically). After the synchronization completed the warning message will disappear
+
+    ![Scan Complete Statistics](/assets/images/950194180-33_manual_scan_ready.png)
+    ![Abort scan confirmation](/assets/images/jira-self-managed/sync-complete.png)
 
 ### Configure automatic synchronization
 
@@ -99,7 +137,11 @@ Automatic sync/updates are configured using regular **Cron Expressions**, which 
 > Cron expression rules you can see [here](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html).
 
 1. On the configuration information click 'Setup Cron' button
-2. Enter the cron expression rule inside the cron configuration dialog![05_setup_cron.png](/assets/images/1830417591-34_cron_setup.png)
+2. Enter the cron expression rule inside the cron configuration dialog
+
+    ![05_setup_cron.png](/assets/images/1830417591-34_cron_setup.png)
+    ![Setup cron job](/assets/images/jira-self-managed/setup-cron.png)
+
 3. Click 'Save' button
 4. You will see the saved details on the configuration view screen
 
@@ -108,9 +150,16 @@ Automatic sync/updates are configured using regular **Cron Expressions**, which 
 If you wish to clear up the plugin data, you can use the _‘Delete plugin data’_ functionality. There are two different options for plugin data cleanup for Jira. 'Connection' option remove connection settings, all filter data, scan results for the configuration items. The 'All' option will remove custom fields and their data additionally. To delete the plugin data:
 
 1. Click the 'Delete' icon.
-2. Select one of the option 'Connection' or 'All'![Delete Data](/assets/images/1680748251-35_delete_start.png)
+2. Select one of the option 'Connection' or 'All'
+    
+    ![Delete Data](/assets/images/1680748251-35_delete_start.png)
+    ![Delete plugin data options](/assets/images/jira-self-managed/delete-plugin-data-options.png)
+
 3. In the opened dialog select the confirmation checkbox
-4. Click the 'Delete' button![Delete Confirm](/assets/images/1693541312-36_delete_finish.png)
+4. Click the 'Delete' button
+
+    ![Delete Confirm](/assets/images/1693541312-36_delete_finish.png)
+    ![Delete data confirm](/assets/images/jira-self-managed/delete-data-confirm.png)
 
 * * *
 
@@ -127,7 +176,7 @@ _To create a new custom field Device42 Custom Field:_
     [Keyboard shortcut: g + g + start typing custom fields.]
     ```
     
-3. Click the "Add Custom Field" button, the following dialog will be displayed:![Add Custom Field](/assets/images/1375163554-d42-003.png)By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
+3. Click the "Add Custom Field" button, the following dialog will be displayed:![Add Custom Field](/assets/images/1375163554-003.png)By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
 4. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:
 
 ![Look for Device42 Custom Field](/assets/images/2411859984-06_custom_field.png)
