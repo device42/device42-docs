@@ -4,15 +4,15 @@ sidebar_position: 15
 ---
 
 :::info
-Atlassian Server is in the process of being [discontinued](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps) and the future of self-managed products is with [Atlassian Data Center](https://www.atlassian.com/enterprise/data-center).
+Atlassian Server is in the process of being [discontinued](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps) and the future of self-managed products is via the [Atlassian Data Center](https://www.atlassian.com/enterprise/data-center).
 :::
 
 ### Integration Prerequisites
 
-To use the Device42-Jira integration, users must have:
+To use the self-hosted Device42-Jira integration, users must have:
 
-- **Device42** virtual appliance, running, properly configured, and populated with CIs (to sync to Jira) 
-- **Jira instance _\[Server, self-hosted for this version\]_**, properly configured, with the Device42 plugin installed.
+* A running **Device42** virtual appliance, populated with configuration items (CIs) to sync to Jira.
+* A properly configured **self-hosted Jira instance** with administrator access.
 
 _*If you are looking to integrate Device42 with Jira Service Management and/or Jira Cloud, see the [Device42-Jira Service Management/Cloud integration page.](device42-jira-cloud-integration.mdx)_
 
@@ -20,145 +20,142 @@ _*If you are looking to integrate Device42 with Jira Service Management and/or J
 
 The Device42-Jira integration offers users the following functionality:
 
-- Synchronize select Device42 data with Jira, automatically (and/or manually)
-- Attach configuration items synced from Device42 to Jira issues
-- Search for Jira issues relating to a Device42 CI(s) and/or CI data
-- Create custom fields and apply them to specific projects, create custom field sets, and populate custom fields using built-in stackable filters to create a customized set of Device42 CIs.
-- Store filter templates for the fast future usage
-- Automate common IT workflow with validators and conditional functions, based on the Device42 custom field values
-- Automatically request the next free IP address on a subnet, and acquire it when an issue transitions
+* Synchronize select Device42 data with Jira, automatically (and/or manually)
+* Attach configuration items synced from Device42 to Jira issues
+* Search for Jira issues relating to a Device42 CI(s) and/or CI data
+* Create custom fields and apply them to specific projects, create custom field sets, and populate custom fields using built-in stackable filters to create a customized set of Device42 CIs.
+* Store filter templates for the fast future usage
+* Automate common IT workflow with validators and conditional functions, based on the Device42 custom field values
+* Automatically request the next free IP address on a subnet, and acquire it when an issue transitions
 
 * * *
 
 ## Installing the Device42 Jira add-on
 
-The Device42 add-on is the part of Atlassian Marketplace, so you can easily install it using the UPM \[Universal Plugin Manager\]. The add-on’s search capability is provided by Jira from the Jira search box. However, if you have some specific environment that blocks Jira from access to the internet it is possible to install Device42 plugin manually. Please note that the plugin requires a stable connection between the server hosting your Jira application instance, and your Device42 application instance to operate properly.
+The Device42 app is the part of Atlassian Marketplace, so you can easily install it using the Universal Plugin Manager (UPM). The app's search capability is provided by Jira from the Jira search box. However, if you have some specific environment that blocks Jira from accessing the internet, you can install Device42 plugin manually. Please note that the plugin requires a stable connection between the server hosting your Jira application instance, and your Device42 application instance to operate properly.
 
-_It can also be downloaded from the Device42 Integrations Page:_
-
-> [https://www.device42.com/integrations/jira/](https://www.device42.com/integrations/jira/)
+The app can be downloaded from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?hosting=datacenter&tab=overview)
 
 ### Automatic installation
 
-_To install the add-on:_
+To install the app from your Jira instance:
 
 1. Log in as a user with the **'Jira System Administrators'** global permission.
-2. From the Jira administration console, click the **Add-ons**. Select _Find add-ons_.
-3. In the search field type _'Device42'_ and press **'Enter'**.See screenshot:
+2. From the Jira administration console, select the **Manage apps** option and in the left panel, click on **Find new apps**.
 
-![01_install_addon.png](/assets/images/1160955568-01_install_addon.png)
-![Search for app in Jira](/assets/images/jira-self-managed/automatic-installation-menu.png)
+    ![Manage apps menu](/assets/images/jira-self-managed/manage-apps-menu.png)
 
-4. Click the _'Install'_ button
-5. A confirmation message appears when the add-on is successfully installed. You can now manage the add-on from the user installed add-on list on the Manage add-ons page.
+3. Type **device42** in the search bar and press **Enter**.
+4. Find the **Device42 - CMDB with REST APIs for Jira** app and click its **Install** button.
+
+    ![Search for app in Jira](/assets/images/jira-self-managed/automatic-installation-menu.png)
+
+5. A confirmation message appears when the app is successfully installed. You can now manage the app from the **Manage apps** tab.
 
 ### Manual installation
 
-_To install the add-on:_
+To manually install the app to your Jira instance:
 
-1. Download the latest version of add-on from the link. If you don't have an internet connection available (i.e. a secured sandbox environment), you can download the JAR file on a network with internet access, and transfer it via an USB thumb drive or other external media.
+1. Go to the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overview&hosting=datacenter) and lick on the **Get it now** button to download the `.jar` file of the latest version of the app. If you don't have an internet connection available (i.e. a secured sandbox environment), you can download the `.jar` file on a network with internet access, and transfer it via a USB thumb drive or other external media.
 
     ![Download .jar file](/assets/images/jira-self-managed/manual-download-jar.png)
 
-2. Log in as a user with 'Jira System Administrators' global permission.
-3. From the Jira administration console, click the Add-ons. Select Manage add-ons.
-4. Click the Upload add-on link at the top right side of the page. The following dialog appears:
+2. Log in with Jira administrator access and click on the **Manage Apps** tab, and select the **Manage apps** from the left panel.
+3. Click on the **Upload app** link at the top right side of the page. The following dialog appears:
 
-    ![jira-connector-002.png](/assets/images/2796820748-jira-connector-002.png)
-    ![Upload app](/assets/images/jira-self-managed/manual-choose-file.png)
+    ![Upload app](/assets/images/jira-self-managed/manual-choose-jar-file.png)
 
-5. Enter the location of the JAR file (downloaded in step 1) to upload using the file browser or by specifying a network location by entering a URI.
-6. Click Upload. A confirmation message appears when the add-on is successfully installed. You can now manage the add-on from the user installed add-on list on the Manage add-ons page.
+4. Click on the **Choose file** button to open file browser and select the `.jar` file you downloaded from the Atlassian Marketplace.
+5. Click on the **Upload** button. When the app has been successfully installed, a confirmation notice will appear. 
 
     ![Installation success confirmation](/assets/images/jira-self-managed/manual-confirmation.png)
+
+You can now manage the app from the user installed app list from the **Manage apps** tab.
 
 * * *
 
 ## Configure the Integration
 
-_To configure the Jira add-on:_
+A brand new installation of the app in requires the following initial configuration steps from your Jira instance:
+
+1. After the app has been successfully installed, click on the **Configure** link to setup connection to your Device42 instance.
+
+    ![Initial connection config](/assets/images/jira-self-managed/initial-configuration.png)
+
+2. Enter your Device42 **Base URL**, **Username**, and **Password** and click on the **Save** button. 
+
+    ![Initial connection config](/assets/images/jira-self-managed/fill-connection-form.png)
+
+3. If the connection is successful, you will see the saved details on the configuration view screen.
+
+    ![Initial connection config](/assets/images/jira-self-managed/base-connection-info.png)
+
+### Edit Connection Settings
+
+To edit the connection settings:
 
 1. Log in as a user with 'Jira Administrators' global permission.
-2. From the Jira Administration Console, click ‘_Add-ons’_.
-3. Select DEVICE42 CONNECTOR > Device42 Connection to open the configuration page.
-    
-    ```
-    Keyboard shortcut: g + g + start typing Device42. You will see the configuration screen and would be able to execute configuration actions.
-    ```
-    
-    Initially the configuration shows only links for the base configuration of the plugin:
-    
-    ![03_config_addon.png](/assets/images/3788493776-03_config_addon.png)
-    ![Initial connection config](/assets/images/jira-self-managed/connection-settings.png)
+2. Use the shortcut to navigate to the **Device42 Connection** page. Press **g** twice and type **Device42** into the search bar. Select the **Device42 Connection** option. Alternatively, click on the **Manage apps** tab and select the **Device42 Connection** option from the left sidebar.
 
-### Set up the Device42 connection
+    ![Connection shortcut menu and search bar](/assets/images/jira-self-managed/gg-shortcut.png)
 
-1. On the configuration page click Edit or follow the Configure link to setup connection to Device42 instance._The following page opens:_
+3. Click on the pencil icon to the right to open the connection information form for editing. 
 
-    ![02_config_addon.png](/assets/images/245683236-02_config_addon.png)
-    ![Initial connection config](/assets/images/jira-self-managed/connection-edit.png)
-
-2. Enter the connection information
-3. Click 'Save'.
-4. You will see the saved details on the configuration view screen
+    ![Edit Device42 Connection](/assets/images/jira-self-managed/d42-connection-edit.png)
 
 ### Manual Synchronization
 
-The data from the Device42 instance is cached inside the internal Jira database. To ensure it is up-to-date, it should be periodically synchronized. To manually perform an immediate synchronization:
+The data from the Device42 instance is cached inside the internal Jira database. To ensure it is up-to-date, it should be periodically synchronized.  Manually perform an immediate synchronization as follows:
 
-1. On the configuration information page, simply click the _'Update Data'_ button
-2. A confirmation dialog will appear; Press the _'Update Data'_ button on that dialog to confirm.
+1. On the configuration information page, click on the **Update Data** button.
 
-    ![Synchronize manually](/assets/images/3663324212-29_manual_scan_start.png)
+    ![Update data button](/assets/images/jira-self-managed/update-data-button.png)
+
+2. A confirmation dialog will appear; click on the **Update Data** button to confirm.
+
     ![Initial connection config](/assets/images/jira-self-managed/update-data-confirm.png)
 
-3. The dialog will be closed and you will see current collection statistics data (for manual scan you will see the warning message that scan is pending to be started that is shown for about 15 seconds)
+3. You will see the initial collection statistics data. For a manual scan, you will see the warning message that scan is pending to be started that is shown for about 15 seconds.
 
-    ![Manual Scan Init](/assets/images/1071301296-30_manual_scan_init.png) 
-    ![Manual Scan Progress](/assets/images/74876009-31_manual_scan_progress.png)
-
-    ![Initial scan statistics](/assets/images/jira-self-managed/initial-collection-statistics.png)
     ![Statistics when scan in progress](/assets/images/jira-self-managed/scan-in-progress.png)
 
-4. If you wish to stop current scan you can abort the scan. Click the 'Abort' button and confirm the abort. Please note, that the currently scanned Configuration Item list will be synchronized partially.
+4. Click on the **Refresh** button. Under **Collection results** you can see a progress bar for the entire scan and below that selection, under the **Status** column, you can view the sync progress of individual CIs. 
 
-    ![Abort Scan](/assets/images/3166586938-32_manual_scan_abort.png)
+5. If you wish to stop current scan you, click the **Abort** button, tick the **I agree** checkbox and select **Abort** to confirm. Please note, that the currently scanned Configuration Item list will be synchronized partially.
+
     ![Abort scan confirmation](/assets/images/jira-self-managed/abort-scan-confirmation.png)
 
-5. You will see current scan statistics on the main screen (it could be started manually or automatically). After the synchronization completed the warning message will disappear
+6. After the synchronization is complete, the warning message will disappear and the status of individual CIs will be listed as **Done**. 
 
-    ![Scan Complete Statistics](/assets/images/950194180-33_manual_scan_ready.png)
     ![Abort scan confirmation](/assets/images/jira-self-managed/sync-complete.png)
 
 ### Configure automatic synchronization
 
-Automatic sync/updates are configured using regular **Cron Expressions**, which you are likely already familiar with.
+:::tip
+Automatic sync updates are configured using regular **cron expressions**. Visit [this tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html) for a quick explanation of cron expressions. 
+:::
 
-> Cron expression rules you can see [here](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html).
+1. From the **Device42 Connection** tab, where the sync statistics are listed, click on the '**Setup Cron** button.
+2. Enter the cron expression inside the cron configuration dialog box. In this example, the cron expression `0 0 0 1/1 * ? *` means "00:00:00 (midnight) every day".
 
-1. On the configuration information click 'Setup Cron' button
-2. Enter the cron expression rule inside the cron configuration dialog
+    ![Setup cron job](/assets/images/jira-self-managed/setup-cron-job.png)
 
-    ![05_setup_cron.png](/assets/images/1830417591-34_cron_setup.png)
-    ![Setup cron job](/assets/images/jira-self-managed/setup-cron.png)
+3. Click on the **Save** button
+4. You will see the **Next Update Time** listed on the configuration view screen below your username.
 
-3. Click 'Save' button
-4. You will see the saved details on the configuration view screen
+    ![Next update time](/assets/images/jira-self-managed/cron-next-update.png)
 
-### Delete plugin data
+### Delete App Data
 
-If you wish to clear up the plugin data, you can use the _‘Delete plugin data’_ functionality. There are two different options for plugin data cleanup for Jira. 'Connection' option remove connection settings, all filter data, scan results for the configuration items. The 'All' option will remove custom fields and their data additionally. To delete the plugin data:
+If you wish to clear up the app data, select one of the two delete options in Jira as follows:
 
-1. Click the 'Delete' icon.
-2. Select one of the option 'Connection' or 'All'
+1. Click on the **X** icon at the top right of the **Connection Settings** page.
+2. Select either the **Connection** or **All** option. The **Connection** option removes your connection settings, all filter data, and scan results of the configuration items. The **All** option deletes all data including custom field entries.
     
-    ![Delete Data](/assets/images/1680748251-35_delete_start.png)
     ![Delete plugin data options](/assets/images/jira-self-managed/delete-plugin-data-options.png)
 
-3. In the opened dialog select the confirmation checkbox
-4. Click the 'Delete' button
+3. Check the **I agree** confirmation checkbox and click on the **Delete** button to confirm. Note that selecting the **Delete D42 Schema** will require you to import the default schema again.
 
-    ![Delete Confirm](/assets/images/1693541312-36_delete_finish.png)
     ![Delete data confirm](/assets/images/jira-self-managed/delete-data-confirm.png)
 
 * * *
@@ -176,8 +173,9 @@ _To create a new custom field Device42 Custom Field:_
     [Keyboard shortcut: g + g + start typing custom fields.]
     ```
     
-3. Click the "Add Custom Field" button, the following dialog will be displayed:![Add Custom Field](/assets/images/1375163554-003.png)By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
-4. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:
+3. Click the "Add Custom Field" button, the following dialog will be displayed:
+4. By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
+5. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:
 
 ![Look for Device42 Custom Field](/assets/images/2411859984-06_custom_field.png)
 
