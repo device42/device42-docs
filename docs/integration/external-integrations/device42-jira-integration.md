@@ -16,7 +16,7 @@ To use the self-hosted Device42-Jira integration, users must have:
 
 _*If you are looking to integrate Device42 with Jira Service Management and/or Jira Cloud, see the [Device42-Jira Service Management/Cloud integration page.](device42-jira-cloud-integration.mdx)_
 
-### Device42-Jira self-hosted Integration Feature Overview
+### Device42-jira Self-hosted Integration Features
 
 The Device42-Jira integration offers users the following functionality:
 
@@ -30,13 +30,21 @@ The Device42-Jira integration offers users the following functionality:
 
 * * *
 
-## Installing the Device42 Jira add-on
+## Install the Device42-Jira App
 
-The Device42 app is the part of Atlassian Marketplace, so you can easily install it using the Universal Plugin Manager (UPM). The app's search capability is provided by Jira from the Jira search box. However, if you have some specific environment that blocks Jira from accessing the internet, you can install Device42 plugin manually. Please note that the plugin requires a stable connection between the server hosting your Jira application instance, and your Device42 application instance to operate properly.
+The **Device42 - CMDB with REST APIs for Jira** app is the part of Atlassian Marketplace, so you can easily install it using the Universal Plugin Manager (UPM). The app's search capability is provided by Jira from the Jira search box. 
 
-The app can be downloaded from the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?hosting=datacenter&tab=overview)
+If you have some specific environment that blocks Jira from accessing the internet, you can install Device42 plugin manually. Download the latest version of the app from this [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter) link. Or copy and paste the following URL into your browser:
 
-### Automatic installation
+```
+https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter
+```
+
+:::info
+Please note that the app requires a stable connection between the server hosting your Jira application instance, and your Device42 application instance to operate properly.
+:::
+
+### Automatic Installation
 
 To install the app from your Jira instance:
 
@@ -52,7 +60,7 @@ To install the app from your Jira instance:
 
 5. A confirmation message appears when the app is successfully installed. You can now manage the app from the **Manage apps** tab.
 
-### Manual installation
+### Manual Installation
 
 To manually install the app to your Jira instance:
 
@@ -76,7 +84,7 @@ You can now manage the app from the user installed app list from the **Manage ap
 
 ## Configure the Integration
 
-A brand new installation of the app in requires the following initial configuration steps from your Jira instance:
+A brand new installation of the app requires the following initial configuration steps from your Jira instance:
 
 1. After the app has been successfully installed, click on the **Configure** link to setup connection to your Device42 instance.
 
@@ -90,7 +98,7 @@ A brand new installation of the app in requires the following initial configurat
 
     ![Initial connection config](/assets/images/jira-self-managed/base-connection-info.png)
 
-### Edit Connection Settings
+### Edit the Connection Settings
 
 To edit the connection settings:
 
@@ -129,7 +137,7 @@ The data from the Device42 instance is cached inside the internal Jira database.
 
     ![Abort scan confirmation](/assets/images/jira-self-managed/sync-complete.png)
 
-### Configure automatic synchronization
+### Configure Automatic Synchronization
 
 :::tip
 Automatic sync updates are configured using regular **cron expressions**. Visit [this tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html) for a quick explanation of cron expressions. 
@@ -160,115 +168,158 @@ If you wish to clear up the app data, select one of the two delete options in Ji
 
 * * *
 
-## Device42 Custom Field & Filter usage
+## Add a Device42 Custom Field 
 
-The Device42 Jira Connector provides one new Custom Field type in Jira, The "Device42 Custom Field" which works with Device42 configuration items.
+The Device42-Jira connector app provides a new **Device42 Custom Field** type in Jira to work with Device42 configuration items.
 
-_To create a new custom field Device42 Custom Field:_
+Create a new custom field Device42 Custom Field as follows:
 
-1. Log in as a user with 'Jira Administrators' global permission.
-2. From the Jira administration console, click the Issues. Select FIELDS > Custom Fields.
+1. Log in as a user with Jira administrator access.
+2. From the Jira administration console, click on the **Issues** tab and select **Custom fields** from the left panel. Or use the `g` + `g` keyboard shortcut and search for **custom fields**.
     
-    ```
-    [Keyboard shortcut: g + g + start typing custom fields.]
-    ```
-    
-3. Click the "Add Custom Field" button, the following dialog will be displayed:
-4. By default, this dialog displays the Standard, or most common choices for custom fields. Click on the All or Advanced option in the left navigation to access to all custom fields.
-5. In the list, look for **Device42 Custom Field**, or type **Device42** in the top right search box and select the custom field:
+    ![Custom fields menu](/assets/images/jira-self-managed/issues-custom-fields-menu.png)
 
-![Look for Device42 Custom Field](/assets/images/2411859984-06_custom_field.png)
+3. Click the "Add Custom Field" button, the following dialog box will be displayed:
 
-5. Click Next.
-6. Give it a name, a description. Click Next.
-7. Associate the field to screens. Click Update.
+    ![Add custom field button dialog box](/assets/images/jira-self-managed/add-custom-field-button.png)
 
-Now your custom field is created. If you wish to change the context or other variables in your custom field, see Configuring a Custom Field. Please note that plugin supports creation of multiple Device42 custom fields on the same screen.
+    By default, the **Standard** choice for custom fields are displayed on the left navigation bar. Choose the **All** or **Advanced** option to access the list that includes the Device42 field type.
+   
+4. From the list, look for the **Device42 Custom Field** option, or type **device42** in the top right search bar and select the custom field:
+
+    ![Add custom field button dialog box](/assets/images/jira-self-managed/d42-custom-field-option.png)
+
+5. Click on the **Next** button.
+6. Give the custom field a **Name** and optional **Description**, then click on the **Next** button.
+
+    ![Add custom field button dialog box](/assets/images/jira-self-managed/d42-field-form.png)
+
+7. Configure the custom field context by choosing the Jira issue type you want to add the custom field to and whether to add it to all or selected projects.
+   
+    ![Add custom field button dialog box](/assets/images/jira-self-managed/custom-field-context.png)
+
+8. Associate the field to screens by clicking on the check boxes. Click Update.
+
+    ![Add custom field button dialog box](/assets/images/jira-self-managed/associate-fields-to-screens.png)
+
+Your custom field is now created. If you want to edit the context or other variables of your custom field, click the **ellipsis icon** under the **Actions** column on the **Custom fields** main page. The app supports creating multiple Device42 custom fields on the same screen.
+
+![Add custom field button dialog box](/assets/images/jira-self-managed/edit-configure-contexts.png)
 
 * * *
 
-### Configure filters
+## Configuration Item Filters
 
-Device42 Jira Connector allows intelligent configuration of the custom fields and can restrict the list of CIs available on the custom field edit screen. You can also add filters to the selection list for each configuration item. It is also possible to configure filter templates that can be used to pre-set options for new filters. The filter templates section also allows one to edit the default filter that is applied to all projects by default, or after a filter reset for the project. Please note that \*ANY CHANGES TO THE DEFAULT FILTER\* will affect \*ALL PROJECTS\* that do not have their own custom filter configuration.
+Device42 Jira Connector allows intelligent configuration of the custom fields and can restrict the list of CIs available on the custom field edit screen. You can also add filters to the selection list for each configuration item. 
+
+    The Device42 Jira app provides the ability to limit the variety of Configuration Items (CIs) visible on the custom field editing interface. You can also add filters to the selection list for individual CIs.
+
+It is also possible to configure filter templates that can be used to pre-set options for new filters. The filter templates section also allows one to edit the default filter that is applied to all projects by default, or after a filter reset for the project. Please note that any changes to the default filter will affect all projects without their own custom filter configuration.
+
+    You can create filter templates to quickly apply a set of filters. You can also edit the default filter applied all projects. Note that changing the default filter affects all projects without their own custom filter configuration.
 
 ![Config Filters](/assets/images/1115469314-37_filter_templates.png)
 
-### General filter details
+### Default Device42 Filter Options
 
-1. **General settings**In general settings, you can select the list of configuration items that would be available for the selected custom field in the selected project. At least one option should be selected.![General Settings](/assets/images/3475892906-38_general_section.png)
-2. General filter capabilities
+1. Navigate to the default Device42 filter settings or to the filter settings of a contained Jira project. Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
 
-You can switch on and off any parameter. The parameter will be hidden in any view of the field. All the parameters can be enabled / disabled for the custom fields provided by the plugin. Device42 supports smart filtering using the QL language. Each CI filter settings contains the list of parameters of each CI that can be used for filtering. The values within different parameters are being combined using AND logic. The filter search is \*not\* case sensitive. The filter inclusion is checked according to the operation. For the multiple parameters (like tags) filter is being applied for each parameter in the list. For the CI parameters (like part model) filter is being applied to ID, and any searchable parameter within the CI representing the parameter.
+See the [Configure Project-Specific Filters](#configure-project-specific-filters) section for details on how to find the filter settings of a project. The interface for configuring the default filter and project-specific filters are the same.*(confirm?)
 
-_For each parameter, the following rules can be applied:_
+1. **General settings** options. Select the configuration items you want available for a selected custom field in the selected project. At least one option should be selected. All the parameters can be enabled or disabled for the custom fields provided by the app.
+   
+   ![General Settings](/assets/images/3475892906-38_general_section.png)
 
-```
-a) You can enter the value and the CIs will be filtered by this value.
-```
-
-> Example: '_test_''. Only the CIs that has in the specified parameter 'test' word would be displayed
-
-```
-b) You can enter set of values separating them by the comma ',' or ampersand '&'. The CIs would be filtered according to the AND logic.
-```
-
-> Example: '_hello, world_'. Only the CIs that contain the words 'hello' and 'world' inside the specified parameter would be displayed. CIs with the parameter 'Hello world' would be displayed, but CIs with the parameters 'hello' and 'world' would be skipped.
-
-```
-c) You can enter set of values separating them by the vertical bar '|'. The CIs would be filtered according to the OR logic.
-```
-
-> Example: '_hello| world_'. The CIs that contain the word 'hello' or the word 'world' inside the specified parameter would be displayed. The OR is not exclusive, so the CIs with the parameter 'Hello world' would be displayed, too.
-
-```
-d) You can change the sequence of operations using the parenthesis. '()'. The CIs would be filtered according to logic based on the result operation.
-```
-
-> Example: '_(1| 2), (3, (4 |5))_'. The CI can pass the filter if: 1) it contains 1 or 2 inside the specified parameter; 2) it contains 3 inside the parameter; 3) it contains 4 or 5 inside the specified parameter.
+2. **Specific CI type filters** Individual CI types contains fields unique to its type to be used for filtering.
 
 ![Filtering](/assets/images/1385807415-024_CI_filter.png)
 
-### Project filters
+Type in the value that you want your list of CIs to contain. You can create unique and highly-specific filters include the exact CIs that you want using logical conditionals. Device42 uses general Query Language syntax to define these conditionals. 
+
+For the multiple parameters (like tags) filter is being applied for each parameter in the list. For the CI parameters (like part model) filter is being applied to ID, and any searchable parameter within the CI representing the parameter.
+
+### Using Query Language to Filter CIs
+
+Use the following Query Language rules, ranging from exact value matches to complex logical conditions, to filter configuration items. Note that the filter search is NOT case sensitive.
+
+* Filter the CI selection based on an **exact value**.
+
+    Example: `test`. Only the CIs with the specified parameter `test` would be displayed.
+
+* Use AND logic to filter CIs that **match all the values** separated by a comma `,` or ampersand `&`.
+
+    Example: `hello, world`. CIs with the parameter `hello world` would be displayed, but CIs with only the word `hello` or only the word `world` will be skipped.
+
+* Use OR logic to include CIs that **match at least one** of the given values separated by a vertical bar `|`.
+  
+    Example: `hello | world`. The CIs that contain the word `hello` or the word `world` inside the specified parameter would be displayed. The OR is not exclusive, so the CIs with the parameter `Hello world` would be displayed, too.
+
+* You can change the sequence of operations using the parenthesis `()`. The CIs would be filtered according to order and logic of the operation.
+
+    Example: `(1 | 2), (3, (4 | 5))`. CIs will pass this filter if it meets all conditions: 
+    * it contains 1 or 2 inside the specified parameter AND 
+    * it contains 3 inside the parameter AND 
+    * it contains 4 OR 5 in the specified parameter.
+
+### Reset Filters
 
 1. Open Project Administration
 2. Click Device42 Filters link on the bottom of the menu
-3. Select the custom field you want to configure
-4. If you wish load the filter preset clicking 'Load from template' link.![Filter template](/assets/images/948840615-39_save_filter.png)
-5. Change the filter configuration settings
-6. Press the save button to store the settings
-7. You will see success message on the top of the filter if the filter was saved
+3. Select the custom field you want to reset filter for
 
-_Note_: if you haven't selected any value in the general settings to display CIs inside the custom field, you will see an error message notifying you about that.
+   ![Reset Filter](/assets/images/4120086500-40_reset_filter.png)
 
-### Reset project filter
-
-1. Open Project Administration
-2. Click Device42 Filters link on the bottom of the menu
-3. Select the custom field you want to reset filter for![Reset Filter](/assets/images/4120086500-40_reset_filter.png)
 4. Press the 'Reset' button
 5. You will see success message on the top of the filter if the filter was reset
 
-### Filter templates
+### Create Filter Template
 
-Device42 has the possibility to manage the filter templates that could be used as the preset to start with filter management for the custom field. Filter templates functionality has the same possibility as the project filter except for the custom field selection. Instead of a selection of the custom field administrator able to create the new filter with the specified name, edit the existing filter or reset (delete) the named filter. Also, there is a possibility to manipulate with the default filter that would be used for the projects that do not contain own filter.
+Create filter templates to be used as the preset to start with filter management for the custom field. 
 
-1. Log in as a user with 'Jira Administrators' global permission.
-2. From the Jira administration console, click 'Add-ons' then select 'Device42 Connector' > 'Device42 Filter Templates'
-3. If you wish to create a new filter template from the 'Filter Templates' selection list select '\*\*Create New...' and type the new name in the appeared text box![Create New Filter Template](/assets/images/2731396555-41_filter_template.png)
-4. If you wish to edit the existing filter template select the needed filter template from the 'Filter Templates' selection list
-5. Edit the needed filter template and click 'Save' button or reset the filter template for deletion (the default filter will be cleared but not deleted).
+Default filter templates have the same options as the project filter templates, apart from the custom field selection option.
 
-### Load from template
+Instead of a selection of the custom field administrator able to create the new filter with the specified name, edit the existing filter or reset (delete) the named filter. 
+
+You can also manipulate the default filter that will automatically be applied to all projects without their own custom filter.
+
+1. Log in as a user with Jira administrators access.
+2. From the Jira administration console, click on the **Apps** tab and then select **Device42 Connector > Device42 Filter Templates**.
+3. Create a new filter template from the 'Filter Templates' selection list by selecting **Create New...** and entering a name for the new filter template.
+   
+   ![Create New Filter Template](/assets/images/2731396555-41_filter_template.png)
+   
+4. Edit the existing filter template by first selecting it from the list of **Filter Templates**.
+5. Click **Save** button to save the changes.
+6. Or click the **Reset** button undo the changes made to the default filter. Note that this does not delete the default filter
+
+### Load Filter Template
 
 Project administrator can use the filter template functionality in any project filter. The filter template will be loaded instantly and will replace all the data in the filter screen. After the loading of the template project administrator can edit the filter in the normal way. The filter itself will not be saved until the project administrator clicks the 'Save' button.
 
 1. Click the 'Load from template' link
 2. Select the needed filter template in the list of filter templates appeared in the popup
-3. Click the 'Apply' link![Load Filter Template](/assets/images/1325962955-42_load_filter_template.png)
+3. Click the 'Apply' link
+   
+   ![Load Filter Template](/assets/images/1325962955-42_load_filter_template.png)
+
+### Configure Project-Specific Filters
+
+1. Open Project Administration
+2. Click Device42 Filters link on the bottom of the menu
+3. Select the custom field you want to configure
+4. If you wish load the filter preset clicking 'Load from template' link.
+
+    ![Filter template](/assets/images/948840615-39_save_filter.png)
+
+5. Change the filter configuration settings
+6. Press the save button to store the settings
+7. You will see success message on the top of the filter if the filter was saved
+
+_Note_: if you haven't selected any value in the general settings to display CIs inside the custom field, you will see an error message.
 
 * * *
 
-## Using the Device42-Jira Plugin with Jira Issues
+## Using the Device42-jira App with Jira Issues
 
 ### View issue
 
@@ -282,7 +333,7 @@ If you add the Device42 custom field to the issue navigator you would be able to
 
 ![Custom Field Navigator](/assets/images/219037797-15_custom_field_view_navigator.png)
 
-### Create/Edit issue
+### Create or Edit an Issue
 
 On create/edit screens you can link Device42 CIs to the Jira issue. The field in the edit mode which looks like:
 
@@ -521,16 +572,4 @@ You can use Device42 Custom Fields inside Jira Service Management customer porta
 
 * * *
 
-## Downloading the Device42 - Atlassian Jira CMDB Connector
 
-The addon can be downloaded via the link [found on this page @ device42.com as follows:](https://www.device42.com/integrations/jira/)
-
-```
-https://www.device42.com/integrations/jira/
-```
-
-...or [click here](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter) to download @ Atlassian Marketplace (or copy and paste URL below):
-
-```
-https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter
-```
