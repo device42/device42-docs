@@ -210,119 +210,123 @@ Your custom field is now created. If you want to edit the context or other varia
 
 ## Custom Field Filters for Configuration Items
 
-Device42 Jira Connector allows intelligent configuration of the custom fields and can restrict the list of CIs available on the custom field edit screen. You can also add filters to the selection list for each configuration item. 
+The Device42-Jira app lets you define the exact Configuration Items (CIs) that are available for selection under the Device42 Custom Field dropdown menu. The Device42 Custom Field is added to Jira issues to link relevant CIs to individual issues. Note that Jira issues can only be created within a Jira project.
 
-    The Device42 Jira app provides the ability to limit the variety of Configuration Items (CIs) visible on the custom field editing interface. You can also add filters to the selection list for individual CIs.
+![Custom field CI options](/assets/images/jira-self-managed/create-issue_no_IP_option.png)
 
-It is also possible to configure filter templates that can be used to pre-set options for new filters. The filter templates section also allows one to edit the default filter that is applied to all projects by default, or after a filter reset for the project. Please note that any changes to the default filter will affect all projects without their own custom filter configuration.
+Also, you can apply filters to CIs. Each CI has several parameters. For example, the **Device** and **Subnet** parameters are two parameters of the **IP** configuration item. Add values to these parameters to limit the included records to only those matching the values. You can use Query Language to add multiple values and use conditionals (like AND and OR) to filter CI parameters.
 
-    You can create filter templates to quickly apply a set of filters. You can also edit the default filter applied all projects. Note that changing the default filter affects all projects without their own custom filter configuration.
+![Add custom field button dialog box](/assets/images/jira-self-managed/IP-config-item-parameters-subnet.png)
 
-![Config Filters](/assets/images/1115469314-37_filter_templates.png)
+Defining filters and having multiple filters for different CIs can become complex and inconvenient to recreate. This is solved through the use of templates. Users with administrator access can create, edit, and reset (delete) filter templates. Created filter templates are used to quickly apply a set of filters to new projects or add filters after they've been reset.
 
-Include points: 
-- Use filters to define the CIs are available for selection in the Device42 Custom Field. The Device42 Custom Field can be added to a Jira issues to link related CIs to individual issues. Jira issues are created within a project.
+There's a **default** filter template applied to all projects. You can make changes to the default filter. Changes made to it will apply to all projects without their own customized filters.
 
-- Each CI has several parameters. For example... 
+![Add custom field button dialog box](/assets/images/jira-self-managed/default-filter-template.png)
 
+### The Default Filter Template: General Settings
 
-### Default Device42 Filter Options
+:::info
+This section is about editing the **default** filter template. The interface for configuring the default filter and project-specific filters look the same.*(confirm?). See the [Project Filters](#project-filters) section for details on locating the filter options of a project.
+:::
 
-1. Navigate to the default Device42 filter settings  Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
+1. From the main **Administration** console, click on the **Manage apps** tab and then **Device42 Filter Templates** on the left panel. The **Filter templates** field will have the **default** template selected.  
+2. Under the **General settings** heading, select the configuration items you want to be available for selection within the Device42 Custom Field. In this example, the IPs is unselected meaning that it [won't be listed as an option](#custom-field-filters-for-configuration-items) in the Device42 Custom Field. Note that at least one option should be selected.
+3. Click on the **Save** button. 
 
-See the [Configure Project-Specific Filters](#configure-project-specific-filters) section for details on how to find the filter settings of a project. The interface for configuring the default filter and project-specific filters are the same.*(confirm?)
+![Default filter page top](/assets/images/jira-self-managed/default-filter-page-top.png)
+![Default filter general settings](/assets/images/jira-self-managed/default-filter-page-bottom_IP_unchecked.png)
 
-1. **General settings** options. Select the configuration items you want available for a selected custom field by default. At least one option should be selected. 
+### The Default Filter Template: CI Filters
+
+Individual CI types have parameters - with several being unique to the type - that you can add filters to. Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
+
+1. From the main **Administration** console, click on the **Manage apps** tab and then **Device42 Filter Templates** on the left panel.
+2. Click on a CI type from them the group of CIs listed. For example, **Operating Systems**.
+3. Enable specific parameters by clicking on the checkbox next to the parameter name.
+4. Type in the value that you want your list of CIs to contain. For example, only list operating systems that have **Linux** in the name.
    
-   ![General Settings](/assets/images/3475892906-38_general_section.png)
+    ![List of CIs and OS parameters](/assets/images/jira-self-managed/operating-systems-linux-steps.png)
 
-2. **Specific CI type filters** Individual CI types contains fields unique to its type to be used for filtering.
+You can create unique and highly-specific filters include the exact CIs that you want using logical conditionals. Device42 uses general Query Language syntax to define these conditionals. See the [Using Query Language to Filter CI Parameters](#using-query-language-to-filter-ci-parameters) section below.
 
-![Filtering](/assets/images/1385807415-024_CI_filter.png)
+5. Click on the **Save** button. When you scroll up you'll see a notification indicating whether the filter has been successfully saved. 
 
-Type in the value that you want your list of CIs to contain. You can create unique and highly-specific filters include the exact CIs that you want using logical conditionals. Device42 uses general Query Language syntax to define these conditionals. 
+    ![Saved notification](/assets/images/jira-self-managed/filter-saved.png)
 
-For the multiple parameters (like tags) filter is being applied for each parameter in the list. For the CI parameters (like part model) filter is being applied to ID, and any searchable parameter within the CI representing the parameter.
+6. Click on the **Reset** button to revert to the default filter template settings.
 
-### Using Query Language to Filter CIs
+    ![Reset notification](/assets/images/jira-self-managed/reset-confirmation.png)
+
+### Using Query Language to Filter CI Parameters
 
 Use the following Query Language rules, ranging from exact value matches to complex logical conditions, to filter configuration items. Note that the filter search is NOT case sensitive.
 
-* Filter the CI selection based on an **exact value**.
+* Filter the CI selection based on a **single value**. Example: `test`. Only the CIs with the value`test` would be displayed.
 
-    Example: `test`. Only the CIs with the specified parameter `test` would be displayed.
+* Use AND logic to filter CIs that **match all the values** separated by a comma `,` or ampersand `&`. Example: `hello, world`. CIs with the value `hello world` would be displayed, but CIs with only the word `hello` or only the word `world` will be skipped.
 
-* Use AND logic to filter CIs that **match all the values** separated by a comma `,` or ampersand `&`.
+* Use OR logic to include CIs that **match at least one** of the given values separated by a vertical bar `|`. Example: `hello | world`. The CIs that contain the word `hello` or the word `world` inside the specified parameter would be displayed. The OR is not exclusive, so the CIs with the parameter `Hello world` would be displayed, too.
 
-    Example: `hello, world`. CIs with the parameter `hello world` would be displayed, but CIs with only the word `hello` or only the word `world` will be skipped.
-
-* Use OR logic to include CIs that **match at least one** of the given values separated by a vertical bar `|`.
-  
-    Example: `hello | world`. The CIs that contain the word `hello` or the word `world` inside the specified parameter would be displayed. The OR is not exclusive, so the CIs with the parameter `Hello world` would be displayed, too.
-
-* You can change the sequence of operations using the parenthesis `()`. The CIs would be filtered according to order and logic of the operation.
-
-    Example: `(1 | 2), (3, (4 | 5))`. CIs will pass this filter if it meets all conditions: 
-    * it contains 1 or 2 inside the specified parameter AND 
-    * it contains 3 inside the parameter AND 
-    * it contains 4 OR 5 in the specified parameter.
-
-### Reset Filters
-
-1. Open Project Administration
-2. Click Device42 Filters link on the bottom of the menu
-3. Select the custom field you want to reset filter for
-
-   ![Reset Filter](/assets/images/4120086500-40_reset_filter.png)
-
-4. Press the 'Reset' button
-5. You will see success message on the top of the filter if the filter was reset
+* You can change the sequence of operations using the parenthesis `()`. The CIs would be filtered according to order and logic of the operation. Example: `(1 | 2), (3, (4 | 5))`. CIs will pass this filter if it meets all conditions: 
+  * it contains 1 or 2 inside the specified parameter AND 
+  * it contains 3 inside the parameter AND 
+  * it contains 4 OR 5 in the specified parameter.
 
 ### Create Filter Template
 
-Create filter templates to be used as the preset to start with filter management for the custom field. 
+Create filter templates to use as preset settings for the the Device42 Custom Field. Note that default filter templates and project filter templates are the same, apart from the custom field selection option.
 
-Default filter templates have the same options as the project filter templates, apart from the custom field selection option.
-
-Instead of a selection of the custom field administrator able to create the new filter with the specified name, edit the existing filter or reset (delete) the named filter. 
-
-You can also manipulate the default filter that will automatically be applied to all projects without their own custom filter.
-
-1. Log in as a user with Jira administrators access.
-2. From the Jira administration console, click on the **Apps** tab and then select **Device42 Connector > Device42 Filter Templates**.
-3. Create a new filter template from the 'Filter Templates' selection list by selecting **Create New...** and entering a name for the new filter template.
+1. Log in with Jira administrator access.
+2. From the Jira administration console, click on the **Manage apps** tab and from the panel to left select **Device42 Filter Templates**.
+3. Click on the **Filter templates** dropdown menu and select **Create New...**. Enter a name for the new filter template.
    
-   ![Create New Filter Template](/assets/images/2731396555-41_filter_template.png)
+   ![Create New Filter Template](/assets/images/jira-self-managed/create-new-filter-name.png)
+
+4. Add your desired filters. You can make changes to the list of CIs under the **General settings** option and to [CI types](#the-default-filter-template-ci-filters).
+5. Click **Save** button to save the changes. The name of your new filter will now be visible in the **Filter templates** field.
+
+   ![Saved template fil](/assets/images/jira-self-managed/special-template-saved.png)
+
+6. You can delete the filter by clicking on the **Reset** button at the bottom of the interface.
+
+   ![Reset button](/assets/images/jira-self-managed/reset-button.png)
+
+### Project Filters
+
+1. Click on the **Projects** tab on the administration interface. Select a project or click on the **Create project** button to start a new one.
    
-4. Edit the existing filter template by first selecting it from the list of **Filter Templates**.
-5. Click **Save** button to save the changes.
-6. Or click the **Reset** button undo the changes made to the default filter. Note that this does not delete the default filter
+   ![Choose or create a project](/assets/images/jira-self-managed/select-or-create-project.png)
 
-### Load Filter Template
+2. Scroll down and click on the **Device42 Filters** option.
 
-Project administrator can use the filter template functionality in any project filter. The filter template will be loaded instantly and will replace all the data in the filter screen. After the loading of the template project administrator can edit the filter in the normal way. The filter itself will not be saved until the project administrator clicks the 'Save' button.
+   ![Locate D42 filters option](/assets/images/jira-self-managed/device42-filters-in-project.png)
 
-1. Click the 'Load from template' link
-2. Select the needed filter template in the list of filter templates appeared in the popup
-3. Click the 'Apply' link
+3. Select the custom field that you want apply filters for. For example, the **Device42 Custom Field** that we added in the [Add a Device42 Custom Field](#add-a-device42-custom-field) section.
+
+   ![Choose custom field](/assets/images/jira-self-managed/choose-custom-field.png)
+
+4. Select the CI types you want to have as an option under your chosen field as done in the [Default Filter: General Settings](#the-default-filter-template-general-settings) section. You can also add filters to CI parameters. See the [Default Filter: CI Filters](#the-default-filter-template-ci-filters) section above for more information.
+
+5. Click on the **Save** button to store the settings. To undo your changes click on the **Reset** button. A notification message at the top of the interface will be displayed confirming your changes.
+
+    ![Save or reset](/assets/images/jira-self-managed/save-or-reset.png)
+
+**Note:** if you haven't selected any CIs under general settings you will see an error message.
+
+### Load a Filter Template
+
+Project administrators can load filter templates to any project. The filter template will be loaded instantly and replace all the existing filters on the screen. After the loading of the template project administrator can edit the filter in the normal way. The filter itself will not be saved until the project administrator clicks the 'Save' button.
+
+1. Navigate to the **Project settings** page.
+2. Click on the **Load from template** button under the **Custom Field** dropdown menu.
+3. Select the required filter template from the list. 
+4. Click on the **Apply** button to load the filter template to your project.
    
-   ![Load Filter Template](/assets/images/1325962955-42_load_filter_template.png)
+    ![Save or reset](/assets/images/jira-self-managed/load-template-filter.png)
 
-### Configure Project-Specific Filters
-
-1. Open Project Administration
-2. Click Device42 Filters link on the bottom of the menu
-3. Select the custom field you want to configure
-4. If you wish load the filter preset clicking 'Load from template' link.
-
-    ![Filter template](/assets/images/948840615-39_save_filter.png)
-
-5. Change the filter configuration settings
-6. Press the save button to store the settings
-7. You will see success message on the top of the filter if the filter was saved
-
-_Note_: if you haven't selected any value in the general settings to display CIs inside the custom field, you will see an error message.
-
+5. Click on the **Save** button at the bottom of the interface.
+    
 * * *
 
 ## Using the Device42-jira App with Jira Issues
