@@ -208,7 +208,7 @@ Your custom field is now created. If you want to edit the context or other varia
 
 * * *
 
-## Configuration Item Filters
+## Custom Field Filters for Configuration Items
 
 Device42 Jira Connector allows intelligent configuration of the custom fields and can restrict the list of CIs available on the custom field edit screen. You can also add filters to the selection list for each configuration item. 
 
@@ -220,13 +220,19 @@ It is also possible to configure filter templates that can be used to pre-set op
 
 ![Config Filters](/assets/images/1115469314-37_filter_templates.png)
 
+Include points: 
+- Use filters to define the CIs are available for selection in the Device42 Custom Field. The Device42 Custom Field can be added to a Jira issues to link related CIs to individual issues. Jira issues are created within a project.
+
+- Each CI has several parameters. For example... 
+
+
 ### Default Device42 Filter Options
 
-1. Navigate to the default Device42 filter settings or to the filter settings of a contained Jira project. Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
+1. Navigate to the default Device42 filter settings  Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
 
 See the [Configure Project-Specific Filters](#configure-project-specific-filters) section for details on how to find the filter settings of a project. The interface for configuring the default filter and project-specific filters are the same.*(confirm?)
 
-1. **General settings** options. Select the configuration items you want available for a selected custom field in the selected project. At least one option should be selected. All the parameters can be enabled or disabled for the custom fields provided by the app.
+1. **General settings** options. Select the configuration items you want available for a selected custom field by default. At least one option should be selected. 
    
    ![General Settings](/assets/images/3475892906-38_general_section.png)
 
