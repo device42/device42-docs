@@ -170,35 +170,35 @@ If you wish to clear up the app data, select one of the two delete options in Ji
 
 ## Add a Device42 Custom Field 
 
-The Device42-Jira connector app provides a new **Device42 Custom Field** type in Jira to work with Device42 configuration items.
+The Device42-Jira connector app provides a new **Device42 custom field** type in Jira to work with Device42 configuration items.
 
-Create a new custom field Device42 Custom Field as follows:
+Create a new Device42 custom field as follows:
 
 1. Log in as a user with Jira administrator access.
-2. From the Jira administration console, click on the **Issues** tab and select **Custom fields** from the left panel. Or use the `g` + `g` keyboard shortcut and search for **custom fields**.
+2. From the Jira administration console, click on the **Issues** tab and select **Custom fields** from the left panel, or press the G key twice and search for **custom fields**.
     
     ![Custom fields menu](/assets/images/jira-self-managed/issues-custom-fields-menu.png)
 
-3. Click the "Add Custom Field" button, the following dialog box will be displayed:
+3. Click the **Add custom field** button to open the following dialog box:
 
     ![Add custom field button dialog box](/assets/images/jira-self-managed/add-custom-field-button.png)
 
-    By default, the **Standard** choice for custom fields are displayed on the left navigation bar. Choose the **All** or **Advanced** option to access the list that includes the Device42 field type.
+    By default, the left navigation bar displays the **Standard** list of custom fields. Choose **All** or **Advanced** to access the list that includes the Device42 custom field type.
    
-4. From the list, look for the **Device42 Custom Field** option, or type **device42** in the top right search bar and select the custom field:
+4. Select the **Device42 Custom Field** option or type **device42** in the top-right search bar and select the Device42 custom field type:
 
     ![Add custom field button dialog box](/assets/images/jira-self-managed/d42-custom-field-option.png)
 
-5. Click on the **Next** button.
-6. Give the custom field a **Name** and optional **Description**, then click on the **Next** button.
+5. Click **Next**.
+6. Give the custom field a **Name** and optional **Description**, and then click **Next**.
 
     ![Add custom field button dialog box](/assets/images/jira-self-managed/d42-field-form.png)
 
-7. Configure the custom field context by choosing the Jira issue type you want to add the custom field to and whether to add it to all or selected projects.
+7. Configure the custom field context by choosing the Jira issue type you want to add the custom field to and whether to add it to all issues or issues in selected projects only.
    
     ![Add custom field button dialog box](/assets/images/jira-self-managed/custom-field-context.png)
 
-8. Associate the field to screens by clicking on the check boxes. Click Update.
+8. Associate the field to screens by checking the boxes. Click **Update**.
 
     ![Add custom field button dialog box](/assets/images/jira-self-managed/associate-fields-to-screens.png)
 
