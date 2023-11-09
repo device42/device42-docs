@@ -339,16 +339,17 @@ On view screens a Device42 Custom Field looks so:
 
 You can see the list of CIs that are linked to the issue through custom field. For each of CI you can find the brief information and a link navigating you to the Device42 application CI representation. If some of the CIs were not found inside the Device42 system they will be marked as the deleted.
 
-
-1. Click on **Issues** on the navigation bar and select **Current search**
-
-    ![View issue](/assets/images/jira-self-managed/issues-menu-current-search.png)
-
-2. 
-
 If you add the Device42 custom field to the issue navigator you would be able to see the brief information about CIs linked to the ticket with the ability to follow the link to the Device42 application. If you hover over the link you will see the detailed information on the device.
 
 ![Custom Field Navigator](/assets/images/219037797-15_custom_field_view_navigator.png)
+
+1. Click on **Issues** on the navigation bar and select **Current search**
+
+    ![issues nav bar](/assets/images/jira-self-managed/issues-menu-current-search.png)
+
+2. Select the custom fields to add to the issue navigator table.
+
+     ![View issue](/assets/images/jira-self-managed/add-columns.png)
 
 ### Create or Edit an Issue
 
