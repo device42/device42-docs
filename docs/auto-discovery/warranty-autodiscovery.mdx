@@ -145,6 +145,10 @@ The latest version of the standalone script can be [downloaded from GitHub](http
 
 ## Cisco Support API Info
 
+:::info
+The required Cisco API, SN2INFO, is not available by default and access needs to be requested from Cisco.
+:::
+
 Cisco discovery specifically uses Cisco’s Support API labeled `Serial Number to Information`. The endpoint used is: 
 `https://apix.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
 
@@ -156,7 +160,10 @@ Click this link for more information: [![](https://static.production.devnetcloud
 
 The App Registration form in the Cisco API console is where a majority of the configuration is needed to get Cisco warranty discovery working.
 
-The API should be enabled and will be displayed in the My Apps & Keys section.
+The "Application Type" should be a "Service".
+
+The API should be enabled and will be displayed in the "My Apps & Keys" section.
+
 
 ## Meraki Details
 
