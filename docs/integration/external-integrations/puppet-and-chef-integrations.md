@@ -11,7 +11,7 @@ Device42’s integration connector for Puppet allows Device42 software to utiliz
 
 ### Puppet ENC (External Node Classifier) Integration
 
-External Node Classifiers can accept the name of a node as input, and return the class hierarchy for that node as output. Device42 can be utilized as a Puppet ENC, allowing easy management of Puppet classes right from Device42. _\[As opposed to managing node definitions in the main site manifest (site.pp) on your Puppet master\]._
+External Node Classifiers can accept the name of a node as input, and return the class hierarchy for that node as output. Device42 can be utilized as a Puppet ENC, allowing easy management of Puppet classes right from Device42. As opposed to managing node definitions in the main site manifest (site.pp) on your Puppet master.
 
 An ENC Script pipes data between your Puppet Master and an ENC source -- Device42, in this case.
 
@@ -27,9 +27,11 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
 
 **Setting up the Puppet ENC Integration Details:**
 
-1. Navigate to **Tools -> Custom -> Devices** Fields in Device42, and click “Add Device Custom Field”. Choose "Type" JSON, and for demonstration purposes, we’ll call the field “node\_classes”.![Add Device42 Custom Field](/assets/images/Puppet_ENC_add_custom_field.png)
+1. Navigate to **Tools -> Custom -> Devices** Fields in Device42, and click “Add Device Custom Field”. Choose "Type" JSON, and for demonstration purposes, we’ll call the field `node_classes`.
 
-1a. Populate the node\_classes field (with a placeholder) in Device42 on your target Puppet Node's CI \[puppet.device42.pvt, in our case\] by setting one of your device’s node\_classes field to the following:
+![Add Device42 Custom Field](/assets/images/Puppet_ENC_add_custom_field.png)
+
+1a. Populate the `node_classes` field (with a placeholder) in Device42 on your target Puppet Node's CI (puppet.device42.pvt, in our case) by setting one of your device’s `node_classes` field to the following:
 
 ```
 {
@@ -45,17 +47,18 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
 ![Device42 Custom Field JSON](/assets/images/Puppet_ENC_custom_field_JSON.png)
 
 1. Grab the script, and set it up:
-    1. Clone the d42-puppet-enc repository onto your Puppet master
-    2. Set it as executable permissions (chmod +x {filename}).
-    3. If you don't have all the requirements in requirements.txt installed, install with:
+    1. Clone the `d42-puppet-enc` repository onto your Puppet master
+    2. Set it as executable permissions (`chmod +x {filename}`).
+    3. If you don't have all the requirements in requirements.txt installed, install with: `pip install -r requirements.txt`
     4. Configure the settings.yaml file. It requires:
         
         - The IP address of your D42 appliance.
         - The Username + Password for your D42 appliance for authentication.
-        - The name of the custom field we created earlier \[node\_classes\].
+        - The name of the custom field we created earlier `node_classes`.
         
-        ![Puppet ENC settings.yaml](/assets/images/Puppet_ENC_settings.yaml.png)
-2. Designate your Puppet master as the ENC authority by editing your puppet.conf \[/etc/puppetlabs/puppet/puppet.conf\]. Add these 2 configuration lines, specifying the location of d42\_enc\_fetcher.py:
+![Puppet ENC settings.yaml](/assets/images/Puppet_ENC_settings.yaml.png)
+
+2. Designate your Puppet master as the ENC authority by editing your puppet.conf (`/etc/puppetlabs/puppet/puppet.conf`). Add these two configuration lines, specifying the location of `d42_enc_fetcher.py`:
 
 ```
 [master]
@@ -89,8 +92,9 @@ Integrating Puppet or Chef with Device42, also ensures that Device42 remains ali
 
 ### Device42 — Puppet and Chef integrations are easily accomplished using Device42 provided scripts.
 
-**Puppet:** The script to sync Puppet nodes information to Device42 can be found here: https://github.com/device42/puppet\_to\_device42\_sync\_py
+**Puppet:** The script to sync Puppet nodes information to Device42 can be found here: [github.com/device42/puppet_to_device42_sync_py](https://github.com/device42/puppet_to_device42_sync_py)
 
-**Puppet ENC:** The script to use Device42 as a Puppet External Node Classifier: https://github.com/device42/d42-puppet-enc
+**Puppet ENC:** The script to use Device42 as a Puppet External Node Classifier: [github.com/device42/d42-puppet-enc](https://github.com/device42/d42-puppet-enc)
 
-**Chef:** The script to sync Chef nodes information to Device42 can be found here: https://github.com/device42/chef\_to\_device42\_sync\_py
+**Chef:** The script to sync Chef nodes information to Device42 can be found here: [github.com/device42/chef_to_device42_sync_py](https://github.com/device42/chef_to_device42_sync_py)
+
