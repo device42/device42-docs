@@ -168,9 +168,9 @@ If you wish to clear up the app data, select one of the two delete options in Ji
 
 * * *
 
-## Add a Device42 Custom Field 
+## Device42 Custom Fields
 
-The Device42-Jira connector app provides a new **Device42 custom field** type in Jira to work with Device42 configuration items.
+Device42 custom fields can be used to link the Configuration Items (CIs) to Jira issues. You can have multiple independent Device42 custom fields per issue. You can link multiple CIs of the same type (for example, devices only) to a issue using one custom field. You can apply a project filter globally to the list of the possible CIs you want available within a specific project. Also, you can apply the filter to the each of the Configuration Items category. See the [Custom Field Filters](#custom-field-filters-for-configuration-items) section for details.
 
 Create a new Device42 custom field as follows:
 
@@ -329,15 +329,22 @@ Project administrators can load filter templates to any project. The filter temp
     
 * * *
 
-## Using the Device42-jira App with Jira Issues
+## Working With Jira Issues
 
 ### View issue
 
 On view screens a Device42 Custom Field looks so:
 
-![Deviced42 Custom Fields View](/assets/images/2976328085-049_custom_field_filled_view.png)
+![View issue](/assets/images/jira-self-managed/view-task.png)
 
 You can see the list of CIs that are linked to the issue through custom field. For each of CI you can find the brief information and a link navigating you to the Device42 application CI representation. If some of the CIs were not found inside the Device42 system they will be marked as the deleted.
+
+
+1. Click on **Issues** on the navigation bar and select **Current search**
+
+    ![View issue](/assets/images/jira-self-managed/issues-menu-current-search.png)
+
+2. 
 
 If you add the Device42 custom field to the issue navigator you would be able to see the brief information about CIs linked to the ticket with the ability to follow the link to the Device42 application. If you hover over the link you will see the detailed information on the device.
 
@@ -345,21 +352,31 @@ If you add the Device42 custom field to the issue navigator you would be able to
 
 ### Create or Edit an Issue
 
-On create/edit screens you can link Device42 CIs to the Jira issue. The field in the edit mode which looks like:
+You can link CIs to a Jira issue when you create or edit an issue.
 
-![Edit Mode](/assets/images/3399178301-16_custom_field_edit.png)
+1. From your project dashboard, click on the issues icon on the far left pane to go to the **Open issues** interface.
+2. Click on the **+ Create issue** button at the bottom left corner to create a new issue.
+3. To edit an issue, select it from the list and click on the **Edit** button below name of the open issue.
 
-In the edit mode, you can select the preferred type of the CI and link the issue to one or more of the CIs according to the type selected. You can search for the specific data using the context search mechanism. If you want to delete the CI, simply click the cross icon on the right of each of the selected CIs. The list of CI types and the list of CIs inside each of the type are shown according to the Project Filter applied to the project and custom field. You will not be able to assign the CIs outside the filtered scope. If the filter was created after the issue was edited the data will be shown inside the view mode, however, if you edit the issue the CIs and CI types outside the filter scope will be removed.
+    ![Create or edit an issue](/assets/images/jira-self-managed/project-create-or-edit-issue.png)
+
+When editing an issue, you'll see the custom field names listed on the left of the modal window. For example, **D42 Custom Field** and **D42 Custom Field Two**.
+
+![Edit issue window](/assets/images/jira-self-managed/edit-issue-window.png)
+
+You can search for a specific CI by typing part of its name into the search bar. If you want to delete the CI, click on the small cross icon next its name.  
+
+**Note:** The list of available CIs and CI types depends on the filters that were applied to the project and custom fields. You will not be able to assign the CIs that have been filtered out. If the filter was created after the issue was edited the data will be shown inside the view mode. However, if you edit the issue the available CIs and CI types will conform to the new filter.See the [Custom Field Filters for CIs](#custom-field-filters-for-configuration-items) section for more information.
+
+If you don't see your custom field, you can add it by clicking on the **Configure Fields** button on the top right corner. Select **Custom Fields** form the dropdown menu under **Show** and select the checkboxes of the custom fields you'd like. Click on the **Apply changes** button to save.
+
+![Add custom fields to issue](/assets/images/jira-self-managed/edit-issue-configure-fields.png)
 
 > For the large scope of CIs plugin uses ajax to request the data for the CI selection list, so the CIs are loaded by portions. It is possible to search the custom field by the term. The search scope is the display name of the CI. In the future, we plan to extend this functionality and use the smart search of data.
 
 * * *
 
-### Device42 Custom Fields
-
-Device42 Custom Field can be used to link the Configuration Item of the Device42 system to the Jira issue. You can have multiple independent Device42 custom fields inside one issue. You can link a set of Configuration Items to a particular issue using one custom field, but they should be of the same category (i.e. Devices only). You can apply a project filter for the list of the possible Configuration Items you want to see inside the specific project. Also, you can apply the filter to the each of the Configuration Items category (see Project Filters Configuration for details).
-
-### Search issues by Device42 Custom Fields
+### Search Issues by Device42 Custom Fields
 
 Device42 custom fields allow full-text search on the CI IDs and parameters. Almost all parameters are available for search, however, users cannot specify exact parameters to search. For example, if you search for the word '_Device_' you will find the issues with a custom field containing devices and custom fields with other CI types that contain the word 'device' in their name.
 
@@ -382,7 +399,7 @@ Device42 custom fields allow full-text search on the CI IDs and parameters. Almo
 
 * * *
 
-## Jira Workflow automation
+## Jira Workflow Automation
 
 The Jira - Device42 connector plugin allows for the automation of business processes related to Device42 Entities. Current release allows to acquire the IP address in the selected Subnet automatically and configure the permission to show/follow the transition based on the content of the Device42 custom fields.
 
