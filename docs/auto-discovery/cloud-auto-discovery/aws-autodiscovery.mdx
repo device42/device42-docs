@@ -53,6 +53,7 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 
 - You can also select options for adding vendor metadata, choose how to  handle instances not found in subsequent discovery vendor, select device name format options, add tags for discovered devices, etc.
 - Check _Kubernetes Discovery_ to discover Kubernetes clusters hosted on your cloud platform.
+- Check _Extended Summary Discovery_ to discover the full breadth of resources within your AWS Environment. These resources will display in the Cloud Resources section with a limited dataset. 
 - Add object categories, tags, and a customer for discovered devices, etc.
 - Scroll down the page and click the _Advanced Features (Show)_ tab to select the different types of resources you want the job to discover (Route53, S3, EBS, Databases, etc.).
 
@@ -236,7 +237,7 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 
 Device42 adds the new AWS Role to the roles list; it will also appear in the Available AWS Roles list when you create or edit an Amazon AWS cloud autodiscovery job.
 
-**Note:** The following steps are required if you are looking to leverage the AWS switch (Assume) Roll on the API calls to scan other AWS accounts
+**Note:** The following steps are required if you are looking to leverage the AWS switch (Assume) Role on the API calls to scan other AWS accounts
 
 1. From the Main Account:
     
@@ -249,7 +250,36 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
 2. From the Sub (or separate)-account
     
     Have a user that is assigned the assumerole from Step 2 "Grant Access to the Role" here in the AWS IAM case [IAM Tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html")
-        
+
+### Setting up Dynamic Account Discovery Roles
+
+In 18.11.03, you can now discover all sub accounts and add them to the discovery by using Dynamic Account Discovery. There are a few prerequisite steps that we'll cover first and then get into how to appropriately set up the roles.
+1. Create a role with no accounts associated with it
+2. Use the role in the discovery with the key/pair associated with it.
+
+Set Up
+
+Option 1:
+- Keypair user must be deployed into the org’s root account
+
+-- This user policy must have at a minimum the following rights:
+
+--- sts:assumerole
+
+--- organizations:listaccounts
+
+- A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired
+
+- The minimum d42 discovery policy must be granted to the role
+
+- For role config within D42, do not add any accounts to the role
+
+-- At this time, we cannot use dynamic account discovery to discover roles which use external ID values
+
+Option 2:
+- If you don't want to follow the steps above, you can either:
+-- make the assumable role available in the main account (dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of ID’s), 
+-- or also attach the d42 minimum discovery policy to the user directly (requires selection of the “discover main account” box on the job).
 
 * * *
 
