@@ -469,14 +469,6 @@ const config = {
             from: ['/external-integrations/jenkins-integration/'],
           },
           {
-            to: '/integration/external-integrations/device42-jira-integration/',
-            from: ['/external-integrations/device42-jira-integration/'],
-          },
-          {
-            to: '/integration/external-integrations/device42-jira-cloud-integration/',
-            from: ['/external-integrations/device42-jira-cloud-integration/'],
-          },
-          {
             to: '/integration/external-integrations/microsoft-laps-integration/',
             from: ['/external-integrations/microsoft-laps-integration/'],
           },
