@@ -1,6 +1,6 @@
 ---
 title: "Jira (self-managed) Integration"
-sidebar_position: 13
+sidebar_position: 3
 ---
 
 :::info
