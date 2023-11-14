@@ -474,7 +474,7 @@ const config = {
           },
           {
             to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
-            from: ['/integration/external-integrations/device42-jira-assets-integration/'], 
+            from: ['/external-integrations/device42-jira-assets-integration/'], 
           },
           {
             to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
