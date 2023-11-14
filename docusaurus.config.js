@@ -469,6 +469,18 @@ const config = {
             from: ['/external-integrations/jenkins-integration/'],
           },
           {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-integration/',
+            from: ['/external-integrations/device42-jira-integration/'],
+          },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
+            from: ['/integration/external-integrations/device42-jira-assets-integration/'], 
+          },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
+            from: ['/external-integrations/device42-jira-cloud-integration/'],
+          },
+          {
             to: '/integration/external-integrations/microsoft-laps-integration/',
             from: ['/external-integrations/microsoft-laps-integration/'],
           },
@@ -1063,18 +1075,6 @@ const config = {
           {
             to: '/auto-discovery/enrichai-data/',
             from: ['/enrichai-data/'],
-          },
-          {
-            to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
-            from: ['/integration/external-integrations/device42-jira-assets-integration/'], 
-          },
-          {
-            to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
-            from: ['/integration/external-integrations/device42-jira-cloud-integration/'], 
-          },
-          {
-            to: '/integration/external-integrations/jira-integrations/device42-jira-integration/',
-            from: ['/integration/external-integrations/device42-jira-integration/'], 
           },
         ],
       },
