@@ -1072,6 +1072,18 @@ const config = {
             to: '/auto-discovery/enrichai-data/',
             from: ['/enrichai-data/'],
           },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
+            from: ['/integration/external-integrations/device42-jira-assets-integration/'], 
+          },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
+            from: ['/integration/external-integrations/device42-jira-cloud-integration/'], 
+          },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-integration/',
+            from: ['/integration/external-integrations/device42-jira-integration/'], 
+          },
         ],
       },
     ],
