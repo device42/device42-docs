@@ -260,28 +260,20 @@ In 18.11.03, you can now discover all sub accounts and add them to the discovery
 Set Up
 
 Option 1:
+
 - Keypair user must be deployed into the org’s root account
-
--- This user policy must have at a minimum the following rights:
-
---- sts:assumerole
-
---- organizations:listaccounts
-
+- This user policy must have at a minimum the following rights:
+    - `sts:assumerole`
+    - `organizations:listaccounts`
 - A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired
-
 - The minimum d42 discovery policy must be granted to the role
-
 - For role config within D42, do not add any accounts to the role
-
--- At this time, we cannot use dynamic account discovery to discover roles which use external ID values
+- At this time, we cannot use dynamic account discovery to discover roles which use external ID values
 
 Option 2:
 - If you don't want to follow the steps above, you can either:
--- make the assumable role available in the main account (dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of ID’s), 
--- or also attach the d42 minimum discovery policy to the user directly (requires selection of the “discover main account” box on the job).
-
-* * *
+    - make the assumable role available in the main account (dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of ID’s), 
+    - or also attach the d42 minimum discovery policy to the user directly (requires selection of the “discover main account” box on the job).
 
 ## Amazon API Autodiscovery
 
