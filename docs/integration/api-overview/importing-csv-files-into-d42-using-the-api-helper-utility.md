@@ -21,12 +21,12 @@ This sample script can be easily modified to read a comma-delimited csv file of 
     ![URL method](/assets/images/importing-csv-files/api-docs-method.png)
 
 - From the documentation of the API call, identity the mandatory fields you must include and the optional fields you wish to include.
-- 
+
     ![Required fields](/assets/images/importing-csv-files/api-docs-required-fields.png)
 
 ## Create the CSV file
 
-![Table with data for API use](/assets/images/importing-csv-files/table-data-for-api.png)
+![Table with data for API use](/assets/images/importing-csv-files/csv-file-headings.png)
 
 Create comma separated CSV file with following:
 
