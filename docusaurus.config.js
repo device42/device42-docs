@@ -469,11 +469,15 @@ const config = {
             from: ['/external-integrations/jenkins-integration/'],
           },
           {
-            to: '/integration/external-integrations/device42-jira-integration/',
+            to: '/integration/external-integrations/jira-integrations/device42-jira-integration/',
             from: ['/external-integrations/device42-jira-integration/'],
           },
           {
-            to: '/integration/external-integrations/device42-jira-cloud-integration/',
+            to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
+            from: ['/external-integrations/device42-jira-assets-integration/'], 
+          },
+          {
+            to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
             from: ['/external-integrations/device42-jira-cloud-integration/'],
           },
           {

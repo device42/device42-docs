@@ -110,7 +110,7 @@ The `D42_Jira_Cloud_Sync_Devices` query is the default. Additional predefined qu
 
 ### More Information
 
-See the [Jira Cloud Integration](integration/external-integrations/device42-jira-cloud-integration.mdx) page for more information.
+See the [Jira Cloud Integration](integration/external-integrations/jira-integrations/device42-jira-cloud-integration.mdx) page for more information.
 
 ### Jira Service Management Integration
 
@@ -135,7 +135,7 @@ Navigate to the **Settings** tab and complete the two required fields.
     * Copy the token.
     * Return to the app and paste the token into the verification token field.
 
-See [Jira Service Management Assets Integration](integration/external-integrations/device42-jira-assets-integration.mdx/#create-a-jira-token) for more detailed guidance on creating an external integration on Device42.
+See [Jira Service Management Assets Integration](integration/external-integrations/jira-integrations/device42-jira-assets-integration.mdx/#create-a-jira-token) for more detailed guidance on creating an external integration on Device42.
 
 ![](/assets/images/jsm-solution-guide/image62.png)
 
