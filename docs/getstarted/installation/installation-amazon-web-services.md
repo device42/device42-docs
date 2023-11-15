@@ -4,25 +4,64 @@ sidebar_position: 9
 ---
 ## Device42 on AWS FAQ
 
-### Costs/Licensing
+### Supported Regions
+
+Device42 AWS deployments are supported in the following regions:
+
+| Americas and Middle East    | Europe         | Asia Pacific    |
+| ----------------------------|-----------------|-----------------|
+| N. Virginia (US East)       | Frankfurt (Germany) | Hong Kong (Hong Kong) |
+| Ohio (US East)              | Zurich (Switzerland) | Tokyo (Japan) |
+| N. California (US West)     | Stockholm (Sweden) | Seoul (South Korea) |
+| Oregon (US West)            | Madrid (Spain) | Mumbai (India) |
+| Sao Paulo (Brazil)           | Dublin (Ireland) | Hyderabad (India) |
+| Tel Aviv (Israel)           | London (United Kingdom) | Singapore (Singapore) |
+| UAE (United Arab Emirates)  | Paris (France) | Sydney (Australia) |
+|                             |                 | Jakarta (Indonesia) |
+|                             |                 | Melbourne (Australia) |
+
+
+### Costs and Licensing
 
 Device42 on AWS operates using the _**Bring Your Own License (BYOL)**_ model, meaning there is no additional charge from Device42 to run on AWS. Aside from the yearly fee for your Device42 license, the only costs you will incur via AWS are the costs they bill you for the use of your instances; usually an hourly fee, depending on the instance size you select; larger instances usually cost more. See the next section for EC2 instance sizing information for Device42.
 
-Device42 License Pricing information is available on the [Device42 Pricing Page @ https://www.device42.com/pricing/](https://www.device42.com/pricing/).
+Device42 License Pricing information is available on the [Device42 Pricing Page](https://www.device42.com/pricing/) of our website.
 
-![Choose EC2 Instance Size for Device42](/assets/images/EC2_instance_sizing.png)
+The Device42 AWS offerings each come with a pre-installed, limited license.  To utilize the full capabilities of Device42 it is recommended that more capable license be obtained from a Device42 Sales representative or business partner.
+
+Additional information on managing licenses is available on the [Upload a New License](administration/licensing.md/#upload-a-new-license) section of the [Device42 Licensing](administration/licensing.md) document.
 
 ### EC2 Instance Sizing for Device42
+
+![Choose EC2 Instance Size for Device42](/assets/images/EC2_instance_sizing.png)
 
 When running Device42 on AWS, it is recommended you size your Device42 Main Appliance (MA) to run on a t3.xlarge EC2 instance; this is the default. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. Only the `t3.xlarge` EC2 instance size is currently permitted.
 
 The configuration will ONLY allow you to "Launch" successfully using one of the above listed sizes.
+
+### AWS Service Quotas
+
+Customers must regularly view and manage the quotas for AWS services using AWS Service Quotas dashboard. Refer to our [Sizing Recommendations](getstarted/installation/sizing-recommendations.md) documentation for more details.
+
+### Instance Metadata Service Version (IMDS)
+
+The Device42 AWS offering does not impose restrictions on which version of the Instance Metadata Service can be used. The user has the choice to utilize either IMDSv1 or the more recent IMDSv2.
+
+### Secret Management and Data Storage
+
+Please note that The Device42 AWS offering does not require the storage of any secrets in the AWS Secrets Manager.
+
+All customer data resides on the instance itself. To enhance security, customer passwords and secrets are encrypted using AES-256 encryption. For more detailed information on how passwords and secrets are stored, please see the [Password Security and Permissions](administration/passwords/password-security-and-permissions.md) document.
 
 * * *
 
 ## Deploying D42 from the AWS Marketplace
 
 ### Configure instance & communication settings
+
+:::info
+The Device42 AWS offering involves only a single component and does not require AWS data encryption to operate properly.  
+:::
 
 1. Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) 1-Click feature. Follow the on-screen instructions, and when you arrive at the **Launch this software** screen, select a key-pair to use for SSH console access to the Device42 appliance and be sure to allow incoming access from your external IP address:
     - **a)** You may generate a key via the **Create a key pair in EC2** link. See the "Generating a new AWS Keypair" section on this page for more help with this step. 
@@ -101,6 +140,12 @@ All maintenance operations are performed through the Device42 appliance manager.
 * * *
 
 ## Administration of Device42 on AWS
+
+### Main Appliance Ports
+
+The following diagram depicts the Device42 main appliance along with its associated ports within an AWS Virtual Private Cloud:
+
+![Main appliance ports](/assets/images/d42-architecture-diagram-for-aws.png)
 
 ### Software and security updates & patches
 
