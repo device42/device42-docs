@@ -26,6 +26,7 @@ Device42 is constantly expanding its list of hypervisor and container platforms 
 - IBM z/OS
 - KVM/libvirt
 - LXC
+- Nutanix Acropolis
 - Nutanix Prism (v2.0/v1)
 - Nutanix Prism Central (v3)
 - OpenVZ
@@ -35,9 +36,11 @@ Device42 is constantly expanding its list of hypervisor and container platforms 
 - Windows
 - WinRM
 
-_Note that both Windows & \*nix (Linux/UNIX) can be found in this drop-down as well; those options are used to discover the Windows / Linux servers and/or guest instance/VMs themselves, as opposed to their hosts._
+**Note that both Windows and \*nix (Linux/UNIX) can be found in this drop-down as well; use those options to discover Windows servers, Linux servers, guest instances, or VMs themselves, as opposed to their hosts.**
 
-**Note**: If you are using a hypervisor, a container platform, or an orchestration tool you would like to see supported - please let us know! Open a support ticket or email [support@device42.com](mailto:support@device42.com).
+:::tip
+If you are using a hypervisor, a container platform, or an orchestration tool you would like to see supported - please let us know! Open a support ticket or email [support@device42.com](mailto:support@device42.com).
+:::
 
 ### Notes on Docker / Docker API Autodiscovery
 
