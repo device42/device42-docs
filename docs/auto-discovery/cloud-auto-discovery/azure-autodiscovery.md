@@ -20,14 +20,22 @@ Once your application has been created, navigate back to the top level directory
 Select Certificates & Secrets, then New client secret. Give your secret an optional description, an Expiration date, then select Add. Make note of the string in the **Value** column, this will be used as the **Client Secret ID** for Device42 discovery and it will not be visible again after signing out of the Azure portal.
 
 ### Role Preparation
+Device42 allows you to discover by Tenant or Subscription level. Using the Tenant discovery is best suited for customers with large numbers of Azure subcriptions, whereas if you only have a few Subcriptions, you may find that preferable. 
 
-Next, we will create a role with limited permissions that will be applied to this application. This will allow Device42 to use the application for discovery purposes while adhering to the principle of least privilege. Navigate to the Subscriptions service in the portal and select the Subscription you would like to allow this application to discover. Make note of the **Subscription ID** as it will be used later for Device42 discovery.
+#### Subscription Level
 
-Navigate to Access Control (IAM) >  Roles > Add > Add Custom Role. Give the custom role a name, an optional description, then select either Start from scratch or Start from JSON.
+We will create a role with limited permissions that will be applied to this application. If you haven't set up your roles yet, [this documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition) can help. This will allow Device42 to use the application for discovery purposes while adhering to the principle of least privilege. Navigate to the Subscriptions service in the portal and select the Subscription you would like to allow this application to discover. Make note of the **Subscription ID** as it will be used later for Device42 discovery.
+
+Navigate to Subscriptions > Select your Subscription > Access Control (IAM) >  Roles > Add > Add Custom Role. Give the custom role a name, an optional description, then select either Start from scratch or Start from JSON.
 
 1. If using the Start from scratch option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select Add permissions, search for and select the desired permission, check the relevant box and choose Add. Repeat this for any desired permissions.
 2. If using the Start from JSON option, copy and paste the below JSON data, pulling in the necessary permissions from the list in Discovery section, and save it as a .json file. Upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
 
+#### Tenant Level
+
+If using the Tenant ID for discovery, you'll create a Single Role at the Tenant level. Navigate to Management Groups > Select your Azure Tenant Group > Access Control (IAM) > Roles > Add > Add Custom Role. Give the custom role a name, an description, then select Start from Scrath or Start from JSON.
+1. If using the Start from scratch option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select Add permissions, search for and select the desired permission, check the relevant box and choose Add. Repeat this for any desired permissions.
+2. If using the Start from JSON option, copy and paste the below JSON data, pulling in the necessary permissions from the list in Discovery section, and save it as a .json file. Upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
 ```
 {
 	"properties": {
@@ -210,6 +218,7 @@ In the Device42 Appliance Manager, ensure that the Username field has a value of
 - Choose the vendor \[note that all vendors are user-defined - Device42 does not ship with a list of vendors\].
 - Choose a VRF Group. If one is selected, all discovered IPs will be placed in subnets in that VRF Group. This is useful if you have duplicate IPs in your internal network.
 - Choose a remote collector to run the job (ensure the chosen remote collector can reach the target network).
+- As of 18.11, Azure Discovery will default to "Discover all subscriptions" to do Tenant Level Discovery. When unchecked, you can discovery by Subscription
 - Select the Device Name Format for discovered cloud instances.
 
 ![](/assets/images/WEB-330_device-name-format-for-Azure-AD.png)
@@ -218,6 +227,7 @@ In the Device42 Appliance Manager, ensure that the Username field has a value of
 
 ![](/assets/images/K8s-Discovery-Option_AWSAzureGoogle.png)
 
+- Check "Extended Summary Discovery" to discover all resources within your Azure environments. Summary Discovery will bring in all resources, with abbreviated detail.
 - Check Add tags as custom fields to add discovered tags to Device42 custom fields.
 - Check Strip domain name to have Device42 strip the discovered domain suffix (everything after the first period) from the device instance name.
 - Choose a category for discovered devices (note that categories are user-defined).
