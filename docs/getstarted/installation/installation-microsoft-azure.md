@@ -42,12 +42,14 @@ You will set a password for the default superuser **admin** account in the nex
 ## Device42 Configuration
 
 - Get your Device42 Azure VM’s instance ID by running the following command in Azure Shell:
+  
+    ```
+    az vm show --name <VM Name> --resource-group <resource group name>
+    ```
 
-![](/assets/images/WEB-316_Az-Install-Az-shell-1.png)
+ - You'll need the value from **vmId** for these purposes:
 
-- You'll need the value from **vmId** for these purposes:
-
-- - Use it as the password for the default _device42_ user for SSH login.
+    - Use it as the password for the default _device42_ user for SSH login.
     - Use it as the password for the default _admin_ user to log in to the D42 Main Appliance.
     - Use it as the password for the default _d42admin_ user to log in to the Appliance Manage.
 
