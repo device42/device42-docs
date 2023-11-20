@@ -228,6 +228,9 @@ In the Device42 Appliance Manager, ensure that the Username field has a value of
 ![](/assets/images/K8s-Discovery-Option_AWSAzureGoogle.png)
 
 - Check "Extended Summary Discovery" to discover all resources within your Azure environments. Summary Discovery will bring in all resources, with abbreviated detail.
+
+![](/assets/images/summary-discovery.png)
+
 - Check Add tags as custom fields to add discovered tags to Device42 custom fields.
 - Check Strip domain name to have Device42 strip the discovered domain suffix (everything after the first period) from the device instance name.
 - Choose a category for discovered devices (note that categories are user-defined).
