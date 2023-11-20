@@ -5,7 +5,6 @@
   </a>
 </p>
 
-
 <p align="center">
   <i>Discovery, Asset Management & Dependency Mapping for Data Center and Cloud</i><br/> 
   <a href="https://device42.com">https://device42.com</a>
