@@ -793,6 +793,10 @@ const config = {
             from: ['/devices/device-list-view-2/'],
           },
           {
+            to: '/infrastructure-management/devices/device-list-view-2/',
+            from: ['/devices/device-list-view/'],
+          },
+          {
             to: '/infrastructure-management/devices/what-if-scenarios/',
             from: ['/devices/what-if-scenarios/'],
           },
