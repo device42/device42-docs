@@ -59,7 +59,8 @@ If using the Tenant ID for discovery, you'll create a Single Role at the Tenant 
 "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read", "Microsoft.Network/privateEndpoints/read",
 "Microsoft.OperationalInsights/workspaces/read",
 "Microsoft.SqlVirtualMachine/sqlVirtualMachines/read", "Microsoft.Web/sites/read", 
-"Microsoft.Web/sites/functions/read", "Microsoft.ContainerService/managedClusters/read", 
+"Microsoft.Web/sites/functions/read", "Microsoft.ContainerService/managedClusters/read",
+"Microsoft.Resources/subscriptions/resourceGroups/read"
 "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
 "Microsoft.Network/loadBalancers/read", "Microsoft.Network/publicIPAddresses/read", "Microsoft.Network/virtualNetworks/read",
 "Microsoft.Network/virtualNetworks/read",
@@ -192,6 +193,50 @@ Microsoft.Network/privateEndpoints/read</td>
 <tr class="row-16 even">
     <td class="column-1">Workspaces</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.OperationalInsights/workspaces/read</td>
 </tr>
+	<tr class="row-17 odd">
+    <td class="column-1">Extended Summary Discovery</td><td class="column-2">Resources --&gt; All Cloud Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.Resources/subscriptions/resourceGroups/read</td>
+</tr>
+	<tr class="row-18 even">
+    <td class="column-1">Extended Summary Discovery Supplementary Permissions</td><td class="column-2">Resources --&gt; All Cloud Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">microsoft.aad/domainservices/read
+microsoft.alertsmanagement/smartdetectoralertrules/read
+microsoft.compute/disks/read
+microsoft.compute/sshpublickeys/read
+microsoft.compute/virtualmachines/extensions/read
+microsoft.compute/virtualmachinescalesets/read
+microsoft.containerservice/managedclusters/read
+microsoft.dbforpostgresql/flexibleservers/read
+microsoft.documentdb/databaseaccounts/read
+microsoft.insights/actiongroups/read
+microsoft.insights/components/read
+microsoft.insights/datacollectionrules/read
+microsoft.managedidentity/userassignedidentities/read
+microsoft.migrate/migrateprojects/read
+microsoft.network/applicationgateways/read
+microsoft.network/connections/read
+microsoft.network/dnsresolvers/read
+microsoft.network/loadbalancers/read
+microsoft.network/localnetworkgateways/read
+microsoft.network/networkinterfaces/read
+microsoft.network/networksecuritygroups/read
+microsoft.network/networkwatchers/read
+microsoft.network/networkwatchers/flowlogs/read
+microsoft.network/privatednszones/read
+microsoft.network/privatednszones/virtualnetworklinks/read
+microsoft.network/privateendpoints/read
+microsoft.network/publicipaddresses/read
+microsoft.network/routetables/read
+microsoft.network/virtualnetworkgateways/read
+microsoft.network/virtualnetworks/read
+microsoft.operationalinsights/querypacks/read
+microsoft.operationalinsights/workspaces/read
+microsoft.operationsmanagement/solutions/read
+microsoft.recoveryservices/vaults/read
+microsoft.servicebus/namespaces/read
+microsoft.storage/storageaccounts/read
+microsoft.web/serverfarms/read
+microsoft.web/sites/read
+Microsoft.Resources/subscriptions/resourceGroups/read/read</td>
+	</tr>
 </tbody>
 </table>
 
