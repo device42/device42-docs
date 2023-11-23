@@ -2,15 +2,22 @@
 title: "Amazon Web Services - Installation"
 sidebar_position: 9
 ---
-## Device42 on AWS FAQ
 
-### Costs/Licensing
+### Overview
 
-Device42 on AWS operates using the _**Bring Your Own License (BYOL)**_ model, meaning there is no additional charge from Device42 to run on AWS. Aside from the yearly fee for your Device42 license, the only costs you will incur via AWS are the costs they bill you for the use of your instances; usually an hourly fee, depending on the instance size you select; larger instances usually cost more. See the next section for EC2 instance sizing information for Device42.
+Device42 is available on AWS, either as a manual install or through the AWS marketplace. The Device42 AWS offering involves only a single component - an EC2 instance which houses the Device42 main appliance and the Device42 appliance manager.
 
-Device42 License Pricing information is available on the [Device42 Pricing Page @ https://www.device42.com/pricing/](https://www.device42.com/pricing/).
+![AWS architecture](/assets/images/aws-architecture.png)
 
-![Choose EC2 Instance Size for Device42](/assets/images/EC2_instance_sizing.png)
+
+### Costs and Licensing
+
+The Device42 AWS offerings each come with a pre-installed, limited license.  To utilize the full capabilities of Device42 we recommend that you obtain a more capable license from a Device42 Sales representative or business partner.
+Refer to [our licensing page](administration/licensing.md#upload-a-new-license) for additional information on managing licenses.
+
+Device42 on AWS operates using the _**Bring Your Own License (BYOL)**_ model, meaning there is no additional charge from Device42 to run on AWS. Aside from the yearly fee for your Device42 license, the only costs you will incur via AWS are the costs they bill you for the use of your instances; usually an hourly fee, depending on the instance size you select; larger instances usually cost more. 
+
+Device42 License Pricing information is available on the [Device42 Pricing Page](https://www.device42.com/pricing/).
 
 ### EC2 Instance Sizing for Device42
 
@@ -18,7 +25,27 @@ When running Device42 on AWS, it is recommended you size your Device42 Main Appl
 
 The configuration will ONLY allow you to "Launch" successfully using one of the above listed sizes.
 
-* * *
+Customers must regularly view and manage the quotas for AWS services using AWS Service Quotas dashboard.
+
+Refer to [our sizing recommendations](getstarted/installation/sizing-recommendations.md) page for sizing recommendations.
+
+### Region availability
+
+Device42 AWS deployments are supported in the following regions.
+
+| **Americas**              | **EMEA**           | **Asia**                 |
+|---------------------------|--------------------|--------------------------|
+| US East (N. Virginia)     | Europe (Frankfurt) | Asia Pacific (Hong Kong) |
+| US East (Ohio)            | Europe (Zurich)    | Asia Pacific (Tokyo)     |
+| US West (N. California)   | Europe (Stockholm) | Asia Pacific (Seoul)     |
+| US West (Oregon)          | Europe (Spain)     | Asia Pacific (Mumbai)    |
+| Canada (Central)          | Europe (Ireland)   | Asia Pacific (Hyderabad) |
+| South America (Sao Paulo) | Europe (London)    | Asia Pacific (Singapore) |
+|                           | Europe (Paris)     | Asia Pacific (Sydney)    |
+|                           | Israel (Tel Aviv)  | Asia Pacific (Jakarta)   |
+|                           | Middle East (UAE)  | Asia Pacific (Melbourne) |
+
+
 
 ## Deploying D42 from the AWS Marketplace
 
@@ -76,9 +103,7 @@ For 1-click installations from the AWS Marketplace, users may log on to applianc
 
 Note: if you installed on AWS manually (using a downloaded image), reference the Appliance Manager section below \[different credentials\].
 
-* * *
-
-## Deploying a downloaded image to an AWS instance \[manual installation\]
+## Deploying a downloaded image to an AWS instance (manual installation)
 
 ### Pre-requisites - before you begin
 
@@ -97,8 +122,6 @@ For additional visibility, Device42 recommends users enable AWS CloudTrail as a 
 ### Appliance Manager Access - Manual AWS Installs
 
 All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager. For manual AWS (image-based) installations, you can log on to appliance manager using the default Device42 username/password \[d42admin/default\]
-
-* * *
 
 ## Administration of Device42 on AWS
 
@@ -206,3 +229,13 @@ The following is a sample IAM policy _(with minimum appropriate permissions)_ th
     ]
 }
 ```
+
+### Security, privacy, and other considerations
+
+* The Device42 AWS offering does not restrict the Instance Metadata Service Version.
+* The Device42 AWS offering does not require AWS data encryption to operate properly.  
+* Customer data resides on the instance itself.  Customer passwords and secrets are encrypted with AES-256 encryption.
+Refer to [this link](administration/passwords/password-security-and-permissions.md) for additional information on how passwords and secrets are stored. 
+* The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.
+
+
