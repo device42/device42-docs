@@ -137,6 +137,11 @@ For discovery to return detailed info about your database instance, you will req
 
 <table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>DBA_SEGMENTS</li><li>DBA_OBJECTS</li></ul></td><td width="288"><ul><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
 
+To get information about Pluggable Databases (PDBs) within a Container Database (CDB) in Oracle for non-DBA users, two key permission configurations are required:
+
+- SELECT permission on the V_$CONTAINERS view.
+- Set `container_data=all container=current` for context configuration.
+
 ### Setting up your Oracle discovery job
 
 1) To begin discovering your Oracle databases, create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the **Collect database server information** checkbox.
