@@ -1,19 +1,34 @@
 ---
-title: "Bulk QR Printing"
+title: "Bulk QR Code Printing"
 sidebar_position: 3
 ---
 
-Bulk QR printing can be done from the device or asset list view.  
-Search/filter for your device/asset, select , and choose "Generate QR codes for selected items" from the Action Menu and click Go.
+You can bulk print QR codes from the Devices or Assets list views.
 
-Then choose the QR profile.
-
-A single page will appear that will print the codes according to the profile settings. It will help if "cut at the end" is selected in printer preferences.
-
-Please don't do lot of devices/assets at once. We have noticed that performance suffers if too many devices are selected. Do it in reasonable bunches, e.g. upt o 100 at a time.
+- Search or filter for the devices or assets you would like to print QR codes for.
+- Select the items.
+- From the Action Menu, choose "Generate QR codes for selected items".
+- Click **Go**.
 
 ![wpid945-media_1343015518006.png](/assets/images/wpid945-media_1343015518006.png)
 
+- In the "Choose QR profile for selected items" field, select the QR code profile you prefer.
+
 ![wpid944-media_1343015494169.png](/assets/images/wpid944-media_1343015494169.png)
 
+The next page will print the codes according to the profile settings you chose.
+
 ![wpid943-media_1343015459705.png](/assets/images/wpid943-media_1343015459705.png)
+
+Tips:
+
+- Select "Cut at the end" in printer preferences.
+- Bulk print QR codes in batches of up to 100 at a time for better performance.
+
+
+
+
+
+
+
+
