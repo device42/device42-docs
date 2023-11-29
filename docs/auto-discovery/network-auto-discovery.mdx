@@ -106,6 +106,8 @@ Switches with older IOS releases (versions that don't support "match prefix wild
 
 You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. 
 
+Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking on the **magnifying glass icon**.
+
 <ThemedImage
   alt="Add SNMP credentials in order"
   sources={{
@@ -114,8 +116,7 @@ You can enter preferred community string credentials when you create an SNMP dis
   }}
 />
 
-- Click _Add another community string_ and use the magnifying glass icon to select the secret for the community string.
-- Click _Move Up_ or _Move Down_ to order the credentials.
+Reorder the credentials by clicking on the **up** and **down** arrow buttons to right of the screen.
 
 <ThemedImage
   alt="Move SNMP credentials"
@@ -124,6 +125,11 @@ You can enter preferred community string credentials when you create an SNMP dis
     dark: useBaseUrl('/assets/images/snmp-credentials-move-dark.png'),
   }}
 />
+<br/><br/>
+
+:::note
+For SNMP v3 we support the following options for Privacy Protocol only:  **DES, 3DES, AES, and AES128**.
+:::
 
 ## Network Device Options
 
