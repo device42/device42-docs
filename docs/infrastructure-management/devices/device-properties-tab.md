@@ -3,6 +3,9 @@ title: "Device - Properties Tab"
 sidebar_position: 11
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 The device properties tab holds basic properties such as horsepower, memory, OS, MAC, switch port mappings, IP info and rack details.
 
 With the exception of HDD and rack details, most other fields will be populated automatically if autodiscovery is working correctly.
@@ -17,9 +20,19 @@ This section holds values for total CPUs, cores/cpu, cpu speed, total RAM and ba
 
 ### Operating System for device
 
-![Operating System for device](/assets/images/wpid5506-Operating_System_for_device.png)
+<ThemedImage
+  alt="Device Operating System fields"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/device-os-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/device-os-dark.png'),
+  }}
+/>
 
-The OS, OS version and OS version # cover the basic Operating system details for the device. These can be entered by the autodiscovery client or scripts. The OS license key, OS support vendor and support expiry can be manually entered. Count in licensing is checked by default. You can uncheck if this doesn't need to count towards OS licensing for that OS. Dont change via API: same as above. Check this if you don't want properties to be changed via autodiscovery.
+The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system details for the device . If EnrichAI is active, these fields may be automatically populated by the autodiscovery client, provided the data are available. The vendor support details, like **End of Life** and **End of Support** fields, may also be populated. If EnrichAI is disabled, you can enter the data mentioned manually or by executing scripts. Note that the **OS License Key** field can be manually entered. 
+
+The **Count In Licensing** option is checked by default and can be unchecked if it doesn't count towards the OS licensing for that OS. Check the **Don't change via API** option if you don't want the property values to be changed with autodiscovery.
+
+Note that if the Operating System fields are blank, you may need to rerun autodiscovery.
 
 ### Rack Info for device
 
