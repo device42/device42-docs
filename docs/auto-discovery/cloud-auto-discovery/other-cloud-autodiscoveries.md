@@ -53,7 +53,7 @@ From here, you can create your API Key that Device42 needs to gain access.
 
 Optionally, you can also:
 
-- Choose the vendor. Please note that all vendors are user-defined. Device42 does not ship with a list of vendors.
+- Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group. This is useful if you have duplicate IPs in your internal network.
 - Check the “Remove unfound instances from Device42″ box. If you check this box, then each time this autodiscovery job is run, any devices that were previously created for this account but were not found by the autodiscovery job will be deleted. By checking this box, you can ensure that Device42 will remain in sync with Linode. If you leave it unchecked, then you may end up with Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
 
@@ -83,7 +83,7 @@ Next, you should "Save and Continue". Then you can click 'Run' to run the job im
 
 **Optionally, you can also:**
 
-- Choose the vendor. Please note that all vendors are user-defined. Device42 does not ship with a list of vendors.
+- Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group. This is useful if you have duplicate IPs in your internal network.
 - Check the “Remove unfound instances from Device42″ box. If you check this box, then each time this autodiscovery job is run, any devices that were previously created for this account but were not found by the autodiscovery job will be deleted. By checking this box, you can ensure that Device42 will remain in sync with OpenStack. If you leave it unchecked, then you may end up with Device42 Cloud Instances (cloud devices) that no longer exist in OpenStack.
 
@@ -112,7 +112,7 @@ Enter the following information:
 
 You can also:
 
-- Choose the vendor. Please note that all vendors are user-defined. Device42 does not ship with a list of vendors.
+- Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group.
 - Select a Remote Collector.
 
