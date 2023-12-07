@@ -6,19 +6,32 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The device properties tab holds basic properties such as horsepower, memory, OS, MAC, switch port mappings, IP info and rack details.
+The device properties tab has sections for CPU Memory HardDisk, Device Operating Systems, Connectivity, IP Address details, and device aliases.
 
-With the exception of HDD and rack details, most other fields will be populated automatically if autodiscovery is working correctly.
+Most fields will be populated automatically if autodiscovery is working correctly.
 
-![](/assets/images/wpid5504-media_1347919479539.png)
+<ThemedImage
+  alt="Device Properties tab"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/device-properties-tab-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/device-properties-tab-dark.png'),
+  }}
+/>
 
-### CPU Memory and HDD for device
+### CPU Memory HardDisk
 
-![CPU Memory and HDD for device](/assets/images/wpid5501-CPU_Memory_and_HDD_for_device.png)
+<ThemedImage
+  alt="CPU Memory and HDD for device"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/cpu-memory-harddisk-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/cpu-memory-harddisk-dark.png'),
+  }}
+/>
+<br/><br/>
 
-This section holds values for total CPUs, cores/cpu, cpu speed, total RAM and basic HDD info. If you don't want CPU and memory info to be changed via autodiscovery, you can check "Dont change via api" as highlighted above.
+This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM** and other HDD info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
 
-### Operating System for device
+### Operating System for Device
 
 <ThemedImage
   alt="Device Operating System fields"
@@ -27,8 +40,9 @@ This section holds values for total CPUs, cores/cpu, cpu speed, total RAM and ba
     dark: useBaseUrl('/assets/images/device-properties/device-os-dark.png'),
   }}
 />
+<br/><br/>
 
-The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system details for the device . If EnrichAI is active, these fields may be automatically populated by the autodiscovery client, provided the data are available. The vendor support details, like **End of Life** and **End of Support** fields, may also be populated. If EnrichAI is disabled, you can enter the data mentioned manually or by executing scripts. Note that the **OS License Key** field can be manually entered. 
+The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system details for the device. If EnrichAI is active, and the data is available, these fields may be automatically populated by the autodiscovery client. The vendor support details, like **End of Life** and **End of Support** fields, may also be populated. If EnrichAI is disabled, you can enter the data mentioned manually or by executing scripts. Note that the **OS License Key** field can be manually entered. 
 
 The **Count In Licensing** option is checked by default and can be unchecked if it doesn't count towards the OS licensing for that OS. Check the **Don't change via API** option if you don't want the property values to be changed with autodiscovery.
 
@@ -36,28 +50,51 @@ Note that if the Operating System fields are blank, you may need to rerun autodi
 
 ### Rack Info for device
 
-![Rack Info for device](/assets/images/wpid5507-Rack_Info_for_device.png)
+Rack information is no longer shown under the device **Properties** tab. To locate the list of physical devices, navigate to **Resources > All Assets**. You can view and edit rack information by clicking on an asset and scrolling to the **Rack Info** section. 
 
-Rack information will only display for physical devices. When on the edit page, "show rack" will open the selected rack in a new tab for you to see where to place the device.
+### Connectivity 
 
-You can add devices in rack from rack view and excel import as well.
+<ThemedImage
+  alt="Device Operating System fields"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/connectivity-ports-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/connectivity-ports-dark.png'),
+  }}
+/> 
+<br/><br/>
 
-### MAC address and switch port mapping
-
-![MAC address and switch port mapping](/assets/images/wpid5503-MAC_address_and_switch_port_mapping.png)
-
-This section displays the MAC addresses and switch port mapping for each mac address. Device autodiscovery finds the IP and MAC address. Network snmp autodiscovery finds the mac address and switch port connectivity and those are automatically correlated to give you switch port mapping.
+For physical devices you can add an HWAddress (MAC Address) by clicking on the **+ Add New Connectivity** button and the **+ Add Port** button from the pop-up window. The HWAddress can be edited by clicking on the blue pen icon or deleted by clicking on the red cross icon located under the **Action** column. 
 
 ### IP Addresses
 
-![IP Addresses](/assets/images/wpid5502-IP_Addresses.png)
+<ThemedImage
+  alt="Add IP Addresses"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/add-ip-address-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/add-ip-address-dark.png'),
+  }}
+/>
+<br/><br/>
 
-You can choose a subnet and click on Assign IP button to automatically assign next available IP in that subnet.
+Add an IP address to the device by clicking on the **+ Add another IP/Device relationship** button (1) followed by the add icon to the right of the created field (2). Select an IP address from the list or click on the **+ Add IP Address** button on the top right of the pop-up window. 
 
-It prompts you for confirmation and automatically assigns either the first available IP or creates next IP in the range and assigns to device. It refreshes the page after that ( **so make sure you don't have any other un-saved changes on the page** ).
+Fill in the **IP Address** (3) and **Subnet** (4) information. You can automatically assign the next available IP in that subnet by leaving the **Subnet** field empty. 
 
-If IP is already assigned, the same button will, upon confirmation, clear the device and MAC relations for that IP and make it available.
+Add additional device associations to the IP address if applicable by clicking on the **+ Add another Device association** button.
 
-Once added you can correlate the device mac to IP using the lookup button next to MAC address as shown below and pick the label and IP type.
+To assign the IP address to the device and MAC address, click on the **Assign/Clear IP** button (6). If IP is already assigned the same button will, upon confirmation, clear the device and MAC relations for that IP and make it available.
 
-![](/assets/images/wpid5505-media_1347928201694.png)
+### Device Alias and Non-Authoritative Alias
+
+<ThemedImage
+  alt="Add device aliases and nicknames"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/device-aliases-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/device-aliases-dark.png'),
+  }}
+/>
+<br/><br/>
+
+You can add multiple alternative names to the device by clicking on the **+ Add another Device Alias** button. You have the option to check the **Is Preferred** checkbox for one of the aliases. 
+
+Click on **+ Add another Device Non-Authoritative Alias** to associate nicknames to the device.
