@@ -3,6 +3,9 @@ title: "Cisco UCS Cluster / ACI Fabric Autodiscovery"
 sidebar_position: 9
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Setting up a Cisco UCS Cluster or ACI Fabric Discovery
 
 ### About Cisco UCS Cluster / ACI Fabric jobs
@@ -13,19 +16,41 @@ UCS jobs will discover chassis, blades, and service profile information, while A
 
 Should you be looking to discover a load balancer (which shares this discovery job page), see the [F5/Load balancer discovery docs](load-balancer-f5-autodiscovery.md).
 
-![Cisco UCS Cluster/ACI Fabric Discovery Job](/assets/images/ucs_aci_load-bal-discovery_menu-2019.png)
+Create a job by navigating to **Discovery > UCS/ACI/Load Balancers** to add and manage UCS Manager(s).
 
-You may create a job via the main menu at _Discovery > UCS/ACI/Load Balancers_ to add/manage UCS Manager(s).
+<ThemedImage
+  alt="The UCS/ACI/Load Balancers menu"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/UCS-ACI-Load-Balancers-menu-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/UCS-ACI-Load-Balancers-menu-dark.png'),
+  }}
+/>
+<br/><br/>
 
-Add your Cisco UCS (aka Unified Computing System) Manager or ACI (Application Centric Infrastructure) Fabric discovery job by entering one or more IPs or FQDNs, and credentials with permissions on the device (i.e., a valid username/password).
+Add your Cisco UCS Manager or ACI Fabric discovery job by entering one or more IPs or FQDNs, and scroll down to add your credentials with permissions on the device (i.e. a valid username and password).
 
-You can click on run now to run immediately or schedule it to run at certain times:
+<ThemedImage
+  alt="Add Cisco UCS job"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/ucs-select-platform-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/ucs-select-platform-dark.png'),
+  }}
+/>
+<br/><br/>
+
+You can click on run now to run immediately or schedule it to run at certain times.
 
 ### **Scheduling UCS Cluster or ACI Fabric Discovery Jobs**
 
-![schedule UCS ACI discovery job ](/assets/images/autodiscovery_schedule.png)
+Schedule your autodiscovery job to run on a recurring basis; you can choose to run it on certain days and at specific times.
 
-Scheduling your autodiscovery job to run on a recurring basis; you can choose to run it on certain weekdays and/or at specific times each day.
+<ThemedImage
+  alt="schedule an UCS ACI discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-dark.png'),
+  }}
+/>
 
 ## UCS Cluster / ACI Fabric Discovery Option Definitions
 
@@ -37,23 +62,51 @@ Scheduling your autodiscovery job to run on a recurring basis; you can choose to
 
 ### Device and Chassis Names
 
-If an existing device is not found for the chassis or the blade(based on the serial #), Device42 will add a new device. The Name is derived from the DN and the serial # of the device, whether it is a chassis or a blade.  
-![UCS ACI hostname to use](/assets/images/UCS_ACI-hostname-to-use.png)
+If an existing device is not found for the chassis or the blade (based on the serial #), Device42 will add a new device. The Name is derived from the DN and the serial # of the device, whether it is a chassis or a blade.  
+
+Check the **Give precedence to hostname** checkbox to give precedence to the Discovered name for the device in the system.
+
+<ThemedImage
+  alt="UCS ACI hostname to use"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/hostname-to-use-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/hostname-to-use-dark.png'),
+  }}
+/>
 
 ### Service Profiles
 
-Navigate to _DataCenter > UCS Service Profiles_ to see the discovered service profiles. Service profiles show the Name, the DN, the UCSManager, and the Device association. You can search from the service profile list page and the search box on the dashboard.
+Navigate to **Infrastructure > UCS Service Profiles** to see the discovered service profiles. Service profiles show the Name, the DN, the UCSManager, and the Device association. You can search from the service profile list page and the search box on the dashboard.
 
-![](/assets/images/DataCenter_UCS-Service-Profiles-List-1.png)
+<ThemedImage
+  alt="Service profile list"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/service-profile-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/service-profile-dark.png'),
+  }}
+/>
 
 ## Run Now or Schedule
 
-![](/assets/images/image-700x115.png)
+Newly created jobs will not run on the first day they are created to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, click on the **Run Now** button next to the job after creation.
 
-Select **Run Now** from the list page to run the job right away.
-
-![](/assets/images/AD_Blade-Discovery-Run-Schedule.png)
+<ThemedImage
+  alt="Run now button"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/run-now-button-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/run-now-button-dark.png'),
+  }}
+/>
+<br/><br/>
 
 Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
 
-A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
+<ThemedImage
+  alt="Add another Auto Discovery Schedule button"
+  sources={{
+    light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/add-autodiscovery-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/add-autodiscovery-schedule-dark.png'),
+  }}
+/>
+
+
