@@ -1,0 +1,66 @@
+---
+title: "Mac Agent Service Launcher"
+sidebar_position: 4.7
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Here are the steps to install and launch the Mac Agent service launcher.
+
+1. Download the signed Mac Agent from the [Device42 autodiscovery page](https://www.device42.com/autodiscovery-staging/). 
+2. Log into the Device42 Main Appliance and navigate to **Discovery > Agent Based Scans**.
+<ThemedImage
+  alt="Get the encrypted config file"
+  sources={{
+    light: useBaseUrl('/assets/images/mac-agent-sl/encrypted-config-file-light.png'),
+    dark: useBaseUrl('/assets/images/mac-agent-sl/encrypted-config-file-dark.png'),
+  }}
+/>
+3. Download the `.plist` file from the website
+4. Modify the `.plist` file as required based on your setup and required options
+5. You need the config file and executable for `/opt/device42/` 
+6. You need the `.plist` file for `/Library/LaunchDaemons/`
+
+Now run:
+
+```
+sudo launchctl load /Library/LaunchDaemons/<plist file name>
+```
+
+## Making changes to the `.plist` file
+
+If you make changes to the `.plist` file, you'll need to unload and then load it again by running:
+
+```
+sudo launchctl unload /Library/LaunchDaemons/<plist file name>
+sudo launchctl load /Library/LaunchDaemons/<plist file name>
+```
+
+To make sure that it is correctly loaded, run:
+
+```
+sudo launchctl list | grep device42
+```
+
+## Installing via MDM
+
+If you need to deploy in bulk to many machines, you can use MDM. 
+
+Package the Launch Agent using Composer and deploy it via the JSS, Casper Remote or ARD.
+
+Make sure to include this as post flight script to set some permissions and load the agent. Right click on "Scripts", click on "Shell Script" and "post flight".
+
+```
+#!/bin/bash
+chown root "/Library/LaunchDaemons/NAMEOF.plist"
+chmod 644 "/Library/LaunchDaemons/NAMEOF.plist"
+launchctl load "/Library/LaunchDaemons/NAMEOF.plist"
+```
+
+## Notes
+
+* By default, logs are stored under `/var/log`, or as otherwise configured under the `.plist` file.A
+* The `agent_local.log` file is under the working directory. By default this is `/opt/device42`.
+
+
