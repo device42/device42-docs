@@ -37,7 +37,7 @@ Whether remote collectors can’t be deployed or policy simply doesn’t allow i
 
 ## Blade systems Discovery
 
-HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.md)
+HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.mdx)
 
 ## Cloud Platform Discovery
 
