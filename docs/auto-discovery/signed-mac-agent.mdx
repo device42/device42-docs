@@ -20,7 +20,7 @@ To install the signed mac agent, do the following.
   }}
 />
 
-This will be an encrypted URL, and a public key with some other data needed for discovery. It uses symmetric AES-256 bit encryption.
+This will be an encrypted URL, and a public key with some other data needed for discovery. It uses AES-256 bit encryption.
 
 The agent can be run as: `(sudo) <executable name> --config-file=<path>/d42_mac_signed_config`.
 
@@ -37,4 +37,13 @@ Enterprise customers should be able to do this via JAMF or other MDM solutions.
 - The `-config-file` switch only works for this executable, and won’t work for any agent executable downloaded from the MA.
 - All other switches will work as is (that is, as they work for agents otherwise, such as overriding the host).
 - This will not auto-update (because that would break the signing), and they will have to be updated manually, or via MDM solutions.
+
+## Troubleshooting
+
+If the file doesn’t run, you need to clear the quarantine attribute by running:
+
+```
+xattr -d com.apple.quarantine  <executable name> 
+```
+
 
