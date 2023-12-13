@@ -11,13 +11,15 @@ The rules for when a particular type of object should be considered and the rule
 
 Device42 includes several system-defined disabled Auto Clean rules (related to ADM data) as suggested examples you can use to base your own rules on. You can also enable these example rules to keep your ADM data cleaner.
 
-Select _Tools > Auto Clean Rules_ and then click _Add Auto Clean Rule_ on the rules list page.
+Select **Tools > Auto Clean Rules** and then click **Add Auto Clean Rule** on the rules list page.
 
 ![](/assets/images/AutoClean-menu-item.png)
 
 ## Auto Clean Supported CIs
 
-Auto Clean rules can target a wide variety of CIs _(Configuration Items)_ in Device42, including everything from Assets to users to VLANs, and everything in between. The following images list the objects supported as Auto Clean rule targets. ![](/assets/images/AutoClean-object-type-drop-down.png)
+Auto Clean rules can target a wide variety of CIs _(Configuration Items)_ in Device42, including everything from Assets to users to VLANs, and everything in between. The following images list the objects supported as Auto Clean rule targets. 
+
+![](/assets/images/AutoClean-object-type-drop-down.png)
 
 The available object types are:
 
@@ -39,7 +41,9 @@ The available object types are:
 - Scheduled Task
 - Service Communication
 - Service Instance
+- Software Component
 - Software In Use
+- Subnet
 - VLAN
 
 ## Creating Auto Clean Rules
@@ -78,6 +82,8 @@ The available Auto Clean Rule Action options vary depending on which _Object ty
 - **Send email to**: send notification when the rule is triggered. 
 - **Webhook AutoClean Endpoints**: add or delete webhooks to send when the rule is triggered.
 
-**Note:** The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
+:::info 
+The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
+:::
 
 ![](/assets/images/AutoClean-device-webhook-section.png)

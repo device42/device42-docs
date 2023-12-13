@@ -1,0 +1,59 @@
+---
+title: "Windows Service Agent"
+sidebar_position: 8.5
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+The Device42 Windows Service Wrapper is an executable, available for i386 32-bit and 64-bit architectures.
+
+It can be installed as a service, and it calls the Device42 Windows agent that you can download from your Device42 main appliance. 
+
+By default, it looks for the agent named `d42winagent.exe` under `c:\opt\device42` on the end machine and calls it on service start, and then every 8 hours. 
+
+You can override these values in the `d42config.json` file (example provided below).
+
+You can use the `sc create` command to create the service, and then start it using `sc start` or from the UI.
+
+The `sc description` command can be used to give it a friendly description.
+
+```
+# For Windows machines. Drop the agent under c:\\opt\\device42 as d42winagent.exe 
+# (make sure that agent is named that unless you are using the d42config.json file 
+# to override that)
+# notice the space after = sign below. It is critical.
+# sc create d42AgentService binPath= "C:\opt\device42\d42_winservice_386.exe" start= auto (or d42_winservice_x64.exe)
+# sc description d42AgentService "D42 service that calls the agent to run every X hours to send inventory details to Device42"
+# sc start d42AgentService (you can start from UI too)
+# 
+# to query or stop use:
+# sc query d42AgentService
+# sc stop d42AgentService
+# 
+# Also, note that sc create/start on windows reads from %windir%/system32 by default. So if the user doesn't 
+# have C: or doesn't want to use c:\opt\device42, they can place d42config.json in the system32 directory
+
+# example d42config.json file below. Note that each arg is enclosed in double-quotes
+# interval could be from 1 hour to 24*7 hours
+# {
+#  "executablePath": "c:\\opt\\d42\\d42_winagent_63_2.exe",
+#  "WorkingDir": "c:\\opt\\d42",
+#  "arguments": ["-host=https://10.92.11.63","-skip-s
+#  "interval": 2
+#}
+```
+
+### Log output:
+
+The `agent_local.log` file will be created under the current working directory.
+
+### Handling errors
+
+If the service doesn’t start, it is generally because it can’t read d42config.json file. 
+
+It should either live under `c:\opt\device42`, or `%windir%\system32` (sc reads from system folder by default, so for any non-standard location, this is where the file needs to be).
+
+Another issue might be that the format or the values are incorrect.
+
+
