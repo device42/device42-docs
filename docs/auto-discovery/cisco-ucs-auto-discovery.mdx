@@ -6,17 +6,19 @@ sidebar_position: 9
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+:::info
+Load balancers share the discovery job page of the Main Appliance. See the [F5/Load balancer discovery](load-balancer-f5-autodiscovery.md) page if you are looking for load balancer discovery information.
+:::
+
+Device42 will poll your Cisco UCS (Unified Computing System) Manager to discover cluster device information or ACI (Application Centric Infrastructure) Fabric to discover your SDN (software-defined networks).
+
+From version 18.12, UCS discovery jobs have been expanded to include network connectivity information beyond the original Chassis and Blade relationship data for UCS clusters. You'll now have a comprehensive overview of your entire cluster's connectivity, complete with port-channel aggregation information.
+
+![UCS network discovery map](/assets/images/ucs-network-discovery-map.png)
+
 ## Setting up a Cisco UCS Cluster or ACI Fabric Discovery
 
-### About Cisco UCS Cluster / ACI Fabric jobs
-
-Device42 will poll your Cisco UCS (Unified Computing System) Manager to discover cluster device information or ACI (Application Centric Infrastructure) Fabric to discover your SDN (software defined networks).
-
-UCS jobs will discover chassis, blades, and service profile information, while ACI jobs will discover network policy details that are controlling both your and/or physical network.
-
-Should you be looking to discover a load balancer (which shares this discovery job page), see the [F5/Load balancer discovery docs](load-balancer-f5-autodiscovery.md).
-
-Create a job by navigating to **Discovery > UCS/ACI/Load Balancers** to add and manage UCS Manager(s).
+Create a job by navigating to **Discovery > UCS/ACI/Load Balancers** to add and edit Cisco UCS manager information.
 
 <ThemedImage
   alt="The UCS/ACI/Load Balancers menu"
@@ -27,7 +29,7 @@ Create a job by navigating to **Discovery > UCS/ACI/Load Balancers** to add and 
 />
 <br/><br/>
 
-Add your Cisco UCS Manager or ACI Fabric discovery job by entering one or more IPs or FQDNs, and scroll down to add your credentials with permissions on the device (i.e. a valid username and password).
+Add your Cisco UCS Manager or ACI Fabric discovery job by entering one or more IPs or FQDNs, and scroll down to enter your username and password (with permissions) on the device.
 
 <ThemedImage
   alt="Add Cisco UCS job"
@@ -38,14 +40,12 @@ Add your Cisco UCS Manager or ACI Fabric discovery job by entering one or more I
 />
 <br/><br/>
 
-You can click on run now to run immediately or schedule it to run at certain times.
-
 ### **Scheduling UCS Cluster or ACI Fabric Discovery Jobs**
 
-Schedule your autodiscovery job to run on a recurring basis; you can choose to run it on certain days and at specific times.
+Schedule your autodiscovery job to run regularly on certain days and at specific times.
 
 <ThemedImage
-  alt="schedule an UCS ACI discovery job"
+  alt="schedule an UCS or ACI discovery job"
   sources={{
     light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-light.png'),
     dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-dark.png'),
@@ -54,17 +54,21 @@ Schedule your autodiscovery job to run on a recurring basis; you can choose to r
 
 ## UCS Cluster / ACI Fabric Discovery Option Definitions
 
-**Hostname to use**: Discovered Name or Serial #; Choose the hostname format to use for newly discovered devices - _option only exists for UCS & ACI devices_.  
-**Give precedence to hostname**: Select to force overwrite the existing hostname in Device42 for devices that already exist using the hostname option in _hostname to use_ - _ACS/UCI only_.  
-**VRF Group for discovered devices**: Place discovered devices into the following VRF group - _UCS/ACI devices only_.  
-**Object Category for discovered devices**: Place discovered objects into the chosen category in Device42 - _UCS/ACI devices only_.  
-**Overwrite existing object categories**: Select to force overwrite of category on devices that already exist in Device42 - _UCS/ACI devices only_.
+:::note
+The following options only exist for UCS and ACI devices.
+:::
+
+**Hostname to use**: Choose the discovered Name or Serial # hostname format to use for newly discovered devices.  
+**Give precedence to hostname**: Select to force overwrite the existing hostname for devices that already exist using the hostname option.  
+**VRF Group for discovered devices**: Place discovered devices into the following VRF group.  
+**Object Category for discovered devices**: Place discovered objects into the chosen category in Device42.  
+**Overwrite existing object categories**: Select to force overwrite of category on devices that already exist in Device42.
 
 ### Device and Chassis Names
 
-If an existing device is not found for the chassis or the blade (based on the serial #), Device42 will add a new device. The Name is derived from the DN and the serial # of the device, whether it is a chassis or a blade.  
+If an existing device is not found for the Chassis or the Blade based on the serial number, Device42 will add a new device. The **Name** will be derived from the DN and the serial # of the device.
 
-Check the **Give precedence to hostname** checkbox to give precedence to the Discovered name for the device in the system.
+Check the **Give precedence to hostname** option to use the discovered name for the device instead of its given name.
 
 <ThemedImage
   alt="UCS ACI hostname to use"
@@ -76,7 +80,7 @@ Check the **Give precedence to hostname** checkbox to give precedence to the Dis
 
 ### Service Profiles
 
-Navigate to **Infrastructure > UCS Service Profiles** to see the discovered service profiles. Service profiles show the Name, the DN, the UCSManager, and the Device association. You can search from the service profile list page and the search box on the dashboard.
+Navigate to **Infrastructure > UCS Service Profiles** to see a list of discovered service profiles. You can view the **Name**, **DN**, **UCSManager**, and **Device** information for each job. Search for specific profiles using the search bar on the **Service Profile** page or the main dashboard.
 
 <ThemedImage
   alt="Service profile list"
@@ -88,7 +92,7 @@ Navigate to **Infrastructure > UCS Service Profiles** to see the discovered serv
 
 ## Run Now or Schedule
 
-Newly created jobs will not run on the first day they are created to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, click on the **Run Now** button next to the job after creation.
+Newly created jobs will not run on the first day of their creation to prevent a large number of unintended jobs from running. To run a job after its initial creation, click on the **Run Now** button next to the job after creating the job.
 
 <ThemedImage
   alt="Run now button"
@@ -99,7 +103,7 @@ Newly created jobs will not run on the first day they are created to prevent an 
 />
 <br/><br/>
 
-Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+Create a run schedule for the job by clicking on the **Add another Autodiscovery Schedule** button when in the job edit mode.
 
 <ThemedImage
   alt="Add another Auto Discovery Schedule button"
@@ -108,5 +112,6 @@ Select **Add another Autodiscovery Schedule** from the when editing the job to c
     dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/add-autodiscovery-schedule-dark.png'),
   }}
 />
+
 
 
