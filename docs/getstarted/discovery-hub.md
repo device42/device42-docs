@@ -3,6 +3,9 @@ title: "Discovery Hub: scoping and onboarding"
 sidebar_position: 3.5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 # Discovery Hub: Scoping and Onboarding Support
 
 The goal of Discovery Hub is to make onboarding into Device42 as fast and simple as possible. We designed it with three central tenets in mind: that a new user needs to be guided through a new UI, that we need to show customers what they have to discover and that users need to see value in their tooling immediately. This document will walk you through how Discovery Hub can help with those points.
@@ -13,27 +16,49 @@ You can consider Discovery Hub to be your “square one” in using and navigati
 
 Log into the Device42 UI and navigate to the Discovery Menu. The first option is Discovery Hub.
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-01.png)
+<ThemedImage
+  alt="Discovery Hub menu"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-hub-menu-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-hub-menu-dark.png'),
+  }}
+/>
+<br/><br/>
 
 To set up a Discovery Hub scan, you need to name the scan and select the Remote Collector[^1] that we will run against. You also need to know the IPs, IP ranges or CIDR blocks for your target environment. 
 
-You enter the IP information in the box highlighted in the image below and click the + sign. You can enter as many targets as you like into the box, but do keep in mind that the more targets, the longer the scan will likely take. 
+You enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like into the box, but do keep in mind that the more targets, the longer the scan will likely take. 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-02.png)
+<ThemedImage
+  alt="Discovery Hub menu"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-enter-ip-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-enter-ip-dark.png'),
+  }}
+/>
+<br/><br/>
 
-Once you have entered in the information, click the green start button. 
+Once you have entered in the information, click on the bright green **Start** button. 
 
-The scan will start immediately. As pictured below, you will see the green start box, a percentage ticker showing you completion status and the 6 categories of assets: Windows, Nix, Network Devices, Hypervisors, Other/Unknown and Unreachable.
+The scan will start immediately. As pictured below, you will see the green start notification, a percentage ticker showing you completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown** and **Unreachable**.
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-03.png)
+<ThemedImage
+  alt="Hub scan in progress"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/hub-scan-start-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/hub-scan-start-dark.png'),
+  }}
+/>
 
 ### Understanding the Categories
 
-Windows, Nix, Network and Hypervisors are mostly self explanatory. However, some network devices which run Linux under the hood can be miscategorized. We have implemented Configuration Options that can help ensure these items group correctly. Other/Unknown devices either don’t fall neatly into one of the four main categories or nmap doesn’t have a mapping to the device. Unreachable indicates that nothing was returned from that IP. 
+The **Windows**, **Nix**, **Network** and **Hypervisors** categories are straightforward. However, some network devices which run Linux under the hood can be miscategorized. We have implemented Configuration Options to help ensure these items group correctly. 
+
+**Other/Unknown** devices either don’t fall neatly into one of the four main categories or Nmap doesn’t have a mapping to the device. **Unreachable** indicates that nothing was returned from that IP address. 
 
 ### Prerequisites:
 
-A note on Nmap:  While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or firewalls in front of them). Such hosts may be untrustworthy and send responses intended to confuse or mislead Nmap.
+While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or firewalls in front of them). Such hosts may be untrustworthy and send responses intended to confuse or mislead Nmap.
 
 ### Configure Network Scan Options
 
@@ -67,19 +92,55 @@ From here, you should have a good baseline understanding of your environment. Yo
 
 When setting up jobs, you will need to go by category (Windows devices, Nix Devices, etc). First, select the category and the Remote Collector. Next you can select the IPs, you can select single IPs or the entire CIDR block. 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-08.png)
+<ThemedImage
+  alt="Discovery job selection"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-select-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-select-dark.png'),
+  }}
+/>
+<br/><br/>
 
-Once you’ve selected the fields, the “+ Discovery Job” field can be selected. Once you click that, you will see the job type, the number of targets and licenses needed. You will need to name the discovery job and enter the credentials we should use for discovery. 
+Once you’ve selected the fields, the **+ Discovery Job** button will activate. Click on it to see the job type, the number of targets and licenses needed. You will need to name the discovery job and enter the credentials to use for discovery. 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-09.png)
+From v18.12.00 there are CIDR configuration options when moving your Hub scan data into Discovery Jobs. Select one of the following options from the **Autodiscovery Options** section:
+- **One-time discovery** moves the information found in the scan to the Discovery Job.
+- **Continuous discovery** moves the information found in the scan plus anything else that comes in during scheduled scans.
+- **Add all CIDR(s)** pulls in the entire CIDR block. 
+  
+The **One-time discovery** and **Continuous discovery** options are recommended to consistently bring in accurate data when running discovery jobs.
+
+<ThemedImage
+  alt="Discovery job creation"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-window-cidr-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-window-cidr-dark.png'),
+  }}
+/>
+<br/><br/>
+
 
 When the job is created successfully, you will see the screen below. You can close the window and go back to your scans, or click the link to be taken to the job page. You can edit job settings from the job page.
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-10.png)
+<ThemedImage
+  alt="Discovery job success"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-success-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-success-dark.png'),
+  }}
+/>
+<br/><br/>
 
-Within the Settings tab of completed Discovery Hub scans, you can see the linked jobs that were created based on those results.
+From the **Settings** tab of completed Discovery Hub scans, you can see the linked jobs that were created based on those results. Click on the **+ Add schedule button** to schedule the scan.
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-11.png)
+<ThemedImage
+  alt="Network scan settings"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/network-scan-settings-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/network-scan-settings-dark.png'),
+  }}
+/>
+<br/><br/>
 
 ## Conclusion
 
@@ -87,7 +148,7 @@ Discovery Hub allows you to quickly and accurately assess your environment(s). U
 
 #### Additional details
 
-This information is accurate as of release v18.09.00, with more usability enhancements on their way.
+This information is accurate as of release v18.12.00, with more usability enhancements on their way.
 
 ## Notes
 
