@@ -41,7 +41,7 @@ The available object types are:
 - Scheduled Task
 - Service Communication
 - Service Instance
-- Software Components
+- Software Component
 - Software In Use
 - Subnet
 - VLAN
