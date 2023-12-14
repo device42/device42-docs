@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 # Discovery Hub: Scoping and Onboarding Support
 
-The goal of Discovery Hub is to make onboarding into Device42 as fast and simple as possible. We designed it with three central tenets in mind: that a new user needs to be guided through a new UI, that we need to show customers what they have to discover and that users need to see value in their tooling immediately. This document will walk you through how Discovery Hub can help with those points.
+The goal of Discovery Hub is to make onboarding into Device42 as fast and simple as possible. We designed it with three central tenets in mind: that a new user needs to be guided through a new UI, that we need to show customers what they have to discover, and that users need to see value in their tooling immediately. This document will walk you through how Discovery Hub can help with those points.
 
-You can consider Discovery Hub to be your “square one” in using and navigating Device42. Using IPs, IP ranges or CIDR blocks, we will scan your network and pull in information. We group the returned information into 6 categories and, when possible, we will also give information about the returned device such as the OS type or the Fully Qualified Domain Name (FQDN).
+You can consider Discovery Hub to be your “square one” in using and navigating Device42. Using IPs, IP ranges, or CIDR blocks, we will scan your network and pull in information. We group the returned information into 6 categories and, when possible, we will also give information about the returned device such as the OS type or the Fully Qualified Domain Name (FQDN).
 
 ### Setting up your First Discovery Hub Scan
 
@@ -25,9 +25,9 @@ Log into the Device42 UI and navigate to the Discovery Menu. The first option is
 />
 <br/><br/>
 
-To set up a Discovery Hub scan, you need to name the scan and select the Remote Collector[^1] that we will run against. You also need to know the IPs, IP ranges or CIDR blocks for your target environment. 
+To set up a Discovery Hub scan, you need to name the scan and select the Remote Collector[^1] that we will run against. You also need to know the IPs, IP ranges, or CIDR blocks for your target environment. 
 
-You enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like into the box, but do keep in mind that the more targets, the longer the scan will likely take. 
+You enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like into the box but do keep in mind that the more targets, the longer the scan will likely take. 
 
 <ThemedImage
   alt="Discovery Hub menu"
@@ -38,9 +38,9 @@ You enter the IP information in the box highlighted in the image below and click
 />
 <br/><br/>
 
-Once you have entered in the information, click on the bright green **Start** button. 
+Once you have entered the information, click on the bright green **Start** button. 
 
-The scan will start immediately. As pictured below, you will see the green start notification, a percentage ticker showing you completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown** and **Unreachable**.
+The scan will start immediately. As pictured below, you will see the green start notification, a percentage ticker showing your completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown** and **Unreachable**.
 
 <ThemedImage
   alt="Hub scan in progress"
@@ -52,7 +52,7 @@ The scan will start immediately. As pictured below, you will see the green start
 
 ### Understanding the Categories
 
-The **Windows**, **Nix**, **Network** and **Hypervisors** categories are straightforward. However, some network devices which run Linux under the hood can be miscategorized. We have implemented Configuration Options to help ensure these items group correctly. 
+The **Windows**, **Nix**, **Network** and **Hypervisors** categories are straightforward. However, some network devices that run Linux under the hood can be miscategorized. We have implemented Configuration Options to help ensure these items are grouped correctly. 
 
 **Other/Unknown** devices either don’t fall neatly into one of the four main categories or Nmap doesn’t have a mapping to the device. **Unreachable** indicates that nothing was returned from that IP address. 
 
@@ -64,9 +64,18 @@ While Nmap attempts to produce accurate results, keep in mind that all of its in
 
 Optionally, you may edit the speed - and subsequent accuracy - of your scans. Fast scans will run as quickly as possible, while moderate and normal scans will run slower. The relative quickness of the scan is determined by the size of the ranges inputted. 
 
-Alternate matching allows you to determine how far we go in ensuring an accurate match - this is especially applicable for network devices which run an OS under the hood. 
+Alternate matching allows you to determine how far we go in ensuring an accurate match - this is especially applicable for network devices that run an OS under the hood. 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-04.png)
+Locate the **Configure Network Scan Options** by clicking on the button with the **sliders** icon to the right of the **Select RC** dropdown menu.
+
+<ThemedImage
+  alt="Configure Network Scan Options window"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/configure-network-scan-options-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/configure-network-scan-options-dark.png'),
+  }}
+/>
+<br/><br/>
 
 
 ### Alternate Matching Explained
@@ -76,21 +85,44 @@ Nmap returns a list of matches for each accessible target, in order of accuracy 
 
 ### Viewing Scan Results
 
-The scans you have created will be displayed in the left hand column. Once started, a scan can be stopped but cannot be resumed or edited. To view the scope of the scan, click the Setting button in the top right of the screen (highlighted below) and the parameters will display. 
+The scans you have created will be displayed in the left-hand column. Once started, a scan can be stopped but cannot be resumed or edited. To view the scope of the scan, click the **Settings** button in the top right of the screen (highlighted below) to display the parameters. 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-05.png)
+<ThemedImage
+  alt="Scan results with settings button"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-outcome-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-outcome-dark.png'),
+  }}
+/>
+<br/><br/>
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-06.png)
+From the **Network Scan Settings** tab, you can schedule the scan by clicking on the **+ Add schedule** button. 
+
+<ThemedImage
+  alt="Network Scan settings tab"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-settings-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-settings-dark.png'),
+  }}
+/>
+<br/><br/>
 
 Now, you are ready to dig into your results! You can view the entirety of the results or drill into each category. The results will be grouped by CIDR block. When you click into a specific block, you will see the fingerprinted OS and, if found, the Fully Qualified Domain Name (FQDN). 
 
-![Discovery Hub menu](/assets/images/discovery-hub/discovery-hub-07.png)
+<ThemedImage
+  alt="Scan results by CIDR block"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-results-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-results-dark.png'),
+  }}
+/>
+<br/><br/>
 
-From here, you should have a good baseline understanding of your environment. You can continue to add scans to get a complete view or start setting up discovery jobs. Once you begin to set up jobs, you will begin to consume Device42 Core Licenses. You’ll need to make sure you have enough license to cover the jobs or results will be impacted.
+From here, you should have a good baseline understanding of your environment. You can continue to add scans to get a complete view or start setting up discovery jobs. Once you begin to set up jobs, you will begin to consume Device42 Core Licenses. You’ll need to make sure you have enough licenses to cover the jobs or results will be impacted.
 
 ### Setting up Discovery Jobs
 
-When setting up jobs, you will need to go by category (Windows devices, Nix Devices, etc). First, select the category and the Remote Collector. Next you can select the IPs, you can select single IPs or the entire CIDR block. 
+When setting up jobs, you will need to go by category (Windows devices, Nix Devices, etc). First, select the category and the Remote Collector. Next, you can select the IPs, you can select single IPs or the entire CIDR block. 
 
 <ThemedImage
   alt="Discovery job selection"
@@ -101,14 +133,14 @@ When setting up jobs, you will need to go by category (Windows devices, Nix Devi
 />
 <br/><br/>
 
-Once you’ve selected the fields, the **+ Discovery Job** button will activate. Click on it to see the job type, the number of targets and licenses needed. You will need to name the discovery job and enter the credentials to use for discovery. 
+Once you’ve selected the fields, the **+ Discovery Job** button will activate. Click on it to see the job type, the number of targets, and the licenses needed. You will need to name the discovery job and enter the credentials to use for discovery. 
 
 From v18.12.00 there are CIDR configuration options when moving your Hub scan data into Discovery Jobs. Select one of the following options from the **Autodiscovery Options** section:
 - **One-time discovery** moves the information found in the scan to the Discovery Job.
 - **Continuous discovery** moves the information found in the scan plus anything else that comes in during scheduled scans.
 - **Add all CIDR(s)** pulls in the entire CIDR block. 
   
-The **One-time discovery** and **Continuous discovery** options are recommended to consistently bring in accurate data when running discovery jobs.
+The **One-time discovery** and **Continuous discovery** options are recommended to consistently fetch accurate data when running discovery jobs.
 
 <ThemedImage
   alt="Discovery job creation"
@@ -120,7 +152,8 @@ The **One-time discovery** and **Continuous discovery** options are recommended 
 <br/><br/>
 
 
-When the job is created successfully, you will see the screen below. You can close the window and go back to your scans, or click the link to be taken to the job page. You can edit job settings from the job page.
+When the job is created successfully, you will see the screen below. You can close the window and go back to your scans, or
+ click the link to be taken to the job page. You can edit job settings from the job page.
 
 <ThemedImage
   alt="Discovery job success"
@@ -154,4 +187,3 @@ This information is accurate as of release v18.12.00, with more usability enhanc
 
 [^1]:
      If you haven’t yet set up Remote Collectors, see this [documentation](https://docs.device42.com/getstarted/installation/remote-collector-rc-installation/).
-
