@@ -8,19 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Here are the steps to install and launch the Mac Agent service launcher.
 
-1. Download the signed Mac Agent from the [Device42 autodiscovery page](https://www.device42.com/autodiscovery-staging/). 
-2. Log into the Device42 Main Appliance and navigate to **Discovery > Agent Based Scans**.
-<ThemedImage
-  alt="Get the encrypted config file"
-  sources={{
-    light: useBaseUrl('/assets/images/mac-agent-sl/encrypted-config-file-light.png'),
-    dark: useBaseUrl('/assets/images/mac-agent-sl/encrypted-config-file-dark.png'),
-  }}
-/>
-3. Download the `.plist` file from the website
-4. Modify the `.plist` file as required based on your setup and required options
-5. You need the config file and executable for `/opt/device42/` 
-6. You need the `.plist` file for `/Library/LaunchDaemons/`
+
+1. Download the signed mac agent as described in the [Signed Mac Agent](signed-mac-agent.mdx) docs.
+2. Download the `.plist` file from the website
+3. Modify the `.plist` file as required based on your setup and required options
+4. You need the config file and executable for `/opt/device42/` 
+5. You need the `.plist` file for `/Library/LaunchDaemons/`
 
 Now run:
 
