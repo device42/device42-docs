@@ -10,10 +10,10 @@ Here are the steps to install and launch the Mac Agent service launcher.
 
 
 1. Download the signed mac agent as described in the [Signed Mac Agent](signed-mac-agent.mdx) docs.
-2. Download the `.plist` file from the website
-3. Modify the `.plist` file as required based on your setup and required options
-4. You need the config file and executable for `/opt/device42/` 
-5. You need the `.plist` file for `/Library/LaunchDaemons/`
+2. Download the `.plist` file from the [Autodiscovery page](https://www.device42.com/autodiscovery/) under "MacOS Service Wrapper for the Discovery Agent".
+3. Modify the `.plist` file as required based on your setup and required options. For example, you can change the `StartInterval` to configure how often the agent will run, or configure other options to pass as `ProgramArguments`.
+4. You need the config file and executable available in `/opt/device42/`
+5. You need the `.plist` file available in `/Library/LaunchDaemons/`
 
 Now run:
 
@@ -53,7 +53,7 @@ launchctl load "/Library/LaunchDaemons/NAMEOF.plist"
 
 ## Notes
 
-* By default, logs are stored under `/var/log`, or as otherwise configured under the `.plist` file.A
+* By default, logs are stored under `/var/log`, or as otherwise configured under the `.plist` file.
 * The `agent_local.log` file is under the working directory. By default this is `/opt/device42`.
 
 
