@@ -53,9 +53,9 @@ Navigate to the _Discovery_ menu and select _HyperVisors / \*Nix / Windows_, thi
 
 - **Use Service Account Credentials:** Will use the current logged-in user of the system running WDS to perform WMI discovery.
 
-- **Query domain controller to obtain a list of discovery devices:** Hides the Discovery Target(s) field. Target(s) to be discovered in this mode are instead defined by the result of chosen LDAP Criteria as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. (See "Query domain controller to obtain a list of discovery devices" below for more information.)
+- **Query domain controller to obtain a list of discovery devices:** Hides the Discovery Target(s) field. Target(s) to be discovered in this mode are instead defined by the result of chosen LDAP Criteria as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. See the [Query domain controller](#query-domain-controller-to-obtain-list-of-discovery-devices-option) section below.
 
-- **Collect database server information:** Select this option to discover MYSQL and Oracle database servers. (Displays a Database Username/Password(s) field if selected.)
+- **Collect database server information:** Select this option to discover Oracle, MSSQL, DB2 and Postgres database servers. If selected, it will display a Database Username/Password(s) field. 
 
 - **ADM Sampling Interval:** Off or sampling interval in minutes or hours.
 
