@@ -3,21 +3,50 @@ title: "Cloud Application Dependency Mapping"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 In v18.06.00, you can now map connections between your on-prem and AWS databases. Cloud Application Dependency Mapping can help customers with hybrid environments to better understand their infrastructure, improve troubleshooting, ease migration frustrations, and optimize resource utilization, ultimately leading to better performance and cost savings. 
 
 Currently, we support the following AWS Databases: RDS, DynamoDB and Redshift
 
 ### How to Configure
 
-After you've discovered your on-prem and cloud databases, navigate to the Databases or Cloud Databases on the Resources tab.
+After you've discovered your on-prem and cloud databases, navigate to **Resources > Databases > Cloud Databases**.
 
-Select the database you would like to use as your starting point. Once you've opened the database, you will see the information we have discovered for that database (image 1). Toggle to the Resource Map tab and you will see the relational information we have found (image 2).
+Select the database you would like to use as your starting point. Once you've opened the database, you will see the information we have discovered for that database (image 1). 
 
-![](/assets/images/Screenshot-2023-03-20-at-11.49.17-AM-700x489.png)
+<ThemedImage
+  alt="Resource properties tab"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-properties-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-properties-dark.png'),
+  }}
+/>
+<br/><br/>
 
-![](/assets/images/Screenshot-2023-03-20-at-11.48.31-AM-700x495.png)
+Toggle to the **Resource Map** tab and you will see the relational information we have found. Click on the **diagram icon** at the top right of a resource block to reveal the resources contained within the block on the map.  
 
-In the Resource Map view, you can navigate between the related databases as needed.
+<ThemedImage
+  alt="Resource map tab"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-map-tab-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-map-tab-dark.png'),
+  }}
+/>
+<br/><br/>
+
+Search and explore related resources by clicking on the **magnifying glass icon** at the bottom right of a resource block. When clicked a compass icon is displayed in its place.
+
+Hover to the right of a list item's name to reveal three actions. Search within that list item by clicking on the **magnifying glass icon**, highlight the items on the map by clicking on the **crosshair icon**, and display the items on the map by clicking on the **branch icon**.
+
+<ThemedImage
+  alt="Expanded dependency details"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-map-search-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-dependency-mapping/resource-map-search-dark.png'),
+  }}
+/>
 
 ### Limitations
 
