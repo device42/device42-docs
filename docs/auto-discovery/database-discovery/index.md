@@ -6,7 +6,9 @@ title: "Database Discovery"
 
 Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+)_, and currently supports Windows and \*nix-based discovery jobs to discover Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
 
-**Note**: Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
+:::note
+Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
+:::
 
 As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
 
@@ -30,7 +32,7 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 
 In order to query the below tables, please ensure you have **View Server State** permissions. For discovery to return detailed info about your database instance, you will require read permissions to the following system views:
 
-<table><tbody><tr><td width="288"><ul><li>sys.dm_exec_connections</li><li>sys.dm_exec_sessions</li><li>sys.databases</li><li>sys.master_files</li></ul></td><td width="288"><ul><li>sys.tables</li><li>sys.dm_os_sys_info</li><li>sys.dm_os_sys_memory</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="288"><ul><li>sys.dm_exec_connections</li><li>sys.dm_exec_sessions</li><li>sys.databases</li><li>sys.master_files</li></ul></td><td width="288"><ul><li>sys.tables</li><li>sys.dm_os_sys_info</li><li>sys.dm_os_sys_memory</li><li>sys.all_objects</li></ul></td></tr></tbody></table>
 
 The snippet shown below is necessary to get data from some of the preceding views even if the user has read permissions (_sys.master\_files_, for example).
 
@@ -135,7 +137,8 @@ As of v16.17.00, Device42 database autodiscovery for Windows and \*nix targets s
 
 For discovery to return detailed info about your database instance, you will require read/view permissions for the following system views/tables:
 
-<table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>DBA_SEGMENTS</li><li>DBA_OBJECTS</li></ul></td><td width="288"><ul><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>V$DATABASE</li><li>DBA_SEGMENTS</li><li>DBA_OBJECTS</li></ul></td><td width="288"><ul><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
+
 
 To get information about Pluggable Databases (PDBs) within a Container Database (CDB) in Oracle for non-DBA users, two key permission configurations are required:
 
