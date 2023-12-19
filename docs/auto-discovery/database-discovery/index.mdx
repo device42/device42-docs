@@ -2,6 +2,9 @@
 title: "Database Discovery"
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## About Database Discovery
 
 Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+)_, and currently supports Windows and \*nix-based discovery jobs to discover Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
@@ -276,17 +279,38 @@ Device42 v18.01.00 adds a new Database discovery job type that you can use to di
 
 You can view Discovery Scores for Database jobs that have run.
 
-- Select **Analytics > Discovery Status > Discovery Scores** to display the Discovery Scores list page.
+- Navigate to **Analytics > Discovery Status > Discovery Scores** to display the Discovery Scores page.
 
-![](/assets/images/discovery-scores-menu.png)
+    <ThemedImage
+    alt="Database Discovery menu navigation"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-dark.png'),
+    }}
+    />
+    <br/><br/>
 
-- Click on the job you want to see under the _Discovery Target_ column.
+- Click on the job you want to see under the **Discovery Target** column. You can use the search bar and/or the dropdown menu options next to it to find a specific database or narrow down your results.
 
-![](/assets/images/discovery-target.png)
+    <ThemedImage
+    alt="Discovery Scores page"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-dark.png'),
+    }}
+    />
+    <br/><br/>
 
 - Click on **Detailed Discovery Scores** to see additional information.
 
-![](/assets/images/detailed-discovery-scores.png)
+    <ThemedImage
+    alt="Database discovery scores"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-dark.png'),
+    }}
+    />
+    <br/><br/>
 
 ### View Discovered Databases
 
