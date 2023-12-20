@@ -3,41 +3,89 @@ title: "Certificates"
 sidebar_position: 5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 This module enables you to manage your SSL certificates in Device42.
-
-### Viewing Certificates
-
-When viewing a certificate that has been imported, you can now associate and see FQDN, multiple devices, IPs and different validity dates to your certificates. This allows you to have a wildcard certificate and easily see different FQDNs or subdomains associated with it.
 
 ### Certificate Autodiscovery
 
-Device42 also supports autodiscovery of certificates.
+Device42 also supports autodiscovery of certificates. Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking on the **+ Add Certificate autodiscovery spec** button.
 
-![](/assets/images/WEB-775_1.png)
+<ThemedImage
+  alt="Certificate autodiscovery specs"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-dark.png'),
+  }}
+/>
+<br/><br/>
 
-Select "Certificates" from the Discovery Menu.
+When creating a certificate autodiscovery job, enter an IP address or range of IP addresses and the ports to scan for Device42 to import if found. If a certificate is found on an IP address already associated with a device in Device42, the certificate will also be associated with that device automatically.
 
-![](/assets/images/WEB-775_2.png)
+<ThemedImage
+  alt="Add new certificate autodiscovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-dark.png'),
+  }}
+/>
+<br/><br/>
 
-When creating a certificate Autodiscovery job, simply enter a range of IP addresses and ports to scan and Device42 will scan that range and import and certificates found. If a certificate is found on an IP address already associated with a device in Device42, the certificate will also be associated with that device automatically.
+You can schedule the certificate autodiscovery job at a specific time on selected days by clicking on the **+ Add another Autodiscovery Schedule** button to add a schedule.
+
+<ThemedImage
+  alt="Add new certificate autodiscovery job schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-dark.png'),
+  }}
+/>
 
 ### Certificate List Page
 
-The list page for certificates will show you all certificates discovered in Device42 with validity date information, as well as a graph showing you the days until the certificate expires making it possible to see this information with a quick glance.
+The list page for certificates, under **Applications > Certificates**, will show you all certificates discovered in Device42 along with their validity details. 
 
-![](/assets/images/WEB-775_3.png)
+Under the **Days To Expiry** column you can quickly see how many days until the certificate expires. Scroll to the right of the table to see the **Serial Number**, **Is Key Encipherment**, 
+**Is Key CERT Sign**, **Subject Alternative Name**, **First Detected** date and time, and **Encryption method** columns.
+
+You can export certificates by selecting them from the list and choosing the **Export selected items** option under the **Select an Action** dropdown menu. Next, click on the **hammer icon** to execute the action.
+
+<ThemedImage
+  alt="Certificate list page"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/certificates-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/certificates-list-page-dark.png'),
+  }}
+/>
+
 
 ### Viewing Certificates
 
-![](/assets/images/WEB-775_4_a.png)
+Click on the name of a certificate from the list page, under **Applications > Certificates**, to view it.
 
-![](/assets/images/WEB-775_4_b.png)
+<ThemedImage
+  alt="View certificate"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/view-certificate-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/view-certificate-dark.png'),
+  }}
+/>
+<br/><br/>
 
-When viewing a certificate that has been imported, you can now associate and see FQDN, multiple devices, IPs and different validity dates to your certificates. This allows you to have a wildcard certificate and easily see different FQDNs or subdomains associated with it.
+When viewing a certificate that has been imported, you can now associate and see FQDN, multiple devices, IPs, and different validity dates to your certificates. This allows you to have a wildcard certificate and easily see different FQDNs or subdomains associated with it.
+
+<ThemedImage
+  alt="Device certificate details"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/device-certificates-details-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/device-certificates-details-dark.png'),
+  }}
+/>
 
 ### Certificate Instances
 
-In addition to seeing all certificates, you can now see certificate instances - allowing you to see device/ip address relationships for individual certificates. This can be filtered based on device building, service level and customer.
+In addition to seeing all certificates, you can now see certificate instances - allowing you to see device/IP address relationships for individual certificates. Locate certificate instances under **Applications > Certificate Instances**. Filter certificate instances based on device building, service level, and customer.
 
 ### Certificate Reports
 
