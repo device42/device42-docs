@@ -60,7 +60,7 @@ If using the Tenant ID for discovery, you'll create a Single Role at the Tenant 
 "Microsoft.OperationalInsights/workspaces/read",
 "Microsoft.SqlVirtualMachine/sqlVirtualMachines/read", "Microsoft.Web/sites/read", 
 "Microsoft.Web/sites/functions/read", "Microsoft.ContainerService/managedClusters/read",
-"Microsoft.Resources/subscriptions/resourceGroups/read"
+"Microsoft.Resources/subscriptions/resourceGroups/read",
 "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
 "Microsoft.Network/loadBalancers/read", "Microsoft.Network/publicIPAddresses/read", "Microsoft.Network/virtualNetworks/read",
 "Microsoft.Network/virtualNetworks/read",
