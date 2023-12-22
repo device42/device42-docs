@@ -5,15 +5,15 @@ sidebar_position: 1
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process to building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process of building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.md) apply the methods outlined below to create Affinity Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 
-After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md) .
+After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md).
 
 ![](/assets/images/Web_732_1.png)
 
-The Services section located under Resources, Services will provide you list views of all your Services including Service Instances, Scheduled Tasks, Listener ports and Service communications.
+The Services section located under _Resources > Services_ will provide you with list views of all your Services including Service Instances, Scheduled Tasks, Listener ports, and Service communications.
 
 ![](/assets/images/Web_732_1_Joined.png)
 
@@ -35,11 +35,11 @@ In the Local view of the Topology, you may notice Undiscovered Listening Service
 
 ![](/assets/images/Web_732_4.png)
 
-These services typically arise due to one of following conditions:
+These services typically arise due to one of the following conditions:
 
-1. Device42 is discovering the services/service connections on the client device, but are not actively discovering services/service connections on the listening device.
+1. Device42 is discovering the services/service connections on the client device but is not actively discovering services/service connections on the listening device.
 2. Device42 is discovering the services on the listener side, but we lack adequate permissions to match the PID to a service name.
-3. It is such a short lived connection that we may see the client connecting to that port, but we cannot match the listening service to a PID/service name on the listener side while the connection is alive (typical of services listening on ephemeral ports).
+3. It is such a short-lived connection that we may see the client connecting to that port, but we cannot match the listening service to a PID/service name on the listener side while the connection is alive (typical of services listening on ephemeral ports).
 
 For highly active servers and environments, these visuals can be quite noisy making it a challenge to identify the key relationships.  To solve this, Device42 offers a feature known as Affinity Groups.
 
@@ -49,7 +49,7 @@ Affinity Groups are a result of a process that evaluates all the connections fo
 
 ### Enabling Affinity Groups
 
-Select Applications > Affinity Groups, and then select Configure at the right of the page.
+Select _Applications > Affinity Groups_, and then select Configure at the right of the page.
 
 ![](/assets/images/Web_732_5.png)
 
@@ -63,21 +63,27 @@ Leave the default selection for _Saved DOQL Query_, then select _Save_ and _Proc
 
 ### Pinning, Starring, and Hiding Services
 
-Now that we have enabled Affinity Groups, we must identify which services we want to Pin, Star and Hide to continue to build out our Affinity Groups.  Pinning a service will make it a focus point and build an Affinity Group for that device.  By default, all database services are assigned a Topology Status of _Pinned_ and an Impact View is built for each discovered database server. _Starring_ a service will include that service and its connection in an Affinity Group if applicable.  It is recommended to limit Pinning to database services (done by default), web services (optional) and any custom services that belong to a Business Application.
+Now that we have enabled Affinity Groups, we must identify which services we want to Pin, Star, and Hide to continue to build out our Affinity Groups.  
 
-- The easiest method to understanding the service connections that have been detected is execute the Service Dependency Report.
+Pinning a service will make it a focus point and build an Affinity Group for that device.  By default, all database services are assigned a Topology Status of _Pinned_, and an Impact View is built for each discovered database server. 
 
-Navigate to _Reports > Advanced Reporting_, expand the _Pre-Defined Reports_ folder, expand the _Application Discovery_ folder and right click on the _Service Dependency Report_ and select _Export As > Excel_.
+_Starring_ a service will include that service and its connection in an Affinity Group if applicable.  It is recommended to limit Pinning to database services (done by default), web services (optional), and any custom services that belong to a Business Application.
+
+_Hiding_ a service excludes it from topology and charts. By default, hidden services are excluded from Affinity Groups but this behavior can be overridden in our DOQL.
+
+- The easiest method to understand the service connections that have been detected is to execute the Service Dependency Report.
+
+Navigate to _Reports > Advanced Reporting_, expand the _Pre-Defined Reports_ folder, expand the _Application Discovery_ folder and right click on the _Service Dependency Report_, and select _Export As > Excel_.
 
 ![](/assets/images/WEB-519_bus-apps-7-Service-Dependency-Report-1.png)
 
 This report displays each connection that has been detected through discovery. Enable filtering to each column to help with sorting the data. Record the services under the _Listener Service_ and _Client Service_ columns that are important to you as you will want to make sure to **Star** those services in the next step. Please record the devices these services are running on.  If there are any services you would like to **Hide** from your Affinity Group views, make a note of these.
 
-- When this is completed, there are two common options to Pinning, Starring and Hiding services
+- When this is completed, there are two common options for Pinning, Starring, and Hiding services
 
 Option 1 (UI) – Navigate to Resources > Services > Services Instances to view a list of ALL the service instances.
 
-Search for a name of one of the recorded services you want to Star, select one or more service instance by selecting their check box, and then use the drop-down _Action_ menu to set their _Topology status_ to Starred or Hidden (the example below shows a service instance search for _Java_).
+Search for a name of one of the recorded services you want to Star, select one or more service instances by selecting their check box, and then use the drop-down _Action_ menu to set their _Topology status_ to Starred or Hidden (the example below shows a service instance search for _Java_).
 
 ![](/assets/images/Web_732_7.png)
 
@@ -99,7 +105,7 @@ After editing the Service Instances file, navigate back to _Tools > Imports/Expo
 
 Once you have completed the process above, navigate back to _Apps > Affinity Groups_, select _Configure_ then select _Process Now_.
 
-After your Affinity Groups have processed, select the _Chart_ button next to an Impact or Dependency to see the view.
+After your Affinity Groups have been processed, select the _Chart_ button next to an Impact or Dependency to see the view.
 
 ![](/assets/images/WEB-519_bus-apps-11-Affinity-Groupd-View.png)
 
@@ -107,7 +113,7 @@ You should see a _Global View_ to highlight the relationships and arrows to repr
 
 ![](/assets/images/WEB-519_bus-apps-12-Affinity-Groupd-Chart.png)
 
-Hovering over the timeline above the view will allow you to identify changes to this Affinity Group.  This process runs every night to calculate connections that took place each day. As changes are detected, blue checkpoints are created to demonstrate a change has occurred to better understand the changes that occur in your environment.
+Hovering over the timeline above the view will allow you to identify changes to this Affinity Group.  This process runs every night to calculate connections that take place each day. As changes are detected, blue checkpoints are created to demonstrate a change has occurred to better understand the changes that occur in your environment.
 
 ![](/assets/images/WEB-519_bus-apps-13-Affinity-Group-Chart-Timeline.png)
 
@@ -119,7 +125,7 @@ To build a Business Application, navigate to Applications > Business Applicatio
 
 After you’ve given your Business Application a name, you should see a blank canvas with the ability to drag a _Device_ or _Affinity Group_ (on the left) over to start building your application. Select _Affinity Group_ and drag it onto the canvas.
 
-You have several options to search for an existing Affinity Group; in the below example we used a device name and then selected _Search_.
+You have several options to search for an existing Affinity Group; in the below example, we used a device name and then selected _Search_.
 
 ![](/assets/images/Web_732_11.png)
 
@@ -129,7 +135,7 @@ You should see that an Affinity Group was found along with the number of devices
 
 Select _Add_ to add all devices that belong to this Affinity Group.  Repeat this process if there are any other Affinity Groups or devices that need to be added to this Business Application.
 
-Once you have successfully imported everything over, use the tool bars at the top and right of the screen to label and color code the objects
+Once you have successfully imported everything over, use the toolbars at the top and right of the screen to label and color code the objects
 
 Select a box with a device name, then use the _Style_ tab on the right to change the color of this box.
 
@@ -174,3 +180,4 @@ The name of the query provides some indication as to what the query is doing.  
 To choose one of these queries to generate your Affinity Groups, navigate to _Apps > Affinity Groups_ and then select _Configure._ Choose your preferred query from the _Saved DOQL Query_ drop-down menu.
 
 ![](/assets/images/Web_732_21.png)
+
