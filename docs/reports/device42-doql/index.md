@@ -89,12 +89,6 @@ You can now make any necessary edits to the DOQL query you were looking at, and 
 
 * * *
 
-## Obtaining DOQL Support
-
-DOQL support is NOT included. We will _NOT_ write queries for you! That said...
-
-- If you happen to come across a BUG, please submit it. We will fix it as part of our normal bug-fix process. There is, of course, no charge for bug fixes.
-
 ## About Device42 DOQL
 
 Note that wherever possible, DOQL Syntax are equivalent to PostgreSQL syntax.
@@ -102,7 +96,6 @@ Note that wherever possible, DOQL Syntax are equivalent to PostgreSQL syntax.
 - This document does its best to highlight those areas in which the syntax DIFFER.
 - POST calls are recommended rather than GET calls, as url length does not have limitations in POST calls.
 - If using GET calls, note that URL length is limited, and any special characters in the query need to be URL encoded (i.e. %20 for space, %3B for "%").
-- If something isn't working that you think should, see DOQL Support notes below.
 
 ## Samples
 
