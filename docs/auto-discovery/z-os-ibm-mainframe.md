@@ -7,7 +7,7 @@ sidebar_position: 14
 
 Device42 has enhanced z/OS discovery with additional capabilities and device results.
 
-- Inventory data that includes: device name, IP address, MAC address, hardware details, OS information, vendor/manufacturer, capacity, services (attached to service ports),
+- Inventory data that includes: device name, IP address, hardware details, OS information, vendor/manufacturer, capacity, services (attached to service ports),
 - The number of zIIPs (IBM z Integrated Information Processors) and number of zAAPs (IBM z Application Assistance Processors) – come in as parts on the device record.
 - Disk Space – the number of drives, their capacity and space used (in TB) come in as mount points on the device. (Note that collecting disk information requires access to the STGADMIN.IDC.DCOLLECT profile.)
 - Current TSO Users / Current TN3270 Connections / GCP Processor Capacity in MIPS – come in as device extra fields.
