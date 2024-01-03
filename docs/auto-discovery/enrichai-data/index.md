@@ -80,6 +80,7 @@ When EnrichAI is enabled, customer data such as OS, vendor, and the related arch
 
 The Main Appliance will need to be able to reach the following domains for cloud services to be registered:
 
+- `https://registration.device42.com`
 - `https://crs.device42.io/`
 - `https://enrichai.device42.io/api/normalizations`
 
