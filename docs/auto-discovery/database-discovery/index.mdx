@@ -13,9 +13,15 @@ Database discovery was introduced in v16.02.00 _(ensure you are running v16.02+
 Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
 :::
 
-As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
+By default, the target machine ports are defined by different database vendors as follows:
+- MS SQL: 1433
+- DB2: 50000
+- Postgres: 5432
+- Oracle: 1521
 
-You can also use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
+Dynamic discovery can discover different ports to use. As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
+
+If you want to specify DB discovery details yourself, including the DB server port, server IP address, and DB access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases. 
 
 ## MS SQL Server DB Discovery (on Windows targets)
 
