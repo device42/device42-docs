@@ -192,11 +192,27 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
 ```
 * * *
 
+### Amazon S3 Fields and Access Control
+
+Device42 can discover information on the following S3 fields:
+- Has Public Access Point
+- Has Public ACL
+- Has Public Policy
+- Public ACLs Blocked
+- Public Policies Blocked
+
+A bucket can be [public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-policy-status) if it has **Public Access Point**, **Public ACL** or **Public Policy**. The **Public ACLs Blocked** and **Public Policies Blocked** flags can be independently controlled with settings in the AWS S3 console. When these flags are checked off, a user with the correct permissions can access the bucket.  
+
+**Additional resources:**
+
+- See [S3 Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) for more details. 
+- Visit the [block public access settings](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-options) section for S3 access control options.
+
 ### Add/Edit AWS Roles
 
 Device42 includes an editor you can use to define or edit the AWS Roles displayed for Amazon AWS cloud autodiscovery jobs. Follow the steps below to view and add AWS Roles.
 
-- Select _Resources > Secrets > AWS Roles_ from the main menu.
+- Select **Resources > Secrets > AWS Roles** from the main menu.
 
 <ThemedImage
   alt="Choose AWS Roles menu item"
