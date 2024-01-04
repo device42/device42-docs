@@ -39,25 +39,29 @@ You can use `sc create` to create the service, and then start it using `sc start
 The `sc description` command can be used to give a friendly description to it.
 
 ```
-#On Windows machine. Drop the agent under c:\\Program Files\\Device42 as d42winagent.exe  (make sure that agent is named that unless you are using d42config.json file to override that)
-#for the command below notice the space after = sign below. It is critical.
+# On a Windows machine: drop the agent under Program Files\\Device42 as d42winagent.exe
+# (make sure that the agent is named that unless you are using d42config.json file to override that)
+
+# For the command below, notice the space after the = sign below. It is critical.
 sc create d42AgentService binPath= "C:\Program Files\\Device42\d42_winservice_386.exe" start= auto (or d42_winservice_x64.exe)
 sc description d42AgentService "D42 service that calls the agent to run every N hours to send inventory details to Device42"
-sc start d42AgentService (you can start from UI too)
-# to query or stop use (optional)
-#sc query d42AgentService
-#sc stop d42AgentService
+sc start d42AgentService  # You can also start from the UI
 
-#Also, note that sc create/start on Windows reads from %windir%/system32 by default. So if the user doesn't have C: or doesn't want to use C:\ProgramData\Device42, they can place d42config.json in the system32 directory
+# To query or stop, use (optional)
+# sc query d42AgentService
+# sc stop d42AgentService
 
-#example d42config.json file below. Note that each arg is enclosed in double quotes
-#interval could be from 1 hour to 24*7 hours
-#{
-#  "executablePath": "c:\\Program Files\\Device42\\d42_winagent.exe",
-#  "WorkingDir": "c:\\ProgramData\\Device42",
-#  "arguments": ["-host=https://10.92.11.63","-skip-software=true"],
-#  "interval": 2
-#}
+# Note: sc create/start on Windows reads from %windir%/system32 by default. 
+# If the user doesn't have C: or doesn't want to use C:\ProgramData\Device42, they can place d42config.json in the system32 directory.
+
+# Example d42config.json file below. Note that each arg is enclosed in double-quotes.
+# Interval could be from 1 hour to 24*7 hours
+# {
+#   "executablePath": "c:\\Program Files\\Device42\\d42_winagent.exe",
+#   "WorkingDir": "c:\\ProgramData\\Device42",
+#   "arguments": ["-host=https://10.92.11.63","-skip-software=true"],
+#   "interval": 2
+# }
 
 ```
 
@@ -70,6 +74,8 @@ As shown in the example above, each argument should be enclosed in double quotes
 The `agent_local.log` file will be created under the current working directory.
 
 ### Handling errors
+
+![Windows service wrapper error](/assets/images/windows-service-wrapper-error.png)
 
 If the service doesn’t start, it is generally because it can’t read the `d42config.json` file. 
 
