@@ -3,11 +3,11 @@ title: "EnrichAI Data"
 sidebar_position: 99
 ---
 
-EnrichAI Data is a Device42 service to enrich discovered data. Currently Device42 supports the enrichment of discovered device OS data and vendor data.
+EnrichAI Data is a Device42 service to enrich discovered data. Currently, Device42 supports the enrichment of discovered device OS data and vendor data.
 
 ## Data Fields
 
-From Device42 version 18.12 , the following vendor attributes, operating system attributes, and support date fields will be populated if data for them are available.
+From Device42 version 18.12, the following vendor attributes, operating system attributes, and support date fields will be populated if data for them are available.  These attributes are mined from a set of validated authoritative sources to ensure accuracy.
 
 ### Vendor Attributes
 
@@ -28,7 +28,7 @@ From Device42 version 18.12 , the following vendor attributes, operating system 
 | OS Version Number           | General version number of the release                          |
 | Key Support Dates  | See the table below for details on the available date fields  |
 
-Note that from the v18.12 release, the **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI data. Both the 32 and 64 bit architectures will coalesce into a single entry since OS dates, licensing, patches, and risk profiles are not affected by architecture.
+Note that from the v18.12 release, the **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI data. Both the 32 and 64-bit architectures will coalesce into a single entry since OS dates, licensing, patches, and risk profiles are not affected by architecture.
 
 ### Key Support Dates
 
@@ -47,7 +47,9 @@ Note that these date fields may not be populated depending on the vendor, OS, an
 
 ## EnrichAI data collection
 
-When EnrichAI is enabled, customer data such as OS, vendor, and the related architecture information that is collected during discovery jobs is queued up and then sent in batches to the EnrichAI service via https. The EnrichAI service will respond back with the enriched data if a match is found and the enriched data is displayed on the EnrichAI Data page. All data sent to the EnrichAI service is completely anonymized and cannot be traced back. Additionally, the data being sent will never contain any identifiable information such as hostnames, IP Addresses, MAC addresses, etc. Below is a sample of the payload:
+When EnrichAI is enabled, device data such as OS, vendor, and the related architecture information that is collected during discovery jobs is queued up and then sent in batches to the EnrichAI service via HTTPS. All data is processed using a background task to prevent negative system impact.  The EnrichAI service will respond with the enriched data if a match is found and the enriched data is displayed on the EnrichAI Data page.  These results may not be available or visible immediately based on the number of requests in the queue and the system load.  
+
+In addition, if the entry is new or unique, it may require the EnrichAI service to perform a background check with authoritative sources for new data or changes to previous data which can be displayed on the next discovery for this device.  For this reason, each discovery will check with the EnrichAI service to ensure fresh and correct values have been set. Data sent to the EnrichAI service is completely anonymized and cannot be traced back. Additionally, the data being sent will never contain any identifiable information such as hostnames, IP Addresses, MAC addresses, etc. Below is a sample of the payload:
 
 ```json
 [
