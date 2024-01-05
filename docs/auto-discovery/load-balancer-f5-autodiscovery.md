@@ -5,7 +5,11 @@ sidebar_position: 32
 
 ## Discovering F5, NetScaler and other load balancers or cluster devices
 
-Device42 Load Balancer discovery will discover virtual servers, pools and devices with dependencies. Basic inventory information includes hardware model, serial number, hostname(s), OS details, and more. Cisco ASA, Cisco UCS, NetScaler, and Cluster devices can be discovered by Device42 via their native APIs. Devices from A10 Networks should also produce good output using SNMP. Load balancer virtual server and pool member discovery is a simple process. To discover these devices, simply add a job under _Discovery -> UCS/ACI/Load Balancers_.
+Device42 Load Balancer discovery will discover virtual servers, pools and devices with dependencies. Basic inventory information includes hardware model, serial number, hostname(s), OS details, and more. Cisco ASA, Cisco UCS, NetScaler, and Cluster devices can be discovered by Device42 via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
+
+Note that [SNMP discovery](network-auto-discovery.mdx) is needed for identifying the actual chassis and virtual appliances. 
+
+Load balancer virtual server and pool member discovery is a simple process. To discover these devices, add a job under **Discovery > UCS/ACI/Load Balancers**.
 
 ## Load balancer discovery
 
