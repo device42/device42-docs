@@ -255,23 +255,80 @@ You can also select **Resources > Databases > On-Prem Databases** to display a
 
 DB2 database discovery (introduced in v18.02.00) is for \*nix discovery targets and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have appropriate permissions to view the databases you are interested in discovering.
 
+### Permissions for DB2 Discovery
+
+For discovery to return detailed info about your database instance, you will require the following permissions:
+
+**1. Privileges for ENV_SYS_INFO:**
+   - SELECT or CONTROL privilege on the ENV_SYS_INFO administrative view
+   - EXECUTE privilege on the ENV_GET_SYS_INFO table function
+
+**2. Privileges for SNAPAPPL_INFO:**
+   - SELECT or CONTROL privilege on the SNAPAPPL_INFO administrative view
+   - EXECUTE privilege on the SNAP_GET_APPL_INFO_V95 table function OR DATAACCESS authority
+
+**3. Privileges for ENV_INST_INFO:**
+   - SELECT or CONTROL privilege on the ENV_INST_INFO administrative view
+   - DATAACCESS authority OR DBADM authority OR SQLADM authority OR ACCESSCTRL authority OR SECADM authority
+
+**4. Privileges for DBCFG:**
+   - SELECT or CONTROL privilege on the DBCFG administrative view
+   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+
+**5. Privileges for CONTAINER_UTILIZATION:**
+   - SELECT or CONTROL privilege on the CONTAINER_UTILIZATION administrative view
+   - DATAACCESS authority OR DBADM authority OR SQLADM authority OR ACCESSCTRL authority OR SECADM authority
+
+**6. Privileges for Monitoring:**
+   - EXECUTE privilege on the MON_GET_CONNECTION
+   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+
+**7. Privileges for Routines:**
+   - EXECUTE privilege on the GET_DBSIZE_INFO, WLM_SET_CONN_ENV, MON_GET_CONTAINER, and MON_GET_TABLESPACE routines
+   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+
+**Additional SELECT Privileges:**
+   - SELECT privilege on the SYSIBM.SYSTABLESPACES
+   - SELECT privilege on the SYSIBM.SYSDUMMY1
+   - SELECT privilege on the SYSIBM.SYSVERSIONS
+
+**Required Authorities:**
+   - One of the following authorities is required for overall access:
+      - SYSMON
+      - SYSMAINT
+      - SYSCTRL
+      - SYSADM
+
+
 ### Setting up your DB2 discovery job
 
-1) To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
+To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
 Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the DB2 database itself and the second (_Discovery Targets Credentials_) to authenticate to the \*nix server itself.
 
 You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_ when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
-![](/assets/images/D42-25010_nix-AD-job-with-db.png)
+<ThemedImage
+alt="Nix discovery job"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-dark.png'),
+}}
+/>
 
 ### Viewing DB2 discovery job results
 
-3) Once the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
+Once the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
 
 Click on your DB2 instance name under the _Resource Name_ column to see more information about that database.
 
-![](/assets/images/on-prem-databases-list.png)
+<ThemedImage
+alt="On-prem list page"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-dark.png'),
+}}
+/>
 
 ## Database Connections Discovery Jobs
 
