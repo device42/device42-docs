@@ -6,7 +6,7 @@ sidebar_position: 8.5
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Device42 Windows Service Wrapper is an executable (available separately for i386 32-bit and 64-bit architectures) that can be installed as a service. It calls the Device42 Windows agent that you can download from your Device42 main appliance. 
+The Device42 Windows Service Wrapper is an executable (available separately for i386 32-bit and 64-bit architectures) that can be installed as a service. Download the Windows Service Wrapper from the [autodiscovery page of the Device42 website](https://www.device42.com/autodiscovery/). The service wrapper calls the Device42 Windows agent that you can download from your Device42 main appliance. 
 
 ## Overview of installation
 
@@ -14,7 +14,7 @@ At a high level, there are three separate files that you need to install the ser
 
 1. **The service executable itself**: This is named `d42_winservice_P_V.exe`. Its default path is `C:\Program Files\Device42`. 
 2. **The d42config.json file**: This dictates the various settings needed to run the service. Its default path is `C:\ProgramData\Device42`.
-3. **The agent executable**: This can be downloaded from the Device42 main appliance under **Discovery > Agent Based Scans (Win7+)**.
+3. **The agent executable**: This is called `d42_winagent_x(bit).exe` and can be downloaded from the Device42 main appliance under **Discovery > Agent Based Scans (Win7+)**.
 
 There are multiple ways you can install and start the service. For your convenience, we have added a PowerShell script (option 1). Below that we include detailed steps for installing with `sc` if needed (option 2).
 
