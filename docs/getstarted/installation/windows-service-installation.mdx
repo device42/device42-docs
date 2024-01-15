@@ -79,6 +79,6 @@ The `agent_local.log` file will be created under the current working directory.
 
 If the service doesn’t start, it is generally because it can’t read the `d42config.json` file. 
 
-It should either live under `c:\opt\device42`, or `%windir%\system32` (`sc` reads from the system folder by default, so for any non-standard location, this is where the file needs to be).
+It should live under `$ProgramData\Device42` or `%windir%\system32` (`sc` reads from the system folder by default, so for any non-standard location, this is where the file needs to be).
 
 Another issue might be that the format or the values are incorrect.
