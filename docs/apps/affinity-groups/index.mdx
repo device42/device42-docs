@@ -2,6 +2,9 @@
 title: "Affinity Groups"
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Affinity Groups Overview
 
 Affinity Groups assists customers and partners with application grouping activities based on observed communication patterns.
@@ -14,9 +17,9 @@ After discovery has been run within your environment _(we recommend a 30-day min
 
 ## Using Affinity Groups - How-To
 
-From the Device42 menu, navigate to _Applications > Affinity Groups._
+From the Device42 menu, navigate to **Applications > Affinity Groups**.
 
-From this screen, enter your search criteria and/or simply click the _Chart_ link next of the Affinity Group you'd like to view. Affinity Groups are automatically calculated every night at 2AM for all 'pinned' services.
+From this screen, enter your search criteria and/or click the _Chart_ link next of the Affinity Group you'd like to view. Affinity Groups are automatically calculated every night at 2 AM for all 'pinned' services.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic1.png)
 
@@ -38,10 +41,11 @@ Database services are considered 'core services' and are therefore pinned automa
 
 ### Viewing Affinity Group Impact Charts
 
-Simply click the _Chart_ link next to an Affinity Group name to display the associated Affinity Group Impact Chart. Use the controls at the left of the charts to highlight or search for Affinity Group Dependencies in the chart.
+Simply click the **Chart** link next to an Affinity Group name to display the associated Affinity Group Impact Chart. Use the controls at the left of the charts to highlight or search for Affinity Group Dependencies in the chart.
 
 ![](/assets/images/18.04.00_affinity-groups-chart-1.png)  
-Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a _Service Dependencies Report_ for Affinity Groups from the Affinity Group chart view page. The Services Dependencies report details all the communications for devices within an Affinity Group.
+
+Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a **Service Dependencies Report** for Affinity Groups from the Affinity Group chart view page. The Services Dependencies report details all the communications for devices within an Affinity Group.
 
 ### Affinity Group Timelines
 
@@ -49,34 +53,43 @@ Affinity Group timelines make it easy to see how a given Affinity Group changed 
 
 ![](/assets/images/18.04.00_affinity-groups-timeline-1.png)
 
- Click on a vertical point in the timeline at the bottom of the chart to see a summary of changes. Click _Show Details_ to see more information about the changes.
+Click on a vertical point in the timeline at the bottom of the chart to see a summary of changes. Click **Show Details** to see more information about the changes.
 
 ![](/assets/images/18.04.00_affinity-groups-timeline-2.png)
 
-### Affinity Group Calculations - Navigating up and down to next device
+### Affinity Group Calculations
 
-With Affinity Group calculations users can view an Affinity Group calculation from just about any device — Simply open the hamburger menu, and choose “Affinity Group Calculation”. Furthermore, within the Affinity Group calculation, clicking on the plus \[+\] button(s) next to the top or bottom most device in a chain, users can jump to view the “next level” calculation, either above or below. This allows a drill-up or drill-down navigation from a database server, for example, all the way to a client, or conversely from a client machine all the way down to the starred service originating the service being accessed.
+With Affinity Group calculations users can view an Affinity Group calculation from just about any device — open the hamburger menu, and choose **Affinity Group Calculation**.
 
-Note the highlighted \[+\] plus signs in the below image:  
-![](/assets/images/WEB-721_Affinity_Groups_Pic7.png)
+<ThemedImage
+  alt="Affinity group calculation option"
+  sources={{
+    light: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-light.png'),
+    dark: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-dark.png'),
+  }}
+/>
+<br/><br/>
 
-![](/assets/images/18.04.00_affinity-groups-device-calc-page.png)
+Within the Affinity Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
+
+<ThemedImage
+  alt="Affinity group calculation detailed view"
+  sources={{
+    light: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-view-light.png'),
+    dark: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-view-dark.png'),
+  }}
+/>
 
 ## Add Affinity Groups to a Business Application
 
-You can now use a new command on the Affinity Group list page to quickly and easily add multiple affinity groups to an existing or new business application. Simply click up to five affinity groups on the list page and select _Add Affinity Groups to Business Applications_ from the Actions menu.
+You can now use a new command on the Affinity Group list page to quickly and easily add multiple affinity groups to an existing or new business application. Simply click up to five affinity groups on the list page and select **Add Affinity Groups to Business Applications** from the Actions menu.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic9.png)
 
-Select the Business Application you want, or add a new one, and click _Add objects to the Business Application_.
+Select the Business Application you want, or add a new one, and click **Add objects to the Business Application**.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic10.png)
 
 The Affinity Groups added will be visible on the Business Application canvas. The Devices in each Affinity Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Affinity Group.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic11.png)
-
-
-## Table of contents
-
-- [AppFocus Filters](apps/affinity-groups/appfocus-filters.md)
