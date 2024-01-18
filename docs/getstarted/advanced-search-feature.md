@@ -108,6 +108,20 @@ will return all objects with name that contains _Brenda_ (case-insensitive).
 
 will return all objects with a Service Command Line Argument that contain the text _postgres_.
 
+### NOT CONTAINS
+
+The not contains operator can be used to retrieve values that do not match the specified case-insensitive substring for text columns. As with the Equals operator, you can use this operator on a column representing a list – the partial non-match will be tried against each item in that list. Not Contains values must be enclosed by parenthesis.
+
+Examples:
+
+`name not contains ("brenda")`
+
+will return all objects with a name field that does not contain Brenda (case-insensitive).
+
+`service_command_line_args not contains ("postgres")`
+
+will return all objects with a Service Command Line Argument that do not contain the text _postgres_.
+
 ### COMPARATORS `(>, >=, <, <=)`
 
 The comparator operators can be used with number, date, and IP columns. As with the Equals operator, when using any of these operators on a column representing a list, the comparison will be done against each element in the list & if any are true, the record will return.
