@@ -6,28 +6,25 @@ sidebar_position: 28.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-[StackStorm](https://docs.stackstorm.com/overview.html#about) is well-suited to automate a range of IT management workflows. In response to a trigger event, you can integrate StackStorm and Device42 to update device details, set user permissions, send Device42 data to other systems, and more. 
+[StackStorm](https://docs.stackstorm.com/overview.html#about) is well-suited to automate a range of IT management workflows. In response to a trigger event, you can get the StackStorm-Device42 integration to update device details, set user permissions, send Device42 data to other systems, and more. 
 
 ## Set Up the Integration
 
-Before creating a fully automated workflow, we'll install and configure StackStorm:
-
-- Install StackStorm using Docker.
-- Install the Device42 plugin.
-- Configure the plugin with your Device42 credentials. 
-- Test the integration by querying for Device42 data from StackStorm.
+Before creating a fully automated workflow, we'll set up the StackStorm-Device42 integration. First, we'll run StackStorm in a Docker container and install the integration plugin (named "Device42 Package" in StackStorm). We'll configure the plugin using our Device42 credentials. Finally, we'll test the integration by querying for a specific device using a StackStorm action.
 
 ### Install StackStorm Using Docker
 
-Running StackStorm in a [Docker](https://docs.docker.com/get-docker/) container, and using [Docker compose](https://docs.docker.com/compose/install/), is one of the quickest and easiest [StackStorm installation options](https://docs.stackstorm.com/install/index.html) available. This method is not designed to be used in production but will get StackStorm running quickly to test out automations.
+One of the quickest and easiest [StackStorm installation options](https://docs.stackstorm.com/install/index.html) available is to run StackStorm in a [Docker](https://docs.docker.com/get-docker/) container and manage it with [Docker compose](https://docs.docker.com/compose/install/). Note this method is not designed to be used in production but will get StackStorm running quickly to test out automation workflow.
 
-Clone the plugin GitHub repository with `git clone https://github.com/stackstorm/st2-docker`, cd to the `st2-docker` folder, and use the `docker-compose up -d` command to start the docker containers. See the [StackStorm documentation](https://docs.stackstorm.com/install/docker.html) for more details.
+To get started, clone the plugin GitHub repository with `git clone https://github.com/stackstorm/st2-docker`, cd to the `st2-docker` folder, and use the `docker-compose up -d` command to run the docker containers. 
+
+See the [StackStorm Docker documentation](https://docs.stackstorm.com/install/docker.html) for more details.
 
 ### Log In to StackStorm
 
 Start the convenient st2 command line from the docker container to log in to StackStorm:
 
-1. Change into the directory with:
+1. Change into the `st2-docker` directory:
 
     ```
     cd st2-docker
@@ -51,7 +48,9 @@ Start the convenient st2 command line from the docker container to log in to Sta
 
 <br/>
 
-You can log in to StackStorm web UI using the default username `st2admin` and password `Ch@ngeMe`. Even if you're using the CLI, it's handy to have the StackStorm web UI open to quickly get feedback on communication attempts and see the available actions under the **Actions** tab. We'll use the `get_device_by_id` action later to test the communication between StackStorm and Device42.
+Log in to StackStorm web UI using the default username `st2admin` and password `Ch@ngeMe`. Even if you're using the CLI, it's handy to have the StackStorm web UI open for quick feedback on communication attempts. It's also useful to see the available actions under the **Actions** tab. Later we'll use the `get_device_by_id` action to test the StackStorm-Device42 setup.
+
+<br/>
 
 ![UI package actions](/assets/images/stackstorm-integration/ss-ui-d42-actions.png)
 
@@ -74,7 +73,7 @@ As StackStorm is open-source, you can look at the [StackStorm-Device42 plugin co
 
 ### Configure the Device42 Plugin
 
-Find the `device42.yaml` configuration file of the Device42 plugin and the following environment variables to it:
+Configure the Device42 plugin using either the **command line** or **web UI** by adding your Device42 server IP address, username, password, API path, and DOQL path details to it: 
 
 ```
 d42_server: 'https://mydevice42ip/api/1.0/'
@@ -87,40 +86,40 @@ d42_doql_api_path: '/services/data/v1.0/query/'
 
 Note that usually `verify_certificate` is set to `false` for self-signed SSL certificates. However, using a self-signed certificate [may cause the webhook sender](https://docs.stackstorm.com/troubleshooting/webhooks.html) to reject the connection, preventing it from being sent to StackStorm.
 
-Use the StackStorm web UI to quickly enter your configuration information. Note that you should add a trailing slash to the `d42_server` endpoint despite the label saying not to.
+- Using the StackStorm web UI, enter your configuration information. Note that you should add a trailing slash to the `d42_server` endpoint despite the label saying otherwise.
 
-![Configure via UI](/assets/images/stackstorm-integration/ss-ui-d42-config.png)
+    ![Configure via UI](/assets/images/stackstorm-integration/ss-ui-d42-config.png)
 
-If you're using Docker compose and the st2 command line, configure the plugin in the `device42.yaml` file. There are two `device42.yaml` files. The plugin uses the `device42.yaml` file that is part of the Docker volume rather than the one within the container. By default you can find that config file here:
+- If you're using Docker compose and the st2 command line, add your credentials to the `device42.yaml` file. There are two `device42.yaml` files. The plugin uses the `device42.yaml` file that is part of the Docker volume rather than the one within the container. By default you can find that config file here:
 
-```
-/var/snap/docker/common/var-lib-docker/volumes/st2-docker_stackstorm-packs-configs/_data/device42.yaml
-```
+    ```
+    /var/snap/docker/common/var-lib-docker/volumes/st2-docker_stackstorm-packs-configs/_data/device42.yaml
+    ```
 
-If the `device42.yaml` file isn't there, you can look for it by running:
+    If the `device42.yaml` file isn't there, you can look for it by running:
 
-```
-find / -name device42.yaml
-```
+    ```
+    find / -name device42.yaml
+    ```
 
-Then open the config file using a text editor like Vim or Nano and add your environmental variables to it. 
+    Then open the config file using a text editor like Vim or Nano and add your environmental variables to it. 
 
-```
-vim /var/snap/docker/common/var-lib-docker/volumes/st2-docker_stackstorm-packs-configs/_data/device42.yaml
-```
+    ```
+    vim /var/snap/docker/common/var-lib-docker/volumes/st2-docker_stackstorm-packs-configs/_data/device42.yaml
+    ```
 
-After saving the file, tell StackStorm to load the new values by running:
+    Save the file and tell StackStorm to load the new values by running:
 
-```
-st2ctl reload --register-configs
-```
+    ```
+    st2ctl reload --register-configs
+    ```
 
 ### Test the Integration
 
 To verify your setup, try calling the `get_device_by_id` action, either in the StackStorm web UI or on the server.  
 
 ```
-st2 run device42.get_device_by_id device_id=15 
+st2 run device42.get_device_by_id device_id=113 
 ```
 
 ![get_device_by_id results](/assets/images/stackstorm-integration/ss-cli-get-device-id.png)
@@ -133,16 +132,16 @@ Now that the integration is all setup, we'll create an automation to dynamically
 For an overview of the architecture of this integration and additional information, see our in-depth [Dynamic User Permissions with Device42 and StackStorm](https://www.device42.com/blog/2017/11/30/dynamic-user-permissions-with-device42-and-stackstorm/) blog post.
 :::
 
-In Device42, we will create the following lifecycle stages/events along with new permission groups and users for each stage:
+In Device42, we will create the following lifecycle stages with matching permission groups, also known as admin groups, and a user for each group:
 
 - Purchasing
 - Mounting
 - Deployment
 - Production
 
-We're also going to create an [object category](https://docs.device42.com/administration/role-based-access-control/) for each lifecycle stage. When assigned to a device, the object category property grants role-based permissions to that device. 
+We'll also create an [object category](https://docs.device42.com/administration/role-based-access-control/) for each lifecycle stage. It's the object category property that will grant role-based permissions when assigned to a device. 
 
-In total, we'll add the following items to the Device42 main appliance:
+In total, we'll add the following four items each to the User, Permission Group, Lifecycle Event, and Object Category components in Device42:
 
 | User             | Permission Group     | Lifecycle Event | Object Category  |
 |------------------|----------------------|------------------|------------------|
@@ -152,36 +151,41 @@ In total, we'll add the following items to the Device42 main appliance:
 | production       | production_group    | production      | production_cat   |
 <br/>
 
-Let's outline the automation we'll create with an example of a device moving from the purchasing to the mounting stage:
+Let's breakdown the automation using an example of adding the "mounting" lifecycle event to a device that's in the purchasing stage:
 
 1. The "purchasing" user updates the lifecycle event from "purchasing" to "mounting".
 2. A webhook is triggered in Device42 sending data about the update to StackStorm.
 3. StackStorm adds the "mounting_cat" object category to the device.
-4. In Device32, the "mounting_cat" object category updates the device's user permissions to users in the "purchasing_group" permission group.
-5. The "mounting" user will be able to see and edit the device, while these permissions are revoked for the "purchasing" user.
-
-### Automation Setup Steps
-
-Here's an outline of the steps we'll take to set up the automation:
-
-**Creating the Device42 items**
-   1. create the four permission groups
-   2. create four users 
-   3. link the permission groups to object categories
-   4. create four lifecycle events
-  
-**Setting up the automation**
-   1. generate a StackStorm API key 
-   2. create a webhook endpoint in Device42
-   3. create an action in Device42
-   4. create a JSON map for the StackStorm datastore of lifecycle ID - object category pairs
-   5. test the automation
+4. In Device32, the "mounting_cat" object category updates the device's user permissions to the "mounting_group".
+5. The "mounting" user can view and edit the device, but for the "purchasing" user these permissions are revoked.
 
 ***
 
-### Creating the Device42 Items
+### Automation Setup Steps
 
-1. **Create the four permission groups.** Navigate to **Tools > Admin Groups** and click **+ Add Admin Group**. Name the "purchasing_group" and select the permissions for the user. For this demonstration, we granted all permissions with the **Choose all** button. Create the mounting, deployment, and production groups in the same way.
+To set up the automation, we'll create the items from the table in Device42 before setting up the automation. The steps of the process are listed below. 
+
+**Creating the Device42 items**
+   1. Enable role-based permissions
+   2. Create four permission groups (also called 'admin groups).
+   3. Create four users. 
+   4. Link the permission groups to object categories.
+   5. Create four lifecycle events. 
+  
+**Setting up the automation**
+   1. Generate a StackStorm API key. 
+   2. Create a webhook endpoint in Device42.
+   3. Create an action in Device42.
+   4. Create a JSON map for the StackStorm datastore of lifecycle ID - object category pairs.
+   5. Test the automation.
+
+### Enable Role-Based Permissions
+
+Navigate to **Tools > Settings > Global Settings**. Click on **Edit** and change the **Role-Based Access Control Options** field to **On**.
+
+### Create Device42 Items
+
+1. **Create the four permission groups.** Navigate to **Tools > Admin Groups** and click **+ Add Admin Group**. Name the "purchasing_group" and select the permissions for the user. For this demonstration, we granted all permissions with the **Choose all** button. Create the mounting, deploying, and production groups in the same way.
 
     <ThemedImage
     alt="Add admin group"
@@ -193,7 +197,7 @@ Here's an outline of the steps we'll take to set up the automation:
     <br/><br/>
 
 
-2. **Create four users** and add them to their respective permission (admin) group. Navigate to **Tools > Administrator** and click **+ Add Local Admin**.  Enter the username and password for the user and click on the **Save and continue editing** button to reveal more fields. Scroll down to the **Available groups** section and choose the user’s permission group from the list.
+2. **Create four users** and add them to their respective permission group. Navigate to **Tools > Administrator** and click **+ Add Local Admin**.  Enter the username and password for the user and click on the **Save and continue editing** button to reveal more fields. Scroll down to the **Available groups** section and choose the user’s permission group from the list.
 
     <ThemedImage
     alt="Add user admin group"
@@ -289,7 +293,6 @@ To do this, we need to first determine the lifecycle IDs that were assigned to t
 
 You can do this by viewing the event and looking at its URL for the ID. A more efficient way to retrieve all the IDs at once is to make a [DOQL to query](https://docs.device42.com/reports/device42-doql/) the [Device42 API](https://api.device42.com/#resource_Asset-Device_Life_Cycle) for the lifecycle IDs. 
 
-
 ![Lifecycle ID in URL](/assets/images/stackstorm-integration/d42-lifecycle-url.png)
 
 Create a JSON file with the lifecycle IDs as the "name" values. You can leave out the `lc_` in front of the ID number according to your preferred naming convention. 
@@ -325,18 +328,17 @@ st2 key load mydata.json
 
 ### Testing the Automation 
 
-Test the automation by updating the asset lifecycle of a device to "mounting". Wait a few moments and refresh the device page. View the status of the webhook processing by going to **Tools > Webhooks > Pending**. You can view connection errors by viewing the endpoint under **Tools > Webhooks > Endpoints**
+Test the automation by updating the asset lifecycle of a device to "mounting". Wait a couple of minutes for the automation to run. Check on the progress of the webhook by going to **Tools > Webhooks > Pending**. You can view connection errors by viewing the endpoint under **Tools > Webhooks > Endpoints**
 
 From the StackStorm side, you can look out for a POST request in the API logs:
 
 ```
-2024-01-18 19:53:58,597 INFO [-] 7b2bc32f-6e47-45c7-ab12-d06258fcb582 - POST /executions with query={} (method='POST',path='/executions',remote_addr='172.18.0.14',query={},request_id='7b2bc32f-6e47-45c7-ab12-d06258fcb582')
+2024-01-17 13:27:07,763 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - POST /v1/webhooks/d42_lifecycle with query={} (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',query={},request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
 
-2024-01-18 19:53:58,694 INFO [-] 7b2bc32f-6e47-45c7-ab12-d06258fcb582 - 201 2382 97.378ms (method='POST',path='/executions',remote_addr='172.18.0.14',status=201,runtime=97.378,content_length=2382,request_id='7b2bc32f-6e47-45c7-ab12-d06258fcb582')
-
+2024-01-17 13:27:07,788 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - 202 295 24.343ms (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',status=202,runtime=24.343,content_length=295,request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
 ```
 
-The logs are located in the `/var/log/st2/st2api.log` file. If you're using docker, run the following command to see the logs in the terminal:
+These logs are located in the `/var/log/st2/st2api.log` file. If you're using docker, run the following command to see the logs in the terminal:
 
 ```
 docker logs st2-docker_st2api_1
@@ -344,7 +346,7 @@ docker logs st2-docker_st2api_1
 
 The [StackStorm webhook troubleshooting page](https://docs.stackstorm.com/troubleshooting/webhooks.html) is a useful resource to consult for further debugging.
 
-When the automation has been completed successfully, you'll see in Device42 that the **Object Category** value has changed to "mounting_cat" changing the **Group Permissions** to "mounting_group".
+Refresh the device page. If automation has been completed successfully, you'll see  the **Object Category** value has changed to "mounting_cat" and the associated **Group Permissions** value is "mounting_group".
 
 <ThemedImage
 alt="Device42 object category updated"
@@ -355,7 +357,7 @@ sources={{
 />
 <br/><br/>
 
-Now, if you log in with the "purchasing" user credentials and navigate to **Resources > All devices**, the device page list has no devices.
+Check that the user permissions are changing based on the lifecycle event. Log in to Device42 with the "purchasing" user credentials and navigate to **Resources > All devices**. The updated device is not longer available in the list page to the "purchasing" user.
 
 <ThemedImage
 alt="Purchasing user device list"
