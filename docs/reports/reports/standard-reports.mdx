@@ -1,0 +1,71 @@
+---
+title: "Standard Reports"
+sidebar_position: 15.5
+---
+
+From version 18.13.00, the traditional "Classic Reports" menu option has been renamed to **Standard Reports** under the **Analytics menu**. Standard Reports are generally the quickest and easiest way to query and report on information within Device42. 
+
+The standard reporting feature under the Analytics menu is the first place to go to answer difficult business questions with system data. These reports integrate his powerful tabular reporting functionality with DOQL queries, MA object tables, and the catalog of existing reports.
+
+![Standard Reports menu](/assets/images/standard-reports/standard-report-menu.png)
+
+The Standard Report options allow you to create tabular reports directly from an existing report, from a list within the UI, or use a custom DoQL to retrieve and populate the data. These reports can then be exported or scheduled to email giving recipients easy to configure and digest, data-rich tabular exports from the system.
+
+## Creating a Standard Report
+
+You can create a Standard Report in several ways:
+
+- using DOQL
+- from a predefined report
+- from a list page
+- as a guided report
+
+### Creating a Report Using DOQL
+
+A DOQL statement, or Device42 Object Query Language statement, is a query that can be run against the Device42 database within the Insights+ interface, through the application, or using the RESTful API. DOQLs can be used in Standard Reporting to generate the data to display within a results table.
+
+**NOTE:** To create reports using DOQL, one should be familiar with and consult the data dictionary under the Viewer Schema option under the help icon.
+
+![View Schema option](/assets/images/standard-reports/viewer-schema-option.png)
+
+To utilize DOQL to create or edit a Standard Report, select the option “DOQL Query” from the report type dropdown after naming the report. The DOQL commands can then be entered in the text box. The start of a sample select statement is displayed in the DOQL text box to aid the user. If there is an error generated during parsing, such as invalid syntax or referencing a table or field that does not exist, the error message will be shown at the bottom of the text box.
+
+### Creating a Report From a Predefined Report
+
+Create a multi-tab Standard Report where one of the tabs contains the results of a previous existing report. Select the report option “Pre-Defined Report” and choose from a set of existing reports to be included as a tab.
+
+![Pre-Defined Report option](/assets/images/standard-reports/pre-defined-report.png)
+
+### Creating a Report From a Guided Report 
+
+To build a Standard Report using the Guided Report option, select the model (like "Devices") and then select the table columns that are part of that Device model. Field filters can be added or set to alter the result display of this report.
+
+![Guided Report option](/assets/images/standard-reports/guided-report-option.png)
+
+![Guided Report dropdown](/assets/images/standard-reports/guided-report-dropdown.png)
+
+### Creating a Report From a List Page
+
+A new Standard Report can be easily created from these list pages which can be delivered through email and scheduled.
+
+Infrastructure list pages for Rooms, Racks, Telco Circuits, Parts Models, Parts List, Power Unit, Hardware Models, Customers/Departments, Purchases, and Vendors can all be used to create a Standard Report by using the Report button at the top of the table.
+
+Lists from the **Resources** menu for All Devices, All Assets, Subnets, All IPs Addresses, Ports, Docker Resources, LXC Resources, Operating Systems, Operating Systems in Use, Software Components, Software In Use, and Secrets can be used to create a Standard Report by using the Report button at the top of the table after creation and application of filters.
+
+![Devices report button](/assets/images/standard-reports/devices-report-button.png)
+
+List pages under the **Applications** menu such as Application Components, Certificates, and Certificate Instances can also be used to create a Standard Report by using the Report button at the top of the table after creation and application of filters.
+
+![Create new report UI](/assets/images/standard-reports/create-new-report.png)
+
+![Column options](/assets/images/standard-reports/create-new-report-columns.png)
+
+## Exporting Standard Reports 
+
+Like the previous Classic Reports, you can view the report output on the screen or export the results in Tab Separated Value (TSV) or Excel formats.
+
+## Scheduling Standard Reports
+
+You can set and apply a schedule to the report, including a comma-separated list of recipients.
+
+![Scheduling standard reports](/assets/images/standard-reports/scheduling-standard-reports.png)
