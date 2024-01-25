@@ -78,7 +78,7 @@ The Remote Collector list page Actions Menu contains commands you can use for se
 
 ## RC Fallback Endpoint
 
-The fallback Administrative Collector endpoint (v18.13+) is designed to communicate with a Collector that may be offline or just cannot be reached through the normal messaging protocol. 
+The fallback Administrative Collector endpoint is designed to communicate with a Collector that may be offline or just cannot be reached through the normal messaging protocol. 
 
 If an bulk action cannot send the request to perform the action to the Collector using the standard messaging protocol, the same action request will be sent to the Administrative API endpoint in hopes that that path will succeed.
 
