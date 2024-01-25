@@ -49,6 +49,7 @@ Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
 - **URL** – enter the URL for the job (for example: `https://login.microsoftonline.com/[tenant domain or ID]`).
 - **Client ID** – enter or add the client ID secret for the job.
 - **Client Credential** – enter or add the client credential secret for the job.
+- **Overwrite existing device hostname with discovered hostname** - (not pictured) select to rename the device with the discovered name.
 - **Strip domain name** – strip the domain suffix from discovered device names (yes/no).
 - **Object Category for discovered devices** – select or add an object category for devices.
 - **Tags for discovered devices** – enter comma-separated tags for devices.
@@ -63,3 +64,9 @@ Scroll down to the bottom of the page to define a schedule for the Intune discov
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery.png)
 
 Click **Save** to save the Intune discovery job.
+
+### Renaming Intune Devices
+
+Devices within Intune are renamed during the build process. If a device name is not being updated as expected following Device42 autodiscovery, or after being renamed and updated in Intune, select the **Overwrite existing device hostname with discovered hostname** option.
+
+![](/assets/images/intune-overwrite-device-name.png)
