@@ -35,6 +35,10 @@ Also, next to each IP, you will see an _Edit_ button that will enable you to edi
 
 You can also nest subnets right from the tree view using the _+ New Subnet_ button after each subnet. If you click this button, you get a tree like view of available subnets within that subnet that you can click on and choose. You can also drag and drop subnets into another subnet or another VRF group.
 
+:::info
+Please note that the drag and drop functionality is disabled for trees with over 2000 subnets.
+:::
+
 ## View Available Subnets
 
 When adding subnets, you can view used and available subnets at a glance by clicking the _Subnet Usage Tree_ button...
