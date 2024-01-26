@@ -15,6 +15,24 @@ Advanced search lets you enter search criteria based on the columns on the list 
 
 When you first click in the Advanced Search Query bar, Device42 displays a list of the **column names** you can use to create your search. Click or enter a column name to begin building your search. To copy an executed advanced search, copy the URL in your browser address bar and paste the URL into a new browser tab or window. You can also bookmark the page containing the executed search.
 
+### Column Operator and Syntax Suggestions
+
+After selecting a column, a list of available operators for that column type will be suggested.
+
+![Operator suggestions](/assets/images/advanced-search/operator-suggestions.png)
+
+As a reminder to enclose values within parentheses for [`in`, `not in`](#in-and-not-in), [`contains`](#contains), and [`not contains`](#not-contains) operators, an open parenthesis `(` will be suggested.
+
+![Parenthesis syntax](/assets/images/advanced-search/parenthesis-suggestion.png)
+
+In the case of the [`=` operator](#equals), put values in double quotation marks and use the special `EMPTY` keyword to represent a ‘null’ or ‘blank’ value. 
+
+![Values syntax](/assets/images/advanced-search/value-syntax.png)
+
+When using [comparator operators](#comparators), like `<` or `>`, numbers are entered without any enclosing quotation marks.
+
+![Integer suggestion](/assets/images/advanced-search/number-syntax.png)
+
 ## Search Value Formatting:
 
 ### Text
