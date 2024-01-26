@@ -121,32 +121,27 @@ A snippet from each section of the page can be seen below:
 
 Oracle database discovery (introduced in v16.04.00) is supported for Windows and \*nix discovery targets and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have appropriate permissions to view the databases you are interested in discovering.
 
-As of v16.14.01, Device42 now supports autodiscovery on Windows and \*nix platforms for the following Oracle database versions.
+As of v16.14.01, Device42 now supports autodiscovery on Windows and \*nix platforms for the following Oracle database versions:
 
 **Oracle 10g**
-
 - Windows 32 bit
 - CentOS 32 bit
 
 **Oracle 11g**
-
 - Windows 32 bit
 - Windows 64 bit
 - CentOS 32 bit
 - CentOS 64 bit
 
 **Oracle 12c**
-
 - Windows 64 bit
 - CentOS 64 bit
 
 **Oracle 18c**
-
 - CentOS 64 bit
 - Windows 64 bit
 
 **Oracle 19c**
-
 - Windows 64 bit
 - CentOS 7 64 bit
 
@@ -214,13 +209,25 @@ On the Application Components screen, click **Show** to view the database Depend
 
 ### Oracle CDB/PDB Matching Process and Regular Processing Procedures
 
+An Oracle database instance is created for each Container Database (CDB) and Pluggable Database (PDB), even in cases where they share the same endpoint listener.
+
 We attempt to match any root database instance (CDB) with the same endpoint as our incoming resource (CDB or PDB). If we find a root database instance (CDB), we try to locate all related child databases (PDBs) for it and iterate through all of the child records. If any child database name matches the name of the incoming resource, we identify this database instance as the same as the incoming one and update the existing record with the new incoming resource data.
 
 If we can't find any child database instance resources, we match the resource to the root resource. If there's no match to the root resource, we proceed with regular processing.
 
 We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
 
-If a candidate database instance is detected to be a child of a CDB we skip the matching process
+If a candidate database instance is detected to be a child of a CDB we skip the matching process.
+
+### Oracle Users and Database Discovery
+
+Under the **Resource Properties** option, you can view the discovered **Oracle Database Name** and **Vendor Resource Type**. The **Vendor Resource Type** property distinguishes Oracle users that have associated DB objects from Oracle databases during discovery.
+
+Discovered Oracle users with associated DB objects have a **Vendor Resource Type** of `Schema` and are listed in the **Database/Schema** table.
+
+Oracle databases are assigned a **Vendor Resource Type** of `Database Instance`. 
+
+![Oracle DB Resource Properties](/assets/images/database-discovery/oracle-vendor-resource-type.png)
 
 ## Postgres SQL DB Discovery (on \*nix targets)
 
