@@ -209,13 +209,15 @@ On the Application Components screen, click **Show** to view the database Depend
 
 ### Oracle CDB/PDB Matching Process and Regular Processing Procedures
 
+An Oracle database instance is created for each Container Database (CDB) and Pluggable Database (PDB), even in cases where they share the same endpoint listener.
+
 We attempt to match any root database instance (CDB) with the same endpoint as our incoming resource (CDB or PDB). If we find a root database instance (CDB), we try to locate all related child databases (PDBs) for it and iterate through all of the child records. If any child database name matches the name of the incoming resource, we identify this database instance as the same as the incoming one and update the existing record with the new incoming resource data.
 
 If we can't find any child database instance resources, we match the resource to the root resource. If there's no match to the root resource, we proceed with regular processing.
 
 We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
 
-If a candidate database instance is detected to be a child of a CDB we skip the matching process
+If a candidate database instance is detected to be a child of a CDB we skip the matching process.
 
 ### Oracle Users and Database Discovery
 
