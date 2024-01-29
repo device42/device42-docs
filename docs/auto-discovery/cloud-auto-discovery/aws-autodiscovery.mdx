@@ -94,7 +94,6 @@ Note that some Discovery items require enabling the feature and cannot be discov
 | Subnets                   | Network --> Subnets              |                                       | Subnets                                                |
 | VPCs                      | Resources --> VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       |
 
-
 **Additional Endpoint Information**
 
 _**Regular Discovery**_
@@ -190,6 +189,14 @@ _**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is 
   ]
 }
 ```
+
+### AWS Tags
+
+Organizations that use AWS tags can retrieve tags associated
+with each cloud account within AWS. Discovered tags are located under the **Vendor Custom Fields** field. 
+
+![Vendor Custom Fields with AWS tag](/assets/images/cloud-discovery-aws/vendor-custom-fields.png)
+
 * * *
 
 ### Amazon S3 Fields and Access Control
