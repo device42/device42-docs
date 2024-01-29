@@ -5,6 +5,35 @@ sidebar_position: 16
 
 Device42 supports SSH-based Linux and UNIX discovery from within the main appliance (v13.2+). For a full list of supported Linux/UNIX operating systems, please visit [Device42 Supported Operating Systems.](auto-discovery/operating-systems-supported-in-auto-discovery.md)
 
+## Information Discovered
+
+## Discovered Information
+
+Provided with a successful configuration of the discovery account, and given the data's availability, Device42 will gather the following information:
+
+<table>
+    <tbody>
+        <tr>
+            <td width="20%">
+                <ul>
+                    <li>Device host information</li>
+                    <li>Parts</li>
+                    <li>Operating System</li>
+                </ul>
+            </td>
+            <td width="25%">
+                <ul>
+                    <li>Service processes</li>
+                    <li>Software installed</li>
+                    <li>Installed common applications and configuration files</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Within the **Parts** section of device details, the CPU, RAM, and storage entries for the device will be displayed. You may also see additional information such as model number, slot, and location.
+
 ## Setting up Linux/Unix Autodiscovery
 
 Before configuring an ssh-based discovery job, please be sure you have your SSH port (standard TCP port 22, or a custom port) open between your Device42 Main Appliance or Remote Collector and the targeted Unix/Linux servers. Select _Discovery > Hypervisors / *nix / Windows_ from the main menu to add a Linux/UNIX discovery job to connect and gather host and VM details. On the Add Hypervisors/*nix/win for Autodiscovery page, choose *nix as the platform, and enter your discovery target (hostnames, IPs or IP range, or CIDR), credentials, and job options. 
