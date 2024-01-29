@@ -61,4 +61,4 @@ If you have previously ran a D42 discovery job, and are discovering new resource
 
 ### Ignore IP/MAC Addresses From Autodiscovery
 
-You have the option to ignore specific IP and MAC addresses globally and for specific jobs. See [Windows and Hyper-V Autodiscovery](windows-and-hyper-v-auto-discovery.md) for more details.
+You have the option to ignore specific IP and MAC addresses globally and for specific jobs. See [Windows and Hyper-V Autodiscovery](windows-and-hyper-v-auto-discovery.md/#option-to-ignore-ipsmac-addresses) for more details.
