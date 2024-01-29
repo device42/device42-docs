@@ -58,3 +58,7 @@ Device42's Cisco ASA/NX OS autodiscovery augments firewall/ASA discoveries with 
 ### Notes on Nutanix Autodiscovery
 
 If you have previously ran a D42 discovery job, and are discovering new resources, then in some cases, you will need to delete and re-run to have a complete view. Note that this is a discovery workaround for the time being.
+
+### Ignore IP/MAC Addresses From Autodiscovery
+
+You have the option to ignore specific IP and MAC addresses globally and for specific jobs. See [Windows and Hyper-V Autodiscovery](windows-and-hyper-v-auto-discovery.md) for more details.
