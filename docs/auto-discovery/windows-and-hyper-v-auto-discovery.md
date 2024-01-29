@@ -24,7 +24,32 @@ Network Issues
 
 Our support team can provide best effort assistance in trying to resolve issues. However, for both protocols, it is best to reach out to your network or system admin, in order to resolve connection issues.
 
+## Discovered Information
 
+Provided with a successful configuration of the discovery account, and given the data's availability, Device42 will gather the following information:
+
+<table>
+    <tbody>
+        <tr>
+            <td width="20%">
+                <ul>
+                    <li>Device host information</li>
+                    <li>Parts</li>
+                    <li>Operating System</li>
+                </ul>
+            </td>
+            <td width="25%">
+                <ul>
+                    <li>Service processes</li>
+                    <li>Software installed</li>
+                    <li>Installed common applications and configuration files</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Within the **Parts** section of device details, the CPU, RAM, and storage entries for the device will be displayed. You may also see additional information such as model number, slot, and location.
 
 ## Creating & running Windows discovery jobs
 
@@ -214,29 +239,9 @@ The following requirements represent the **minimum necessary user account permis
 
 **4)** The discovery user account must be a member of the **Performance Monitor Users Group** and **Distributed COM Users Group** on the machines being targeted for discovery.
 
-Provided the above is successfully configured for the discovery account (& the data is available), Device42 will successfully gather the following info:
-
-<table>
-    <tbody>
-        <tr>
-            <td width="20%">
-                <ul>
-                    <li>Device Host information</li>
-                    <li>Operating System</li>
-                    <li>Service Process</li>
-                </ul>
-            </td>
-            <td width="25%">
-                <ul>
-                    <li>Software Installed</li>
-                    <li>Installed common Applications and Configuration Files</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-Note: If you are discovering servers that do not belong to a domain, there may be issues due to UAC settings. Please refer to this [MSDN article](https://learn.microsoft.com/en-us/windows/win32/wmisdk/user-account-control-and-wmi?redirectedfrom=MSDN) for information regarding UAC's effects on WMI.
+:::info 
+If you are discovering servers that do not belong to a domain, there may be issues due to UAC settings. Please refer to this [MSDN article](https://learn.microsoft.com/en-us/windows/win32/wmisdk/user-account-control-and-wmi?redirectedfrom=MSDN) for information regarding UAC's effects on WMI.
+:::
 
 * * *
 
