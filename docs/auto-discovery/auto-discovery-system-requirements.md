@@ -17,6 +17,7 @@ The following are pre-requisites and other general requirements and guidelines f
 - Minimum system resource configuration for the Device42 appliance: 4 vCPUs and 8GB memory. Ensure that a _minimum_ 1GBPS network connection is present, that there is a dedicated resource pool for the Device42 VM, and that there are no resource contention issues. Placing the Device42 Appliance's (Virtual Machine) VHD on SSD is ideal, but is not required.
 - WinRM Windows discovery can be run from the main appliance or a Remote Collector. Deploy remote collector(s) to desired network segments and select them when configuring your discovery jobs where appropriate, if desired.
 - To _(optionally)_ exclude known service port ranges from discovery, proceed to **Tools > Settings > Global Settings > Win/*nix Exclusions** and add your desired exclusions to the Autodiscovery application. This will limit the scope and volume of data that is discovered, helping to reduce noise and overhead while shortening the overall discovery time.
+- Ignore certain IP and MAC addresses for all jobs by creating an exclusion for it in **Tools > Settings > Global Settings > Win/*nix Exclusions**. The device(s) will still be discovered, but its are details dropped from ingestion.
 
 Detailed permission info:
 
