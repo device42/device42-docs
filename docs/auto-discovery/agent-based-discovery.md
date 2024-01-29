@@ -9,15 +9,21 @@ There exist special situations in which an agent simply makes more sense, and fo
 
 Some situations simply cannot be discovered agentlessly either because they are unreachable from the network, or because certain rules don't permit traffic flow. These special cases, and other security-hardened uses that may prove difficult otherwise are cases for which we recommend customers utilize agents. Note you are free to deploy and use agents as you see fit, as agents provide equivalent functionality vs. Device42's agent-less discovery, but we do recommend the majority of users stick with agent-less.
 
-**Discovery Account _WARNING:_ Please do _not_ set up an auto-discovery / scan using critical \[production\] account credentials! Please create a separate, dedicated account to use _only_ for discovery**
+:::warning
+**Discovery Account warning: Please do _not_ set up an autodiscovery scan using critical  or production account credentials! Please create a separate, dedicated account to use _only_ for discovery**
 
-Doing so, depending on permissions granted & configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
+Doing so, depending on permissions granted and configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
+:::
 
 ## Supported Platforms
 
 **Device42 Autodiscovery agents are available for deployment on the following platforms:**
 
 <table><tbody><tr><td><ul><li>Windows (32) NT 4.0</li><li>Windows (32) Win 7+</li><li>Linux (32-bit)</li><li>FreeBSD v10+ (32)</li><li>FreeBSD v1-9 (32)</li><li>OpenBSD v6+ (32)</li><li>OpenBSD pre v6 (32)</li><li>Solaris Sparc (64)</li></ul></td><td><ul><li>Windows (64) NT 4.0</li><li>Windows (64) Win 7+</li><li>Linux (64-bit)</li><li>FreeBSD v10+ (64)</li><li>FreeBSD v1-9 (64)</li><li>OpenBSD v6+ (64)</li><li>OpenBSD pre v6 (64)</li><li>Mac</li></ul></td></tr></tbody></table>
+
+:::info
+See **[Windows Discovery Agent Service Wrapper](getstarted/installation/windows-service-installation.mdx)** and **[Mac Agent Service Launcher](mac-agent-service-launcher.mdx)** for information on installing versions of the Windows and Mac discovery agent as a service.
+:::
 
 ## Installation
 
