@@ -51,6 +51,16 @@ Provided with a successful configuration of the discovery account, and given the
 
 Within the **Parts** section of device details, the CPU, RAM, and storage entries for the device will be displayed. You may also see additional information such as model number, slot, and location.
 
+## Option To Ignore IPs/MAC Addresses
+
+You can ignore IP and MAC addresses from being included in our database during autodiscovery.  Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
+
+Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
+
+![Ignore IPs and MACs](/assets/images/ip-mac-ignore.png)
+
+Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance. 
+
 ## Creating & running Windows discovery jobs
 
 Navigate to the _Discovery_ menu and select _HyperVisors / \*Nix / Windows_, this section will allow you to setup and save multiple autodiscovery jobs for Windows, Hyper-V, and other platforms.
