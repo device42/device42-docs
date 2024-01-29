@@ -32,3 +32,7 @@ If you’re less than three versions behind, downloading the new MA file will br
 ## If I am on the latest MA release, how do I update my Remote Collectors?
 
 This update will need to be pushed via the Appliance Manager once you have the upgrade file. Step by step instructions can be found here: [https://docs.device42.com/getstarted/faqs/](getstarted/faqs/index.md).
+
+## How is the Remote Collector proxy configured?
+
+The proxy that you set up in the MA will be used for remote collector too. You can view and edit the inherited proxy settings from the [RC view and edit page](auto-discovery/remote-collector-rc/#viewedit-remote-collector.md).
