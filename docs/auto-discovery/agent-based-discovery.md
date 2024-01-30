@@ -132,6 +132,8 @@ It can be run from the command line or can be scheduled using the relevant sched
     	use global ignore software pattern file
   -version
     	print version number and exit
+  --wmi-timeout
+      timeout for Windows WMI calls (default is 120 seconds if not supplied)
 ```
 
 ## Scheduling With Crontab in Linux
