@@ -35,7 +35,7 @@ Recommended Steps:
 - Enter the Azure application (client) ID into the discovery job Client ID field
 - Enter the Azure secret value into the discovery job Client Credential field
 
-### Intune Discovery Items
+### Intune Discovery Job
 
 Intune discovery identifies mobile devices and mobile application software managed by Intune.
 
@@ -63,3 +63,7 @@ Scroll down to the bottom of the page to define a schedule for the Intune discov
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery.png)
 
 Click **Save** to save the Intune discovery job.
+
+### Intune OS Names
+
+Intune OS data will take a lower precedence to the more authoritative sources like OS-level discovery. For example, the Device42 agent will pick up "Microsoft Windows 10 Enterprise" compared to the generic Intune name "Windows". The lower precedence ensures more detailed OS names are collected, enhancing the capability to filter the data.
