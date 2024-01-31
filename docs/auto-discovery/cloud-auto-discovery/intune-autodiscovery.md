@@ -65,8 +65,13 @@ Scroll down to the bottom of the page to define a schedule for the Intune discov
 
 Click **Save** to save the Intune discovery job.
 
+### Intune OS Names
+
+Intune OS data will take a lower precedence to the more authoritative sources like OS-level discovery. For example, the Device42 agent will pick up "Microsoft Windows 10 Enterprise" compared to the generic Intune name "Windows". The lower precedence ensures more detailed OS names are collected, enhancing the capability to filter the data.
+
 ### Renaming Intune Devices
 
 Devices within Intune are renamed during the build process. If a device name is not being updated as expected following Device42 autodiscovery, or after being renamed and updated in Intune, select the **Overwrite existing device hostname with discovered hostname** option.
 
 ![](/assets/images/intune-overwrite-device-name.png)
+
