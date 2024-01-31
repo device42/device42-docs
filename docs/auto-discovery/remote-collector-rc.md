@@ -80,14 +80,6 @@ The Remote Collector list page Actions Menu contains commands you can use for se
 
 The proxy settings within the Main Appliance and RC are set independently but are often identical. To reduce the potential for error, the RC can pick up proxy settings that have been configured. You can view and edit the RC proxy settings within the RC view of the Main Appliance.
 
-## RC Fallback Endpoint
-
-The fallback Administrative Collector endpoint is designed to communicate with a Collector that may be offline or just cannot be reached through the normal messaging protocol. 
-
-If an bulk action cannot send the request to perform the action to the Collector using the standard messaging protocol, the same action request will be sent to the Administrative API endpoint in hopes that that path will succeed.
-
-The fallback endpoint is used so an RC that's offline but running can receive log level changes or updated proxy settings.
-
 ## Scalability
 
 Device42 remote collectors provide robust scalability by offloading discovery workloads from you main appliance(s). You can deploy multiple remote collectors for each main appliance. Device42 recommends one remote collector with one WDS (Windows Discovery Service) for each 1,000 workloads.
