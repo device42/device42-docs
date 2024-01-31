@@ -9,6 +9,10 @@ Note that using Device Ignore Rules does not affect device data that has already
 
 You can see Device Ignore Rule discovery results and details in the [Discovery Scores](reports/reports/discovery-quality-scores.md) page (select _Reports > Discovery Scores_ to view the page).
 
+:::info
+Ignore rules will **skip** the discovery of devices completely. An alternative option is available if you want to discover devices, but exclude specific IPs, MACSs, or Network Interfaces from the dataset. See **[Windows and Hyper-V Autodiscovery](/auto-discovery/windows-and-hyper-v-auto-discovery/#option-to-ignore-ipsmac-addresses)** for more details. 
+:::
+
 ### Add a Device Ignore Rule
 
 Select _Tools > Settings > Device Ignore Rules_ and then click _Add Device Ignore Rule_ to apply an ignore rule to a device.
