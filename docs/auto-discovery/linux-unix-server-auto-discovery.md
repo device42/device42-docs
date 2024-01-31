@@ -60,6 +60,16 @@ Before configuring an ssh-based discovery job, please be sure you have your SSH 
 
 Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement.
 
+## Option To Ignore IPs/MAC Addresses
+
+ You can ignore IP and MAC addresses from being included in our database during autodiscovery.  Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
+
+ Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
+
+ ![Ignore IPs and MACs](/assets/images/ip-mac-ignore.png)
+
+ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance. 
+
 * * *
 
 ### Naming Options
