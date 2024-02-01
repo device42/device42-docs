@@ -23,7 +23,7 @@ sidebar_position: 8
 
 a. Enter the Remote Collector IP address or FQDN in the first field.
 
-b. Head over to the Device42 main appliance web UI to generate a OTP (one-time password) _\[for both an RC connection or a Device42 connection\]_ for the second field. This can be found by navigating to the main menu, _Discovery > Remote Collectors_:
+b. Head over to the Device42 Main Appliance web UI to generate a OTP (one-time password) _\[for both an RC connection or a Device42 connection\]_ for the second field. This can be found by navigating to the main menu, _Discovery > Remote Collectors_:
 
 ![](/assets/images/WEB-773_RC-list-page-menu.png)
 
@@ -41,11 +41,23 @@ b. Head over to the Device42 main appliance web UI to generate a OTP (one-time p
 
 7) Installation should now be complete. Remote collectors in the Device42 UI should now be renamed to reflect that the WDS has been set up and connected, and the WDS Service indicator icon will be 'green' as pictured below, indicating a WDS is connected and communicating:
 
- 
 
 ![](/assets/images/image-2.png)
 
- 
+### Securing WDS Implementation in Device42
+
+Both the Main Appliance and the Remote Collector ship with a self-signed certificate, it is therefore necessary in these cases to support invalid certificates with the default installation of Device42. 
+You can install a valid certificate on the Main Appliance or Remote Collector. You can then change the default behavior of WDS to not ignore SSL errors by changing the config file for WDS runtime:
+
+```
+<configuration>
+  <appSettings>
+....
+    <add key="IgnoreSSLErrors" value="false"/>
+....
+  </appSettings>
+...  
+```
 
 * * *
 
