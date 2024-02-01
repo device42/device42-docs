@@ -19,11 +19,13 @@ From the tags list page, click Add Tag to create a tag. Click on a tag to edit t
 
 For each tag, you give it a name and a slug (essential a unique resource identifier).
 
-In the example above, 2 devices and 1 IP addresses were "tagged" with tag "nh4th".
+In the example above, 2 devices and 1 IP addresses were "tagged" with tag "nh4th". 
+Tags containing spaces should be wrapped in double quotes, for example, "tag space".
 
 An example of tagging a device with 'nh4th' is shown below...
 
 ![](/assets/images/wpid-media_14144934131171.png)
+
 
 ### Merging tags
 
