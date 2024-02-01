@@ -15,6 +15,8 @@ Click _Add Cloud Autodiscovery_, and then select _Alibaba Cloud_ as the Cloud Ty
 
 Select one or more Zones for the discovery and select options for Action for Instance not found and Device Name Format. Click Save to add the job to the list of Cloud Autodiscovery jobs. Select the job and click Run Now to run the job immediately or continue editing to schedule runs.
 
+Optionally, you can set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
+
 * * *
 
 ## DigitalOcean Autodiscovery
@@ -27,7 +29,7 @@ Click _Add Cloud Discovery_ on the Cloud Discovery page, and then select _Digita
 
 ![](/assets/images/Image27_Cloud_Disc_DigitalOcean.png)
 
-Enter a Token Key, and then select any other options you want for the discovery job.
+Enter a Token Key, and then select any other options you want for the discovery job. Optionally, you can set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 
 Click Save and Continue; then you can click Run Now to run the job immediately. Or you can save it and set up a schedule to run the Oracle discovery job.
 
@@ -56,6 +58,7 @@ Optionally, you can also:
 - Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group. This is useful if you have duplicate IPs in your internal network.
 - Check the “Remove unfound instances from Device42″ box. If you check this box, then each time this autodiscovery job is run, any devices that were previously created for this account but were not found by the autodiscovery job will be deleted. By checking this box, you can ensure that Device42 will remain in sync with Linode. If you leave it unchecked, then you may end up with Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
+- Set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 
 Next, you should "Save and Continue". Then you can click 'Run' to run the job immediately. Or you can save it or save it and have it run on a regular schedule.
 
@@ -86,6 +89,7 @@ Next, you should "Save and Continue". Then you can click 'Run' to run the job im
 - Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group. This is useful if you have duplicate IPs in your internal network.
 - Check the “Remove unfound instances from Device42″ box. If you check this box, then each time this autodiscovery job is run, any devices that were previously created for this account but were not found by the autodiscovery job will be deleted. By checking this box, you can ensure that Device42 will remain in sync with OpenStack. If you leave it unchecked, then you may end up with Device42 Cloud Instances (cloud devices) that no longer exist in OpenStack.
+- Set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 
 Next, you can click Save and Continue. Then you can click Run Now to run the job immediately. Or you can save it and set up a schedule to run the discovery job.
 
@@ -115,6 +119,7 @@ You can also:
 - Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group.
 - Select a Remote Collector.
+- Set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 
 Scroll down the page to see additional options.
 
