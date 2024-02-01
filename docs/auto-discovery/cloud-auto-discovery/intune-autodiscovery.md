@@ -52,8 +52,9 @@ Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
 - **Overwrite existing device hostname with discovered hostname** - (not pictured) select to rename the device with the discovered name.
 - **Strip domain name** – strip the domain suffix from discovered device names (yes/no).
 - **Object Category for discovered devices** – select or add an object category for devices.
+- **Service Level** - set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 - **Tags for discovered devices** – enter comma-separated tags for devices.
-- **Customer for discovered devices** – select or add custome.
+- **Customer for discovered devices** – select or add customer.
 - **Debug level** – select the debug level for the job.
 - **Discover Software** – discovered managed software applications (yes/no).
 - **Initial Software Type** – select the type for discovered software.
