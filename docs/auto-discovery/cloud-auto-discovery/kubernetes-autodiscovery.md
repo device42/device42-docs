@@ -27,6 +27,8 @@ Optionally, you can also choose a Vendor and a VRF Group. Please note that all V
 
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery3.png)
 
+You can optionally set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+
 ### View Discovered Kubernetes Resources
 
 Discovered Kubernetes resources appear in the Resources list page. Select _Resources > All Resources_ from the main menu to display the list page. Use the _Vendor Resource Type_ drop-down to choose the Kubernetes resources you want to see.
