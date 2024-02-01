@@ -43,3 +43,7 @@ _Data discovered on the Google Cloud Platform is similar to what you might be us
 - Strip Domain Name: Strip domain name from discovered name (everything after the first period)
 - Object category for discovered devices: Choose a category to assign to discovered devices
 - Overwrite existing object categories: Select this option to overwrite any previously assigned categories with current selection
+
+**Service Level Option**
+
+You can set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
