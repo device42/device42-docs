@@ -52,6 +52,7 @@ If using the Tenant ID for discovery, you'll create a Single Role at the Tenant 
         "actions": [
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+          "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action",
           "Microsoft.ContainerService/managedClusters/read",
           "Microsoft.DBforMariaDB/servers/databases/read",
           "Microsoft.DBforMariaDB/servers/read",
