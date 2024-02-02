@@ -4,8 +4,6 @@ title: "Appliance Manager"
 
 The Device42 Appliance Manager runs on port 4242 (HTTP by default; enable HTTPs within) to manage various Device42 Administrative functions. You can do backups & restores, manage HTTPS certifcates, Restart/Stop the application, generate logs or SNMPwalks for tech support, and more. The following topics are covered in this section:
 
-
-
 ## Table of contents
 
 - [Adding multiple Network Interface Cards(NIC) to Device42 VM](administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.md)
@@ -17,9 +15,9 @@ The Device42 Appliance Manager runs on port 4242 (HTTP by default; enable HTTPs 
 - [Device42 Restore](administration/appliance-manager/device42-restore.md)
 - [Enable or Disable TLS versions from Appliance Manager](administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager.md)
 - [Enabling SSL in Appliance Manager](administration/appliance-manager/enabling-ssl-in-appliance-manager.md)
-- [Generate log bundle](administration/appliance-manager/generate-log-bundle.md)
+- [Generate log bundle](administration/appliance-manager/generate-log-bundle.mdx)
 - [Generating IPMI output for troubleshooting](administration/appliance-manager/generating-ipmi-output-for-troubleshooting.md)
-- [Global and Password manager session timeout](administration/appliance-manager/global-and-password-manager-session-timeout.md)
+- [Global and Password manager session timeout](administration/appliance-manager/global-and-password-manager-session-timeout.mdx)
 - [Installing VMWare or Xenserver tools](administration/appliance-manager/installing-vmware-or-xenserver-tools.md)
 - [Pendo Guided Tours and Usage Information Collection](administration/appliance-manager/pendo-guided-tours-and-usage-information-collection.md)
 - [Securing the VM console with password](administration/appliance-manager/securing-the-vm-console-with-password.md)
