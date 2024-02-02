@@ -1,14 +1,25 @@
 ---
-title: "Device Custom Fields"
+title: "Device Custom Keys"
 sidebar_position: 16
 ---
 
-Many customers create custom fields for their devices to organize them and add additional information according to their specific situations. Now custom fields can be even more useful – you can now choose to display those custom fields conveniently in device pop-up panels and on layout pages.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-When you add a device custom field, simply check _Include in Context Pop-ups_ to include the custom field in panels and on layout pages.
+Many customers create Custom Keys (also called Custom Fields) for their devices to organize them and add additional information according to their specific situations. Now Custom Keys can be even more useful – you can now choose to display those custom fields conveniently in device pop-up panels and on layout pages.
 
-![](/assets/images/17.07.00_device-custom-fields-700x248.png)
+To create a new Custom Key, navigate to **Tools > Custom Fields** and select **Devices** from the list. From the list page, click the **+ Add Custom Key** button on the right.  
 
-The custom field is then included in device pop-up panels and pages. The image below shows an example with two custom fields defined for Context Pop-ups: _Console Port_ and _Application_.
+When you add a device Custom Key, check **Include in Context Pop-ups** to include the Custom Key in panels and on layout pages.
+
+<ThemedImage
+  alt="Create new Custom Key"
+  sources={{
+    light: useBaseUrl('/assets/images/device-custom-fields/add-custom-key-light.png'),
+    dark: useBaseUrl('/assets/images/device-custom-fields/add-custom-key-dark.png'),
+  }}
+/>
+
+The Custom Key is then included in device pop-up panels and pages. The image below shows an example with two Custom Keys defined for Context Pop-ups: _Console Port_ and _Application_.
 
 ![](/assets/images/17.07.00_device-cfconsole-port.png)
