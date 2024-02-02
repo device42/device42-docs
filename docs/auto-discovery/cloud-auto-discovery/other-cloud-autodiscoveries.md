@@ -119,7 +119,7 @@ You can also:
 - Choose the vendor. Vendors can be user-defined or may be populated by the EnrichAI feature as part of discovery.
 - Choose a VRF Group. If you select a VRF Group, then all IPs found will be placed in subnets in that VRF Group.
 - Select a Remote Collector.
-- Set the [_Service Level_](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
+- Set the [_Service Level_](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
 
 Scroll down the page to see additional options.
 
