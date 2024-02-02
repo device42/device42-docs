@@ -52,6 +52,7 @@ If using the Tenant ID for discovery, you'll create a Single Role at the Tenant 
         "actions": [
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+          "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action",
           "Microsoft.ContainerService/managedClusters/read",
           "Microsoft.DBforMariaDB/servers/databases/read",
           "Microsoft.DBforMariaDB/servers/read",
@@ -102,6 +103,14 @@ After defining the permissions, select **Next** to define the scope this applica
 
 To apply the role, go back to the **Access Control (IAM) > Add > Add Role Assignment**. Select your newly created role and choose **Next** to bring you to the **Members** tab. Choose the **User, group, or service principal > Select members**, and choose the application created in the previous steps above. Select **Next** and then **Review + Assign**. Your custom role is now applied to your new application and can be used for discovering Azure Resources.
 
+### Azure Kubernetes Service (AKS)
+
+When "Authentication and Authorization" is set to "Azure AD authentication with Kubernetes RBAC" and "Kubernetes local accounts" is disabled, you must ensure that there is a group configured within the "Cluster admin ClusterRoleBinding" that includes the discovery user/service principal.
+
+It is important to note that you can specify multiple groups within the “Cluster admin ClusterRoleBinding” selection.
+
+This can be useful if you would like to keep the discovery user/service principal in a separate, dedicated discovery group rather than adding it to an existing group.
+
 ### Device42 Azure Discovery
 
 Now, we will configure an Azure discovery job in Device42 using the application details we made note of earlier. The limited role we applied will prevent access to unnecessary resources while still allowing for visibility and discovery of what is in scope.
@@ -112,7 +121,7 @@ Log in to the Device42 main appliance web console and navigate to **Discovery > 
 2. Repeat this process for the **Subscription ID** and **Client Secret** fields, where the **Subscription ID** and **Client Secret ID** values go in the respective Password fields of their Secret entries.
 3. The **Directory (tenant) ID** can be pasted directly into the Tenant ID field of the discovery job.
 
-You can set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+You can set the **Service Level** of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
 
 Configure any other discovery options as required, such as adding vendor metadata as tags or custom fields, device name format, enabling Kubernetes discovery to pull in AKS resources, etc. The advanced features section will enable discovery of database and function resources and are enabled by default. Configure an auto-discovery schedule if desired, then select Save and continue editing.
 
