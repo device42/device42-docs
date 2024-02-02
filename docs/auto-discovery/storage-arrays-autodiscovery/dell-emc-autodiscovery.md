@@ -28,11 +28,11 @@ Login to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `
 
 - Click on _Add User_ and create a user with the **monitor** role.
 
-![](/assets/images/placeholder.png)
+![Add User](/assets/images/dell-emc-autodiscovery/smis-add-user.png)
 
-- Use the Dynamic Setting shown below.
+- Use the Dynamic Settings shown below.
 
-![](/assets/images/placeholder.png)
+![Dynamic Settings](/assets/images/dell-emc-autodiscovery/smis-dynamic-settings.png)
 
 ### EMC Data Domain
 
