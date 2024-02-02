@@ -112,6 +112,8 @@ Log in to the Device42 main appliance web console and navigate to **Discovery > 
 2. Repeat this process for the **Subscription ID** and **Client Secret** fields, where the **Subscription ID** and **Client Secret ID** values go in the respective Password fields of their Secret entries.
 3. The **Directory (tenant) ID** can be pasted directly into the Tenant ID field of the discovery job.
 
+You can set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+
 Configure any other discovery options as required, such as adding vendor metadata as tags or custom fields, device name format, enabling Kubernetes discovery to pull in AKS resources, etc. The advanced features section will enable discovery of database and function resources and are enabled by default. Configure an auto-discovery schedule if desired, then select Save and continue editing.
 
 * * *
