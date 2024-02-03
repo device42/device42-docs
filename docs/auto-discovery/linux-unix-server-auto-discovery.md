@@ -48,7 +48,7 @@ Before configuring an ssh-based discovery job, please be sure you have your SSH 
 **Discovery Target(s)**: Specify FQDN or IP of discovery target(s). If using FQDN, Device42 must be configured to resolve the DNS.  
 **Port**: This will be 22 by default. Only change this if you have a different ssh port configured.  
 **Use telnet if SSH port is closed**: Fall back to telnet (port 23) if SSH port is found to be closed.  
-**Collect database server information**: Select this option to discover MYSQL and Oracle database servers.  
+**Collect database server information**: Select this option to discover Oracle database servers.  
 **Database Username/Password(s)**: Username/Password with database server permissions.  
 **ADM Sampling Interval**: Off or sampling interval in minutes or hours.  
 **Enable Resource Utilization Tracking for Device(s)**: Optionally enable the collection of resource utilization metrics from discovered devices.  
