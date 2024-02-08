@@ -3,8 +3,8 @@ title: "Advanced Reporting"
 sidebar_position: 2
 ---
 
-:::danger
-TO BE DEPRECATED.
+:::caution
+We are primarily invested in **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)** and encourage customers to use those first.
 :::
 
 ## Advanced Reporting Engine Overview
