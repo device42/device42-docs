@@ -23,12 +23,11 @@ Select **Certificates & Secrets**, then **New Client Secret**. Give your secret 
 
 Device42 allows you to discover by Tenant or Subscription level. Using the Tenant discovery is best suited for customers with large numbers of Azure Subscriptions, whereas if you only have a few Subscriptions, you may find that preferable. 
 
-:::note
 Please note that the assignable scope in the policy below assumes you are performing subscription level discovery. 
 
 If you are performing tenant level discovery, be sure to change the assignable scope to:
- `/providers/Microsoft.Management/managementGroups/root-management-group-id-goes-here`
-:::
+`/providers/Microsoft.Management/managementGroups/root-management-group-id-goes-here`
+
 
 #### Subscription Level
 
@@ -37,14 +36,7 @@ We will create a role with limited permissions that will be applied to this appl
 Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >  Roles > Add > Add Custom Role**. Give the custom role a name, and an optional description, then select either **Start from scratch** or **Start from JSON**.
 
 1. If using the **Start from scratch** option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select **Add permissions**, search for and select the desired permission, check the relevant box, and choose **Add**. Repeat this for any desired permissions.
-2. If using the **Start from JSON** option, copy and paste the JSON data below, to pull in the necessary permissions from the list in the Discovery section, and save it as a .json file. Upload this file on the **Basics** page when creating the role, and the permissions will be automatically defined.
-
-#### Tenant Level
-
-If using the Tenant ID for discovery, you'll create a Single Role at the Tenant level. Navigate to **Management Groups > Select your Azure Tenant Group > Access Control (IAM) > Roles > Add > Add Custom Role**. Give the custom role a name, and an description, then select **Start from scratch** or 88.
-
-1. If using the **Start from scratch** option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select **Add permissions**, search for and select the desired permission, check the relevant box, and choose **Add**. Repeat this for any desired permissions.
-2. If using the **Start from JSON** option, copy and paste the below JSON data, pulling in the necessary permissions from the list in the Discovery section, and save it as a .json file. Upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
+2. If using the **Start from JSON** option, copy and paste the JSON data below, to pull in the necessary permissions from the list in the Discovery section, and save it as a `.json` file. Upload this file on the **Basics** page when creating the role, and the permissions will be automatically defined.
 
 ```
 {
@@ -105,6 +97,13 @@ If using the Tenant ID for discovery, you'll create a Single Role at the Tenant 
   }
 }
 ```
+
+#### Tenant Level
+
+If using the Tenant ID for discovery, you'll create a Single Role at the Tenant level. Navigate to **Management Groups > Select your Azure Tenant Group > Access Control (IAM) > Roles > Add > Add Custom Role**. Give the custom role a name, and an description, then select **Start from scratch** or 88.
+
+1. If using the **Start from scratch** option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select **Add permissions**, search for and select the desired permission, check the relevant box, and choose **Add**. Repeat this for any desired permissions.
+2. If using the **Start from JSON** option, copy and paste the in the JSON data, pulling in the necessary permissions from the list in the Discovery section, and save it as a `.json` file. If you are performing tenant level discovery, be sure to change the assignable scope to `/providers/Microsoft.Management/managementGroups/root-management-group-id-goes-here`. Then, upload this file on the Basics page when creating the role, and the permissions will be automatically defined.
 
 After defining the permissions, select **Next** to define the scope this application will have access to. This can be done at the subscription level or any nested resource groups; we’ll be using the subscription in this example. Select Next to review and/or copy the JSON > Next > Create.
 
