@@ -3,7 +3,7 @@ title: "Advanced Reporting"
 sidebar_position: 2
 ---
 
-:::info
+:::caution
 We are primarily invested in **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)** and encourage customers to use those first.
 :::
 
