@@ -23,6 +23,13 @@ Select **Certificates & Secrets**, then **New Client Secret**. Give your secret 
 
 Device42 allows you to discover by Tenant or Subscription level. Using the Tenant discovery is best suited for customers with large numbers of Azure Subscriptions, whereas if you only have a few Subscriptions, you may find that preferable. 
 
+:::note
+Please note that the assignable scope in the policy below assumes you are performing subscription level discovery. 
+
+If you are performing tenant level discovery, be sure to change the assignable scope to:
+ `/providers/Microsoft.Management/managementGroups/root-management-group-id-goes-here`
+:::
+
 #### Subscription Level
 
 We will create a role with limited permissions that will be applied to this application. If you haven't set up your roles yet, [this documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition) can help. This will allow Device42 to use the application for discovery purposes while adhering to the principle of least privilege. Navigate to the Subscriptions service in the portal and select the Subscription you would like to allow this application to discover. Make note of the **Subscription ID** as it will be used later for Device42 discovery.
