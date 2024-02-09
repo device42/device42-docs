@@ -106,11 +106,11 @@ The following are suggested 'sane' thresholds for the default Device42 disk size
 | cpu\_used\_percent | 85 | 95 |
 | dbsize | 1000 | 2000 |
 | disk\_used\_percent | 60 | 80 |
-| memtotal | <= 4000 | <= 3000 |
+| memtotal | `<=` 4000 | `<=` 3000 |
 | cached |  |  |
-| swapfree | <=15% | <= 5% |
-| swaptotal | <= 2000 | <= 1000 |
-| memfree | <=15% | <=10% |
+| swapfree | `<=`15% | `<=` 5% |
+| swaptotal | `<=` 2000 | `<=` 1000 |
+| memfree | `<=`15% | `<=`10% |
 | buffers |  |  |
 
 * * *

@@ -54,8 +54,8 @@ Room Layout View now displays halo temperature shading (red, yellow, or green) a
 
 The shading color corresponds to the following temperatures. The color value is based on the maximum temperature of the rack.
 
-- Green:  highest temperature <=75F (23.88C)
-- Yellow:  highest temperature > 75F (23.88C) but <= 90F (32.22C)
+- Green:  highest temperature `<=`75F (23.88C)
+- Yellow:  highest temperature > 75F (23.88C) but `<=` 90F (32.22C)
 - Red:  highest temperature > 90F (32.22C)
 
 ![](/assets/images/Room-heat-map-NEW-2-700x396.png)

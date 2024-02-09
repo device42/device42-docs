@@ -52,7 +52,7 @@ Each section must contain the following attributes:
 - `d42-model`: the name of CI(model) in Device42
 - `bus-ob-id`: the business object ID of CI in Cherwell
 
-Each section must contain one or more upstream/downstream relationships (section). The section represents _1 <-> Many_ downstream relationship and has to contain the following attributes:
+Each section must contain one or more upstream/downstream relationships (section). The section represents _1 `<->` Many_ downstream relationship and has to contain the following attributes:
 
 - `d42-model`: the name of CI(model) in Device42 of the 'child' in relationship
 - `id`: the ID of relationship (the _CI links Downstream CIs_ relationship should be used in common case). This value can be obtained in Cherwell from Cherwell service management administration -> blueprint -> Config - \* -> Edit relationships... -> relationship -> Edit -> Advanced -> Relationship ID. For proper working, please make sure that used relationship has the reversed one (_Upstream_).
