@@ -47,7 +47,7 @@ Once you download the virtual appliance file, take following steps:
 
 Default username: device42  
 Default password: adm!nd42  
-(NOTE: Use credentials (ubuntu/default) for the power appliance) (NOTE: **Much** Older {32bit, unsupported} versions may have the default login "ubuntu" rather than "device42". If you have an appliance that uses these credentials, UPGRADE it if at all possible!)
+(NOTE: Use credentials (ubuntu/default) for the power appliance) (NOTE: **Much** Older `{32bit, unsupported}` versions may have the default login "ubuntu" rather than "device42". If you have an appliance that uses these credentials, UPGRADE it if at all possible!)
 
 You can change the password with option 10 below.
 

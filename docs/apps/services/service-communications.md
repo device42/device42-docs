@@ -135,23 +135,23 @@ For the two time spans – _Netflow Client Active Span_ and _Netflow Client Gap
 
 **Sample File 1:**
 
-_Communication A <=> B at 12:01:15 AM_
+_Communication A `<=>` B at 12:01:15 AM_
 
-_Communication A <=> B at 12:01:45 AM_
+_Communication A `<=>` B at 12:01:45 AM_
 
 **Sample File 2:**
 
-_Communication A <=> B at 12:02:10 AM_
+_Communication A `<=>` B at 12:02:10 AM_
 
-_Communication A <=> B at 12:02:45 AM_
+_Communication A `<=>` B at 12:02:45 AM_
 
 **Sample File 3:**
 
-_Communication A <=> B at 12:03:50 AM_
+_Communication A `<=>` B at 12:03:50 AM_
 
-_Communication A <=> B at 12:03:55 AM_
+_Communication A `<=>` B at 12:03:55 AM_
 
-**Results for A <=>B stats are:**
+**Results for A `<=>` B stats are:**
 
 Active Samples: 3
 
@@ -165,4 +165,4 @@ Active Span: 1 Min 40 sec
 
 Gap Span: 1 Min 5 Sec (This is the gap between 12:02:45 AM and 12:03:50 AM since it is longer than the sample interval.)
 
-Also note that D42 doesn't count the remaining 5 seconds of the last internal until D42 gets the next sample file. Once D42 gets that, it will either count those 5 seconds as a gap or as active based on when the next _A<=>B_ match appears.
+Also note that D42 doesn't count the remaining 5 seconds of the last internal until D42 gets the next sample file. Once D42 gets that, it will either count those 5 seconds as a gap or as active based on when the next _A `<=>` B_ match appears.

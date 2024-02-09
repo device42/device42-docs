@@ -1,8 +1,11 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// const lightCodeTheme = require('prism-react-renderer/themes/github');
+// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -474,7 +477,7 @@ const config = {
           },
           {
             to: '/integration/external-integrations/jira-integrations/device42-jira-assets-integration/',
-            from: ['/external-integrations/device42-jira-assets-integration/'], 
+            from: ['/external-integrations/device42-jira-assets-integration/'],
           },
           {
             to: '/integration/external-integrations/jira-integrations/device42-jira-cloud-integration/',
@@ -1089,7 +1092,7 @@ const config = {
   presets: [
     [
         '@docusaurus/preset-classic',
-   
+
       ({
 
         docs: {
@@ -1102,7 +1105,7 @@ const config = {
         },
         googleTagManager: {
          containerId: 'GTM-56V4NGQ',
-        },   
+        },
       }),
     ],
   ],
@@ -1115,7 +1118,7 @@ const config = {
         sidebar: {
           autoCollapseCategories: true,
         },
-      },  
+      },
       image: 'img/d42-social-card.png',
       algolia: {
         indexName: '<ENV_ALGOLIA_INDEX>',

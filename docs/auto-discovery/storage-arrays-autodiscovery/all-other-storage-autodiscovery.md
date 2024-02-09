@@ -70,8 +70,8 @@ useradmin user add -g
 1. Connect to your NetApp cluster via SSH.
 2. Create a user with the following config:
 
-- VServer to discover: <vserver\_name>
-- Discovery User name: <user\_name>
+- VServer to discover: `<vserver\_name>`
+- Discovery User name: `<user\_name>`
 - Role: readonly (existing system role)
 - Application: ontapi
 - Auth Method: Password

@@ -51,7 +51,8 @@ Since you might want to run the discovery multiple times before processing the d
 <table>
 <tbody>
 <tr>
-<td><b>On Windows:</b>
+<td>
+<b>On Windows:</b>
 <div></div>
 C:\&gt;set var=%computername%-%date%-%time::=%
 <div></div>
@@ -68,7 +69,8 @@ ASUS-GL553V-Thu03-14-2019-16265819.log
 C:\&gt;d42_winagent_x64.exe -offline &gt; %var%.log
 </td>
 
-<td><b>On Linux:</b>
+<td>
+<b>On Linux:</b>
 <div></div>
 $ VAR1=`hostname`-`date +%Y%m%d-%k%M%S`
 <div></div>

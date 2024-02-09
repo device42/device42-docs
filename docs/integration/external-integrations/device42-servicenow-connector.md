@@ -23,17 +23,17 @@ Each ServiceNow data source points to one data source endpoint. From ServiceNow,
 
 _Cloud Connector Configuration_
 
-sn/route\_doql\_csv/{DOQL Name}
+sn/route\_doql\_csv/&#123;DOQL Name}
 
 _Direct Connection Configuration (3.0.0+ only)_
 
-/services/data/v1.0/query/?saved\_query\_name={DOQL Name}&delimiter=,&header=yes&output\_type=csv
+/services/data/v1.0/query/?saved\_query\_name=&#123;DOQL Name}&delimiter=,&header=yes&output\_type=csv
 
 **Version 2.0.1 (or previous)**
 
 _Cloud Connector Configuration_
 
-sn/route\_doql\_csv/{VERIFICATION TOKEN}/{DOQL NAME}
+sn/route\_doql\_csv/&#123;VERIFICATION TOKEN}/&#123;DOQL NAME}
 
 **The general request flow is as follows:**
 
@@ -56,7 +56,7 @@ In ServiceNow, you can create and/or modify existing data sources, setting the �
 
 **Note:**
 
-The file path field for a data source is limited to 100 characters by default; if for any reason you are unable to enter the entirety of your file path, you can work around this by assigning your custom query to a system property and utilizing it in the field using _${name\_of\_your\_system\_property}_, or simply increasing the character limit of the data source file path field.
+The file path field for a data source is limited to 100 characters by default; if for any reason you are unable to enter the entirety of your file path, you can work around this by assigning your custom query to a system property and utilizing it in the field using _$&#123;name\_of\_your\_system\_property}_, or simply increasing the character limit of the data source file path field.
 
 **System Property Method:**
 
@@ -78,7 +78,7 @@ _Direct Connection:_
 
 Do not include \`?\` symbols in your system property as ServiceNow will percent encode them when retrieving the system property value. Instead include them in the file path field itself.
 
-/services/data/v1.0/query/?${name\_of\_your\_system\_property}
+/services/data/v1.0/query/?$&#123;name\_of\_your\_system\_property}
 
 **Increase Field Length:**
 
@@ -92,7 +92,7 @@ File Path: sn/route\_doql\_csv/YOUR\_DOQL\_NAME
 
 Username: You may use any value here, but it is required
 
-Password: ${x\_192652\_device42.instance\_key}
+Password: $&#123;x\_192652\_device42.instance\_key}
 
 Please note: in versions 3+, because we use the Identification and REconsiliation Engine (IRE) all records will appear to be ignored.
 
@@ -102,13 +102,13 @@ File Path: **/**services/data/v1.0/query/?saved\_query\_name=YOUR\_DOQL\_NAME&de
 
 Username: You may use any value here, but it is required
 
-Password: ${x\_192652\_device42.instance\_key}
+Password: $&#123;x\_192652\_device42.instance\_key}
 
 **Version 2.0.1 (or previous)**
 
 _Cloud Connection_
 
-sn/route\_doql\_csv/${x\_192652\_device42.instance\_key}/SAVEDDOLQNAME
+sn/route\_doql\_csv/$&#123;x\_192652\_device42.instance\_key}/SAVEDDOLQNAME
 
  
 
@@ -123,10 +123,10 @@ _Note that you must create a data-source per endpoint to add more than one!_ Tha
 | Import set table | The table which you would like the data to be imported to                                                                              |
 | Type             | Default: File                                                                                                                          |
 | Format           | Default: CSV                                                                                                                           |
-| Server           | Default: ${x\_192652\_device42.server}                                                                                                   |
+| Server           | Default: $&#123;x\_192652\_device42.server}                                                                                                   |
 | Port             | Default: 443                                                                                                                           |
 | File Path        | Cloud Connector sn/route\_doql\_csv/YOUR\_DOQL\_QUERY\_NAME Direct Connect /services/data/v1.0/query/?saved\_query\_name=YOUR\_DOQL\_QUERY\_NAME |
-| Username         | Username is required to send credentials with request, use any value eg. “servicenow\_data\_source”                                      |
+| Username         | Username is required to send credentials with request, use any value eg. “servicenow\_data\_source”                                     |
 | Password         | Password will be the verification token of the integration you setup within Device42                                                   |
 
 
