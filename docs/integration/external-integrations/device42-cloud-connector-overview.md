@@ -60,7 +60,7 @@ The verification token is used to search a database on the cloud connector for a
 
 The above graphic details communication between Device42, the Cloud connector, and the ServiceNow integration, with ServiceNow being used as the example. The general flow applies to any integration that uses the CC.
 
-Note that the Device42 cloud connector is hosted by DigitalOcean, and takes advantage of all of their industry-leading security features ([cloudflare security overview](https://www.cloudflare.com/products/security/)), as well as general best practices.
+Note that the Device42 cloud connector is hosted by AWS, and takes advantage of their [industry-leading security features](https://aws.amazon.com/security/), as well as general best practices.
 
 ### Cloud Connector IPs
 
