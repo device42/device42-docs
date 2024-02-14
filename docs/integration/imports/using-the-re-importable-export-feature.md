@@ -3,33 +3,54 @@ title: "Using the re-importable export feature"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ### Example: renaming multiple devices
 
-![Example: renaming multiple devices](/assets/images/media_1399662438165.png)
+The re-importable export option can be used to make bulk changes to devices. In this example, we will use this feature to rename multiple devices.
 
-The re-importable export option pictured above can be used to make bulk changes to devices. In this example we will use the feature to renaming multiple devices.
+Select the devices you want to rename from any Device list view, like the one under **Resources > All Devices**.
 
-From any Device list view, e.g.: Devices > All Devices - select the devices that you want to rename.
+From the **Select an action** dropdown menu, choose the **Export selected items** option and then click on the **hammer icon**.
 
-Choose "Do a re-importable export for selected devices" then click go.
+<ThemedImage
+  alt="Device actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/device-export-selected-items-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/device-export-selected-items-dark.png'),
+  }}
+/>
 
-Download and open the spreadsheet.
+Choose the **Re-importable Export** option and click **Export**.
 
-![](/assets/images/media_1399662496879.png)
+<ThemedImage
+  alt="Export type options"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/select-export-type-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/select-export-type-dark.png'),
+  }}
+/>
 
-As pictured above, using the new\_name parameter, I created my new name and dragged the name down allowing Excel to auto fill the remaining fields. Save the file.
+Download and open the spreadsheet. Using the **new\_name** parameter, I created new device names by typing in the first name and dragging the name down allowing Sheets Excel to auto-fill the remaining fields. 
 
-![](/assets/images/media_1399662556616.png)
+![Add new name column](/assets/images/re-importable-export-feature/excel-new-name.png)
 
-Go to: Tools > API Imports/Exports (.xls). upload the spreadsheet > , then click Import.
+Back in Device42, go to **Tools > Imports/Exports (xls)** to upload the spreadsheet and then click **Import**.
 
-Click the Choose File button to upload the spreadsheet, then click import.
+When the import is complete, you will see the confirmation, "The following lines from worksheet Current were added or updated successfully".
 
-When import is complete, you will receive confirmation (see above).
+<ThemedImage
+  alt="Export type options"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/import-xls-successfully-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/import-xls-successfully-dark.png'),
+  }}
+/>
 
-![](/assets/images/media_1399662585004.png)
+Renaming devices is just one example of how the **Re-importable Export** feature can be used. For example, the re-importable export sheet includes almost 30 device parameters that can be edited and imported back into the system.
 
-Renaming devices is just one example of how the "Do a re-importable export for selected devices" feature can be used. For example, the re-importable export sheet includes almost 30 device parameters that can be edited and imported back into the system.
+## More Information
 
 For more details on the options available using API / API Imports:
 
