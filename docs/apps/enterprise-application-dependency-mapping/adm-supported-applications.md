@@ -19,6 +19,7 @@ Additionally, for any application not on this list you can leverage the use of [
 | Hadoop | Yes | Version, home directory, policies, configurations, config files, nodes, properties, resource manager |
 | IIS6 | Yes | Web site titles, bindings, installed apps (ie, Drupal, Wordpress, SugarCRM) |
 | IIS7 | Yes | Web site titles, bindings, installed apps (ie, Drupal, Wordpress, SugarCRM) |
+| JBoss | Yes | Version, parameters, config files |
 | MariaDB | Yes | Config file path, protocols/listening ports, data paths, config files, version |
 | Microsoft SQL Server | Yes | Instances, shared memory, TCP/IP, named pipes, data paths |
 | MongoDB | Yes | Config file paths, protocols, data paths |
