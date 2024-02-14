@@ -43,14 +43,16 @@ The V-Server (Hypervisor) discovery will identify the Hypervisors’ IP and MAC 
 
 The next level, Blade discovery, identifies the serial number, linking it to the Device42 CMDB, while adding the chassis, and the slot where the blade is located in that chassis.
 
-The external .net auto-discovery tool matches the serial number and UUID, and adds new data to Device42 including the number of CPUs associated with the VM, the amount of RAM, and any other OS-related information (version and version number) specific to that VM.
+The native Windows and Linux OS discovery tool auto-discovery tool matches the serial number and UUID, and adds new data to Device42 including the number of CPUs associated with the VM, the amount of RAM, and any other OS-related information (version and version number) specific to that VM.
 
 So in the example above, you can find out what blade server is in which chassis slot, what network ports it is connected to (or chassis is connected to), what VMs are on that blade server (if it happens to be Hypervisor) and all the services that are running on those VMs and all the software that is installed on those VMs.
 
 The result is a comprehensive profile of the devices, their characteristics, locations, software, and the physical/virtual interdependencies between the devices. This not only populates the detailed CMDB records, but also serves as the data for constructing Device42’s impact and dependency mapping functionality.
 
-## Choosing a user account for autodiscovery
+:::caution
 
-**_WARNING:_ Please do _not_ set up an autodiscovery / scan using critical \[production\] account credentials!**
+Please do _not_ set up an autodiscovery scan using critical (production) account credentials!
 
-Doing so, depending on permissions granted & configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
+Doing so, depending on permissions granted and configured password policies, could result in account lock-out, causing an otherwise completely avoidable outage.
+:::
+
