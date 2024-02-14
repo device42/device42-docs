@@ -49,6 +49,8 @@ So in the example above, you can find out what blade server is in which chassis 
 
 The result is a comprehensive profile of the devices, their characteristics, locations, software, and the physical/virtual interdependencies between the devices. This not only populates the detailed CMDB records, but also serves as the data for constructing Device42’s impact and dependency mapping functionality.
 
+## Choosing a user account for autodiscovery
+
 :::caution
 
 Please do _not_ set up an autodiscovery scan using critical (production) account credentials!
