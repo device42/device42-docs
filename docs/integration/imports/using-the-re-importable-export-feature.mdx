@@ -1,0 +1,69 @@
+---
+title: "Using the re-importable export feature"
+sidebar_position: 2
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+### Example: renaming multiple devices
+
+The re-importable export option can be used to make bulk changes to devices. In this example, we will use this feature to rename multiple devices.
+
+Select the devices you want to rename from any device list view, like the one located under **Resources > All Devices**.
+
+From the **Select an action** dropdown menu, choose the **Export selected items** option and then click on the **hammer icon**.
+
+<ThemedImage
+  alt="Device actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/device-export-selected-items-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/device-export-selected-items-dark.png'),
+  }}
+/>
+
+Choose the **Re-importable Export** option and click **Export**.
+
+<ThemedImage
+  alt="Export type options"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/select-export-type-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/select-export-type-dark.png'),
+  }}
+/>
+
+Download and open the spreadsheet. Using the **new\_name** parameter, I created new device names by typing in the first name and dragging the name down allowing Excel to auto-fill the remaining fields. 
+
+![Add new name column](/assets/images/re-importable-export-feature/excel-new-name.png)
+
+Back in Device42, go to **Tools > Imports/Exports (xls)** to upload the spreadsheet and then click **Import**.
+
+When the import is complete, you will see the confirmation, "The following lines from worksheet Current were added or updated successfully".
+
+<ThemedImage
+  alt="Export type options"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/import-xls-successfully-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/import-xls-successfully-dark.png'),
+  }}
+/>
+
+To confirm the success of the bulk device renaming, search for the new device names from the device list page search bar.
+
+<ThemedImage
+  alt="Device list page"
+  sources={{
+    light: useBaseUrl('/assets/images/re-importable-export-feature/updated-device-names-light.png'),
+    dark: useBaseUrl('/assets/images/re-importable-export-feature/updated-device-names-dark.png'),
+  }}
+/>
+
+Renaming devices is just one example of how the **Re-importable Export** feature can be used. For example, the re-importable export sheet includes almost 30 device parameters that can be edited and imported back into the system.
+
+## More Information
+
+For more details on the options available using API / API Imports:
+
+[https://api.device42.com/#update-device-by-serial-or-asset](https://api.device42.com/#update-device-by-serial-or-asset)
+
+[https://api.device42.com/#create/update-device-by-name](https://api.device42.com/#create/update-device-by-name)
