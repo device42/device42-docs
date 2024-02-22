@@ -9,7 +9,7 @@ Below is a brief list of Intelligent Power Distribution Unit (iPDU) vendors supp
 
 **Supported PDU Vendors List:**
 
-Please note that not all models from each listed vendor may be supported. It is recommended to verify compatibility with your specific model before assuming support.
+Please note that we may not support all models from each listed vendor. We recommend you verify compatibility with your specific model before assuming support.
 
 <table>
     <tbody>
