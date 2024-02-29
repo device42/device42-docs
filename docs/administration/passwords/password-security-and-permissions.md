@@ -1,51 +1,100 @@
 ---
-title: "Password Security and Permissions"
+title: "Secrets Security and Permissions"
 sidebar_position: 2
 ---
 
-Password permissions are assigned to each password and can be done at a user and/or group level. The following is a quick primer on security, global and individual permissions.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Password Security
+Secrets are credentials saved to Device42. Permissions can be assigned to each Secret for specific Users, Admin Groups, or both. 
 
-- AES-256 bit encryption is used to store the passwords.
-- Encryption is based on a passphrase entered by user.(One time setup and you would need to secure the passphrase incase you need to restore the backup)
-- Passwords are stored in the database in an encrypted state and go to the backup file in that state. The backup file is also encrypted by a user-entered passphrase and none of these 2 passphrases are included in the backup.
-- If a user is on a password page and there is no activity for 1 minute, the session is automatically logged out.
-- A global timeout value (set in appliance manager) controls the overall timeout for any session.
-- The view and list pages don't display the password by default. It is only displayed when "show password" is requested. (The edit page has password display for editing).
-- All change/add/delete/view operations are logged in an audit trail.
+Navigate to the Secrets list page from **Resources > Secrets > All Secrets**.
 
-Here is a blog post discussing these: [https://www.device42.com/blog/2012/05/04/introducing-centralized-device-password-management/](https://www.device42.com/blog/2012/05/04/introducing-centralized-device-password-management/)
+<ThemedImage
+  alt="All Secrets list page location"
+  sources={{
+    light: useBaseUrl('/assets/images/secret-security-permissions/all-secrets-menu-light.png'),
+    dark: useBaseUrl('/assets/images/secret-security-permissions/all-secrets-menu-dark.png'),
+  }}
+/>
 
 ### Global Permissions
 
-![Global Permissions](/assets/images/wpid2099-Global_Permissions.png)
+You can grant Admin Groups global permission(s) to **add**, **view**, **change**, or **delete** Secrets. This controls whether users will be able to add new Secrets, view Secrets in the list page, or access the edit and delete buttons. Permissions are controlled granularly for individual Secrets (see below).
 
-Password permissions are handled similarly to device permissions and/or permissions for other device42 operations. However, there are a few differences:
+Note that you can't assign global permissions directly to a User (Administrator), you'll need to add them to an Admin Group.
 
-Add permissions are similar: If a user has Add Password permission, they can add passwords.
+<ThemedImage
+  alt="Admin Group permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/secret-security-permissions/group-secret-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/secret-security-permissions/group-secret-permissions-dark.png'),
+  }}
+/>
 
-View Password permission is needed to view the password in the menu, but the permission is controlled granularly for each individual password as shown below. So, globally you can assign View/Change Password to a user or group, but it would not give that user/group permissions to view/edit specific passwords. It would only enable them to see the Secrets menu.
+The following Admin Group permissions are available:
 
-Delete permission is required to see the delete button, but again individual permission to delete password is controlled by permissions on the specific password. If a user can change a password, he/she can also delete that password.
+- **Add permission** allows users to create new Secrets.
 
-### Per Password Permissions
+- **View / Change permission** is needed to view the secret in the menu, but the permission is controlled granularly for each Secret. So, globally you can assign the view/change permission to a group, but it would not give that group permission to view/edit specific Secrets. It would only enable them to see the Secret.
 
-![Per Password Permissions](/assets/images/wpid2100-Per_Password_Permissions.png)
+- **Delete permission** is required to see the delete button, but again individual permission to delete a Secret is controlled by permissions granted on that Secret. If a user can change a Secret, they can also delete that Secret.
 
-Each password has 4 different levels of permissions:
+### Permissions for Individual Secrets
 
-- Users who can view the password
-- Groups who can view the password
-- Users who can view or change the password (view edit users)
-- Groups who can view or change the password (view edit groups).
+You can set permissions to **view**, **use**, and/or **edit** individual Secrets by creating or editing a Secret. 
 
-There is a requirement that at least one user or group must have access to edit the password. Otherwise, a password might become inaccessible.
+Each permission can be applied to two user categories - individual Users and Admin Groups - for a total of six options:
 
-If none of these permissions are entered, then by default the password creator is given rights to view and edit that password.
+- **View Users**: set Users who can _view_ the Secret (pictured).
+- **View Groups**: set Admin Groups who can _view_ the Secret (pictured).
+- **Use Only Users**: set Users who can only _use_ the Secret.
+- **Use Only Groups**: set Admin Groups who can only _use_ the Secret.
+- **View edit users**:  set Users who can _view and change_ the Secret.
+- **View edit groups**: set Admin Groups who can _view and change_ the Secret.
 
-### Bulk Permission Change
+<ThemedImage
+  alt="View User Permission"
+  sources={{
+    light: useBaseUrl('/assets/images/secret-security-permissions/view-users-permission-light.png'),
+    dark: useBaseUrl('/assets/images/secret-security-permissions/view-users-permission-dark.png'),
+  }}
+  style={{ width: '80%' }}
+/>
 
-![Bulk Permission Change](/assets/images/media_1432118719801.png)
+<ThemedImage
+  alt="View Group Permission"
+  sources={{
+    light: useBaseUrl('/assets/images/secret-security-permissions/view-groups-permission-light.png'),
+    dark: useBaseUrl('/assets/images/secret-security-permissions/view-groups-permission-dark.png'),
+  }}
+  style={{ width: '80%' }}
+/>
 
-From the Passwords list view, you can select multiple passwords and change the view or edit group permissions in bulk.
+At least one User or Admin Group should have permission to edit a Secret. Otherwise, a password might become inaccessible.
+
+If no permissions are entered, the User who created the Secret will have **view / edit** permission by default.
+
+### Bulk Permissions Change
+
+From the Secrets list page, you can edit group permissions of many Secrets at once by selecting **Change group permissions for selected passwords** from the **Actions** dropdown menu. Click the **hammer icon** to execute the action.
+
+<ThemedImage
+  alt="Secrets action menu"
+  sources={{
+    light: useBaseUrl('/assets/images/secret-security-permissions/secrets-action-menu-light.png'),
+    dark: useBaseUrl('/assets/images/secret-security-permissions/secrets-action-menu-dark.png'),
+  }}
+/>
+
+### Secret Storage Details
+
+- Secrets are stored using AES-256-bit encryption.
+- Encryption is gated on a passphrase set up by the user. You need to securely record the passphrase in case you need to restore the backup.
+- Secrets are stored in the database in an encrypted state and go to the backup file in that state. The backup file is also encrypted by a user-entered passphrase. Neither of these passphrases is included in the backup.
+- All change/add/delete/view operations are logged in an audit trail.
+- After one minute of inactivity on a password page the session will timeout.
+- A global timeout value controls the overall timeout for any session and is set in the Appliance Manager.
+- Secrets aren't displayed in the Secret list page by default. Click on the eye icon next to the Secret to display it. 
+
+See our [Centralized Password Management](https://www.device42.com/blog/2012/05/04/introducing-centralized-device-password-management/) blog post for more details.
