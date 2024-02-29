@@ -58,7 +58,7 @@ There is no Device42 configured credential for the Windows Discovery Service (WD
 
 \- Review the below documentation for more information:
 
-\- \[PASSWORD SECURITY AND PERMISSIONS\] ([passwords/password-security-and-permissions/](administration/passwords/password-security-and-permissions.md))
+\- \[PASSWORD SECURITY AND PERMISSIONS\] ([passwords/password-security-and-permissions/](administration/passwords/password-security-and-permissions.mdx))
 
 \- \[SET DEFAULT PASSWORD MANAGEMENT GROUP\] ([passwords/set-default-password-management-group/](administration/passwords/set-default-password-management-group.md))
 
