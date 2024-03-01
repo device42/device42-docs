@@ -2,4 +2,4 @@
 title: "Passwords"
 ---
 
-Device42 software lets IT teams manage shared passwords in a secure fashion.  In this section, we discuss password operations, policy, reporting, burnt secret storage, and secret permissions. Use the sidebar on the left to navigate to specific pages. 
+Device42 software helps IT teams securely manage shared passwords. This section covers password operations, policy, reporting, burnt secret storage, and secret permissions. Use the sidebar on the left to navigate to specific pages. 
