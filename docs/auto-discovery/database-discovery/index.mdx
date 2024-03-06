@@ -21,7 +21,7 @@ By default, the target machine ports are defined by different database vendors a
 
 Dynamic discovery can discover different ports to use. As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers that have database instances configured to listen on non-standard ports, especially on a shared database server hosting multiple instances. During database discovery, Device42 will identify and connect through the discovered active listening port.
 
-If you want to specify DB discovery details yourself, including the DB server port, server IP address, and DB access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases. 
+If you want to specify DB discovery details yourself, including the DB server port, server IP address, and DB access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
 
 ## MS SQL Server DB Discovery (on Windows targets)
 
@@ -76,11 +76,11 @@ You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_�
 
 There are a couple of different ways to see the database details; the most direct is via the discovered MSSQL Application components themselves. Head to the Device42 main menu, Apps menu -> Application Components. If you don't see your SQL Server instances right at the top of the list, you can search for "SQL" to narrow the list down.
 
-You can see the newly discovered SQL Server instances in the example below -- Click any one of the Application Component Names for more details: 
+You can see the newly discovered SQL Server instances in the example below -- Click any one of the Application Component Names for more details:
 
 ![MSSQL Application Components](/assets/images/Apps-Application-Components-menu-annotated.png)
 
-Scroll to the bottom, and click the database instance name to view database details: 
+Scroll to the bottom, and click the database instance name to view database details:
 
 ![](/assets/images/click-to-view-SQL-details.png)
 
@@ -89,7 +89,7 @@ For a rundown of the database details discovery provides, jump to the ["Availabl
 ### Another way to view SQL Database details
 
 Results are also available by browsing to the discovered Windows server instance's CI; either search for the device from the dashboard, via "Devices -> All Devices", or view your discovery job's results/score page and jump to the servers from there:
- 
+
 ![](/assets/images/click-success-for-discovery-scores.png)
 
 Click any of the "device names" (right-hand side) to jump to each discovered machine's details view. From the details view, you can simply click the "Services" tab to view a list of services, and can then click on the Microsoft SQL Server instance in that list. ![](/assets/images/discovery-score-to-view-1.png)
@@ -111,9 +111,9 @@ If your environment includes SQL cluster databases, discovery returns the follow
 - Does Passive Node use Log Ship
 - Does Passive Node use DB Mirroring
 
-A snippet from each section of the page can be seen below: 
+A snippet from each section of the page can be seen below:
 
-![](/assets/images/database-list.png) ![](/assets/images/DB-Connection-Details.png) 
+![](/assets/images/database-list.png) ![](/assets/images/DB-Connection-Details.png)
 
 ![](/assets/images/database-size-details.png) ![](/assets/images/extra-DB-details.png)
 
@@ -156,9 +156,7 @@ As of v16.17.00, Device42 database autodiscovery for Windows and \*nix targets s
 
 For discovery to return detailed info about your database instance, you will require read/view permissions for the following system views/tables:
 
-<table><tbody><tr><td width="288">
-<ul><li>V$SESSION</li><li>V$DATABASE</li><li>V$CONTAINERS</li><li>DBA_SEGMENTS</li></ul></td>
-<td width="288"><ul><li>DBA_OBJECTS</li><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>V$DATABASE</li><li>V$CONTAINERS</li><li>DBA_SEGMENTS</li></ul></td><td width="288"><ul><li>DBA_OBJECTS</li><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
 
 To get information about Pluggable Databases (PDBs) within a Container Database (CDB) in Oracle for non-DBA users, two key permission configurations are required:
 
@@ -166,9 +164,9 @@ To get information about Pluggable Databases (PDBs) within a Container Database 
 - Set `container_data=all container=current` for context configuration. For example:
 
     ```sql
-    ALTER USER c##<username> 
-    SET 
-    CONTAINER_DATA = ALL 
+    ALTER USER c##<username>
+    SET
+    CONTAINER_DATA = ALL
     CONTAINER = CURRENT;
     ```
 
@@ -371,7 +369,7 @@ This database discovery job is useful in cases when the main detailed database d
       - _Instance_ for Oracle (required)
       - _Database_ for Postgres and DB2 (required)
       - Not required for MS SQL
-    
+
 - Use the **trash can icon** to remove a Connections line.
 - Scroll down the page to add or edit the **Discovery Schedule** for the job.
 - Click **Save** to save the job.

@@ -15,7 +15,7 @@ Sample excel sheet is provided for you to get started. name = Device name and is
 
 ![Error_reporting_would_be_inline.png](/assets/images/Error_reporting_would_be_inline.png)
 
-It would log each line separately on why a particular line was not imported. e.g. \[u'nh-sample-01', u'R900', 1.0, 1.0, '', "{'device': \[u'Model Device with pk 8 does not exist.'\], '\_\_all\_\_': \[u'Please Enter Hardware Model with defined size for Device First.'\]}"\] This means that hardware model R900 is not already defined with size.
+It would log each line separately on why a particular line was not imported. e.g. `\[u'nh-sample-01', u'R900', 1.0, 1.0, '', "{'device': \[u'Model Device with pk 8 does not exist.'\], '\_\_all\_\_': \[u'Please Enter Hardware Model with defined size for Device First.'\]}"\]` This means that hardware model R900 is not already defined with size.
 
 ### Use device import and bulk hardware edit to prep the appliance beforehand
 

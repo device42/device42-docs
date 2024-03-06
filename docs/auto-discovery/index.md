@@ -53,7 +53,7 @@ Hypervisors, Windows & Linux/UNIX discovery jobs can all be created using the ma
 
 - Windows-based machine inventory details are discovered with WMI
 - Linux machines inventory details are discovered via SSH
-- VMWare hypervisor host and guest VM details are discovered using appropriate APIs <small(VMware, WMI)
+- VMWare hypervisor host and guest VM details are discovered using appropriate APIs &lt;small(VMware, WMI)
 - Hyper-V hypervisors / guests are discovered as Windows machines using WinRM, and documented separately.
 
 Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](auto-discovery/linux-unix-server-auto-discovery.md) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](auto-discovery/windows-and-hyper-v-auto-discovery.md).

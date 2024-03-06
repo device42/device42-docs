@@ -143,68 +143,34 @@ Configure any other discovery options as required, such as adding vendor metadat
 </thead>
 <tbody class="row-hover">
 <tr class="row-2 even">
-    <td class="column-1">SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags</td><td class="column-5">Microsoft.Sql/servers/read <br/>
-<br/>
-Microsoft.Sql/servers/databases/read </td>
+    <td class="column-1">SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags</td><td class="column-5">Microsoft.Sql/servers/read <br/><br/>Microsoft.Sql/servers/databases/read </td>
 </tr>
 <tr class="row-3 odd">
-    <td class="column-1">Managed SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.Sql/managedInstances/read <br/>
-<br/>
-Microsoft.Sql/managedInstances/databases/read</td>
+    <td class="column-1">Managed SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.Sql/managedInstances/read <br/><br/>Microsoft.Sql/managedInstances/databases/read</td>
 </tr>
 <tr class="row-4 even">
-    <td class="column-1">Azure DB for MySQL</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMySQL/servers/read<br/>
-<br/>
-Microsoft.DBforMySQL/servers/databases/read</td>
+    <td class="column-1">Azure DB for MySQL</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMySQL/servers/read<br/><br/>Microsoft.DBforMySQL/servers/databases/read</td>
 </tr>
 <tr class="row-5 odd">
-    <td class="column-1">Azure DB for Postgres</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforPostgreSQL/servers/read<br/>
-<br/>
-Microsoft.DBforPostgreSQL/servers/databases/read</td>
+    <td class="column-1">Azure DB for Postgres</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforPostgreSQL/servers/read<br/><br/>Microsoft.DBforPostgreSQL/servers/databases/read</td>
 </tr>
 <tr class="row-6 even">
-    <td class="column-1">Azure DB for MariaDB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMariaDB/servers/read<br/>
-<br/>
-Microsoft.DBforMariaDB/servers/databases/read</td>
+    <td class="column-1">Azure DB for MariaDB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMariaDB/servers/read<br/><br/>Microsoft.DBforMariaDB/servers/databases/read</td>
 </tr>
 <tr class="row-7 odd">
-    <td class="column-1">Cosmos DB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DocumentDB/databaseAccounts/read  <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/tables/read<br/>
-<br/>
-Microsoft.DBforPostgreSQL/serverGroupsv2/* <br/>
-<br/>
-Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read<br/>
-<br/>
-Microsoft.Network/privateEndpoints/read<br/>
-<br/>
-Microsoft.OperationalInsights/workspaces/read (Log Analytics Reader on workspace level) </td>
+    <td class="column-1">Cosmos DB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DocumentDB/databaseAccounts/read  <br/><br/>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/tables/read<br/><br/>Microsoft.DBforPostgreSQL/serverGroupsv2/* <br/><br/>Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read<br/><br/>Microsoft.Network/privateEndpoints/read<br/><br/>Microsoft.OperationalInsights/workspaces/read (Log Analytics Reader on workspace level) </td>
 </tr>
 <tr class="row-8 even">
     <td class="column-1">SQL VM</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.SqlVirtualMachine/sqlVirtualMachines/read</td>
 </tr>
 <tr class="row-9 odd">
-    <td class="column-1">Functions</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Resource group name, runtime, trigger, function type</td><td class="column-5">Microsoft.Web/sites/read <br/>
-<br/>
-Microsoft.Web/sites/functions/read</td>
+    <td class="column-1">Functions</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Resource group name, runtime, trigger, function type</td><td class="column-5">Microsoft.Web/sites/read <br/><br/>Microsoft.Web/sites/functions/read</td>
 </tr>
 <tr class="row-10 even">
-    <td class="column-1">Kubernetes (AKS)</td><td class="column-2">Devices –&gt; Unknown</td><td class="column-3">management.azure.com</td><td class="column-4">Containers, nodes, clusters</td><td class="column-5">Microsoft.ContainerService/managedClusters/read<br/>
-<br/>
-Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action</td>
+    <td class="column-1">Kubernetes (AKS)</td><td class="column-2">Devices –&gt; Unknown</td><td class="column-3">management.azure.com</td><td class="column-4">Containers, nodes, clusters</td><td class="column-5">Microsoft.ContainerService/managedClusters/read<br/><br/>Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action</td>
 </tr>
 <tr class="row-11 odd">
-    <td class="column-1">Load Balancers</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.azure.com</td><td class="column-4">Name, tags, IP</td><td class="column-5">Microsoft.Network/loadBalancers/read <br/>
-<br/>
-Microsoft.Network/publicIPAddresses/read</td>
+    <td class="column-1">Load Balancers</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.azure.com</td><td class="column-4">Name, tags, IP</td><td class="column-5">Microsoft.Network/loadBalancers/read <br/><br/>Microsoft.Network/publicIPAddresses/read</td>
 </tr>
 <tr class="row-12 even">
     <td class="column-1">Networks (as VRF Groups)</td><td class="column-2">Network --&gt; VRF Groups</td><td class="column-3">management.azure.com</td><td class="column-4">Name</td><td class="column-5">Microsoft.Network/virtualNetworks/read </td>
@@ -213,20 +179,10 @@ Microsoft.Network/publicIPAddresses/read</td>
     <td class="column-1">Subnets</td><td class="column-2">Network --&gt; All Subnets</td><td class="column-3">management.azure.com</td><td class="column-4">Network, mask, name</td><td class="column-5">Microsoft.Network/virtualNetworks/read</td>
 </tr>
 <tr class="row-14 even">
-    <td class="column-1">VMs</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.core.windows.net</td><td class="column-4">Name, OS version, RAM size, CPU, IP, MAC</td><td class="column-5">Microsoft.Compute/virtualMachines/read <br/>
-<br/>
-Microsoft.Network/networkInterfaces/read <br/>
-<br/>
-Microsoft.Network/publicIPAddresses/read </td>
+    <td class="column-1">VMs</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.core.windows.net</td><td class="column-4">Name, OS version, RAM size, CPU, IP, MAC</td><td class="column-5">Microsoft.Compute/virtualMachines/read <br/><br/>Microsoft.Network/networkInterfaces/read <br/><br/>Microsoft.Network/publicIPAddresses/read </td>
 </tr>
 <tr class="row-15 odd">
-    <td class="column-1">Blob Storage</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Capacity, available capacity</td><td class="column-5">Microsoft.Storage/storageAccounts/read<br/>
-<br/>
-Microsoft.Storage/storageAccounts/blobServices/containers/read<br/>
-<br/>
-Microsoft.Storage/storageAccounts/privateEndpointConnections/read<br/>
-<br/>
-Microsoft.Network/privateEndpoints/read</td>
+    <td class="column-1">Blob Storage</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Capacity, available capacity</td><td class="column-5">Microsoft.Storage/storageAccounts/read<br/><br/>Microsoft.Storage/storageAccounts/blobServices/containers/read<br/><br/>Microsoft.Storage/storageAccounts/privateEndpointConnections/read<br/><br/>Microsoft.Network/privateEndpoints/read</td>
 </tr>
 <tr class="row-16 even">
     <td class="column-1">Workspaces</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.OperationalInsights/workspaces/read</td>
