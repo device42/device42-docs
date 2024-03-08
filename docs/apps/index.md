@@ -9,6 +9,6 @@ These sections cover the following entries found in the applications menu of the
 - To design and customize your map of critical business functions, see the [Business Applications](business-applications/index.md) section.
 - [Application Dependency Mapping](enterprise-application-dependency-mapping/index.md) provides information about the autodiscovery of application and service dependencies throughout a network.
 - The [Services](services/index.mdx) section details the available actions on the Services menu.
-- See [Affinity Groups](apps/affinity-groups) for assistance with application grouping based on observed communication patterns.
+- See [Affinity Groups](/apps/affinity-groups/index.mdx) for assistance with application grouping based on observed communication patterns.
 
 Explore these categories and dive into specific sub-pages in more detail using the sidebar on the left.

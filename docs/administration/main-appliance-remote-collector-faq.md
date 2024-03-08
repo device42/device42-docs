@@ -35,4 +35,4 @@ This update will need to be pushed via the Appliance Manager once you have the u
 
 ## How is the Remote Collector proxy configured?
 
-The proxy that you set up in the MA will be used for remote collector too. You can view and edit the inherited proxy settings from the [RC view and edit page](/auto-discovery/remote-collector-rc/#viewedit-remote-collector).
+The proxy that you set up in the MA will be used for remote collector too. You can view and edit the inherited proxy settings from the [RC view and edit page](/auto-discovery/remote-collector-rc/#viewedit-remote-collector.md).
