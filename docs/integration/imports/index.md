@@ -10,4 +10,4 @@ This section provides information on how to import various types of data into De
 
 - **Using the Generic Spreadsheet Import Tool**: Use the [Generic Spreadsheet Import Tool](spreadsheet-converter-tool.md) to load existing XLS, XLSX, and CSV data into Device42.
 
-- **Bulk Changes**: Make bulk changes to devices by utilizing the "Do a re-importable export for selected devices" option. See [Using the re-importable export feature](using-the-re-importable-export-feature.md) for an example of renaming multiple devices using this feature.
+- **Bulk Changes**: Make bulk changes to devices by utilizing the "Do a re-importable export for selected devices" option. See [Using the re-importable export feature](using-the-re-importable-export-feature.mdx) for an example of renaming multiple devices using this feature.

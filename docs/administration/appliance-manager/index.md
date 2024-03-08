@@ -17,7 +17,7 @@ The Device42 Appliance Manager runs on port 4242 (HTTP by default; enable HTTPs 
 - [Enabling SSL in Appliance Manager](administration/appliance-manager/enabling-ssl-in-appliance-manager.md)
 - [Generate log bundle](administration/appliance-manager/generate-log-bundle.mdx)
 - [Generating IPMI output for troubleshooting](administration/appliance-manager/generating-ipmi-output-for-troubleshooting.md)
-- [Global and Password manager session timeout](administration/appliance-manager/global-and-password-manager-session-timeout.mdx)
+- [Global and Password manager session timeout](global-and-password-manager-session-timeout.md)
 - [Installing VMWare or Xenserver tools](administration/appliance-manager/installing-vmware-or-xenserver-tools.md)
 - [Pendo Guided Tours and Usage Information Collection](administration/appliance-manager/pendo-guided-tours-and-usage-information-collection.md)
 - [Securing the VM console with password](administration/appliance-manager/securing-the-vm-console-with-password.md)
