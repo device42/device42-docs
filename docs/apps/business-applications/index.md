@@ -4,7 +4,7 @@ title: "Business Applications"
 
 ## Using Business Applications
 
-Device42 Business Applications offers a powerful way to build custom maps of business critical functions. Besides looking different than [Affinity Groups](apps/affinity-groups/index.md), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Applications can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
+Device42 Business Applications offers a powerful way to build custom maps of business critical functions. Besides looking different than [Affinity Groups](/apps/affinity-groups/index.mdx), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Applications can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
 
 Using Business Applications, you'll be able to catalog all of your business and mission-critical applications. All of the following are possible:
 
