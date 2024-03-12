@@ -13,13 +13,13 @@ Affinity Groups assists customers and partners with application grouping activit
 
 Affinity Groups uses the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Affinity group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
 
-After discovery has been run within your environment _(we recommend a 30-day minimum time period)_, the detailed application dependency information that has been collected should now be ready to use with Affinity Groups. Collected information includes service names and communication details, and affinities are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. Users define services critical to their use case then affinity groups are processed. The result is a visualized grouping of communication patterns.
+After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Affinity Groups. The collected information includes service names and communication details, and affinities are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. Users define services critical to their use case, and then Affinity Groups are processed. The result is a visualized grouping of communication patterns.
 
 ## Using Affinity Groups - How-To
 
 From the Device42 menu, navigate to **Applications > Affinity Groups**.
 
-From this screen, enter your search criteria and/or click the _Chart_ link next of the Affinity Group you'd like to view. Affinity Groups are automatically calculated every night at 2 AM for all 'pinned' services.
+From this screen, enter your search criteria and click the **Chart** link next to the Affinity Group you'd like to view. Affinity Groups are automatically calculated daily at 2 AM for all pinned services.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic1.png)
 
@@ -29,7 +29,9 @@ Application Component Categories are now also used in Affinity Groups. Any Appli
 
 ### Pinning other 'Core' services
 
-Affinity groups are only generated for your 'Core services', which are those services that have been 'Pinned' in Device42. If you don't see the Affinity Group Impact Chart you're looking for, ensure you've pinned the relevant services. Navigate to your critical 'core services' and pin them:
+Affinity Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Affinity Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Affinity Group.
+
+Navigate to your critical Core services and pin them using the dropdown menu:
 
 ![](/assets/images/Screen-Shot-2022-05-29-at-7.47.50-PM.png)
 
@@ -70,7 +72,7 @@ With Affinity Group calculations users can view an Affinity Group calculation fr
 />
 <br/><br/>
 
-Within the Affinity Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
+On the Affinity Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open the summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
 
 <ThemedImage
   alt="Affinity group calculation detailed view"

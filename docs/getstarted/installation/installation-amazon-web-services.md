@@ -235,7 +235,7 @@ The following is a sample IAM policy _(with minimum appropriate permissions)_ th
 * The Device42 AWS offering does not restrict the Instance Metadata Service Version.
 * The Device42 AWS offering does not require AWS data encryption to operate properly.  
 * Customer data resides on the instance itself.  Customer passwords and secrets are encrypted with AES-256 encryption.
-Refer to [this link](administration/passwords/password-security-and-permissions.md) for additional information on how passwords and secrets are stored. 
+Refer to [this link](administration/passwords/password-security-and-permissions.mdx) for additional information on how passwords and secrets are stored. 
 * The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.
 
 

@@ -33,6 +33,10 @@ If you are performing tenant level discovery, be sure to change the assignable s
 
 We will create a role with limited permissions that will be applied to this application. If you haven't set up your roles yet, [this documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition) can help. This will allow Device42 to use the application for discovery purposes while adhering to the principle of least privilege. Navigate to the Subscriptions service in the portal and select the Subscription you would like to allow this application to discover. Make note of the **Subscription ID** as it will be used later for Device42 discovery.
 
+:::note
+The **Discover all subscriptions** option should be unchecked to enable subscription-level discovery. By default, this option is selected for tenant-level discovery.
+:::
+
 Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >  Roles > Add > Add Custom Role**. Give the custom role a name, and an optional description, then select either **Start from scratch** or **Start from JSON**.
 
 1. If using the **Start from scratch** option, you will need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in Device42 documentation [here](auto-discovery/cloud-auto-discovery/index.mdx). Select **Add permissions**, search for and select the desired permission, check the relevant box, and choose **Add**. Repeat this for any desired permissions.
