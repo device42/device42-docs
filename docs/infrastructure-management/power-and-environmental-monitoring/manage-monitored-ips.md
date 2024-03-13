@@ -1,18 +1,37 @@
 ---
-title: "Manage Monitored IPs"
+title: "Manage Monitored Power Units"
 sidebar_position: 3
 ---
 
-## Manage Monitored Power Units
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-To view all power units, head to the Device42 main menu, Datacenter -> Power Units -> Power Units: ![Power Units in the Datacenter menu](/assets/images/datacenter_powerunits_menu-hl.png)
+To view all power units, navigate to **Infrastructure > Hardware > Power Units**. From the list page, you can view and manage discovered power units.
 
-The purpose of this screen is to show you all power units that have been discovered by Device42.
+<ThemedImage
+  alt="Power Units in the Infrastructure menu"
+  sources={{
+    light: useBaseUrl('/assets/images/manage-monitored-power-units/power-units-on-menu-light.png'),
+    dark: useBaseUrl('/assets/images/manage-monitored-power-units/power-units-on-menu-dark.png'),
+  }}
+/>
 
-![View/Add Power Unit PDU](/assets/images/View_Add_Power_unit-PDU.png)
+### Enabling and Disabling Monitoring
 
-From this screen, you can select one or more IP's that you no longer need maintained on the monitoring appliance and select the bulk action "Delete Monitoring Appliance IP's". This will delete the data for the selected IP's from the monitoring appliance.
+Select one or more power units that you no longer need to be monitored on the list page. Choose **Disable monitoring for selected devices, but keep data** or **Disable monitoring for selected devices and delete data**, depending on what you want to do with the already-discovered data. 
+
+Re-enable monitoring with the **Enable monitoring for selected Power Units** bulk action.
+
+After selecting an action, click on the **hammer icon** to execute it.
+
+<ThemedImage
+  alt="Power Units monitoring bulk actions"
+  sources={{
+    light: useBaseUrl('/assets/images/manage-monitored-power-units/power-units-actions-options-light.png'),
+    dark: useBaseUrl('/assets/images/manage-monitored-power-units/power-units-actions-options-dark.png'),
+  }}
+/>
 
 ### Viewing Periodic Jobs
 
-To view a list of all periodic jobs that are configured to run, head to the main menu, _Reports -> Periodic Jobs_. Here, you will see a list of all periodic jobs, which can be viewed or easily deleted via the Action menu.
+To view a list of all periodic jobs that are configured to run, navigate to **Analytics > Periodic Jobs** from the main menu. Here, you will see a list of all periodic jobs, which can be viewed or easily deleted via the **Action** menu.
