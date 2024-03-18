@@ -3,54 +3,94 @@ title: "Role-based Permissions and Access"
 sidebar_position: 1
 ---
 
-Role-based access can be defined at either the group or user level. If you have many users but a much smaller numbers of different permissions sets, it would make sense to use groups. In the example below, we will create a group with IP address management permissions only.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Creating a Role based group
+Role-based access can be defined at either the group or user level. If you have many users, but a much smaller number of different permissions sets, it would make sense to use admin groups. In the example below, we will create a new group with selected IP address, DNS and VLAN management permissions.
 
-![Creating a Role based group](/assets/images/wpid6575-media_1330885651614.png)
+### Creating a New Admin Group
+
+To create a new Admin Group, navigate to **Tools > Admin Groups** and click the **+ Add Admin Group** button on the right of the screen.
 
 First, enter a name for the group.
 
-In the "Available Permissions" box, you will see all the available permissions. You can narrow down the permissions by the search box. In the above example, we searched for all permissions that start with "ip" (not case sensitive).
+<ThemedImage
+  alt="Search for available permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-dark.png'),
+  }}
+/>
 
-Select the permissions you would like to grant the members of this group by multi-selecting and clicking the arrow in the middle pointing to the "Chosen Permissions" box.
+In the **Available permissions** box, you will see all the available permissions. In the example, we searched for all permissions that contain "ip" (not case sensitive).
 
-![](/assets/images/wpid6576-media_1330885722298.png)
+Select the permissions you would like to grant the members of this group. You can select multiple permissions by clicking and dragging over your selection. Use the **right arrow** in the middle to add the selected permissions to the **Chosen permissions** box.
 
-In the image above, we have added a number of IP-related permissions and are about to add some DNS-related permissions.
+We have added a number of IP-related permissions and are about to add some DNS-related permissions.
 
-![](/assets/images/wpid6577-media_1330885796973.png)
+<ThemedImage
+  alt="Add IP and DNS-related permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-ip-dns-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-ip-dns-permissions-dark.png'),
+  }}
+/>
 
-And now some VLAN permissions.
+And now we'll add some VLAN permissions.
 
-### Assigning a group to a user or set of users
+<ThemedImage
+  alt="Select VLAN-related permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-vlan-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-vlan-permissions-dark.png'),
+  }}
+/>
 
-![Assigning a group to a user or set of users](/assets/images/wpid6578-media_1330886180867.png)
+### Assigning Users to Admin Groups
 
-You can go edit the user properties and assign the newly created group. Once you click Save, this user will now have restricted permissions.
+Navigate to **Tools > Administrators** to create and edit users to the Main Appliance. Add a new user by clicking the **+ Add Local Admin** button to the right of the screen. Or select an existing user from the list page and click **Edit** from their profile. Assign the newly created Admin Group to the user under the **Permissions** box. 
 
-**Please make sure the Superuser Status checkbox is unchecked before you Save.**
+When you click **Save**, the user will only have permissions to act on IP addresses, DNSs and VLANs as defined above.
 
-Once the user logs in, the menu they see will be limited the permissions that you have assigned to the user or to the user's group(s).
+Please make sure the **Superuser Status** checkbox is unchecked before saving.
 
-Importantly, these permissions will apply to Imports and API calls also.
+<ThemedImage
+  alt="Assign user to Admin Group"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid6579-media_1330886260426.png)
+When the user logs in, the menu they see will be limited to the permissions that you have assigned to the Admin Group they belong to.
 
-In the example, above the user see a reduced set of menu items.
+<ThemedImage
+  alt="Reduced menu items"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid6580-media_1330886312975.png)
+This user will not be able to add subnets in the IP address edit form because they do not have the necessary permissions.
 
-Also, as shown in the screen shot above, this user will not be able to add devices in the IP address edit form because this user does not have permission to edit devices or mac addresses but the user does have permission to edit subnets.
-
-### Adding Users from the Groups page
-
-![Adding Users from the Groups page](/assets/images/wpid6582-media_1432033077932.png)
-
-The example above show how you can create a group and then go to the Users pages and create users. However, it is not necessary to go to the Users pages. You can add users to a group directly from the group edit page as shown above.
+<ThemedImage
+  alt="Not authorized notice"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-dark.png'),
+  }}
+/>
 
 ### Cloning Permission Groups
 
-![Cloning Permission Groups](/assets/images/wpid6581-media_1414444386608.png)
+ You can clone groups using the **Save as new** option. This makes it easier to create new groups by adding your own permissions to those of existing groups.
 
-You can also clone Permission groups using the “Save as new” option. This will make it easier if you want to start from the System generated groups and add your own permissions to create groups.
+<ThemedImage
+  alt="Save as new admin group"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/save-as-new-admin-group-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/save-as-new-admin-group-dark.png'),
+  }}
+/>
+
