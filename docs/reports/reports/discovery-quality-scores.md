@@ -66,6 +66,6 @@ Click an item in the _Job Name_ column of the Select Discovery Score page to see
 
 ## Discovery Score Permissions
 
-If you use [Role-Based Access Control](administration/role-based-access-control/role-based-permissions-and-access.md) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select _Allow non-superusers to see other orphaned objects_, non-superusers can see all Discovery Scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
+If you use [Role-Based Access Control](/administration/role-based-access-control/role-based-permissions-and-access.mdx) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select _Allow non-superusers to see other orphaned objects_, non-superusers can see all Discovery Scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
 
 ![](/assets/images/D42-28195_RBACdisc-scores.png)
