@@ -19,7 +19,7 @@ In edit mode, you can add blades to a chassis right from the chassis edit page b
 
 ![v15+ Interactive chassis layout](/assets/images/v15_blade_layout_visual_editor.png)
 
-To visually edit a blade, that blades' hardware model must first have been defined. Details around defining hardware models can be found in the [hardware model (templates) documentation](hardware-models-templates.md), as these actions are universal to all devices.
+To visually edit a blade, that blades' hardware model must first have been defined. Details around defining hardware models can be found in the [hardware model (templates) documentation](hardware-models-templates.mdx), as these actions are universal to all devices.
 
 For blade-specific templating information, see the [blade slots documentation page here](device-blade-slots.md).
 

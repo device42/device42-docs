@@ -188,4 +188,4 @@ The “Other objects” option applies to purchases and customers. For example, 
 
 ## Table of contents
 
-- [Role-based Permissions and Access](administration/role-based-access-control/role-based-permissions-and-access.md)
+- [Role-based Permissions and Access](/administration/role-based-access-control/role-based-permissions-and-access.mdx)
