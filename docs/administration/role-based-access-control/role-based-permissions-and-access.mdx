@@ -6,7 +6,7 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Role-based access can be defined at either the group or user level. If you have many users, but a much smaller number of different permissions sets, it would make sense to use admin groups. In the example below, we will create a new group with selected IP address, DNS and VLAN management permissions.
+Role-based access can be defined at either the group or user level. If you have many users but a smaller number of different permissions sets, it would make sense to use admin groups. In the example below, we will create a new group with selected IP address, DNS, and VLAN management permissions.
 
 ### Creating a New Admin Group
 
@@ -24,9 +24,9 @@ First, enter a name for the group.
 
 In the **Available permissions** box, you will see all the available permissions. In the example, we searched for all permissions that contain "ip" (not case sensitive).
 
-Select the permissions you would like to grant the members of this group. You can select multiple permissions by clicking and dragging over your selection. Use the **right arrow** in the middle to add the selected permissions to the **Chosen permissions** box.
+Select the permissions you would like to grant the members of this group. You can select multiple permissions by clicking and dragging over your selection. Use the **right arrow** between the boxes to add the selected permissions to the **Chosen permissions** box.
 
-We have added a number of IP-related permissions and are about to add some DNS-related permissions.
+In the screenshot below, we have added several IP-related permissions and are about to add some DNS-related permissions.
 
 <ThemedImage
   alt="Add IP and DNS-related permissions"
@@ -48,9 +48,9 @@ And now we'll add some VLAN permissions.
 
 ### Assigning Users to Admin Groups
 
-Navigate to **Tools > Administrators** to create and edit users to the Main Appliance. Add a new user by clicking the **+ Add Local Admin** button to the right of the screen. Or select an existing user from the list page and click **Edit** from their profile. Assign the newly created Admin Group to the user under the **Permissions** box. 
+Navigate to **Tools > Administrators**, select the user from the list page, and click **Edit** from their profile. Assign the user to the newly created Admin Group under the **Permissions** box. 
 
-When you click **Save**, the user will only have permissions to act on IP addresses, DNSs and VLANs as defined above.
+When you click **Save**, the user will only have permissions to act on the IP addresses, DNS records, and VLANs defined in the Admin Group they are assigned to.
 
 Please make sure the **Superuser Status** checkbox is unchecked before saving.
 
@@ -82,9 +82,11 @@ This user will not be able to add subnets in the IP address edit form because th
   }}
 />
 
+Note that you can create a new user by clicking the **+ Add Local Admin** button on the Administrators page.
+
 ### Cloning Permission Groups
 
- You can clone groups using the **Save as new** option. This makes it easier to create new groups by adding your own permissions to those of existing groups.
+You can clone groups using the **Save as new** option. This makes it easier to create new groups by adding permissions to existing groups.
 
 <ThemedImage
   alt="Save as new admin group"
