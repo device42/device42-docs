@@ -6,13 +6,13 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From the main menu, navigate to **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In device42, a Room is part of a Building. You can add Rooms, Racks, and other asset details to a Building's information. 
+From the main menu, navigate to **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
 
 To view, create, and edit rooms directly, navigate to **Infrastructure > DataCenter > Rooms**.
 
 ### Building List View
 
-View, edit, create, and perform bulk actions on selected Buildings from the building list page.
+View, edit, create, and perform bulk actions on selected buildings from the **Buildings** list page.
 
 You can also add an image, like a floor plan, to the building and view the image from the list page by clicking on the link.
 
@@ -26,7 +26,7 @@ You can also add an image, like a floor plan, to the building and view the image
 
 ### Building View
 
-You can add Rooms to existing Buildings by opening a building view from the list page and clicking the **Edit** button. When added, click on a room name from its Building view to go to that room view.
+You can add rooms to an existing building by opening the building view from the list page and clicking the **Edit** button. When a room is added, click on the room name from the building view to see that room's details.
 
 <ThemedImage
   alt="Building View"
@@ -48,11 +48,11 @@ View the **Impact Chart** of the building using the button on the top right of t
 
 ### Rooms List View
 
-The rooms list view is located under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details.
+Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details.
 
-You can filter by **Building** and **Tags** using the dropdown menus above the table. 
+You can filter the view by **Building** and **Tags** using the dropdown menus above the table. 
 
-Click the **Show** link next to the room name to view its layout.
+Click the **Show** link next to a room name to view the room's layout.
 
 Perform bulk actions on selected rooms from the **Select an action** dropdown menu. Execute the action by clicking the **hammer icon**.
 
@@ -66,14 +66,14 @@ Perform bulk actions on selected rooms from the **Select an action** dropdown me
 
 ### View Room Details
 
-Click on the name of a Room from the list view table to view or change its details. The basic information is located at the top of the page: **Name**, **Building**, **Units of measure**, **Group Permissions**, **Tags**, and **Notes**.
+Click on the name of a room from the list view to view or change its details. Basic room information is at the top of the page: **Name**, **Building**, **Units of measure**, **Group Permissions**, **Tags**, and **Notes**.
 
-The buttons located at the top right of the page do the following:
+Use the buttons located at the top right of the page to do the following:
 
-- **Edit**: edit the Room's details.
-- **History (Audit Logs)**: see a log of the changes made to the Room's information.
-- **Impact Chart**: display a chart that includes all devices, assets, and applications that rely on this room.
-- **Room Layout**: logical representation of the room, see the [Room Layout View](#room-layout-view) section below.
+- **Edit**: Edit the room's details.
+- **History (Audit Logs):** See a log of the changes made to the room's information.
+- **Impact Chart:** View a chart of devices, assets, and applications that rely on this room.
+- **Room Layout:** View a logical representation of the room. The [Room Layout View](#room-layout-view) section below provides more information.
 
 <ThemedImage
   alt="Rooms List View"
@@ -85,17 +85,15 @@ The buttons located at the top right of the page do the following:
 
 The detailed room information also includes:
 
-- **Racks**: view basic rack info, access rack details by clicking the rack name, assign row number, or add a new rack.
-- **Devices** (like CRAC, UPS): view basic device info, access device details by clicking the name, or add a new device.
-- **Assets** (like Breaker panels and DMARC locations): view basic asset info, access asset details by clicking its name, or add a new asset.
+- **Racks:** View basic rack info, click a rack name to access the rack details, assign a row number to a rack, or add a new rack.
+- **Devices:** View basic info about devices (like CRAC and UPS), click a device name to access the device details, or add a new device.
+- **Assets:** View basic info about assets (like breaker panels and DMARC locations), click an asset name to access the asset details, or add a new asset.
 
 ## Room Layout View
 
-The Room Layout views can be accessed from the detailed page view of a room, or via the **Show** links in the Room list page table. 
+Access a **Room Layout** view from a room's detailed view or using the **Show** link next to the room name on the **Rooms** list page. 
 
-You can represent a room and its objects in almost any shape or configuration. You can have a room that is longer than it is wide, one that is wider than it is long, or even an L-shaped room.
-
-Use the Zoom slider to increase or decrease the size of the displayed layout.
+Use the zoom slider to increase or decrease the display size of the layout. Switch editing mode to on by clicking **Turn ON** in the sidebar. Only users with the necessary permissions can edit a room layout.
 
 <ThemedImage
   alt="Room layout view"
@@ -105,11 +103,13 @@ Use the Zoom slider to increase or decrease the size of the displayed layout.
   }}
 />
 
-To make changes to the layout, first enable editing by clicking **Turn ON** on the left. You'll be able to change the room layout provided you have the necessary user permissions.
-
 ## Room Layout Editing
 
-To add or remove the number of rows and columns of the layout, use the **plus** and **minus** buttons located on the left panel.
+The room layout represents a room and its objects.
+
+You can change the shape and size of the room layout.
+
+Add or remove rows and columns using the **plus** and **minus** buttons located on the left panel.
 
 <ThemedImage
   alt="Change room size controls"
@@ -120,7 +120,7 @@ To add or remove the number of rows and columns of the layout, use the **plus** 
   style={{ width: '30%' }}
 />
 
-You can change the grid’s default row and column labeling sequence. Choose between numerical or alphabetical numbering and set the value to start with.
+You can change the default row and column labeling sequence. Choose between numerical or alphabetical labeling and set the value to start with.
 
 <ThemedImage
   alt="Grid and row numbering options"
@@ -146,9 +146,9 @@ You can add racks and objects to the layout, move them around, resize and rotate
   style={{ width: '80%' }}
 />
 
-- To increase the size of an object, drag an object's vertical or horizontal edge. You can make an object take up multiple grid spaces or reduce the size to as little as 1/10 of a grid cell.
+- Increase the size of an object by dragging its vertical or horizontal edge. Objects can occupy multiple grid spaces or as little as 1/10 of a grid cell.
 
-    Unselect the **Show details on hover** checkbox on the left panel when resizing objects so the objects don't get covered up when working. 
+    Deselect the **Show details on hover** checkbox on the left panel when resizing objects to prevent popups from obscuring your view. 
 
 <ThemedImage
   alt="Resizing objects"
@@ -158,7 +158,7 @@ You can add racks and objects to the layout, move them around, resize and rotate
   }}
 />
 
-- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the pop-up panel.
+- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the popup panel.
 
 <ThemedImage
   alt="Rotating objects"
@@ -168,13 +168,13 @@ You can add racks and objects to the layout, move them around, resize and rotate
   }}
 />
 
-- You can select multiple objects by dragging your cursor over them. When selected, drag the group to reposition the objects. Rotate all the objects in the selected group using the rotate buttons that are available when hovering over the selection.
+- You can reposition and rotate multiple objects at once. Select multiple objects by dragging your cursor over them. Reposition multiple selected objects by dragging them. Rotate multiple selected objects using the rotate buttons in the popup.
 
 ### Adding Objects to a Layout
 
-Ensure that the editing mode is enabled first. Navigate to **Infrastructure > DataCenter > Rooms**, click on the **Show** link under the **Layout** column, and from the layout view **Turn ON** the editing mode.  
+Ensure that editing mode is enabled. Navigate to **Infrastructure > DataCenter > Rooms**, click the **Show** link under the **Layout** column, and select **Turn ON** from the layout view.
 
-You can add any asset type to the room and are not confined to just the template objects available in the left panel as shown above. You can even create your own asset types.
+You can add any asset type to the room and are not confined to the template objects available in the left panel as shown above. You can even create your own asset types.
 
 Racks and other objects can be added via the API or from the **Tools > Imports/Exports** menu.
 
@@ -198,16 +198,16 @@ For racks, you'll see the following information:
 - **Vendor**
 - **Available (Us)**
 - **Number of Devices**
-- **Total Power Ports**: The total number of ports for all PDUs in the rack.
-- **Open Power Ports**: The number of available power ports by connector type.
-- **Tags**: Any tags added to the rack for labeling and classification purposes.
+- **Total Power Ports** The total number of ports for all PDUs in the rack.
+- **Open Power Ports** The number of available power ports by connector type.
+- **Tags** Any tags added to the rack for labeling and classification purposes.
 - **Notes**
-- **Temperature**: The minimum to maximum temperature range from all sensors in the rack.
-- **Relative Humidity**: The minimum to maximum relative humidity range from all sensors in the rack.
+- **Temperature** The minimum to maximum temperature range from all sensors in the rack.
+- **Relative Humidity** The minimum to maximum relative humidity range from all sensors in the rack.
 
-You'll also see links for the following:
+The popup also has links to several additional views.
 
-- **View [name] Layout**: This will drill down to a detailed visualization of the rack layout and the device in the rack.
+- **View [name] Layout:** Click this link to drill down to a detailed visualization of the rack layout and the devices in the rack.
   
     <ThemedImage
     alt="Rack layout"
@@ -217,7 +217,7 @@ You'll also see links for the following:
     }}
     />
 
-- **View [name] Power Unit Map**:
+- **View [name] Power Unit Map:**
 
     <ThemedImage
     alt="Power Unit map"
@@ -227,7 +227,7 @@ You'll also see links for the following:
     }}
     />  
 
-- **View [name] details**: This will take you to the Rack Details page for the rack.
+- **View [name] details:** Click this link to go to the **Rack Details** page for the rack.
 
     <ThemedImage
     alt="Power Unit map"
@@ -237,7 +237,9 @@ You'll also see links for the following:
     }}
     />  
 
-- **View Connections**: This will display a visualization of the PDU connections in the rack. Find this link by mousing over the rack displayed on the object pop-up panel.
+- **Power/Utilization Charts:** Click this link to display the power history for each input and output. Note that this link is only available if you have the Power Monitoring option.
+
+- **View Connections:** Mouse over the rack displayed in the object popup panel to find this link. Click the link to display a visualization of the PDU connections in the rack. 
   
     <ThemedImage
     alt="View connections link"
@@ -247,11 +249,11 @@ You'll also see links for the following:
     }}
     />
 
-- **Power/Utilization Charts**: This will display the power history for each input and output. Note that this link is only available if you have the Power Monitoring option.
+
 
 ### Heat Maps
 
-Each rack is color-coded to show the availability of U slots within the rack. There are five color codes available ranging from green (high availability) to red (low availability). You can change the availability percentage for each color by going to **Tools > Settings > Global Settings**.
+Each rack is color-coded to show the availability of U slots in the rack. Five color codes are available, ranging from green (high availability) to red (low availability). You can change the availability percentage for each color by going to **Tools > Settings > Global Settings**.
 
 <ThemedImage
   alt="Heat map legend"
@@ -261,18 +263,18 @@ Each rack is color-coded to show the availability of U slots within the rack. Th
   }}
 />
 
-If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use, divided by the power capacity of the input. Green is high and red is low. You can change the percentages in **Tools > Settings > Global Settings**.
+If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use, divided by the power capacity of the input. Green is high, and red is low. You can change the percentages in **Tools > Settings > Global Settings**.
 
 ![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
 
 ### Temperature Shading
 
-The halo temperature shading around racks, in the room that have temperature information, provides a quick view of the room’s environment.
+In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room’s environment.
 
 The color value is based on the maximum temperature of the rack and corresponds to the following temperatures:
 
-- **Green**: \<\= 75°F (23.88°C)
-- **Yellow**: between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
-- **Red**: > 90°F (32.22°C)
+- **Green:** \<\= 75°F (23.88°C)
+- **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
+- **Red:** > 90°F (32.22°C)
 
 ![](/assets/images/Room-heat-map-NEW-2-700x396.png)
