@@ -3,13 +3,13 @@ title: "Standard Reports"
 sidebar_position: 15.5
 ---
 
-From version 18.13.00, the traditional "Classic Reports" menu option has been renamed to **Standard Reports** under the **Analytics menu**. Standard Reports are generally the quickest and easiest way to query and report on information within Device42. 
+From version 18.13.00, the traditional "Classic Reports" menu option has been renamed to **Standard Reports** under the **Analytics** menu. Standard Reports are generally the quickest and easiest way to query and report on information within Device42. 
 
-The standard reporting feature under the Analytics menu is the first place to go to answer difficult business questions with system data. These reports integrate his powerful tabular reporting functionality with DOQL queries, MA object tables, and the catalog of existing reports.
+The standard reporting feature is the first place to go to answer difficult business questions with system data. These reports integrate this powerful tabular reporting functionality with DOQL queries, MA object tables, and the catalog of existing reports.
 
 ![Standard Reports menu](/assets/images/standard-reports/standard-report-menu.png)
 
-The Standard Report options allow you to create tabular reports directly from an existing report, from a list within the UI, or use a custom DoQL to retrieve and populate the data. These reports can then be exported or scheduled to email giving recipients easy to configure and digest, data-rich tabular exports from the system.
+Use the Standard Reporting options to create tabular reports directly from an existing report, from a list within the UI, or use a custom DOQL to retrieve and populate the data. These reports can then be exported or scheduled to email, providing recipients with data-rich tabular exports from the system that are easy to configure and digest.
 
 ## Creating a Standard Report
 
@@ -22,23 +22,23 @@ You can create a Standard Report in several ways:
 
 ### Creating a Report Using DOQL
 
-A DOQL statement, or Device42 Object Query Language statement, is a query that can be run against the Device42 database within the Insights+ interface, through the application, or using the RESTful API. DOQLs can be used in Standard Reporting to generate the data to display within a results table.
+A DOQL statement, or Device42 Object Query Language statement, is a query that can be run against the Device42 database within the **Insights+** interface, through the application, or using the RESTful API. DOQLs can be used in Standard Reporting to generate the data to display within a results table.
 
 **NOTE:** To create reports using DOQL, one should be familiar with and consult the data dictionary under the Viewer Schema option under the help icon.
 
 ![View Schema option](/assets/images/standard-reports/viewer-schema-option.png)
 
-To utilize DOQL to create or edit a Standard Report, select the option “DOQL Query” from the report type dropdown after naming the report. The DOQL commands can then be entered in the text box. The start of a sample select statement is displayed in the DOQL text box to aid the user. If there is an error generated during parsing, such as invalid syntax or referencing a table or field that does not exist, the error message will be shown at the bottom of the text box.
+To use DOQL to create or edit a Standard Report, select **DOQL Query** from the report type dropdown after naming the report. The DOQL commands can then be entered in the text box. The start of a sample select statement is displayed in the DOQL text box. If an error is generated during parsing, like invalid syntax or referencing a table or field that does not exist, the error message will be shown at the bottom of the text box.
 
 ### Creating a Report From a Predefined Report
 
-Create a multi-tab Standard Report where one of the tabs contains the results of a previous existing report. Select the report option “Pre-Defined Report” and choose from a set of existing reports to be included as a tab.
+Create a multi-tab Standard Report where one of the tabs contains the results of a previous existing report. Select the **Pre-Defined Report** report option and choose from a set of existing reports to be included as a separate tab.
 
 ![Pre-Defined Report option](/assets/images/standard-reports/pre-defined-report.png)
 
 ### Creating a Report From a Guided Report 
 
-To build a Standard Report using the Guided Report option, select the model (like "Devices") and then select the table columns that are part of that Device model. Field filters can be added or set to alter the result display of this report.
+To build a Standard Report using the Guided Report option, select the model (like **Devices**), then select the table columns that are part of that device model. Field filters can be added or set to alter the result display of this report.
 
 ![Guided Report option](/assets/images/standard-reports/guided-report-option.png)
 
@@ -48,13 +48,13 @@ To build a Standard Report using the Guided Report option, select the model (lik
 
 A new Standard Report can be easily created from these list pages which can be delivered through email and scheduled.
 
-Infrastructure list pages for Rooms, Racks, Telco Circuits, Parts Models, Parts List, Power Unit, Hardware Models, Customers/Departments, Purchases, and Vendors can all be used to create a Standard Report by using the Report button at the top of the table.
+Infrastructure list pages for Rooms, Racks, Telco Circuits, Parts Models, Parts List, Power Units, Hardware Models, Customers/Departments, Purchases, and Vendors can all be used to create a Standard Report by using the Report button at the top of the table.
 
 Lists from the **Resources** menu for All Devices, All Assets, Subnets, All IPs Addresses, Ports, Docker Resources, LXC Resources, Operating Systems, Operating Systems in Use, Software Components, Software In Use, and Secrets can be used to create a Standard Report by using the Report button at the top of the table after creation and application of filters.
 
 ![Devices report button](/assets/images/standard-reports/devices-report-button.png)
 
-List pages under the **Applications** menu such as Application Components, Certificates, and Certificate Instances can also be used to create a Standard Report by using the Report button at the top of the table after creation and application of filters.
+List pages under the **Applications** menu, like Application Components, Certificates, and Certificate Instances, can also be used to create a Standard Report by using the Report button at the top of the table after the creation and application of filters.
 
 ![Create new report UI](/assets/images/standard-reports/create-new-report.png)
 
