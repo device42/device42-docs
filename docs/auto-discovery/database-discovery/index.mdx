@@ -23,6 +23,14 @@ Dynamic discovery can discover different ports to use. As of v16.17.00, Device42
 
 If you want to specify DB discovery details yourself, including the DB server port, server IP address, and DB access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
 
+### Discovery Exclusions
+
+To set discovery exclusions, navigate to the **Tools > Settings > Global Settings** page and the **Discovery Exclusions** section.
+
+Enable the **Ignore DB Login Names** setting. When enabled, DB login names will not be collected during database discovery
+
+You can also specify interfaces, IP addresses, and MAC addresses to be ignored during discovery. 
+
 ## MS SQL Server DB Discovery (on Windows targets)
 
 Microsoft SQL Server (MSSQL) discovery is supported on discovery targets running Microsoft Windows and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have appropriate permissions to view the databases you are interested in discovering.
