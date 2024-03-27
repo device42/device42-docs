@@ -20,9 +20,9 @@ Use the links below for additional information about access protocols and minimu
 [See Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md) for more information about the following storage arrays:
 
 - Dell Compellent
-- VNX or VMAX using EMC SMIS Providor
+- Dell PowerStore
+- VNX or VMAX using EMC SMIS Provider
 - EMC Data Domain
-- EMC Unity
 - EMC Unity
 - Isilon
 
