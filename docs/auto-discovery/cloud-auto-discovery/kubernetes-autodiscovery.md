@@ -43,6 +43,6 @@ Click on the available links to see details about those resources.
 
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery6.png)
 
-Click the **Edit** button at the top right to edit resource information. Editing is generally limited to adding or editing **Notes** or **Tags** or changing the **In Service** status or Level.
+Click the **Edit** button at the top right to edit resource information. Editing is generally limited to adding or editing **Notes** or **Tags**, or changing the **In Service** status or level.
 
 ![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery7.png)
