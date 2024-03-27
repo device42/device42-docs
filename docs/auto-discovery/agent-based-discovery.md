@@ -41,7 +41,7 @@ It can be run from the command line or can be scheduled using the relevant sched
   -device-customer string
     	default device customer
   -device-name-format int
-    	1 - hostname, 2 - hostname + domain, 3 - hostname and hostname+domain as alias, 4 - hostname+doman and hostname as alias (default 1)
+    	1 - hostname, 2 - hostname + domain, 3 - hostname and hostname+domain as alias, 4 - hostname+domain and hostname as alias (default 1)
   -device-object-category string
     	default device object category
   -device-service-level string
@@ -76,6 +76,8 @@ It can be run from the command line or can be scheduled using the relevant sched
     	default IP VRF group
   -light-mode
     	reduces CPU utilization by cost of discovery speed
+  -new-device-object-category
+      updates/overwrites the object category for the device
   -offline
     	doesn't connect with Device42, just prints the encrypted data to be sent
   -quiet
