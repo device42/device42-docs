@@ -17,6 +17,8 @@ sidebar_position: 12
 
 The Freshservice API, by default, is limited to 1000 API calls per hour. To process a single asset, multiple API calls are made. While we do our best to work with the default limit, if for any reason sync times are inconvenient, please contact Freshworks to increase your API limit. They will increase this limit but on a need case basis.
 
+To integrate the File System (FS) with Device42, setting up the Device42 Cloud Connector is a prerequisite. The Cloud Connector acts as a bridge between the File System and Device42.
+
 ## Get Freshservice API Token
 
 To setup the Freshservice integration with Device42, you need a Freshservice API. This API token is used to import devices and software items into Freshservice and also create relational mappings between them.
@@ -61,6 +63,10 @@ To use the Device42 integration application on your Freshservice instance, you f
 
 ![](/assets/images/FS_Dashboard_1-700x289.png)
 
+:::note
+Please ensure that you have successfully configured the Cloud Connector before proceeding with the File System integration.
+:::
+
 1. Navigate to the Settings page from the Freshservice dashboard.
 2. From here, navigate to the _Apps_ section from the _Helpdesk Productivity_ section. If you don't see this option on your Freshservice instance, ensure you are logged in using an administrative account.
 3. On the Apps page, click the _Get More Apps_ button.
@@ -72,7 +78,7 @@ To use the Device42 integration application on your Freshservice instance, you f
 ![](/assets/images/FS_Dashboard_Apps_3-700x268.png)
 
 1. After selecting the _Install_ button, you will be taken to a settings page where you will be asked to enter your _Freshservice Domain Name_ (this is part of your Freshservice URL between “https://” and “.freshservice.com”), a _Cloud Connector_ as well as a _Verification Token_ in order to proceed with the installation.
-2. Enter the required fields. The Cloud Connector will be either **connect.device42.net** or **connect-eu.device42.net**. If you are unsure of which of the two to choose, navigate to _Tools > Settings > Global Settings_ and scroll to the bottom section of the page that says _External Integration Settings_. The Cloud Connector listed will determine which of the two Cloud Connectors you choose. If this is not the case, please contact [Device42 Support](mailto:support@device42.com), and we will be happy to help you set up your Device42 to work with integrations.
+2. Enter the required fields. The Cloud Connector will be either **connect.device42.io** or **connect-eu.device42.io**. If you are unsure of which of the two to choose, navigate to _Tools > Settings > Global Settings_ and scroll to the bottom section of the page that says _External Integration Settings_. The Cloud Connector listed will determine which of the two Cloud Connectors you choose. If this is not the case, please contact [Device42 Support](mailto:support@device42.com), and we will be happy to help you set up your Device42 to work with integrations.
 3. Once the required fields are entered, click the _Install_ button on the bottom right of the window.
 
 ![](/assets/images/WEB-755_FS-config-install.png)
