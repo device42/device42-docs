@@ -72,7 +72,7 @@ To use the Device42 integration application on your Freshservice instance, you f
 ![](/assets/images/FS_Dashboard_Apps_3-700x268.png)
 
 1. After selecting the _Install_ button, you will be taken to a settings page where you will be asked to enter your _Freshservice Domain Name_ (this is part of your Freshservice URL between “https://” and “.freshservice.com”), a _Cloud Connector_ as well as a _Verification Token_ in order to proceed with the installation.
-2. Enter the required fields. The Cloud Connector will be either **connect.device42.net** or **connect-eu.device42.net**. If you are unsure of which of the two to choose, navigate to _Tools > Settings > Global Settings_ and scroll to the bottom section of the page that says _External Integration Settings_. The Cloud Connector listed will determine which of the two Cloud Connectors you choose. If this is not the case, please contact [Device42 Support](mailto:support@device42.com), and we will be happy to help you set up your Device42 to work with integrations.
+2. Enter the required fields. The Cloud Connector will be either **connect.device42.io** or **connect-eu.device42.io**. If you are unsure of which of the two to choose, navigate to _Tools > Settings > Global Settings_ and scroll to the bottom section of the page that says _External Integration Settings_. The Cloud Connector listed will determine which of the two Cloud Connectors you choose. If this is not the case, please contact [Device42 Support](mailto:support@device42.com), and we will be happy to help you set up your Device42 to work with integrations.
 3. Once the required fields are entered, click the _Install_ button on the bottom right of the window.
 
 ![](/assets/images/WEB-755_FS-config-install.png)
