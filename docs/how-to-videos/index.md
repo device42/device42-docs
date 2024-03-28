@@ -29,6 +29,8 @@ Don't see a video for the topic you're looking for? Send us an email at [support
 
 ## Device42 Product Release Highlights
 
+ - [Product Release v.18.12.00](https://device42.wistia.com/medias/02wepisj3v)
+ - [Product Release v.18.11.00](https://device42.wistia.com/medias/gux0tm361v)
  - [Product Release v.18.10.00](https://device42.wistia.com/medias/hag4m368we)
  - [Product Release v.18.09.00](https://device42.wistia.com/medias/gb4syoi0wx)
  - [Product Release v.18.08.00](https://device42.wistia.com/medias/l3x1y01udz)
