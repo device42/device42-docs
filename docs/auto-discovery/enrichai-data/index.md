@@ -99,6 +99,6 @@ Device42 also currently displays EnrichAI Data information on OS and vendor view
 
 ![](/assets/images/18.04.00_EnrichAI_vendor-view-page.jpg)
 
-:::info 
-Device42 reserves the right to make changes and updates to the internal matching algorithm and or the golden records that are provided with this service
+:::info
+Device42 reserves the right to make changes and updates to the internal matching algorithm and or the golden records that are provided with this service.
 :::
