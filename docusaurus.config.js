@@ -1104,7 +1104,7 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         googleTagManager: {
-         containerId: 'GTM-56V4NGQ',
+         containerId: 'G-4HQWBEDSCX',
         },
       }),
     ],
