@@ -280,3 +280,10 @@ In the Device42 Appliance Manager, ensure that the Username field has a value of
 
 Next, you click on **Save and Continue**. Then you can **Run** the job immediately. Or you can save it and have it run on a regular schedule.
 
+### Azure Cloud Account Tags
+
+Select your Azure cloud account from the list page under **Infrastructure > Cloud Infrastructure > Cloud Accounts**.
+
+If available, the discovered account-level tags will be listed under the **Vendor Custom Fields** section.
+
+![Azure cloud account tags](/assets/images/azure-cloud-account-tags.png)
