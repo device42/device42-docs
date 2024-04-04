@@ -139,7 +139,7 @@ _**K8s cluster endpoints access per K8s RBAC setup**_
 - /apis/apps/v1/deployments?watch=False OR /apis/extensions/v1beta1/deployments?watch=False (depends on k8s version)
 - /apis/networking.k8s.io/v1beta1/ingresses?watch=False OR /apis/extensions/v1beta1/ingresses?watch=False (depends on k8s version)
 
-_**Example of minimum policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
+_**Example IAM Policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
 
 ```
 {
@@ -300,7 +300,7 @@ Device42 adds the new AWS Role to the roles list; it will also appear in the Ava
         
     2. We would need an account that uses just accountID and one that would be with the Require ExternalID option - Note no requirement for MFA option at this time
         
-    3. Policy to be added - use the example minimum policy needed for discovery from our docs site [here](auto-discovery/cloud-auto-discovery/index.mdx)
+    3. Policy to be added - use the example policy needed for discovery from our docs site [here](auto-discovery/cloud-auto-discovery/index.mdx)
         
 2. From the Sub (or separate)-account
     
@@ -316,19 +316,19 @@ Set Up
 
 Option 1:
 
-- Keypair user must be deployed into the org’s root account
+- Key/pair user must be deployed into the org’s root account.
 - This user policy must have at a minimum the following rights:
     - `sts:assumerole`
     - `organizations:listaccounts`
-- A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired
-- The minimum d42 discovery policy must be granted to the role
-- For role config within D42, do not add any accounts to the role
+- A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired.
+- The Device42 discovery policy must be granted to the role.
+- For role config within Device42, do not add any accounts to the role.
 - At this time, we cannot use dynamic account discovery to discover roles which use external ID values
 
 Option 2:
 - If you don't want to follow the steps above, you can either:
     - make the assumable role available in the main account (dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of ID’s), 
-    - or also attach the d42 minimum discovery policy to the user directly (requires selection of the “discover main account” box on the job).
+    - or also attach the Device42 discovery policy to the user directly (requires selection of the “discover main account” box on the job).
 
 ## Using AWS Roles To Discover Accounts Within Discovery Jobs
 
@@ -350,7 +350,7 @@ Support for this comes in the form of a new discovery option called 'Use Environ
     - 2.1. On the IAM Policy creation screen, click on 'JSON' in the policy editor and copy/paste one of the policies below based on your desired discovery configuration:
         - Option 1: Single Account Discovery
 
-            Please refer to the example minimum discovery policy above.
+            Please refer to the example discovery policy above.
 
         - Option 2: Role Assumption Using Static Account Discovery
            
@@ -443,7 +443,7 @@ Support for this comes in the form of a new discovery option called 'Use Environ
    
     - 5.1 Create the discovery policy in each member account to be discovered.
    
-        Follow step 2 again but this time use the example minimum discovery policy above.
+        Follow step 2 again but this time use the example discovery policy above.
 
     - 5.2 Create the discovery role in each member account to be discovered.
    
