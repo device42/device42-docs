@@ -133,8 +133,8 @@ Device42 also currently displays EnrichAI Data information on OS and vendor view
 ## EnrichAI Data Handling and Security Practices
 
 1. No personal or personally identifiable data is maintained by the EnrichAI service.
-2. Data sent to Enrich AI is not associated or tracked to the calling system or installation.
-3. Unmatched values, values which do not have a corresponding match in EnrichAI, are stored for future mining and resolution.  This storage has no association with the calling system or installation.
+2. Data sent to EnrichAI is not associated with or tracked to the calling system or installation.
+3. Unmatched values (values that do not have a corresponding match in EnrichAI) are stored for future mining and resolution. This storage has no association with the calling system or installation.
 4. Only Device42 personnel work with these non-identifiable data elements.
 5. Data collected for future enrichment mining is stored in the United States.
 
