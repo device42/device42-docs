@@ -247,29 +247,61 @@ The popup also has links to several additional views.
         light: useBaseUrl('/assets/images/buildings-and-rooms/view-connections-option-light.png'),
         dark: useBaseUrl('/assets/images/buildings-and-rooms/view-connections-option-dark.png'),
     }}
+    style={{ width: '80%' }}
     />
 
 
+### Heatmaps and Temperature Shading
 
-### Heat Maps
+You can set the object colors to denote usage or temperature information. Choose between the **Usage Heatmap** and **Temperature Heatmap** options under the **Rack color** menu. The legend on the right changes accordingly to the selection.
+
+<ThemedImage
+  alt="Rack color options"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/rack-color-options-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/rack-color-options-dark.png'),
+  }}
+/>
+
+In addition, you can choose to **Show temperature bubbles** or turn it off.
+
+<ThemedImage
+  alt="Display heatmap bubbles"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/heatmap-bubbles-option.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/heatmap-bubbles-option.png'),
+  }}
+  style={{ width: '60%' }}
+/>
+
+
+These options are saved in cookies, so you don't have to reselect the combination of options that works best you when revisiting the page.
+
+**Usage Heatmap Legend**
 
 Each rack is color-coded to show the availability of U slots in the rack. Five color codes are available, ranging from green (high availability) to red (low availability). You can change the availability percentage for each color by going to **Tools > Settings > Global Settings**.
 
 <ThemedImage
-  alt="Heat map legend"
+  alt="Usage heatmap legend"
   sources={{
-    light: useBaseUrl('/assets/images/buildings-and-rooms/heat-map-legend-light.png'),
-    dark: useBaseUrl('/assets/images/buildings-and-rooms/heat-map-legend-dark.png'),
+    light: useBaseUrl('/assets/images/buildings-and-rooms/usage-heatmap-legend-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/usage-heatmap-legend-dark.png'),
   }}
+  style={{ width: '35%' }}
 />
 
-If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use, divided by the power capacity of the input. Green is high, and red is low. You can change the percentages in **Tools > Settings > Global Settings**.
-
-![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
-
-### Temperature Shading
+**Temperature Heatmap Legend**
 
 In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room’s environment.
+
+<ThemedImage
+  alt="Temperature Heatmap legend"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/temperature-heatmap-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/temperature-heatmap-dark.png'),
+  }}
+  style={{ width: '30%' }}
+/>
 
 The color value is based on the maximum temperature of the rack and corresponds to the following temperatures:
 
@@ -277,4 +309,10 @@ The color value is based on the maximum temperature of the rack and corresponds 
 - **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
 - **Red:** > 90°F (32.22°C)
 
-![](/assets/images/Room-heat-map-NEW-2-700x396.png)
+### PDU Power Monitoring
+
+If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use, divided by the power capacity of the input. Green is high, and red is low. You can change the percentages in **Tools > Settings > Global Settings**.
+
+![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
+
+
