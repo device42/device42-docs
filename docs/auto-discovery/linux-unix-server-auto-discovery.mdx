@@ -3,6 +3,9 @@ title: "Linux & Unix Server Autodiscovery"
 sidebar_position: 16
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 Device42 supports SSH-based Linux and UNIX discovery from within the main appliance (v13.2+). For a full list of supported Linux/UNIX operating systems, please visit [Device42 Supported Operating Systems.](auto-discovery/operating-systems-supported-in-auto-discovery.md)
 
 ## Information Discovered
@@ -60,21 +63,35 @@ Before configuring an ssh-based discovery job, please be sure you have your SSH 
 
 Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement.
 
-## Option To Ignore IPs/MAC Addresses
+### Option To Ignore IPs/MAC Addresses
 
- You can ignore IP and MAC addresses from being included in our database during autodiscovery.  Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
+You can ignore IP and MAC addresses from being included in our database during autodiscovery.  Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
 
- Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
+Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
 
- ![Ignore IPs and MACs](/assets/images/ip-mac-ignore.png)
+![Ignore IPs and MACs](/assets/images/ip-mac-ignore.png)
 
- Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance. 
+Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance. 
 
 * * *
 
+### Exclusions
+
+![](/assets/images/WEB-728_linux-unix-ad-exclusions.png)
+
+**Exclude Server(s)**: List of server IPs to exclude from discovery - this is useful for ignoring individual IPs when the discovery target is specified as range or CIDR block.
+**Exclude Service Port Client IPs**: Do not discover client connections on specified listening ports.  
+**Remote IP Exclusion**: Do not discover connections to or from any of these remote IPs.
+
 ### Naming Options
 
-![](/assets/images/WEB-728_linux-unix-ad-naming-optionhost-discovery.png)
+<ThemedImage
+alt="Naming Options"
+sources={{
+    light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-light.png'),
+    dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-dark.png'),
+}}
+/>
 
 **Strip domain suffix**: strips the domain suffix from discovered servers - _[see the next section for hostname config details]._  
 **Domains to strip**: Ordered list of domains to strip from hostname, one per line - if blank, full domain stripped; if specified, the first match is stripped.  
@@ -82,11 +99,17 @@ Depending on permissions granted and your configured password policies, account 
 **Overwrite existing device hostname with discovered hostname**: Check this option to give precedence to the discovered hostname.  
 **Device Name Format**: select desired device naming format; see ["Configuring hostname discovery details"](auto-discovery/linux-unix-server-auto-discovery.md#section-7) below for explanations.
 
-![](/assets/images/WEB-728_linux-unix-ad-exclusions.png)
+### Host Discovery
 
-**Exclude Server(s)**: List of server IPs to exclude from discovery - _[Useful to ignore individual IPs when discovery target specified as range or CIDR block]_  
-**Exclude Service Port Client IPs**: do not discover client connections on specified listening ports.  
-**Remote IP Exclusion**: do not discover any connections to/from any of these remote IPs.
+<ThemedImage
+alt="Host Discovery options"
+sources={{
+    light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-light.png'),
+    dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-dark.png'),
+}}
+/>
+
+Enabling the **Discover ProviderID/CloudID** option reveals the **Provider Token** option, which might be needed for authentication with the cloud service provider.
 
 * * *
 
