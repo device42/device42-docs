@@ -47,3 +47,11 @@ _Data discovered on the Google Cloud Platform is similar to what you might be us
 **Service Level Option**
 
 You can set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+
+### GCP Account Tags
+
+Select your Google cloud account from the list page under **Infrastructure > Cloud Infrastructure > Cloud Accounts**.
+
+If available, the discovered account-level tags will be listed under the **Vendor Custom Fields** section.
+
+![GCP cloud account tags](/assets/images/GCP-tags.png)
