@@ -3,47 +3,78 @@ title: "Setup Alerts and Notifications"
 sidebar_position: 16
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Alerts and Notifications
 
-You can set up Device42 Alerts to notify you about application, asset, software, discovery, and other conditions that affect your IT environment. Alerts can generate notifications within the Device42 UI or be integrated with external systems such as PagerDuty, Opsgenie, etc.
-
-As of v16.14.00, Device42 has refined and improved its Alerts functionality.
+You can set up Device42 alerts to notify you about any Business Application, Discovery, OS, Part Model, Software, Subnet, or System changes that affect your IT environment. Alerts can generate notifications within the Device42 UI or be integrated with external systems such as PagerDuty, Opsgenie, etc.
 
 ## Set Up Alerts
 
-To create an alert, select _Analytics > Setup Alerts_ from the Device42 menu bar and then click _Add Alert_ on the Select Alert to view page.
+<ThemedImage
+alt="Add alert button"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/alerts-menu-and-add-button-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/alerts-menu-and-add-button-dark.png'),
+  }}
+/>
 
-![](/assets/images/WEB-219_Alerts_Add-Alert-page.jpg)
+To create an alert, navigate to **Analytics > Setup Alerts** from the Device42 menu bar and click **Add Alert** from the list page.
 
-- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers, which define the conditions that will generate an alert.
+<ThemedImage
+alt="Add new alert"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/add-alert-escalation-profile-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/add-alert-escalation-profile-dark.png'),
+  }}
+/>
+
+- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers that define the conditions that will generate an alert.
 - Select the **Trigger** you want for the Rule Type you selected.
 - Select the **Alert Type**.
-    - If you select **D42 Notification**, select or add the **Escalation Profile** to use for the alert. You use Escalation Profiles to set up email notification escalation tiers. Select _Tools > Admins & Permissions > Escalation Profiles_ to add or edit escalation profiles.
-    - If you select **Alert Integration**, select or add the alert integration (for example, PagerDuty, Opsgenie, etc.) to use for the alert. Select _Tools > Integrations > External Integrations_ to view or add external integrations. Also see [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
+  - If you select **D42 Notification**, select or add a new **Escalation Profile** to use for the alert. Escalation Profiles are used to set up email notification escalation tiers. To view, add or edit escalation profiles, go to **Tools > Admins & Permissions > Escalation Profiles**.
+  - If you select **Alert Integration**, select or add the integration used for the alert (for example, PagerDuty, Opsgenie etc). Manage integrations from **Tools > Integrations > External Integrations**. Visit [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
 
-As you construct your alert, Device42 displays the alert definition based on the options you select or enter. The example below shows an Operating System Count alert that sends a notification to the Alert Group 1 escalation profile.
+As you construct your alert, Device42 displays the alert definition based on the options you select and enter. The example shows an alert with a **Rule Type** of "Operating System" and **Trigger** of "Count > 1" that sends a notification to the "Alert Group 1" escalation profile.
 
-![](/assets/images/WEB-219_Alerts_Contructed-OS-alert-example.jpg)
+<ThemedImage
+alt="Add new alert"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/constructed-alert-example-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/constructed-alert-example-dark.png'),
+  }}
+/>
 
- 
-
-Depending on the alert Rule Type you select, you may also see an **Apply To:** option that you use to select the objects you want to apply the alert to. Use the _Available objects_ list on the left to select the objects you want to add to the _Chosen objects_ list on the right.
+Depending on the alert **Rule Type** you select, the **Apply To:** option will become active. Use it to select the objects you want to apply the alert to. Search the **Available objects** list on the left and select the objects you want to add. Use the **right arrow** button to add the selection to the **Chosen objects** list.
 
 **Additional Options**
 
-- **Priority** — Critical, High Priority, Medium Priority, Low Priority
-- **Resend Notification** — Amount of time (in seconds) to wait before sending an email notification for the alert. Leave this field blank to send the email only once.
-- **Seconds Before Action** — Amount of time (in seconds) that the alert condition (the trigger) exists before the Device42 generates the alert.
-- **Job Interval Factor Before Action** — (Displayed for specific power alerts in place of Seconds Before Action.) Trigger the action only if the condition persists for the Job Interval Factor times the polling rate for associated jobs. Default value is 1.
+<ThemedImage
+alt="Additional options"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/priority-and-notification-options-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/priority-and-notification-options-dark.png'),
+  }}
+/>
 
-![](/assets/images/D42-26290_alerts-job-interval.jpg)
+- **Priority**: Choose between Critical, High Priority, Medium Priority, or Low Priority.
+- **Resend Notification**: Number of seconds to wait before resending an email notification for the alert. Leave this field blank to send the email only once.
+- **Seconds Before Action**: Number of seconds that the the trigger should exists before generating the alert.
+- **Notes**: Add any notes about the alert.
 
-- **Notes** — Any notes about the alert.
-- **Notification Template** — Text fields you can use to create templates for the Subject and Message of the alert email.
+<ThemedImage
+alt="Add new alert"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/save-options-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/save-options-dark.png'),
+  }}
+/>
 
-When you are done, click **Save** at the bottom of the page to save the alert.
+- **Notification Template**: Text fields you can use to create templates for the **Subject** and **Message** of the alert email.
+- **Webhook Alert Endpoints**: Add any endpoints of external integrations you want to send the alert data to.
 
-![](/assets/images/WEB-219_Alerts_Add-Alert-additional-options.jpg)
+When you are done, click one of the **Save** options at the bottom of the page.
 
 ### Alert Rule Types and Triggers
 
@@ -125,36 +156,53 @@ When you are done, click **Save** at the bottom of the page to save the alert.
 
 ## Notifications
 
-If you select _D42 Notification_ as the _Alert Type_ when you create an alert, Device42 generates a notification when the alert condition triggers the alert. Device42 adds all notifications to the Notifications page.
+If you selected "D42 Notification" as the **Alert Type** when you created the alert, Device42 generates a notification when the alert condition is triggered. You can view details and perform actions of the notifications from the Notifications list page under under **Analytics > Notifications**.
 
-The Device42 Dashboard now includes two links – _My Notifications_ and _All Notifications_ – to the Notifications page, and  there is a bell icon in the menu bar that animates when you receive new notifications. You can hover over the icon to see a list of recent notifications or jump the the Notifications page.
+<ThemedImage
+alt="Banner and dashboard notifications"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/banner-and-dashboard-notifications-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/banner-and-dashboard-notifications-dark.png'),
+  }}
+/>
 
-You can also select _Analytics > Notifications_ from the menu bar to go to the Notifications page.
+The bell icon in the menu bar displays a red exclamation point icon when you receive new notifications. Hover over the icon to see a list of recent notifications. Click the **My Notifications** link at the bottom of the panel to go to the Notifications list page.
 
-![](/assets/images/WEB-219_Alerts_Banner-Bell-icon-1.jpg)
+From the dashboard, click on the **All Notifications** or **User Notifications** links to go to either table on the Notifications list page . You'll see counts for the **Open** and **Acknowledged** notifications under each link.
 
- 
+<ThemedImage
+alt="Banner and dashboard notifications"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/notification-page-actions-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/notification-page-actions-dark.png'),
+  }}
+/>
 
-The page displays notifications for all triggered alerts whose _Alert Type_ is _Device42 Notification_. Click **My Notifications** or **All Notifications** to see the notification lists.
+Select the alert(s) you want to act on and choose an **Action** from the dropdown menu. Click the **hammer icon** to execute the action. Choose from the following actions:
 
-![](/assets/images/WEB-219_Alerts_Notifications-page-1.jpg)
+- **Delete with Detailed Confirmation**: Displays a confirmation dialog of the selected items before deleting them. Note that this only deletes the notifications and not the alert condition that triggered them.
+- **Fast Background Delete**: Delete the selected items without confirming the selection.
+- **Export Selected Columns as CSV**: Creates a CSV file of the notifications for export.
+- **Acknowledge Notification**: Mark the notifications as seen. Any alert recipient can acknowledge alerts.
+- **Clear Conditions**: Clear the alert condition that generated the notification. This indicates that the condition has been fixed, but Device42 will generate a new alert and notification if the condition reoccurs. Note that only one notification is sent until the condition is marked as cleared.
 
-Select the alerts you want and select the **Action** drop-down menu to perform the following action on the notifications
-
-- **Delete selected Notifications** – deletes the notification. If the condition reoccurs, Device42 generates a new notification.
-- **Export selected items to CSV** – create a notification CSV.
-- **Acknowledge Alerts** – acknowledge the alert that generated the notification. Any alert recipient can acknowledge alerts.
-- **Clear Conditions** – clear the alert condition that generated the notification. This indicates that the condition has been fixed and Device42 will generate a new alert and notification if the condition reoccurs. Note that only one notification is sent until the condition is marked as cleared.
-
-![](/assets/images/WEB-219_Alerts_Notifications-cleared-acknowledged.jpg)
+<ThemedImage
+alt="Add new alert"
+sources={{
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/acknowledged-and-cleared-alerts-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/acknowledged-and-cleared-alerts-dark.png'),
+  }}
+/>
 
 ## Customizing Alerts with Notification Variables
 
-The new alerts engine offers powerful new alerting variables that let you configure custom alert emails that can include useful data for each Alert Rule Type Device42 supports the following variables for embedding within alert emails when creating alerts.
+The new alerts engine offers powerful alerting variables that let you configure custom alert emails that can include useful data for each alert **Rule Type**.
 
 You can use all the tags in both the alert message and subject line:
 
-**Alert <br />%(sensor\_rule\_name)s triggered on RC# <br />%(remote\_collector\_id)s**
+**Alert <br />%(sensor_rule_name)s triggered on RC# <br />%(remote_collector_id)s**
+
+Device42 supports the following variables for embedding within alert emails when creating alerts.
 
 <table>
    <tbody>
@@ -356,5 +404,3 @@ You can use all the tags in both the alert message and subject line:
       </tr>
    </tbody>
 </table>
-
-
