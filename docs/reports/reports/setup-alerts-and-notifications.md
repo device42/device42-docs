@@ -161,8 +161,8 @@ If you selected "D42 Notification" as the **Alert Type** when you created the al
 <ThemedImage
 alt="Banner and dashboard notifications"
 sources={{
-    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/banner-and-dashboard-notifications-light.png'),
-    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/banner-and-dashboard-notifications-dark.png'),
+    light: useBaseUrl('/assets/images/setup-alerts-and-notifications/alert-notification-bell-light.png'),
+    dark: useBaseUrl('/assets/images/setup-alerts-and-notifications/alert-notification-bell-dark.png'),
   }}
 />
 
