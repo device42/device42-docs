@@ -69,52 +69,55 @@ Login to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `
 
 ### Isilon
 
-Create a new role and add the following read-only permissions.
+Create a new role and add the following read-only permissions:
 
-- ISI\_PRIV\_LOGIN\_CONSOLE
-- ISI\_PRIV\_LOGIN\_PAPI
-- ISI\_PRIV\_LOGIN\_SSH
-- ISI\_PRIV\_SYS\_SHUTDOWN
-- ISI\_PRIV\_SYS\_SUPPORT
-- ISI\_PRIV\_AUTH
-- ISI\_PRIV\_AUDIT
-- ISI\_PRIV\_CLUSTER
-- ISI\_PRIV\_DEVICES
-- ISI\_PRIV\_FTP
-- ISI\_PRIV\_HDFS
-- ISI\_PRIV\_HTTP
-- ISI\_PRIV\_MONITORING
-- ISI\_PRIV\_NETWORK
-- ISI\_PRIV\_NFS
-- ISI\_PRIV\_REMOTE\_SUPPORT
-- ISI\_PRIV\_SMARTPOOLS
-- ISI\_PRIV\_SMB
-- ISI\_PRIV\_STATISTICS
-- ISI\_PRIV\_NS\_TRAVERSE
-- ISI\_PRIV\_NS\_IFS\_ACCESS
-- ISI\_PRIV\_NDMP
+- ISI_PRIV_LOGIN_CONSOLE
+- ISI_PRIV_LOGIN_PAPI
+- ISI_PRIV_LOGIN_SSH
+- ISI_PRIV_SYS_SHUTDOWN
+- ISI_PRIV_SYS_SUPPORT
+- ISI_PRIV_AUTH
+- ISI_PRIV_AUDIT
+- ISI_PRIV_CLUSTER
+- ISI_PRIV_DEVICES
+- ISI_PRIV_FTP
+- ISI_PRIV_HDFS
+- ISI_PRIV_HTTP
+- ISI_PRIV_MONITORING
+- ISI_PRIV_NDMP
+- ISI_PRIV_NETWORK
+- ISI_PRIV_NFS
+- ISI_PRIV_NS_TRAVERSE
+- ISI_PRIV_NS_IFS_ACCESS
+- ISI_PRIV_QUOTA
+- ISI_PRIV_REMOTE_SUPPORT
+- ISI_PRIV_SMARTPOOLS
+- ISI_PRIV_SMB
+- ISI_PRIV_STATISTICS
+
 
 You can also use CLI commands to create such roles.
 
-1\. Login to the cluster using SSH.
+1. Login to the cluster using SSH.
 
-2\. Run the following commands.
+2. Run the following commands.
 
-3\. To create a read-only role:
-
-- isi auth roles create –name readonly\_role –description “Read-only role for D42”
-
-4\. To give permissions to this role. Add all the permissions from above:
-
-- isi auth roles modify readonly\_role –add-priv-ro=ISI\_PRIV\_LOGIN\_PAPI
-
-5\. Create a USER:
-
-- isi auth users create readonly\_user –enabled yes –password xxxxxx
-
-6\. Add user to the role:
-
-- isi auth roles modify readonly\_role –add-user=readonly\_user
+3. To create a read-only role:
+    ```
+    isi auth roles create –name readonly_role –description “Read-only role for D42”
+    ```
+4. To give permissions to this role. Add all the permissions from above:
+    ```
+    isi auth roles modify readonly_role –add-priv-ro=ISI_PRIV_LOGIN_PAPI
+    ```
+5. Create a USER:
+    ```
+    isi auth users create readonly_user –enabled yes –password xxxxxx
+    ```
+6. Add user to the role:
+    ```
+    isi auth roles modify readonly_role –add-user=readonly_user
+    ```
 
 **Creating the Role/User via Web UI**
 
