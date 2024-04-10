@@ -7,7 +7,7 @@ sidebar_position: 31
 
 TCP Port Scan autodiscovery helps speed up autodiscovery by pre-scanning the specified range of IP Addresses. Device42 can determine what machines exist, what ports the machines have open, if they are running \*NIX or Windows, and most importantly, if they don’t exist. When the scan is complete, Device42 will utilize the resultant TCP Scan data to either create or update an autodiscovery job for the qualifying IPs.
 
-Select _Discovery > TCP Port Scan_ from the menu and then click _Add TCP Port Scan_ from the TCP Port Scan list page.
+Select **Discovery > TCP Port Scan** from the menu and then click **Add TCP Port Scan** from the TCP Port Scan list page.
 
 * * *
 
@@ -29,11 +29,11 @@ While creating a new TCP Port Scan, you may provide the servers range in any sup
 
 ![](/assets/images/WEB-762_TCP-view-3.png)
 
-You can schedule TCP Port scans, similarly to all other autodiscovery jobs.
-
-**Note:** Setting the schedule on a TCP Port Scan job schedules the TCP Port Scan Job ITSELF, NOT the auto-discovery jobs that are created as a _result_ of that TCP Port Scan!
+Note that new secrets added to TCP port scans will not be added to their corresponding Hypervisors/*nix/win discovery jobs.
 
 ## Run Now or Schedule
+
+You can schedule TCP Port scans, similarly to all other autodiscovery jobs.
 
 ![](/assets/images/WEB-762_TCP-list-page-run-now.png)
 
@@ -44,3 +44,7 @@ Select **Run Now** from the list page to run the job right away.
 Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the _Run Now_ button next to the job after creation.
+
+:::note
+Setting the schedule on a TCP Port Scan job schedules the TCP Port Scan Job itself, not the auto-discovery jobs that are created as a _result_ of that TCP Port Scan!
+:::
