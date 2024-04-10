@@ -100,24 +100,24 @@ You can also use CLI commands to create such roles.
 
 1. Login to the cluster using SSH.
 
-2. Run the following commands.
+2. Run the following commands:
 
-3. To create a read-only role:
-    ```
-    isi auth roles create –name readonly_role –description “Read-only role for D42”
-    ```
-4. To give permissions to this role. Add all the permissions from above:
-    ```
-    isi auth roles modify readonly_role –add-priv-ro=ISI_PRIV_LOGIN_PAPI
-    ```
-5. Create a USER:
-    ```
-    isi auth users create readonly_user –enabled yes –password xxxxxx
-    ```
-6. Add user to the role:
-    ```
-    isi auth roles modify readonly_role –add-user=readonly_user
-    ```
+   - To create a read-only role:
+       ```
+       isi auth roles create –name readonly_role –description “Read-only role for D42”
+       ```
+   - To give permissions to this role add all the permissions from above:
+       ```
+       isi auth roles modify readonly_role –add-priv-ro=ISI_PRIV_LOGIN_PAPI
+       ```
+   - Create a USER:
+       ```
+       isi auth users create readonly_user –enabled yes –password xxxxxx
+       ```
+   - Add user to the role:
+       ```
+       isi auth roles modify readonly_role –add-user=readonly_user
+       ```
 
 **Creating the Role/User via Web UI**
 
