@@ -33,8 +33,8 @@ sources={{
 - Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers that define the conditions that will generate an alert.
 - Select the **Trigger** you want for the Rule Type you selected.
 - Select the **Alert Type**.
-  - If you select **D42 Notification**, select or add a new **Escalation Profile** to use for the alert. Escalation Profiles are used to set up email notification escalation tiers. To view, add or edit escalation profiles, go to **Tools > Admins & Permissions > Escalation Profiles**.
-  - If you select **Alert Integration**, select or add the integration used for the alert (for example, PagerDuty, Opsgenie etc). Manage integrations from **Tools > Integrations > External Integrations**. Visit [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
+  - If you select **D42 Notification**, select or add a new **Escalation Profile** to use for the alert. Escalation Profiles are used to set up email notification escalation tiers. To view, add, or edit escalation profiles, go to **Tools > Admins & Permissions > Escalation Profiles**.
+  - If you select **Alert Integration**, select or add the integration used for the alert (for example, PagerDuty, Opsgenie, etc.). Manage integrations from **Tools > Integrations > External Integrations**. Visit [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
 
 As you construct your alert, Device42 displays the alert definition based on the options you select and enter. The example shows an alert with a **Rule Type** of "Operating System" and **Trigger** of "Count > 1" that sends a notification to the "Alert Group 1" escalation profile.
 
@@ -46,7 +46,7 @@ sources={{
   }}
 />
 
-Depending on the alert **Rule Type** you select, the **Apply To:** option will become active. Use it to select the objects you want to apply the alert to. Search the **Available objects** list on the left and select the objects you want to add. Use the **right arrow** button to add the selection to the **Chosen objects** list.
+Depending on the alert **Rule Type** you select, the **Apply To** option will become active. Use it to select the objects you want to apply the alert to. Search the **Available objects** list on the left and select the objects you want to add. Use the **right arrow** button to add the selection to the **Chosen objects** list.
 
 **Additional Options**
 
@@ -58,10 +58,10 @@ sources={{
   }}
 />
 
-- **Priority**: Choose between Critical, High Priority, Medium Priority, or Low Priority.
-- **Resend Notification**: Number of seconds to wait before resending an email notification for the alert. Leave this field blank to send the email only once.
-- **Seconds Before Action**: Number of seconds that the the trigger should exists before generating the alert.
-- **Notes**: Add any notes about the alert.
+- **Priority:** Choose between Critical, High Priority, Medium Priority, or Low Priority.
+- **Resend Notification:** Number of seconds to wait before resending an email notification for the alert. Leave this field blank to send the email only once.
+- **Seconds Before Action:** Number of seconds the trigger should exist before generating the alert.
+- **Notes:** Add any notes about the alert.
 
 <ThemedImage
 alt="Add new alert"
@@ -71,8 +71,8 @@ sources={{
   }}
 />
 
-- **Notification Template**: Text fields you can use to create templates for the **Subject** and **Message** of the alert email.
-- **Webhook Alert Endpoints**: Add any endpoints of external integrations you want to send the alert data to.
+- **Notification Template:** Text fields you can use to create templates for the **Subject** and **Message** of the alert email.
+- **Webhook Alert Endpoints:** Add any endpoints of external integrations you want to send the alert data to.
 
 When you are done, click one of the **Save** options at the bottom of the page.
 
@@ -121,7 +121,7 @@ When you are done, click one of the **Save** options at the bottom of the page.
 - Infeed Power (A)
 - Infeed % of Rated Power (A)
 - Sensor humidity (percentage)
-- Sensor temperature (fahrenheit)
+- Sensor temperature (Fahrenheit)
 - Sensor temperature (celsius)
 
 **Software**
@@ -156,7 +156,7 @@ When you are done, click one of the **Save** options at the bottom of the page.
 
 ## Notifications
 
-If you selected "D42 Notification" as the **Alert Type** when you created the alert, Device42 generates a notification when the alert condition is triggered. You can view details and perform actions of the notifications from the Notifications list page under under **Analytics > Notifications**.
+If you selected "D42 Notification" as the **Alert Type** when you created the alert, Device42 generates a notification when the alert condition is triggered. You can view details of notifications and perform various actions on them from the Notifications list page under **Analytics > Notifications**.
 
 <ThemedImage
 alt="Banner and dashboard notifications"
@@ -166,9 +166,9 @@ sources={{
   }}
 />
 
-The bell icon in the menu bar displays a red exclamation point icon when you receive new notifications. Hover over the icon to see a list of recent notifications. Click the **My Notifications** link at the bottom of the panel to go to the Notifications list page.
+The bell icon in the menu bar displays a red exclamation point when you have new notifications. Hover over the icon to see a list of recent notifications. Click the **My Notifications** link at the bottom of the panel to go to the Notifications list page.
 
-From the dashboard, click on the **All Notifications** or **User Notifications** links to go to either table on the Notifications list page . You'll see counts for the **Open** and **Acknowledged** notifications under each link.
+From the dashboard, click on **All Notifications** or **User Notifications** to go to either of these tables on the Notifications list page. Counts for **Open** and **Acknowledged** notifications appear under each link.
 
 <ThemedImage
 alt="Banner and dashboard notifications"
@@ -178,13 +178,13 @@ sources={{
   }}
 />
 
-Select the alert(s) you want to act on and choose an **Action** from the dropdown menu. Click the **hammer icon** to execute the action. Choose from the following actions:
+To act on alerts, select them and choose an **Action** from the dropdown menu. Click the **hammer icon** to execute the action. The action options are:
 
-- **Delete with Detailed Confirmation**: Displays a confirmation dialog of the selected items before deleting them. Note that this only deletes the notifications and not the alert condition that triggered them.
-- **Fast Background Delete**: Delete the selected items without confirming the selection.
-- **Export Selected Columns as CSV**: Creates a CSV file of the notifications for export.
-- **Acknowledge Notification**: Mark the notifications as seen. Any alert recipient can acknowledge alerts.
-- **Clear Conditions**: Clear the alert condition that generated the notification. This indicates that the condition has been fixed, but Device42 will generate a new alert and notification if the condition reoccurs. Note that only one notification is sent until the condition is marked as cleared.
+- **Delete with Detailed Confirmation:** Displays a confirmation dialog of the items selected for deleting. Note that this action only deletes notifications and not the alert conditions that triggered them.
+- **Fast Background Delete:** Deletes the selected items without confirming the selection.
+- **Export Selected Columns as CSV:** Creates a CSV file of the notifications for export.
+- **Acknowledge Notification:** Mark the notifications as seen. Any alert recipient can acknowledge alerts.
+- **Clear Conditions:** Clear the alert condition that generated the notification. This indicates that the condition has been fixed, but Device42 will generate a new alert and notification if the condition reoccurs. Note that only one notification is sent until the condition is marked as cleared.
 
 <ThemedImage
 alt="Add new alert"
@@ -196,7 +196,7 @@ sources={{
 
 ## Customizing Alerts with Notification Variables
 
-The new alerts engine offers powerful alerting variables that let you configure custom alert emails that can include useful data for each alert **Rule Type**.
+The new alerts engine offers powerful alerting variables you can use to configure custom alert emails that include useful data for each alert **Rule Type**.
 
 You can use all the tags in both the alert message and subject line:
 
