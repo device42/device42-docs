@@ -83,7 +83,7 @@ The Remote Collector list page Actions Menu contains commands you can use for se
 
 ![](/assets/images/D42-23170_RC-list-page-set-log-level-2.png)
 
-## Remote Controller Proxy Settings
+## Remote Collector Proxy Settings
 
 The proxy settings within the Main Appliance and RC are set independently but are often identical. To reduce the potential for error, the RC can pick up proxy settings that have been configured. You can view and edit the RC proxy settings within the RC view of the Main Appliance.
 

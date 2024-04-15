@@ -19,6 +19,10 @@ This integration connects Device42 to your Atlassian Confluence instance with th
 
 Device42's Atlassian Confluence add-on (aka "Device42 CMDB Connector for Confluence") can be found [in the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=server&tab=overview). You can easily install it using the UPM (Universal Plugin Manager) built in to Confluence. However, if you have some special requirements (e.g. an environment that blocks Confluence from access to the internet), it is possible to install the Device42 Confluence integration plugin manually. Please note that the plugin requires a stable connection between the servers hosting your Confluence application and that which is hosting Device42 for successful operation.
 
+:::info
+The Confluence plugin is now certified for Data Center and is available on the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=datacenter&tab=overview).
+:::
+
 ### Automatic installation
 
 **Installing the add-on:**
