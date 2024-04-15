@@ -73,6 +73,37 @@ In addition, if the entry is new or unique, it may require the EnrichAI service 
           "vendor": "brocade"
         },
         "req_id": "vendor_3"
+      },
+      {
+        "context_info": {
+          "discovery_type": "",
+          "hardware_name": "",
+          "hardware_vendor_name": ""
+        },
+        "entity_type": "software",
+        "parameters": {
+          "category": "",
+          "hidden_name": "(https://support.microsoft.com/help/4598481) KB4598481",
+          "name": "KB4598481",
+          "vendor": "Microsoft",
+          "version": "KB4598481"
+        },
+        "req_id": "software_912"
+      },
+      {
+        "context_info": {
+          "discovery_type": "vserver/*nix",
+          "hardware_name": "",
+          "hardware_vendor_name": ""
+        },
+        "entity_type": "service",
+        "parameters": {
+          "description": "Apache Tomcat Web Application Container",
+          "displayName": "tomcat",
+          "prettyName": "tomcat",
+          "vendor": ""
+        },
+        "req_id": "service_5803"
       }
     ]
   }
@@ -99,6 +130,14 @@ Device42 also currently displays EnrichAI Data information on OS and vendor view
 
 ![](/assets/images/18.04.00_EnrichAI_vendor-view-page.jpg)
 
-:::info
+## EnrichAI Data Handling and Security Practices
+
+1. No personal or personally identifiable data is maintained by the EnrichAI service.
+2. Data sent to EnrichAI is not associated with or tracked to the calling system or installation.
+3. Unmatched values (values that do not have a corresponding match in EnrichAI) are stored for future mining and resolution. This storage has no association with the calling system or installation.
+4. Only Device42 personnel work with these non-identifiable data elements.
+5. Data collected for future enrichment mining is stored in the United States.
+
+:::note
 Device42 reserves the right to make changes and updates to the internal matching algorithm and or the golden records that are provided with this service.
 :::

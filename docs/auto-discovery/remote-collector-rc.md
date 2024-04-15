@@ -9,6 +9,13 @@ The Remote Collector _(aka the "RC")_ is a virtual appliance that is deployed se
 
 You may configure an unlimited number of remote collector appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor and other auto discoveries across networks with only https access required, eliminating the need to open numerous ports up across network segments.
 
+### RC Sizing Recommendations
+
+For one RC per 1000 workloads, the sizing recommendations are:
+- 2 vCPU
+- 4GB RAM
+- 50GB vDisk
+
 ## RC Installation and Configuration
 
 To download the Remote Collector, head to our [Auto-Discovery tools download page.](https://www.device42.com/autodiscovery/); Click the Download button under "D42 Remote Collector", which should be found at the top of the page.
