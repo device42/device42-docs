@@ -6,41 +6,9 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This module enables you to manage your SSL certificates in Device42.
-
-### Certificate Autodiscovery
-
-Device42 also supports autodiscovery of certificates. Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking on the **+ Add Certificate autodiscovery spec** button.
-
-<ThemedImage
-  alt="Certificate autodiscovery specs"
-  sources={{
-    light: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-dark.png'),
-  }}
-/>
-<br/><br/>
-
-When creating a certificate autodiscovery job, enter an IP address or range of IP addresses and the ports to scan for Device42 to import if found. If a certificate is found on an IP address already associated with a device in Device42, the certificate will also be associated with that device automatically.
-
-<ThemedImage
-  alt="Add new certificate autodiscovery job"
-  sources={{
-    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-dark.png'),
-  }}
-/>
-<br/><br/>
-
-You can schedule the certificate autodiscovery job at a specific time on selected days by clicking on the **+ Add another Autodiscovery Schedule** button to add a schedule.
-
-<ThemedImage
-  alt="Add new certificate autodiscovery job schedule"
-  sources={{
-    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-dark.png'),
-  }}
-/>
+:::info
+This page is about managing SSL certificates that have already been discovered by Device42. For details on creating a certificate autodiscovery job, visit [Certificate Autodiscovery](/auto-discovery/certificate-auto-discovery.md).
+:::
 
 ### Certificate List Page
 
@@ -58,7 +26,6 @@ You can export certificates by selecting them from the list and choosing the **E
     dark: useBaseUrl('/assets/images/certificate-management/certificates-list-page-dark.png'),
   }}
 />
-
 
 ### Viewing Certificates
 
