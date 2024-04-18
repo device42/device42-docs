@@ -6,7 +6,7 @@ sidebar_position: 8
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 supports autodiscovery of SSL certificates for easy tracking within Device42.
+Device42 supports the autodiscovery of SSL certificates for easy tracking in Device42.
 
 :::info
 This page is about creating a certificate discovery job. See [Certificates](/infrastructure-management/certificate-management.mdx) for information about managing discovered certificates.
@@ -14,7 +14,7 @@ This page is about creating a certificate discovery job. See [Certificates](/inf
 
 ## Add SSL Certificate Discovery Job
 
-Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking on the **+ Add Certificate autodiscovery spec** button.
+Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking the **+ Add Certificate autodiscovery spec** button.
 
 <ThemedImage
   alt="Certificate autodiscovery specs"
@@ -25,7 +25,7 @@ Create a new certificate autodiscovery job by navigating to **Discovery > Certif
 />
 <br/><br/>
 
-When creating a certificate autodiscovery job, enter an IP address or range of IP addresses and the ports to scan for Device42 to import if found. If a certificate is found on an IP address already associated with a device in Device42, the certificate will also be associated with that device automatically.
+When creating a certificate autodiscovery job, enter an IP address or range of IP addresses and the ports to scan. Device42 will import discovered certificates. A certificate discovered on an IP address already associated with a device in Device42 will automatically be associated with that device.
 
 <ThemedImage
   alt="Add new certificate autodiscovery job"
@@ -36,7 +36,7 @@ When creating a certificate autodiscovery job, enter an IP address or range of I
 />
 <br/><br/>
 
-You can schedule the certificate autodiscovery job at a specific time on selected days by clicking on the **+ Add another Autodiscovery Schedule** button to add a schedule.
+Schedule the certificate autodiscovery job to run at a specific time on selected days by clicking on the **+ Add another Autodiscovery Schedule** button.
 
 <ThemedImage
   alt="Add new certificate autodiscovery job schedule"
@@ -46,11 +46,11 @@ You can schedule the certificate autodiscovery job at a specific time on selecte
   }}
 />
 
-Newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, click **Run Now** next to the job.
+Newly created jobs will not run on the day they are created to prevent the unintended running of many jobs simultaneously. To run a job after its initial creation, click **Run Now** next to the job.
 
 ### SSL Certificate Cipher Suite Discovery
 
-Device42 can discovery SSL cipher suites as part of certificate autodiscovery. If you'd like to discover cipher suites, check the **Find cipher suites supported by the server** checkbox.
+Device42 can discover SSL cipher suites as part of certificate autodiscovery. If you'd like to discover cipher suites, check the **Find cipher suites supported by the server** checkbox.
 
 <ThemedImage
   alt="Cipher suites option"
@@ -61,14 +61,15 @@ Device42 can discovery SSL cipher suites as part of certificate autodiscovery. I
   style={{ width: '80%' }}
 />
 
-Choosing to discover cipher suites can result in a significant slowdown of SSL certificate discovery. If this is causing issues, or if you'd like to speed up your regular scheduled SSL certificate discovery job, uncheck **Find cipher suites supported by server**.
+Choosing to discover cipher suites can significantly slow down SSL certificate discovery. To resolve any issues caused by a slow discovery job or speed up your regular scheduled SSL certificate discovery job, uncheck **Find cipher suites supported by server**.
 
 Navigate to the certificates list pages under **Applications > Certificates** to inspect the discovered certificates. 
 
 ### Multitenancy Warning
 
 :::note
-Certificate discovery can fail if [multitenancy](/administration/role-based-access-control/role-based-permissions-and-access.mdx) is enabled and the discovery job targets a VRF group whose subnet doesn't exist within Device42.
+Certificate discovery can fail if [multitenancy](/administration/role-based-access-control/role-based-permissions-and-access.mdx) is enabled and the discovery job targets a VRF group whose subnet doesn't exist in Device42.
+
+If you encounter this behavior, create the target subnet in Device42 or run a network discovery first, as recommended in [autodiscovery best practices](autodisc-best-practices.md).
 :::
 
-If you encounter this behavior, create the subnet that you are discovering within Device42 or run a network discovery first, as recommended in [autodiscovery best practices](autodisc-best-practices.md).
