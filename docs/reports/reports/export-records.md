@@ -3,20 +3,52 @@ title: "Export Records"
 sidebar_position: 9
 ---
 
-The Tools>Export menu gives you a number of options for exporting data from device42 into CSV files.
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
-Note: You can also export data via the Reports menu entries and via the API's.
+The **Tools > Exports (CSV)** menu gives you options for exporting data from Device42 into CSV files.
 
-### Exporting Records and generating reports.
+You can also export data via the **Reports** menu under **Analytics** and via the API's.
 
-![Exporting_Records_and_generating_reports..png](/assets/images/Exporting_Records_and_generating_reports..png)
+### Exporting Records and Generating Reports
 
-You can export data for any of the categories shown in the screenshot above.
+<ThemedImage
+  alt="CSV records to export"
+  sources={{
+    light: useBaseUrl("/assets/images/export-csv-light.png"),
+    dark: useBaseUrl("/assets/images/export-csv-dark.png"),
+  }}
+  style={{ width: '70%' }}
+/>
 
-The Device Operating Systems report will produce an Excel sheet with a full list of all devices showing the operating system of each device plus other details.
+For example, the **Device Operating Systems** report will produce an Excel sheet with a full list of all devices showing the operating system of each device, plus other details.
 
-The Device Properties report will show the CPU. memory, HD data for each device.
+The **Device Properties** report will show the CPU, memory, and HD data for each device.
 
-The Rack-Device Information report show the Physical device and rack relationships.
+The **Rack Device** report shows the physical device and rack relationships.
 
-The others are self explanatory.
+### Export Records List
+
+The table below shows all the report options available for exporting:
+
+| | | |
+|-------------------|-------------------|-------------------|
+| AppComponent Custom Field | Application Component | Asset |
+| Asset Custom Field | Asset Device Relation | Asset lifecycle |
+| Building | Building Custom Field | CPU Memory HardDisk |
+| Contact | Customer Custom Field | Customer or Department |
+| DNS Record | DNS Zone | Device |
+| Device Alias | Device Custom Field | Device Hardware Model |
+| Device Operating System | End User | External Link |
+| IP Address | IP NAT/Map | Image File |
+| Operating System | Part | Part History |
+| Parts Model | Patch Panel Model | Patch Panel Module Model |
+| Patch Panel Port | Port | Port |
+| Power Unit | Power Unit Model | Purchase |
+| Rack | Rack Custom Field | Racked Asset |
+| Racked Device | Racked Power Unit | Room |
+| Room Custom Field | Server Room Info (asset) | Server Room Info (device) |
+| Subnet | TAP port | VLAN |
+| VPC (VRF Group) | Vendor |                   |
+
+
