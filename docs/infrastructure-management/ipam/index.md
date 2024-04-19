@@ -10,9 +10,9 @@ title: "IPAM"
 
 There are multiple ways Device42 can discover IP Addresses and related information:
 
-- [Network SNMP Discovery](auto-discovery/network-auto-discovery.mdx): Configuring and running SNMP autodiscovery to gather subnets, IP to MAC Address relationships, and MAC Address to Switch Port relationship information.
-- [Device42's Auto Discovery](auto-discovery/windows-and-hyper-v-auto-discovery.md): Using the autodiscovery client to discover Microsoft Windows and Linux and/or UNIX devices on your network, including their IP and MAC Address details.
-- [Device42's Ping Sweep Tool](auto-discovery/d42-ping-sweep.md): This page details usage of the ping sweep utility to keep your IP Address information up-to-date.
+- [Network SNMP Discovery](/auto-discovery/network-auto-discovery.mdx): Configuring and running SNMP autodiscovery to gather subnets, IP to MAC Address relationships, and MAC Address to Switch Port relationship information.
+- [Device42's Auto Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx): Using the autodiscovery client to discover Microsoft Windows and Linux and/or UNIX devices on your network, including their IP and MAC Address details.
+- [Device42's Ping Sweep Tool](/auto-discovery/d42-ping-sweep.md): This page details usage of the ping sweep utility to keep your IP Address information up-to-date.
 
 ## Importing IP addresses into Device42
 

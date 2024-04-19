@@ -4,8 +4,8 @@ sidebar_position: 30
 ---
 
 If you were looking for how-to instructions to get started with Hypervisor, Linux (\*nix), or Windows discovery, see either: 
-- the [Windows / Hyper-V Discovery](auto-discovery/windows-and-hyper-v-auto-discovery.md) page 
-- or the [Linux / UNIX server auto-discovery](auto-discovery/linux-unix-server-auto-discovery.md) page.
+- the [Windows / Hyper-V Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page 
+- or the [Linux / UNIX server auto-discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page.
 
 ## Supported Hypervisor / Container Platforms
 

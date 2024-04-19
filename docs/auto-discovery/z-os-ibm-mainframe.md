@@ -54,7 +54,7 @@ As of v15+, Device42 can discover IBM mainframes running the z/OS operating syst
 **Software and Applications**: Options to discover software and services.  
 **Miscellaneous**: Select service level, service customer, device VRF group, and tags
 
-For information on other jobs that can be run via this screen, see the dedicated [Linux / Unix Discovery Docs page](auto-discovery/linux-unix-server-auto-discovery.md). Note that discovery jobs for the [IBM mid-range AS/400 platform](auto-discovery/ibm-i-as400.md) can also be created via this job screen!
+For information on other jobs that can be run via this screen, see the dedicated [Linux / Unix Discovery Docs page](/auto-discovery/linux-unix-server-auto-discovery.mdx). Note that discovery jobs for the [IBM mid-range AS/400 platform](ibm-i-as400.md) can also be created via this job screen!
 
 ## Run Now or Schedule
 
