@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Introduction
 
-You can use Application Component Templates to create and define your own application components based on services discovered by Device42 [Hypervisor /\*nx/Windows](auto-discovery/windows-and-hyper-v-auto-discovery.md) autodiscovery jobs run against \*nix and Windows platforms. Device42 adds any application components created based on your templates to the [Application Components](apps/application-components/application-component-templates.md) list page.
+You can use Application Component Templates to create and define your own application components based on services discovered by Device42 [Hypervisor /*nx/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) autodiscovery jobs run against *nix and Windows platforms. Device42 adds any application components created based on your templates to the Application Components list page.
 
 ## View Application Component Templates
 

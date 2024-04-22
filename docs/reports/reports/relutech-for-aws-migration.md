@@ -13,23 +13,22 @@ The instructions below provide a recommended approach to capture your Physical (
 
 The initial recommended approach starts by performing Operating System level scans, followed by SNMP scans against a BMC, then by the Warranty sync (if applicable).
 
-1. **Hypervisor/\*nix/Windows**  - You'll want to ensure that these sets of Operating System level jobs are configured and run first. This discovery process will create the device record and capture parts that include  CPU and HBA Card  information.
+1. **Hypervisor/*nix/Windows**  - You'll want to ensure that these sets of Operating System level jobs are configured and run first. This discovery process will create the device record and capture parts that include  CPU and HBA Card  information.
 2. **SNMP** - Once the OS-level scans have been completed, create and execute SNMP scans against the management IP’s of the targeted servers.  These jobs will update the existing devices by adding additional parts as well as the management MAC Address and IP Address.The SNMP scan captures part information such as Ram, Disk(s) and PSU.
 3. **Warranty** - Depending on the vendor, these particular jobs will retrieve service contracts associated with each server from the vendor system. If the vendor system is unavailable, the warranty data can be added manually via the UI or via spreadsheet imports. Please see the referenced link below for documentation on this discovery in Device42.
 
 ![Discovery menu](/assets/images/relu-discovery-menu.png)
 
 
-## Hypervisor/\*nix/Windows Job Creation
+## Hypervisor/*nix/Windows Job Creation
 
-- Set up Discovery jobs for device inventory discovery with the [\*Hypevisor / \*nix / Windows](auto-discovery/linux-unix-server-auto-discovery.md) jobs. Set up a standard discovery scan for each type of device focusing on the physical devices (Hypervisors, \*nix and Windows).
-    - For the Windows and \*nix jobs, ensure that the Discover Parts is checked. In the Host Discovery section.
+- Set up Discovery jobs for device inventory discovery with the [*Hypevisor / *nix / Windows](/auto-discovery/linux-unix-server-auto-discovery.mdx) jobs. Set up a standard discovery scan for each type of device focusing on the physical devices (Hypervisors, *nix and Windows).
+    - For the Windows and *nix jobs, ensure that the Discover Parts is checked. In the Host Discovery section.
     - For the Hypervisor jobs, the “Discover Parts” option is enabled as default and not changeable.
 
 ![Host discovery](/assets/images/relu-host-discovery.png)
 
 ## SNMP Job Creation
-
 
 
 For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
@@ -48,7 +47,7 @@ For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-
 
 ## Recommended Automated Scheduling
 
-- For the Hypervisor/\*nix/Windows scan jobs, the jobs should be scheduled to run **_daily_**.
+- For the Hypervisor/*nix/Windows scan jobs, the jobs should be scheduled to run **_daily_**.
 - For the SNMP scan jobs, the jobs should be scheduled to run **_weekly_**.
 - For the Warranty Sync, the jobs should be scheduled to run **_weekly_**.
 
