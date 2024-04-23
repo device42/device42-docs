@@ -3,49 +3,78 @@ title: "Getting Started with Autodiscovery"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 The following how-to runs down quickly enumerating network objects with Device42 Autodiscovery.
 
 ## Getting Started with Device42 Videos
 
-**If you're new** to Device42, you'll want to start with our [**getting started videos** \[new window\]](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to get your RC (Remote Collector) set up, connect a WDS (Windows Discovery Service) instance to that RC, and you'll run your first discovery job! [Watch 'em now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2), and you'll be an expert in no time!
+**If you're new to Device42**, begin with our [**getting started videos**](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to set up your Remote Collector (RC), connect a Windows Discovery Service (WDS) instance to that RC, and run your first discovery job! [Watch 'em now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2) and you'll be an expert in no time!
 
-Ready to learn more? For those that prefer videos, there's a [video-based Device42 "How-To" series on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) (it's got its own [section](how-to-videos/index.md)). Have a specific question and you don't see what you're looking for here in the docs, email support@device42 and let us know -- there's a good chance other people are wondering the same thing, and we'll be happy to create a new video ... _Happy discovering!_
+Ready to learn more? If you prefer videos visit our [Device42 "How-To" playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or go to the [How-To video section](how-to-videos/index.md) here in the docs. 
 
-## Autodiscovery Account WARNING
+If you can't find the answer you're looking for, please email support@device42 and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video... _Happy discovering!_
 
-**Discovery Account _WARNING:_ Please do _not_ set up an autodiscovery / scan using critical \[production\] account credentials! Please create a separate, dedicated account to use _only_ for discovery.**
+## Autodiscovery Account Notice
 
-_Depending on permissions granted & your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result._
+:::caution
+Please do _not_ set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use _only_ for discovery.
+:::
+
+Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result.
 
 ## Creating Subnets
 
-![Create a new subnet](/assets/images/add_new_subnet_2018v15.PNG)
+Go to **Resources > Networks > All Subnets** and click **+Add** on the top right corner.
 
-All discovered IP addresses will be placed in their respective subnets if subnets have been pre-defined. Otherwise, IPs end up in an "undefined" subnet.
+<ThemedImage
+alt="View or edit existing subnets"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/subnets-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/subnets-list-page-dark.png'),
+}}
+/>
 
-**Go to IPAM > Subnets, click on +Add Subnet on the top right corner.**
+The required fields are **Network**, **Mask Bits**, and **Service Level**. The other fields are optional. If left empty, **Range Begin** and **Range End** are automatically calculated based on network and bits.
 
-The required fields are Name, Network and mask bits. Others are optional. The begin and end range are automatically calculated based on network and bits if left empty.
+<ThemedImage
+alt="Create a new subnet"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/add-subnet-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/add-subnet-dark.png'),
+}}
+/>
 
-![View or edit existing subnets](/assets/images/select_subnet_to_view-2018v15.PNG)
+If subnets have been pre-defined, all discovered IP addresses will be placed in their respective subnets. Otherwise, the IPs will end up in an "undefined" subnet.
 
-## Setting up Autodiscovery
+## Set Up Autodiscovery
 
-### Set up WDS (Windows Discovery Service)
+### Set Up WDS (Windows Discovery Service)
 
-**Note: All recent releases \[v14+\] of Device42 can run all discoveries from the web UI \[and/or via [Remote Collectors](auto-discovery/remote-collector-rc.md)], including WMI discovery as long as the [WDS service](installation/windows-discovery-service-installation.md) (Windows Discovery Service) has been configured.** Now is a good time to set up a [Remote Collector (RC)](auto-discovery/remote-collector-rc.md), as RCs, being dedicated to discovery, can handle larger network ranges than your MA. If you'll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it's recommended to connect WDS to it as opposed to connecting it to your MA.
+Now is a good time to set up a [Remote Collector](auto-discovery/remote-collector-rc.md), as RCs are dedicated to discovery and can handle larger network ranges than your Main Appliance (MA). 
 
-### Creating your first discovery job
+If you’ll be discovering any Microsoft Windows OS-based servers/guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it’s recommended to connect to WDS rather than connecting it to your MA.
 
-Once you've installed the [WDS](installation/windows-discovery-service-installation.md) (if you'll be discovering any Microsoft Windows-based products), you're ready to run your first discovery. See the [Auto-discovery best practices](auto-discovery/autodisc-best-practices.md) page for our recommendations on the best order in which to run initial discovery, or jump right in to a [Network SNMP discovery if you're already familiar!](auto-discovery/network-auto-discovery.mdx)
+### Create Your First Discovery Job
 
-Now, create your first discovery job! Start by discovering your Network first - begin with an [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx) _(main menu, Discovery --> SNMP)_ to build out a base for the rest of your network before moving on to vServer discovery, followed Windows/Linux servers, etc.
+If you're discovering any Microsoft or Windows-based products, install the [WDS](installation/windows-discovery-service-installation.md) first.
 
-![Add SNMP discovery](/assets/images/add_SNMP_discovery_RC_v15.png)
+Create your first discovery job! Start by discovering your network first. Navigate to **Discovery > SNMP** and click **+ Add Jobs** to create a [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx). This will build out a base for the rest of your network. Then move on to vServer discovery, followed Windows/Linux servers, etc.
 
-* * *
+:::info
+See [auto-discovery best practices](auto-discovery/autodisc-best-practices.md) for recommendations on the order in which to run initial discovery. If you're familiar, jump right in to [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
+:::
 
-## Dealing with device type "unknowns"
+<ThemedImage
+alt="Add SNMP discovery"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/add-snmp-discovery-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/add-snmp-discovery-dark.png'),
+}}
+/>
+
+## The "unknown" Device Type 
 
 Any devices that are not virtual will come over as device type "unknown" initially. The reason is that the appliance has not been told whether the hardware belongs to the physical, blade or another category.
 
@@ -60,6 +89,20 @@ Once you change a hardware type, all the corresponding devices that refer to tha
 The "Bulk hardware edit" feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to it. See the Bulk Edit [YouTube](how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) videos or [Bulk edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information!
 
 Also, once a hardware type is defined, any new imported or discovered devices will go into the right category.
+
+## View Details of Discovered Items
+
+To view the details of discovered items, navigate to the that item's list page and select an item from the table. 
+
+For example, go to **Resources > All Devices** and click on an device name to view device details. Depending on the device and information available, fields like **Hardware**, **Serial #**, **Total CPUs**, **RAM**, **OS**, and **IP Address** can be populated.
+
+<ThemedImage
+alt="View device details"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/view-ci-details-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/view-ci-details-dark.png'),
+}}
+/>
 
 * * *
 
@@ -78,9 +121,3 @@ The Linux tab requires you enter a username and password, and the Help tab has b
 CI Details screens \[pre-v15\] looked like this:
 
 ![Device Details Example](/assets/images/wpid1962-media_1344828425174.png)
-
-This is the same screen in the new D42 UI \[v15+\]:
-
-![Device Details example, v15+](/assets/images/device_details_example.PNG)
-
-Device details like name, hardware model, serial #, CPU & RAM info, OS, MAC, and IP info are populated depending on what is discovered.
