@@ -109,14 +109,21 @@ In addition, if the entry is new or unique, it may require the EnrichAI service 
   }
 ]
 ```
-## Using the EnrichAI Interface
+## EnrichAI Connectivity
 
-The Main Appliance will need to be able to reach the following domains for cloud services to be registered:
+Please make sure the following is in place to ensure connectivity with EnrichAI:
+
+1. Configure the Cloud Connector and ensure it is reachable. 
+2. Ensure that the EnrichAI endpoints are reachable (including the registration endpoint).  
+3. Register license online.
+
+The Main Appliance will need to reach the following domains for cloud services to be registered:
 
 - `https://registration.device42.com`
 - `https://crs.device42.io/`
 - `https://enrichai.device42.io/api/normalizations`
 
+## Using the EnrichAI Interface
 
 Select **Analytics > EnrichAI Data** to display the EnrichAI Data list page.
 
