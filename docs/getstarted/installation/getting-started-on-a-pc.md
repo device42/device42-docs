@@ -71,4 +71,4 @@ At the login screen you can log in using the default name and password: admin/ad
 
 ## What's next?
 
-To continue through our documentation, you may want to view our [tutorials](getstarted/tutorials/device42-tutorial.md) next.
+To continue through our documentation, you may want to view our [tutorials](/getstarted/tutorials/device42-tutorial.mdx) next.
