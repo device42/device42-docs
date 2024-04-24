@@ -2,6 +2,9 @@
 title: "FAQ's"
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 Whether you're new to Device42 or a seasoned pro, this list of **Device42 frequently asked questions** probably has information you'll find useful. This list is updated pretty regularly, and contains a selection of the questions most often asked about Device42.
 
 If you've just downloaded Device42 for the first time and are looking for help getting up and running, please refer to our [getting started guide](getstarted/index.md) if you're looking for help getting your instance up and running. The getting started guide is tailored to new users, specifically.
@@ -59,13 +62,20 @@ This topic has been discussed on support portal : [How to represent blade server
 
 ## How do I handle unknown device types?
 
-![Change type for selected devices, re-classify unknown devices](/assets/images/view-devices-change-selected-device-type.PNG)
+<ThemedImage
+  alt="Change type for selected devices, re-classify unknown devices"
+  sources={{
+    light: useBaseUrl('/assets/images/faqs/change-type-action-light.png'),
+    dark: useBaseUrl('/assets/images/faqs/change-type-action-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-During initial device discovery, some of devices will show up as type "unknown". This can be fixed using:
+During initial device discovery, some of devices will show up as type "unknown". This can be fixed by:
 
-- Changing the associated hardware model would change all associated devices - current and future. This can be done from Data Center > Hardware or Tools > Templates & Bulk Operations > Bulk Hardware edit.
-- From Devices > All Devices. You can filter for type "unknown" and bulk change the device type.
-- You can export unknown devices in excel format from Reports > Reports > Add report > Device. Edit the excel file to match Tools > Import > Device Import. Change the type and import the excel file.
+- Changing the associated hardware model would change all associated devices - current and future. This can be done from **Infrastructure > [Hardware Models](/infrastructure-management/devices/hardware-models-templates.mdx)**.
+- From **Devices > All Devices** you can filter for type "unknown" and bulk change the device type.
+- You can export unknown devices in Excel format clicking the **Report** button on the top right corner of the device list page. Edit the Excel file to match **Tools > Imports/Exports (xls)**. Change the type and re-import the Excel file.
 - Make the change using REST APIs.
 
 ## How can I create reports?
