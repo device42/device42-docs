@@ -3,6 +3,9 @@ title: "Tutorials Overview"
 sidebar_position: 0
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction to Device42
 
 So you’ve downloaded the Device42 appliance and fired up the application. That was easy. You've logged in using the default credentials, and now you're looking at the dashboard below - except yours shows zero buildings, no rooms, not a single device ... _and so on_.
@@ -17,11 +20,16 @@ Below, you'll find:
 2. An overview of the various ways to get data into Device42;
 3. Last, but not least, a quick explanation of two more available tutorials which will help you decide if following one or both will be helpful to you!
 
-![Device42 Dashboard](/assets/images/dashboard_d42v1511-sm.png)
-
-* * *
 
 ## Hierarchies and Terminology in Device42
+
+<ThemedImage
+  alt="Device42 Infrastructure menu"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-tutorial/infrastructure-menu-light.png'),
+    dark: useBaseUrl('/assets/images/device42-tutorial/infrastructure-menu-dark.png'),
+  }}
+/>
 
 ### **Let’s start by defining some common Device42 terminology:**
 
@@ -41,6 +49,14 @@ Let's consider a campus with multiple buildings. The following are two common ap
 * * *
 
 ### Devices & Assets
+
+<ThemedImage
+  alt="Device42 Resources menu"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-tutorial/devices-assets-menu-light.png'),
+    dark: useBaseUrl('/assets/images/device42-tutorial/devices-assets-menu-dark.png'),
+  }}
+/>
 
 Everything that you place inside a room is either a device or an asset, and each and every one is an individual CI. The main difference between a device and an asset is that devices have IP addresses.
 
