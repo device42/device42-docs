@@ -18,13 +18,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ### Pre-requisites
 
-For Google Cloud Discovery, you will need a user account with the built-in Google Cloud Platform “Viewer” role.
+For Google Cloud Discovery, you will need a user account with the built-in Google Cloud Platform "Viewer" role.
 
 ### Configuring Google Cloud Discovery
 
 Device42 can discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs.
 
-To create a new Google cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+To create a new Google Cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
 
 <ThemedImage
 alt="Add Google Cloud discovery form"
@@ -50,9 +50,9 @@ sources={{
   }}
 />
 
-4. Save and run your job. Optionally, create a schedule to run it automatically!
+4. Save and run your job. Optionally, create a schedule to run it automatically.
 
-Data discovered on the Google Cloud Platform is similar to what you might be used to on AWS EC2 instances, namely:
+Data discovered on the Google Cloud Platform is similar to what you might be familiar with on AWS EC2 instances, namely:
 
 - Discovered Google Cloud VMs are added as virtual devices.
 - Cloud information is added inline in Device42 for each CI.
@@ -70,7 +70,7 @@ sources={{
   style={{ width: '70%' }}
 />
 
-- **Strip Domain Name:** Strip domain name from discovered name (everything after the first period).
+- **Strip Domain Name:** Strip the domain name from the discovered name (everything after the first period).
 - **Object category for discovered devices:** Choose a category to assign to discovered devices.
 - **Overwrite existing object categories:** Select this option to overwrite any previously assigned categories with the current selection.
 
