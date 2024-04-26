@@ -3,6 +3,9 @@ title: "Tutorials Overview"
 sidebar_position: 0
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction to Device42
 
 So you’ve downloaded the Device42 appliance and fired up the application. That was easy. You've logged in using the default credentials, and now you're looking at the dashboard below - except yours shows zero buildings, no rooms, not a single device ... _and so on_.
@@ -17,11 +20,16 @@ Below, you'll find:
 2. An overview of the various ways to get data into Device42;
 3. Last, but not least, a quick explanation of two more available tutorials which will help you decide if following one or both will be helpful to you!
 
-![Device42 Dashboard](/assets/images/dashboard_d42v1511-sm.png)
-
-* * *
 
 ## Hierarchies and Terminology in Device42
+
+<ThemedImage
+  alt="Device42 Infrastructure menu"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-tutorial/infrastructure-menu-light.png'),
+    dark: useBaseUrl('/assets/images/device42-tutorial/infrastructure-menu-dark.png'),
+  }}
+/>
 
 ### **Let’s start by defining some common Device42 terminology:**
 
@@ -41,6 +49,14 @@ Let's consider a campus with multiple buildings. The following are two common ap
 * * *
 
 ### Devices & Assets
+
+<ThemedImage
+  alt="Device42 Resources menu"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-tutorial/devices-assets-menu-light.png'),
+    dark: useBaseUrl('/assets/images/device42-tutorial/devices-assets-menu-dark.png'),
+  }}
+/>
 
 Everything that you place inside a room is either a device or an asset, and each and every one is an individual CI. The main difference between a device and an asset is that devices have IP addresses.
 
@@ -84,7 +100,7 @@ Of course, there are forms available for screen-based data entry via the UI, as 
 Three tutorials are available to help familiarize you with the Device42 system, and a selection of How-to videos are available that address common questions: ([Check out the how-to videos index here!](docs/how-to-videos/index.md))
 
 1. The [Loading Data Using the API Tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.md) uses the API to load a fairly robust set of data into Device42 system. Don't be concerned if you are not a programmer. The script used in this tutorial is a very simple bash script. Please send us a note if you would like a sample in PowerShell, Python or other languages.
-2. The [Loading Data Using Spreadsheets Tutorial](getstarted/tutorials/device42-tutorial.md) uses spreadsheets to load data. There is no scripting involved. If you are fairly certain that you will never script API calls, this is the tutorial you should use.
+2. The [Loading Data Using Spreadsheets Tutorial](/getstarted/tutorials/device42-tutorial.mdx) uses spreadsheets to load data. There is no scripting involved. If you are fairly certain that you will never script API calls, this is the tutorial you should use.
 3. The [Navigating The Device42 User Interface Tutorial](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md) explores the Device42 core features using your data (follow the above tutorials to create data, or should you not have time to create your own data, request a sample spreadsheet of data by emailing support@device42.com. This sample spreadsheet will load a wide variety of data in Device42; use tutorial #2, "Loading data using spreadsheets" to load the sample data).
 
 It might not be necessary to work through all of the tutorials, but we absolutely recommend that you work through at least one of them if you're new. Many will find it beneficial to follow through on more than one tutorial, as well, gaining valuable experience along the way. If you'd like to keep your Device42 instance fresh for each tutorial, or would like to revert back to fresh after doing one, simply use hypervisor snapshots (ask your IT/sysadmin if you don't manage Device42!), start with a new copy of the Device42 virtual appliance, or set up a dedicated training environment!
