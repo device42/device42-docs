@@ -42,4 +42,4 @@ Any purchase information related to this device can be found on the Lifecycle ta
 
 ![](/assets/images/media_1432074104215.png)
 
-See also - [managing purchases](infrastructure-management/accounting/purchases.md) in Device42.
+See also - [managing purchases](infrastructure-management/accounting/purchases.mdx) in Device42.
