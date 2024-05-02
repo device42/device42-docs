@@ -3,32 +3,74 @@ title: "Arrange and Save List Page Column Layout"
 sidebar_position: 8
 ---
 
-## Arrange and Save List Page Column Layout
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Many of Device42’s new list pages let you select and rearrange the columns the pages display and save the column layout.
+List pages in Device42 have the option to create a default view by rearranging the columns displayed and the sorting order of records.
 
-- Click the gear icon below the _Advanced_ button.
+- Click the **gear icon** button on the right.
 
-![](/assets/images/D42-19028_arrange-columns-1.png)
+    <ThemedImage
+    alt="List page gear icon"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/gear-icon-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/gear-icon-dark.png'),
+    }}
+    />
 
-- The page displays a _Table Columns_ drop-down you can use to select the columns you want to include on the page.
+- The page displays a **Table Columns** dropdown menu you can use to select the columns you want to include on the page.
 
-![](/assets/images/D42-19028_arrange-columns-2.png)
+    <ThemedImage
+    alt="Table columns"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/table-columns-menu-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/table-columns-menu-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-- Click and drag a column header to move the column to a new position. In the example below, we move the _Hardware_ column.
+- Click and drag a column header to move the column to a new position. In the example below, we move the **Hardware** column.
 
-![](/assets/images/D42-19028_arrange-columns-3.png)
+    <ThemedImage
+    alt="Move column"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/move-column-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/move-column-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-- You can also select a column to set the sorting precedence for the list view.
+- You can also select a column to set the sorting precedence for the list view. Reset the order to default by clicking the number next to the column name.
 
-![](/assets/images/17.06.00_sorted-list-page.png)
+    <ThemedImage
+    alt="Column sort"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/column-type-sort-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/column-type-sort-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+    />
 
-- After you select and arrange the columns, type a name for the view, select either _System Default_ or _User Default_ for the new view (the available options depend on your permission level), and click _Save As New_.
+- After you select and arrange the columns, **Name** (1) the view and select **System Default** or **User Default** (2) to set whether the view should apply globally or for you. Click **Save As New** (3). Note that the availability of the **System Default** option depends on your permission level. 
 
-![](/assets/images/D42-19028_arrange-columns-4.png)
+    <ThemedImage
+    alt="Save column view"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/save-view-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/save-list-view-dark.png'),
+    }}
+    style={{ width: '140%' }} 
+    />
 
-The column layout you saved will now be the default for list pages.
+    The column layout you saved will now be the default for list pages.
 
-You can also delete custom column list views you have defined for list pages. When you select a custom view, you can click the _Delete_ button to delete the view. Note that this does not apply to the System Column List view, and the _Delete_ button is not available if the user does not have the correct permissions.
+- You can **Delete** a custom column list view you have defined for list pages. Note that this does not apply to the default **System Column List** view and you need the correct permissions to see the **Delete** button.
 
-![](/assets/images/17.08.00_custom-list-delete.png)
+    <ThemedImage
+    alt="Delete view"
+    sources={{
+        light: useBaseUrl('/assets/images/arrange-and-save-list-page/delete-view-light.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/delete-view-dark.png'),
+    }}
+    style={{ width: '75%' }} 
+    />
