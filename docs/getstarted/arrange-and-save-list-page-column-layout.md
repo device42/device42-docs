@@ -57,7 +57,7 @@ List pages in Device42 have the option to create a default view by rearranging t
     alt="Save column view"
     sources={{
         light: useBaseUrl('/assets/images/arrange-and-save-list-page/save-view-light.png'),
-        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/save-list-view-dark.png'),
+        dark: useBaseUrl('/assets/images/arrange-and-save-list-page/save-list-dark.png'),
     }}
     style={{ width: '140%' }} 
     />
