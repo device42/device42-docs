@@ -14,8 +14,8 @@ const config = {
   favicon: 'https://www.device42.com/wp-content/uploads/2021/08/d42-favicon.png',
   url: 'https://docs.device42.com',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   // Load the Feedback Rocket SDK on every page
   scripts: [
