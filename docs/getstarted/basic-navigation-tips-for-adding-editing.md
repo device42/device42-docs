@@ -1,42 +1,86 @@
 ---
-title: "Basic Navigation Tips for Adding/Editing"
+title: "Basic Navigation Tips for Adding and Editing"
 sidebar_position: 9
 ---
 
-## The add/edit/history button(s) & action menu
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-On most pages in the Device42 UI that include "lists" (e.g. of Devices, IP addresses, subnets, racks, etc.), look to the upper-right hand corner \[emphasized/highlighted\] for buttons that allow you to quickly perform the most common action(s) on each particular page:
+## List Page Buttons and Action Menu
 
-![Action Menu and Buttons Locations](/assets/images/action_menu_buttons-HL.png)
+On Device42 list pages (for example, devices, IP addresses, subnets, racks, etc.), look to the upper-right corner for buttons to quickly perform the most common action(s) on each page. 
 
-The "Action" dropdown menu (also emphasized & highlighted) contains a list of actions that can be performed in "bulk" against any and all devices that are selected \[via the checkboxes\] on each list page.
+<ThemedImage
+  alt="Action menu and page buttons"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/devices-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/devices-list-page-dark.png'),
+  }}
+/>
 
-When adding/editing an object, a clickable button will show up as indicated above.
+The **Action** dropdown menu contains a list of actions that can be performed in bulk for the selected items (using the checkboxes) on each list page. Click the **hammer icon** to the right of the menu bar to execute the action.
 
-## Required vs. non-required fields
+## Required and Optional Fields
 
-![Required fields are BOLD (highlighted)](/assets/images/required_fields-HL.png)
+<ThemedImage
+  alt="Required fields are bold"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/add-device-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/add-device-dark.png'),
+  }}
+/>
 
-It's easy to tell which fields are required in Device42; simply look for **bolded** field labels! In the example screen above, all bolded field labels (highlighted above ) are required. All other fields on the page are optional. This convention applies to all add/edit screens across the Device42 UI. Note that if we were to attempt to submit the above form as-pictured, we would receive an error - The required field "Name:" does not contain a value!
+The **bold** field labels indicate required fields and all the non-bolded fields on the page are optional to fill in. This convention applies to all add and edit screens across the Device42 UI. Submitting a form without filling in the required fields will throw an error, for example, "The required field "Name:" does not contain a value!"
 
-## Adding new items from within an edit page
+## Add Items From an Edit Page
 
-![Add new item right from the CI edit page](/assets/images/add_new_CI_from_lookup_page_while_editing.png)
+<ThemedImage
+  alt="Add new item"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/add-object-to-rack-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/add-object-to-rack-dark.png'),
+  }}
+/>
 
-You can add the corresponding relational objects right from edit pages as highlighted above and shown in images below. Simply click the magnifying glass to select an existing object. Should the object you are looking for not yet exist \[e.g. building, room, rack, vendor, etc.\], you can create a new one:
+You can add the corresponding relational objects directly from edit pages. Click the **magnifying glass icon** (1) to select an existing object. If the object you are looking for does not yet exist, you can create a new one (2). You can also add a new object from the first pop-up form (3).
 
-![Add a new room and/or building from the rack edit screen](/assets/images/add_room_and_building_from_change_rack_screen.png)
+<ThemedImage
+  alt="Add a new room"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/add-room-button-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/add-room-button-dark.png'),
+  }}
+/>
 
-![Newly added room selected & visible on change rack page](/assets/images/newly_added_room_highlighted_on_rack_edit_page.png)
+<ThemedImage
+  alt="Add a new building"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/add-building-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/add-building-dark.png'),
+  }}
+/>
 
-## Adding items inline
+## Adding Inline Items
 
-![Add another device to rack line item](/assets/images/add_another_line_item_racked_device.png)
+<ThemedImage
+  alt="Add another device to rack line item"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/inline-items-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/inline-items-dark.png'),
+  }}
+/>
 
-You can add line items directly from a rack or other edit page wherever it is relevant. In this example, while editing a rack, you can add devices to the rack right on the edit page for the rack.
+You can add line items directly from an edit page wherever it's relevant. In this example, while editing a rack, you can add devices to the rack on the edit page.
 
-## Finishing up - the 'save' toolbar
+## The Save Toolbar
 
-![Save toolbar pinned to bottom of add and edit page UI](/assets/images/pinned_save_toolbar_bottom_of_d42_UI.png)
+<ThemedImage
+  alt="Save toolbar"
+  sources={{
+    light: useBaseUrl('/assets/images/basic-navigation-tips/save-toolbar-light.png'),
+    dark: useBaseUrl('/assets/images/basic-navigation-tips/save-toolbar-dark.png'),
+  }}
+  style={{ width: '40%' }} 
+/>
 
-Pinned, or "floating" at the bottom of the your screen no matter where you scroll on an add or edit page, you'll find the "Save" toolbar. This UI feature allows you to either **"Save"** your entries (the default action) and view the new item, **"Save and continue editing the object"**, or **"Save and add another"** object. You can also delete the object from here. But don't forget to save!!!
+At the bottom of the add and edit forms, you'll find the save toolbar. You can **Save** your input and view the result, **Save and continue editing the object**, or **Save and add another** object. You can also **Delete** the object from the toolbar. Don't forget to save.
