@@ -3,43 +3,110 @@ title: "Device - Lifecycle Tab"
 sidebar_position: 7
 ---
 
-### Asset LM Tab
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![Asset LM Tab](/assets/images/wpid6739-device-assetlm-tab.png)
+## The LifeCycle Tab
 
-The Lifecycle tab enables recording and tracking of Asset Lifecycle activities, assignment of Asset tag (QR based) profiles, and access to associated purchase information.
+Under the **Lifecycle tab** you can record and track asset lifecycle events, assign an asset QR code or barcode, and add purchasing information for a device. **Purchase/Support Info** includes fields to add **Vendor**, **Cost**, **Contract Type**, and **Service Type** details.
+
+<ThemedImage
+  alt="The LifeCycle tab"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/lifecycle-tab-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/lifecycle-tab-dark.png'),
+  }}
+  style={{ width: '110%' }} 
+/>
 
 ### Asset Lifecycle
 
-![Asset Lifecycle](/assets/images/wpid6736-device-asset-lifecycle.png)
+Provide the required details of **Date**, **Time**, and lifecycle **Event** to associate a new lifecycle event to the device. Optionally add an **End User** and related **Notes** and **Tags** to the event. Tags are useful for adding additional categories to manage your devices.
 
-Asset Lifecycle: add actions by date/time. Action type is user-defined -- click the green plus sign to add a custom type. Assign the end-user associated with the action.
+Add a new lifecycle event to the device using the **+ Add another Asset lifecycle** button. 
 
-Some of the predefined action types have logic built-in. A user cannot Check Out a device or asset that is already checked out. Similarly, they can only Check In a device or asset that has been checked out.
+<ThemedImage
+  alt="Asset lifecycle"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/asset-lifecycle-event-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/asset-lifecycle-event-dark.png'),
+  }}
+  style={{ width: '110%' }} 
+/>
 
-Users can add their own logic by defining Action Types. Go to Tools>>Templates and Bulk Actions>>Lifecycle Event Actions...
+Some of the predefined **Events** have logic built-in. For example, you cannot choose **Checked Out** on a device or asset already checked out. Similarly, you can only select **Checked In** if the device is checked out.
 
-![](/assets/images/wpid6738-media_1414482141995.png)
+To add logic to asset lifecycle **Events**, go to **Tools > Lifecycle Event Actions**.
 
-You can now choose certain actions for your lifecycle events. For example, if you “retire” a server, you can choose to do certain actions like clear all IPs and clear all connectivity.
+### Add a New LifeCycle Event
 
-Options are: Clear all IPs: Clear any IP addresses associated with the device. Clear all Connectivity: Clear any switchport, direct device, and/or patch panel connections. Append seconds since epoch to hostname: Add a unique number to the hostname so that you re-use the original hostname but still have a record of the old one. Append seconds since epoch to serial number. Same but do it for the serial number. Append seconds since epoch to uuid. Same but do it for the uuid. Change the device service level (e.g. to out of service). Change the asset service level Remove the device/asset from the rack Add the device/asset to a storage room
+Define a custom lifecycle **Event** by clicking the **+** button near the **Events** dropdown menu.
 
-### Asset QR Code
+<ThemedImage
+  alt="Add new lifecycle event"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/add-custom-event-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/add-custom-event-dark.png'),
+  }}
+/>
 
-![Asset QR Code](/assets/images/wpid6735-asset-qr-code.png)
+Choose actions for your lifecycle event in the pop-up window. For example, when retiring a server, you can add actions like **Clear all IPs** and **Clear all Connectivity**.
 
-1. Assign existing asset QR code profile to the device, or create a new profile by clicking green plus sign
-2. Print asset tag for the device by clicking QR Code
+The options are: 
 
-See also - working with [QR asset tags](infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42.md) in Device42
+- **Clear all IPs:** Clear any IP addresses associated with the device.
+- **Clear all Connectivity:** Clear any switch port, direct device, or patch panel connections.
+- **Append seconds since epoch to hostname:** Add a unique number to the hostname so that you re-use the original hostname but still have a record of the old one.
+- Add custom suffix to name.
+- **Append seconds since epoch to name, serial number, and uuid:** Add a unique number to the name, serial number, and UUID to re-use the original values and keep a record of the old one.
+- Add custom suffix to name, serial number, and uuid.
+- **Change device service level to:** For example, out of service.
+- Change asset service level to
+- Remove device or asset from rack
+- **Add device or asset to storage room:** Select a room from the dropdown menu or click the magnifying glass icon to add a new room.
+- Checkboxes for the options:
+  - Change to not in service
+  - Remove virtual machine from the host
+  - Remove blade device from the host
+  - No longer count OS or software on this device in licensing.
+
+### Asset QR/Barcode
+
+Add a QR code or barcode to the device for inventory management.
+
+<ThemedImage
+  alt="Asset QR Code"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/asset-qr-barcode-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/asset-qr-barcode-dark.png'),
+  }}
+/>
+
+1. Assign an existing QR code or barcode profile to the device or create a new profile by clicking the plus sign.
+2. You can view and print the QR code by clicking the **QR/Barcode **link.
+
+See working with [QR asset tags](infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42.md) in Device42.
 
 ### Purchase/Support Info
 
-![Purchase/Support Info](/assets/images/wpid6737-device-asset-tab-purchase.png)
+Enter purchase information related to the device under **Purchase/Support Info**. You can add once-off purchases and record and manage contracts relating to the device. 
 
-Any purchase information related to this device can be found on the Lifecycle tab. Purchase information can also be entered here...
+<ThemedImage
+  alt="Purchase/Support Info"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/purchase-support-info-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/purchase-support-info-dark.png'),
+  }}
+/>
 
-![](/assets/images/media_1432074104215.png)
+Add new **Purchase/Support Info** using the **+ Add New Purchase/Support Info** button.
 
-See also - [managing purchases](infrastructure-management/accounting/purchases.md) in Device42.
+<ThemedImage
+  alt="Add new Purchase/Support Info"
+  sources={{
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/add-purchase-details-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/add-purchase-details-dark.png'),
+  }}
+/>
+
+See [managing purchases](infrastructure-management/accounting/purchases.md) for more information.
