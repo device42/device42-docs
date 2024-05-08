@@ -9,7 +9,7 @@ Every action in Device42 via the User interface, autodiscovery jobs, RESTful API
 
 ![wpid2183-history.png](/assets/images/wpid2183-history.png)
 
-Go to the Reports > History menu to view the audit history.
+Go to **Analytics > Audit Logs > History** to view the audit history.
 
 The Type column shows the category of he object (e.g. device, customer, contract, hardware, ...).
 
