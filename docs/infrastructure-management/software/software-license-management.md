@@ -3,136 +3,292 @@ title: "Software License Models and Management"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 The Software License Management (SLM) module enables Device42 users to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machines or instances across the entire IT infrastructure.
 
-Easily create and manage software licensing models, and Device42 will automatically scan Windows and Linux machine instances for software - running or not. The SLM module can compare counts of running instances against purchased/licensed counts, and can aslo detect prohibited software -- all without any need for agents. There is absolutely no need to install software agents on each machine that you require monitored!
+Easily create and manage software licensing models, and Device42 will automatically scan Windows and Linux machine instances for software - running or not. The SLM module can compare counts of running instances against purchased/licensed counts, and can also detect prohibited software - all without any need for agents. There is absolutely no need to install software agents on each machine that you require monitored!
 
-_In Device42, the terms "Software Component", "Software Executable", and "Executable" are synonymous, and are used interchangeably._
+:::tip
+In Device42, the terms "Software Component", "Software Executable", and "Executable" are synonymous, and are used interchangeably.
+:::
 
-### Discovering Software Components
+## Discovering Software Components
 
-![Discovering Software Components](/assets/images/add_winLinux_discovery_Software_options_HL.PNG)
+When adding a new discovery (or editing an existing one) via **Discovery > Hypervisors / \*nix / Windows** you will see the following screen:
 
-Autodiscovery of software is enabled via a checkbox in Hypervisors/\*nix/win Autodiscovery.
+<ThemedImage
+  alt="Add discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/add-discovery-job-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/add-discovery-job-dark.png'),
+  }}
+/>
 
-When adding a new discovery (or editing an existing) via _Discovery > Hypervisors / \*nix / Windows_, users will see the screen shown above.
+Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to auto-discover software on the Windows and Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s).
 
-Check the "Discover Software" checkbox _(highlighted)_ to autodiscover software on the Windows and/or Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s).
+<ThemedImage
+  alt="The Discover Software option"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-and-applications-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-and-applications-dark.png'),
+  }}
+/>
 
 All major Linux distributions are supported, and software registered across various package managers will be discovered.
 
-To see the list of discovered software, head to _Apps > Software > Software Components_ s ![See list of discovered software](/assets/images/apps_software_software-components.png)
+### View Discovered Software
 
-You will see a list of the discovered software components…
+To see the list of discovered software, head to **Resources > All Software Components**. 
 
-![Select software component to view](/assets/images/select_software_componenet_view.PNG)
+<ThemedImage
+  alt="All Software Components menu location"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-components-menu-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-components-menu-dark.png'),
+  }}
+  style={{ width: '90%' }} 
+/>
 
-As with other list views in Device42, you can sort these components by their column headers, there are various filters on the right side of the page, there is a search box at the top, and a bulk action pull down.
+You will see a list of the discovered software components. As with other list views in Device42, you can sort these components by their column headers, there are various filters on the right side of the page, there is a search box at the top and a bulk action pull-down.
 
-From the list view, you can make bulk modifications of these software components…
+<ThemedImage
+  alt="Software component list page"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-component-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-component-list-page-dark.png'),
+  }}
+/>
 
-![Software componenet bulk actions](/assets/images/software_component_view_bulk_actions.PNG)
+### Bulk Actions
 
-For example, you could select a number of software components and choose “Mark selected Software as Ignored”. This will cause Device42 to remove the components from the list and ignore these components in future discoveries.l
+From the list view, you can make bulk modifications to these software components. Select records from the list, choose an action, and click the **hammer icon** to execute the action.
 
-You could also choose “Mark selected Software as Prohibited”. This will cause Device42 to send alerts whenever prohibited software is found on a user machine (If the alert is configured).
+<ThemedImage
+  alt="Software component bulk actions"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-actions-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-actions-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
-If you select “Update software counts”, the software counts (but not the Autodiscovery) will be run immediately. This can be useful if you make a change to licensing or the software count configuration and want to see the impact of the change immediately.
+The available actions are:
+- Delete with Detailed Confirmation
+- Fast Background Delete
+- Export selected items
+- Assign Software to Suite
+- Refresh/update Software counts
+- Refresh/update OS counts
+- Mark selected Software as Managed
+- Mark selected Software as Prohibited
+- Mark selected Software as Ignored
+- Mark selected Software as Unmanaged
 
-Or you could select a group of software components and choose “Assign Software to Suite”. This will define the selected components to be part of a “suite”. For example, if I select a set of Adobe software components and click “Assign Software to Suite”, I’ll see the following:
+For example, you could select several software components and choose **Mark selected Software as Ignored**. This will cause Device42 to remove the components from the list and ignore these components in future discoveries.
 
-![Assign software to suite](/assets/images/wpid-media_14319802217261.png)
+You could also choose **Mark selected Software as Prohibited**. This will cause Device42 to send alerts whenever prohibited software is found on a user's machine (if the alert is configured).
 
-This screen enables a user to select an existing software component and define it to be a suite that incorporates the selected Adobe software components. Or, more likely, one would use the Add Software Component button and define a new software component named something like ‘Adobe Software Suite’ that would then have the selected Adobe software components as the components of the suite.
+If you select **Refresh/Update software counts**, the software counts (but not the autodiscovery job) will be run immediately. This can be useful if you make a change to licensing or the software count configuration and want to see the impact of the change immediately.
 
-![Change software componenet](/assets/images/edit_software_component_details.png)
+### Assign Software to Suite
 
-If you selected an individual software component, you can add a number of edits including selecting a licensing model (see below), selected the vendor, defining categories, notes, and tags.
+Select a group of software components and choose **Assign Software to Suite** to define the selected components to be part of a set. For example, select a set of Adobe software components and click **Assign Software to Suite**.
 
-If you check the Track licensed count by keys checkbox, then software usage counting will be done by key (as opposed to counting the total number of instances of the software component).
+You can select an existing software component and define it as a suite to incorporate the selected Adobe software components. Or, a more likely scenario, you'll create a new software component using the **Add Software Component** button and call it something like "Adobe Software Suite" and then assign discovered Adobe software components to it.
 
-Here you can also add aliases for the software component, add license keys, view the actual instances of the software found by the discovery process (Software In Use), and add purchasing and support/warranty contract information.
+<ThemedImage
+  alt="Assign software to suite"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/assign-software-to-suite-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/assign-software-to-suite-dark.png'),
+  }}
+/>
 
-![Software In Use Screen](/assets/images/select_software_componenet_view.PNG)
+### Change Software Component
 
-You can find the Software In Use list view by navigating to Software>>Software>>Software In Use. Here, you will see the individual instances found for each software component. In this view you can filter by the name of software component, the device, or the user and you can sort the results by device or user.
+Click on the name of a software component and then **Edit** to add additional details. For example, you can specify a **License Model**, select a **Vendor**, add and define categories, add **Notes**, and **Tags**.
 
-### License Models
+Check the **Track Licensed Count by Keys** checkbox to have the software usage count be based on keys, rather than the total number of instances of the software component.
 
-![Add Software License Models](/assets/images/add_software_license_model.PNG)
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-1-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-1-dark.png'),
+  }}
+/>
 
-Device42′s flexible license models should enable you to track whatever type of licensing you use.
+You can also add **Software Component Aliases**, add **License Keys**, view the actual instances of the software found by the discovery process under **Software In Use**, and add **Purchase/Support Info**.
 
-![Track software licenses by options](/assets/images/track_by_license_models.PNG)
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-2-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-2-dark.png'),
+  }}
+/>
 
-The Track By field enables you to specify whether the licenses should be tracked by User, by Device, by Device CPU or by CAL.
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-3-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-3-dark.png'),
+  }}
+/>
+
+### Software In Use List Page
+
+Navigate to **Resources > Software In Use** to see the individual instances found for each software component. In this view, you can filter by the name of the software component, the device, or the user and sort the results by device or user.
+
+<ThemedImage
+  alt="Software In Use list page"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-3-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-3-dark.png'),
+  }}
+/>
+
+## Software License Models
+
+The flexible Device42 license models enables you to track any type of licensing you use. Navigate to **Resources > Software License Models** and click **+ Add Software Licensing Model**.
+
+<ThemedImage
+  alt="Add Software License Model"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/add-software-licensing-model-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/add-software-licensing-model-dark.png'),
+  }}
+  style={{ width: '90%' }} 
+/>
+
+The **Track By** field enables you to specify whether the licenses should be tracked by **User**, **Device**, **Client Access** (CALs), or **Device CPU/Core**.
+
+<ThemedImage
+  alt="Track By dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/track-by-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/track-by-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
 ### Tracking By User
 
-![Tracking By User](/assets/images/tracking_by_user_license_models.PNG)
+If you choose to track by **User**, you will see the options:
 
-If you choose to track by Users, you will see the options above:
+<ThemedImage
+  alt="Track By User"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/track-by-user-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/track-by-user-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
-The License Type field enables you to specify whether this is a Perpetual license or a Subscription. This is just a documentation field and doesn’t affect how Device42 counts the instances it finds of the software components.
+The **License Type** field lets you specify whether this is a **Perpetual** license or a **Subscription**. This is just a documentation field and doesn’t affect how Device42 counts the instances it finds of the software components.
 
-The Users lic count by field enables you to specify the purchase method. This is also just a documentation field and doesn’t affect how Device42 counts the instances it finds of the software components.
+The **Count Users by** field enables you to specify the purchase method. This is also just a documentation field and doesn’t affect how Device42 counts the instances it finds of the software components.
 
-The Is node locked field specifies that each licensed instance of the software is restricted to a specific device.
+The checkbox options do the following when enabled:
 
-The Is user locked field specified that each licensed instance of the software is restricted to a specific user.
-
-The Is free field specifies that this is free software.
-
-The Is concurrent access field specifies that licensing is by concurrent user (not by the total number of users that have access to the system).
-
-The Count major version separately field specifies that each major version of the software should be counted separately.
+- **Is Node Locked:** Specifies that each licensed instance of the software is restricted to a specific device.
+- **Is User Locked:** Specifies that each licensed instance of the software is restricted to a specific user.
+- **Is free:** Indicates free software.
+- **Is Concurrent Access:** Specifies licensing is by the concurrent user and not by the total number of users that have access to the system.
+- **Count Major Version Separately:** Specifies each major version of the software should be counted separately.
 
 ### Tracking By CALs
 
-![Tracking By CALs](/assets/images/tracking_by_CAL_license_models.PNG)
+If you choose to track by **Client Access** licenses, you will see the options below and that the options are the same as those for tracking by user, except for the addition of the **Count CAL by** field.
 
-If you choose to track by Client Access Licenses, you will see the options above and you can see that the options are the same as those for tracking by user except for one field:
+The **Count CAL by** field specifies how the licenses should be counted; that is, counted on a **Per Seat - Device** basis, **Per Seat - User** basis, or on a per **Server**, **Processor**, or **Mailbox** basis.
 
-The Cal lic count field specifies how the licenses should be counted, i.e. on a per device basis (Per Seat – Device), on a per user basis (Per Seat – User), or on a per server, processor, or mailbox basis.
+<ThemedImage
+  alt="Count CAL"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/count-cal-by-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/count-cal-by-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
 ### Tracking By Device
 
-With Track by device, you see this additional field: The Device lic count by field has 5 choices: Volume, Volume with a multiplier, Single, Unlimited, OEM. This field is used solely for documentation.
+With the **Device** track by option, you see the **Count Devices by** field. This field is used solely for documentation and has five options: 
+- **Volume**
+- **Volume with a multiplier**
+- **Single**
+- **Unlimited**
+- **OEM**
+
+<ThemedImage
+  alt="Track By User"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/device-count-by-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/device-count-by-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
 ### Tracking By Device CPU
 
-![Tracking By Device CPU](/assets/images/tracking_by_device_cpu.png)
+If you choose **Device CPU/Core** track by option, you will see four additional fields:
 
-If you choose Track By Device, you will see 4 additional fields:
+<ThemedImage
+  alt="Track By Device CPU/Core option"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/track-by-device-cpu-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/track-by-device-cpu-dark.png'),
+  }}
+  style={{ width: '45%' }} 
+/>
 
-The Device lic count by field has 5 choices: Volume, Volume with a multiplier, Single, Unlimited, OEM. This field is used solely for documentation.
+The **Count Devices by** field has five choices as listed above.
 
-The CPU core factor field is for the core factor rating used by some software manufacturers.
+The **CPU core factor field** is for the core factor rating used by some software manufacturers.
 
-The CPU count defines how cpu’s are counted. There are 2 choices: Total sockets and Total # of cores.
+The **CPU Count** field defines how CPUs are counted: **Total sockets** or **Total # of cores**.
 
-The CPU count virtual defines how software found on virtual machines is counted. The are 4 choices: Total # of cores on host, Total sockets on host, Total # of cores on VM, Total sockets on VM.
+The **CPU count virtual** field defines how software found on virtual machines is counted:
+- **Total # of cores on host** 
+- **Total sockets on host**
+- **Total # of cores on VM**
+- **Total sockets on VM**
 
-### Alerts and Notifications
+## Alerts and Notifications
 
-![Alerts and Notifications menu](/assets/images/setup_alerts_menu_item.png)
+### Add an Alert
 
-You can setup software alerts by navigating to Reports>>Setup Alerts and Notifications
+You can set up software alerts by navigating to **Analytics > Setup Alerts** and selecting **Software** as the **Rule Type**.
 
-![Add Alert Screen Example](/assets/images/Add_alert_mockup.PNG)
+You can add an alert to email the address(es) specified under the **Escalation Profile** option. In this example, whenever the percentage of the licenses used for any software component exceeds 85% for the selected software, those on "Alert Group 1" will get an email. 
 
-Here, you can add alerts such as the one above that will cause an email to be sent to the specified email address(es) whenever the percentage of the licenses used for any software component exceeds 90%. These alerts will also be listed in the Notifications list view found under Reports>>Notifications…
+<ThemedImage
+  alt="Add alert example"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/add-software-alert-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/add-software-alert-dark.png'),
+  }}
+/>
 
-![Alternate Notification View](/assets/images/view_notification_reports_menu.PNG)
+### Received Notifications  
 
-The screenshot above shows two software notifications, one for prohibited software and another from a % of licensed used rule.
+Triggered Device42 notifications are listed in the notifications list view under **Analytics > Notifications**. An email will only be sent once and the alert will only appear once as a notification for a given software component. 
 
-An email will be sent to each user specified in the alert rule for each notification.
+<ThemedImage
+  alt="Notification list view and actions"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/alert-list-menu-action-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/alert-list-menu-action-dark.png'),
+  }}
+/>
 
-Alerts can be acknowledged by checking multiple alert and choosing the Acknowledge Alerts bulk action. Acknowledgment is a groupware function that enables one sysadmin to notify other sysadmins that the alert is being worked.
+Alerts are acknowledged by selecting the alerts and using the **Acknowledge Notification** bulk action. Acknowledgment is a groupware function that enables one sysadmin to notify other sysadmins that the alert is being worked on.
 
-An email will only be sent once (and the alert will only appear once as a notification) for a given software component. However, one or more notifications can be “cleared” by selecting the condition(s) and choosing the Clear Condition bulk action. Next to each cleared action in the Cleared column will be a green checkmark. Once a condition has been marked as cleared, if that condition is detected again, another email will be sent and another notification record created.
+Notifications can be “cleared” by selecting the condition(s) and choosing the **Clear Condition** bulk action. Clearing notifications indicate that the trigger condition has been dealt with. Each cleared action in the **Cleared** column has a green checkmark. Note that if that condition is detected again, another email will be sent and another notification record will be created.
 
-### Licensing
+## Licensing
 
-The software licensing module is licensed as an add-on to the core product. You can find the pricing on the Device42 website.
+The software licensing module is licensed as an add-on to the core product. You can contact us about the pricing on the [Device42 website](https://www.device42.com/contact/).
