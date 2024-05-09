@@ -4,7 +4,7 @@ title: "Imports"
 
 This section provides information on how to import various types of data into Device42 using Excel spreadsheets.
 
-- **General Import**: Refer to [Spreadsheet Import and Exports](spreadsheet-imports-and-exports.md) for instructions on importing, editing, and exporting data.
+- **General Import**: Refer to [Spreadsheet Import and Exports](spreadsheet-imports-and-exports.mdx) for instructions on importing, editing, and exporting data.
 
 - **Legacy Imports**: If you're working with the legacy Microsoft 97-2003 XLS format, follow the instructions in [Legacy Imports](legacy-imports/index.md) for importing data.
 

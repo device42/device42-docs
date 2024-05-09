@@ -3,46 +3,76 @@ title: "Google Cloud Platform Autodiscovery"
 sidebar_position: 4
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ### GCP Discovery Items
 
-<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>&nbsp;Name</strong> <strong>Where to locate in D42</strong></td><td><strong>Accessed API</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>K8s (GKE) Discovery</td><td>Devices –&gt; Unknown</td><td><a href="https://www.googleapis.com/discovery/v1/apis/compute/v1/rest">https://www.googleapis.com/discovery/v1/apis/compute/v1/rest</a> <a href="https://www.googleapis.com/discovery/v1/apis/container/v1/rest">https://www.googleapis.com/discovery/v1/apis/container/v1/rest</a></td><td>Containers, pods, clusters</td></tr><tr><td>Networks (as VRF Groups)</td><td>Network --&gt; VRF Groups</td><td><a href="https://www.googleapis.com/discovery/v1/apis/compute/v1/rest">https://www.googleapis.com/discovery/v1/apis/compute/v1/rest</a></td><td>Name</td></tr><tr><td>Subnets</td><td>Networks --&gt; Subnets</td><td><a href="https://www.googleapis.com/discovery/v1/apis/compute/v1/rest">https://www.googleapis.com/discovery/v1/apis/compute/v1/rest</a></td><td>Mask, name, VRF Group</td></tr><tr><td>SQL DB</td><td>&nbsp;</td><td><a href="https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest">https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest</a></td><td>Tables, instances, etc.</td></tr><tr><td>VMs</td><td>Devices --&gt; All Devices</td><td><a href="https://www.googleapis.com/discovery/v1/apis/compute/v1/rest">https://www.googleapis.com/discovery/v1/apis/compute/v1/rest</a></td><td>Type, Name, RAM, OS, CPU, cores, etc.</td></tr></tbody></table>
+| Cloud Service/Object Name | Name Where to locate in D42 | Accessed API | Information Generated |
+|----------------------------|------------------------------|--------------|-----------------------|
+| K8s (GKE) Discovery         | Devices -> Unknown           | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest), [Container API](https://www.googleapis.com/discovery/v1/apis/container/v1/rest) | Containers, pods, clusters |
+| Networks (as VRF Groups)    | Network -> VRF Groups        | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Name |
+| Subnets                     | Networks -> Subnets          | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Mask, name, VRF Group |
+| SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, etc. |
+| VMs                         | Devices -> All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, Name, RAM, OS, CPU, cores, etc. |
 
 ### Pre-requisites
 
-For Google Cloud Discovery, you will need a user account with the built-in Google Cloud Platform “Viewer” role.
+For Google Cloud Discovery, you will need a user account with the built-in Google Cloud Platform "Viewer" role.
 
 ### Configuring Google Cloud Discovery
 
-Device42 can now discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs. Begin by creating a new Google cloud discovery job: 
+Device42 can discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs.
 
-![](/assets/images/Image_12_Cloud_Disc_Google_1.png)
+To create a new Google Cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
 
-1) Create a new _"Cloud Autodiscovery"_ job from the _Discovery_, and choose _Google Cloud._
+<ThemedImage
+alt="Add Google Cloud discovery form"
+sources={{
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-cloud-autodiscovery-light.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-cloud-autodiscovery-dark.png"),
+  }}
+/>
 
-2) Browse to your Google Cloud Engine JSON keyfile. Open it in a text editor and copy the contents:
+1. Choose **Google Cloud** as the discovery **Type**.
 
-![](/assets/images/Image_13_Cloud_Disc_Google_2.png)
+2. Browse to your Google Cloud Engine JSON key. Open it in a text editor and copy the contents:
 
-3) Paste the copied JSON in its entirety into the password field:
+![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
 
-![](/assets/images/Image_14_Cloud_Disc_Google_3.png)
+3. Paste the copied JSON in its entirety into the **Credentials JSON** field:
 
-4) Save and run your job! Optionally, create a schedule to run it automatically!
+<ThemedImage
+alt="Add JSON as new Secret"
+sources={{
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-light.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-dark.png"),
+  }}
+/>
 
-_Data discovered on the Google Cloud Platform is similar to what you might be used to on AWS EC2 instances, namely:_
+4. Save and run your job. Optionally, create a schedule to run it automatically.
 
-- Discovered Google Cloud VMs are added as virtual devices
-- Cloud information is added inline in Device42 for each CI
+Data discovered on the Google Cloud Platform is similar to what you might be familiar with on AWS EC2 instances, namely:
+
+- Discovered Google Cloud VMs are added as virtual devices.
+- Cloud information is added inline in Device42 for each CI.
 
 **Options for GCE are as follows:**
 
-- Select Kubernetes Discovery to discover Kubernetes clusters hosted on your cloud platform.
+- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
 
-![](/assets/images/K8s-Discovery-Option_AWSAzureGoogle.png)
+<ThemedImage
+alt="Kubernetes Discovery option"
+sources={{
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-light.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-dark.png"),
+  }}
+  style={{ width: '70%' }}
+/>
 
-- Strip Domain Name: Strip domain name from discovered name (everything after the first period)
-- Object category for discovered devices: Choose a category to assign to discovered devices
-- Overwrite existing object categories: Select this option to overwrite any previously assigned categories with current selection
+- **Strip Domain Name:** Strip the domain name from the discovered name (everything after the first period).
+- **Object category for discovered devices:** Choose a category to assign to discovered devices.
+- **Overwrite existing object categories:** Select this option to overwrite any previously assigned categories with the current selection.
 
 **Service Level Option**
 
@@ -50,7 +80,7 @@ You can set the **Service Level** (for example, "Development", "Deployment", or 
 
 ### GCP Account Tags
 
-Select your Google cloud account from the list page under **Infrastructure > Cloud Infrastructure > Cloud Accounts**.
+Select your Google Cloud account from the list page under **Infrastructure > Cloud Infrastructure > Cloud Accounts**.
 
 If available, the discovered account-level tags will be listed under the **Vendor Custom Fields** section.
 
