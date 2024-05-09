@@ -1,0 +1,96 @@
+---
+title: "Assets"
+sidebar_position: 5.5
+---
+
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+Assets are useful for tracking items that may not be directly discoverable. Like devices in Device42, assets can be racked, support lifecycle events, and assigned parts. However, assets do not consume licenses.
+
+You can search, view, add, and edit assets from the list page under **Resources > All Assets**. 
+
+## Adding Assets
+
+From the assets list page, click the **+ Add Asset** button to create a new asset.
+
+<ThemedImage
+  alt="Assets list page"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/assets-list-page-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/assets-list-page-dark.png"),
+  }}
+/>
+
+### Asset Types
+
+Choose an asset **Type** from the dropdown menu or create a custom asset type by clicking **+** to the right. Different options in the add asset form will be available depending on the asset **Type** you select.
+
+<ThemedImage
+  alt="Assets Types menu"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/asset-type-list-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/asset-type-list-dark.png"),
+  }}
+/>
+
+Name your custom asset type. If you want to associate assets of this new type to devices, check the **Asset Device Relation** checkbox. Designate the types of locations that assets of this type will be assigned to (**Storage Room**, **Server Room**, **Building**, and **Rack**).
+
+<ThemedImage
+  alt="Create a custom asset type"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/custom-type-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/custom-type-dark.png"),
+  }}
+  style={{ width: "80%" }}
+/>
+
+### Asset Lifecycle
+
+Add the **Date** and choose the lifecycle **Event**. Optionally, add an **End User**, any **Notes**, and a comma-separated list of **Tags** to categorize the lifecycle event.
+
+<ThemedImage
+  alt="Asset lifecycle box"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/asset-lifecycle-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/asset-lifecycle-dark.png"),
+  }}
+/>
+
+### Rack Info
+
+Depending on the selected asset **Type**, the **Rack Info** box will be available.
+
+<ThemedImage
+  alt="Asset Rack Info box"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/rack-info-box-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/rack-info-box-dark.png"),
+  }}
+/>
+
+## Asset Actions
+
+The action menu has options to delete, export, and update assets. You can also **Generate QR/Barcodes for selected Items** for asset management.
+
+Select one or several assets from the table, and select an action from the menu:
+- Delete with Detailed Confirmation
+- Fast Background Delete
+- Export Selected Items
+- Set Object Category
+- Delete category assets
+- Change Customer
+- Assign asset # to selected items
+- Assign lifecycle state to selected Items
+- Generate QR/Barcodes for selected Items
+- Add tags to selected items
+  
+Click the **hammer icon** to execute the selected action. 
+
+<ThemedImage
+  alt="Asset Actions menu options"
+  sources={{
+    light: useBaseUrl("/assets/images/assets-page/assets-actions-menu-light.png"),
+    dark: useBaseUrl("/assets/images/assets-page/assets-actions-menu-dark.png"),
+  }}
+/>
