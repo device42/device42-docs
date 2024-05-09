@@ -6,9 +6,9 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Software License Management (SLM) module enables Device42 users to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machines or instances across the entire IT infrastructure.
+The Software License Management (SLM) module you to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machines or instances across your entire IT infrastructure.
 
-Easily create and manage software licensing models, and Device42 will automatically scan Windows and Linux machine instances for software - running or not. The SLM module can compare counts of running instances against purchased/licensed counts, and can also detect prohibited software - all without any need for agents. There is absolutely no need to install software agents on each machine that you require monitored!
+Easily create and manage software licensing models, and Device42 will automatically scan Windows and Linux machine instances for software; whether running or not. The SLM module can compare counts of running instances against purchased or licensed counts, and can detect prohibited software, without any need for agents. There is absolutely no need to install software agents on each machine that you require monitoring on!
 
 :::tip
 In Device42, the terms "Software Component", "Software Executable", and "Executable" are synonymous, and are used interchangeably.
@@ -16,7 +16,7 @@ In Device42, the terms "Software Component", "Software Executable", and "Executa
 
 ## Discovering Software Components
 
-When adding a new discovery (or editing an existing one) via **Discovery > Hypervisors / \*nix / Windows** you will see the following screen:
+When adding a new discovery (or editing an existing one) under **Discovery > Hypervisors / \*nix / Windows**, you will see the following:
 
 <ThemedImage
   alt="Add discovery job"
@@ -26,7 +26,7 @@ When adding a new discovery (or editing an existing one) via **Discovery > Hyper
   }}
 />
 
-Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to auto-discover software on the Windows and Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s).
+Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to auto-discover software on Windows and Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s) provided.
 
 <ThemedImage
   alt="The Discover Software option"
@@ -259,36 +259,12 @@ The **CPU count virtual** field defines how software found on virtual machines i
 
 ## Alerts and Notifications
 
-### Add an Alert
+Set up software alerts by navigating to **Analytics > Setup Alerts** and selecting **Software** as the **Rule Type**. You can view the alerts that were triggered under **Analytics > Notifications**.
 
-You can set up software alerts by navigating to **Analytics > Setup Alerts** and selecting **Software** as the **Rule Type**.
+See [**Software Licensing Alerts and Notifications**](software-licensing-alerts-and-notifications.md) for details.
 
-You can add an alert to email the address(es) specified under the **Escalation Profile** option. In this example, whenever the percentage of the licenses used for any software component exceeds 85% for the selected software, those on "Alert Group 1" will get an email. 
-
-<ThemedImage
-  alt="Add alert example"
-  sources={{
-    light: useBaseUrl('/assets/images/software-license-management/add-software-alert-light.png'),
-    dark: useBaseUrl('/assets/images/software-license-management/add-software-alert-dark.png'),
-  }}
-/>
-
-### Received Notifications  
-
-Triggered Device42 notifications are listed in the notifications list view under **Analytics > Notifications**. An email will only be sent once and the alert will only appear once as a notification for a given software component. 
-
-<ThemedImage
-  alt="Notification list view and actions"
-  sources={{
-    light: useBaseUrl('/assets/images/software-license-management/alert-list-menu-action-light.png'),
-    dark: useBaseUrl('/assets/images/software-license-management/alert-list-menu-action-dark.png'),
-  }}
-/>
-
-Alerts are acknowledged by selecting the alerts and using the **Acknowledge Notification** bulk action. Acknowledgment is a groupware function that enables one sysadmin to notify other sysadmins that the alert is being worked on.
-
-Notifications can be “cleared” by selecting the condition(s) and choosing the **Clear Condition** bulk action. Clearing notifications indicate that the trigger condition has been dealt with. Each cleared action in the **Cleared** column has a green checkmark. Note that if that condition is detected again, another email will be sent and another notification record will be created.
+For more details on alerts and notifications in Device42, including how to configure custom alert emails, visit [**Setup Alerts and Notifications**](/reports/reports/setup-alerts-and-notifications.mdx).
 
 ## Licensing
 
-The software licensing module is licensed as an add-on to the core product. You can contact us about the pricing on the [Device42 website](https://www.device42.com/contact/).
+The software licensing module is licensed as an add-on to the core product. You can contact us about the pricing from the [Device42 website](https://www.device42.com/contact/).

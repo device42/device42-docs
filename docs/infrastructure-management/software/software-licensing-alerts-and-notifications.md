@@ -3,46 +3,69 @@ title: "Software Licensing Alerts and Notifications"
 sidebar_position: 2
 ---
 
-To create software license alerts, navigate to Reports>>Setup Alerts and Notifications. To add an alert, click the Add button and you will see...
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Alerts
+Set up alerts to trigger an email and Device42 notification, or have data sent to a third-party application when a software condition you define occurs. 
 
-![Alerts](/assets/images/media_1432042421024.png)
+Alerts that have been triggered are called notifications. Manage notifications to indicate the action status taken to resolve the trigger condition to the rest of your team. 
 
-In the example above, we've created a rule that will trigger an alert if any software component reaches more than 80% of the available licenses. When the condition is detected, an email will be sent to Sam Smith and Bill Williams (more than 2 addresses is also supported).
+## Create Alerts
 
-![](/assets/images/media_1432042599978.png)
+Set up a software alert by navigating to **Analytics > Setup Alerts** and selecting **Software** as the **Rule Type**.
 
-Three rule types are available for software licensing:
+Three **Trigger** types are available for software licensing. You can create a rule based on:
+- **Count:** The absolute number of licenses.
+- **License Percent Used:** The percentage of available licenses used.
+- **Prohibited Software Installed**
 
-Individual Software: A rule can be defined for an individual software component that is based on the absolute number of licenses in use or on the percent of available licenses. This rule requires selection of one or more specific software components and will only trigger if the rule applies to one of the selected software components.
+<ThemedImage
+  alt="Software alert trigger options"
+  sources={{
+    light: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/trigger-options-light.png'),
+    dark: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/trigger-options-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-Any Software: A rule can be defined for all software components that is based on the absolute number of licenses in use or on the percent of available licenses. This rule will trigger if the rule applies to any software component.
+Emails will be sent out to the address(es) specified under the **Escalation Profile** option. For example, whenever the percentage of the licenses used for any software component exceeds 85% for the selected software, those in "Alert Group 1" be notified by email. 
 
-### Notifications
+Select the **Apply To: All** checkbox to set the alert condition on all software components. Or search for specific software under **Available objects** and move them to **Chosen objects** using the right arrow button.
 
-![Notifications](/assets/images/media_14320410842481.png)
+<ThemedImage
+  alt="Add alert example"
+  sources={{
+    light: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/add-software-alert-light.png'),
+    dark: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/add-software-alert-dark.png'),
+  }}
+/>
 
-Each alert rule that triggers will create a notification. A list of notifications can be found by navigating to Reports>>Notifications.
+## Manage Notifications  
 
-As shown above, software licensing alerts are shown alongside power/environmental and alerts from autodiscovery jobs.
+Each alert rule that triggers will create a notification. Notifications for all rule types are listed under **Analytics > Notifications**. 
 
-![](/assets/images/media_14320414659181.png)
+An email will only be sent once and the alert will only appear as a notification once for the chosen software components. 
 
-Bulk actions are available for alerts.
+<ThemedImage
+  alt="Notification list view and actions"
+  sources={{
+    light: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/alert-list-menu-action-light.png'),
+    dark: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/alert-list-menu-action-dark.png'),
+  }}
+/>
 
-Delete selected Notifications: Delete the selected notifications. If the condition recurs, a new alert and notification will be created.
+### Bulk Actions
 
-Export selected items to CSV: Create a CSV file with the notifications.
+Bulk actions are available for notifications under the **Select an action** dropdown menu. Select notifications from the table, choose one of the following actions, and click the **hammer icon** to execute the action.
 
-Acknowledge alert: The purpose of this bulk action and of the corresponding Acknowledged column on this list page is to accomodate the case where multiple system administrators receive the alert. One system administrator can acknowledge the alert indicating that he/she is working on the issue.
+**Delete:** Choose between deleting the selected notifications after confirmation or immediately. If the condition reoccurs, a new alert and notification will be created.
 
-Clear conditions: The purpose of this bulk action is to indicate to Device42 that the condition has been fixed and that a new alert and notification should be created if the condition recurs. Please note that only one notification will be sent until the condition is marked as cleared.
+**Export Selected Columns as CSV:** Create a CSV file with selected notifications.
 
-![](/assets/images/media_14320413095311.png)
+**Acknowledge Notification:** The purpose of this bulk action and the corresponding **Acknowledged** column is to accommodate the case where multiple system administrators receive the alert. One system administrator can acknowledge the alert indicating that they are working on the issue.
 
-There are also
+**Clear Conditions:** The purpose of this bulk action is to indicate to Device42 that the condition has been fixed and that a new alert and notification should be created if the condition recurs. Each cleared action in the **Cleared** will have a green checkmark. Please note that only one notification will be sent until the condition is marked as cleared.
 
-### Licensing
+## Licensing
 
-The software licensing module is licensed as an add-on to the core product. You can find the pricing on the Device42 website.
+The software licensing module is licensed as an add-on to the core product. You can contact us about the pricing from the [Device42 website](https://www.device42.com/contact/).
