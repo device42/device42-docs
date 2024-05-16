@@ -72,7 +72,7 @@ You'll see a message indicating a successful upload.
 
 ### View the Uploaded Data
 
-Navigate to **Infrastructure > Buildings** and find the two buildings listed in the table. You can click on a building name to view its details edit, or add more information to it.
+Navigate to **Infrastructure > Buildings** and find the two buildings listed in the table. You can click on a building name to view its details, edit, or add more information to it.
 
 <ThemedImage
   alt="Buildings list page with new data"
@@ -120,4 +120,4 @@ A good order for uploading objects to Device42 is the following:
 
 ## Next Steps
 
-Next, we encourage you to follow the [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md) tutorial. Browse through the documentation for more detailed information on the various Device42 features.
+Next, we encourage you to follow the [Navigating the Device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md) tutorial. Browse through the documentation for more detailed information on the various Device42 features.
