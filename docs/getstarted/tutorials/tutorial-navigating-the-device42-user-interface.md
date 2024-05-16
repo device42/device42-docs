@@ -3,116 +3,199 @@ title: "Tutorial:  Navigating the Device42 User Interface"
 sidebar_position: 3
 ---
 
-![Populated D42 Dashboard](/assets/images/d42_dashboard_v15.png)
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-At this point, you should have data in your Device42 system from following one of the two "Loading Data" tutorials provided. If you go to the Device42 Home Page by clicking the 'Home' button on the menu bar, you will see the Dashboard above if you followed the [Spreadsheets tutorial](/getstarted/tutorials/device42-tutorial.mdx) and you will see a Dashboard with more objects if you followed the [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.md).
+## Prerequisites
 
-In either case, let's take a tour through what we've created.
+This tutorial uses sample data added to the Main Appliance from the [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.md). You can still follow along if you have at least one building record that includes a room with related rack CIs (Configuration Objects).
 
-Let's click on the Buildings hyperlink...
+## Dashboard View
 
-![Select building to view](/assets/images/select_building_to_view_long.png)
+On the home page of the Main Appliance, you'll see your dashboard below the notification summary. The dashboard provides summary information and statistics of the items added or discovered by Device42. Select a dashboard option that displays the most useful information for you from the dropdown menu.
 
-Let's click on 'New Haven DC'...
+<ThemedImage
+    alt="Select dashboard"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/select-dashboard-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/select-dashboard-dark.png'),
+    }}
+/>
 
-![View New Haven bldg](/assets/images/view_bldg_new_haven.png)
+If you've followed the [spreadsheets tutorial](/getstarted/tutorials/device42-tutorial.mdx), [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.md), or run an autodiscovery job, your dashboard statistics will reflect the new CIs. 
 
+<ThemedImage
+    alt="Classic Dashboard list view link"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/dashboard-stats-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/dashboard-stats-dark.png'),
+    }}
+/>
+
+Click on the building count, or navigate to **Infrastructure > DataCenter > Buildings** to go to the buildings list view. 
+
+<ThemedImage
+    alt="Buildings list view"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/buildings-list-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/buildings-list-dark.png'),
+    }}
+/>
+
+Click on the **New Haven DC** building, scroll down, and select the **NHDC1** room.
+
+<ThemedImage
+    alt="New Haven DC example"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/ellipsis-button-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/ellipsis-button-dark.png'),
+    }}
+/>
  
 
-And let's click on the _Room Layout_ button:
+Click the ellipsis button on the **NHDC1** room page and select **Room Layout**.
 
-![Room layout button](/assets/images/view_room_layout.png)
-
+<ThemedImage
+    alt="Room Layout button"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/new-haven-example-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/new-haven-example-dark.png'),
+    }}
+/>
  
 
-### Room Layout View
+## Room Layout View 
 
-![Room layout view](/assets/images/room_layout_view.png)
+This is the room layout view. Here we can view the racks and their layout in a room.
 
- 
+<ThemedImage
+    alt="Room Layout view"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/room-layout-example-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/room-layout-example-dark.png'),
+    }}
+/>
 
-This is the room layout view. Here we can view the racks and their layout in a room. Notice that some racks are colored yellow and some are red -- while the others are colored green. **Green** means the _racks are empty and have lots of room_ to accomodate new devices. **Yellow** means _the rack has devices but there is still plenty of room_. **Red** indicates that the _rack is full_. There are 5 colors available and the colors can be assigned in Tools / Settings / Global Settings.
 
-If you have the **DCM Power Module** , you will also see options for power and temperature heat maps.
+Under the **Display Options**, you can choose which text and color coding to apply to the layout:
+- **Rack Display:** Choose the text to include on the rack labels.
+- **Rack Color:** Choose between the usage or temperature heatmaps or select a [custom field](/administration/custom-key-value-pairs-explained.mdx). 
 
-Now let's hover over rack NH-DC1-04...
+:::info
+See [Buildings and Rooms](/infrastructure-management/buildings-rooms-and-racks/buildings-and-rooms/#room-layout-view.mdx) for information on editing room layouts.
+:::
 
-![mouseover rack hover popup](/assets/images/mouse_hover_over_rack.png)
+If you have the **DCM Power Module**, you will also see options for power and temperature heat maps.
 
- 
+Now hover over rack **NH-DC1-04** example.
 
-When you do this, you will see a hover box with detailed information about the rack.
+<ThemedImage
+    alt="Room Layout view"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/nhdc1-hover-box-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/nhdc1-hover-box-dark.png'),
+    }}
+/>
 
-Now let's click 'View RA1 layout'...
+When you do this, you will see a hover box with detailed information about the rack. Now, click on the **View NH-DC1-04 Layout** link to go to the rack layout view.
 
- 
-
-### Rack Layout View
-
-![rack layout view](/assets/images/rack_layout_view.png)
+## Rack Layout View
 
 Here you see an image of the front of the rack on the left and the back of the rack on the right.
 
+:::tip
+If you want to add a new rack with the kind of information shown below, navigate to **Infrastructure > Racks** and click **+ Add Rack** on the right of the Racks list page.
+:::
+
+<ThemedImage
+    alt="Rack Layout view"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/rack-layout-view-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/rack-layout-view-dark.png'),
+    }}
+/>
+
 As with the room layout view, if you have the DCM Power Module, you will see options for power and temperature heat maps.
 
-Notice while hovering over the 'NHCTCC01' device, we not only see the details about the device itself, but because the device is a blade chassis, you also see hyperlinks that will take you to the details page for each of the individual blades in chassis NHCTCC01.
+While hovering over the "NHCTCC01" device, you can see details about the device itself, and because the device is a blade chassis, you also see hyperlinks that will take you to the details page for each of the individual blades in chassis NHCTCC01.
 
-If you click 'View Toplogy', you will see a visual diagram of the physical and virtual machines and the applications they support....
+Now click the **View Topology** link on the bottom right.
 
- 
+## Topology Charts
 
-### Impact Charts
+The topology impact chart is a diagram of the physical and virtual machines and the applications they support.
 
-![View topology impact chart](/assets/images/impact_chart_topology_view.png)
+<ThemedImage
+    alt="Topology example"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/topology-example-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/topology-example-dark.png'),
+    }}
+/>
 
- 
+This is a fairly simple example but they can get quite complex. These impact charts are very useful for assessing the impact of losing a particular server. This can be helpful during business continuity planning or when trying to track down a root cause during a production outage.
 
-This is a fairly simple example but they can get quite complex. These impact charts are very useful for assessing the impact of losing a particular server. This can be helpful during business continuity planning and/or when trying to track down root cause during a production outage.
+## The List View
 
- 
+Please go to **Resources > All Devices** to view all your devices. 
 
-![](/assets/images/wpid3603-media_1375389640738.png)
+All Device42 objects have a list view. The add, filter, search, and action tools are common to all Device42 objects.
 
-Similar to the blade chassis, if a device host virtual machines, you will see hyperlinks to each virtual machine.
+<ThemedImage
+    alt="Devices list view"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/devices-list-view-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/devices-list-view-dark.png'),
+    }}
+/>
 
-Now, let's learn how to edit data. Please go to _Devices --> All Devices..._
+On the right side of the screen, you see a button to add a device (1). 
 
- 
+You'll see several filters that can be applied to reduce the size of the list (2). You can filter by device type, hardware model, OS, and more. If you have hundreds or thousands of devices, these filters can be very useful. 
 
-### Viewing and Editing Data: The List View
+Similarly, there is a search box for filtering the list (3). If I type "nh-demo" into the search box, the list will filter down to just the devices that contain the string "nh-demo". 
 
-![view all devices overview](/assets/images/view_all_devices.png)
+There is an action bar for bulk operations, like deleting items (4).
 
- 
+## Bulk Actions
 
-Here you see a list view of all your devices. On the right side of the screen you see a button to add a device. Below the add button, you see a number of filters that can be applied to reduce the size of the list. You can filter by device type, hardware model, OS, and so on. If you have hundreds or thousands of devices, these filters can be very useful. Similarly, there is a search box for filtering the list. If I type 'nh-demo' into the search box, the list will filter down to just the devices that contain the string 'nh-demo'. Last, there is an action bar for bulk operations such as delete (more on this later).
+<ThemedImage
+    alt="Bulk actions dropdown"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/device-actions-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/device-actions-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+/>
 
-All Device42 objects have a list view. The Add, Filter, Search, and Action tools are common to all Device42 objects. Add and Search will be present on all object list pages. Filter and Action will be present for most objects.
+Click the **Select and action** dropdown menu to see several bulk action choices. You can delete the selected devices or perform any of the actions in the dropdown on the selected devices. To execute the selected action, and select one or more devices and click the **hammer icon**.
 
-### Bulk Actions
+You will find bulk actions on most Device42 objects, but the options will vary for each object.
 
-![bulk actions dropdown](/assets/images/bulk_actions_dropdown.png)
+## Detail View
 
-If you highlight one or more devices and then click the Action pulldown, you will see a number of bulk action choices. You can delete the selected devices or perform any of the actions in the dropdown on the selected devices.
+All objects in Device42 have a list view, a detail View, and an edit View. Most objects also have a **History (Audit Logs)** button that shows a history of changes to the object.
 
-You will find bulk actions on most Device42 objects. Of course, the options will vary for each object.
+Click a device name to view its details. We clicked device "08-upload-2-229". The detail view contains a great deal of information about the Device. 
 
-Next, click the a device hyperlink to see the Detail View for that device... We clicked device '08-upload-2-229':
+<ThemedImage
+    alt="View device details"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/view-device-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/view-device-dark.png'),
+    }}
+/>
 
-### Detail View
+There are a set of buttons on the top right corner of the view. Click the **Edit** button to open up the fields for editing and additions. Click the **ellipsis icon** for related view options, including the **Impact Chart** option we saw above.
 
-![device detail view overview](/assets/images/detail_view_overview.png)
+Scroll down for tabs that open subpages of data for the device.
 
-The Detail View contains a great deal of information about the Device. A number of fields are cut out in the middle of image above to make it readable but you should be able to see them all on your screen if you are following along.
+<ThemedImage
+    alt="Device view tabs"
+    sources={{
+        light: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/device-tabs-light.png'),
+        dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/device-tabs-dark.png'),
+    }}
+/>
 
-Notice that there are 4 tabs of data (highlighted by the #1 red circle). Clicking on a tab brings you to another page of data for the device.
-
-There are also a set of Action Buttons (highlighted by the #2 red circle). The Edit button takes you to the Edit View for the device. The Edit View has the same information as the Detail View (including the tabs); however, the fields are editable.
-
-The History button takes you to an audit trail of the views and changes for this device. The Impact Chart brings up the impact chart we saw above. The Passwords button brings you to a List View for the password(s) for this device.
-
-All objects in Device42 have a List View, a Detail View, and an Edit View. Most also have a History button that shows the audit trail.
-
- 
-
-We've now reached the end of this tutorial. We'd like to encourage you browse through the documentation for more detailed information on the various Device42 features.
+We've now reached the end of this tutorial. We'd like to encourage you to browse through the documentation for more detailed information on the various Device42 features.
