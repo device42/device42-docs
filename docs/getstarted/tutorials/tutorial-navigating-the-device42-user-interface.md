@@ -12,7 +12,7 @@ This tutorial uses sample data added to the Main Appliance from the [API tutoria
 
 ## Dashboard View
 
-On the home page of the Main Appliance, you'll see your dashboard below the notification summary. The dashboard provides summary information and statistics of the items added or discovered by Device42. Select a dashboard option that displays the most useful information for you from the dropdown menu.
+On the home page of the Main Appliance, you'll see your dashboard below the notification summary. The dashboard provides summary information and statistics for items added or discovered by Device42. Select a dashboard option that displays the most useful information for you from the dropdown menu.
 
 <ThemedImage
     alt="Select dashboard"
@@ -77,9 +77,9 @@ This is the room layout view. Here we can view the racks and their layout in a r
 />
 
 
-Under the **Display Options**, you can choose which text and color coding to apply to the layout:
+Under **Display Options**, you can choose which text and color coding to apply to the layout:
 - **Rack Display:** Choose the text to include on the rack labels.
-- **Rack Color:** Choose between the usage or temperature heatmaps or select a [custom field](/administration/custom-key-value-pairs-explained.mdx). 
+- **Rack Color:** Choose between the usage or temperature heatmaps, or select a [custom field](/administration/custom-key-value-pairs-explained.mdx). 
 
 :::info
 See [Buildings and Rooms](/infrastructure-management/buildings-rooms-and-racks/buildings-and-rooms/#room-layout-view.mdx) for information on editing room layouts.
@@ -87,7 +87,7 @@ See [Buildings and Rooms](/infrastructure-management/buildings-rooms-and-racks/b
 
 If you have the **DCM Power Module**, you will also see options for power and temperature heat maps.
 
-Now hover over rack **NH-DC1-04** example.
+Now hover over the rack **NH-DC1-04** example.
 
 <ThemedImage
     alt="Room Layout view"
@@ -137,7 +137,7 @@ This is a fairly simple example but they can get quite complex. These impact cha
 
 ## The List View
 
-Please go to **Resources > All Devices** to view all your devices. 
+Go to **Resources > All Devices** to view all your devices. 
 
 All Device42 objects have a list view. The add, filter, search, and action tools are common to all Device42 objects.
 
@@ -153,7 +153,7 @@ On the right side of the screen, you see a button to add a device (1).
 
 You'll see several filters that can be applied to reduce the size of the list (2). You can filter by device type, hardware model, OS, and more. If you have hundreds or thousands of devices, these filters can be very useful. 
 
-Similarly, there is a search box for filtering the list (3). If I type "nh-demo" into the search box, the list will filter down to just the devices that contain the string "nh-demo". 
+Similarly, there is a search box for filtering the list (3). If you type "nh-demo" into the search box, the list will filter down to just the devices that contain the string "nh-demo". 
 
 There is an action bar for bulk operations, like deleting items (4).
 
@@ -168,15 +168,15 @@ There is an action bar for bulk operations, like deleting items (4).
     style={{ width: '70%' }} 
 />
 
-Click the **Select and action** dropdown menu to see several bulk action choices. You can delete the selected devices or perform any of the actions in the dropdown on the selected devices. To execute the selected action, and select one or more devices and click the **hammer icon**.
+Click the **Select and action** dropdown menu to see several bulk action choices. You can delete the selected devices or perform any of the actions in the dropdown on the selected devices. To execute the selected action, select one or more devices and click the **hammer icon**.
 
 You will find bulk actions on most Device42 objects, but the options will vary for each object.
 
 ## Detail View
 
-All objects in Device42 have a list view, a detail View, and an edit View. Most objects also have a **History (Audit Logs)** button that shows a history of changes to the object.
+All objects in Device42 have a list view, a detail view, and an edit view. Most objects also have a **History (Audit Logs)** button that shows a history of changes to the object.
 
-Click a device name to view its details. We clicked device "08-upload-2-229". The detail view contains a great deal of information about the Device. 
+Click a device name to view its details.  
 
 <ThemedImage
     alt="View device details"
@@ -186,7 +186,7 @@ Click a device name to view its details. We clicked device "08-upload-2-229". Th
     }}
 />
 
-There are a set of buttons on the top right corner of the view. Click the **Edit** button to open up the fields for editing and additions. Click the **ellipsis icon** for related view options, including the **Impact Chart** option we saw above.
+Notice the set of buttons on the top right corner of the view. Click the **Edit** button to open up the fields for editing and additions. Click the **ellipsis icon** for related view options, including the **Impact Chart** option we saw above.
 
 Scroll down for tabs that open subpages of data for the device.
 
@@ -198,4 +198,4 @@ Scroll down for tabs that open subpages of data for the device.
     }}
 />
 
-We've now reached the end of this tutorial. We'd like to encourage you to browse through the documentation for more detailed information on the various Device42 features.
+Browse through the documentation for more detailed information on the various Device42 features.
