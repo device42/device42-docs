@@ -17,7 +17,7 @@ sidebar_position: 12
 
 The Freshservice API, by default, is limited to 1000 API calls per hour. To process a single asset, multiple API calls are made. While we do our best to work with the default limit, if for any reason sync times are inconvenient, please contact Freshworks to increase your API limit. They will increase this limit but on a need case basis.
 
-To integrate the File System (FS) with Device42, setting up the Device42 Cloud Connector is a prerequisite. The Cloud Connector acts as a bridge between the File System and Device42.
+To integrate Freshservice with Device42, setting up the Device42 Cloud Connector is a prerequisite. The Cloud Connector acts as a bridge between Freshservice and Device42.
 
 ## Get Freshservice API Token
 
