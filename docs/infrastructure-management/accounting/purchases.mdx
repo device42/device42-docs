@@ -1,0 +1,124 @@
+---
+title: "Purchases"
+sidebar_position: 1
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+
+Device42 can track purchases of devices and assets including service and warranty contracts. 
+
+### Add a Purchase
+
+To add a new purchase, navigate to **Infrastructure > Purchases** and click **+ Add Purchase**.
+
+This example is for a hypothetical purchase of 25 Dell PE1950 servers for the R&D department charged to **Cost Center** 12056:
+- To populate the **Total cost for non-recurring line items** value, fill in the **Quantity** and **Unit cost** details for the first line item and click **Save and continue editing**.
+- You can attach a PDF of the purchase contract by clicking **+ Add another File Attachment** and browsing to the file.
+
+<ThemedImage
+  alt="Add a new purchase"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/add-purchase-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/add-purchase-dark.png'),
+  }}
+  style={{ width: '110%' }} 
+/>
+
+### Line Items 
+
+Each line item for the purchase will have a **Line Type** and an **Item Type**.
+
+For **Line Type** choose **Contract** for service, warranty, and other contracts and choose **Device/Asset/Tax etc.** for everything else.
+    
+<ThemedImage
+  alt="Line item options"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/line-type-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/line-type-dark.png'),
+  }}
+  style={{ width: '35%' }} 
+/>
+
+The **Item Type** has a list of selections that can apply to either Line Type. For example, if the Line Type is **Device/Asset/Tax etc.**, choosing **Device** for the Item Type means that this line represents one or more devices. 
+
+If a service contract is purchased for each device, you can include a second line item with a Line Type of Contract and Item Type of Device to represent the service contracts for the purchased devices.
+
+<ThemedImage
+  alt="Item type options"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/item-type-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/item-type-dark.png'),
+  }}
+  style={{ width: '25%' }} 
+/>
+
+Here is a full view of the both line items:
+
+<ThemedImage
+  alt="Line item 1 example"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/line-item-1-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/line-item-1-dark.png'),
+  }}
+  style={{ width: '110%' }} 
+/>
+<ThemedImage
+  alt="Line item 1 example"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/line-item-2-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/line-item-2-dark.png'),
+  }}
+  style={{ width: '110%' }} 
+/>
+
+A few things to note:  
+1. If the **Line Type** is **Contract** a set of extra fields like **Frequency** will become available.  
+2. You can assign a **Cost Center** and **Customer** at either the purchase header level (applies to all line items) or the individual line item level.  
+3. You can associate the actual devices purchased with the line item. This can be done at the time of purchase or a later date.
+
+## Reporting
+
+:::info
+If you are looking for other types of reports, see the dedicated [Reports section](/reports/reports/index.md).
+:::
+
+You can generate different kinds of purchase reports. Standard Reports display data in tabular format. Advanced Reporting displays data in a tabular format (ExpressView or ExpressReport) and has options for visual items like charts, maps, gauges, and dashboards.  
+
+The [Insights+](https://www.device42.com/insights-plus/) option, located on the menu bar, offers powerful features for interpreting your data. See the [Insights+ documentation](/reports/reports/insights-plus.mdx) for more information.
+
+<ThemedImage
+  alt="Reports menu"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/reports-menu-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/reports-menu-dark.png'),
+  }}
+  style={{ width: '85%' }}
+/>
+
+### Standard Reports
+
+Navigate to **Analytics > Standard Reports** and click **Add Report**. Select **Purchases** or **Purchase Line Items** from the **Select Object** dropdown menu to reveal related options for configuring your purchases report. Like the other reports, you can schedule and email the report results.
+
+<ThemedImage
+  alt="Create new Standard Report"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/new-standard-report-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/new-standard-report-dark.png'),
+  }}
+  style={{ width: '85%' }}
+/>
+
+### Advanced Reporting
+
+Device42 features an [Advanced Reporting](../../reports/reports/creating-reports.md) engine. Navigate to **Analytics > Advanced Reporting**, click the **plus icon** on the left, and choose **Advanced Report**. 
+
+<ThemedImage
+  alt="Create new Standard Report"
+  sources={{
+    light: useBaseUrl('/assets/images/purchases/advanced-reporting-create-light.png'),
+    dark: useBaseUrl('/assets/images/purchases/advanced-reporting-create-dark.png'),
+  }}
+  style={{ width: '85%' }}
+/>
