@@ -3,11 +3,20 @@ title: "Advanced Search Feature"
 sidebar_position: 7
 ---
 
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
 ## Advanced Search Feature
 
-Many Device42 list pages contain an Advanced Search option to help you quickly and easily find the items you want; the example below shows the Resources list page. Click _Advanced Search_ to display its _Query_ bar. (Click _Basic Filtering_ to return to the default list page.)
+Many Device42 list pages contain an advanced search option to help you quickly and easily find the items you want; the example below shows the Resources list page. Click **Advanced Search** to display its **Query** bar. Click **Basic Filtering** to return to the default list page.
 
-![](/assets/images/getting_started_advanced-search-feature.png)
+<ThemedImage
+  alt="Query bar on Resources list page"
+  sources={{
+    light: useBaseUrl("/assets/images/advanced-search-feature/query-bar-light.png"),
+    dark: useBaseUrl("/assets/images/advanced-search-feature/query-bar-dark.png"),
+  }}
+/>
 
 Advanced search lets you enter search criteria based on the columns on the list page. The basic search syntax is:
 
@@ -19,19 +28,43 @@ When you first click in the Advanced Search Query bar, Device42 displays a list 
 
 After selecting a column, a list of available operators for that column type will be suggested.
 
-![Operator suggestions](/assets/images/advanced-search/operator-suggestions.png)
+<ThemedImage
+  alt="Operator suggestions"
+  sources={{
+    light: useBaseUrl("/assets/images/advanced-search-feature/available-operators-light.png"),
+    dark: useBaseUrl("/assets/images/advanced-search-feature/available-operators-dark.png"),
+  }}
+/>
 
 As a reminder to enclose values within parentheses for [`in`, `not in`](#in-and-not-in), [`contains`](#contains), and [`not contains`](#not-contains) operators, an open parenthesis `(` will be suggested.
 
-![Parenthesis syntax](/assets/images/advanced-search/parenthesis-suggestion.png)
+<ThemedImage
+  alt="Parenthesis syntax"
+  sources={{
+    light: useBaseUrl("/assets/images/advanced-search-feature/parenthesis-syntax-light.png"),
+    dark: useBaseUrl("/assets/images/advanced-search-feature/parenthesis-syntax-dark.png"),
+  }}
+/>
 
 In the case of the [`=` operator](#equals), put values in double quotation marks and use the special `EMPTY` keyword to represent a ‘null’ or ‘blank’ value. 
 
-![Values syntax](/assets/images/advanced-search/value-syntax.png)
+<ThemedImage
+  alt="Values syntax"
+  sources={{
+    light: useBaseUrl("/assets/images/advanced-search-feature/values-syntax-light.png"),
+    dark: useBaseUrl("/assets/images/advanced-search-feature/values-syntax-dark.png"),
+  }}
+/>
 
 When using [comparator operators](#comparators), like `<` or `>`, numbers are entered without any enclosing quotation marks.
 
-![Integer suggestion](/assets/images/advanced-search/number-syntax.png)
+<ThemedImage
+  alt="Integer suggestion"
+  sources={{
+    light: useBaseUrl("/assets/images/advanced-search-feature/integer-suggestion-light.png"),
+    dark: useBaseUrl("/assets/images/advanced-search-feature/integer-suggestion-dark.png"),
+  }}
+/>
 
 ## Search Value Formatting:
 

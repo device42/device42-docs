@@ -17,7 +17,7 @@ Device42 displays the Application Component Templates list page.  On this page,
 
 ![](/assets/images/Screen-Shot-2022-08-15-at-8.10.58-AM.png)
 
-**Note**: The Application Component Templates list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](getstarted/advanced-search-feature.md) documentation page for instructions.
+**Note**: The Application Component Templates list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
 
 ![](/assets/images/WEB-757_Pic4.png)
 

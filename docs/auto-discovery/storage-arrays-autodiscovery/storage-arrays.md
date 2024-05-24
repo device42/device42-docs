@@ -17,7 +17,7 @@ Device42 displays the Storage Arrays list page. On this page, you can _Search b
 
 ![](/assets/images/Storage-arrays-filter-by-type.png)
 
-**Note**: The Storage Arrays list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](getstarted/advanced-search-feature.md) documentation page for instructions.
+**Note**: The Storage Arrays list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
 
 Click on an array _Name_ to see details about that array. You can use the links in the panel on the right to see details about that related resource.
 
