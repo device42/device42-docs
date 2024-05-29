@@ -143,7 +143,7 @@ Last, but often the most useful, list pages for permissioned objects have two ty
 
 When you create or modify an autodiscovery job, you can assign an admin group to the autodiscovery job. This governs which users can can view and/or modify the autodiscovery job. You can also add groups in bulk to multiple jobs from the list view.
 
-Within many of the autodiscovery jobs, you can also assign an object category and/or a subnet category. The object category will then be assigned to any devices, assets, or pdus discovered. The subnet category will be assigned to any discovered subnets.
+Within many of the autodiscovery jobs, you can also assign an object category and/or a subnet category. The object category will then be assigned to any discovered devices, PDUs, and other discoverable item types. The subnet category will be assigned to any discovered subnets.
 
 Warning: If you are a non-superuser and you run an autodiscovery without specifying any categories, then you may not be able to view or edit the discovered objects (because you will not have permission to see them!).
 
