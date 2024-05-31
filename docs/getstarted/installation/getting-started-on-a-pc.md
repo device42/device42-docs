@@ -3,69 +3,83 @@ title: "Getting Started on a PC"
 sidebar_position: 14
 ---
 
-## From the Start - How to Setup Device42 on a PC hypervisor
+import extract from '/assets/images/getting-started-on-a-pc/2extract.PNG'
+
+## From the Start: How to Setup Device42 on a PC Hypervisor
 
 ### Prerequisites
 
-To use Device42 you will need a hypervisor like Virtualbox, VMWare player or VMware Workstation that can manage and run virtual machine images. If you don't already have one, you can download one Virtualbox for free @ [https://www.virtualbox.org](https://www.virtualbox.org), or alternatively, get [VMware Player here](https://customerconnect.vmware.com/en/downloads/free#desktop_end_user_computing/vmware_workstation_player/15_0). 
+To use Device42 you will need a hypervisor like Virtualbox, VMWare player, or VMware Workstation that can manage and run virtual machine images. If you don't already have one, you can download one Virtualbox for free from [https://www.virtualbox.org](https://www.virtualbox.org), or get [VMware Player here](https://customerconnect.vmware.com/en/downloads/free#desktop_end_user_computing/vmware_workstation_player/15_0). 
 
-![Virtualbox Download page 2019](/assets/images/virtualbox_DL-hl-2019.png)
+![Virtualbox Download page 2024](/assets/images/getting-started-on-a-pc/virtualbox-2024.png)
 
 To install VirtualBox, open the downloaded file and double-click the "VirtualBox.pkg" icon, then you can find VirtualBox in your Applications list.
 
-![Virtualbox 6.0 Setup](/assets/images/virtualbox_setup_6.0-2019.png)
+:::caution
+Please do not set up an autodiscovery scan using critical production account credentials. Create a separate, dedicated account to use only for discovery.
 
-**Discovery Account WARNING: Please _do not_ set up an autodiscovery / scan using critical \[production\] account credentials! Please create a separate, dedicated account to use _only_ for discovery**
-
-_Depending on permissions granted & your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement._
+Depending on the granted permissions and configured password policies, using production account credentials could result in account lockout, leading to an otherwise completely avoidable outage.
+:::
 
 ### Installing Device42
 
-To download Device42, visit [Device42](https://www.device42.com/download/) and enter your name and email address. You will receive a download link in your email momentarily. Once you receive the link, download the VirtualBox version from the options given, as seen in the screenshot below: 
+To download Device42, visit [Device42](https://www.device42.com/download/) and enter your name and email address. You will receive a download link in your email momentarily. When you receive the link, download the VirtualBox version from the options given: 
 
-![Download Device42 Virtual Box OVF](/assets/images/DL_d42_HL-2019.png)
+![Download Device42 Virtual Box OVF](/assets/images/getting-started-on-a-pc/software-download.png)
 
-Once the file has downloaded, you can unzip it using 7-Zip, which is a free program available through the App store or from their website, [7-Zip](https://7-zip.org/). 
+Once downloaded, extract the file contents from the zip file. 
 
-![7-Zip installation](/assets/images/2016-01-25-get-started-pc-1.png)
+<img src={extract} width="70%"/>
 
-From VirtualBox, File menu --> Import Appliance. Browse to the .ova / .ovf file you downloaded, and follow the on-screen prompts: 
+From the VirtualBox Manager, click **Import**. 
 
-![Virtualbox Import Appliance](/assets/images/Virtualbox_file_import.png)
+![Import](/assets/images/getting-started-on-a-pc/3-import.PNG)
 
-We recommend 2GB of memory at a minimum and suggest 4GB to be sure Device42 runs smoothly. 
+Browse to the `.ova` or `.ovf` file you downloaded, and follow the on-screen prompts. Visit [Sizing Recommendations](sizing-recommendations.md) to see the minimum requirements needed to run Device42 smoothly.
 
-![Memory settings](/assets/images/2016-01-25-get-started-pc-4.png)
+![Choose file](/assets/images/getting-started-on-a-pc/4-choose-file.PNG)
 
-After choosing the hard disk you can follow through with any further default settings, but uncheck "Power on after Create" if it is selected.
+After choosing the hard disk you can follow through with any further default settings.
+
+![After import options](/assets/images/getting-started-on-a-pc/6-after-import.PNG)
 
 ### Additional VM Settings
 
-Right click on the newly created virtual machine in VirtualBox that appears on the left and choose "Settings". In the window that pops up, select the "System" tab, and then "Processor", and click the checkbox in "Extended Features" to "Enable PAE/NX":
+Right-click on the newly created virtual machine in VirtualBox that appears on the left and choose **Settings**. In the window that pops up, select the **System > Processor** tab and click the **Extended Features:** checkbox to **Enable PAE/NX**.
 
-![Enable PAE](/assets/images/2016-01-25-get-started-pc-6.png)
+![CPU settings](/assets/images/getting-started-on-a-pc/9-cpu-settings.PNG)
 
-Continuing to the "Network" tab, enable adapter 1 and set it to bridged (note, NAT will also work), and choose the physical NIC/network card you will be using. You can then click OK and close the settings window.
+Continue to the **Network** tab, and confirm that **Adapter 1** is enabled and the "Bridged adapter" or "NAT" option is selected. Then choose the **Name** of the physical NIC or network card you will be using.
 
-![Enable Network Adapter](/assets/images/2016-01-25-get-started-pc-7.png)
+![Enable Network Adapter](/assets/images/getting-started-on-a-pc/10-network.PNG)
+
+To get rid of an "Invalid settings detected" warning, change the **Display** settings to "VMSVGA": 
+
+![Choose file](/assets/images/getting-started-on-a-pc/12-graphics.PNG)
 
 ### Starting the Virtual Machine
 
-Once the VM settings have been configured you can power on the virtual appliance. If you receive an audio driver warning you can ignore it. At the login screen, the username is `device42` and the password is `adm!nd42`. Please change these when you first login under option 10.
+When the VM settings have been configured, you can power on the virtual appliance. If you receive an audio driver warning you can ignore it. At the login screen, use the username `device42` and the password `adm!nd42`. 
 
-![Device42 Console Login](/assets/images/d42-console-login-screen-v15.png)
+:::info
+Please change the default credentials when you first log in by entering option **10**.
+:::
 
-After you are logged in, you can configure your IP settings _(DHCP/Static)_ via Option 1 - **\[Please use a STATIC IP for all production Device42 VMs to avoid connectivity issues\]**
+![Device42 Console Login](/assets/images/getting-started-on-a-pc/14-login.PNG)
 
-![Device42 menu](/assets/images/20180419-getting-started-virtualbox.png)
+When you are logged in, enter **1** to configure your IP settings _(DHCP/Static)_.  Please use a **static IP** for all production Device42 VMs to avoid connectivity issues.
 
-You can apply updates and do other menu-related work using by connecting through ssh using the terminal. Please note that root login has been disabled via ssh. Last, point your browser to the address at the top of the console menu and you’re ready to go…
+![Device42 console menu](/assets/images/getting-started-on-a-pc/15-logged-in.PNG)
+
+You can apply updates and do other menu-related work by connecting via SSH in the terminal. Please note that the `root` login has been disabled via SSH. Lastly, point your browser to the address at the top of the console menu.
 
 You will receive a "Your Connection is not private" warning in your browser as you are accessing a local server that does not have a signed security certificate but it is safe to click "show advanced" in Chrome or "I understand the risks" in Firefox and proceed through to the Device42 login screen: 
 
 ![SSL Warning that you can ignore](/assets/images/2016-01-08-get-started-mac-13.png)
 
-At the login screen you can log in using the default name and password: admin/adm!nd42 and you can now start using Device42!
+Log in using the default credentials and start using Device42!
+- Name: `admin`
+- Password: `adm!nd42` 
 
 ![Device42 Web UI Login](/assets/images/v15-login-screen.PNG)
 
