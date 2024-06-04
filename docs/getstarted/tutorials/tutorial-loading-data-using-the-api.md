@@ -45,4 +45,4 @@ For example, hover over the "2nd Floor" hyperlink, and look at the lower left co
 
 ![wpid3355-media_1375697151375.png](/assets/images/wpid3355-media_1375697151375.png)
 
-We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.md). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
+We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
