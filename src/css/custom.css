@@ -26,6 +26,7 @@ main {
     rgba(233, 247, 255, 0.4) 100%
   );
   --ifm-text-color: #200264;
+
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -67,6 +68,10 @@ main {
   }
 }
 
+.navbar__logo {
+  height: 2.3rem;
+}
+
 .navbar__button {
   font-weight: 500;
   text-transform: capitalize;
@@ -85,3 +90,4 @@ main {
   text-decoration: none;
   opacity: 0.85;
 }
+

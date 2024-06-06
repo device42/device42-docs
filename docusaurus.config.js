@@ -1128,8 +1128,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'Device42 Logo',
-          src: 'img/logo.png',
-          srcDark: 'img/logo-dark.svg',
+          src: 'img/device42-fw-black.webp',
+          srcDark: 'img/device42-fw-white.webp',
         },
         items: [
           {
