@@ -3,6 +3,9 @@ title: "Getting Started on a Mac"
 sidebar_position: 13
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 import olderVbImage from '/assets/images/getting-started-on-a-mac/1-download-arm64.png'
 import openImage from '/assets/images/getting-started-on-a-mac/2-open-virtualbox.png'
 import successImage from '/assets/images/getting-started-on-a-mac/3-installation-success.png'
@@ -99,7 +102,15 @@ When you've added your exception, you'll see the login screen. Go ahead and logi
   
 At this point, you can now start using Device42!
 
-![Device42 UI Login Screen](/assets/images/d42_UI-LOGIN_SCREEN.png)
+<ThemedImage
+  alt="Device42 UI Login Screen"
+  sources={{
+    light: useBaseUrl("/assets/images/getting-started-on-a-mac/login-light.png"),
+    dark: useBaseUrl("/assets/images/getting-started-on-a-mac/login-dark.png"),
+  }}
+  style={{ width: '70%' }} 
+/>
+
 
 ## What's next?
 
