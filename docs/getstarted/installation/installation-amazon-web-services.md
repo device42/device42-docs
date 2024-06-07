@@ -5,10 +5,9 @@ sidebar_position: 9
 
 ### Overview
 
-Device42 is available on AWS, either as a manual install or through the AWS marketplace. The Device42 AWS offering involves only a single component - an EC2 instance which houses the Device42 main appliance and the Device42 appliance manager.
+Device42 is available on AWS, either as a manual install or through the AWS marketplace. The Device42 AWS offering involves an EC2 instance that houses the Device42 Main Appliance, Appliance Manager, and Remote Collector.
 
 ![AWS architecture](/assets/images/aws-architecture.png)
-
 
 ### Costs and Licensing
 
