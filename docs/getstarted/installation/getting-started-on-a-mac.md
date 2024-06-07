@@ -38,7 +38,7 @@ To download Device42, visit [Device42](https://www.device42.com/download/) and e
 
 Double click the downloaded file and unzip it.
 
-From VirtualBox, click the **Import** icon and follow the on screen prompts. 
+From VirtualBox, click the **Import** icon and follow the on-screen prompts. 
 
 ![Import button](/assets/images/getting-started-on-a-mac/8-import-button.png)
 
@@ -84,7 +84,9 @@ When you are logged in, enter **1** to configure your IP settings (DHCP/Static).
 
 ![Device42 menu](/assets/images/getting-started-on-a-mac/15-logged-in.png)
 
-You can apply updates and do other menu-related work using by connecting through SSH using the terminal. Please note that `root` login has been disabled via SSH. Last, point your browser to the address at the top of the console menu and you’re ready to go.
+You can apply updates and do other menu-related work by connecting through SSH using the terminal. Please note that `root` login has been disabled via SSH. 
+
+Finally, point your browser to the address at the top of the console menu.
 
 You will receive a "Your Connection is not private" warning in your browser because you are accessing a local server that is using a self-signed certificate. Your connection _is_ secure, and it is completely safe to click "show advanced" in Chrome or "I understand the risks" in Firefox and proceed through to the Device42 login screen.
 
@@ -96,11 +98,11 @@ On Firefox:
 
 ![](/assets/images/add_self-signed-cert-exception.png)
 
-When you've added your exception, you'll see the login screen. Go ahead and login using Device42 web UI with the default credentials:
+When you've added your exception, you'll see the login screen. Login using Device42 web UI with the default credentials:
 - Username: `admin` 
 - Password: `adm!nd42`
   
-At this point, you can now start using Device42!
+Now you can start using Device42.
 
 <ThemedImage
   alt="Device42 UI Login Screen"
