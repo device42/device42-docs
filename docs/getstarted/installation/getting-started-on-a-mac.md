@@ -3,49 +3,72 @@ title: "Getting Started on a Mac"
 sidebar_position: 13
 ---
 
-## From the Start - How to Setup Device42 from the Beginning on a Mac
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+import olderVbImage from '/assets/images/getting-started-on-a-mac/1-download-arm64.png'
+import openImage from '/assets/images/getting-started-on-a-mac/2-open-virtualbox.png'
+import successImage from '/assets/images/getting-started-on-a-mac/3-installation-success.png'
+
+## From the Start: How to Setup Device42 from the Beginning on a Mac
 
 ### Prerequisites:
 
-To use Device42 you will need a hypervisor like Virtualbox, VMWare Workstation, or VMware Player, etc. that can run virtual machines. If you do not have one, you can download VirtualBox for free \[it's Open Source\] on their website, https://www.virtualbox.org:
+To use Device42, use a hypervisor like [VirtualBox](https://www.virtualbox.org), VMWare Workstation, or [VMware Player](https://www.vmware.com/content/vmware/vmware-published-sites/us/products/desktop-hypervisor.html.html.html) to run a virtual machine. We'll use the open-source VirtualBox option in this guide.
 
-![Download VirtualBox](/assets/images/2016-01-08-get-started-mac-2.png)
+For Macs with Intel processors, [click here to download](https://www.virtualbox.org/wiki/Downloads) the latest `.dmg` file from VirtualBox.
 
-To install VirtualBox, open the downloaded file and double click the "VirtualBox.pkg" icon. You should then be able to find VirtualBox in your Applications list.
+![Download VirtualBox](/assets/images/getting-started-on-a-mac/1-download-intel.png)
 
-![VirtualBox Installation](/assets/images/2016-01-08-get-started-mac-3.png)
+For Macs with Apple Silicon processors (M1 and M2), download VirtualBox from "[​Developer preview for macOS / Arm64 (M1/M2) hosts](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0)".
+
+<img src={olderVbImage} width="70%"/>
+
+Open the downloaded file, double click the "VirtualBox.pkg" icon, and install VirtualBox.
+
+<img src={openImage} width="70%"/>
+
+<img src={successImage} width="70%"/>
 
 ## Installing Device42
 
-To download Device42, visit [Device42](https://www.device42.com/download/) and enter your name and work email address. You will receive a download link in your email momentarily. Once you receive the link, choose the download labelled 'VirtualBox' from the download options given, as seen in the screenshot below: 
+To download Device42, visit [Device42](https://www.device42.com/download/) and enter your name and work email address. You will receive a download link in your email momentarily. Choose the download labelled "VMware/Oracle VirtualBox" from the options.
 
-![Download Device42 Virtual Box OVF](/assets/images/DL_d42_HL-2019.png)
+![Download Device42 Virtual Box OVF](/assets/images/getting-started-on-a-mac/4-software-download.png)
 
-Once the file has downloaded, you will need to unzip it.
+Double click the downloaded file and unzip it.
 
-From VirtualBox, click the "New" icon, and name your virtual machine, we will use "device42Setup" in this tutorial: 
+From VirtualBox, click the **Import** icon and follow the on-screen prompts. 
 
-![Import D42 OVF virtualbox Mac](/assets/images/virtualbox-Mac_import_appliance-2019.png)
+![Import button](/assets/images/getting-started-on-a-mac/8-import-button.png)
 
-Follow the on screen prompts, giving your new VM a name _(we're using "Device42 v15.12" in this case)_ and pressing "Continue" after answering the questions on each screen. When asked about RAM, we recommend 2GB memory at a minimum, but suggest 4GB-8GB RAM to ensure Device42 runs smoothly if you have it available. Please be patient while the D42 VM imports \[it shouldn't take too long\]: 
+Browse to the OVF file you unzipped earlier. 
 
-![Virtualbox Mac import in progress](/assets/images/virtualbox_mac_importing_in_progress.png)
+![Select OVF](/assets/images/getting-started-on-a-mac/8-import-ovf.png)
 
-![Virtualbox Mac D42 OVF import complete](/assets/images/virtualbox_Mac_imported_d42VM-2019.png)
+Visit [Sizing Recommendations](sizing-recommendations.md) for our recommended resource allocation specifications. 
 
-Go ahead and "Power On" your new Device42 VM after the import completes. Simply select the new VM you just imported from the list on the left, and press the green "Start" arrow at the top, and once the appliance boots, you will see the Device42 console:
+![Settings](/assets/images/getting-started-on-a-mac/9-appliance-settings.png)
+
+Please be patient while the Device42 VM imports, it shouldn't take too long. 
+
+![Importing OVF](/assets/images/getting-started-on-a-mac/10-importing-appliance.png)
+
+After the import completes, click **Power On** from the list on the left to start your new Device42 VM. press the green **Start** arrow at the top, and once the appliance boots, you will see the Device42 console:
 
 ![Virtualbox on Mac running D42 VM](/assets/images/vbox_mac_d42_running.png)
 
-Log in to the console using the default credentials, user: `device42` and password: `d42adm!n`. Once you've logged in, continue below.
+Log in to the console using the default credentials:
+- Username: `device42` 
+- Password: `d42adm!n`
 
 ## Additional VM Settings
 
-Right click on the newly created virtual machine in VirtualBox that appears on the left and choose "Settings" (or highlight it and select the "Settings" gear icon from the top toolbar). In the window that pops up, select the "System" tab, and then "Processor", and click the checkbox in "Extended Features" to "Enable PAE/NX": 
+Right-click on the newly created virtual machine in VirtualBox that appears on the left and choose **Settings**. In the window that pops up, select the **System > Processor** tab and click the **Extended Features:** checkbox to **Enable PAE/NX**.
 
 ![Enable PAE](/assets/images/2016-01-08-get-started-mac-9.png)
 
-Continuing to the "Network" tab, enable adapter 1 and set it to bridged (note, NAT will also work), and choose the physical NIC/network card you will be using. You can then click OK and close the settings window.
+Continue to the **Network** tab, and confirm that **Adapter 1** is enabled and the "Bridged adapter" or "NAT" option is selected. Then choose the **Name** of the physical NIC or network card you will be using.
 
 ![Enable Network Adapter](/assets/images/2016-01-08-get-started-mac-10.png)
 
@@ -53,33 +76,43 @@ Continuing to the "Network" tab, enable adapter 1 and set it to bridged (note, N
 
 Power on your Device42 main appliance, if you haven't already. If you happen to receive an audio driver warning, you can safely ignore it.
 
-At the login screen, the username is: `device42` and the password is: `adm!nd42`. Please change these when you first login \[option 10\]. 
+At the login screen, the username is: `device42` and the password is: `adm!nd42`. Please enter option **10** change these credentials when you first login. 
 
-![Device42 Login](/assets/images/2016-01-08-get-started-mac-11.png)
+![Device42 Login](/assets/images/getting-started-on-a-mac/14-login.png)
 
-After you are logged in, you can configure your ip settings \[Please use a STATIC IP for all production Device42 VMs to avoid connectivity issues\] under option 1: 
+When you are logged in, enter **1** to configure your IP settings (DHCP/Static). Please use a static IP for all production Device42 VMs to avoid connectivity issues.
 
-![Device42 menu](/assets/images/2016-01-08-get-started-mac-12.png)
+![Device42 menu](/assets/images/getting-started-on-a-mac/15-logged-in.png)
 
-You can apply updates and do other menu-related work using by connecting through ssh using the terminal. Please note that root login has been disabled via ssh. Last, point your browser to the address at the top of the console menu and you’re ready to go…
+You can apply updates and do other menu-related work by connecting through SSH using the terminal. Please note that `root` login has been disabled via SSH. 
 
-You will receive a **"Your Connection is not private"** warning in your browser because you are accessing a local server that is using a 'self-signed' certificate - **Your connection _is_ secure, and it is completely safe to click "show advanced" in Chrome or "I understand the risks" in Firefox and proceed through to the Device42 login screen**:
+Finally, point your browser to the address at the top of the console menu.
 
-On Chrome
+You will receive a "Your Connection is not private" warning in your browser because you are accessing a local server that is using a self-signed certificate. Your connection _is_ secure, and it is completely safe to click "show advanced" in Chrome or "I understand the risks" in Firefox and proceed through to the Device42 login screen.
+
+On Chrome:
 
 ![](/assets/images/2016-01-08-get-started-mac-13.png)
 
-
-On Firefox
+On Firefox:
 
 ![](/assets/images/add_self-signed-cert-exception.png)
 
+When you've added your exception, you'll see the login screen. Login using Device42 web UI with the default credentials:
+- Username: `admin` 
+- Password: `adm!nd42`
+  
+Now you can start using Device42.
 
-Once you've added your exception, you'll see the login screen. Go ahead and login using the default Device42 web-ui username: `admin` and password: `adm!nd42`
+<ThemedImage
+  alt="Device42 UI Login Screen"
+  sources={{
+    light: useBaseUrl("/assets/images/getting-started-on-a-mac/login-light.png"),
+    dark: useBaseUrl("/assets/images/getting-started-on-a-mac/login-dark.png"),
+  }}
+  style={{ width: '70%' }} 
+/>
 
-At this point, you should be logged in, and can now start using Device42!
-
-![Device42 UI Login Screen](/assets/images/d42_UI-LOGIN_SCREEN.png)
 
 ## What's next?
 
