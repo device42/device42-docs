@@ -31,11 +31,10 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 
     ![](/assets/images/wpid6188-media_1326257403442.png)
 
-5. Log in into the console with the default credentials: 
+5. Log in to the console with the default credentials: 
    
-   **Username:** `device42`
-
-   **Password:** `adm!nd42` 
+   - **Username:** `device42`
+   - **Password:** `adm!nd42` 
    
    _(Deprecated appliance logins: 32-bit: ubuntu/adm!nd42 -- Power: ubuntu/default)._
    
@@ -55,11 +54,10 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 8.  Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address`.
 9.  Log in to the **web interface** using the default credentials:
     
-    **Username** `admin` 
-
-    **Password:** `adm!nd42` 
+    - **Username** `admin` 
+    - **Password:** `adm!nd42` 
     
-    **Please change the username and password as soon as you login.**
+    **Please change the username and password as soon as you log in.**
 
     <ThemedImage
     alt="Device42 Web Interface Login Screen v19"
@@ -75,8 +73,3 @@ You should be up and running, and are now ready to go! If you have any questions
 ## Using SSH
 
 You can apply Device42 updates, as well as do other menu-related work using **SSH** via **port 404**. Please note that root login has been disabled.
-
-
-
-
-
