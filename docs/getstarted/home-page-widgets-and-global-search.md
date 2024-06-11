@@ -3,30 +3,61 @@ title: "Home Page Widgets and Global Search"
 sidebar_position: 10
 ---
 
-The Device42 home page Classic Dashboard features our updated widgets that give you a quick, clean visual look at your environment, making it easier to spot important trends and statistics. The home page also includes a Global Search function that lets you search your whole Device42 environment to find what you need quickly and easily.
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
-## Widgets and Dashboards
+The Device42 home page Classic Dashboard has widgets that give you a quick, clean look at your environment, making it easier to spot important trends and statistics. Use the Global Search function to search your whole Device42 environment and quickly and easily find what you need.
 
-- You can use the Dashboard drop-down to select one of the [Insights+](../reports/reports/insights-plus.mdx) dashboards to use for the home page instead of the Classic Dashboard if you want.
+## Dashboards and Widgets
 
-![](/assets/images/D42-21560_home-page-dashboard-menu.png)
+- Use the dashboard dropdown menu to select one of the [Insights+](../reports/reports/insights-plus.mdx) dashboards to use for the home page.
 
-- Click _Manage Widgets_ to display the list of available the widgets for the Classic Dashboard to get the information you want when you want it.
+<ThemedImage
+  alt="Dashboard dropdown"
+  sources={{
+    light: useBaseUrl("/assets/images/home-page-widgets-and-global-search/dashboard-dropdown-light.png"),
+    dark: useBaseUrl("/assets/images/home-page-widgets-and-global-search/dashboard-dropdown-dark.png"),
+  }}
+/>
 
-![](/assets/images/D42-21560_home-page-dashboard-widgets.png)
+- Click **Manage Widgets** to select the widgets you want to display on the Classic Dashboard.
 
-- You can click and drag the widgets to arrange them to best suit your needs.
+<ThemedImage
+  alt="Widget selection"
+  sources={{
+    light: useBaseUrl("/assets/images/home-page-widgets-and-global-search/select-widgets-light.png"),
+    dark: useBaseUrl("/assets/images/home-page-widgets-and-global-search/select-widgets-dark.png"),
+  }}
+/>
+
+- On the dashboard, click and drag the widgets and arrange them to suit your needs.
 
 ## Global Search
 
-- The home page also includes a Global Search feature. Type in your search and Device42 displays a drop-down of possible matches.
+- The home page includes a **Global Search** feature. Type the name of configuration items, object types, or models to return a dropdown list of possible matches.
 
-![](/assets/images/D42-21560_search-1-start.png)
+<ThemedImage
+  alt="Global Search bar"
+  sources={{
+    light: useBaseUrl("/assets/images/home-page-widgets-and-global-search/global-search-light.png"),
+    dark: useBaseUrl("/assets/images/home-page-widgets-and-global-search/global-search-dark.png"),
+  }}
+/>
 
-* * *
+<ThemedImage
+  alt="Search results list"
+  sources={{
+    light: useBaseUrl("/assets/images/home-page-widgets-and-global-search/list-results-light.png"),
+    dark: useBaseUrl("/assets/images/home-page-widgets-and-global-search/list-results-dark.png"),
+  }}
+/>
 
-![](/assets/images/D42-21560_search-2-drop-down.png)
-
-- Click the magnifying glass and Device42 shows you all your results sorted and displayed by category.
-
-![](/assets/images/D42-21560_search-3-results.png)
+- Click the magnifying glass or press enter to see links of your results sorted and displayed by category.
+  
+<ThemedImage
+  alt="Search results links"
+  sources={{
+    light: useBaseUrl("/assets/images/home-page-widgets-and-global-search/results-links-light.png"),
+    dark: useBaseUrl("/assets/images/home-page-widgets-and-global-search/results-links-dark.png"),
+  }}
+/>
