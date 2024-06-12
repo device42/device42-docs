@@ -3,14 +3,17 @@ title: "Amazon Web Services - Installation"
 sidebar_position: 9
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import loginImg from '/assets/images/installation-amazon-web-services/login-appliance-manager.png'
+
 ### Overview
 
 Device42 is available on AWS, either as a manual install or through the AWS marketplace. The Device42 AWS offering involves only a single component - an EC2 instance which houses the Device42 main appliance and the Device42 appliance manager.
 
 ![AWS architecture](/assets/images/aws-architecture.png)
 
-
-### Costs and Licensing
+### Costs and licensing
 
 The Device42 AWS offerings each come with a pre-installed, limited license.  To utilize the full capabilities of Device42 we recommend that you obtain a more capable license from a Device42 Sales representative or business partner.
 Refer to [our licensing page](administration/licensing.md#upload-a-new-license) for additional information on managing licenses.
@@ -19,7 +22,7 @@ Device42 on AWS operates using the _**Bring Your Own License (BYOL)**_ model, me
 
 Device42 License Pricing information is available on the [Device42 Pricing Page](https://www.device42.com/pricing/).
 
-### EC2 Instance Sizing for Device42
+### EC2 instance sizing for Device42
 
 When running Device42 on AWS, it is recommended you size your Device42 Main Appliance (MA) to run on a t3.xlarge EC2 instance; this is the default. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. Only the `t3.xlarge` EC2 instance size is currently permitted.
 
@@ -47,9 +50,9 @@ Device42 AWS deployments are supported in the following regions.
 
 
 
-## Deploying D42 from the AWS Marketplace
+## Deploying Device42 from the AWS Marketplace
 
-### Configure instance & communication settings
+### Configure instance and communication settings
 
 1. Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) 1-Click feature. Follow the on-screen instructions, and when you arrive at the **Launch this software** screen, select a key-pair to use for SSH console access to the Device42 appliance and be sure to allow incoming access from your external IP address:
     - **a)** You may generate a key via the **Create a key pair in EC2** link. See the "Generating a new AWS Keypair" section on this page for more help with this step. 
@@ -66,17 +69,40 @@ Device42 AWS deployments are supported in the following regions.
 
 3. Navigate to the Device42 login screen by visiting `https://DEVICE42_AWS_ADDRESS` \[where `DEVICE42\_AWS\_ADDRESS` is the DNS name (preferred) or IP address found on the AWS UI\]. Login to the Device42 web-UI using the default username `admin`, and provide your `AWS instance ID` as your temporary PW. It's a good idea to change these credentials to something more secure as soon as you log in!
 
-![Device42 Web UI login](/assets/images/Log_in_to_D42_WebUI-hl.png)
+<ThemedImage
+  alt="Device42 Web UI login"
+  sources={{
+    light: useBaseUrl('/assets/images/installation-amazon-web-services/d42-login-light.png'),
+    dark: useBaseUrl('/assets/images/installation-amazon-web-services/d42-login-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-4. Update the appliance license key - the included key is expired. Obtain an updated license by sending an email to `sales@device42.com` requesting a trial license for an AWS-Marketplace Device42 install. Once you receive the updated keyfile, save it to your local filesystem and install it via main menu, **Tools -> Licensing**, simply browsing to the new key file and then clicking **"Upload & Apply License"_:_While you should receive a your license shortly, we are working to automate this step.**
+1. Update the appliance license key as the included key is expired. Obtain an updated license by sending an email to `sales@device42.com` requesting a trial license for an AWS Marketplace Device42 install. Once you receive the updated key file, save it to your local filesystem and install it via main menu **Tools > Settings > Licensing**. Browse to the new key file (1) and click **Upload & Apply** (2). 
 
-![update license d42 aws](/assets/images/update_license_AWS_d42.png)
+<ThemedImage
+  alt="Update license Device42 AWS"
+  sources={{
+    light: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-light.png'),
+    dark: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-dark.png'),
+  }}
+    style={{ width: '90%' }} 
+/>
 
-5. Check to make sure your Amazon Machine Image (AMI) is running the latest version of Device42 and update if necessary. From the web interface of your Device42 appliance, head to the main menu, **TOOLS -> Update**. Make note of the "Current Version" number displayed, then follow the "[Check for latest version](https://www.device42.com/update/)" link or visit [https://www.device42.com/update/](https://www.device42.com/update/) to check for an update. Should the update page offer a newer release, enter your work email to download and install it by following the [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/en-us/articles/222221228-Upgrade-Steps-Device42) (since this is a brand new appliance with no data, you may skip the backup noted in step 1 this time only!): 
+5. Make sure your Amazon Machine Image (AMI) is running the latest version of Device42 and update if necessary. From the web interface of your Device42 appliance, head to **Tools > Update**. Make note of the "Current Main Appliance Version" number displayed, then follow the "[Check for latest version](https://www.device42.com/update/)" link or visit [https://www.device42.com/update/](https://www.device42.com/update/) to check for an update. 
 
-![Check for Device42 Update](/assets/images/check_for_update_d42_aws.png)
+    If the update page offers a newer release, enter your work email and install the update by following the [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/en-us/articles/222221228-Upgrade-Steps-Device42). If you're working with a new appliance with no data, skip the backup step.
 
-- You're all set! Now is a good time to check out ["Getting started with Device42" documentation!](getstarted/index.md) If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
+<ThemedImage
+  alt="Check for Device42 Update"
+  sources={{
+    light: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-light.png'),
+    dark: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
+
+- You're all set! Now is a good time to check out ["Getting started with Device42" documentation](getstarted/index.md). If you have any questions or issues that the documentation doesn't address, head to https://support.device42.com or send an email to open a ticket with support@device42.com.
 
 * * *
 
@@ -95,11 +121,11 @@ To generate a new SSH keypair for use on AWS, either click the **Create a key pa
 
 All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager:
 
-![Appliance manager login ](/assets/images/appliance_manager_AWS.png)
+<img src={loginImg} width="65%" />
 
 For 1-click installations from the AWS Marketplace, users may log on to appliance manager using the default Device42 username `d42admin` , the password being your **AWS instance ID**. Once logged in, you'll see the appliance manager main menu: 
 
-![D42 Appliance Manager menu](/assets/images/appliance_manager_main.png)
+![D42 Appliance Manager menu](/assets/images/installation-amazon-web-services/appliance-manager.png)
 
 Note: if you installed on AWS manually (using a downloaded image), reference the Appliance Manager section below \[different credentials\].
 
