@@ -14,37 +14,53 @@ If you are already using SCCM in your environment, the Device42 SCCM integration
 
 SCCM Discovery can be configured with either WDS or WinRM and database discovery can be used alongside WDS and WinRM to provide a comprehensive view of the environment.
 
-### View Hypervisor
+### View, Run, and Add Jobs
+
+Navigate to the list page to view existing jobs, run a job, or create a new SCCM job by clicking the **+ Add Hypervisors/\*nix/win for Autodiscovery** button on the top right.
 
 <ThemedImage
-  alt="View Hypervisor"
+  alt="List page"
   sources={{
-    light: useBaseUrl('/assets/images/sccm/view-hypervisors-light.png'),
-    dark: useBaseUrl('/assets/images/sccm/view-hypervisors-dark.png'),
+    light: useBaseUrl('/assets/images/sccm/list-page-light.png'),
+    dark: useBaseUrl('/assets/images/sccm/list-page-dark.png'),
   }}
 />
 
-### Change Hypervisor WDS
+Click on a job to view it's details. Modify the job using the **Edit** button on the top right.
+
+<ThemedImage
+  alt="List page"
+  sources={{
+    light: useBaseUrl('/assets/images/sccm/view-light.png'),
+    dark: useBaseUrl('/assets/images/sccm/view-dark.png'),
+  }}
+/>
+
+### Discovery Using WDS Credentials
+
+Select the **Use Service Account Credentials (only Applies to WDS)** checkbox to reveal the **WDS** dropdown.
 
 <ThemedImage
   alt="Change Hypervisor WDS"
   sources={{
-    light: useBaseUrl('/assets/images/sccm/change-hypervisors-wds-light.png'),
-    dark: useBaseUrl('/assets/images/sccm/change-hypervisors-wds-dark.png'),
+    light: useBaseUrl('/assets/images/sccm/wds-light.png'),
+    dark: useBaseUrl('/assets/images/sccm/wds-dark.png'),
   }}
 />
 
-### Change Hypervisor WinRM
+### Discovery Using WinRM
+
+Select **Discover Using WinRM (Preview)** to use the set the **URL prefix** and **Port** to use.
 
 <ThemedImage
   alt="Change Hypervisor WinRM"
   sources={{
-    light: useBaseUrl('/assets/images/sccm/change-hypervisors-winrm-light.png'),
-    dark: useBaseUrl('/assets/images/sccm/change-hypervisors-winrm-dark.png'),
+    light: useBaseUrl('/assets/images/sccm/winrm-light.png'),
+    dark: useBaseUrl('/assets/images/sccm/winrm-dark.png'),
   }}
 />
 
-## SSCM Database Discovery on Windows Targets
+## SSCM Database Discovery 
 
 For discovery to return detailed information, you will require read permissions to the following system views:
 
@@ -81,3 +97,5 @@ When creating or editing a job, check the **Collect with database server** optio
     dark: useBaseUrl('/assets/images/sccm/sccm-db-server-dark.png'),
   }}
 />
+
+Note: The discovery user must belong to the administrator’s user group to discover databases successfully.
