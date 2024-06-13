@@ -48,8 +48,8 @@ MAC to switch port association brings only switch ports that have MAC addresses 
 <ThemedImage
   alt="SNMP menu location"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-menu-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-menu-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-menu-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-menu-dark.png'),
   }}
 />
 
@@ -61,7 +61,7 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 - **Port**: Leave at 161 if you are unsure
 - **SNMP Version**: Choose SNMP v1, v2c, or v3
 - **Community String**: Save your community string(s) as passwords, and select them for v1 or v2c. See below for v3.
-- **Run Autodiscover on CDP/LLDP Neighbors**: Find all CDP/LLDP neighbors that are reachable.
+- **Run Autodiscovery on CDP/LLDP Neighbors**: Find all CDP/LLDP neighbors that are reachable.
 - **Strip Domain Name**: Strip domain name from discovered switch name.
 - **Get all Switch Ports**: Retrieve all switch ports.
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
@@ -72,10 +72,11 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 <ThemedImage
   alt="ICMP/TCP Port Check option"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-icmp-port-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-icmp-port-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-dark.png'),
   }}
 />
+
 
 ### Device-specific SNMP v3 info
 
@@ -93,7 +94,10 @@ Note on Cisco Switches:
 - To fix this authentication error on Cisco hardware, an additional snmp-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table:
 
 Switches running newer versions of Cisco IOS:
-- Simply run: `snmp-server group v3group v3 auth context vlan- match prefix once.`
+- Simply run this command once:
+``` 
+snmp-server group v3group v3 auth context vlan- match prefix
+```
 
 Switches with older IOS releases (versions that don't support "match prefix wildcard"):
 - Issue the above command for newer IOS releases on EACH VLAN configured for the switch.
@@ -111,8 +115,8 @@ Click on the **+ Add another community string** button at the bottom of the **
 <ThemedImage
   alt="Add SNMP credentials in order"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-credentials-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-dark.png'),
   }}
 />
 
@@ -121,15 +125,29 @@ Reorder the credentials by clicking on the **up** and **down** arrow buttons 
 <ThemedImage
   alt="Move SNMP credentials"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-credentials-move-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-credentials-move-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-move-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-move-dark.png'),
   }}
 />
 <br/><br/>
 
-:::note
-For SNMP v3 we support the following options for Privacy Protocol only:  **DES, 3DES, AES, and AES128**.
-:::
+For SNMP v3 we support the following options for Privacy Protocols:  
+
+- DES
+- 3DES
+- AES
+- AES128 
+- AES192
+- AES256
+
+<ThemedImage
+  alt="Move SNMP credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/network-auto-discovery/credentials-protocols-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/credentials-protocols-dark.png'),
+  }}
+/>
+<br/><br/>
 
 ## Network Device Options
 
@@ -138,8 +156,8 @@ Expanding the "Network Device Options" section will reveal the following setting
 <ThemedImage
   alt="Network device options"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-network-device-options-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-network-device-options-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-network-device-options-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-network-device-options-dark.png'),
   }}
 />
 
@@ -148,8 +166,8 @@ Expanding the "Network Device Options" section will reveal the following setting
 <ThemedImage
   alt="Network port types"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-port-types-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-port-types-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-port-types-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-port-types-dark.png'),
   }}
 />
 
@@ -170,8 +188,8 @@ If you select _Get all switch ports_, you will see 6 extra form items:
 <ThemedImage
   alt="SNMP job run now"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-job-run-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-job-run-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-run-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-run-dark.png'),
   }}
 />
 
@@ -180,8 +198,8 @@ Select **Run Now** from the list page to run the job right away.
 <ThemedImage
   alt="SNMP job schedule"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-schedule-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-schedule-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-schedule-dark.png'),
   }}
 />
 
@@ -196,8 +214,8 @@ You can view the status and/or results of a discovery job during or after the jo
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-job-status-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-job-status-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-status-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-status-dark.png'),
   }}
 />
 
@@ -206,8 +224,8 @@ You can also see a real-time report of all running jobs and their statuses by vi
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-completed-jobs-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-completed-jobs-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-completed-jobs-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-completed-jobs-dark.png'),
   }}
 />
 
@@ -218,8 +236,8 @@ Status information can be viewed in full after each execution of the respective 
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-run-network-discovery-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-run-network-discovery-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-run-network-discovery-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-run-network-discovery-dark.png'),
   }}
 />
 
