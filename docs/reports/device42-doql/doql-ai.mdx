@@ -1,0 +1,155 @@
+---
+title: "DOQL AI Chat"
+sidebar_position: 3
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+DOQL AI generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your Device42 CMDB.
+
+Navigate to **Analytics > Ask DOQL AI** from the Device42 Main Appliance to create a new chat. 
+
+<ThemedImage
+  alt="DOQL AI menu location"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/1-menu-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/1-menu-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
+
+## Create a New Chat
+
+From the Ask DOQL AI page, type in a description of the data you want to fetch in the text box.
+
+<ThemedImage
+  alt="DOQL AI page"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/2-chat-page-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/2-chat-page-dark.png'),
+  }}
+/>
+
+The two buttons above the input box gets you started with an initial query that you can refine by submitting follow-up messages. Click **Device report** to start a new chart with the input:
+
+```
+Get me a query with the name, serial number, and hardware name for the first 20 devices.
+```
+
+Clicking the **Recently discovered resources** button starts a chat with:
+
+```
+Get me a query for 50 resources discovered in the past week ordered by resource type.
+```
+
+Click the **+ New Chat** button to create a new chat in a new browser tab. 
+
+Go to the DOQL AI Chats list page by clicking the **Past Chats** button.
+
+## Query Result Options
+
+DOQL AI generates an SQL query with the table and parameters in response to your input. See [Database Viewer Schema](db-viewer-schema.md) for information on locating database field names and descriptions.
+
+The input for this example is:
+
+```
+find all devices in production
+```
+
+<ThemedImage
+  alt="DOQL AI example response"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/3-enter-query-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/3-enter-query-dark.png'),
+  }}
+/>
+
+### Copy the SQL Response
+
+From the DOQL AI response, select the **Copy** option to copy the SQL query to your clipboard. You can paste the SQL code into a new tab of an existing report.
+
+### Preview Query Results
+
+Click **Preview** to run the query and quickly view the returned data in a modal window. This result is displayed but not saved.
+
+You can search for specific items using the **Search** bar, search individual column data, and print the query results from the preview window:
+
+<ThemedImage
+  alt="Results preview"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/4-preview-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/4-preview-dark.png'),
+  }}
+/>
+
+### Create a Report Page
+
+To save the generated query, click **Report** on the DOQL AI [response toolbar](#query-result-options) to go to the report setup page and provide a **Report Name**.
+
+<ThemedImage
+  alt="Report page options"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/5-report-options-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/5-report-options-dark.png'),
+  }}
+/>
+
+- **(1) Save and Display On Screen:**  View, search, and print the data records.
+  
+    <ThemedImage
+    alt="Report example"
+    sources={{
+        light: useBaseUrl('/assets/images/doql-ai/6-view-report-light.png'),
+        dark: useBaseUrl('/assets/images/doql-ai/6-view-report-dark.png'),
+    }}
+    />    
+
+- **(2) Export:** Download a `.tsv` or `.xls` file of the query result. 
+- **(3) Report Schedule:** Periodically run the query and email the results by filling in the fields.
+
+## DOQL AI Chats List Page
+
+Click the **Past Chats** button on the [Ask DOQL AI](#create-a-new-chat) page or [chat response](#query-result-options) page to navigate to the list page. The DOQL AI Chats List Page contains a record of your past chats that are automatically saved. 
+
+You can create a **New Chat** from the list page.
+
+<ThemedImage
+  alt="DOQL AI Chats list page"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/7-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/7-list-page-dark.png'),
+  }}
+/>
+
+Click **+ More** to filter the chat queries by specific initial queries, users, and creation dates.
+
+<ThemedImage
+  alt="List page filter options"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/7-filters-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/7-filters-dark.png'),
+  }}
+/>
+
+Delete one or more chats by selecting them and choosing a delete option from the **Select and action** dropdown. Click the **hammer icon** to execute the selected action.
+
+<ThemedImage
+  alt="List page actions"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/7-actions-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/7-actions-dark.png'),
+  }}
+/>
+
+## Data Privacy Notice
+
+The following notice is available when you click **About DOQL AI** below the chat bar:
+
+DOQL AI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found at https://docs.device42.com/reports/device42-doql/db-viewer-schema/.
+
+DOQL AI generates SQL query as a response to customer natural language inquiries. The inquiries are then uploaded to the DOQL AI cloud service, which generates the SQL response. DOQL AI utilizes OpenAI APIs as part of its generative AI process. The generated SQL is validated for accuracy and error free execution however the customer CMDB data is not exposed as part of the process.
+
+:::tip
+See [Device42 Object Query Language](index.md) for information on DOQL queries.
+:::

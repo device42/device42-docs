@@ -6,11 +6,11 @@ sidebar_position: 27
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you had a device that needs additional support!
+The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you have a device that needs additional support!
 
 ## Intro to SNMP-based discovery
 
-SNMP, or Simple Network Management Protocol, is a protocol and a standard that is supported by just about any managed network-connected hardware. There are three widely deployed versions: SNMP v1, v2c _(most commonly used)_, and v3. SNMP is typically utilized read-only, but supports read/write, and by default utilized port 161. SNMP exposes management data in the form of 'variables', which are organized in what is known as a MIB, or "Management Information Base". A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
+SNMP, or Simple Network Management Protocol, is a protocol and a standard that is supported by just about any managed network-connected hardware. There are three widely deployed versions: SNMP v1, v2c _(most commonly used)_, and v3. SNMP is typically utilized read-only, but supports read/write and by default utilizes port 161. SNMP exposes management data in the form of 'variables', which are organized in what is known as a MIB, or "Management Information Base". A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
 
 **Note**: SNMP autodiscovery now supports IPv6 addresses for device discovery.
 
@@ -23,15 +23,15 @@ Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you'
 Depending on device type and compatibility matrix linked above, the following data is discovered:
 
 - **Switch inventory:** Switch name, serial #, model and manufacturer.
-- **Stacked switches:** For stacked switches, it will add the stack as cluster device and all physical devices as part of cluster.
-- **Access Points**: Access points will be added as device type other with Controller device as the device host.
-- **VLANs** : L2 vlans.
+- **Stacked switches:** For stacked switches, it will add the stack as a cluster device and all physical devices as part of the cluster.
+- **Access Points**: Access points will be added as device type other than Controller device as the device host.
+- **VLANs**: L2 vlans.
 - **Subnets:** L3 subnets.
-- **Switch IP and MAC address** : IP address and MAC address belonging to the switch.
+- **Switch IP and MAC address**: IP address and MAC address belonging to the switch.
 - **IP to MAC address association:** Basically the ARP table, if available. So all IPs that are available with MAC association.
-- **MAC address to switch port association:** Switch ports and mac addresses found on that port. (MAC table)
+- **MAC address to switch port association:** Switch ports and MAC addresses found on that port. (MAC table)
 
-MAC to switch port association brings only switch ports that have MAC addresses associated. Using "Get all switch ports" option you can get:
+MAC to switch port association brings only switch ports that have MAC addresses associated. Using the "Get all switch ports" option you can get:
 
 - **Port name**
 - **Port description**
@@ -48,12 +48,12 @@ MAC to switch port association brings only switch ports that have MAC addresses 
 <ThemedImage
   alt="SNMP menu location"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-menu-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-menu-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-menu-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-menu-dark.png'),
   }}
 />
 
-**Note**: when creating an SNMP job for Cisco Nexus, you must setup an SNMP server context for the management VRF (this actually needs to be done for any Cisco VRF contexts that you want to query over SNMP): snmp\-server context mymgmt vrf management
+**Note**: when creating an SNMP job for Cisco Nexus, you must set up an SNMP server context for the management VRF (this actually needs to be done for any Cisco VRF contexts that you want to query over SNMP): snmp\-server context mymgmt vrf management
 
 Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 
@@ -61,21 +61,22 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 - **Port**: Leave at 161 if you are unsure
 - **SNMP Version**: Choose SNMP v1, v2c, or v3
 - **Community String**: Save your community string(s) as passwords, and select them for v1 or v2c. See below for v3.
-- **Run Autodiscover on CDP/LLDP Neighbors**: Find all CDP/LLDP neighbors that are reachable.
+- **Run Autodiscovery on CDP/LLDP Neighbors**: Find all CDP/LLDP neighbors that are reachable.
 - **Strip Domain Name**: Strip domain name from discovered switch name.
 - **Get all Switch Ports**: Retrieve all switch ports.
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
 - **Use Alias/Name for port description**: Choose if you prefer the Alias/Name for the port description.
-- **Delete older mac association after**: Delete any mac addresses not found for the specified number of days.
-- **ICMP/TCP Port Check**: If you experience any issues with mulitcast IP's, then you will need to uncheck the ICMP/TCP Port Check option.
+- **Delete older MAC association after**: Delete any MAC addresses not found for the specified number of days.
+- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, then you will need to uncheck the ICMP/TCP Port Check option.
 
 <ThemedImage
   alt="ICMP/TCP Port Check option"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-icmp-port-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-icmp-port-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-dark.png'),
   }}
 />
+
 
 ### Device-specific SNMP v3 info
 
@@ -88,12 +89,15 @@ Note on Huawei Switches:
 - Consult Huawei's documentation for complete setup & management details.
 
 Note on Cisco Switches:
-- Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing collection of the per-VLAN MAC tables.
-- You will likely see an authorization error in the macsuck log if this is happening.
-- To fix this authentication error on Cisco hardware, an additional snmp-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table:
+- Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing the collection of the per-VLAN MAC tables.
+- You will likely see an authorization error in the Macsuck log if this is happening.
+- To fix this authentication error on Cisco hardware, an additional SNMP-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table:
 
 Switches running newer versions of Cisco IOS:
-- Simply run: `snmp-server group v3group v3 auth context vlan- match prefix once.`
+- Simply run this command once:
+``` 
+snmp-server group v3group v3 auth context vlan- match prefix
+```
 
 Switches with older IOS releases (versions that don't support "match prefix wildcard"):
 - Issue the above command for newer IOS releases on EACH VLAN configured for the switch.
@@ -111,35 +115,53 @@ Click on the **+ Add another community string** button at the bottom of the **
 <ThemedImage
   alt="Add SNMP credentials in order"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-credentials-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-dark.png'),
   }}
 />
 
-Reorder the credentials by clicking on the **up** and **down** arrow buttons to right of the screen.
+Reorder the credentials by clicking on the **up** and **down** arrow buttons to the right of the screen.
 
 <ThemedImage
   alt="Move SNMP credentials"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-credentials-move-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-credentials-move-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-move-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-credentials-move-dark.png'),
   }}
 />
 <br/><br/>
 
-:::note
-For SNMP v3 we support the following options for Privacy Protocol only:  **DES, 3DES, AES, and AES128**.
-:::
+For SNMP v3, we support the following **Auth Protocols**: 
+- MD5
+- SHA
+- SHA256
+- SHA512
+
+For SNMP v3, we support the following **Privacy Protocols**:  
+- DES
+- 3DES
+- AES
+- AES128 
+- AES192
+- AES256
+
+<ThemedImage
+  alt="Move SNMP credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/network-auto-discovery/credentials-protocols-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/credentials-protocols-dark.png'),
+  }}
+/>
 
 ## Network Device Options
 
-Expanding the "Network Device Options" section will reveal the following settings, specific to the discovery of network connected hardware and devices: 
+Expanding the "Network Device Options" section will reveal the following settings, specific to the discovery of network-connected hardware and devices: 
 
 <ThemedImage
   alt="Network device options"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-network-device-options-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-network-device-options-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-network-device-options-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-network-device-options-dark.png'),
   }}
 />
 
@@ -148,19 +170,19 @@ Expanding the "Network Device Options" section will reveal the following setting
 <ThemedImage
   alt="Network port types"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-port-types-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-port-types-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-port-types-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-port-types-dark.png'),
   }}
 />
 
 If you select _Get all switch ports_, you will see 6 extra form items:
 
-1. **Port name prefix to ignore macs**: Ignore mac addresses from port that start with this prefix.
-2. **VLANs to ignore** : Do not discover mac addresses on these VLANs.
+1. **Port name prefix to ignore macs**: Ignore mac addresses from ports that start with this prefix.
+2. **VLANs to ignore**: Do not discover MAC addresses on these VLANs.
 3. **Give precedence to hostname**: Check this option to give precedence to the discovered hostname in the network device discovery.
-4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up-to-date leave this at 0. This will delete all stale mac addresses not discovered on switch port anymore. Otherwise, you can choose the # of days after you want to delete the stale mac association with a switch port.
-5. **Discovered port types to ignore**: You might not want to see certain ports types in your switch port list. Here you can choose what port types to ignore. For first time:
-    - You will have to let it find the port types first time,
+4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up-to-date leave this at 0. This will delete all stale MAC addresses not discovered on the switch port anymore. Otherwise, you can choose the # of days after you want to delete the stale MAC association with a switch port.
+5. **Discovered port types to ignore**: You might not want to see certain port types in your switch port list. Here you can choose what port types to ignore. For the first time:
+    - You will have to let it find the port types the first time,
     - and if you want to ignore some, you will have to delete the switch ports manually(you can filter by discovered type on IPAM > Switch Ports),
     - add the ports to ignore list on the discovery page
 6. **Discovered port types not to count:** Similar to above. This will still bring the ports in, but selected port types will not be included in the count.
@@ -170,8 +192,8 @@ If you select _Get all switch ports_, you will see 6 extra form items:
 <ThemedImage
   alt="SNMP job run now"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-job-run-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-job-run-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-run-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-run-dark.png'),
   }}
 />
 
@@ -180,12 +202,12 @@ Select **Run Now** from the list page to run the job right away.
 <ThemedImage
   alt="SNMP job schedule"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-schedule-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-schedule-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-schedule-dark.png'),
   }}
 />
 
-Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+Select **Add another Autodiscovery Schedule** from when editing the job to create a run schedule for the job.
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
 
@@ -196,8 +218,8 @@ You can view the status and/or results of a discovery job during or after the jo
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-job-status-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-job-status-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-status-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-job-status-dark.png'),
   }}
 />
 
@@ -206,8 +228,8 @@ You can also see a real-time report of all running jobs and their statuses by vi
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-completed-jobs-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-completed-jobs-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-completed-jobs-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-completed-jobs-dark.png'),
   }}
 />
 
@@ -218,9 +240,9 @@ Status information can be viewed in full after each execution of the respective 
 <ThemedImage
   alt="SNMP job status"
   sources={{
-    light: useBaseUrl('/assets/images/snmp-run-network-discovery-light.png'),
-    dark: useBaseUrl('/assets/images/snmp-run-network-discovery-dark.png'),
+    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-run-network-discovery-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-run-network-discovery-dark.png'),
   }}
 />
 
-Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, you can click on "Run now" button on list, view or edit page.
+Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, click on the "Run now" button on the list, view, or edit page.
