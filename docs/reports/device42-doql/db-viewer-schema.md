@@ -1,6 +1,6 @@
 ---
 title: "Database Viewer Schema"
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 ## Viewing the Device42 Database Schema
