@@ -3,11 +3,14 @@ title: "Intune Autodiscovery"
 sidebar_position: 5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Intune Autodiscovery
 
-Microsoft Intune is a cloud-based service that focuses on **mobile device management (MDM)** and **mobile application management (MAM)**. An organization can control how its devices are used, including mobile phones, tablets, and laptops, and can also configure specific policies to control applications.
+[Microsoft Intune](https://learn.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune) is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). An organization can control how its devices are used, including mobile phones, tablets, and laptops, and configure specific policies to control applications.
 
-Please use the following link to provide admin consent in the azure portal for the D42 discovery job:
+Please use the following link to provide admin consent in the Azure portal for the Device42 discovery job:
 
 https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent
 
@@ -18,30 +21,36 @@ https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin
     - DeviceManagementApps.Read.All
     - DeviceManagementManagedDevices.Read.All
     - User.Read.All
-- Do NOT use Delegated Credentials for Intune autodiscovery jobs.
+- Do **not** use Delegated Credentials for Intune autodiscovery jobs.
 
 Recommended Steps:
 
 1\. Create an app registration within the Azure portal on the same tenant where Intune resides.
 
-- Name: Located in Branding & properties
-- Client ID and Secret: Located in Certificates & secrets
-- API Permissions:
+- **Name:** Located in "Branding & properties"
+- **Client ID and Secret:** Located in "Certificates & secrets"
+- **API Permissions:**
     - Microsoft Graph application permissions listed above
-    - Grant admin consent – Azure [How to Link](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent)
+    - Grant admin consent. See Azure [How to Link](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent)
 
-2\. Take the values from 1b (Client ID & Secret)  and enter them into the D42 job options
+2\. Take the values from 1b (Client ID & Secret)  and enter them into the Device42 job options:
 
-- Enter the Azure application (client) ID into the discovery job Client ID field
-- Enter the Azure secret value into the discovery job Client Credential field
+- Enter the Azure application (client) ID into the discovery job **Client ID** field
+- Enter the Azure secret value into the discovery job **Client Credential** field
 
 ### Intune Discovery Items
 
 Intune discovery identifies mobile devices and mobile application software managed by Intune.
 
-![](/assets/images/Intune-AD-1.png)
+<ThemedImage
+  alt="Add new Intune discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-dark.png'),
+  }}
+/>
 
-Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
+Select **Intune** as cloud autodiscovery **Type** to display the Intune job options.
 
 - **Name** – name for the discovery job.
 - **VRF Group** – select or add a VRF group.
@@ -58,11 +67,18 @@ Select _Intune_ as cloud autodiscovery _Type_ to display the job options.
 - **Debug level** – select the debug level for the job.
 - **Discover Software** – discovered managed software applications (yes/no).
 - **Initial Software Type** – select the type for discovered software.
+- **InTune Device Ownership** - select whether to discover "All", "Corporate", or "Personal" devices.
 - **Notes** – optional notes for the job.
 
 Scroll down to the bottom of the page to define a schedule for the Intune discovery job to run.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_intune-autodiscovery.png)
+<ThemedImage
+  alt="schedule Intune discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/schedule-job-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/schedule-job-dark.png'),
+  }}
+/>
 
 Click **Save** to save the Intune discovery job.
 
@@ -74,5 +90,10 @@ Intune OS data will take a lower precedence to the more authoritative sources li
 
 Devices within Intune are renamed during the build process. If a device name is not being updated as expected following Device42 autodiscovery, or after being renamed and updated in Intune, select the **Overwrite existing device hostname with discovered hostname** option.
 
-![](/assets/images/intune-overwrite-device-name.png)
-
+<ThemedImage
+  alt="Overwrite device name"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/overwrite-existing-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/overwrite-existing-dark.png'),
+  }}
+/>
