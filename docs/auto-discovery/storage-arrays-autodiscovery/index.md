@@ -40,6 +40,15 @@ Use the links below for additional information about access protocols and minimu
 
 - IBM V7000/Storwize
 
+### Lenovo Arrays
+
+[See Lenovo Autodiscovery](auto-discovery/storage-arrays-autodiscovery/lenovo-autodiscovery.md) for more information about the following storage arrays:
+
+- ThinkSystem DE2000
+- ThinkSystem DE4000
+- ThinkSystem DE6000
+- All newer ThinkSystem arrays
+
 ### All Other Storage Arrays
 
 [See All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md) for more information about the following storage arrays:
