@@ -27,13 +27,13 @@ See **[Windows Discovery Agent Service Wrapper](getstarted/installation/windows-
 
 ## Proxy Environment Variables
 
-On both Windows and Unix-like (Nix) machines, you need to add environment variables for the proxy settings:
+On Windows and Unix-like (*nix) machines, you need to add environment variables for the proxy settings:
 
 - **HTTP_PROXY:** Define the HTTP proxy server.
 - **HTTPS_PROXY:** Define the HTTPS proxy server.
 - **NO_PROXY:** A comma-separated list of IP addresses that should not go through the proxy.
 
-On Windows, click the **Environmental Variables** button in the System Properties window to set environmental variables.
+On Windows, click the **Environmental Variables** button in the System Properties window to set environment variables.
 
 ## Installation
 
