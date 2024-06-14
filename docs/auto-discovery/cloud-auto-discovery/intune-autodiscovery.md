@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 [Microsoft Intune](https://learn.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune) is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). An organization can control how its devices are used, including mobile phones, tablets, and laptops, and configure specific policies to control applications.
 
-Please use the following link to provide admin consent in the azure portal for the Device42 discovery job:
+Please use the following link to provide admin consent in the Azure portal for the Device42 discovery job:
 
 https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent
 
