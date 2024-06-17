@@ -5,11 +5,11 @@ sidebar_position: 28
 
 ## Storage Arrays Autodiscovery
 
-Storage Arrays are identified and returned by Device42 Storage Arrays autodiscovery. Within Storage Discovery, you will find resource details, related resources, and topology maps. Click the _Platform_ drop down to view and select the available Storage Array type for a discovery job.
+Storage Arrays are identified and returned by Device42 Storage Arrays autodiscovery. Within Storage Discovery, you will find resource details, related resources, and topology maps. Click the _Platform_ dropdown to view and select the available Storage Array type for a discovery job.
 
 ![](/assets/images/SA-AD-4-platform-dropdown-250x101.png)
 
-**\* Note:** The _Preview_ tag in the Platform list indicates that these arrays have not been fully tested, due to lack of access to testing equipment, and full functionality cannot be guaranteed at this time. Additional versions and configurations may or may not be discovered but we cannot guarantee support at this time, but will update the list as more testing is completed.
+**\* Note:** The _Preview_ tag in the Platform list indicates that these arrays have not been fully tested, due to a lack of access to testing equipment, and full functionality cannot be guaranteed at this time. Additional versions and configurations may or may not be discovered but we cannot guarantee support at this time, but will update the list as more testing is completed.
 
 ## Additional Storage Array Autodiscovery Information
 
@@ -40,6 +40,15 @@ Use the links below for additional information about access protocols and minimu
 
 - IBM V7000/Storwize
 
+### Lenovo Arrays
+
+[See Lenovo Autodiscovery](auto-discovery/storage-arrays-autodiscovery/lenovo-autodiscovery.md) for more information about the following storage arrays:
+
+- ThinkSystem DE2000
+- ThinkSystem DE4000
+- ThinkSystem DE6000
+- All newer ThinkSystem arrays
+
 ### All Other Storage Arrays
 
 [See All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md) for more information about the following storage arrays:
@@ -58,11 +67,11 @@ Select _Discovery > Storage Arrays_ in the Device42 menu to display the Storag
 
 **Remote Collector** – Select the RC to use for the job. An RC is **required** for Storage Arrays discovery.
 
-**Platform** – Select the storage array platform  or vendor.
+**Platform** – Select the storage array platform or vendor.
 
 ![](/assets/images/SA-AD-3-add-page-250x100.png)
 
-**Discovery Targets** – FQDN or IPs of the servers or cidr or ranges.
+**Discovery Targets** – FQDN or IPs of the servers or CIDR or ranges.
 
 **Target Type** – Select Filer, DFM, or OCUM (_displayed depending on Platform selected_).
 
@@ -76,7 +85,7 @@ Select _Discovery > Storage Arrays_ in the Device42 menu to display the Storag
 
 **Discovery Target(s) Credential(s)** – Enter or select the username and password for the discovery job.
 
-Use the Auto Discovery Schedule section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and time to run the job.  When you are done, click _Save_ to save the discovery job. Device42 adds the job to the Storage Arrays discovery list page. You can run the job immediately from this page. 
+Use the Auto Discovery Schedule section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and the time to run the job.  When you are done, click _Save_ to save the discovery job. Device42 adds the job to the Storage Arrays discovery list page. You can run the job immediately from this page. 
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
 

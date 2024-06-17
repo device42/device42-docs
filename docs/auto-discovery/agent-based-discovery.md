@@ -25,6 +25,16 @@ Doing so, depending on permissions granted and configured password policies coul
 See **[Windows Discovery Agent Service Wrapper](getstarted/installation/windows-service-installation.mdx)** and **[Mac Agent Service Launcher](mac-agent-service-launcher.mdx)** for information on installing versions of the Windows and Mac discovery agent as a service.
 :::
 
+## Proxy Environment Variables
+
+Proxy settings are not required, but if you need the agents to access your network via a proxy, you can set the following environment variables, which the agents will respect.
+
+- **HTTP_PROXY:** Define the HTTP proxy server.
+- **HTTPS_PROXY:** Define the HTTPS proxy server.
+- **NO_PROXY:** A comma-separated list of IP addresses that should not go through the proxy.
+
+On Windows, click the **Environmental Variables** button in the System Properties window to set environment variables.
+
 ## Installation
 
 The client can be downloaded by going to _Discovery > Agent Based Scans_. Enter the URL as it will be accessed by the agent from the remote machine, and choose your platform: Windows, Mac, Linux, FreeBSD, etc.

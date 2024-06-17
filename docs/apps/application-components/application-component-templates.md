@@ -31,7 +31,6 @@ Click _Add_ at the upper right of the template list page to add a new template
 
 ![](/assets/images/Screen-Shot-2022-08-15-at-8.22.28-AM.png)
 
- 
 
 ![](/assets/images/Screen-Shot-2022-08-15-at-8.24.27-AM.png)
 
@@ -52,12 +51,12 @@ Click _Add_ at the upper right of the template list page to add a new template
 ### Creation Rules
 
 - Enter an _Application Name Pattern_ to specify how the application component will be named. You can enter static text for the name and also use the following variable to construct the application component name.
-
+    ```
     %(device\_name)s, %(discovered\_listening\_ip)s, %(listening\_port)s, %(app\_template\_name)s
-
+    ```
 - Select, enter, or add (plus sign) any _Related Software Components_ or _Related Services_ that should associated with the application component. For Related Service, you can specify _Only services listening on this port_.
 - Enter a path in _Configuration File Location_ to specify the directory in which Device42 should look for configuration files.
-- Enter a name or partial name in the _Filename Filter (optional)_ field to identify the configuration file(s).
+- Enter a name or partial name in the _Configuration Filename Filter_ field to identify the configuration file(s).
 - Select _Traverse subdirectory_ (Yes/No) to have Device42 traverse the Configuration File Location directory.
 
 ### Device42 Details

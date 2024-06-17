@@ -11,17 +11,17 @@ Even if the vendor is not listed, discovery will generally still bring in some i
 
 ## Vendors that we've verified support for include:
 
-| | | | | |
+|              |             |              |             |            |
 |--------------|-------------|--------------|-------------|------------|
-| 3Com         | CyberPower  | Lancope      | Ricoh       | VMware     |
-| A10 Networks | Cyclades    | Lantronix    | Riedo       | WatchGuard |
-| Acme Packet  | D-Link      | Lenovo       | Riello      | WTI        |
-| ADTRAN       | DataDomain  | Liebert      | Rittal      | Xcelor     |
-| ADVA         | Dell        | LoadMaster   | Riverbed    | Xirrus     |
-| Aerohive     | Delta       | Meinberg     | RSA         | Xsigo      |
-| Alcatel      | Digi        | Mellanox     | Rubrik      | Yamaha     |
-| Allied       | DigiPower   | MikroTik     | Ruckus      | Zyxel      |
-| APC          | Eaton       | Motivair     | Ruijie      |            |
+| 3Com         | CyberPower  | Lancope      | Ricoh       | Viptela    |
+| A10 Networks | Cyclades    | Lantronix    | Riedo       | VMware     |
+| Acme Packet  | D-Link      | Lenovo       | Riello      | WatchGuard |
+| ADTRAN       | DataDomain  | Liebert      | Rittal      | WTI        |
+| ADVA         | Dell        | LoadMaster   | Riverbed    | Xcelor     |
+| Aerohive     | Delta       | Meinberg     | RSA         | Xirrus     |
+| Alcatel      | Digi        | Mellanox     | Rubrik      | Xsigo      |
+| Allied       | DigiPower   | MikroTik     | Ruckus      | Yamaha     |
+| APC          | Eaton       | Motivair     | Ruijie      | Zyxel      |
 | Apcon        | EfficientIP | Nasuni       | SafeNet     |            |
 | Apresia      | Eltek       | NEC          | Samsung     |            |
 | APT          | Endace      | NetApp       | Sentry      |            |
@@ -43,16 +43,16 @@ Even if the vendor is not listed, discovery will generally still bring in some i
 | Brocade      | Fujitsu     | Pluribus     | Tegile      |            |
 | Calix        | Geist       | Powertek     | Teradici    |            |
 | Casa         | Gigamon     | Pulse Secure | Thales      |            |
-| CheckPoint   | H3C         | Pure Storage | Toshiba     |            |
-| Ciena        | Harmonic    | QLogic       | TP-Link     |            |
-| Cisco        | Hitachi     | QNAP         | Trapeze     |            |
-| Citrix       | HP          | Quanta       | Trend Micro |            |
-| Clavister    | Huawei      | Racktivity   | TrendPoint  |            |
-| Clever-Power | IBM         | RAD          | Tripp Lite  |            |
-| Colubris     | Infoblox    | Radware      | Ubiquiti    |            |
-| Corvil       | Iolan       | Raritan      | Uplogix     |            |
-| CPI          | Isilon      | Ricoh        | UTP         |            |
-| Cradlepoint  | Juniper     | Riedo        | Viptela     |            |
+| CheckPoint   | H3C         | Pure Storage | Tieline     |            |
+| Ciena        | Harmonic    | QLogic       | Toshiba     |            |
+| Cisco        | Hitachi     | QNAP         | TP-Link     |            |
+| Citrix       | HP          | Quanta       | Trapeze     |            |
+| Clavister    | Huawei      | Racktivity   | Trend Micro |            |
+| Clever-Power | IBM         | RAD          | TrendPoint  |            |
+| Colubris     | Infoblox    | Radware      | Tripp Lite  |            |
+| Corvil       | Iolan       | Raritan      | Ubiquiti    |            |
+| CPI          | Isilon      | Ricoh        | Uplogix     |            |
+| Cradlepoint  | Juniper     | Riedo        | UTP         |            |
 
 
 ## Adding support for non-verified vendors
