@@ -56,7 +56,7 @@ Prevent discovery from attempting communication with specific devices by adding 
 
 The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
 
-The list of excluded IPs that are copied to the job can be seen in the **Excluded Server(s)** section of the newly created job. 
+The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
 
 <ThemedImage
   alt="Exclude server(s) box in discovery job"
