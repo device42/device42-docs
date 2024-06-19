@@ -6,7 +6,13 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-DOQL AI generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your Device42 CMDB.
+DOQL AI generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your Device42 CMDB. 
+
+By typing plain English messages, like “I want a list of devices with Windows 10 operating system,” you'll get queries that can be executed without requiring deep knowledge of the query language or data model. 
+
+The AI provides the necessary commands and you can preview the results or create standard reports directly.
+
+## Create a New Chat
 
 Navigate to **Analytics > Ask DOQL AI** from the Device42 Main Appliance to create a new chat. 
 
@@ -18,8 +24,6 @@ Navigate to **Analytics > Ask DOQL AI** from the Device42 Main Appliance to crea
   }}
   style={{ width: '70%' }} 
 />
-
-## Create a New Chat
 
 From the Ask DOQL AI page, type in a description of the data you want to fetch in the text box.
 
@@ -65,9 +69,35 @@ find all devices in production
   }}
 />
 
+### Refine the Responses
+
+If the data or query needs to be refined, ask a follow-up question or redirect the DOQL AI to get better or different data.  
+
+For example, the previous results did not include information on device types. You can give DOQL AI another direction to include the type of device and only find virtual devices.
+
+<ThemedImage
+  alt="Follow-up response"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/refine-response-device-type-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/refine-response-device-type-dark.png'),
+  }}
+/>
+  
+DOQL AI will run queries and self-correct if necessary. For example, when asked to look for Windows 10 and 11 devices, the AI encountered an error as it initially searched in the `os` column, but made the correction of looking in the `os_name` column. 
+
+<ThemedImage
+  alt="Self-correction example"
+  sources={{
+    light: useBaseUrl('/assets/images/doql-ai/self-correct-light.png'),
+    dark: useBaseUrl('/assets/images/doql-ai/self-correct-dark.png'),
+  }}
+/>
+
+Although the DOQL AI brain knows the data model well, it continues to learn and train on the input, and will provide increasingly accurate responses and need fewer refinement questions over time.
+
 ### Copy the SQL Response
 
-From the DOQL AI response, select the **Copy** option to copy the SQL query to your clipboard. You can paste the SQL code into a new tab of an existing report.
+From the DOQL AI response, select the **Copy** option to copy the SQL query to your clipboard. You can paste the SQL code into a new tab of an existing report to build a report.
 
 ### Preview Query Results
 
