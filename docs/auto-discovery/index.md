@@ -3,6 +3,9 @@ title: "Autodiscovery"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Device42 Autodiscovery jobs
 
 Device42 offers a number of different autodiscovery tools, some of which are internal to Device42 while some run externally, as discussed below. You may run the autodiscovery tools in any combination and/or order that makes sense for your environment, and all can be run on a regular schedule, thus enabling the automation of a significant portion of your network documentation.
@@ -46,6 +49,24 @@ Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Clo
 ## DNS Autodiscovery
 
 DNS autodiscovery is built into Device42, and can do zone transfer(s) from your DNS server(s). It can be run and/or scheduled from the Device42 web UI: _Discovery > DNS Zone Sync (One way)_.
+
+## Exclusion List
+
+Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
+
+The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
+
+The list of excluded IPs that are copied to the job can be seen in the **Excluded Server(s)** section of the newly created job. 
+
+<ThemedImage
+  alt="Exclude server(s) box in discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+  }}
+/>
+
+Note that previously created jobs will not be affected or updated with changes to the exclusion list.
 
 ## Hypervisor / \*nix / Windows Autodiscovery
 
