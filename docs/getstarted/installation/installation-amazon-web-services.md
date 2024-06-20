@@ -35,7 +35,7 @@ When running Device42 on AWS, it is recommended you size your Device42 Main Appl
 
 The configuration will **only** allow you to 'Launch' successfully using one of the above listed sizes.
 
-Customers must regularly view and manage the quotas for AWS services using AWS Service Quotas dashboard.
+Customers must regularly view and manage the quotas for AWS services using the AWS Service Quotas dashboard.
 
 Refer to [our sizing recommendations](getstarted/installation/sizing-recommendations.md) page for sizing recommendations.
 
@@ -128,7 +128,7 @@ Device42 AWS deployments are supported in the following regions.
 
 ### Generating a new AWS key pair for SSH access
 
-To generate a new SSH key pair for use on AWS, either click the **Create a key pair in EC2** link during configuration of your appliance or open up the [EC2 console](https://console.aws.amazon.com/ec2/v2/home), scroll the menu on the left hand side to the **Network & Security** section, and choose **Key Pairs**: 
+To generate a new SSH key pair for use on AWS, either click the **Create a key pair in EC2** link during configuration of your appliance or open up the [EC2 console](https://console.aws.amazon.com/ec2/v2/home), scroll the menu on the left-hand side to the **Network & Security** section, and choose **Key Pairs**: 
 
 ![Create an new SSH key pair on AWS EC2](/assets/images/create_AWS_keypair_for_SSH.png)
 
@@ -167,7 +167,7 @@ Before you begin:
 
 All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (for example, https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager. 
 
-For manual AWS (image-based) installations, you can log on to appliance manager using the default Device42 credentials:
+For manual AWS (image-based) installations, you can log in to Appliance Manager using the default Device42 credentials:
 - Username: `d42admin`
 - Password: `default`
 
@@ -205,7 +205,7 @@ The built-in health check monitors the following:
 
 If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) page. The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
 
-An example configuration that leverages Nagios to automatically fail-over the instance in case of a failure is also described.
+An example configuration that leverages Nagios to automatically fail over the instance in case of a failure is also described.
 
 ### Discovery across your instance - Sample IAM Policy
 
