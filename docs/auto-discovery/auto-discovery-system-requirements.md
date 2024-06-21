@@ -8,10 +8,6 @@ sidebar_position: 6
 The following are pre-requisites and other general requirements and guidelines for successful discovery and optimum performance:
 
 - Create Users with required access.
-:::warning
-  Please do _not_ set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use _only_ for discovery. You as a customer are responsible for any such behavior.
-:::
-  _Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement._
 - Identify IP discovery scope (ranges of interest).
     _If you are not using IPv6, it is advisable to choose the 'Ignore IPv6' option when configuring discovery jobs._
 - Minimum system resource configuration for the Device42 appliance: 4 vCPUs and 8GB memory. Ensure that a _minimum_ 1GBPS network connection is present, that there is a dedicated resource pool for the Device42 VM, and that there are no resource contention issues. Placing the Device42 Appliance's (Virtual Machine) VHD on SSD is ideal, but is not required.
@@ -25,6 +21,12 @@ Detailed permission info:
 - Linux / sudo usage info: [Linux & Unix Server Discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page
 
 Contact support@device42.com with any further questions regarding specific privilege level requirements for WMI Namespaces, and \*nix commands run with/without sudo.
+
+:::caution
+Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
+
+Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+:::
 
 ## Ports & Protocols Used By Discovery
 
