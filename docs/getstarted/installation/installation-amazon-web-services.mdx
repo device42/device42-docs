@@ -78,9 +78,9 @@ Device42 AWS deployments are supported in the following regions.
 
     ![Instance ID, public ip, DNS address on EC2 dash](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
 
-3. Navigate to the Device42 login screen by visiting `https://Device42_AWS_address`. 
+3. Navigate to the Device42 login screen by visiting `https://Device42_AWS_address` **(1)**. 
    
-    `Device42_AWS_address` is the DNS name (preferred) or IP address found on the AWS UI. Log in to the Device42 web UI using the default username `admin` and provide your `AWS instance ID` as your temporary password. It's a good idea to change these credentials to something more secure as soon as you log in!
+    `Device42_AWS_address` is the DNS name (preferred) or IP address found on the AWS UI. Log in to the Device42 web UI using the default username `admin` and provide your `AWS instance ID` (2) as your temporary password. It's a good idea to change these credentials to something more secure as soon as you log in!
 
     <ThemedImage
     alt="Device42 Web UI login"
@@ -91,7 +91,7 @@ Device42 AWS deployments are supported in the following regions.
     style={{ width: '80%' }} 
     />
 
-4. Update the appliance license key as the included key is expired. Obtain an updated license by sending an email to [sales@device42.com](mailto:sales@device42.com) requesting a trial license for an AWS Marketplace Device42 installation. When you receive the updated key file, save it to your local filesystem and go to **Tools > Settings > Licensing**. Browse to the new key file (1) and click **Upload & Apply** (2). 
+4. Update the appliance license key as the included key is expired. Obtain an updated license by sending an email to [sales@device42.com](mailto:sales@device42.com) requesting a trial license for an AWS Marketplace Device42 installation. When you receive the updated key file, save it to your local filesystem and go to **Tools > Settings > Licensing**. Browse to the new key file **(1)** and click **Upload & Apply** **(2)**. 
 
     <ThemedImage
     alt="Update license Device42 AWS"
@@ -132,11 +132,11 @@ To generate a new SSH key pair for use on AWS, either click the **Create a key p
 
 ### Appliance Manager Access - AWS Marketplace Installation
 
-All maintenance operations are performed through the Device42 Appliance Manager. The Appliance Manager listens on port 4343 (for example, https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager:
+All maintenance operations are performed through the Device42 Appliance Manager. The Appliance Manager listens on port 4343 (for example, https://YOUR\_DEVICE42\_INSTANCE:4343) **(1)**. Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager:
 
 <img src={loginImg} width="65%" />
 
-For 1-Click installations from the AWS Marketplace, log in to Appliance Manager using the credentials:
+For 1-Click installations from the AWS Marketplace, log in to Appliance Manager using the credentials **(2)**:
 - Username: `d42admin` 
 - Password: **your AWS instance ID**
   
