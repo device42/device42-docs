@@ -22,7 +22,7 @@ For the Main Appliance (MA), this means changing the following sets of credentia
 
 If you are deploying through the AWS or Azure marketplaces, then the passwords above are not the default values used. Review the below documentation for more information:
 
-- [Amazon Web Services – Installation](getstarted/installation/installation-amazon-web-services.md)
+- [Amazon Web Services – Installation](getstarted/installation/installation-amazon-web-services.mdx)
 
 - [Microsoft Azure – Installation](getstarted/installation/installation-microsoft-azure.md)
 

@@ -3,19 +3,21 @@ title: "Remote Collector (RC) Installation"
 sidebar_position: 7
 ---
 
-## Installing the Device42 Remote Collector
+The RC is shipped as a virtual appliance and can be downloaded on our Discovery Software Download page: [https://www.device42.com/autodiscovery/](https://www.device42.com/autodiscovery/).
 
-The RC is shipped as a virtual appliance, which can be downloaded on our [Discovery Software Download page, **https://www.device42.com/autodiscovery/**](https://www.device42.com/autodiscovery/).
+## Installation Instructions
 
-## Install Instructions
+Visit the [**RC Installation and Configuration**](/auto-discovery/remote-collector-rc/#rc-installation-and-configuration.md) section of the [Remote Collector](/auto-discovery/remote-collector-rc.md) page for detailed installation instructions.
 
-[**Click HERE to jump to RC Install instructions** on the dedicated RC docs page.](auto-discovery/remote-collector-rc.md). See the _"Installation and Configuration"_ section of that doc.
+## Default RC Credentials
 
-## Default RC credentials
+The Device42 RC default login credentials are:
 
-If you're simply looking for the **Device42 RC default login credentials**:
-
+**Username:** 
 ```
-username: client
-password: device42
+client
+```
+**Password:** 
+```
+device42
 ```

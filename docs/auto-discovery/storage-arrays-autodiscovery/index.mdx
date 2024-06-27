@@ -1,0 +1,134 @@
+---
+title: "Storage Arrays Autodiscovery"
+sidebar_position: 28
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Storage Arrays are identified and returned by Device42 Storage Arrays autodiscovery. On the Storage Discovery page, you will find resource details, related resources, and topology maps. 
+
+## Storage Array Platforms
+
+Click the **Platform** dropdown to view and select the available storage array type for a discovery job.
+
+<ThemedImage
+  alt="Storage array platforms v19.01"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/platforms-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/platforms-dark.png'),
+  }}
+/>
+
+The "(Preview)" tag in the **Platform** list indicates that these arrays have not been fully tested due to a lack of access to testing equipment, and full functionality cannot be guaranteed at this time. Additional versions and configurations may or may not be discovered but we cannot guarantee support at this time. The list will be updated as more testing is completed.
+
+As of Device42 v19.01, we have support for the following platforms:
+|   |                               |                   |
+|---------------------------------|-----------------------------------------------|--------------------------------|
+| Celerra (Preview)               | EMC VPlex (Preview)                          | Lenovo (Preview)               |
+| Dell Compellent                 | HDS G1000 (Preview)                          | LSI (Preview)                  |
+| Dell EqualLogic (Preview)       | Hitachi (Preview)                            | Netapp                         |
+| Dell PowerStore (Preview)       | HP 3Par                                      | Nutanix                        |
+| EMC Data Domain                 | HP Lefthand (Preview)                        | Oracle ZFS                     |
+| EMC ECS (Preview)               | HPE Nimble                                   | Pure Storage                   |
+| EMC ExtremIO (Preview)          | HPE StoreEasy                                | Purity FlashBlade (Preview)    |
+| EMC Unity                       | IBM DS Series (Preview)                      | Recoverpoint (Preview)         |
+| EMC VMAX/PMAX using Unisphere   | IBM Flash and Storwize                       | Tintri (Preview)               |
+| EMC VMAX/VNX using SMIS         | Infinidat                                    | UCS (Preview)                  |
+
+
+## Additional Storage Array Autodiscovery Information
+
+Use the links below for additional information about access protocols and minimum permissions for storage array autodiscovery.
+
+### Dell/EMC Arrays
+
+[See Dell/EMC Autodiscovery](auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.md) for more information about the following storage arrays:
+
+- Dell Compellent
+- Dell PowerStore
+- VNX or VMAX using EMC SMIS Provider
+- EMC Data Domain
+- EMC Unity
+- Isilon
+
+### HP Arrays
+
+[See HP Autodiscovery](auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.md) for more information about the following storage arrays:
+
+- HP Nimble
+- HPE StoreEasy
+- HP 3PAR
+
+### IBM Arrays
+
+[See IBM Autodiscovery](auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.md) for more information about the following storage array:
+
+- IBM V7000/Storwize
+
+### Lenovo Arrays
+
+[See Lenovo Autodiscovery](auto-discovery/storage-arrays-autodiscovery/lenovo-autodiscovery.md) for more information about the following storage arrays:
+
+- ThinkSystem DE2000
+- ThinkSystem DE4000
+- ThinkSystem DE6000
+- All newer ThinkSystem arrays
+
+### All Other Storage Arrays
+
+[See All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.md) for more information about the following storage arrays:
+
+- Infinidat
+- Netapp Filers
+- Nutanix
+- Oracle ZFS
+- Pure Storage
+
+## Add a Storage Array Autodiscovery Job
+
+Select **Discovery > Storage Arrays** in the Device42 menu to display the Storage Arrays discovery list page, and then click **Add Storage Arrays for Autodiscovery** to create a new discovery job.  
+
+<ThemedImage
+  alt="Storage array list page"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/storage-arrays-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/storage-arrays-list-page-dark.png'),
+  }}
+/>
+
+Enter or select the information to create the autodiscovery job:
+
+**Job Name** – Enter a unique name for the job.
+
+**Remote Collector** – Select the RC to use for the job. An RC is **required** for Storage Arrays discovery.
+
+**Platform** – Select the storage array platform or vendor.
+
+**Discovery Targets** – FQDN or IPs of the servers or CIDR or ranges.
+
+**Target Type** – Select Filer, DFM, or OCUM (_displayed depending on Platform selected_).
+
+**Protocol Type** – Select https, http, or insecure-https (_displayed_ _depending on Platform selected_).
+
+**Enable Performance Data Collection** – Yes/No.
+
+**Performance Data Sampling Interval** – Select the time interval for data sampling (if selected).
+
+**Action for Storage Array not found** – Choose how to handle Storage Array not found in subsequent discovery: Keep Array Resource or Delete Array Resource.
+
+**Discovery Target(s) Credential(s)** – Enter or select the username and password for the discovery job.
+
+### Schedule the Job
+
+Use the Auto Discovery Schedule section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and the time to run the job.  When you are done, click **Save** to save the discovery job. Device42 adds the job to the Storage Arrays discovery list page. You can run the job immediately from this page. 
+
+A note on autodiscovery scheduling behavior: Newly created jobs will not run on the first day they are created, to prevent an excessive number of jobs from running simultaneously. If you would like to run a job after its initial creation, click the **Run Now** button next to the job after creation.
+
+<ThemedImage
+  alt="Schedule job"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-dark.png'),
+  }}
+/>
