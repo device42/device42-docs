@@ -3,44 +3,46 @@ title: "VMware Player - Installation"
 sidebar_position: 15
 ---
 
-## Setup appliance in vmware player or workstation
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-- Download the OVF format of Device42.
-- Use 7 zip to unzip the downloaded file.
-- Open or Import the virtual appliance into vmware player.
-- Once the import is finished, power on the new virtual appliance.
-- Login to console as device42/adm!nd42. You can change the password with option 10.
-- On the console, configure the IP and choose your settings \[Please use a STATIC IP for all production Device42 VMs to avoid connectivity issues\].
-- Optional: Create DNS entry for the new IP address for the new virtual appliance.
-- Point your browser to https://FQDN(Fully Qualified Domain Name) or IP address and you are ready to go.
-- The default username is admin and password is adm!nd42, please change that as soon as you login.
+## Set Up the Main Appliance in VMware Player or Workstation
 
-## Here are the steps in images:
+Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and do the following:
+1. Use 7-Zip to unzip the downloaded file.
+2. Open or Import the virtual appliance into VMware Player.
+   
+    ![VMware options](/assets/images/open-appliance.png)
 
-![Here are the steps in images:](/assets/images/open-appliance.png)
+3. Once the import is finished, power on the new virtual appliance by clicking "Play virtual machine".
+   
+    ![Power on the Device42 Virtual Appliance](/assets/images/wpid6196-media_1331534654060.png)
 
-Power on the machine by clicking "Play virtual machine": 
+4. Log in to the console using the default credentials:
+    Username: `device42`
+    Password: `adm!nd42` 
+     
+    ![Login to the Device42 Console](/assets/images/d42-console-login-screen-v15.png)
 
-![Power on the Device42 Virtual Appliance](/assets/images/wpid6196-media_1331534654060.png)
+5. On the console, change the password using option **10** and use option **1** to configure the IP and choose your settings. Please use a **static IP address** for all production Device42 VMs to avoid connectivity issues.
 
-![Login to the Device42 Console](/assets/images/d42-console-login-screen-v15.png)
+    ![Configure IP/Networking](/assets/images/d42-console-menu-config-IP-v15.png)
 
-Default login: device42 Default password: adm!nd42
+    You may apply updates and do other menu-related work using SSH. Please note that root login has been disabled.
+    
+6. **Optional:** Create a DNS entry for the new IP address for the new virtual appliance.
+7. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` to go to the Device42 web UI.
+8. Log in to Device42 using the default credentials. Change the default password as soon as you log in.
+    - **Username** `admin` 
+    - **Password:** `adm!nd42` 
 
-Change the password using option 10, and then proceed to configure network settings via menu option 1: 
+    **Please change the password as soon as you log in.**
 
-![Configure IP/Networking](/assets/images/d42-console-menu-config-IP-v15.png)
-
-Configure a **static** IP address for the Device42 appliance: 
-
-![Network Config](/assets/images/wpid6197-media_1331534878565.png)
-
-_Note:_ The default password for user device42 MUST be changed using console menu using option 10 to secure your appliance. As mentioned, the default username/password is admin/adm!nd42.
-
-You may apply updates and do other menu-related work using ssh. Please note that root login has been disabled.
-
-Lastly, point your browser to the address you configured \[it can be seen at the top of the console, above the menu\], and you're ready to go!
-
-Enjoy!
-
-![Device42 Web Login Screen](/assets/images/d42-web-interface-login-screen-v15.png)
+<ThemedImage
+  alt="Device42 Web Interface Login Screen v19"
+  sources={{
+    light: useBaseUrl('/assets/images/login-light.png'),
+    dark: useBaseUrl('/assets/images/login-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
