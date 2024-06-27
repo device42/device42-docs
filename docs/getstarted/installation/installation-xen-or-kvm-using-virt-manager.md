@@ -1,69 +1,76 @@
 ---
-title: "Xen or KVM using virt-manager - Installation"
+title: "Xen or KVM Using Virt-Manager - Installation"
 sidebar_position: 16
 ---
 
-Here are the installation instructions for installing the Device42 appliance on Xen or KVM based platforms...
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Download and bunzip2
+Install the Device42 Main Appliance on Xen or KVM-based platforms by following the steps in this guide.
 
-![Download and bunzip2](/assets/images/wpid6122-Download_and_bunzip2.png)
+## Download the Image and Uncompress 
 
-The raw image for Xen/KVM has been compressed using bzip2. Once you get the file on the kvm host, you can issue bunzip2 to uncompress the file.
+The raw image for Xen or KVM has been compressed using bzip2. When you get the file on the KVM host, run the `bunzip2` command to uncompress the file:
 
-## Install
+```bash
+bunzip2 device42-3.2.3-raw.img.bz2
+```
 
-![Install](/assets/images/wpid6123-Download_and_Install.png)
+## Create the Virtual Machine
 
-Once you unzip the downloaded raw image, create a new virtual machine with setting of "Import existing disk image".  
-If you don't see the option to "Import existing disk Image", please follow these instructions : [How do I Install device42 xen/kvm appliance if import existing disk image option is missing?](https://support.device42.com/hc/en-usentries/22412668)
+1. Create a new virtual machine with the setting "Import existing disk image".  
 
-## Choosing OS and version
+    If you don't see the option to "Import existing disk Image", please visit the link and follow the instructions: [How do I Install device42 Xen or KVM appliance if import existing disk image option is missing?](https://support.device42.com/hc/en-usentries/22412668)
 
-![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
+    ![Install](/assets/images/wpid6123-Download_and_Install.png)
 
-Choose Linux & Ubuntu 14.04 for Operating system type and version. If you don't see the option for 14.04, choose the latest version avaialble(as shown above).
+2. Choose "Linux" as the **OS type** and "Ubuntu 14.04" for the **version**. If you don't see the option for 14.04, choose the latest version available.
 
-![](/assets/images/wpid6124-media_1326264722468.png)
+    ![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
 
-Allocate **AT LEAST** 8 GB RAM and 2 vCPU for production appliances.
+3. Allocate at least 8 GB RAM and 2 vCPU for production appliances. See [Sizing Recommendations](sizing-recommendations.md).
 
-![](/assets/images/wpid6125-media_1326264734201.png)
+    ![](/assets/images/wpid6124-media_1326264722468.png)
 
-Choose your virtualization type from Advanced options and x86\_64 as architecture and you are ready to go.
+4. Choose your virtualization type from **Advanced options** and x86\_64 for the **Achitecture** and click **Finish**.
+   
+    ![](/assets/images/wpid6125-media_1326264734201.png)
 
-## Setting up the appliance and logging in.
+## Set Up the Main Appliance and Log In
 
-- Once the import is finished, power on new virtual appliance.
-- Login to console with default username device42 and default password adm!nd42 .You can change the password using option 10 on the menu.
-- On the console, configure the IP and choose the settings you desire \[Please use a STATIC IP for all production Device42 VMs to avoid connectivity issues\].
-- Optional: Create a DNS entry for the new IP address for the new virtual appliance.
-- Point your browser to https://FQDN(Fully Qualified Domain Name) or IP address and you are ready to go.
-- The default username is admin and password is adm!nd42 (NOTE: Use (ubuntu/default) for power appliance). You can change the password with option 10.
-
-![](/assets/images/wpid6128-media_1418268309382.png)
+1. When the import is finished, power on the new virtual appliance.
+2. Log in to the console using the default credentials:
+  
+    - Username: `device42`
+    - Password: `adm!nd42`
     
+    **Change the default password using option 10 on the appliance console.**
 
-default login : device42  
-default password: adm!nd42  
-(NOTE: Use (ubuntu/default) for power appliance)
+    ![](/assets/images/wpid6128-media_1418268309382.png)
 
-You can change the password with option 10 below.
+3. From the console, configure the IP. 
 
-## Configure an IP
+    ![Configure an IP](/assets/images/wpid6129-Above_steps_in_images.png)
 
-![Configure an IP](/assets/images/wpid6129-Above_steps_in_images.png)
+    Please use a **static IP address** for all production Device42 VMs to avoid connectivity issues.
 
-Configure an IP address for the Device42 appliance...
+    ![](/assets/images/wpid6126-media_1338939487714.png)
 
-![](/assets/images/wpid6126-media_1338939487714.png)
+    You may apply updates and do other menu-related work using SSH. Please note that root login has been disabled.
 
-The default password for user device42 can now be changed from the console menu using option 10. The default username/password is admin/adm!nd42. Please be sure to change it after you login.
+4. _Optional:_ Create a DNS entry for the new IP address for the new virtual appliance.
+5. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` to go to the Device42 web UI.
+6. Log in to Device42 using the default credentials:
+    - **Username** `admin` 
+    - **Password:** `adm!nd42` 
 
-You can apply updates and do other menu-related work using ssh. Please note that root login has been disabled via ssh.
+    **Please change the password as soon as you log in.**
 
-Last, point your browser to the address at the top of the console menu and you're ready to go...
-
-Enjoy!
-
-![Device42 UI Login Screen](/assets/images/d42_UI-LOGIN_SCREEN.png)
+<ThemedImage
+  alt="Device42 Web Interface Login Screen v19"
+  sources={{
+    light: useBaseUrl('/assets/images/login-light.png'),
+    dark: useBaseUrl('/assets/images/login-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>

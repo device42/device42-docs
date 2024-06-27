@@ -32,7 +32,7 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
     
 6. **Optional:** Create a DNS entry for the new IP address for the new virtual appliance.
 7. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` to go to the Device42 web UI.
-8. Log in to Device42 using the default credentials. Change the default password as soon as you log in.
+8. Log in to Device42 using the default credentials. 
     - **Username** `admin` 
     - **Password:** `adm!nd42` 
 
