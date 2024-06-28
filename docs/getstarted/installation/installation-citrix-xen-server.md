@@ -3,70 +3,68 @@ title: "Citrix Xen Server - Installation"
 sidebar_position: 11
 ---
 
-## Installation Citrix Xen Server
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Once you download the virtual appliance file, take following steps:
+Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and take following steps:
 
 1. Use 7zip to unzip the downloaded file.
-2. From XenCenter, Right Click on server > Import
+2. From XenCenter, right-click the server's name and select **Import**
+   
+    ![Here are the steps in Images:](/assets/images/wpid5942-wpid-media_1331243551635.png)
+
 3. Choose Source
+   
+    ![Locate the file you you downloaded](/assets/images/wpid5943-wpid-media_1331243622364.png)
+
 4. Choose Server
+
+    ![Choose a pool, or accept the default (next)](/assets/images/wpid5944-wpid-media_1331243664174.png)
+
 5. Choose Storage
-6. Choose the network card and Finish.
-7. Once powered on, go to the console, choose option 1 to configure networking \[Please use a STATIC IP for all production Device42 Installations to avoid connectivity issues\]. Default login for console is _device42_ and default password is _adm!nd42_ (NOTE: Use (_ubuntu/default_) for the power appliance). You can change the password using option 10.
-8. Go to https://New\_IP or add the IP of the new VM to DNS (recommended) and go via dns(https://FQDN(Fully Qualified Domain Name)).
-9. The default credential is _admin/adm!nd42_ -- **this password should be changed once you login.**
+   
+    ![Choose a storage location for the VM](/assets/images/wpid5945-wpid-media_1331243689911.png)
 
-## Here are the steps in images:
+6. Choose the network card and click **Finish**.
+   
+    ![Choose the network to connect the VM to](/assets/images/wpid5946-wpid-media_1331243717545.png)
+    ![Click finish](/assets/images/wpid5947-wpid-media_1331243745178.png)
 
-![Here are the steps in Images:](/assets/images/wpid5942-wpid-media_1331243551635.png)
+7. Power on the VM and log in to the console with the default credentials: 
 
-## Locate the file you you downloaded
+   - **Username:** `device42`
+   - **Password:** `adm!nd42` 
+  
+   **Change the default password using option 10 on the appliance console.**
 
-![](/assets/images/wpid5943-wpid-media_1331243622364.png)
+   _(Deprecated appliance logins: 32-bit: ubuntu/adm!nd42 -- Power: ubuntu/default)._ 
 
-## Choose a pool, or accept the default (next):
+    ![Log in to the VM Console](/assets/images/wpid5950-media_1419606545144.png)
 
-![](/assets/images/wpid5944-wpid-media_1331243664174.png)
+8. Choose option **1** to configure networking. 
+   
+   ![Configure IP](/assets/images/wpid5951-media_1338938610667.png)
 
-## Choose a storage location for the VM:
+   To avoid connectivity issues, please use a static IP address for all production Device42 Installations.
 
-![](/assets/images/wpid5945-wpid-media_1331243689911.png)
+   ![Configure networking](/assets/images/wpid5948-media_1338938641495.png)
 
-## Choose the network to connect the VM to:
+9.  The default password for user `device42` can now be changed from the console menu using option number **10**. 
+    
+    You can apply updates and do other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
+10. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address`.
+11. Log in to the **web interface** using the default credentials:
 
-![](/assets/images/wpid5946-wpid-media_1331243717545.png)
+    - **Username** `admin` 
+    - **Password:** `adm!nd42` 
 
-## All finished!
+    **Please change the username and password as soon as you log in.**
 
-![](/assets/images/wpid5947-wpid-media_1331243745178.png)
-
-## Login to the VM Console:
-
-![](/assets/images/wpid5950-media_1419606545144.png)
-
-Default username: device42  
-Default password: adm!nd42  
-(NOTE: Use credentials (ubuntu/default) for the power appliance) (NOTE: **Much** Older `{32bit, unsupported}` versions may have the default login "ubuntu" rather than "device42". If you have an appliance that uses these credentials, UPGRADE it if at all possible!)
-
-You can change the password with option 10 below.
-
-## Configure a static IP address:
-
-![Configure IP](/assets/images/wpid5951-media_1338938610667.png)
-
-Use this option to configure an IP address for the Device42 appliance.
-
-![](/assets/images/wpid5948-media_1338938641495.png)
-
-## Change the default credentials for the VM
-
-The default password for user device42 can now be changed from the console menu using option# 10. The default username/password is admin/adm!nd42. Please be sure to change it after you login.
-
-You can apply updates and do other menu-related work using ssh. Please note that root login has been disabled via ssh.
-
-Last, point your browser to the address at the top of the console menu and you're ready to go...
-
-Enjoy!
-
-![Device42 UI Login Screen](/assets/images/d42_UI-LOGIN_SCREEN.png)
+<ThemedImage
+  alt="Device42 UI Login Screen"
+  sources={{
+    light: useBaseUrl('/assets/images/login-light.png'),
+    dark: useBaseUrl('/assets/images/login-dark.png'),
+  }}
+  style={{ width: '70%' }}
+/>
