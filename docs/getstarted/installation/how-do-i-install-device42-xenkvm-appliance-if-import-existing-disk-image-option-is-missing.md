@@ -4,7 +4,7 @@ sidebar_position: 17
 ---
 
 :::info
-These are **special case** installation instructions for installing the Device42 appliance on Xen- or KVM-based platforms if the import disk image option is missing. Otherwise, please refer to [Device42 Xen and KVM install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.md).
+These are **special case** installation instructions for installing the Device42 appliance on Xen- or KVM-based platforms if the import disk image option is missing. Otherwise, please refer to [Device42 Xen and KVM install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.mdx).
 :::
 
 ### Download and Uncompress with bunzip2
@@ -49,4 +49,4 @@ Go to **Details** (1), **Boot Options** (2), uncheck **Network(PXE)**, and click
 
 ### Complete the Setup
 
-Follow the steps outlined in "[Set Up the Main Appliance and Log In](installation-xen-or-kvm-using-virt-manager.md#set-up-the-main-appliance-and-log-in)" section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.md) page to complete the installation of the Main Appliance. 
+Follow the steps outlined in "[Set Up the Main Appliance and Log In](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-and-log-in)" section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.mdx) page to complete the installation of the Main Appliance. 
