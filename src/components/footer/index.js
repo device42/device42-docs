@@ -125,15 +125,15 @@ const Footer = () => {
               <div>
                 <div>
                   <a href="/">
-                    <img width="285" height="68" alt="Device42"
-                         src="img/logo-dark.svg"/>
+                    <img width="261" height="80" alt="Device42"
+                         src="img/device42-fw-white.webp"/>
                   </a>
                 </div>
                 <p>
                     <span>
                       &copy;&nbsp;{new Date().getFullYear()}&nbsp;
                     </span>
-                  Device42, Inc. All rights are reserved.
+                  Freshworks Inc. All rights reserved.
                 </p>
               </div>
               <div>
@@ -148,6 +148,8 @@ const Footer = () => {
                 <div className={styles.footerAddress}>
                   <div><a href="mailto:info@device42.com">info@device42.com</a></div>
                   <div><a href="https://www.device42.com/privacy/">Privacy Policy</a></div>
+                  <div><a href="https://www.freshworks.com/accessibility/">Accessibility</a></div>
+                  <div><a href="https://www.freshworks.com/privacy/ccpa-requests/">Do Not Share My Personal Information</a></div>
                 </div>
               </div>
               <div>
