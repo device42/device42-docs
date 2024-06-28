@@ -31,7 +31,7 @@ Log in to the Device42 UI and navigate to **Discovery > Discovery Hub**.
 
 To set up a Discovery Hub scan, name the scan and select the [Remote Collector](getstarted/installation/remote-collector-rc-installation.md) to use. You need to know the IPs, IP ranges, or CIDR blocks for your target environment.
 
-Enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like but the more targets, the longer the scan will likely take. 
+Enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like but the more targets included, the longer the scan will likely take. 
 
 <ThemedImage
   alt="Discovery Hub menu"
@@ -44,7 +44,7 @@ Enter the IP information in the box highlighted in the image below and click on 
 
 After you have entered the information, click the bright green **Start** button. 
 
-The scan will start immediately. You'll see the green start notification, a percentage ticker showing your completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown** and **Unreachable**.
+The scan will start immediately. You'll see the green start notification, a percentage ticker showing your completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown**, and **Unreachable**.
 
 The time required to run the scan depends on the number of targets entered, roughly two minutes per IP for ranges with over 50,000 targets.
 
@@ -67,17 +67,17 @@ Six categories of data will be displayed on the summary screen:
 - Other/Unknown
 - Unreachable
 
-The **Windows**, **Nix**, **Network** and **Hypervisors** categories are straightforward. However, some network devices that run Linux under the hood can be miscategorized. We have Configuration Options to help ensure these items are grouped correctly. 
+The **Windows**, **Nix**, **Network**, and **Hypervisors** categories are straightforward. However, some network devices that run Linux under the hood can be miscategorized. We have Configuration Options to help ensure these items are grouped correctly. 
 
 **Other/Unknown** devices either don’t fall neatly into one of the four main categories or Nmap doesn’t have a mapping to the device. **Unreachable** indicates that nothing was returned from that IP address. 
 
-### Prerequisites:
+### Prerequisites
 
 While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or the firewalls in front of them). These hosts could be untrustworthy and send responses intended to confuse or mislead Nmap.
 
 ### Configure Network Scan Options
 
-Optionally, you may edit the speed and subsequent accuracy of your scans. Fast scans will run as quickly as possible, while moderate and normal scans will run slower. The relative quickness of the scan is determined by the size of the ranges entered. 
+Optionally, you may edit the speed and subsequent accuracy of your scans. Fast scans will run as quickly as possible, while moderate and normal scans will run slower. The scan speed is dictated by the size of the ranges entered. 
 
 Alternate matching allows you to determine how far we go in ensuring an accurate match - this is especially applicable for network devices that run an OS under the hood. 
 
@@ -121,7 +121,7 @@ From the **Network Scan Settings** tab, you can schedule the scan by clicking on
 />
 <br/><br/>
 
-Now, you are ready to dig into your results! You can view the entirety of the results or drill into each category. The results will be grouped by CIDR block. When you click into a specific block, you will see the fingerprinted OS and, if found, the FQDN. 
+Now you are ready to dig into your results! You can view the entirety of the results or drill into each category. The results will be grouped by CIDR block. When you click into a specific block, you will see the fingerprinted OS and, if found, the FQDN. 
 
 <ThemedImage
   alt="Scan results by CIDR block"
@@ -193,6 +193,6 @@ Click on the **+ Add schedule button** to schedule the scan.
 
 This information is accurate as of release v18.12.00, with more usability enhancements on their way.
 
-- We recommend running one scan at a time, at least initially, to inundate the network.
-- If a scan is stopped it cannot be resumed, a new scan needs to be created to finish scanning those remaining targets.
-- Scans are completed with Nmap data so there could be some variability in the data as it fingerprints the OS.
+- We recommend running one scan at a time, at least initially, to prevent inundating the network.
+- If a scan is stopped, it cannot be resumed. A new scan needs to be created to finish scanning those remaining targets.
+- Scans are completed with Nmap data, so there could be some variability in the data as it fingerprints the OS.
