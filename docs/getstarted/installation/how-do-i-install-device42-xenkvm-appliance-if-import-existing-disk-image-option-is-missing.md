@@ -1,10 +1,10 @@
 ---
-title: "Xen or KVM - Import disk Alternate Install"
+title: "Xen or KVM - Import Disk Alternate Install"
 sidebar_position: 17
 ---
 
 :::info
-These are **special case** installation instructions for installing the Device42 appliance on Xen or KVM based platforms if the import disk image option is missing. Otherwise, please refer to [device42 xen/kvm install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.md).
+These are **special case** installation instructions for installing the Device42 appliance on Xen- or KVM-based platforms if the import disk image option is missing. Otherwise, please refer to [Device42 Xen and KVM install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.md).
 :::
 
 ### Download and Uncompress with bunzip2
@@ -15,9 +15,9 @@ The raw image for Xen or KVM has been compressed using bzip2. When you get the f
 bunzip2 device42-3.2.3-raw.img.bz2
 ```
 
-### Create a New VM
+### Create a New Virtual Machine
 
-Once you uncompressed the downloaded raw image, create a new virtual machine. 
+Once you have uncompressed the downloaded raw image, create a new virtual machine. 
 
 Choose the **Network Boot** option. We'll add the disk later. Please make sure you don't have some sort of automated network boot enabled for this machine. You will not see the **Import existing disk image** option.
 
@@ -43,7 +43,7 @@ Choose your virtualization type from **Advanced options** and "i686" as the **Ar
 
 ### Disable Network Boot
 
-Go to **Details** (1), **Boot Options** (2), uncheck **Network(PXE)** and click **Apply** (4).
+Go to **Details** (1), **Boot Options** (2), uncheck **Network(PXE)**, and click **Apply** (4).
 
 ![Disable network boot](/assets/images/wpid2481-Disable_network_boot.png)
 
