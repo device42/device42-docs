@@ -9,19 +9,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and take following steps:
 
 1. Use 7zip to unzip the downloaded file.
-2. From XenCenter, right-click the server's name and select **Import**
+2. From XenCenter, right-click the server's name and select **Import**.
    
     ![Here are the steps in Images:](/assets/images/wpid5942-wpid-media_1331243551635.png)
 
-3. Choose Source
+3. Choose Source.
    
     ![Locate the file you you downloaded](/assets/images/wpid5943-wpid-media_1331243622364.png)
 
-4. Choose Server
+4. Choose Server.
 
     ![Choose a pool, or accept the default (next)](/assets/images/wpid5944-wpid-media_1331243664174.png)
 
-5. Choose Storage
+5. Choose Storage.
    
     ![Choose a storage location for the VM](/assets/images/wpid5945-wpid-media_1331243689911.png)
 
