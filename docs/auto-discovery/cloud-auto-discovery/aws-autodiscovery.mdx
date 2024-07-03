@@ -6,13 +6,13 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42's AWS Autodiscovery ensures you have full visibility into your AWS environments. This visibility gives you insights into your total AWS consumption - allowing you optimize on spend and services consumed. We are adding new discoveries all the time, specifically based on customer need.
+The Device42 AWS autodiscovery feature ensures you have full visibility into your AWS environments. This visibility gives you insights of your total AWS consumption, allowing you to optimize spending and services consumed. New discoveries are added all the time based on the needs of our customers.
 
 ## Discovery Items List Page
 
 You can view the discovered AWS items by navigating to the list page under **Resources > Cloud Resources**. Use the search bar on the left or click on one of the column dropdown menus to filter for specific AWS discovery item fields. 
 
-For example, click on the **Vendor Resource Type** dropdown menu and start typing a discovery item type in the search bar. Filter by a segment of the item field name using the advanced **Contains** search bar or use the **Not Contains** criteria to filter by exclusion.
+For example, click the **Vendor Resource Type** dropdown menu and start typing a discovery item type in the search bar. Filter by a segment of the item field name using the advanced **Contains** search bar or use the **Not Contains** criteria to filter by exclusion.
 
 <ThemedImage
   alt="Cloud Resources list page"
@@ -22,9 +22,9 @@ For example, click on the **Vendor Resource Type** dropdown menu and start typin
   }}
 />
 
-You can save your search to apply it later without repeating the search steps. Click on the gear icon on the left, name your search (1), and click on the green **+ Save As New** button. 
+You can save your search to apply it later without repeating the search steps. Click the gear icon on the left, name your search (1), and click the green **+ Save As New** button. 
 
-To change which columns are displayed, click on **Table Columns** (2) and select and deselect the columns from the list. 
+To change which columns are displayed, click **Table Columns** (2) and select and deselect the columns from the list. 
 
 If you want to keep this list page setup as the default view, select the **User Default** box.
 
@@ -40,18 +40,20 @@ If you want to keep this list page setup as the default view, select the **User 
 
 **To create an AWS Autodiscovery job, you will need to:**
 
-1. Prepare your AWS Account - you can use the policy example shown below.
-2. Device42 utilizes your AWS Access Key and Secret Key to perform discovery; please have these handy.
+1. Prepare your AWS Account. You can use the policy example [shown below](#additional-endpoint-information).
+2. Device42 uses your AWS Access Key and Secret Key to perform discovery, please have these handy.
 
-**Note**: Device42 encourages customers to follow AWS best practices for managing your IAM credentials, including using strong passwords, regular password rotation, applying the principle of least privilege to users and their passwords, etc.
+:::note
+Device42 encourages you to follow AWS best practices for managing your IAM credentials, including using strong passwords, regular password rotation, applying the principle of least privilege to users and their passwords, and so on.
+:::
 
-For more information, see the article _Best Practices for Managing AWS Access Keys_ at [https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html](https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html).
+For more information, see [Best Practices for Managing AWS Access Keys](https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html) on Amazon.
 
 ### Initiating an AWS Discovery
 
-- Select _Discovery > Cloud_ from the main menu and then click _Add Cloud Autodiscovery_ at the top right of the Cloud Autodiscovery list page.
-- Enter a _Name_ for the job.
-- Select the _Cloud Type_ > _Amazon AWS_ from the drop-down menu.
+- Select **Discovery > Cloud** from the main menu and then click **Add Cloud Autodiscovery** at the top right of the Cloud Autodiscovery list page.
+- Enter a **Name** for the job.
+- Select **Cloud Type > Amazon AWS** from the dropdown menu.
 
 <ThemedImage
   alt="Create AWS cloud discovery job"
@@ -61,12 +63,14 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
   }}
 />
 
-- Select the _Remote Collector_ for the job.
-- Add your Amazon _Access Key ID_ and your _Secret Key_ for the account(s) to be discovered. (Do this by clicking the magnifying glass, and then clicking _Add Password_ in the upper right corner. Enter your Access Key ID or Secret Key in the field labeled _Password_.  Device42 will store the keys encrypted.)
-- Select _Discover Main Account_ to have the job discover the main AWS account in addition to any AWS Roles accounts you select.
-- Select the _Available AWS Roles_ whose account(s) you want to discover and use the arrow to add them to the _Chosen AWS Roles_ list.
+- Select the **Remote Collector** for the job.
+- Add your Amazon **Access Key ID** and **Secret Key** for the account(s) to be discovered:
 
-**Note:** See [Defining AWS Roles](#addedit-aws-roles) below for instruction for creating the AWS Roles that Devices42 displays for AWS cloud autodiscovery jobs.
+ Click the **magnifying glass icon** and **Add Password** in the upper-right corner. Enter your Access Key ID or Secret Key in the field labeled **Password**.  Device42 uses encryption to store the keys.
+- Select **Discover Main Account** to discover the main AWS account in addition to any AWS Roles accounts you select.
+- Select the **Available AWS Roles** for the account(s) you want to discover using the arrow to add them to the **Chosen AWS Roles** list.
+
+**Note:** See [Defining AWS Roles](#addedit-aws-roles) below for instructions on creating the AWS Roles that Devices42 displays for AWS cloud autodiscovery jobs.
 
 - Choose one or more Amazon regions to search. 
 
@@ -79,12 +83,12 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
 />
 
 
-- You can also select options for adding vendor metadata, choose how to  handle instances not found in subsequent discovery vendor, select device name format options, add tags for discovered devices, etc.
-- Check _Kubernetes Discovery_ to discover Kubernetes clusters hosted on your cloud platform.
-- Check _Extended Summary Discovery_ to discover the full breadth of resources within your AWS Environment. These resources will display in the Cloud Resources section with a limited dataset. 
+- You can also select options for adding vendor metadata, choose how to handle instances not found in subsequent discovery vendor, select device name format options, and add tags for discovered devices.
+- Check **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
+- Check **Extended Summary Discovery** to discover the full breadth of resources within your AWS Environment. These resources will be displayed in the Cloud Resources section with a limited dataset. 
 - Optionally, you can set the [_Service Level_](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items.
-- Add object categories, tags, and a customer for discovered devices, etc.
-- Scroll down the page and click the _Advanced Features (Show)_ tab to select the different types of resources you want the job to discover (Route53, S3, EBS, Databases, etc.).
+- Add object categories, tags, and a customer for discovered devices.
+- Scroll down the page to the **Advanced Features (Show)** tab and select the types of resources you want the job to discover (for example, Route53, S3, EBS, and Databases).
 
 <ThemedImage
   alt="Advanced features to choose AWS resources"
@@ -94,10 +98,10 @@ For more information, see the article _Best Practices for Managing AWS Access Ke
   }}
 />
 
-
-- Add an _Autodiscovery Schedule_ to schedule the job if wanted or add _Admin Groups_ for the job.
-- Click _Save_ or _Save and continue editing_ to save the discovery job.
-- When you return to the Cloud Discovery list page, you can click _Run Now_ to run the job immediately.
+- Add an optional **Autodiscovery Schedule** to schedule the job.
+- Add the **Admin Groups** for the job.
+- Click **Save** or **Save and continue editing** to save the discovery job.
+- To run the job immediately, go to the Cloud Discovery list page and click **Run Now**.
 
 ### AWS Discovery Items
 
@@ -124,7 +128,7 @@ Note that some Discovery items require enabling the feature and cannot be discov
 | Subnets                   | Network --> Subnets              |                                       | Subnets                                                |
 | VPCs                      | Resources --> VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       |
 
-**Additional Endpoint Information**
+### Additional Endpoint Information
 
 _**Regular Discovery**_
 
@@ -133,11 +137,11 @@ _**Regular Discovery**_
 
 _**K8s cluster endpoints access per K8s RBAC setup**_
 
-- /api/v1/namespaces/kube-system
-- /api/v1/nodes?watch=False
-- /api/v1/services?watch=False
-- /apis/apps/v1/deployments?watch=False OR /apis/extensions/v1beta1/deployments?watch=False (depends on k8s version)
-- /apis/networking.k8s.io/v1beta1/ingresses?watch=False OR /apis/extensions/v1beta1/ingresses?watch=False (depends on k8s version)
+- `/api/v1/namespaces/kube-system`
+- `/api/v1/nodes?watch=False`
+- `/api/v1/services?watch=False`
+- `/apis/apps/v1/deployments?watch=False` or `/apis/extensions/v1beta1/deployments?watch=False` (depends on K8s version)
+- `/apis/networking.k8s.io/v1beta1/ingresses?watch=False` or `/apis/extensions/v1beta1/ingresses?watch=False` (depends on K8s version)
 
 _**Example IAM Policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
 
@@ -247,9 +251,9 @@ A bucket can be [public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/a
 - See [S3 Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) for more details. 
 - Visit the [block public access settings](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-options) section for S3 access control options.
 
-### Add/Edit AWS Roles
+### Add and Edit AWS Roles
 
-Device42 includes an editor you can use to define or edit the AWS Roles displayed for Amazon AWS cloud autodiscovery jobs. Follow the steps below to view and add AWS Roles.
+Device42 includes an editor to define or edit the AWS Roles displayed for Amazon AWS cloud autodiscovery jobs. Follow the steps below to view and add AWS Roles:
 
 - Select **Resources > Secrets > AWS Roles** from the main menu.
 
@@ -262,7 +266,7 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 />
 
 
-- Device42 displays the AWS Roles list page. Use the _AWS Role_ drop-down to select a role to display or click _Advanced_ to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+- Use the **AWS Role** dropdown to select a role to display or click **Advanced** to construct more specific searches. See [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) for instructions.
 
 <ThemedImage
   alt="View AWS roles"
@@ -273,7 +277,7 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 />
 
 
-- Click _Add_ at the top right to add a new role – click a role _Name_ to view or edit that role.
+- Click **Add** at the top right to add a new role and click a role **Name** to view or edit that role.
 
 <ThemedImage
   alt="Add a new AWS role"
@@ -284,136 +288,132 @@ Device42 includes an editor you can use to define or edit the AWS Roles displaye
 />
 
 
-- Enter a _Name_ for the role.
-- Enter the _AWS Role_ label and an optional _AWS Role Description_.
-- In the _Account ID and External ID_ section, click _\+ Add More_.
-- Add the role _Account ID_ and the _External ID_ – click the eye icon to show or hide the field. Click the trash can icon to remove  the entries.
-- Click _Save_ at the top right of the page to save the role.
+- Enter a **Name** for the role.
+- Enter the **AWS Role** label and an optional **AWS Role Description**.
+- In the **Account ID and External ID** section, click **+ Add More**.
+- Add the **Account ID** and **External ID**. Click the eye icon to show or hide the field. - Click the trash can icon to remove the entries.
+- Click **Save** at the top right of the page to save the role.
 
 Device42 adds the new AWS Role to the roles list; it will also appear in the Available AWS Roles list when you create or edit an Amazon AWS cloud autodiscovery job.
 
-**Note:** The following steps are required if you are looking to leverage the AWS switch (Assume) Role on the API calls to scan other AWS accounts
+The following steps are required if you are looking to leverage the AWS switch (Assume) Role on the API calls to scan other AWS accounts
 
-1. From the Main Account:
+**From the Main Account:**
     
-    1. Create a role within IAM -> This should be using the "Another AWS Account" option
+  - Create a role within IAM using the **Another AWS Account** option.
         
-    2. We would need an account that uses just accountID and one that would be with the Require ExternalID option - Note no requirement for MFA option at this time
+  - Supply an account that uses **Account ID** and an account that uses the **Require External ID** option. There isn't a requirement for MFA option at this time.
         
-    3. Policy to be added - use the example policy needed for discovery from our docs site [here](auto-discovery/cloud-auto-discovery/index.mdx)
+  - Use the [example IAM policy](#additional-endpoint-information) needed for discovery.
         
-2. From the Sub (or separate)-account
-    
-    Have a user that is assigned the assumerole from Step 2 "Grant Access to the Role" here in the AWS IAM case [IAM Tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html")
+**From the sub- (or separate) account:** Assign a user to a role that has already been granted access as described in [Grant Access to the Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html#tutorial_cross-account-with-roles-2).
 
-### Setting up Dynamic Account Discovery Roles
+### Setting Up Dynamic Account Discovery Roles
 
-In 18.11.03, you can now discover all sub accounts and add them to the discovery by using Dynamic Account Discovery. There are a few prerequisite steps that we'll cover first and then get into how to appropriately set up the roles.
-1. Create a role with no accounts associated with it
-2. Use the role in the discovery with the key/pair associated with it.
+You can discover all sub-accounts and add them to the discovery process using Dynamic Account Discovery. 
 
-Set Up
+There are prerequisite steps we'll cover before getting into how to setting up the roles:
+1. Create a role with no accounts associated with it.
+2. Use the role in the discovery with the key pair associated with it.
 
-Option 1:
+**Option 1:**
 
-- Key/pair user must be deployed into the org’s root account.
-- This user policy must have at a minimum the following rights:
+- The key pair user must be deployed into the organization’s root account.
+- This user's policy must have the following rights, at minimum:
     - `sts:assumerole`
     - `organizations:listaccounts`
 - A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired.
 - The Device42 discovery policy must be granted to the role.
 - For role config within Device42, do not add any accounts to the role.
-- At this time, we cannot use dynamic account discovery to discover roles which use external ID values
+- At this time, we cannot use dynamic account discovery to discover roles that use external ID values.
 
-Option 2:
-- If you don't want to follow the steps above, you can either:
-    - make the assumable role available in the main account (dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of ID’s), 
-    - or also attach the Device42 discovery policy to the user directly (requires selection of the “discover main account” box on the job).
+**Option 2:**
+
+If you don't want to follow the steps above, you can either:
+  - Make the assumable role available in the main account. Dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of IDs.
+  - Or also attach the Device42 discovery policy to the user directly. Select the **Discover main account** box on the job.
 
 ## Using AWS Roles To Discover Accounts Within Discovery Jobs
 
-AWS Cloud Discovery Jobs can use AWS roles to discover accounts. When the job includes the AWS role, the discovery job will dynamically grab multiple accounts from AWS. We previously (before v18.13) aimed to maintain a 1:1 relationship between roles and accounts. Now, a single role can discover multiple accounts. This enables AWS users to set up discovery and specify the precise account to create, or leave the account empty to have the discovery job create Cloud accounts as a result of the discovery.
+AWS Cloud Discovery Jobs can use AWS roles to discover accounts. When the job includes the AWS role, the discovery job will dynamically grab multiple accounts from AWS. We previously (before v18.13) aimed to maintain a 1:1 relationship between roles and accounts. Now, a single role can discover multiple accounts. This enables AWS users to set up discovery and specify the precise account to create, or leave the account empty to have the discovery job create cloud accounts as a result of the discovery.
 
-## Setting up Environment Credentials using EC2 Instance Profiles
-In 18.14, you can now perform AWS discovery without the need to supply any form of long-term, programmatic credentials by leveraging Instance Profiles / IAM roles for Amazon EC2 instances.
+## Setting Up Environment Credentials using EC2 Instance Profiles
 
-Support for this comes in the form of a new discovery option called 'Use Environment Credentials', which when enabled, allows the discovery job to be saved without selecting an Access Key ID or Secret Key in the job configuration.
+You can perform AWS discovery without supplying any form of long-term, programmatic credentials by leveraging Instance Profiles or IAM roles for Amazon EC2 instances.
+
+When **Use Environment Credentials** is enabled, the discovery job can be saved without selecting an Access Key ID or Secret Key in the job configuration. This is only possible when using an AWS-hosted Main Appliance or Remote Collector for discovery as it relies on internal AWS mechanisms.
 
 ![](/assets/images/cloud-discovery-aws/aws-1.png)
 
-**Note:** This is only possible when using a AWS hosted Main Appliance or Remote Collector for discovery as it relies on internal AWS mechanisms.
-
 ### Configuration
-1. **Deploy a Main Appliance or Remote Collector within AWS**
-2. **Create a new IAM Policy**
 
-    - 2.1. On the IAM Policy creation screen, click on 'JSON' in the policy editor and copy/paste one of the policies below based on your desired discovery configuration:
-        - Option 1: Single Account Discovery
+1. **Deploy a Main Appliance or Remote Collector within AWS.**
+2. **Create a new IAM Policy:**
+  
+    On the IAM Policy creation screen, click **JSON** in the policy editor and copy paste one of the policies below based on your desired discovery configuration:
+      - Option 1: For single account Discovery, refer to the example discovery policy above.
 
-            Please refer to the example discovery policy above.
+      - Option 2: Role Assumption Using Static Account Discovery
+          
+        This option is good if you have a need to specify External IDs when assuming roles, as Dynamic Account Discovery does not support role assumption using External IDs.
 
-        - Option 2: Role Assumption Using Static Account Discovery
-           
-            This option is good if you have a need to specify External IDs when assuming roles, as Dynamic Account Discovery does not support role assumption using External IDs.
+        *Example IAM Policy*
 
-            *Example IAM Policy*
+        ```
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "sts:assumerole"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
+        ```
 
-            ```
-            {
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Effect": "Allow",
-                        "Action": [
-                            "sts:assumerole"
-                        ],
-                        "Resource": [
-                            "*"
-                        ]
-                    }
-                ]
-            }
-            ```
+      - Option 3: Role Assumption Using Dynamic Account Discovery
+          
+          This option is good if you want to discover resources in all member accounts without the need to specify individual Account IDs.
+          
+          **Note:** This requires the associated Remote Collector or Main Appliance to be deployed within the organization's root (management) account.
+          
+          See: [Setting Up Dynamic Account Discovery Roles](#setting-up-dynamic-account-discovery-roles) for more details on configuring Dynamic Account Discovery.
 
-        - Option 3: Role Assumption Using Dynamic Account Discovery
-           
-            This option is good if you want to discover resources in all member accounts without the need to specify individual Account IDs.
-           
-            **Note:** This requires the associated Remote Collector or Main Appliance to be deployed within the organization's root (management) account.
-           
-            See: [Setting Up Dynamic Account Discovery Roles](#setting-up-dynamic-account-discovery-roles) for more details on configuring Dynamic Account Discovery.
+          *Example IAM Policy*
 
-            *Example IAM Policy*
+          ```
+          {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Action": [
+                          "sts:assumerole",
+                          "organizations:listaccounts"
+                      ],
+                      "Resource": [
+                          "*"
+                      ]
+                  }
+              ]
+          }
+          ```
 
-            ```
-            {
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Effect": "Allow",
-                        "Action": [
-                            "sts:assumerole",
-                            "organizations:listaccounts"
-                        ],
-                        "Resource": [
-                            "*"
-                        ]
-                    }
-                ]
-            }
-            ```
-   
-    - 2.2. Once you've confirmed you have the appropriate permission set selected, click on next, give the policy a name and description and then click on 'Create Policy'.
+    When you've confirmed you have the appropriate permission set selected, click **Next**, give the policy a name and description, and click **Create Policy**.
 
 3. **Create a new IAM Role**
 
-    - 3.1. On the IAM Role creation screen, select 'AWS service' as the trusted entity type and 'EC2' as the Service or use case.  Click Next.
-    - 3.2. On the add permissions screen, search for and select the policy created in step 2. Click on next, give the role a name and description and then click on 'Create Role'.
+    - On the IAM Role creation screen, select **AWS service** as the trusted entity type and **EC2** as the service or use case. Click **Next**.
+    - On the add permissions screen, search for and select the policy created in Step 2. Click **Next**, give the role a name and description, and then click **Create Role**.
    
-        For those that may be looking to do the role preparation via the AWS CLI and not within the AWS Management Console, you can reference the trust policy below.
+        If you want to do the role preparation via the AWS CLI and not within the AWS Management Console, you can reference the trust policy below:
 
         *Example Trust Policy*
-
         ```
         {
             "Version": "2012-10-17",
@@ -433,21 +433,18 @@ Support for this comes in the form of a new discovery option called 'Use Environ
         }
         ```
 
-4. **Attach the role**
-    - 4.1. From the EC2 Instances list page, select the EC2 instance created in step 1. Then click on 'Actions' -> 'Security' -> 'Modify IAM role'.
-    - 4.2. From the 'Modify IAM role' page, select the IAM Role created in step 3 and then click 'Update IAM role'.
+4. **Attach the role:**
+    - From the EC2 Instances list page, select the EC2 instance created in Step 1. Then click **Actions > Security > Modify IAM role**.
+    - From the "Modify IAM role" page, select the IAM Role created in Step 3 and then click **Update IAM role**.
 
-5. **Additional Member Account Configuration for Role Assumption Using Static / Dynamic Account Discovery**
+5. **Additional Member Account Configuration for Role Assumption Using Static or Dynamic Account Discovery**
 
-    **Note:** If you're configuring Single Account Discovery, then there are no remaining steps to be done. If you've opted instead for Role Assumption using static or dynamic account discovery, then continue following the steps below:
+    If you're configuring Single Account Discovery, then there are no remaining steps to be done. If you've opted instead for Role Assumption using static or dynamic account discovery, then continue following the steps below:
    
-    - 5.1 Create the discovery policy in each member account to be discovered.
+    - Create the discovery policy in each member account to be discovered. Follow Step 2 again but this time use the example discovery policy above.
+    - Create the discovery role in each member account to be discovered.
    
-        Follow step 2 again but this time use the example discovery policy above.
-
-    - 5.2 Create the discovery role in each member account to be discovered.
-   
-        Follow step 3 again but this time select 'Custom trust policy' instead of 'AWS service'. Copy/paste the trust policy below and then at the add permissions screen, search for and select the discovery policy created in the previous step.
+        Follow Step 3 again but this time select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below and then at the add permissions screen, search for and select the discovery policy created in the previous step.
 
         *Example Trust Policy*
         ```
@@ -465,7 +462,7 @@ Support for this comes in the form of a new discovery option called 'Use Environ
         }
         ```
        
-        **Note:** Be sure to replace `ROOT_ACCOUNT_ID` and `EC2_D42_RC_ROLE` with your own values.
+        Replace `ROOT_ACCOUNT_ID` and `EC2_D42_RC_ROLE` with your own values.
 
-        - ROOT_ACCOUNT_ID: This is the root account ID where the role configured in step 3 resides
-        - EC2_D42_RC_ROLE: This is the name of the role in the root account to establish a trust with
+        - `ROOT_ACCOUNT_ID`: This is the root account ID where the role configured in Step 3 resides.
+        - `EC2_D42_RC_ROLE`: This is the name of the role in the root account to establish trust with.
