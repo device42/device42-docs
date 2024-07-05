@@ -6,7 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Device42 AWS autodiscovery feature ensures you have full visibility into your AWS environments. This visibility gives you insights of your total AWS consumption, allowing you to optimize spending and services consumed. New discoveries are added all the time based on the needs of our customers.
+The Device42 AWS autodiscovery feature ensures you have full visibility into your AWS environments. This visibility gives you insight into your total AWS consumption, allowing you to optimize spending and services consumed. New discoveries are added all the time based on the needs of our customers.
 
 ## Discovery Items List Page
 
@@ -306,7 +306,9 @@ The following steps are required if you are looking to leverage the AWS switch (
         
   - Use the [example IAM policy](#additional-endpoint-information) needed for discovery.
         
-**From the sub- (or separate) account:** Assign a user to a role that has already been granted access as described in [Grant Access to the Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html#tutorial_cross-account-with-roles-2).
+**From the sub- (or separate) account:** 
+
+Assign a user to a role that has already been granted access as described in [Grant Access to the Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html#tutorial_cross-account-with-roles-2).
 
 ### Setting Up Dynamic Account Discovery Roles
 
@@ -444,7 +446,7 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
     - Create the discovery policy in each member account to be discovered. Follow Step 2 again but this time use the example discovery policy above.
     - Create the discovery role in each member account to be discovered.
    
-        Follow Step 3 again but this time select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below and then at the add permissions screen, search for and select the discovery policy created in the previous step.
+        Follow Step 3 again but this time select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below. At the add permissions screen, search for and select the discovery policy created in the previous step.
 
         *Example Trust Policy*
         ```
