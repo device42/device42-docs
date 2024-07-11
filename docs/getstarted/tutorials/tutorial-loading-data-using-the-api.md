@@ -1,48 +1,110 @@
 ---
-title: "Tutorial:  Loading Data using the API"
+title: "Tutorial: Loading Data using the API"
 sidebar_position: 2
 ---
 
-The purpose of this tutorial is twofold: First, we will show you how easy it is to load data using the device42 API without any programming other than executing a shell script of curl commands. Second, by loading the data in this script into an empty device42 appliance, you can explore the device42 feature set without having to load your own data. Two important notes: (1) The script used in this tutorial assumes an empty appliance. It will not work on an appliance that already has data. (2) To run the script, you will need to get to a Linux (or Ubuntu) command prompt. You can run this script from any \*nix system with curl installed.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+The purpose of this tutorial is to load sample data into the Device42 Main Appliance using the Device42 API. You don't need any prior programming knowledge and only need to execute a bash script of curl commands from the command prompt.
+
+To run the script, you need a \*Nix system with curl, a data transfer tool that is built into Linux and Ubuntu.
 
 ### Running the API Script
 
-The API script can be found on the [device42 automation scripts page](https://github.com/device42/demo-data-shell-scripts). To run the script: (1) From your browser, do a Save As command to save the file to your local disk. (2) Open the file in any text editor like Windows Notepad or Ubuntu Gedit (but not a word processor like Windows Word).
+1. Download API script from the [device42 automation scripts page](https://github.com/device42/demo-data-shell-scripts/blob/master/demo_script.sh). 
 
-![wpid3348-media_1375606956746.png](/assets/images/wpid3348-media_1375606956746.png)
+    ![GitHub download button](/assets/images/tutorial-loading-data-using-the-api/download-script.png)
 
-In the area with the red oval, you will need to change the URL to point to your device42 appliance. If you have changed, the username and/or password on the appliance, you will need to change these also. (3) Run this script $ sh /tmp/demo\_script.sh (Obviously, if you've downloaded to a different directory and/or with a different name, you will need to modify the above accordingly). You will see a lot of information displayed on the screen. Specifically, for each curl statement in the shell script, you will see a success message. Now if you point your browser to the device42 appliance, you will see the following dashboard:
+2. Open the script in a text editor like Windows Notepad or Ubuntu Gedit, but not a word processor like Microsoft Word. 
+3. Add your credentials to lines 2 - 4 of the script. Replace `https://IP` with your Device42 IP address or FQDN, and supply your `username` and `password`:
+    ```bash
+    URL=https://IP
+    USER='username'         
+    PASS='password' 
+    ```
+4. Open a Linux terminal and run the script by typing `sh` followed by the path and file name of the script. For example:
+    ```bash
+    $ sh /tmp/demo_script.sh
+    ```
+    You will see a lot of information displayed in the terminal as the script executes as each curl statement outputs a success message. 
+5. Now log in to your Device42 Main Appliance. 
 
-![wpid3349-media_1375607516111.png](/assets/images/wpid3349-media_1375607516111.png)
+Running the script adds sample data including a building, two rooms, six vendors, four racks, seven devices, and three customers to your Main Appliance. You'll see statistics of the additions on your dashboard, depending on your settings. Some data like custom keys and value pairs aren't displayed in the dashboard, but you'll see them when browsing the data in the system.
 
-This is the core data we have just loaded via the API commands. There was other data also loaded (e.g. custom key / value pairs) that aren't displayed in the dashboard but which will see when you browse the data in the system.
+You can view data added for an object category by navigating to that category's list page from the main menu. For example, if you go to **Resources > All Devices** you'll see the newly created records with names beginning with "nh-demo-".
+
+<ThemedImage
+  alt="New devices added on the list page"
+  sources={{
+    light: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/added-devices-light.png'),
+    dark: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/added-devices-dark.png'),
+  }}
+/>
 
 ### Understanding the API Script
 
-Now, let's look at the script we just executed. If you are sure that you will never use the API, you can safely skip this section.
+Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section. 
 
-![wpid3350-media_1375607843550.png](/assets/images/wpid3350-media_1375607843550.png)
+Each line in the script has a curl statement like this one. Note that the `\` backslashes aren't in the original script and are used here to continue the command on a new line for readability.
 
-Each line in the shell script has a curl statement like this one. Curl is a data transfer tool that is built into Linux and Ubuntu. The -i, -H, and --insecure parameters should be in all device42 API calls: 1. The -i command specifies that the header should be included in the output. 2. The -H command tells the device42 application that a json-formatted response will be accepted. 3. The --insecure command is required because the device42 appliance does not have a certificate. The -X and -d commands will vary according to the device42 API being used as will the url (e.g. '/api/1.0/buildings/' in the example above). The appropriate values for each of these can be by going to the [device42 API list page](how-to-videos/api-imports-add-create-hardware-models.md) and finding the API you need.
+```bash
+#Add a Building
+curl -i -H "Accept: application/json" \
+     -X POST \
+     -d "name=New Haven DC" \
+     -d "address=123 main st" \
+     -d "contact_name=roger" \
+     -d "contact_phone=1234567890" \
+     -d "notes=super critical" \
+     -u $USER:$PASS \
+     $URL/api/1.0/buildings/ \
+     --insecure
+```
 
-![wpid3351-media_1375610020246.png](/assets/images/wpid3351-media_1375610020246.png)
+The `-i`, `-H`, and `--insecure` parameters should be in all Device42 API calls:
+- The `-i` flag specifies that the header should be included in the output. 
+- The `-H` flag tells the Device42 application that a JSON-formatted response will be accepted. 
+- The `--insecure` flag is required because the Device42 appliance does not have a certificate. 
 
-The curl statement shown earlier uses the parameters in the selection in red above
+The values of the following flags and values varies according to the API used:
+- The `-X` value specifies the HTTP method used. 
+- The `-d` values are object category parameters. For example, a building has the `address=` parameter as an optional field to fill in.
+- The `URL` value is the API endpoint. For example, `/api/1.0/buildings/` is the endpoint for the building object category.
+  
+Watch our videos on using API imports to [create hardware models](how-to-videos/api-imports-add-create-hardware-models.md) or [add devices to racks](how-to-videosapi-imports-adding-devices-to-racks/) for guided examples.
 
-![wpid3352-media_1375610227026.png](/assets/images/wpid3352-media_1375610227026.png)
+## The API Documentation
 
-The documentation for this API command tells you that: (1) The url is /api/1.0/buildings/ (2) The -X command should be POST (3) The only required -d parameter is **name**. There are a number of optional parameters. Also, (4) All API's have a curl example.
+The [Device42 API website](https://api.device42.com/) is a resource to find information on the API endpoints you need to get or add data from Device42. 
 
-### Unique ID's
+The documentation for this API command tells you that the `-X` value should be `POST` and the `URL` endpoint is `/api/1.0/buildings/`. Under the "Parameters" section, you'll see a `name` value is required and that `address` is an option. 
 
-![wpid3353-media_1375610622694.png](/assets/images/wpid3353-media_1375610622694.png)
+![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/api-docs-buildings.png)
 
-This is the documentation for the Create/Update Rooms API. Highlighted in red is an optional room\_id parameter. You would use this parameter if you wanted to specify which room the rack is in. There are two ways to get an id (id's are required for parameters whose names end in \_id): First, as specified above, you can do it programmatically via the [Retrieval API](getstarted/tutorials/tutorial-loading-data-using-the-api.md) for the object. However, this method is most appropriate for a more complex program written in a language such as Java or Python. If you are just executing curl commands in a shell script, you can do the following: Click on Datacenter / Rooms. Then, hover over the name of the room for which you wish to find the id.
+### Finding Unique IDs 
 
-![wpid3354-media_1375694823287.png](/assets/images/wpid3354-media_1375694823287.png)
+Some API parameters use unique IDs of other configuration items. For example, if you are creating a rack and want to specify the room the rack is in, you can find the unique ID of the room. This is especially useful if you have multiple rooms with the same name and want to specify one of them.
 
-For example, hover over the "2nd Floor" hyperlink, and look at the lower left corner of your screen. You should see the url of the building. The unique id is the last element of the url. In the example above, the unique id is 2. If you hover over the "1st Floor" hyperlink, you will see that the unique id is 1. At this point, our demo system has multiple buildings, rooms, racks, and devices.
+This is the documentation for the **Create/update** racks API with the optional `room_id` parameter highlighted. 
 
-![wpid3355-media_1375697151375.png](/assets/images/wpid3355-media_1375697151375.png)
+![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/racks-api-paramaters.png)
 
-We've reached the end of this tutorial. Next, we encourage you to follow the Tutorial [Navigating the device42 User Interface](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx). We'd also like to encourage you browse through the documentation for more detailed information on the various device42 features.
+There are two ways to get an ID. First, you can do it programmatically using the endpoint for the object, like `/api.1.0/rooms/`. This method is most appropriate for a more complex program written in Java or Python. 
+
+If you are just executing curl commands in a shell script, do the following. From the Main Appliance, go to **Infrastructure > DataCenter > Rooms**. Then, hover over the name of the room for which you wish to find the ID.
+
+<ThemedImage
+  alt="Hover over room name"
+  sources={{
+    light: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/hover-room-light.png'),
+    dark: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/hover-room-dark.png'),
+  }}
+  style={{ width: '60%' }} 
+/>
+
+For example, hover over the "IDF2" hyperlink, and look at the lower left corner of your screen to see the small URL of the room. The unique ID is the last number in the URL, which is "26". 
+
+## Next Steps
+
+Next, we encourage you to follow the [Navigating the Device42 User Interface](/getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx) tutorial. Browse through the documentation for more detailed information on the various Device42 features.
