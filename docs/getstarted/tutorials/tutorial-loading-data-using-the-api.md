@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Loading Data using the API"
+title: "Tutorial: Loading Data Using the API"
 sidebar_position: 2
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The purpose of this tutorial is to load sample data into the Device42 Main Appliance using the Device42 API. You don't need any prior programming knowledge and only need to execute a bash script of curl commands from the command prompt.
+This tutorial will show you how to load sample data into the Device42 Main Appliance using the Device42 API. You don't need any prior programming knowledge and only need to execute a bash script of curl commands from the command prompt.
 
-To run the script, you need a \*Nix system with curl, a data transfer tool that is built into Linux and Ubuntu.
+To run the script, you need a \*nix system with curl, a data transfer tool built into Linux and Ubuntu.
 
 ### Running the API Script
 
-1. Download API script from the [device42 automation scripts page](https://github.com/device42/demo-data-shell-scripts/blob/master/demo_script.sh). 
+1. Download the API script from the [Device42 automation scripts page](https://github.com/device42/demo-data-shell-scripts/blob/master/demo_script.sh). 
 
     ![GitHub download button](/assets/images/tutorial-loading-data-using-the-api/download-script.png)
 
-2. Open the script in a text editor like Windows Notepad or Ubuntu Gedit, but not a word processor like Microsoft Word. 
-3. Add your credentials to lines 2 - 4 of the script. Replace `https://IP` with your Device42 IP address or FQDN, and supply your `username` and `password`:
+2. Open the script in a text editor like Windows Notepad or Ubuntu Gedit. Don't use a word processor like Microsoft Word. 
+3. Add your credentials to lines 2-4 of the script. Replace `https://IP` with your Device42 IP address or FQDN, and supply your `username` and `password`:
     ```bash
     URL=https://IP
     USER='username'         
@@ -27,7 +27,7 @@ To run the script, you need a \*Nix system with curl, a data transfer tool that 
     ```bash
     $ sh /tmp/demo_script.sh
     ```
-    You will see a lot of information displayed in the terminal as the script executes as each curl statement outputs a success message. 
+    You will see information displayed in the terminal as the script executes and each curl statement outputs a success message. 
 5. Now log in to your Device42 Main Appliance. 
 
 Running the script adds sample data including a building, two rooms, six vendors, four racks, seven devices, and three customers to your Main Appliance. You'll see statistics of the additions on your dashboard, depending on your settings. Some data like custom keys and value pairs aren't displayed in the dashboard, but you'll see them when browsing the data in the system.
@@ -46,7 +46,7 @@ You can view data added for an object category by navigating to that category's 
 
 Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section. 
 
-Each line in the script has a curl statement like this one. Note that the `\` backslashes aren't in the original script and are used here to continue the command on a new line for readability.
+Each line in the script has a curl statement like the one below. Note that the `\` backslashes aren't in the original script and are used here to continue the command on a new line for readability.
 
 ```bash
 #Add a Building
@@ -67,7 +67,7 @@ The `-i`, `-H`, and `--insecure` parameters should be in all Device42 API calls:
 - The `-H` flag tells the Device42 application that a JSON-formatted response will be accepted. 
 - The `--insecure` flag is required because the Device42 appliance does not have a certificate. 
 
-The values of the following flags and values varies according to the API used:
+The values of the following flags and variables vary depending on the API used:
 - The `-X` value specifies the HTTP method used. 
 - The `-d` values are object category parameters. For example, a building has the `address=` parameter as an optional field to fill in.
 - The `URL` value is the API endpoint. For example, `/api/1.0/buildings/` is the endpoint for the building object category.
@@ -76,7 +76,7 @@ Watch our videos on using API imports to [create hardware models](how-to-videos/
 
 ## The API Documentation
 
-The [Device42 API website](https://api.device42.com/) is a resource to find information on the API endpoints you need to get or add data from Device42. 
+The [Device42 API website](https://api.device42.com/) is a resource to find information on the API endpoints you need to get data from or add data to Device42. 
 
 The documentation for this API command tells you that the `-X` value should be `POST` and the `URL` endpoint is `/api/1.0/buildings/`. Under the "Parameters" section, you'll see a `name` value is required and that `address` is an option. 
 
@@ -92,7 +92,7 @@ This is the documentation for the **Create/update** racks API with the optional 
 
 There are two ways to get an ID. First, you can do it programmatically using the endpoint for the object, like `/api.1.0/rooms/`. This method is most appropriate for a more complex program written in Java or Python. 
 
-If you are just executing curl commands in a shell script, do the following. From the Main Appliance, go to **Infrastructure > DataCenter > Rooms**. Then, hover over the name of the room for which you wish to find the ID.
+If you are executing curl commands in a shell script, do the following: From the Main Appliance, go to **Infrastructure > DataCenter > Rooms**. Then, hover over the name of the room for which you wish to find the ID.
 
 <ThemedImage
   alt="Hover over room name"
