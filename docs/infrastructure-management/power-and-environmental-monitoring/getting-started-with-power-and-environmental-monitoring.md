@@ -46,9 +46,9 @@ The actual monitoring occurs in a separate virtual appliance from the main Devic
 The installation process for one or more monitoring appliances is similar to installation of the Device42 main appliance. If you would like to set up power monitoring using a Remote Collector (RC), see the [instructions for setting up an RC](auto-discovery/remote-collector-rc.md).
 
 Refer to the appropriate link(s) below for installation on your selected virtualization platform:  
-\- [VMWare Player](getstarted/installation/installation-vmware-player.md)  
+\- [VMWare Player](getstarted/installation/installation-vmware-player.mdx)  
 \- [Virtual Box](getstarted/installation/installation-virtual-box.md)  
-\- [Citrix Xen Server](getstarted/installation/installation-citrix-xen-server.md)  
+\- [Citrix Xen Server](getstarted/installation/installation-citrix-xen-server.mdx)  
 \- [Microsoft Hyper V](getstarted/installation/installation-microsoft-hyperv.md)  
 \- [vCenter Server](getstarted/installation/installation-vcenter-server.md)
 
