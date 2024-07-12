@@ -8,7 +8,7 @@ Start with the [Introduction to Device42](/getstarted/tutorials/device42-tutoria
 
 Next, follow one or both of the tutorials below to add sample data to your new Device42 instance:
 - The [spreadsheets tutorial](getstarted/tutorials/tutorial-loading-data-using-spreadsheets.mdx) shows you how to access a sample `.xls` file, add data to it, and re-upload the file to load data to Device42.
-- The [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.md) introduces the Device42 API by executing a bash script of several curl commands that use APIs to load sample data.
+- The [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx) introduces the Device42 API by executing a bash script of several curl commands that use APIs to load sample data.
 
 Complete your introduction with the [Device42 user interface tutorial](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx). Explore the sample data in the Device42 UI to get familiar with the menu options and data organization. 
 
