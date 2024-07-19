@@ -164,7 +164,7 @@ To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see [SN
 
 The open-source, standalone [Ping Sweep tool](https://www.device42.com/autodiscovery/) uses NMAP in the background to run ping sweeps against the selected network(s), uploading discovered IP, MAC, and reverse DNS details via Device42's RESTful APIs. The Ping Sweep tool is written in .NET.
 
-There is also a ping sweep tool built into Device42. Find it in the UI under **Discovery > Ping Sweep**. Note that the UI-based option may be depreciated in the future and the standalone tool is much faster.
+There is also a ping sweep tool built into Device42. Find it in the UI under **Discovery > Ping Sweep**. Note that the UI-based option may be deprecated in the future and the standalone tool is much faster.
 
 ## Remote Collector (RC)
 
@@ -179,7 +179,7 @@ There is a selection of open-source scripts on the Device42 GitHub page:
 - For Mac, Linux, and Solaris autodiscovery, see the [`nix_bsd_mac_inventory`](https://github.com/device42/nix_bsd_mac_inventory) repository.
 - Windows discovery scripts can be found on the [Device42 GitHub repository](https://github.com/device42). 
 
-Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and to get Windows machines from AD. Details are relayed to the Device42 Main Appliance via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via the Device42 RESTful API.
+Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and to get Windows machines. Details are relayed to the Device42 Main Appliance via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via the Device42 RESTful API.
 
 ## Using REST APIs
 
