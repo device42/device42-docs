@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 # Device42 Discovery Agent
 
+:::tip
+To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.md).
+:::
+
 There are special situations where using an agent for discovery makes more sense. The IT environment may be unreachable from the network or security-hardened rules may be in place that limit traffic flow. Device42 offers many optional auto-discovery agents across several [supported platforms](#supported-platforms).
 
 While agents provide equivalent functionality to Device42's agentless discovery and can be deployed as needed, we recommend that the majority of users stick with agentless discovery.
