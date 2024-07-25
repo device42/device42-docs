@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 # Microsoft DHCP Discovery
 
-As of v18.14, Microsoft DHCP Discovery has been added as an additional discovery type located under **Discovery > DHCP**. 
+As of v18.14, Microsoft DHCP Discovery has been added as an additional discovery type under **Discovery > DHCP** of the Main Appliance. 
 
 <ThemedImage
   alt="DHCP menu location and list page"
@@ -18,13 +18,13 @@ As of v18.14, Microsoft DHCP Discovery has been added as an additional discovery
   }}
 />
 
-Microsoft Dynamic Host Configuration Protocol (DHCP) is a service provided by the Microsoft Windows Server operating system. DHCP is a network management protocol used to dynamically assign IP addresses and other network configuration parameters (such as subnet mask, default gateway, DNS servers, etc.) to devices on a network.
+Microsoft Dynamic Host Configuration Protocol (DHCP) is a service provided by the Microsoft Windows Server operating system. DHCP is a network management protocol used to dynamically assign IP addresses and other network configuration parameters, like the subnet mask, default gateway, and DNS servers, to devices on a network.
 
-If you are already using Microsoft DHCP Servers in your environment, Microsoft DHCP Discovery can automatically populate records on discovered DHCP Servers, IP Addresses, and subnets, including additional DHCP details like DHCP Scope, State, Lease Duration, DNS information, and Start/End address ranges. 
+If you already use Microsoft DHCP Servers in your environment, Microsoft DHCP Discovery will automatically populate records of discovered DHCP Servers, IP Addresses, and subnets; including additional DHCP details like DHCP Scope, State, Lease Duration, DNS information, Start and End address ranges. 
 
 ## Discovery
 
-Microsoft DHCP Discovery uses WMI by default but WinRM is also supported and can be optionally enabled in the job configuration. 
+Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be optionally enabled in the job configuration. 
 
 <ThemedImage
   alt="DHCP WinRM option"
@@ -35,10 +35,11 @@ Microsoft DHCP Discovery uses WMI by default but WinRM is also supported and can
 />
 
 :::note
-If **Discover Using WinRM** is not enabled, you must have a WDS paired with the selected Remote Collector to use WMI. 
+If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI. 
 :::
 
 ## Miscellaneous
+
 The following miscellaneous discovery options are also available:
 
 <ThemedImage
