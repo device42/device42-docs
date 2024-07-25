@@ -1,5 +1,5 @@
 ---
-title: "Agent Based Discovery"
+title: "Agent-Based Discovery"
 sidebar_position: 3
 ---
 
