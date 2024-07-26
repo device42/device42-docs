@@ -24,8 +24,8 @@ The following are prerequisites and other general requirements and guidelines fo
 - Create users with the required access.
 - Identify the IP discovery scope (ranges) of interest. 
 - If you aren't using IPv6, it's advisable to choose the "Ignore IPv6" option when configuring discovery jobs.
-- The minimum system resource configuration for the Device42 appliance is 4 CPUs and 8GB of memory. 
-- Ensure a 1Gbps _minimum_ network connection, a dedicated resource pool for the Device42 VM, and that there are no resource contention issues. 
+- The minimum system resource configuration for the Device42 appliance is 4 CPUs and 8 GB of memory. 
+- Ensure a 1 Gbps _minimum_ network connection, a dedicated resource pool for the Device42 VM, and that there are no resource contention issues. 
 - Placing the Device42 Appliance's (Virtual Machine) VHD on an SSD is ideal but not required.
 - WinRM Windows discovery can be run from the Main Appliance or a Remote Collector. Deploy remote collector(s) to the desired network segments and select them when configuring your discovery jobs where appropriate.
 - To _(optionally)_ exclude known service port ranges from discovery, go to **Tools > Settings > Global Settings > Win/*nix Exclusions** and add your exclusions to the autodiscovery application. This limits the scope and volume of data that is discovered, helping to reduce noise and overhead while shortening the overall discovery time.
