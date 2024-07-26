@@ -3,17 +3,38 @@ title: "Autodiscovery"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Device42 Autodiscovery jobs
 
-Device42 offers a number of different autodiscovery tools, some of which are internal to Device42 while some run externally, as discussed below. You may run the autodiscovery tools in any combination and/or order that makes sense for your environment, and all can be run on a regular schedule, thus enabling the automation of a significant portion of your network documentation.
+Device42 offers several autodiscovery tools, some of which are internal to Device42 while some run externally, as discussed below. You may run the autodiscovery tools in any combination and order that makes sense for your environment, and all can be run on a regular schedule, thus enabling the automation of a significant portion of your network documentation.
 
 ### Start with the network
 
-Running network discovery first is recommended, and is important because it lays the framework for rest of your discoveries. By discovering your network first, you bring in the in-use subnets that will contain all of the to-be-discovered IP addresses and construct the layer 2 framework by discovering VLANs with live MAC addresses. Note that this _is not a requirement_, but that if IPs are discovered before adding subnets, those IPs will end up in a "catch-all" subnet named "undefined". In this case, you can simply manually add relevant subnets before re-running the discovery.
+Running network discovery first is recommended, and is important because it lays the framework for the rest of your discoveries. By discovering your network first, you bring in the in-use subnets containing all of the to-be-discovered IP addresses and construct the layer 2 framework by discovering VLANs with live MAC addresses. Note that this _is not a requirement_, but that if IPs are discovered before adding subnets, those IPs will end up in a "catch-all" subnet named "undefined". In this case, you can simply manually add relevant subnets before re-running the discovery.
 
 ### Discovery credentials
 
 **_WARNING_: Please do not set up an autodiscovery / scan using critical production account credentials!** _Depending on permissions granted & your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement._
+
+### Discovery Exclusion List
+
+Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
+
+The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
+
+The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
+
+<ThemedImage
+  alt="Exclude server(s) box in discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+  }}
+/>
+
+Note that previously created jobs will not be affected or updated with changes to the exclusion list.
 
 ### Cloning Discovery Jobs
 
@@ -33,9 +54,9 @@ There exist special situations in which an agent simply makes more sense, and fo
 
 There are some edge cases where discovery is desired but the network _(or lack of network!)_ doesn’t allow communication back to the main Device42 appliance _(for a variety of reasons)_.
 
-Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
+Whether remote collectors can’t be deployed or the policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
 
-## Blade systems Discovery
+## Blade Systems Discovery
 
 HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.mdx)
 
@@ -45,7 +66,7 @@ Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Clo
 
 ## DNS Autodiscovery
 
-DNS autodiscovery is built into Device42, and can do zone transfer(s) from your DNS server(s). It can be run and/or scheduled from the Device42 web UI: _Discovery > DNS Zone Sync (One way)_.
+DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). It can be run and scheduled from the Device42 web UI: _Discovery > DNS Zone Sync (One way)_.
 
 ## Hypervisor / \*nix / Windows Autodiscovery
 
@@ -53,14 +74,14 @@ Hypervisors, Windows & Linux/UNIX discovery jobs can all be created using the ma
 
 - Windows-based machine inventory details are discovered with WMI
 - Linux machines inventory details are discovered via SSH
-- VMWare hypervisor host and guest VM details are discovered using appropriate APIs &lt;small(VMware, WMI)
+- VMWare hypervisor host and guest VM details are discovered using appropriate APIs (VMware, WMI)
 - Hyper-V hypervisors / guests are discovered as Windows machines using WinRM, and documented separately.
 
 Click here for the [VMware & VM discovery docs](virtual-machine-auto-discovery.md) page, and find the [Linux/UNIX discovery page](linux-unix-server-auto-discovery.mdx) here. Finally, learn more about [Windows (and HyperV) discoveries are documented here](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
 
 ## IPMI Autodiscovery
 
-Discover iLO, iDrac or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS level discovery methods, BMC IP and MAC address show up in device properties.
+Discover iLO, iDrac, or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS-level discovery methods, BMC IP and MAC address show up in device properties.
 
 Discussed here in detail: [discovery/ipmi-auto-discovery.md](ipmi-auto-discovery.md)
 
@@ -97,25 +118,25 @@ SNMP discoveries can also be used to discover many other types of devices: Power
 
 ## Ping Sweep Utility
 
-The [open source, standalone ping sweep tool](https://www.device42.com/autodiscovery/) uses NMAP in the background to run ping sweeps against the selected network(s), uploading discovered _IP, MAC, & reverse DNS_ details via Device42's the RESTful APIs; the tool is written in .NET.
+The [open source, standalone ping sweep tool](https://www.device42.com/autodiscovery/) uses NMAP in the background to run ping sweeps against the selected network(s), uploading discovered _IP, MAC, & reverse DNS_ details via Device42's RESTful APIs; the tool is written in .NET.
 
-There is also a ping sweep tool built in to Device42. Find it in the UI via the main menu, _Discovery > Ping Sweep_. (_note that the UI based option, may, in the future, be depreciated, and that the standalone tool is much faster_).
+There is also a ping sweep tool built into Device42. Find it in the UI via the main menu, _Discovery > Ping Sweep_. (_note that the UI-based option, may, in the future, be depreciated, and that the standalone tool is much faster_).
 
 ## Remote Collector (RC)
 
-The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed wherever is necessary, for example, places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Simply choose the desired RC from the _"Remote Collector"_ drop-down when initially setting up a new autodiscovery job, or edit an existing discovery job, selecting the desired RC. Most autodiscovery jobs that can be launched from the Device42 "Discovery" menu support running from a deployed RC.
+The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed wherever necessary, for example, in places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Simply choose the desired RC from the _"Remote Collector"_ drop-down when initially setting up a new autodiscovery job, or edit an existing discovery job, selecting the desired RC. Most autodiscovery jobs that can be launched from the Device42 "Discovery" menu support running from a deployed RC.
 
 For more information, and full RC documentation, head to the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.md)
 
-## Scripts for Linux, Solaris, Windows and Mac
+## Scripts for Linux, Solaris, Windows, and Mac
 
-Alternatively, there are a selection of open-source scripts on the Device42 GitHub page available for use: For Mac, Linux, and Solaris autodiscovery, use this repo: [https://github.com/device42/nix\_bsd\_mac\_inventory](https://github.com/device42/nix_bsd_mac_inventory)
+Alternatively, there is a selection of open-source scripts on the Device42 GitHub page available for use: For Mac, Linux, and Solaris autodiscovery, use this repo: [https://github.com/device42/nix\_bsd\_mac\_inventory](https://github.com/device42/nix_bsd_mac_inventory)
 
-Windows discovery scripts can be found here: [Device42 GitHub repository](docs/auto-discovery/index.md). Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and/or to get Windows machines from AD. Details are relayed to the Device42 Main Appliance (MA) via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via Device42's RESTful API.
+Windows discovery scripts can be found here: [Device42 GitHub repository](docs/auto-discovery/index.mdx). Windows scripts use PowerShell 2.0/iPython to get individual Windows host details and/or to get Windows machines from AD. Details are relayed to the Device42 Main Appliance (MA) via the API. The Linux, Solaris, and Mac scripts connect to remote servers using SSH to gather inventory data, sending that data back via Device42's RESTful API.
 
 ## Using REST APIs
 
-You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as discussed at : [Device42 API docs](how-to-videos/api-imports-add-create-hardware-models.md).
+You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as discussed at [Device42 API docs](how-to-videos/api-imports-add-create-hardware-models.md).
 
 ## VMware / Citrix XenServer / oVirt / Redhat Virtualization / KVM
 

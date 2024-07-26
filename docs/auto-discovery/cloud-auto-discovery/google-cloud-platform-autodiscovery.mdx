@@ -6,7 +6,9 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### GCP Discovery Items
+## Google Cloud Platform Discovery Items
+
+Device42 can discover your inventory on the Google Cloud Platform (GCP). 
 
 | Cloud Service/Object Name | Name Where to locate in D42 | Accessed API | Information Generated |
 |----------------------------|------------------------------|--------------|-----------------------|
@@ -16,15 +18,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 | SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, etc. |
 | VMs                         | Devices -> All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, Name, RAM, OS, CPU, cores, etc. |
 
-### Pre-requisites
+## Configure a GCP Discovery Job
 
-For Google Cloud Discovery, you will need a user account with the built-in Google Cloud Platform "Viewer" role.
+For Google Cloud Discovery, you need a user account with the built-in Google Cloud Platform "Viewer" role.
 
-### Configuring Google Cloud Discovery
+### Create a New Job
 
-Device42 can discover your inventory on the Google Cloud Platform. Simply create a new job, add your credentials, and you'll be off discovering all of your GCP VMs.
+To create a new Google Cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Choose **Google Cloud** as the discovery **Type**.
 
-To create a new Google Cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+To discover all accessible projects, simply leave the **Project ID** field blank. 
 
 <ThemedImage
 alt="Add Google Cloud discovery form"
@@ -34,30 +36,23 @@ sources={{
   }}
 />
 
-1. Choose **Google Cloud** as the discovery **Type**.
+### Provide JSON Credentials
 
-2. Browse to your Google Cloud Engine JSON key. Open it in a text editor and copy the contents:
+1. Browse to your Google Cloud Engine JSON key. Open it in a text editor and copy the contents:
+  ![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
+2. Paste the copied JSON in its entirety into the **Credentials JSON** field:
+  
+    <ThemedImage
+    alt="Add JSON as new Secret"
+    sources={{
+        light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-light.png"),
+        dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-dark.png"),
+      }}
+    />
 
-![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
+### Configuration Options
 
-3. Paste the copied JSON in its entirety into the **Credentials JSON** field:
-
-<ThemedImage
-alt="Add JSON as new Secret"
-sources={{
-    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-light.png"),
-    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-dark.png"),
-  }}
-/>
-
-4. Save and run your job. Optionally, create a schedule to run it automatically.
-
-Data discovered on the Google Cloud Platform is similar to what you might be familiar with on AWS EC2 instances, namely:
-
-- Discovered Google Cloud VMs are added as virtual devices.
-- Cloud information is added inline in Device42 for each CI.
-
-**Options for GCE are as follows:**
+Options for GCP are as follows:
 
 - Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
 

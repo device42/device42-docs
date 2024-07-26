@@ -1,0 +1,299 @@
+---
+title: "Amazon Web Services - Installation"
+sidebar_position: 9
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import loginImg from '/assets/images/installation-amazon-web-services/login-appliance-manager.png'
+
+### Overview
+
+The Device42 Main Appliance is available on AWS, either as a manual install or through the AWS marketplace.
+
+The Device42 Remote Collector is also available but via manual installation only. To get access, please submit a ticket requesting access to the Device42 Remote Collector Amazon Machine Image (AMI) and include the following information:
+
+- AWS Region for Device42 Deployment
+- AWS Account Number
+
+The Device42 AWS offering involves an EC2 instance that houses the Device42 Main Appliance, Appliance Manager, and Remote Collector.
+
+![AWS architecture](/assets/images/aws-architecture.png)
+
+### Costs and licensing
+
+The Device42 AWS offerings each come with a pre-installed, limited license. To utilize the full capabilities of Device42, we recommend you obtain a more comprehensive license from a Device42 sales representative or business partner.
+Refer to [our licensing page](administration/licensing.md#upload-a-new-license) for information on managing licenses.
+
+Device42 on AWS operates using the **Bring Your Own License (BYOL)** model, meaning there is no additional charge from Device42 to run on AWS. Aside from the yearly fee for your Device42 license, the only costs you will incur via AWS are the costs they bill you for the use of your instances; usually an hourly fee, depending on the instance size you select; larger instances usually cost more. 
+
+Device42 license pricing information is available on the [Device42 Pricing Page](https://www.device42.com/pricing/).
+
+### EC2 Instance Sizing for Device42
+
+When running Device42 on AWS, it is recommended you size your Device42 Main Appliance (MA) to run on a **t3.xlarge** EC2 instance; this is the default. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. Only the **t3.xlarge** EC2 instance size is currently permitted.
+
+The configuration will **only** allow you to "Launch" successfully using one of the above listed sizes.
+
+Customers must regularly view and manage the quotas for AWS services using the AWS Service Quotas dashboard.
+
+Refer to [our sizing recommendations](getstarted/installation/sizing-recommendations.md) page for sizing recommendations.
+
+### Region Availability
+
+Device42 AWS deployments are supported in the following regions.
+
+| **Americas**              | **EMEA**           | **Asia**                 |
+|---------------------------|--------------------|--------------------------|
+| US East (N. Virginia)     | Europe (Frankfurt) | Asia Pacific (Hong Kong) |
+| US East (Ohio)            | Europe (Zurich)    | Asia Pacific (Tokyo)     |
+| US West (N. California)   | Europe (Stockholm) | Asia Pacific (Seoul)     |
+| US West (Oregon)          | Europe (Spain)     | Asia Pacific (Mumbai)    |
+| Canada (Central)          | Europe (Ireland)   | Asia Pacific (Hyderabad) |
+| South America (Sao Paulo) | Europe (London)    | Asia Pacific (Singapore) |
+|                           | Europe (Paris)     | Asia Pacific (Sydney)    |
+|                           | Israel (Tel Aviv)  | Asia Pacific (Jakarta)   |
+|                           | Middle East (UAE)  | Asia Pacific (Melbourne) |
+
+
+
+## Deploying Device42 From the AWS Marketplace
+
+### Configure Instance and Communication Settings
+
+1. Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) 1-Click feature. Follow the on-screen instructions, and when you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 appliance and be sure to allow incoming access from your external IP address:
+    - **a)** Generate a key via the **Create a key pair in EC2** link. See the [Generating a new AWS key pair](#generating-a-new-aws-key-pair-for-ssh-access) section on this page for more help with this step. 
+    
+    ![Select SSH key pair to use for console access to Device42 on AWS](/assets/images/choose_SSH_keypair_AWSd42-hl.png)
+
+    
+    :::note
+    **Step b** below explains how to allow traffic from your PC and local network to facilitate communication with the Device42 instance you are deploying **directly over the internet**. This is not considered best practice and should only be used for testing. Set up a VPN or other secure means of communication for production AWS use.
+    :::
+    
+    - **b)** Create an appropriate security group via **Security Group Settings**. Select **Create new based on seller settings** and be sure to add your external IP as an allowed IP for the default Device42 ports:
+        - 404 ssh
+        - 4242 appmgr-http
+        - 4343 appmgr-https
+        - 443 https
+  
+        These ports are part of the default Device42 AMI security group settings for incoming SSH, Appliance Manager, and web UI access: 
+    
+    ![security group settings for access to Device42 on AWS](/assets/images/security_group_settings_CORRECT-hl.png)
+
+2. SSH to the public endpoint of your new Device42 Main Appliance using the public DNS name or the IP address found in the AWS UI, ensuring your SSH client is configured to connect on port 404. Use the username `device42` and the `SSH keyfile` you chose in Step 1 above for SSH authentication instead of using a password. If you have trouble connecting, configure your [instances security group settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html) to allow SSH access from your PC's IP address.
+
+    ![Instance ID, public ip, DNS address on EC2 dash](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
+
+3. Navigate to the Device42 login screen by visiting `https://Device42_AWS_address` **(1)**. 
+   
+    `Device42_AWS_address` is the DNS name (preferred) or IP address found on the AWS UI. Log in to the Device42 web UI using the default username `admin` and provide your `AWS instance ID` (2) as your temporary password. It's a good idea to change these credentials to something more secure as soon as you log in!
+
+    <ThemedImage
+    alt="Device42 Web UI login"
+    sources={{
+        light: useBaseUrl('/assets/images/installation-amazon-web-services/d42-login-light.png'),
+        dark: useBaseUrl('/assets/images/installation-amazon-web-services/d42-login-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
+
+4. Update the appliance license key as the included key is expired. Obtain an updated license by sending an email to [sales@device42.com](mailto:sales@device42.com) requesting a trial license for an AWS Marketplace Device42 installation. When you receive the updated key file, save it to your local filesystem and go to **Tools > Settings > Licensing**. Browse to the new key file **(1)** and click **Upload & Apply** **(2)**. 
+
+    <ThemedImage
+    alt="Update license Device42 AWS"
+    sources={{
+        light: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-light.png'),
+        dark: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-dark.png'),
+    }}
+        style={{ width: '90%' }} 
+    />
+
+5. Make sure your Amazon Machine Image (AMI) is running the latest version of Device42 and update it if necessary. From the Device42 web UI, head to **Tools > Update**. Make note of the "Current Main Appliance Version" number displayed, then follow the "Check for latest version" link or visit [https://www.device42.com/update/](https://www.device42.com/update/) to check for an update. 
+
+    If the update page offers a newer release, enter your work email and install the update by following the [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/en-us/articles/222221228-Upgrade-Steps-Device42). If you're working with a new appliance with no data, skip the backup step.
+
+    <ThemedImage
+    alt="Check for Device42 Update"
+    sources={{
+        light: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-light.png'),
+        dark: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+    />
+
+And you're all set! Now is a good time to check out the [Getting started with Device42 documentation](getstarted/index.md) page. If you have any questions or issues that the documentation doesn't address, visit [our support page](https://support.device42.com) or email [support@device42.com](mailto:support@device42.com) to open a ticket.
+
+* * *
+
+### Generating a New AWS Key Pair for SSH Access
+
+To generate a new SSH key pair for use on AWS, either click the **Create a key pair in EC2** link during configuration of your appliance or open up the [EC2 console](https://console.aws.amazon.com/ec2/v2/home), scroll the menu on the left-hand side to the **Network & Security** section, and choose **Key Pairs**: 
+
+![Create an new SSH key pair on AWS EC2](/assets/images/create_AWS_keypair_for_SSH.png)
+
+1. Click the **Create Key Pair**" button (1).
+2. In the dialog that pops up, give your new key pair a meaningful name.
+3. Click  the **Create** button. Your key file will be created, and the private key will begin downloading automatically; save it somewhere safe. The `FileName.pem` file contains your **private key** that you'll use to authenticate. If you are using Linux, copy it to your key directory.
+4. To use your new SSH key with Putty on Windows, reference this helpful AWS article on [Connecting to Your Linux Instance from Windows Using PuTTY.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
+
+### Appliance Manager Access - AWS Marketplace Installation
+
+All maintenance operations are performed through the Device42 Appliance Manager. The Appliance Manager listens on port 4343 (for example, https://YOUR\_DEVICE42\_INSTANCE:4343) **(1)**. Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager:
+
+<img src={loginImg} width="65%" />
+
+For 1-Click installations from the AWS Marketplace, log in to Appliance Manager using the credentials **(2)**:
+- Username: `d42admin` 
+- Password: **your AWS instance ID**
+  
+Once logged in, you'll see the Appliance Manager main menu: 
+
+![D42 Appliance Manager menu](/assets/images/installation-amazon-web-services/appliance-manager.png)
+
+## Deploying a Downloaded Image to an AWS Instance - Manual Installation
+
+### Prerequisites
+
+Before you begin:
+
+1. Please submit a ticket requesting access to the Device42 Amazon Machine Image (AMI). Be certain to include the following information:
+    - AWS Region for Device42 Deployment
+    - AWS Account Number
+2. After Device42 Support has granted access to the Device42 AMI, navigate to your EC2 Dashboard and launch a new instance.
+3. Select **My AMIs** , select **Shared with Me** and deploy your appliance. _Device42 recommends t3.xlarge as the instance size._
+
+### Appliance Manager Access - Manual Installation
+
+All maintenance operations are performed through the Device42 appliance manager. The appliance manager listens on port 4343 (for example, https://YOUR\_DEVICE42\_INSTANCE:4343). Software updates, Device42 backups and restores, and certificate management are all performed through the appliance manager. 
+
+For manual AWS (image-based) installations, you can log in to Appliance Manager using the default Device42 credentials:
+- Username: `d42admin`
+- Password: `default`
+
+## Instance Access Security
+
+Given the nature of discovery and the inherent access it requires, Device42 does not recommend direct access from unrestricted internet sources. Instead, Device42 recommends access to the Device42 instance be protected through VPN connections and security groups. While these requirements will vary from environment to environment, Device42 recommends strict adherence to the principle of least privilege.
+
+For additional visibility, Device42 recommends users enable AWS CloudTrail as a security and operational best practice: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html
+
+## Administration of Device42 on AWS
+
+### Software and Security Updates and Patches
+
+Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from https://www.device42.com/update/.
+
+Watch the [Update Device42 Appliance How To](/how-to-videos/update-device42-appliance-how-to) walkthrough video for information on our quick Device42 update process.
+
+### Backing Up and Restoring Your Device42 Data on AWS
+
+The Device42 backup facilities are accessible through the Appliance Manager. Backups can be executed immediately, and you can download a backup file immediately or schedule automatic saving to an SFTP, NFS, or AWS S3 destination.
+
+For more information on backups and restores, see [Setting up backup via Device42 Appliance Manager](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md).
+
+### Monitoring and Health Checking Device42 on AWS
+
+Device42 has a built-in health check, which can be polled using your favorite monitoring tool. We offer a pre-configured [Device42 Health Check module for Nagios](https://github.com/device42/Device42-Nagios-Health-Check).
+
+The built-in health check monitors the following:
+
+<table><tbody><tr><td width="288"><ul><li>Backup Status</li><li>CPU Usage</li><li>Database (DB) size</li><li>Disk Usage Percent</li></ul></td><td width="288"><ul><li>Free Memory (MB)</li><li>Free Swap Memory (MB)</li><li>Total Memory (MB)</li><li>Total Swap Memory (MB)</li></ul></td></tr></tbody></table>
+
+![Device42 Nagios Healthcheck Sample Output](/assets/images/nagios_healthcheck_example.png)
+
+### Configuring High Availability (HA) of Device42 on AWS
+
+If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported "WarmHA" solution. To configure your deployment to run WarmHA, follow the instructions that can be found on the [Device42 WarmHA Documentation](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) page. The linked page contains instructions on setting up WarmHA, failover, and if desired, configuring automatic backups.
+
+An example configuration that leverages Nagios to automatically fail over the instance in case of a failure is also described.
+
+### Discovery Across Your Instance - Sample IAM Policy
+
+:::note
+The following sample IAM policy is *not* needed to simply run Device42 on AWS. You would only set up an IAM policy similar to this one if you would like to **target** your AWS inventory for discovery, that is, you want to document your AWS Deployment in Device42. No IAM policy is necessary to RUN Device42 in AWS nor to discover infrastructure running elsewhere.
+:::
+
+Visit the [support site at https://support.device42.com](https://support.device42.com/) to open a ticket or reach out to [support@device42.com](mailto:support@device42.com) if you have any more questions.
+
+The following permissions are required to support discovery:
+
+<table><tbody><tr><td width="288"><ul><li>AmazonEc2ReadOnly</li><li>AmazonElastiCacheReadOnlyAccess</li></ul></td><td width="288"><ul><li>AmazonRDSReadOnlyAccess</li><li>AmazonS3ReadOnlyAccess</li></ul></td></tr></tbody></table>
+
+The following is a sample IAM policy _(with minimum appropriate permissions)_ that allows Device42 to discover and inventory instances running on AWS; you may want to modify it, and should not use it if you do not understand it:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ec2:Describe*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "elasticloadbalancing:Describe*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:Describe*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "autoscaling:Describe*",
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "elasticache:Describe*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "rds:Describe*",
+                "rds:ListTagsForResource",
+                "ec2:DescribeAccountAttributes",
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeVpcs"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "cloudwatch:GetMetricStatistics",
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### Security, Privacy, and Other Considerations
+
+* The Device42 AWS offering does not restrict the Instance Metadata Service Version.
+* The Device42 AWS offering does not require AWS data encryption to operate properly.  
+* Customer data resides on the instance itself. Customer passwords and secrets are encrypted with AES-256 encryption.
+Refer to [this link](administration/passwords/password-security-and-permissions.mdx) for additional information on how passwords and secrets are stored. 
+* The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.
+
+
