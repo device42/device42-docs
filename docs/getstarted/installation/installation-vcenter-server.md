@@ -35,8 +35,7 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
    
    - **Username:** `device42`
    - **Password:** `adm!nd42` 
-   
-   _(Deprecated appliance logins: 32-bit: ubuntu/adm!nd42 -- Power: ubuntu/default)._
+
    
    ![Device42 console login screen](/assets/images/d42-console-login-screen-v15.png)
 
