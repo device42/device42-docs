@@ -18,6 +18,24 @@ Running network discovery first is recommended, and is important because it lays
 
 **_WARNING_: Please do not set up an autodiscovery / scan using critical production account credentials!** _Depending on permissions granted & your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result if you choose to ignore this requirement._
 
+### Discovery Exclusion List
+
+Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
+
+The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
+
+The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
+
+<ThemedImage
+  alt="Exclude server(s) box in discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+  }}
+/>
+
+Note that previously created jobs will not be affected or updated with changes to the exclusion list.
+
 ### Cloning Discovery Jobs
 
 You can now clone an autodiscovery job while editing it to create a copy of the job with all its settings, which lets you replicate the job without having to manually re-enter all the job details. You can then modify the cloned job for your specific purposes. Click on a discovery _Job Name_ in a View listing to select the job you want to clone and then click _Edit_. Click the ellipse menu in edit mode and then click _Clone Job._
@@ -49,24 +67,6 @@ Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Clo
 ## DNS Autodiscovery
 
 DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). It can be run and scheduled from the Device42 web UI: _Discovery > DNS Zone Sync (One way)_.
-
-## Exclusion List
-
-Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
-
-The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
-
-The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
-
-<ThemedImage
-  alt="Exclude server(s) box in discovery job"
-  sources={{
-    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
-    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
-  }}
-/>
-
-Note that previously created jobs will not be affected or updated with changes to the exclusion list.
 
 ## Hypervisor / \*nix / Windows Autodiscovery
 
