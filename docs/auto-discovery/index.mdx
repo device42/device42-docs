@@ -26,6 +26,24 @@ Do not set up an autodiscovery scan using critical production account credential
 Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
 :::
 
+### Discovery Exclusion List
+
+Prevent discovery from attempting to communicate with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
+
+The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
+
+The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
+
+<ThemedImage
+  alt="Exclude server(s) box in discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+  }}
+/>
+
+Note that previously created jobs will not be affected or updated with changes to the exclusion list.
+
 ### Cloning Discovery Jobs
 
 Clone an autodiscovery job to create a copy of the job with all its settings without manually re-entering all the job details. You can then modify the cloned job for your specific purposes.   
@@ -87,24 +105,6 @@ Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Clo
 ## DNS Autodiscovery
 
 DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). DNS autodiscovery is run and scheduled from the Device42 web UI under **Discovery > DNS Zone Sync (One way)**.
-
-## Exclusion List
-
-Prevent discovery from attempting to communicate with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
-
-The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
-
-The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
-
-<ThemedImage
-  alt="Exclude server(s) box in discovery job"
-  sources={{
-    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
-    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
-  }}
-/>
-
-Note that previously created jobs will not be affected or updated with changes to the exclusion list.
 
 ## Hypervisor / \*nix / Windows Autodiscovery
 
