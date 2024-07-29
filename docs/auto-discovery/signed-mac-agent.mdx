@@ -6,11 +6,11 @@ sidebar_position: 4.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-To install the signed mac agent, do the following.
+To install the signed Mac Agent, do the following:
 
-1. Download the notarized agent executable from [https://www.device42.com/autodiscovery/](https://www.device42.com/autodiscovery/) for Intel or Apple Silicon macOS machines. 
+1. Download the **Signed Mac Agent for Discovery** from [https://www.device42.com/autodiscovery/](https://www.device42.com/autodiscovery/) for Intel or Apple Silicon macOS machines. 
 
-2. Download the encrypted config file from the agent screen on the main appliance, under **Discovery > Agent Based Scans**.
+2. Download the **Encrypted config file for Agent** from the agent screen on the Device42 Main Appliance, under **Discovery > Agent Based Scans**.
 
 <ThemedImage
   alt="Get the encrypted config file"
@@ -20,30 +20,31 @@ To install the signed mac agent, do the following.
   }}
 />
 
-This will be an encrypted URL, and a public key with some other data needed for discovery. It uses AES-256 bit encryption.
+This will be an encrypted URL and a public key with some other data needed for discovery. It uses AES-256-bit encryption.
 
-The agent can be run as: `(sudo) <executable name> --config-file=<path>/d42_agent_config`.
+Run the agent as:
+```
+(sudo) <executable name> --config-file=<path>/d42_agent_config
+```
 
-To run the above
+To run the above:
 
-- unzip the notarized binary
-- store the config file somewhere on the file system
-- run the binary calling the config file.
+- Unzip the notarized binary file.
+- Store the config file somewhere on the file system.
+- Run the binary calling the config file.
 
 Enterprise customers should be able to do this via JAMF or other MDM solutions.
 
 ## Notes
 
-- The `-config-file` switch only works for this executable, and won’t work for any agent executable downloaded from the MA.
-- All other switches will work as is (that is, as they work for agents otherwise, such as overriding the host).
-- This will not auto-update (because that would break the signing), and they will have to be updated manually, or via MDM solutions.
+- The `-config-file` switch only works for this executable, and won’t work for any agent executable downloaded from the Main Appliance.
+- All other switches, like for overriding the host, will work for this executable and any agent downloaded from the Main Appliance.
+- It won't auto-update (as that would break the signing) and needs to be manually updated or updated via MDM solutions.
 
 ## Troubleshooting
 
-If the file doesn’t run, you need to clear the quarantine attribute by running:
+If the file doesn’t run, clear the quarantine attribute by running:
 
 ```
 xattr -d com.apple.quarantine  <executable name> 
 ```
-
-

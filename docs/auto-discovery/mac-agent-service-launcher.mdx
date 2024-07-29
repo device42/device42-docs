@@ -3,17 +3,13 @@ title: "Mac Agent Service Launcher"
 sidebar_position: 4.7
 ---
 
-import ThemedImage from '@theme/ThemedImage'
-import useBaseUrl from '@docusaurus/useBaseUrl'
+Install and launch the Mac Agent service launcher by following these steps:
 
-Here are the steps to install and launch the Mac Agent service launcher.
-
-
-1. Download the signed mac agent as described in the [Signed Mac Agent](signed-mac-agent.mdx) docs.
-2. Download the `.plist` file from the [Autodiscovery page](https://www.device42.com/autodiscovery/) under "MacOS Service Wrapper for the Discovery Agent".
+1. Download the Signed Mac Agent as described in the [Signed Mac Agent](signed-mac-agent.mdx) docs.
+2. Download the `.plist` file from the [Device42 Autodiscovery tools page](https://www.device42.com/autodiscovery/) under **MacOS Service Wrapper for the Discovery Agent**.
 3. Modify the `.plist` file as required based on your setup and required options. For example, you can change the `StartInterval` to configure how often the agent will run, or configure other options to pass as `ProgramArguments`.
-4. You need the config file and executable available in `/opt/device42/`
-5. You need the `.plist` file available in `/Library/LaunchDaemons/`
+4. You need the config file and executable in the `/opt/device42/` directory.
+5. You need the `.plist` file in the `/Library/LaunchDaemons/` directory.
 
 Now run:
 
@@ -21,28 +17,28 @@ Now run:
 sudo launchctl load /Library/LaunchDaemons/<plist file name>
 ```
 
-## Making changes to the `.plist` file
+## Make Changes to the `.plist` File
 
-If you make changes to the `.plist` file, you'll need to unload and then load it again by running:
+If you make changes to the `.plist` file, you need to `unload` and then `load` it again by running:
 
 ```
 sudo launchctl unload /Library/LaunchDaemons/<plist file name>
 sudo launchctl load /Library/LaunchDaemons/<plist file name>
 ```
 
-To make sure that it is correctly loaded, run:
+To make sure that the file is correctly loaded, run:
 
 ```
 sudo launchctl list | grep device42
 ```
 
-## Installing via MDM
+## Install via MDM
 
 If you need to deploy in bulk to many machines, you can use MDM. 
 
-Package the Launch Agent using Composer and deploy it via the JSS, Casper Remote or ARD.
+Package the Launch Agent using Composer and deploy it via the JSS, Casper Remote, or ARD.
 
-Make sure to include this as post flight script to set some permissions and load the agent. Right click on "Scripts", click on "Shell Script" and "post flight".
+Include the following as a post-flight script to set some permissions and load the agent. Right-click **Scripts**, click **Shell Script**, and then **post flight**.
 
 ```
 #!/bin/bash
@@ -53,7 +49,5 @@ launchctl load "/Library/LaunchDaemons/NAMEOF.plist"
 
 ## Notes
 
-* By default, logs are stored under `/var/log`, or as otherwise configured under the `.plist` file.
-* The `agent_local.log` file is under the working directory. By default this is `/opt/device42`.
-
-
+- By default, logs are stored under `/var/log` or as otherwise configured in the `.plist` file.
+- The `agent_local.log` file is under the default `/opt/device42` working directory.

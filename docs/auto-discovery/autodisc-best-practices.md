@@ -5,56 +5,54 @@ sidebar_position: 5
 
 ## Automating Device Discovery – Introduction
 
-With its agentless, automated, device discovery tools, Device42 automates a significant portion of building an accurate picture of a user’s IT infrastructure. These device discovery tools work seamlessly in the background to “collect” inventory data and then populate Device42’s Configuration Management Database (CMDB).
+Device42 automates a significant portion of your IT infrastructure with agentless, automated, device discovery tools to build an accurate picture. The discovery tools work seamlessly in the background to collect inventory data and populate the Device42 Configuration Management Database (CMDB).
 
-Autodiscoveries can be scheduled to ensure the accuracy of the CMDB, based on each client’s unique requirements. Because these autodiscoveries are only collecting and reporting inventory data, the process is not network load intensive, and clients can schedule many autodiscoveries in a single day or even a single hour. The frequency of autodiscovery is often dependent on the amount of change occurring within the data center the more change, the more frequently autodiscoveries should be scheduled.
+Autodiscovery is based on your unique requirements and can be scheduled to keep your CMDB updated. The process isn't network-load intensive because autodiscovery only collects and reports inventory data. You can schedule many autodiscoveries in a day or even in an hour. The autodiscovery frequency depends on the amount of change occurring in the data center, with more change requiring more frequent autodiscovery jobs.
 
 ## Initial Discovery Sequence
 
-While the discoveries can be run in any order, we suggest the following order to minimize some reconciliation work later on.
+While the discoveries can be run in any order, Device42 suggests the following order to minimize reconciliation work later on:
 
-**Network:** Network auto-discovery builds your L2 Network landscape and pulls in your network devices inventory, VLANs, Subnets, IP Addresses, Mac Addresses, etc.
+**Network:** Network autodiscovery builds your Layer 2 network landscape and pulls in your network devices inventory, VLANs, Subnets, IP Addresses, Mac Addresses, and more.
 
-**V-Server:** V-Server auto-discovery collects data from hypervisors such as VMware,Citrix Xen, libvirt and oVirt
+**V-Server:** V-Server autodiscovery collects data from hypervisors such as VMware, Citrix Xen, libvirt, and oVirt.
 
-**Windows/Linux/Hyper-V:** Brings in Windows, Linux, Hyper-V machines
+**Windows/Linux/Hyper-V:** Brings in Windows, Linux, and Hyper-V machine data.
 
-**Cloud auto-discovery:** Brings in virtual machines and storage in Amazon Web Services, Microsoft Azure, Cloudstack, Openstack, and numerous other platforms.
+**Cloud autodiscovery:** Brings in virtual machine and storage data from Amazon Web Services, Microsoft Azure, Cloudstack, OpenStack, and numerous other platforms.
 
-**Blade:** Blade server auto discovery identifies the blade chassis, the s blade servers, and their location within the chassis. By matching serial numbers to previously discovered data, Device42 builds a comprehensive blade database (see note below).
+**Blade:** Blade server autodiscovery identifies the blade chassis, S blade servers, and their location within the chassis. By matching serial numbers to previously discovered data, Device42 builds a comprehensive blade database.
 
-**IPMI:** Intelligent Platform Management Interface defines a set of interfaces used by system administrators for out-of-band management of computer systems and monitoring of their operation. We recommend this as last to run because IPMI might not have the correct hostname of the machine, but it will reconcile with a server discovered by any of the methods discussed above based on serial number.
+**IPMI:** Intelligent Platform Management Interface defines a set of interfaces used by system administrators for out-of-band management of computer systems and monitoring of their operation. Device42 recommends running this last because IPMI might not have the correct hostname of the machine, but it will reconcile with a server discovered by any of the methods discussed above based on serial numbers.
 
 ## Matching Devices in Device42
 
-With Autodiscovery jobs Device42 will check against serial number, UUID and name, in that order, to verify if it is an existing device to update or a new device to create. When looking for name Device42 also looks at any aliases that exist for a device as well.
+Autodiscovery checks against the serial number, UUID, and name, in that order, to check if it is an existing device to update or a new device to create. When looking for a name, Device42 also looks at any aliases that exist for a device.
 
-Any info with the discovery that is related to an existing device will always use the latest info found. Meaning, if there was manual change to the device stating it has 2 CPUs and then an Autodiscovery job is run that pulls information for this device and it contains data for 3 CPUs, the newest data will be used and override the old entry.
+The latest discovered information on an existing device is always used. For example, if there was a manual change to a device stating it has two CPUs, and an autodiscovery job pulls information for this device with three CPUs, the newer discovered data will override the old entry.
 
 ## Building Comprehensive Discovery Profiles
 
-Don’t be alarmed if one autodiscovery method does not provide the level of detail you were expecting. As you run subsequent autodiscoveries, Device42 constructs a comprehensive device profile by matching data such as serial number, UUID, and device name that is collected during subsequent discovery stages.
+Don’t be alarmed if one autodiscovery method doesn't provide the level of detail you were expecting. As more auto discoveries are run, Device42 constructs a comprehensive device profile by matching data such as the serial number, UUID, and device name collected during subsequent discovery stages.
 
-_For example:_
+### Example Discovery Scenario
 
-The Network discovery identifies the switch, its serial number, the number of ports to the switch, and MAC addresses associated with each port.
+The Network discovery identifies the switch, its serial number, the number of ports to the switch, and the MAC addresses associated with each port.
 
-The V-Server (Hypervisor) discovery will identify the Hypervisors’ IP and MAC address data that links it to the Network discovered switch port data. This discovery adds hosts, virtual machines, and operating systems information to Device42’s CMDB.
+The V-Server (Hypervisor) discovery identifies the Hypervisor’s IP and MAC address data that links it to the Network discovered switch port data. This discovery adds hosts, virtual machines, and operating system information to the Device42 CMDB.
 
-The next level, Blade discovery, identifies the serial number, linking it to the Device42 CMDB, while adding the chassis, and the slot where the blade is located in that chassis.
+The next level, blade discovery, identifies the Serial Number and adds it to the Device42 CMDB, along with details about the chassis and the slot where the blade is located in that chassis.
 
-The native Windows and Linux OS discovery matches the serial number and UUID, and adds new data to Device42 including the number of CPUs associated with the VM, the amount of RAM, and any other OS-related information (version and version number) specific to that VM.
+The native Windows and Linux OS discovery matches the Serial Number and UUID. The new data is added to Device42 including the number of CPUs associated with the VM, the amount of RAM, VM version, version number, and other OS-related information.
 
-So in the example above, you can find out what blade server is in which chassis slot, what network ports it is connected to (or chassis is connected to), what VMs are on that blade server (if it happens to be Hypervisor) and all the services that are running on those VMs and all the software that is installed on those VMs.
+In the example above, you'll find out which blade server is in which chassis slot, what network ports or chassis it's connected to, what VMs are on that blade server (if it's a Hypervisor), all the services that are running on those VMs, and all the software installed on those VMs.
 
-The result is a comprehensive profile of the devices, their characteristics, locations, software, and the physical/virtual interdependencies between the devices. This not only populates the detailed CMDB records, but also serves as the data for constructing Device42’s impact and dependency mapping functionality.
+The result is a comprehensive profile of the discovered devices, their characteristics, locations, software, and the physical and virtual interdependencies between the devices. The discoveries populate the CMDB with detailed records and uses that information to construct Device42 impact and dependency mapping charts.
 
-## Choosing a user account for autodiscovery
+## User Account for Autodiscovery
 
 :::caution
+Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
 
-Please do _not_ set up an autodiscovery scan using critical (production) account credentials!
-
-Doing so, depending on permissions granted and configured password policies, could result in account lock-out, causing an otherwise completely avoidable outage.
+Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
 :::
-
