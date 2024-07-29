@@ -27,17 +27,17 @@ Enter a _New Name_ for the cloned job and click _Create_.
 
 ## Agent-based Discovery
 
-There exist special situations in which an agent simply makes more sense, and for that reason, we over _optional_ autodiscovery agents for many platforms. Learn more on the [Device42 Agent-based discovery docs page](agent-based-discovery.md).
+There exist special situations in which an agent simply makes more sense, and for that reason, we over _optional_ autodiscovery agents for many platforms. Learn more on the [Device42 Agent-based discovery docs page](agent-based-discovery.mdx).
 
 ## Agent-based Offline Discovery & Upload Tool
 
 There are some edge cases where discovery is desired but the network _(or lack of network!)_ doesn’t allow communication back to the main Device42 appliance _(for a variety of reasons)_.
 
-Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.md), or simply [click here to download the Offline Discovery Data Processing Tool / Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
+Whether remote collectors can’t be deployed or policy simply doesn’t allow it, we've got the solution: See the [Device42 Offline Agent-based discovery page here](agent-based-offline-discovery.mdx), or simply [click here to download the Offline Discovery Data Processing Tool / Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
 
 ## Blade systems Discovery
 
-HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.md). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.mdx)
+HP & IBM Blade System (or Blade Center) chassis and blade details can be discovered using SNMP. This is discussed in more detail at: [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.mdx). Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. Details can be found at: [cisco-ucs-auto-discovery](./cisco-ucs-auto-discovery.mdx)
 
 ## Cloud Platform Discovery
 
