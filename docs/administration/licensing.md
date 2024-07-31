@@ -14,7 +14,7 @@ Device42 licensing is based on license units, with the units consumed at differe
 - 1 Device = 1 License Unit (1 : 1)
 - 10 Containers = 1 License Unit (10 : 1)
 - 50 TB Storage = 1 License Unit (50 TB : 1)
-- 1 Platform-as-a-Service (PaaS) = 1 License Unit (1 : 1)
+- 10 Platform-as-a-Service (PaaS) = 1 License Unit (10 : 1)
 - 10 Function-as-a-Service (FaaS) = 1 License Unit (10 : 1)
 - 100 Archived Records = 1 License Unit (100 : 1)
 
