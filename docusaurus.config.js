@@ -25,8 +25,17 @@ const config = {
       'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
       'data-fr-reply': "",
       'data-fr-theme': 'dynamic',
-    }
+    },
+    {
+      src: 'https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js',
+      'data-domain-script': '018fa3d5-077b-79ba-acca-d22007888127',
+      charset: 'UTF-8',
+    },
   ],
+
+  customFields: {
+    onetrustScript: `function OptanonWrapper() { }`,
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -35,6 +44,21 @@ const config = {
   trailingSlash: true,
 
   plugins: [
+    function onetrustScriptPlugin(context, options) {
+      return {
+        name: 'inject-onetrust-script',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML: context.siteConfig.customFields.onetrustScript,
+              },
+            ],
+          };
+        },
+      };
+    },
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -1128,8 +1152,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'Device42 Logo',
-          src: 'img/logo.png',
-          srcDark: 'img/logo-dark.svg',
+          src: 'img/device42-fw-black.webp',
+          srcDark: 'img/device42-fw-white.webp',
         },
         items: [
           {

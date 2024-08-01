@@ -41,8 +41,6 @@ Only HyperV Gen1 VMs are currently supported. In our experience, users have issu
 Power on the new machine and log in to the console using the default credentials:
 - **Username:** `device42`
 - **Password:** `adm!nd42`  
-  
-- Use **(ubuntu/default)** for power appliance.
 
 Please change the credentials with option **10** below.
 
@@ -84,7 +82,8 @@ After you download the Device42 virtual appliance file, take the following steps
 
 1. Use 7zip to unzip the downloaded file.
 2. Create a Virtual machine with a **minimum** of 2 vCPU, 8 GB RAM for production use, and one network card. Configure the new VM to use the attached virtual disk file.
-3. Power on the new machine and log in to the console using the default credentials. Use **(ubuntu/default)** for power appliances. Please change the credentials using option **10**.
+
+3. Power on the new machine and log in to the console using the default credentials. Please change the credentials using option **10**.
    
     - **Username:** `device42`
     - **Password:** `adm!nd42`
