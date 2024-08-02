@@ -146,7 +146,7 @@ There is also a direct connection option available on version 3.0.0+ of the Serv
 
 ### Downloading the ServiceNow Integration
 
-Download the Device42 - ServiceNow connector from the [ServiceNow Marketplace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/42597533db201300a189622dca961964/1.0.6?referer=sn_appstore_store.do%23!%2Fstore%2Fsearch%3Fapptype%3Dintegrations%26orderby%3Dnewest)
+Download the Device42 - ServiceNow connector from the [ServiceNow Marketplace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/42597533db201300a189622dca961964/4.2.0?sl=sh)
 
 ### Installing and Configuring the Integration
 
