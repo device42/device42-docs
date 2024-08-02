@@ -6,7 +6,7 @@ sidebar_position: 8
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Switch ports can be auto-discovered using SNMP network discovery. 
+Switch ports can be autodiscovered using SNMP network discovery. 
 
 You can bulk add switch ports via [switch templates](switch-templates.md), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) for an easy way to programmatically add or edit many switch ports at once.
 
@@ -42,7 +42,7 @@ As of v19.02.00, discovered ports use the **Is Default** property to indicate if
 
 Switch ports include the following properties:
 
-**Port:** Name of the switch port as found during auto-discovery, or user generated.  
+**Port:** Name of the switch port as found during autodiscovery, or user generated.  
 **Name:** As found in autodiscovery or user generated.  
 **Description:** As found in autodiscovery or user generated.  
 **Type:** Add the type of port. Use the **+ button** to add a new type.  
@@ -58,7 +58,7 @@ Module, Asset and the Network switch 2nd association can be done efficiently usi
 **Up admin:** Whether the port is administratively up or not. 
 **Count:** Count in the number of ports. 
 **Discovered type:** The port type as discovered during autodiscovery. This field is read-only. The discovered type value can be used to mark certain ports as uncounted, delete ports, or ignore certain port types in autodiscovery.  
-**Remote Port:** If the port is connected to another switch port, you can make that association here. This can be auto-discovered as well.  
+**Remote Port:** If the port is connected to another switch port, you can make that association here. This can be autodiscovered as well.  
 **Don't change via API:** If you override remote port connectivity manually, check this so autodiscovery or an API doesn't make this change automatically.  
 **Tags:** A comma-separated list of tags you would like attributed to the switch port. 
 **HW Address:** Any MAC addresses and devices connected to the switch port and the VLAN associated with the MAC address.
