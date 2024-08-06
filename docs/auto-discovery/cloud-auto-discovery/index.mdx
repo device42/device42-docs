@@ -7,11 +7,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Device42 Cloud Platform Autodiscovery
 
-Knowing what's happening in all your environments, on-prem and cloud, is key to optimizing your cloud costs, reducing shadow IT and ensuring you can pass audits with ease. To that end, Device42 is continuously adding more discovery functionality within all major hyperscale clouds so we can help you maintain your edge.
+Knowing what's happening in all your on-premises and cloud environments is key to optimizing your cloud costs, reducing shadow IT, and ensuring you can pass audits with ease. To that end, Device42 is continuously adding more discovery functionality within all major hyperscale clouds so we can help you maintain your edge.
 
-Device42 supports autodiscovery of cloud instances (virtual devices) on Amazon AWS, Amazon API, Microsoft Azure, Linode, DigitalOcean, OpenStack, Google Cloud, Alibaba Cloud, Oracle Cloud, and Standalone Kubernetes. Native discovery for new cloud platforms is added according to customer needs _\[and please do let us know!\]_.
+Device42 supports autodiscovery of cloud instances, known as virtual devices, on Amazon AWS, Amazon API, Microsoft Azure, Linode, DigitalOcean, OpenStack, Google Cloud, Alibaba Cloud, Oracle Cloud, and standalone Kubernetes. Please [email support](mailto:support@device42.com) to request discovery for new cloud platforms.
 
-Device42 will autodiscover your cloud virtual machines, databases, and storage as devices. You can then work with your cloud devices just like like you would any other device. You can define application components, store passwords, create custom keys, and so on, just as you would for any other physical or virtual device.
+Device42 discovers cloud virtual machines, databases, and storage as devices. These cloud assets have the same features as any other device in Device42. You can work with the cloud assets to define application components, store passwords, and create custom keys - just as you would for any other physical or virtual device.
 
 <ThemedImage
   alt="Cloud Discovery menu"
@@ -21,7 +21,9 @@ Device42 will autodiscover your cloud virtual machines, databases, and storage a
   }}
 />
 
-The Discovery menu includes the option for discovery of Cloud instances. The list page shows all of your existing cloud autodiscovery jobs. You’ll typically create one job per account. As with other types of autodiscovery jobs, cloud discovery jobs can be run immediately and/or scheduled. Click Add Cloud Autodiscovery in the top right corner to create a new job, then simply select your cloud type.
+Go to the cloud discovery list page under **Discovery > Cloud** to create a new cloud autodiscovery job and see your existing jobs. You’ll typically create one job per cloud account. Like other autodiscovery jobs, cloud discovery jobs can be run immediately and scheduled. 
+
+Click **+ Add Cloud Autodiscovery** at the top right to create a new job, then select your cloud type:
 
 <ThemedImage
   alt="Choose Cloud Type"
@@ -31,9 +33,9 @@ The Discovery menu includes the option for discovery of Cloud instances. The lis
   }}
 />
 
-## Viewing Cloud Instance Information
+## View Cloud Instance Information
 
-Select _Resources > All Devices_ and then select "Virtual" from the _Type_ filter to display virtual devices.
+Select **Resources > All Devices** and select "Virtual" from the **Type** filter to display virtual devices.
 
 <ThemedImage
   alt="Filter virtual devices"
@@ -43,7 +45,7 @@ Select _Resources > All Devices_ and then select "Virtual" from the _Type_ filt
   }}
 />
 
-The Device view and edit pages will now show "Cloud Instance Information" at the bottom of the page.
+Click on a device name to enter the view or edit mode. The **Cloud Instance Information** details are located at the bottom of the page.
 
 <ThemedImage
   alt="View instance info"
@@ -57,9 +59,11 @@ The Device view and edit pages will now show "Cloud Instance Information" at the
 
 ### Service Level and Object Category Options
 
-All cloud platform discovery jobs have the option to set the **Service Level** that will be applied to the discovered items, for example, "Development", "Deployment", or "Production". Select an option from the dropdown menu, or add a new Service Level category by clicking on the **plus symbol**. 
+All cloud platform discovery jobs have the option to set the **Service Level** to apply to the discovered items. For example,  "Development", "Deployment", or "Production". 
 
-You can also select or create a new **Object Category for discovered devices** to add another specialized classification. The **Overwrite existing object categories option** gives preference to the discovered object category (if available) over the manually defined object category.
+Select an option from the dropdown menu, or add a new Service Level category using the **plus symbol** button. 
+
+You can also create a new **Object Category for discovered devices** to add another specialized classification. The **Overwrite existing object categories option** gives preference to the discovered object category (if available) over the manually defined object category.
 
 <ThemedImage
   alt="Service Level option"
@@ -68,4 +72,3 @@ You can also select or create a new **Object Category for discovered devices** t
     dark: useBaseUrl('/assets/images/cloud-auto-discovery/service-level-option-light.png'),
   }}
 />
-
