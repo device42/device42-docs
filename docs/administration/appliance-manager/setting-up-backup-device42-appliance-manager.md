@@ -12,7 +12,7 @@ Follow the steps below to set up one-time and scheduled backups in the Device42 
 
 Choose a 12-20 character passphrase to encrypt the backup file. 
 
-You will need this passphrase to restore the backup, so please save it in a safe location. This is a required step as you won't be able to do the backup until a backup passphrase is set.
+You will need this passphrase to restore the backup, so please save it in a safe location. This is a required step, as you won't be able to create a backup until a backup passphrase has been set.
 
 ![Set the passphrase](/assets/images/setting-up-backup-device42-appliance-manager/set-passphrase.png)
 
@@ -40,7 +40,7 @@ The backup file can be scheduled to be sent to a SFTP server. All fields are req
 
 ### Backup to an NFS server
 
-The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, the folder path should be the path to the directory in which the backups will be stored. This folder should be writeable by a user with uid=1000.
+The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
 
 ![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
@@ -56,7 +56,7 @@ The **Region Endpoint** field **is not** simply the endpoint name, as each regio
 
 You can create multiple backup schedules to automate the backup process. All fields are required.
 
-Choose the time and days of the week you want the backup to run and whether to use Mail Server, SFTP, Amazon S3, or NFS as the source for the backup.
+Choose the time and days of the week you want the backup to run. Indicate whether you want to use Mail Server, SFTP, Amazon S3, or NFS as the source for the backup.
 
 Test the backup by clicking the **Save and Test backup now** button.
 
@@ -76,17 +76,17 @@ If your **Current System Time** is incorrect, change it in your VM system config
 
 ### Important Note for Scheduled Backups
 
-If you intend to use a backup schedule for an auto-restore configuration to a stand-by appliance, as described in our [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) documentation, it's critical that you select **Backup Meta Data** as an option for the backup schedule.
+If you intend to use a backup schedule for an auto-restore configuration to a stand-by appliance, as described in the Device42 [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) documentation, it's critical that you select the **Backup Meta Data** option for the backup schedule.
 
-Without the metadata for scheduled backups, the restore and passphrase settings will not be in the backup archive and the appliance will have no reference on how to use the data when attempting to restore it.
+Without the metadata for scheduled backups, the restore and passphrase settings will not be in the backup archive, and the appliance will have no reference for how to use the data when attempting to restore it.
 
 A backup file without metadata can still be used for an on-demand "restore".
 
 ### Limit Backup Retention
 
-You might want to limit the time that backups are retained for. 
+You may want to limit the duration for which backups will be retained. 
 
-If you're using a Linux server, the easiest solution is to create a cron job that runs a command to automatically delete backup files past a certain age.
+If you're using a Linux server, the easiest solution is to create a cron job that runs a command to automatically delete backup files that have passed a certain age.
 
 This command deletes any files in the mentioned directory that have a modified timestamp greater than seven days:
 
