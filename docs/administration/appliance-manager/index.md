@@ -23,5 +23,5 @@ The Device42 Appliance Manager runs on port 4242 (HTTP by default; enable HTTPs 
 - [Securing the VM console with password](administration/appliance-manager/securing-the-vm-console-with-password.md)
 - [Set FQDN for Web Access](administration/appliance-manager/set-fqdn-for-web-access.md)
 - [Set up HTTPS cert](administration/appliance-manager/set-up-https-cert.md)
-- [Setting up backup via Device42 Appliance Manager](administration/appliance-manager/setting-up-backup-device42-appliance-manager.md)
+- [Setting up backup via Device42 Appliance Manager](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx)
 - [Warm HA Setup, Failover, and Automated Backups](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md)
