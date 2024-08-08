@@ -80,7 +80,7 @@ If you intend to use a backup schedule for an auto-restore configuration to a st
 
 Without the metadata for scheduled backups, the restore and passphrase settings will not be in the backup archive, and the appliance will have no reference for how to use the data when attempting to restore it.
 
-A backup file without metadata can still be used for an on-demand "restore".
+A backup file without metadata can still be used for an on-demand restore.
 
 ### Limit Backup Retention
 
