@@ -3,94 +3,102 @@ title: "Setting up backup via Device42 Appliance Manager"
 sidebar_position: 18
 ---
 
-This section describes the steps to setup one time and scheduled backups in the device42 Appliance Manager.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Setting the passphrase
+Follow the steps below to set up one-time and scheduled backups in the Device42 Appliance Manager.
 
-![wpid2239-Setting_the_passphrase.png](/assets/images/backup-passphrase.png)
+### Set the Passphrase
 
-Choose a 12-20 character passphrase to encrypt the backup file. You will need this passphrase to do the restore, so make sure to save it in a safe location. This is a required step. You won't be able to do the backup until this step is done)
+Choose a 12-20 character passphrase to encrypt the backup file. 
 
-### One time backup
+You will need this passphrase to restore the backup, so please save it in a safe location. This is a required step, as you won't be able to create a backup until a backup passphrase has been set.
 
-![backup-now-15.png](/assets/images/backup-now-15.png)
+![Set the passphrase](/assets/images/setting-up-backup-device42-appliance-manager/set-passphrase.png)
 
-Click on Run (in Backup Now tab). A backup file is created immediately and you will be prompted to save the file.
+### One-Time Backup
 
-### Backing up metadata
+Configure the backup using the available options.
 
-Choosing the "Backup Metadata" option will include the password passphrase, Active Directory settings, backup passphrase, and any appliance manager settings in the backup as well.
+Select the **Backup Meta Data** option to include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well:
 
-Bullet list of settings included in Metadata:
-
-- Passphrases for Back-Up's and Password Encryption
+- Passphrases for backups and password encryption
 - Language
 - Time
 - SSL/HTTPS
-- host/hostname info
-- All appliance manager settings (Including back-up schedules)
+- Host/hostname info
+- All appliance manager settings (including backup schedules)
 - All certificates
 
-### Backup to an SFTP server
+![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/run-backup-now.png)
 
-![backup-sftp-15.png](/assets/images/backup-sftp-15.png)
+### Backup to an SFTP Server
 
 The backup file can be scheduled to be sent to a SFTP server. All fields are required.
 
+![Backup to an SFTP server](/assets/images/setting-up-backup-device42-appliance-manager/sftp-server-settings.png)
+
 ### Backup to an NFS server
 
-![Backup to an NFS server](/assets/images/nfs-15.png)
+The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
 
-The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, the folder path should be the path to the directory in which the backups will be stored. This folder should be writeable by a user with uid=1000.
+![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
-### Backup using Amazon S3
+### Backup Using Amazon S3
 
-![Backup using Amazon S3](/assets/images/s3-15.png)
+The backup file can be scheduled to be sent to Amazon S3 as well. All fields are required.
 
-The backup file can be scheduled to be sent to Amazon S3 as well by visiting the "Amazon S3 Settings" sub-menu.
+The **Region Endpoint** field **is not** simply the endpoint name, as each region has many endpoints. Unknown endpoint URLs can be looked up in the [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) section of the AWS Documentation. 
 
-Note that _Region Endpoint_ field **is not** simply the endpoint name, as each region has many endpoints. Endpoint URLs, if not known, can be looked up in the ["AWS Regions and Endpoints"](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) section of the AWS Documentation. All fields are required.
+![Backup using Amazon S3](/assets/images/setting-up-backup-device42-appliance-manager/s3-settings.png)
 
-### Scheduling the Backup
+### Schedule the Backup
 
-You can create schedules for your mail server, SFTP, NFS, or S3 an automatic backup and use your email server to send the backup file to multiple recipients. In the above form, all fields except username and password are required. You can add multiple "to" addresses separated by commas.
+You can create multiple backup schedules to automate the backup process. All fields are required.
 
-![Scheduling the backup](/assets/images/backup-schedule-15.png)
+Choose the time and days of the week you want the backup to run. Indicate whether you want to use Mail Server, SFTP, Amazon S3, or NFS as the source for the backup.
 
-Choose the time and days of the week you want backup to run and whether to use Mail Server,SFTP, AWS S3 or NFS as the source for the back-up.
+Test the backup by clicking the **Save and Test backup now** button.
 
-You can test the backup by clicking the "Save and Test backup now" button.
+![Scheduling the backup](/assets/images/setting-up-backup-device42-appliance-manager/backup-schedule.png)
 
-Please be sure to check your time settings in Tools > Settings > Time Settings.(Image below).
+Please check your time settings to avoid potential issues with AWS services. From the Device42 Main Appliance, navigate to **Tools > Settings > Time Settings**.
 
-![time-settings-15.png](/assets/images/time-settings-15.png)
+If your **Current System Time** is incorrect, change it in your VM system configuration console.
 
-If your Current System Time is incorrect, \["AWS Regions and Endpoints"\]you will need to change it in your VM system configuration console.
+<ThemedImage
+  alt="Schedule the backup"
+  sources={{
+    light: useBaseUrl('/assets/images/setting-up-backup-device42-appliance-manager/time-settings-light.png'),
+    dark: useBaseUrl('/assets/images/setting-up-backup-device42-appliance-manager/time-settings-dark.png'),
+  }}
+/>
 
-### Important Note for Scheduled Back-Up's
+### Important Note for Scheduled Backups
 
-If you intend to use a back-up schedule for an auto-restore configuration to a stand-by appliance, as described in our ["Warm HA Configuration."](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md)
+If you intend to use a backup schedule for an auto-restore configuration to a stand-by appliance, as described in the Device42 [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) documentation, it's critical that you select the **Backup Meta Data** option for the backup schedule.
 
-It is critical that you select to include "Backup Meta Data" as an option for the Back-up Schedule.
+Without the metadata for scheduled backups, the restore and passphrase settings will not be in the backup archive, and the appliance will have no reference for how to use the data when attempting to restore it.
 
-Without the meta data, restore and passphrase settings will not be in the back-up archive so the appliance will have no reference as to using the data when attempting to restore from schedule.
+A backup file without metadata can still be used for an on-demand restore.
 
-A back-up file without meta data can still be used for an on-demand "Restore".
+### Limit Backup Retention
 
-### Limiting Backup Retention
+You may want to limit the duration for which backups will be retained. 
 
-You may only be interested in retaining backups for the past 7 days or so. In that case, if using a linxu server, the easiest solution is to create a cronjob that runs a command such as the following to automatically delete backup files past a certain age.
+If you're using a Linux server, the easiest solution is to create a cron job that runs a command to automatically delete backup files that have passed a certain age.
+
+This command deletes any files in the mentioned directory that have a modified timestamp greater than seven days:
 
 ```
 find /device42/backup/directory -type f -mtime +7 -delete
 ```
 
-This command will delete any files in the mentioned directory that have a modified timestamp greater than 7 days.
-
-For Windows Servers, a powershell script as follows will delete files older than 7 days from the targeted directory:
+For Windows Servers, the following PowerShell script can be used to delete files older than seven days from the targeted directory:
 
 ```
 # Delete all Files in C:temp older than 7 day(s)
+
 $Path = "C:device42backups"
 $Daysback = "-7"
 $CurrentDate = Get-Date
