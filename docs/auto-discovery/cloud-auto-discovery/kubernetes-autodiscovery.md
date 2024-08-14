@@ -3,46 +3,118 @@ title: "Kubernetes Autodiscovery"
 sidebar_position: 6
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Kubernetes Discovery Items
 
-<table><tbody><tr><td><strong>Cloud Service/Object Name</strong></td><td><strong>Where to locate in D42</strong></td><td><strong>Information</strong>&nbsp;<strong>Generated</strong></td></tr><tr><td>Nodes</td><td>Resources --&gt; Containers --&gt; Kubernetes</td><td>Type, version, OS</td></tr><tr><td>Containers</td><td>Resources --&gt; Containers --&gt; Kubernetes</td><td>Region, status, capacity, creation information, etc.</td></tr><tr><td>Whole Cluster Structure</td><td>Resources --&gt; Containers --&gt; Kubernetes</td><td>All general info, namespaces, endpoint details, custom fields</td></tr></tbody></table>
+The following table outlines the components of a Kubernetes environment and the type of information discovered for them in Device42. 
+
+| **Cloud Service/Object Name** | **Where to locate in Device42**                                 | **Information Generated**                                             |
+| ----------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- |
+| Nodes                          | Resources > Containers > Kubernetes                   | Type, version, OS                                                     |
+| Containers                     | Resources > Containers > Kubernetes                   | Region, status, capacity, creation information, etc.                  |
+| Whole Cluster Structure        | Resources > Containers > Kubernetes                   | All general info, namespaces, endpoint details, custom fields         |
+
 
 ### Kubernetes Discovery for AWS, Google Cloud, and MS Azure
 
-Kubernetes Discovery is available as an option for [Amazon AWS](auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [Google Cloud](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Microsoft Azure](auto-discovery/cloud-auto-discovery/azure-autodiscovery.mdx) cloud autodiscovery jobs. Scroll down the Add Cloud Discovery page to select the **Kubernetes Discovery** option.
+Kubernetes Discovery is available as an option for [Amazon AWS](auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [Google Cloud](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Microsoft Azure](auto-discovery/cloud-auto-discovery/azure-autodiscovery.mdx) cloud autodiscovery jobs. 
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery1.png)
+Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery** to create a new discovery job.
 
-Select an option under **Action for Kubernetes Resources not found:** to choose how to handle Kubernetes Cluster children resources not found in subsequent discovery.
+Scroll down the **Add Cloud Discovery** form and check the **Kubernetes Discovery** option.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery2.png)
+<ThemedImage
+  alt="Kubernetes discovery option"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-dark.png'),
+  }}
+/>
 
-Your cloud discovery job will now also include discovery of Kubernetes resources on the target cloud platform.
+Select an option under **Action for Kubernetes Resources not found:** to choose how to handle Kubernetes cluster children resources not found in subsequent discovery.
+
+<ThemedImage
+  alt="Kubernetes not found options"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/not-found-actions-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/not-found-actions-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
+
+Your cloud discovery job will now also include the discovery of Kubernetes resources on the target cloud platform.
 
 ### Standalone Kubernetes Discovery
 
-To add a Standalone Kubernetes discovery job, choose between the **Bearer Token** and **Basic Credentials** options for authentication. You'll also need to enter a **URL** and select an option under **Action for Kubernetes Resources not found**.
+Select **Standalone Kubernetes** for the cloud autodiscovery **Type** and fill in the fields that become available:
+
+- Enter a **URL** (1).
+- For **Authentication type**, choose between the **Bearer Token** and **Basic Credentials** (2). 
+- Select an option under **Action for Kubernetes Resources not found:** (3).
 
 Optionally, you can also choose a **Vendor** and a **VRF Group**. Please note that all vendors and VRF groups are user-defined.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery3.png)
+<ThemedImage
+  alt="Standalone Kubernetes"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-dark.png'),
+  }}
+/>
 
-You can optionally set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+You can optionally set the **Service Level** for all discovered objects, such as "Development", "Deployment", or "Production". See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for more information.
+
+<ThemedImage
+  alt="Select service level"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/service-level-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/service-level-dark.png'),
+  }}
+/>
 
 ### View Discovered Kubernetes Resources
 
-Discovered Kubernetes resources appear in the Resources list page. Select **Resources > All Resources** from the main menu to display the list page. Use the **Vendor Resource Type** dropdown to choose the Kubernetes resources you want to see.
+Discovered Kubernetes resources appear on the Resources list page. Navigate to **Resources > All Resources** from the main menu to display the list page. Use the **Vendor Resource Type** dropdown to choose the Kubernetes resources to include in the table.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery4.png)
+<ThemedImage
+  alt="Resources list page"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-list-page-dark.png'),
+  }}
+/>
 
-Click on a **Resource Name** to view that resource.
+- Click a **Resource Name** to view its properties.
+  
+    <ThemedImage
+    alt="View resource"
+    sources={{
+        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-properties-light.png'),
+        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-properties-dark.png'),
+    }}
+    />
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery5.png)
+- Click on the available links to see details about those resources.
+  
+    <ThemedImage
+    alt="Resource links"
+    sources={{
+        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-links-light.png'),
+        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-links-dark.png'),
+    }}
+    />
 
-Click on the available links to see details about those resources.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery6.png)
+### Edit Discovered Kubernetes Resources
 
-Click the **Edit** button at the top right to edit resource information. Editing is generally limited to adding or editing **Notes** or **Tags**, or changing the **In Service** status or level.
+Click the **Edit** button on the bottom right to edit resource information. Editing is generally limited to adding or editing **Notes** or **Tags**, or changing the **In Service** status or level.
 
-![](/assets/images/discovery_cloud_platforms_autodiscovery_kubernetes-autodiscovery7.png)
+<ThemedImage
+  alt="Edit properties"
+  sources={{
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-dark.png'),
+  }}
+/>
