@@ -6,7 +6,7 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The device properties tab has sections for CPU Memory HardDisk, Device Operating Systems, Connectivity, IP Address details, and device aliases.
+The device properties tab includes sections for **CPU Memory HardDisk**, **Device Operating Systems**, **Connectivity**, **IP Address details**, and **Device Alias**.
 
 Most fields will be populated automatically if autodiscovery is working correctly.
 
@@ -31,7 +31,7 @@ Most fields will be populated automatically if autodiscovery is working correctl
 
 This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM** and other HDD info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
 
-### Operating System for Device
+### Device Operating Systems
 
 <ThemedImage
   alt="Device Operating System fields"
@@ -48,7 +48,7 @@ The **Count In Licensing** option is checked by default and can be unchecked if 
 
 Note that if the Operating System fields are blank, you may need to rerun autodiscovery.
 
-### Rack Info for device
+### Rack Info for Devices
 
 Rack information is no longer shown under the device **Properties** tab. To locate the list of physical devices, navigate to **Resources > All Assets**. You can view and edit rack information by clicking on an asset and scrolling to the **Rack Info** section. 
 
@@ -86,8 +86,10 @@ To assign the IP address to the device and MAC address, click on the **Assign/Cl
 
 ### Device Alias and Non-Authoritative Alias
 
+You can add multiple aliases to a device using the **+ Add another Device Alias** button. Select the **Is Preferred** checkbox for one of the aliases. Click on **+ Add another Device Non-Authoritative Alias** to associate nicknames to the device.
+
 <ThemedImage
-  alt="Add device aliases and nicknames"
+  alt="Add device aliases"
   sources={{
     light: useBaseUrl('/assets/images/device-properties/device-aliases-light.png'),
     dark: useBaseUrl('/assets/images/device-properties/device-aliases-dark.png'),
@@ -95,6 +97,39 @@ To assign the IP address to the device and MAC address, click on the **Assign/Cl
 />
 <br/><br/>
 
-You can add multiple alternative names to the device by clicking on the **+ Add another Device Alias** button. You have the option to check the **Is Preferred** checkbox for one of the aliases. 
+Both the device alias and non-authoritative alias add alternate names for the device. You can search for a device using the alias or non-authoritative alias. However, only the alias is used for device matching when an autodiscovery job is run.
 
-Click on **+ Add another Device Non-Authoritative Alias** to associate nicknames to the device.
+The preferred alias will be the name that appears in device Topology maps, Impact charts, and Dependency charts. The preferred alias is also displayed when adding a device to a Business Application. 
+
+For example, a device named "0101-DEV01" has the preferred alias "0101-DEV01.gov.it". 
+- The preferred alias is displayed on the Topology map:
+
+  <ThemedImage
+    alt="Topology with device alias"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/topology-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/topology-dark.png'),
+    }}
+  />
+
+- When adding a device to a Business Application, you can search for that device with the device name, but the preferred alias is the name that will display on the chart.
+
+  Business Application device search:
+
+  <ThemedImage
+    alt="Business Application search"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/business-application-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-application-dark.png'),
+    }}
+  />
+
+  Business Application chart:
+
+  <ThemedImage
+    alt="Business Application with device"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/business-app-device-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-app-device-dark.png'),
+    }}
+  />
