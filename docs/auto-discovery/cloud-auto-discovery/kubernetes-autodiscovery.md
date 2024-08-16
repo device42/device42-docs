@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Kubernetes Discovery Items
 
-The following table outlines the components of a Kubernetes environment and the type of information discovered for them in Device42. 
+The following table outlines the components of a Kubernetes environment, the types of information discovered for each component, and where they can be found in Device42. 
 
 | **Cloud Service/Object Name** | **Where to locate in Device42**                                 | **Information Generated**                                             |
 | ----------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -17,9 +17,9 @@ The following table outlines the components of a Kubernetes environment and the 
 | Whole Cluster Structure        | Resources > Containers > Kubernetes                   | All general info, namespaces, endpoint details, custom fields         |
 
 
-### Kubernetes Discovery for AWS, Google Cloud, and MS Azure
+### Kubernetes Discovery for AWS, GCP, and Azure
 
-Kubernetes Discovery is available as an option for [Amazon AWS](auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [Google Cloud](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Microsoft Azure](auto-discovery/cloud-auto-discovery/azure-autodiscovery.mdx) cloud autodiscovery jobs. 
+Kubernetes Discovery is available as an option for [Amazon Web Services (AWS)](auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [Google Cloud Platform (GCP)](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Microsoft Azure (Azure)](auto-discovery/cloud-auto-discovery/azure-autodiscovery.md) cloud autodiscovery jobs. 
 
 Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery** to create a new discovery job.
 
@@ -33,7 +33,7 @@ Scroll down the **Add Cloud Discovery** form and check the **Kubernetes Discover
   }}
 />
 
-Select an option under **Action for Kubernetes Resources not found:** to choose how to handle Kubernetes cluster children resources not found in subsequent discovery.
+Select an option under **Action for Kubernetes Resources not found:** to choose what Device42 should do when Kubernetes cluster children resources aren't found during the discovery.
 
 <ThemedImage
   alt="Kubernetes not found options"
@@ -48,13 +48,13 @@ Your cloud discovery job will now also include the discovery of Kubernetes resou
 
 ### Standalone Kubernetes Discovery
 
-Select **Standalone Kubernetes** for the cloud autodiscovery **Type** and fill in the fields that become available:
+Select **Standalone Kubernetes** for the cloud autodiscovery **Type**, and fill in the fields that become available:
 
 - Enter a **URL** (1).
-- For **Authentication type**, choose between the **Bearer Token** and **Basic Credentials** (2). 
+- For **Authentication type**, choose between **Bearer Token** and **Basic Credentials** (2). 
 - Select an option under **Action for Kubernetes Resources not found:** (3).
 
-Optionally, you can also choose a **Vendor** and a **VRF Group**. Please note that all vendors and VRF groups are user-defined.
+Optionally, you can choose a **Vendor** and a **VRF Group**. Please note that all vendors and VRF groups are user-defined.
 
 <ThemedImage
   alt="Standalone Kubernetes"
@@ -64,7 +64,7 @@ Optionally, you can also choose a **Vendor** and a **VRF Group**. Please note th
   }}
 />
 
-You can optionally set the **Service Level** for all discovered objects, such as "Development", "Deployment", or "Production". See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for more information.
+You also have the option to set the **Service Level** for all discovered objects, such as "Development", "Deployment", or "Production". See [Service Level and Object Category Options in the Cloud Platform Autodiscovery documentation](index.mdx#service-level-and-object-category-options) for more information.
 
 <ThemedImage
   alt="Select service level"
@@ -76,7 +76,7 @@ You can optionally set the **Service Level** for all discovered objects, such as
 
 ### View Discovered Kubernetes Resources
 
-Discovered Kubernetes resources appear on the Resources list page. Navigate to **Resources > All Resources** from the main menu to display the list page. Use the **Vendor Resource Type** dropdown to choose the Kubernetes resources to include in the table.
+Discovered Kubernetes resources appear on the **Resources** list page. Navigate to **Resources > All Resources** from the main menu to display the list page. Use the **Vendor Resource Type** dropdown to choose which Kubernetes resources to include in the table.
 
 <ThemedImage
   alt="Resources list page"
@@ -96,7 +96,7 @@ Discovered Kubernetes resources appear on the Resources list page. Navigate to *
     }}
     />
 
-- Click on the available links to see details about those resources.
+- Click on the available links to see details about each resource.
   
     <ThemedImage
     alt="Resource links"
