@@ -33,7 +33,7 @@ Scroll down the **Add Cloud Discovery** form and check the **Kubernetes Discover
   }}
 />
 
-Select an option under **Action for Kubernetes Resources not found:** to choose what Device42 should do when Kubernetes cluster children resources aren't found during the discovery.
+Select an option under **Action for Kubernetes Resources not found:** to choose which action Device42 should take when Kubernetes cluster children resources aren't found during the discovery.
 
 <ThemedImage
   alt="Kubernetes not found options"
