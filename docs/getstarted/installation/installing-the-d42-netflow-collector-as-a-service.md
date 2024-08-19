@@ -65,7 +65,7 @@ Where the string parameters are:
 
 After executing the above command, you'll see your new service in the services control panel (services.msc):
 
-![See D42NetFlow in services.msc](/assets/images/D42NetFlow_services-msc.png)
+![See D42NetFlow in services.msc](/assets/images/D42Netflow_services-msc.png)
 
 ### On Linux Using systemd
 
