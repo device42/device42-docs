@@ -35,7 +35,6 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
    
    - **Username:** `device42`
    - **Password:** `adm!nd42` 
-
    
    ![Device42 console login screen](/assets/images/d42-console-login-screen-v15.png)
 

@@ -391,51 +391,52 @@ The following is a table of commands we sometimes or always run as `sudo`. For t
 | Command             | Run with sudo? | OS flavor                                                 |
 |---------------------|----------------|-----------------------------------------------------------|
 | `adb`               | Sometimes      | Linux                                                     |
-| `cd`                | Sometimes      | All                                                       |
 | `cat`               | Sometimes      | All                                                       |
+| `cd`                | Sometimes      | All                                                       |
 | `chkconfig`         | Sometimes      | Linux                                                     |
-| `cstm`              | Sometimes      | HP-UX                                                     |
-| `docker`            | Always         | Linux                                                     |
-| `echo`              | Sometimes      | Linux                                                     |
-| `find`              | Sometimes      | Linux:FreeBSD:OpenBSD                                     |
-| `fcinfo`            | Always         | Solaris                                                   |
-| `fdisk`             | Always         | All                                                       |
-| `grep`              | Sometimes      | All                                                       |
-| `iptables`          | Always         | lxc                                                       |
-| `kdb`               | No             | Aix                                                       |
-| `ls`                | Sometimes      | All                                                       |
-| `netstat`           | Sometimes      | All                                                       |
-| `showmount`         | Sometimes      | Linux                                                     |
-| `ss`                | Sometimes      | All                                                       |
-| `systemctl`         | Sometimes      | All                                                       |
 | `crontab`           | Always         | All                                                       |
-| `exportfs`          | Sometimes      | All                                                       |
-| `hdparm`            | Sometimes      | All                                                       |
-| `pwdx`              | Sometimes      | All                                                       |
-| `hadoop`            | Sometimes      | All                                                       |
-| `hdfs`              | Sometimes      | All                                                       |
-| `SYBASE.sh`         | Sometimes      | All                                                       |
-| `systool`           | Always         | All                                                       |
+| `cstm`              | Sometimes      | HP-UX                                                     |
 | `dataserver`        | Sometimes      | All                                                       |
-| `su $oracle_user`   | Sometimes      | Discovers Oracle application information by running necessary commands as the Oracle user |
-| `su $sap_hana_user` | Sometimes      | Discovers SAP HANA application information by running necessary commands as the SAP user   |
 | `dmidecode`         | Sometimes      | Linux:Freebsd:OpenBSD:Mac                                 |
 | `dmesg`             | Sometimes      | Linux:Debian:OracleLinux:HPUX                             |
+| `docker`            | Always         | Linux                                                     |
+| `echo`              | Sometimes      | Linux                                                     |
+| `exportfs`          | Sometimes      | All                                                       |
+| `fcinfo`            | Always         | Solaris                                                   |
+| `fdisk`             | Always         | All                                                       |
+| `find`              | Sometimes      | Linux:FreeBSD:OpenBSD                                     |
 | `format`            | Always         | Solaris                                                   |
-| `pfiles`            | Always         | Solaris                                                   |
-| `zlogin`            | Always         | Solaris (For Zones)                                       |
-| `system_profiler`   | Sometimes      | Mac                                                       |
+| `grep`              | Sometimes      | All                                                       |
+| `hadoop`            | Sometimes      | All                                                       |
+| `hdparm`            | Sometimes      | All                                                       |
+| `hdfs`              | Sometimes      | All                                                       |
 | `ioscan`            | Sometimes      | HPUX                                                      |
-| `print_manifest`    | Sometimes      | HPUX                                                      |
-| `swlist`            | Sometimes      | HPUX                                                      |
+| `iptables`          | Always         | lxc                                                       |
+| `kdb`               | No             | Aix                                                       |
+| `last`              | Always         | MacOS                                                     |
+| `ls`                | Sometimes      | All                                                       |
 | `lslpp`             | Sometimes      | Aix                                                       |
+| `lsof`              | Always         | All                                                       |
+| `lspci`             | Always         | All                                                       |
+| `lxc-attach`        | Always         | Linux                                                     |
+| `lxc-ls`            | Always         | Linux                                                     |
+| `netstat`           | Sometimes      | All                                                       |
+| `pfiles`            | Always         | Solaris                                                   |
+| `print_manifest`    | Sometimes      | HPUX                                                      |
+| `pwdx`              | Sometimes      | All                                                       |
+| `showmount`         | Sometimes      | Linux                                                     |
+| `ss`                | Sometimes      | All                                                       |
+| `su $oracle_user`   | Sometimes      | Discovers Oracle application information by running necessary commands as the Oracle user |
+| `su $sap_hana_user` | Sometimes      | Discovers SAP HANA application information by running necessary commands as the SAP user   |
+| `SYBASE.sh`         | Sometimes      | All                                                       |
+| `system_profiler`   | Sometimes      | MacOS                                                     |
+| `systemctl`         | Sometimes      | All                                                       |
+| `systool`           | Always         | All                                                       |
+| `swlist`            | Sometimes      | HPUX                                                      |
 | `virsh`             | Always         | Linux                                                     |
 | `vzctl`             | Always         | Linux                                                     |
 | `vzlist`            | Sometimes      | Aix                                                       |
-| `lxc-attach`        | Always         | Linux                                                     |
-| `lxc-ls`            | Always         | Linux                                                     |
-| `lsof`              | Always         | All                                                       |
-| `lspci`             | Always         | All                                                       |
+| `zlogin`            | Always         | Solaris (For Zones)                                       |
 
 These commands sometimes change, so please check with Device42 for the current list. Below you can see an example of how to allow a particular user or group to run a specific sudo command without being prompted for a password:
 

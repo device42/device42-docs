@@ -1,0 +1,70 @@
+---
+title: "Citrix Xen Server - Installation"
+sidebar_position: 11
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and take following steps:
+
+1. Use 7zip to unzip the downloaded file.
+2. From XenCenter, right-click the server's name and select **Import**.
+   
+    ![Here are the steps in Images:](/assets/images/wpid5942-wpid-media_1331243551635.png)
+
+3. Choose Source.
+   
+    ![Locate the file you you downloaded](/assets/images/wpid5943-wpid-media_1331243622364.png)
+
+4. Choose Server.
+
+    ![Choose a pool, or accept the default (next)](/assets/images/wpid5944-wpid-media_1331243664174.png)
+
+5. Choose Storage.
+   
+    ![Choose a storage location for the VM](/assets/images/wpid5945-wpid-media_1331243689911.png)
+
+6. Choose the network card and click **Finish**.
+   
+    ![Choose the network to connect the VM to](/assets/images/wpid5946-wpid-media_1331243717545.png)
+    ![Click finish](/assets/images/wpid5947-wpid-media_1331243745178.png)
+
+7. Power on the VM and log in to the console with the default credentials: 
+
+   - **Username:** `device42`
+   - **Password:** `adm!nd42` 
+  
+   **Change the default password using option 10 on the appliance console.**
+
+   _(Deprecated appliance logins: 32-bit: ubuntu/adm!nd42 -- Power: ubuntu/default)._ 
+
+    ![Log in to the VM Console](/assets/images/wpid5950-media_1419606545144.png)
+
+8. Choose option **1** to configure networking. 
+   
+   ![Configure IP](/assets/images/wpid5951-media_1338938610667.png)
+
+   To avoid connectivity issues, please use a static IP address for all production Device42 Installations.
+
+   ![Configure networking](/assets/images/wpid5948-media_1338938641495.png)
+
+9.  The default password for user `device42` can now be changed from the console menu using option number **10**. 
+    
+    You can apply updates and do other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
+10. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address`.
+11. Log in to the **web interface** using the default credentials:
+
+    - **Username** `admin` 
+    - **Password:** `adm!nd42` 
+
+    **Please change the username and password as soon as you log in.**
+
+<ThemedImage
+  alt="Device42 UI Login Screen"
+  sources={{
+    light: useBaseUrl('/assets/images/login-light.png'),
+    dark: useBaseUrl('/assets/images/login-dark.png'),
+  }}
+  style={{ width: '70%' }}
+/>
