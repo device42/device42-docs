@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Google Cloud Platform Discovery Items
 
-Device42 can discover your inventory on the Google Cloud Platform (GCP). 
+The following table outlines the Google Cloud Platform (GCP) items that Device42 automatically discovers, the types of information generated for each item, and where that information can be found in Device42.
 
-| Cloud Service/Object Name | Name Where to locate in D42 | Accessed API | Information Generated |
+| Cloud Service/Object Name | Device42 Location | Accessed API | Information Generated |
 |----------------------------|------------------------------|--------------|-----------------------|
 | K8s (GKE) Discovery         | Devices -> Unknown           | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest), [Container API](https://www.googleapis.com/discovery/v1/apis/container/v1/rest) | Containers, pods, clusters |
 | Networks (as VRF Groups)    | Network -> VRF Groups        | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Name |
@@ -18,15 +18,15 @@ Device42 can discover your inventory on the Google Cloud Platform (GCP).
 | SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, etc. |
 | VMs                         | Devices -> All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, Name, RAM, OS, CPU, cores, etc. |
 
-## Configure a GCP Discovery Job
+## GCP Discovery Job Configuration
 
-For Google Cloud Discovery, you need a user account with the built-in Google Cloud Platform "Viewer" role.
+You need a user account with the built-in GCP "Viewer" role before you can begin a GCP discovery job.
 
-### Create a New Job
+### Create a New GCP Discovery Job
 
-To create a new Google Cloud discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Choose **Google Cloud** as the discovery **Type**.
+To create a new GCP discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Choose **Google Cloud** as the discovery **Type**.
 
-To discover all accessible projects, simply leave the **Project ID** field blank. 
+To discover all accessible projects, leave the **Project ID** field blank. 
 
 <ThemedImage
 alt="Add Google Cloud discovery form"
@@ -38,9 +38,10 @@ sources={{
 
 ### Provide JSON Credentials
 
-1. Browse to your Google Cloud Engine JSON key. Open it in a text editor and copy the contents:
+1. Locate and save your [Google Cloud Engine JSON key] (https://cloud.google.com/iam/docs/keys-create-delete) to your local machine.
+2. Open the key in a text editor and copy its contents:
   ![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
-2. Paste the copied JSON in its entirety into the **Credentials JSON** field:
+3. Paste the copied JSON in its entirety into the **Credentials JSON** field:
   
     <ThemedImage
     alt="Add JSON as new Secret"
@@ -50,11 +51,11 @@ sources={{
       }}
     />
 
-### Configuration Options
+### Determine Configuration Options
 
-Options for GCP are as follows:
+The following configuration options are available for GCP:
 
-- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
+- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your GCP.
 
 <ThemedImage
 alt="Kubernetes Discovery option"
@@ -65,18 +66,15 @@ sources={{
   style={{ width: '70%' }}
 />
 
-- **Strip Domain Name:** Strip the domain name from the discovered name (everything after the first period).
-- **Object category for discovered devices:** Choose a category to assign to discovered devices.
-- **Overwrite existing object categories:** Select this option to overwrite any previously assigned categories with the current selection.
+- Select **Strip Domain Name** to remove the domain name (everything after the first period) from the discovered name.
+- Set an **Object category for discovered devices** to assign a specific category to discovered devices.
+- Select **Overwrite existing object categories** to replace previously assigned categories with the current selection.
+- Set a job **Service Level** (for example, "Development", "Deployment", or "Production") to apply to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
 
-**Service Level Option**
+### Locate GCP Account Tags
 
-You can set the **Service Level** (for example, "Development", "Deployment", or "Production") of the job to be applied to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
+Navigate to **Infrastructure > Cloud Infrastructure > Cloud Accounts** and select your GCP account from the **Cloud Accounts** list page.
 
-### GCP Account Tags
-
-Select your Google Cloud account from the list page under **Infrastructure > Cloud Infrastructure > Cloud Accounts**.
-
-If available, the discovered account-level tags will be listed under the **Vendor Custom Fields** section.
+The available discovered account-level tags will be listed under the **Vendor Custom Fields** section.
 
 ![GCP cloud account tags](/assets/images/GCP-tags.png)
