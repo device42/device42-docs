@@ -3,50 +3,99 @@ title: "Cloud Databases"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction
 
-Cloud Databases are cloud platform database instances identified and returned by Device42 autodiscovery jobs. Cloud Databases display their resource details, related resources, and topography map.
+Cloud databases are cloud platform database instances identified and returned by Device42 autodiscovery jobs. Cloud Database items have options to display their resource details, related databases, and topography maps.
 
 ## View Cloud Databases
 
-Select _Resources > Cloud Databases_ from the Device42 menu to display the cloud databases list.
+Select **Resources > Cloud Databases** from the Device42 menu to display the cloud databases list page.
 
-![](/assets/images/DB-Resources-1-Menu-Item.png)
+<ThemedImage
+  alt="Cloud Databases menu"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-dark.png'),
+  }}
+/>
 
-Device42 displays the cloud databases list page. On this page, you can _Search by name_, or filter the list by _Cloud Provider_ or _Vendor Resource Subtype_.
+Device42 displays the cloud databases list page. On this page, you can **Search by resource name** (1), or filter the list by **Cloud Provider** (2) and **Vendor Resource Subtype** (3).
 
-![](/assets/images/DB-Resources-2-1-List-Page.png)
+<ThemedImage
+  alt="Cloud databases list page"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-dark.png'),
+  }}
+/>
 
-You can also click _+More_ to filter by _Vendor Resource Type_, _Role_, _Instance Size_, _In Service, Service Level, and Tags_.
+You can also click **+More** (4) to filter by **Vendor Resource Type**, **Role**, **Instance Size**, **In Service**, **Service Level**, and **Tags**.
 
-**Note**: The cloud databases list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+:::note
+The cloud databases list page also includes an **Advanced Search** option to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+:::
 
-Click on a cloud database _Name_ to see details about that database. You can use the links in the _Related Resources_ panel on the right to see details about that related resource.
+Click on the name of a cloud database to see details about that database. You can use the links in the **Database/Schema** panel on the right to see details about that related resource.
 
-![](/assets/images/DB-Resources-2-2-View-Page.png)
+<ThemedImage
+  alt="View database details"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/view-database-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/view-database-dark.png'),
+  }}
+/>
 
-![](/assets/images/DB-Resources-10-Related-Resources-link-example.png)
+### Resource Map
 
-Click _Resource Map_ at the top left of the page to see the topography map for the cloud database. You can select which _Resource Types_ you want to include in the map.
+Click **Resource Map** at the top left of the page to see the topography map for the cloud database. You can select which **Resource Types** to include in the map.
 
-![](/assets/images/DB-Resources-2-3-Map-Page.png)
+<ThemedImage
+  alt="Resource map"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/resource-map-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/resource-map-dark.png'),
+  }}
+/>
 
 ## Edit Cloud Databases
 
-Click _Edit_ on the cloud database view page to edit the database information. You can add or edit _Notes_ or _Tags_ for the database, select Yes/No for _In Service,_ and select or add a _Service Level_ value_._
+Click the **Edit** button at the bottom of the cloud database view page to edit the database information. You can add or edit **Notes** (1) and **Tags** (2) for the database, toggle **Yes** or **No** for **In Service** (3), and select or add a **Service Level** (4) value. You can also add and edit **Custom Field** values.
 
-![](/assets/images/DB-Resources-2-4-Edit-Page-1.png)
+<ThemedImage
+  alt="Edit cloud database"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/edit-database-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/edit-database-dark.png'),
+  }}
+/>
 
-Click _Save_ to save your edits; click _Cancel_ to discard them.
+Click **Save** to save your edits or **Cancel** to discard them.
 
 ## Delete Cloud Databases
 
-Select one or more databases from the list, and select either _Fast Background Delete_ or _Delete with Detailed Confirmation_ from the Actions menu, and then click the lightning bolt icon.
+Select one or more databases from the list, and select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the action menu, and click the hammer icon to execute the action.
 
-![](/assets/images/DB-Resources-3-Action-Menu.png)
+<ThemedImage
+  alt="Action menu"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/action-menu-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/action-menu-dark.png'),
+  }}
+/>
 
-Confirm the deletion if prompted or cancel.
+Confirm or cancel the deletion when prompted.
 
-![](/assets/images/DB-Resources-3-1-Confirm-Delete.png)
+<ThemedImage
+  alt="Confirm action"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-dark.png'),
+  }}
+/>
 
-**Note:** Additional functionality and enhancements are available directly through our DOQL views and API for quick data extraction and will not initially have UI fields. More information can be found at [https://api.device42.com/#resource\_Auto-Discovery](https://api.device42.com/#resource_Auto-Discovery)
+:::note
+Additional functionality and enhancements are available directly through our DOQL views and API for quick data extraction and will not initially have UI fields. More information can be found on the [API reference website](https://api.device42.com/#resource_Auto-Discovery).
+:::
