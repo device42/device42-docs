@@ -7,11 +7,11 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
 
-On-premise databases are non-cloud database instances identified and returned by Device42 autodiscovery jobs. You can view the discovered on-premise database details and related resources.
+On-premise (on-prem) databases are non-cloud database instances identified and returned by Device42 autodiscovery jobs. You can view the discovered on-prem database details and related resources.
 
 ## View On-Prem Databases
 
-Select **Resources > Databases > On-Prem Databases** from the Device42 menu to display the on-premise databases list.
+Select **Resources > Databases > On-Prem Databases** from the Device42 menu to display the on-prem databases list.
 
 <ThemedImage
   alt="On-Prem Databases menu"
@@ -21,7 +21,7 @@ Select **Resources > Databases > On-Prem Databases** from the Device42 menu to
   }}
 /> 
 
-On the on-premise databases list page, you can **Search by resource name, host, database type**, filter the list by **Database Type**, and add **+ More** filter fields to narrow your results.
+On the on-prem databases list page, you can **Search by resource name, host, database type**, filter the list by **Database Type**, and add **+ More** filter fields to narrow your results.
 
 <ThemedImage
   alt="On-Prem Databases list page"
@@ -31,7 +31,7 @@ On the on-premise databases list page, you can **Search by resource name, host,
   }}
 /> 
 
-Click on an on-prem database name to see details about that database and edit its **Database Instance Application Component**, **Custom Fields**, **Notes**, **Tags**, and **Service Level**.
+Click on an on-prem database name to see details about that database and to edit its **Database Instance Application Component**, **Custom Fields**, **Notes**, **Tags**, and **Service Level**.
 
 <ThemedImage
   alt="On-Prem databases details"
@@ -43,7 +43,7 @@ Click on an on-prem database name to see details about that database and edit 
 
 ## Delete On-Prem Databases
 
-You can delete on-prem databases. On the on-prem database list page, select one or more database instances, and select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the actions menu, and click the hammer icon.
+You can delete on-prem databases. On the on-prem databases list page, select one or more database instances, and select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the **Select an action** dropdown menu, and click the hammer icon.
 
 <ThemedImage
   alt="On-Prem Databases action menu"
@@ -63,9 +63,9 @@ Confirm or cancel the deletion when prompted.
   }}
 />  
 
-## Add On-Prem Database to a Business Application
+## Add an On-Prem Database to a Business Application
 
-You can add an on-prem database to an existing or new business application. On the on-prem database list page, select one or more database instances, choose  **Add to Business Application** from the actions menu, and click the hammer icon.
+You can add an on-prem database to an existing or new business application. On the on-prem databases list page, select one or more database instances, choose **Add to Business Application** from the **Select an action** dropdown menu, and click the hammer icon.
 
 <ThemedImage
   alt="Add to business application"
