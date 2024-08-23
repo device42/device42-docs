@@ -84,6 +84,10 @@ const config = {
             from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
           },
           {
+            to: '/getstarted/discovery-hub/',
+            from: ['/getstarted/getting-started-discovery-hub/'],
+          },
+          {
             to: '/getstarted/deployment-best-practices/',
             from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
           },
