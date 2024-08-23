@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Introduction
 
-Cloud databases are cloud platform database instances identified and returned by Device42 autodiscovery jobs. Cloud Database items have options to display their resource details, related databases, and topography maps.
+Cloud databases are cloud platform database instances identified and returned by Device42 autodiscovery jobs. You can view the resource details, related databases, and topography maps of cloud database items.
 
 ## View Cloud Databases
 
@@ -32,13 +32,13 @@ Device42 displays the cloud databases list page. On this page, you can **Search
   }}
 />
 
-You can also click **+More** (4) to filter by **Vendor Resource Type**, **Role**, **Instance Size**, **In Service**, **Service Level**, and **Tags**.
+You can also click **+ More** (4) to filter by **Vendor Resource Type**, **Role**, **Instance Size**, **In Service**, **Service Level**, and **Tags**.
 
 :::note
-The cloud databases list page also includes an **Advanced Search** option to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+The cloud databases list page also includes an **Advanced Search** option for constructing more specific searches. Instructions for this option are available on the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page.
 :::
 
-Click on the name of a cloud database to see details about that database. You can use the links in the **Database/Schema** panel on the right to see details about that related resource.
+Click on the name of a cloud database to see details about that database. You can use the links in the **Database/Schema** panel on the right to view further information about the database and its related resources.
 
 <ThemedImage
   alt="View database details"
@@ -50,7 +50,7 @@ Click on the name of a cloud database to see details about that database. You c
 
 ### Resource Map
 
-Click **Resource Map** at the top left of the page to see the topography map for the cloud database. You can select which **Resource Types** to include in the map.
+Click **Resource Map** on the top left of the page to see the topography map for the cloud database. You can select which **Resource Types** to include in the map.
 
 <ThemedImage
   alt="Resource map"
@@ -72,11 +72,11 @@ Click the **Edit** button at the bottom of the cloud database view page to edi
   }}
 />
 
-Click **Save** to save your edits or **Cancel** to discard them.
+Click **Save** to save your changes or **Cancel** to discard them.
 
 ## Delete Cloud Databases
 
-Select one or more databases from the list, and select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the action menu, and click the hammer icon to execute the action.
+Select one or more databases from the list, select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the **Select an action** dropdown menu, and click the hammer icon to execute the action.
 
 <ThemedImage
   alt="Action menu"
