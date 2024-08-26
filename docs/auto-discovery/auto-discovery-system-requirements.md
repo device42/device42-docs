@@ -33,7 +33,6 @@ The following are prerequisites and other general requirements and guidelines fo
 
 See detailed permission information for OS platforms:
 
-## Ports & Protocols Used By Discovery
 - Windows and WMI namespace: [Windows and HyperV Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page.
 - Linux and Sudo usage details: [Linux and Unix Server Discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page.
 
