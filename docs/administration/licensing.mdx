@@ -3,13 +3,14 @@ title: "Licensing"
 sidebar_position: 11
 ---
 
-## Introduction
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 licensing provides a Core license for autodiscovery and offers additional license modules for additional discovery and data retrieval capabilities.
+Device42 has a Core license for autodiscovery and offers additional license modules for more discovery and data retrieval capabilities.
 
-- The Core license includes discovery of physical, virtual, and cloud components, IT inventory and asset management, all out-of-the box integrations, RESTful APIs and webhooks, warranty and SSL certificate management, cable management, password management, and IP address management.
+The Core license includes the discovery of physical, virtual, and cloud components, IT inventory and asset management, all out-of-the-box integrations, RESTful APIs and webhooks, warranty and SSL certificate management, cable management, password management, and IP address management.
 
-Device42 licensing is based on license units, with the units consumed at different rates by different discovered resources. For example:
+Device42 licensing is based on license units. The units are consumed at different rates by different discovered resources. For example:
 
 - 1 Device = 1 License Unit (1 : 1)
 - 10 Containers = 1 License Unit (10 : 1)
@@ -18,22 +19,52 @@ Device42 licensing is based on license units, with the units consumed at differe
 - 10 Function-as-a-Service (FaaS) = 1 License Unit (10 : 1)
 - 100 Archived Records = 1 License Unit (100 : 1)
 
-For more information about Device42 core licensing and available licensing modules, visit our [FAQs page.](https://www.device42.com/company/faqs/?__hstc=51647990.ff5a79f118fd1dd66635c3ee1a2d193e.1631544705170.1639762215281.1640032949648.107&__hssc=51647990.2.1640032949648&__hsfp=1853336022)
+:::info
+For more information about Device42 core licensing and available licensing modules, visit our [Licensing/Purchasing FAQs page.](https://www.device42.com/company/faqs/?__hstc=51647990.ff5a79f118fd1dd66635c3ee1a2d193e.1631544705170.1639762215281.1640032949648.107&__hssc=51647990.2.1640032949648&__hsfp=1853336022)
+:::
 
-To see what your current license includes, select _Tools > Settings > Licensing_ from the main menu to display the Licensing page.
+## View Licenses
 
-![](/assets/images/Licensing-menu.png)
+To see your current Device42 licenses, navigate to **Tools > Settings > Licensing** from the main menu to display the Licensing page.
+
+<ThemedImage
+  alt="Licensing in menu"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/license-menu-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/license-menu-dark.png'),
+  }}
+/>
 
 The top left of the page displays the available license modules and whether they are enabled.
 
-![](/assets/images/WEB-601_License-modules.png)
+<ThemedImage
+  alt="Enabled licenses"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/license-section-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/license-section-dark.png'),
+  }}
+  style={{ width: '40%' }} 
+/>
 
 The lower portion of the page displays the number of purchased licenses and the number of license units consumed by the different discovered components.
 
-![](/assets/images/administration_licensing.png)
+<ThemedImage
+  alt="License breakdown"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/breakdown-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/breakdown-dark.png'),
+  }}
+/>
 
 ## Upload a New License
 
-After you receive you new license file from Device42, go to the License page and select _Choose File_ and then _Upload & Apply_.
+After receiving your new license file from Device42, go to the License page and **browse** to the license file (1), and click **Upload & Apply**.
 
-![](/assets/images/Licensing-upload-new.png)
+<ThemedImage
+  alt="Upload license"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/upload-license-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/upload-license-dark.png'),
+  }}
+  style={{ width: '45%' }} 
+/>
