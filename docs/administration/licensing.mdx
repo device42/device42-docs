@@ -1,0 +1,73 @@
+---
+title: "Licensing"
+sidebar_position: 11
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Device42 has a Core license for autodiscovery and offers additional license modules for more discovery and data retrieval capabilities.
+
+The Core license includes the discovery of physical, virtual, and cloud components, IT inventory and asset management, all out-of-the-box integrations, RESTful APIs and webhooks, warranty and SSL certificate management, cable management, password management, and IP address management.
+
+Device42 licensing is based on license units. The units are consumed at different rates by different discovered resources. For example:
+
+- 1 Device = 1 License Unit (1 : 1)
+- 10 Containers = 1 License Unit (10 : 1)
+- 50 TB Storage = 1 License Unit (50 TB : 1)
+- 1 Platform-as-a-Service (PaaS) = 1 License Unit (1 : 1)
+- 10 Function-as-a-Service (FaaS) = 1 License Unit (10 : 1)
+- 100 Archived Records = 1 License Unit (100 : 1)
+
+:::note
+Please note that Device42 lowered the license cost of AWS S3 and Azure Blob Storage Container cloud storage resource types from 1.00 to 0.10.
+:::
+
+For more information about Device42 core licensing and available licensing modules, visit our [Licensing/Purchasing FAQs page.](https://www.device42.com/company/faqs/?__hstc=51647990.ff5a79f118fd1dd66635c3ee1a2d193e.1631544705170.1639762215281.1640032949648.107&__hssc=51647990.2.1640032949648&__hsfp=1853336022)
+
+
+## View Licenses
+
+To see your current Device42 licenses, navigate to **Tools > Settings > Licensing** from the main menu to display the Licensing page.
+
+<ThemedImage
+  alt="Licensing in menu"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/license-menu-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/license-menu-dark.png'),
+  }}
+/>
+
+The top left of the page displays the available license modules and whether they are enabled.
+
+<ThemedImage
+  alt="Enabled licenses"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/license-section-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/license-section-dark.png'),
+  }}
+  style={{ width: '40%' }} 
+/>
+
+The lower portion of the page displays the number of purchased licenses and the number of license units consumed by the different discovered components.
+
+<ThemedImage
+  alt="License breakdown"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/breakdown-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/breakdown-dark.png'),
+  }}
+/>
+
+## Upload a New License
+
+After receiving your new license file from Device42, go to the License page and **browse** to the license file (1), and click **Upload & Apply**.
+
+<ThemedImage
+  alt="Upload license"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/upload-license-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/upload-license-dark.png'),
+  }}
+  style={{ width: '45%' }} 
+/>
