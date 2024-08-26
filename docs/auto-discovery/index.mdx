@@ -18,7 +18,26 @@ Running network discovery first is recommended to lay the framework for the rest
 
 Note that starting with the network is not a requirement, but if IPs are discovered before adding subnets, those IPs will end up in a catch-all subnet named "undefined". In this case, you can manually add relevant subnets before re-running the discovery.
 
-### Discovery Credentials
+### Discovery Exclusion List
+
+Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
+
+The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
+
+The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
+
+<ThemedImage
+  alt="Exclude server(s) box in discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+  }}
+/>
+
+Note that previously created jobs will not be affected or updated with changes to the exclusion list.
+
+### Cloning Discovery Jobs
+
 
 :::caution
 Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.

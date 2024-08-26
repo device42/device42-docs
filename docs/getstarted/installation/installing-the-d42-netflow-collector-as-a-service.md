@@ -61,11 +61,11 @@ Where the string parameters are:
 - **`-i`**: Flow delivery interval to Device42 MA in seconds (60 seconds is a good starting point)
 
 
-![Create D42NetFlow Windows Service](/assets/images/Create_D42_NetFlow_Service.png)
+![Create D42NetFlow Windows Service](/assets/images/Create_D42_Netflow_Service.png)
 
 After executing the above command, you'll see your new service in the services control panel (services.msc):
 
-![See D42NetFlow in services.msc](/assets/images/D42NetFlow_services-msc.png)
+![See D42NetFlow in services.msc](/assets/images/D42Netflow_services-msc.png)
 
 ### On Linux Using systemd
 
