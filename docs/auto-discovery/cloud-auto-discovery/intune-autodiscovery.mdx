@@ -38,13 +38,18 @@ Select **Intune** from the cloud autodiscovery **Type:** dropdown menu.
 
 Enter a **Name** and **URL** (for example: `https://login.microsoftonline.com/[tenant domain or ID]`) for the discovery job.
 
-Open the Azure portal and register an application on the same tenant as Intune:
+Open the [Azure portal](https://portal.azure.com) and register an application on the same tenant as Intune. 
+- Navigate to **Azure Active Directory > Enterprise Applications > New Application > Create Your Own Application**. 
+- Name your application and select the **Integrate any other application you don’t find in the gallery (Non-gallery)** option.
 
-- Give the application a **Name** in the **Branding & properties** section.
-- Add the **Client ID and Secret** in the **Certificates & secrets** section.
-- [Grant admin consent](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent) for **API Permissions**.
+Once your application has been created: 
+- Navigate back to the top-level directory you created the app in and choose **App Registrations**. 
+- Select your newly created app and make note of the **Application (client) ID**. This will be used as the **Client ID** in Device42.
+- Select **Certificates & Secrets** and then **New Client Secret**. 
+- Give your secret an optional description and an expiration date, and select **Add**. 
+- Make a  note of the string in the **Value** column, as it will be used as the **Client Credential** for Device42 discovery.
 
-Copy the application **Client ID** and **Secret** from Azure and enter them in the Device42 discovery job fields:
+Go back to the Device42 discovery job page:
 
 - Paste the Azure **Client ID** in the discovery job **Client ID** field.
 - Paste the Azure **Secret** value in the discovery job **Client Credential** field.
