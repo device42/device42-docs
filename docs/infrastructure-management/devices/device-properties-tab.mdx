@@ -6,9 +6,9 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The device properties tab has sections for CPU Memory HardDisk, Device Operating Systems, Connectivity, IP Address details, and device aliases.
+The device **Properties** tab includes sections for **CPU Memory HardDisk**, **Device Operating Systems**, **Connectivity**, **IP Address details**, and **Device Alias**.
 
-Most fields will be populated automatically if autodiscovery is working correctly.
+Most fields are automatically populated by autodiscovery.
 
 <ThemedImage
   alt="Device Properties tab"
@@ -29,9 +29,9 @@ Most fields will be populated automatically if autodiscovery is working correctl
 />
 <br/><br/>
 
-This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM** and other HDD info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
+This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM**, and other hard disk drive (HDD) info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
 
-### Operating System for Device
+### Device Operating Systems
 
 <ThemedImage
   alt="Device Operating System fields"
@@ -42,13 +42,13 @@ This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, tota
 />
 <br/><br/>
 
-The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system details for the device. If EnrichAI is active, and the data is available, these fields may be automatically populated by the autodiscovery client. The vendor support details, like **End of Life** and **End of Support** fields, may also be populated. If EnrichAI is disabled, you can enter the data mentioned manually or by executing scripts. Note that the **OS License Key** field can be manually entered. 
+The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system (OS) details for each device. If EnrichAI is active and the data is available, these fields may be automatically populated by the autodiscovery client. The vendor support details, like the **End of Life** and **End of Support** fields, may also be autopopulated. If EnrichAI is disabled, you can manually enter the relevant data or execute scripts to populate the fields. Note that the **OS License Key** field can also be entered manually. 
 
-The **Count In Licensing** option is checked by default and can be unchecked if it doesn't count towards the OS licensing for that OS. Check the **Don't change via API** option if you don't want the property values to be changed with autodiscovery.
+The **Count In Licensing** option is checked by default and can be unchecked if it doesn't count towards the OS licensing for the device OS. Check the **Don't change via api** option if you don't want the property values to be changed via autodiscovery.
 
 Note that if the Operating System fields are blank, you may need to rerun autodiscovery.
 
-### Rack Info for device
+### Rack Info
 
 Rack information is no longer shown under the device **Properties** tab. To locate the list of physical devices, navigate to **Resources > All Assets**. You can view and edit rack information by clicking on an asset and scrolling to the **Rack Info** section. 
 
@@ -63,9 +63,9 @@ Rack information is no longer shown under the device **Properties** tab. To loca
 /> 
 <br/><br/>
 
-For physical devices you can add an HWAddress (MAC Address) by clicking on the **+ Add New Connectivity** button and the **+ Add Port** button from the pop-up window. The HWAddress can be edited by clicking on the blue pen icon or deleted by clicking on the red cross icon located under the **Action** column. 
+For physical devices, you can add an HWAddress (MAC Address) by clicking on the **+ Add New Connectivity** button and then the **+ Add Port** button in the pop-up window. You can edit the HWAddress by clicking on the blue pen icon or delete it by clicking on the red cross icon beneath the **Action** column. 
 
-### IP Addresses
+### IP Address
 
 <ThemedImage
   alt="Add IP Addresses"
@@ -76,18 +76,20 @@ For physical devices you can add an HWAddress (MAC Address) by clicking on the *
 />
 <br/><br/>
 
-Add an IP address to the device by clicking on the **+ Add another IP/Device relationship** button (1) followed by the add icon to the right of the created field (2). Select an IP address from the list or click on the **+ Add IP Address** button on the top right of the pop-up window. 
+Add an IP address to the device by clicking the **+ Add another IP/Device relationship** button (1), followed by the **magnifying glass** icon to the right of the created field (2). Select an IP address from the list or click the **+ Add IP Address** button on the top right of the pop-up window. 
 
 Fill in the **IP Address** (3) and **Subnet** (4) information. You can automatically assign the next available IP in that subnet by leaving the **Subnet** field empty. 
 
-Add additional device associations to the IP address if applicable by clicking on the **+ Add another Device association** button.
+If applicable, add additional device associations to the IP address by clicking on the **+ Add another Device association** button (5).
 
-To assign the IP address to the device and MAC address, click on the **Assign/Clear IP** button (6). If IP is already assigned the same button will, upon confirmation, clear the device and MAC relations for that IP and make it available.
+To assign the IP address to the device and MAC address, click on the **Assign/Clear IP** button (6). If an IP is already assigned, upon configuration, the same button will clear the device and MAC relations for that IP and make it available.
 
 ### Device Alias and Non-Authoritative Alias
 
+You can add multiple aliases to a device using the **+ Add another Device Alias** button. Select the **Is Preferred** checkbox for one of the aliases. Then, you can click **+ Add another Device Non-Authoritative Alias** to associate nicknames with the device.
+
 <ThemedImage
-  alt="Add device aliases and nicknames"
+  alt="Add device aliases"
   sources={{
     light: useBaseUrl('/assets/images/device-properties/device-aliases-light.png'),
     dark: useBaseUrl('/assets/images/device-properties/device-aliases-dark.png'),
@@ -95,6 +97,40 @@ To assign the IP address to the device and MAC address, click on the **Assign/Cl
 />
 <br/><br/>
 
-You can add multiple alternative names to the device by clicking on the **+ Add another Device Alias** button. You have the option to check the **Is Preferred** checkbox for one of the aliases. 
+Both the device alias and non-authoritative alias add alternate names for the device. You can search for a device using its authoritative alias. However, only the preferred alias is used for device matching during an autodiscovery job.
 
-Click on **+ Add another Device Non-Authoritative Alias** to associate nicknames to the device.
+The preferred alias will be the name that appears in device topology maps, impact charts, and dependency charts. The preferred alias is also displayed when adding a device to a business application. 
+
+For example, a device named "0101-DEV01" has the preferred alias "0101-DEV01.gov.it". 
+
+- The preferred alias is displayed on the topology map:
+
+  <ThemedImage
+    alt="Topology with device alias"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/topology-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/topology-dark.png'),
+    }}
+  />
+
+- When adding a device to a business application, you can search for that device with the device name, but the preferred alias is the name that will display on the chart.
+
+  Business Application device search:
+
+  <ThemedImage
+    alt="Business Application search"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/business-application-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-application-dark.png'),
+    }}
+  />
+
+  Business Application chart:
+
+  <ThemedImage
+    alt="Business Application with device"
+    sources={{
+      light: useBaseUrl('/assets/images/device-properties/business-app-device-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-app-device-dark.png'),
+    }}
+  />

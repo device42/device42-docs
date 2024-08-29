@@ -214,104 +214,26 @@ Next, click **Save and Continue**. Then, you can **Run** the job immediately, or
 
 ## Azure Discovery Items
 
-<table id="tablepress-1" class="tablepress tablepress-id-1">
-<thead>
-<tr class="row-1 odd">
-    <th class="column-1">Service/Object Name</th><th class="column-2">Where in D42</th><th class="column-3">Accessed API</th><th class="column-4">Sample Information Generated</th><th class="column-5">Permission(s) Required</th>
-</tr>
-</thead>
-<tbody class="row-hover">
-<tr class="row-2 even">
-    <td class="column-1">SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags</td><td class="column-5">Microsoft.Sql/servers/read <br/><br/>Microsoft.Sql/servers/databases/read </td>
-</tr>
-<tr class="row-3 odd">
-    <td class="column-1">Managed SQL Server</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.Sql/managedInstances/read <br/><br/>Microsoft.Sql/managedInstances/databases/read</td>
-</tr>
-<tr class="row-4 even">
-    <td class="column-1">Azure DB for MySQL</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMySQL/servers/read<br/><br/>Microsoft.DBforMySQL/servers/databases/read</td>
-</tr>
-<tr class="row-5 odd">
-    <td class="column-1">Azure DB for Postgres</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforPostgreSQL/servers/read<br/><br/>Microsoft.DBforPostgreSQL/servers/databases/read</td>
-</tr>
-<tr class="row-6 even">
-    <td class="column-1">Azure DB for MariaDB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DBforMariaDB/servers/read<br/><br/>Microsoft.DBforMariaDB/servers/databases/read</td>
-</tr>
-<tr class="row-7 odd">
-    <td class="column-1">Cosmos DB</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.DocumentDB/databaseAccounts/read  <br/><br/>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read <br/><br/>Microsoft.DocumentDB/databaseAccounts/tables/read<br/><br/>Microsoft.DBforPostgreSQL/serverGroupsv2/* <br/><br/>Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read<br/><br/>Microsoft.Network/privateEndpoints/read<br/><br/>Microsoft.OperationalInsights/workspaces/read (Log Analytics Reader on workspace level) </td>
-</tr>
-<tr class="row-8 even">
-    <td class="column-1">SQL VM</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Name, virtual subtype, tags, tables</td><td class="column-5">Microsoft.SqlVirtualMachine/sqlVirtualMachines/read</td>
-</tr>
-<tr class="row-9 odd">
-    <td class="column-1">Functions</td><td class="column-2">Resources –&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Resource group name, runtime, trigger, function type</td><td class="column-5">Microsoft.Web/sites/read <br/><br/>Microsoft.Web/sites/functions/read</td>
-</tr>
-<tr class="row-10 even">
-    <td class="column-1">Kubernetes (AKS)</td><td class="column-2">Devices –&gt; Unknown</td><td class="column-3">management.azure.com</td><td class="column-4">Containers, nodes, clusters</td><td class="column-5">Microsoft.ContainerService/managedClusters/read<br/><br/>Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action</td>
-</tr>
-<tr class="row-11 odd">
-    <td class="column-1">Load Balancers</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.azure.com</td><td class="column-4">Name, tags, IP</td><td class="column-5">Microsoft.Network/loadBalancers/read <br/><br/>Microsoft.Network/publicIPAddresses/read</td>
-</tr>
-<tr class="row-12 even">
-    <td class="column-1">Networks (as VRF Groups)</td><td class="column-2">Network --&gt; VRF Groups</td><td class="column-3">management.azure.com</td><td class="column-4">Name</td><td class="column-5">Microsoft.Network/virtualNetworks/read </td>
-</tr>
-<tr class="row-13 odd">
-    <td class="column-1">Subnets</td><td class="column-2">Network --&gt; All Subnets</td><td class="column-3">management.azure.com</td><td class="column-4">Network, mask, name</td><td class="column-5">Microsoft.Network/virtualNetworks/read</td>
-</tr>
-<tr class="row-14 even">
-    <td class="column-1">VMs</td><td class="column-2">Devices –&gt; All Devices</td><td class="column-3">management.core.windows.net</td><td class="column-4">Name, OS version, RAM size, CPU, IP, MAC</td><td class="column-5">Microsoft.Compute/virtualMachines/read <br/><br/>Microsoft.Network/networkInterfaces/read <br/><br/>Microsoft.Network/publicIPAddresses/read </td>
-</tr>
-<tr class="row-15 odd">
-    <td class="column-1">Blob Storage</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4">Capacity, available capacity</td><td class="column-5">Microsoft.Storage/storageAccounts/read<br/><br/>Microsoft.Storage/storageAccounts/blobServices/containers/read<br/><br/>Microsoft.Storage/storageAccounts/privateEndpointConnections/read<br/><br/>Microsoft.Network/privateEndpoints/read</td>
-</tr>
-<tr class="row-16 even">
-    <td class="column-1">Workspaces</td><td class="column-2">Resources --&gt; All Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.OperationalInsights/workspaces/read</td>
-</tr>
-    <tr class="row-17 odd">
-    <td class="column-1">Extended Summary Discovery</td><td class="column-2">Resources --&gt; All Cloud Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">Microsoft.Resources/subscriptions/resourceGroups/read</td>
-</tr>
-    <tr class="row-18 even">
-    <td class="column-1">Extended Summary Discovery Supplementary Permissions</td><td class="column-2">Resources --&gt; All Cloud Resources</td><td class="column-3">management.azure.com</td><td class="column-4"></td><td class="column-5">microsoft.aad/domainservices/read
-microsoft.alertsmanagement/smartdetectoralertrules/read
-microsoft.compute/disks/read
-microsoft.compute/sshpublickeys/read
-microsoft.compute/virtualmachines/extensions/read
-microsoft.compute/virtualmachinescalesets/read
-microsoft.containerservice/managedclusters/read
-microsoft.dbforpostgresql/flexibleservers/read
-microsoft.documentdb/databaseaccounts/read
-microsoft.insights/actiongroups/read
-microsoft.insights/components/read
-microsoft.insights/datacollectionrules/read
-microsoft.managedidentity/userassignedidentities/read
-microsoft.migrate/migrateprojects/read
-microsoft.network/applicationgateways/read
-microsoft.network/connections/read
-microsoft.network/dnsresolvers/read
-microsoft.network/loadbalancers/read
-microsoft.network/localnetworkgateways/read
-microsoft.network/networkinterfaces/read
-microsoft.network/networksecuritygroups/read
-microsoft.network/networkwatchers/read
-microsoft.network/networkwatchers/flowlogs/read
-microsoft.network/privatednszones/read
-microsoft.network/privatednszones/virtualnetworklinks/read
-microsoft.network/privateendpoints/read
-microsoft.network/publicipaddresses/read
-microsoft.network/routetables/read
-microsoft.network/virtualnetworkgateways/read
-microsoft.network/virtualnetworks/read
-microsoft.operationalinsights/querypacks/read
-microsoft.operationalinsights/workspaces/read
-microsoft.operationsmanagement/solutions/read
-microsoft.recoveryservices/vaults/read
-microsoft.servicebus/namespaces/read
-microsoft.storage/storageaccounts/read
-microsoft.web/serverfarms/read
-microsoft.web/sites/read
-Microsoft.Resources/subscriptions/resourceGroups/read/read</td>
-    </tr>
-</tbody>
-</table>
+| Service/Object Name                             | Where in Device42                    | Accessed API                 | Sample Information Generated                     | Permission(s) Required                                                                                                                                                                                                                                                                                   |
+|-------------------------------------------------|---------------------------------|------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SQL Server                                      | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags                      | `Microsoft.Sql/servers/read`, `Microsoft.Sql/servers/databases/read`                                                                                                                                                                                                                                        |
+| Managed SQL Server                              | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.Sql/managedInstances/read`, `Microsoft.Sql/managedInstances/databases/read`                                                                                                                                                                                                                       |
+| Azure DB for MySQL                              | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforMySQL/servers/read`, `Microsoft.DBforMySQL/servers/databases/read`                                                                                                                                                                                                                           |
+| Azure DB for Postgres                           | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforPostgreSQL/servers/read`, `Microsoft.DBforPostgreSQL/servers/databases/read`                                                                                                                                                                                                                |
+| Azure DB for MariaDB                            | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforMariaDB/servers/read`, `Microsoft.DBforMariaDB/servers/databases/read`                                                                                                                                                                                                                       |
+| Cosmos DB                                       | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DocumentDB/databaseAccounts/read`, `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read`, `Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/tables/read`, `Microsoft.DBforPostgreSQL/serverGroupsv2/*`, `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read`, `Microsoft.Network/privateEndpoints/read`, `Microsoft.OperationalInsights/workspaces/read` (Log Analytics Reader on workspace level) |
+| SQL VM                                          | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.SqlVirtualMachine/sqlVirtualMachines/read`                                                                                                                                                                                                                                                      |
+| Functions                                       | Resources -> All Resources      | management.azure.com         | Resource group name, runtime, trigger, function type | `Microsoft.Web/sites/read`, `Microsoft.Web/sites/functions/read`                                                                                                                                                                                                                                             |
+| Kubernetes (AKS)                                | Devices -> Unknown              | management.azure.com         | Containers, nodes, clusters                      | `Microsoft.ContainerService/managedClusters/read`, `Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action`                                                                                                                                                                         |
+| Load Balancers                                  | Devices -> All Devices          | management.azure.com         | Name, tags, IP                                   | `Microsoft.Network/loadBalancers/read`, `Microsoft.Network/publicIPAddresses/read`                                                                                                                                                                                                                           |
+| Networks (as VRF Groups)                        | Network -> VRF Groups           | management.azure.com         | Name                                             | `Microsoft.Network/virtualNetworks/read`                                                                                                                                                                                                                                                                    |
+| Subnets                                         | Network -> All Subnets          | management.azure.com         | Network, mask, name                              | `Microsoft.Network/virtualNetworks/read`                                                                                                                                                                                                                                                                    |
+| VMs                                             | Devices -> All Devices          | management.core.windows.net  | Name, OS version, RAM size, CPU, IP, MAC         | `Microsoft.Compute/virtualMachines/read`, `Microsoft.Network/networkInterfaces/read`, `Microsoft.Network/publicIPAddresses/read`                                                                                                                                                                               |
+| Blob Storage                                    | Resources -> All Resources      | management.azure.com         | Capacity, available capacity                     | `Microsoft.Storage/storageAccounts/read`, `Microsoft.Storage/storageAccounts/blobServices/containers/read`, `Microsoft.Storage/storageAccounts/privateEndpointConnections/read`, `Microsoft.Network/privateEndpoints/read`                                                                                      |
+| Workspaces                                      | Resources -> All Resources      | management.azure.com         |                                                  | `Microsoft.OperationalInsights/workspaces/read`                                                                                                                                                                                                                                                             |
+| Extended Summary Discovery                      | Resources -> All Cloud Resources | management.azure.com         |                                                  | `Microsoft.Resources/subscriptions/resourceGroups/read`                                                                                                                                                                                                                                                    |
+| Extended Summary Discovery Supplementary Permissions | Resources -> All Cloud Resources | management.azure.com         |                                                  | `microsoft.aad/domainservices/read`, `microsoft.alertsmanagement/smartdetectoralertrules/read`, `microsoft.compute/disks/read`, `microsoft.compute/sshpublickeys/read`, `microsoft.compute/virtualmachines/extensions/read`, `microsoft.compute/virtualmachinescalesets/read`, `microsoft.containerservice/managedclusters/read`, `microsoft.dbforpostgresql/flexibleservers/read`, `microsoft.documentdb/databaseaccounts/read`, `microsoft.insights/actiongroups/read`, `microsoft.insights/components/read`, `microsoft.insights/datacollectionrules/read`, `microsoft.managedidentity/userassignedidentities/read`, `microsoft.migrate/migrateprojects/read`, `microsoft.network/applicationgateways/read`, `microsoft.network/connections/read`, `microsoft.network/dnsresolvers/read`, `microsoft.network/loadbalancers/read`, `microsoft.network/localnetworkgateways/read`, `microsoft.network/networkinterfaces/read`, `microsoft.network/networksecuritygroups/read`, `microsoft.network/networkwatchers/read`, `microsoft.network/networkwatchers/flowlogs/read`, `microsoft.network/privatednszones/read`, `microsoft.network/privatednszones/virtualnetworklinks/read`, `microsoft.network/privateendpoints/read`, `microsoft.network/publicipaddresses/read`, `microsoft.network/routetables/read`, `microsoft.network/virtualnetworkgateways/read`, `microsoft.network/virtualnetworks/read`, `microsoft.operationalinsights/querypacks/read`, `microsoft.operationalinsights/workspaces/read`, `microsoft.operationsmanagement/solutions/read`, `microsoft.recoveryservices/vaults/read`, `microsoft.servicebus/namespaces/read`, `microsoft.storage/storageaccounts/read`, `microsoft.web/serverfarms/read`, `microsoft.web/sites/read`, `Microsoft.Resources/subscriptions/resourceGroups/read/read` |
+
 
 *Specific calls are available on request.
 
