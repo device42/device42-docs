@@ -3,52 +3,102 @@ title: "IPMI/Redfish Autodiscovery"
 sidebar_position: 15
 ---
 
-## IPMI (IP Management Interface) Discovery
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 can discover a device via it's IPMI/BMC (iDrac, iLo etc.) board. From a device's IPMI interface, Device42 can discover the hardware model, serial #, and the BMC interface's IP address and MAC address, both of which are added to the device record as an interface labeled "mgmt".
+## IP Management Interface (IPMI) Discovery
 
-## Add a new IPMI discovery job
+Device42 can discover a device via its IPMI/BMC (iDrac, iLo, etc.) board. From a device's IPMI interface, Device42 can discover the hardware model, serial number, and the BMC interface's IP address and MAC address, both of which are added to the device record as an interface labeled "mgmt".
 
-![Add IPMI auto discovery job](/assets/images/IPMI-auto-discovery.png)
+## Add a New IPMI Autodiscovery Job
 
-Select _Discovery > IPMI / Redfish_ to create the IPMI autodiscovery job. **Job Name** : A unique name to label this job. **Server(s):** Address range against which you want to run the job. **Username and password** : Credentials to connect to IPMI board **Hostname to use:** This is discussed below in more detail. **Add hardware model, if found:** Check this if you want to add the hardware model found via this method. If this is updating an existing device with an existing hardware model - this is ignored. **Debug Level** : On for more debug log that can be sent to the support via log bundle.
+Navigate to **Discovery > IPMI / Redfish** and click **+  Add IPMI/Redfish Autodiscovery Job** to create the IPMI autodiscovery job. 
 
-* * *
+<ThemedImage
+  alt="Add IPMI/Redfish job"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-dark.png'),
+  }}
+/>
 
-## Hostname to use
+Fill in the basic job details:
 
-![IPMI Hostname to use setting](/assets/images/ipmi-job-small.png) 
+- **Job Name:** Enter a unique name for the job. 
+- **Server(s):** Input the IP address range against which you want to run the job. 
+- **Exclude Server(s):** Add any servers for which you want to exclude fetching information.
+- **Discovery Target(s) Credential(s):** Add credentials to connect to the IPMI board.
+  
+    <ThemedImage
+    alt="Add credentials"
+    sources={{
+        light: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-light.png'),
+        dark: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-dark.png'),
+    }}
+    />
 
-The **Hostname to use** option comes into play when an IPMI discovery job is the FIRST to discover a device _(or cannot match against an existing device)_, and thus a new device record is created with the **hostname** determined by the order specified in the selected "Hostname to use" option. Note that this option does not affect devices that have already been discovered using a previous method (record already exists in Device42); in this case, the existing record is simply updated with the discovered MAC address and IP Address from the BMC interface, with an interface label of _"mgmt"._ **The following 3 options are available:**
 
-- **Serial # / Reverse DNS / IP**: With this option, name use preference is Serial #, reverse DNS, IP address - If the serial # is found, it is used as the device name; Otherwise, the reverse DNS name is used. If neither of those two were found, the IP address is used to name the device.
-- **Discovered Name / Serial # / Reverse DNS / IP**: With this, discovered name from IPMI is used first, if found; then the order is the same as above.
-- **Reverse DNS/Discovered Name/Serial #/IP**: This option uses Reverse DNS name first, if found, then name as discovered via IPMI, then Serial #, and finally IP address.
+## Hostname To Use Option
 
-* * *
+Under the **Hostname to use** option, select a naming order to apply to newly discovered devices. When an IPMI discovery job is the first to discover a device, or there is no match against an existing device, a new device record is created with the hostname order you select. 
 
-## Make sure IPMI over LAN is enabled
+Note that this option does not affect devices that have already been discovered; in this case, the existing record is updated with the discovered MAC address and IP address from the BMC interface, with an interface label of "mgmt". 
+
+Select one of the **Hostname to use** options:
+- **Serial # / Reverse DNS / IP**: If the serial number is found, it is used as the device name. Otherwise, the reverse DNS name is used. If neither the serial number nor reverse DNS name is found, the IP address is used to name the device.
+- **Discovered Name / Serial # / Reverse DNS / IP**: If the discovered name from IPMI is found, it is used to name the device. If no discovered name is found, the naming order is the same as above.
+- **Reverse DNS / Discovered Name / Serial # / IP**: If the reverse DNS name is found, it is used as the device name. Otherwise, the discovered name is used. If neither the reverse DNS name nor the discovered name is found, the serial number is used to name the device. If neither those names nor the serial number is found, the IP address is  used as the device name.
+  
+<ThemedImage
+  alt="Hostname to use option"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-dark.png'),
+  }}
+/>
+
+- **Add hardware model, if found:** Select this option to add the hardware model discovered via the naming method. Note that the naming method is ignored for existing devices with hardware models.
+- **Debug Level:** Select **Debug On** to generate a debug log that can be sent to the support via log bundle.
+
+## Ensure IPMI Over LAN Is Enabled
+
+The following image is an example from the Dell iDrac web portal that shows why IPMI over LAN must be enabled for autodiscovery to work.
 
 ![Make sure IPMI over LAN is enabled](/assets/images/ipmi-settings.png)
 
-Above image is an example from Dell iDrac web portal to show that IPMI over LAN must be enabled for autodiscovery to work.
-
-* * *
-
 ## Disabling Run as Operator
 
-![](/assets/images/AD_IPMI-Redfish_Run-as-Op-box.png)
+Deselect **Run as Operator** to allow autodiscovery to run as an administrator on the IPMI device. By default, IPMI autodiscovery is run as an operator rather than an administrator, which may result in some details not being autodiscovered. 
 
-By default, IPMI autodiscovery is run as an operator rather than an administrator, which may result in some details not being autodiscovered. To allow autodiscovery to run as an administrator on the IPMI device, deselect "Run as Operator" in the autodiscovery job settings.
+<ThemedImage
+  alt="Run as operator option"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-dark.png'),
+  }}
+/>
 
 ## Run Now or Schedule
 
-![](/assets/images/image-700x115.png)
+When creating or editing the job, select **Add another Autodiscovery Schedule** to run the job according to a schedule.
 
-Select **Run Now** from the list page to run the job right away.
+<ThemedImage
+  alt="Schedule job"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule-dark.png'),
+  }}
+/>
 
-![](/assets/images/AD_Blade-Discovery-Run-Schedule.png)
+From the list page under **Discovery > IPMI / Redfish**, click **Run Now**  to run the job immediately.
 
-Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+<ThemedImage
+  alt="Run now"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-run-now-dark.png'),
+  }}
+/>
 
-A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
+Newly created jobs will not run on the first day they are created, to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select the **Run Now** button next to the job after creation.
+
