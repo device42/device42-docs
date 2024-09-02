@@ -1,13 +1,17 @@
 ---
 title: "Software"
 ---
+The Software License Management (SLM) module allows you to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machines or instances across your entire IT infrastructure.
 
-## Software
+Navigate to **Resources > Software Components** and select the relevant page to view and manage your software :
 
-Select _Resources > Software Components_ to select the following items: All Software Components, Software License Models, Software in Use, or EOL / EOS.
+* All Software Components
+* Software License Models
+* Software in Use
+* EOL / EOS
 
 ![](/assets/images/Software_menu.png)
 
-When you create a discovery job, remember to select the _Discover Software_ option to discover software information.
+Remember to select the **Discover Software** option when creating a discovery job to ensure that all software information is found.
 
 ![](/assets/images/WEB-293_SoftwareServices-Discover-Options.png)
