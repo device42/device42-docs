@@ -14,4 +14,4 @@ Navigate to **Resources > Software Components** and select the relevant page fo
 
 Remember to select the **Discover Software** option when creating a discovery job to ensure that all software information is found.
 
-![A screenshot shows the "Discover Software" option in the "Software and Applications" section during the creation of a discovery job.](/assets/images/WEB-293_SoftwareServices-Discover-Options.png)
+![A screenshot shows the "Discover Software" option in the "Software and Applications" section of the autodiscovery job creation form.](/assets/images/WEB-293_SoftwareServices-Discover-Options.png)
