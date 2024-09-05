@@ -6,13 +6,11 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Software License Management (SLM) module you to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machines or instances across your entire IT infrastructure.
-
-Easily create and manage software licensing models, and Device42 will automatically scan Windows and Linux machine instances for software; whether running or not. The SLM module can compare counts of running instances against purchased or licensed counts, and can detect prohibited software, without any need for agents. There is absolutely no need to install software agents on each machine that you require monitoring on!
+The Device42 Software License Management (SLM) module enables the easy creation and management of software licensing models by automatically scanning Windows and Linux machine instances for software; whether running or not. The SLM module can compare counts of running instances against purchased or licensed counts and detect prohibited software without any need for agents. There is absolutely no need to install software agents on each machine that you require monitoring on!
 
 ## Discovering Software Components
 
-When adding a new discovery (or editing an existing one) under **Discovery > Hypervisors / \*nix / Windows**, you will see the following:
+When creating or editing a discovery job under **Discovery > Hypervisors / \*nix / Windows**, you will see the following autodiscovery form:
 
 <ThemedImage
   alt="Add discovery job"
@@ -22,7 +20,7 @@ When adding a new discovery (or editing an existing one) under **Discovery > Hyp
   }}
 />
 
-Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to auto-discover software on Windows and Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s) provided.
+Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to facilitate the autodiscovery of software on Windows and Linux machines in the defined CIDR blocks, Hostname, Domain servers, or IP range(s) provided.
 
 <ThemedImage
   alt="The Discover Software option"
@@ -36,7 +34,7 @@ All major Linux distributions are supported, and software registered across vari
 
 ### View Discovered Software
 
-To see the list of discovered software, head to **Resources > All Software Components**. 
+To view the full list of discovered software, navigate to to **Resources > Software Components > All Software Components**. 
 
 <ThemedImage
   alt="All Software Components menu location"
@@ -47,7 +45,7 @@ To see the list of discovered software, head to **Resources > All Software Compo
   style={{ width: '90%' }} 
 />
 
-You will see a list of the discovered software components. As with other list views in Device42, you can sort these components by their column headers, there are various filters on the right side of the page, there is a search box at the top and a bulk action pull-down.
+As with other list views in Device42, you can sort the discovered software components using the column headers, the various **Advanced** filters on the right side of the page, the **search box** at the top of the page, or the bulk actions in the **Select an action** dropdown.
 
 <ThemedImage
   alt="Software component list page"
@@ -59,7 +57,11 @@ You will see a list of the discovered software components. As with other list vi
 
 ### Bulk Actions
 
-From the list view, you can make bulk modifications to these software components. Select records from the list, choose an action, and click the **hammer icon** to execute the action.
+On the **All Software Components** list page, you can make bulk modifications to specific software components:
+
+- Use the checkbox to the left of each instance to choose records from the list.
+- **Select an action** from the dropdown.
+- Click the **hammer icon** to execute the action.
 
 <ThemedImage
   alt="Software component bulk actions"
@@ -71,28 +73,34 @@ From the list view, you can make bulk modifications to these software components
 />
 
 The available actions are:
-- Delete with Detailed Confirmation
-- Fast Background Delete
-- Export selected items
-- Assign Software to Suite
-- Refresh/update Software counts
-- Refresh/update OS counts
-- Mark selected Software as Managed
-- Mark selected Software as Prohibited
-- Mark selected Software as Ignored
-- Mark selected Software as Unmanaged
 
-For example, you could select several software components and choose **Mark selected Software as Ignored**. This will cause Device42 to remove the components from the list and ignore these components in future discoveries.
+- **Delete with Detailed Confirmation**
+- **Fast Background Delete**
+- **Export selected items**
+- **Assign Software to Suite**
+- **Refresh/update Software counts**
+- **Refresh/update OS counts**
+- **Mark selected Software as Managed**
+- **Mark selected Software as Prohibited**
+- **Mark selected Software as Ignored**
+- **Mark selected Software as Unmanaged**
 
-You could also choose **Mark selected Software as Prohibited**. This will cause Device42 to send alerts whenever prohibited software is found on a user's machine (if the alert is configured).
+For example, you could select several software components and choose to:
 
-If you select **Refresh/Update software counts**, the software counts (but not the autodiscovery job) will be run immediately. This can be useful if you make a change to licensing or the software count configuration and want to see the impact of the change immediately.
+- **Mark selected Software as Ignored** and Device42 would remove the components from the list and ignore them in future discoveries.
+- **Mark selected Software as Prohibited** and Device42 would send alerts whenever prohibited software was found on a user's machine (if the alert was configured).
+_ **Refresh/update Software counts** and the software counts (but not the autodiscovery job) would be run immediately. 
 
-### Assign Software to Suite
+The **Refresh/update Software counts** action is useful when you have changed the licensing or software count configuration and want to see the impact of the change immediately.
 
-Select a group of software components and choose **Assign Software to Suite** to define the selected components to be part of a set. For example, select a set of Adobe software components and click **Assign Software to Suite**.
+#### Assign Software to Suite
 
-You can select an existing software component and define it as a suite to incorporate the selected Adobe software components. Or, a more likely scenario, you'll create a new software component using the **Add Software Component** button and call it something like "Adobe Software Suite" and then assign discovered Adobe software components to it.
+The **Assign Software to Suite** action is also useful, as it allows you to group selected software components into sets. 
+
+For example, if you wanted to group Adobe products, you would create a suite and then assign Adobe software components to it.
+
+- To create the suite, you could either select an existing software component and define it as a suite orcreate a new software component using the **Add Software Component** button and call it something like "Adobe Software Suite".
+- Then, you could select Adobe software components from the list, choose **Assign Software to Suite** from the **Select an action** dropdown, and click the **hammer icon** to assign them.
 
 <ThemedImage
   alt="Assign software to suite"
@@ -104,7 +112,7 @@ You can select an existing software component and define it as a suite to incorp
 
 ### Change Software Component
 
-Click on the name of a software component and then **Edit** to add additional details. For example, you can specify a **License Model**, select a **Vendor**, add and define categories, add **Notes**, and **Tags**.
+Click on the name of a software component and then select **Edit** to add additional details to its record. For example, you can specify a **License Model**, select a **Vendor**, add and define categories, and add **Notes** and **Tags**.
 
 Check the **Track Licensed Count by Keys** checkbox to have the software usage count be based on keys, rather than the total number of instances of the software component.
 
