@@ -101,7 +101,7 @@ Once the job finishes, you can view the results of your database discovery. Ther
 
 Head to the Device42 main menu and go to **Applications > Application Components**. If you don't see your SQL Server instances right at the top of the list, you can search for "SQL" to narrow the list down.
 
-You can see the newly discovered SQL Server instances in the example below. Click on the **Name** of one of the application component for more details:
+You can see the newly discovered SQL Server instances in the example below. Click on the **Name** of one of the application components for more details:
 
 <ThemedImage
 alt="Application Components list page"
@@ -264,7 +264,7 @@ To get information about Pluggable Databases (PDBs) within a Container Database 
 
 ### Set Up Your Oracle Discovery Job
 
-1. To begin discovering your Oracle databases, navigate to **Discovery > HyperVisors /\*nix /Windows**. Create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the **Collect database server information** checkbox.
+To begin discovering your Oracle databases, navigate to **Discovery > HyperVisors /\*nix /Windows**. Create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the **Collect database server information** checkbox.
 
 <ThemedImage
 alt="Add Oracle DB Discovery job"
@@ -278,7 +278,7 @@ Be sure to fill out both sets of credentials:
 - **Database Username / Password** to authenticate to the Oracle database. 
 - **Discovery Targets Credentials** to authenticate to the Windows or *nix server.
 
-2. You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
 <ThemedImage
 alt="Discovery Target(s) Credential(s) order"
@@ -288,7 +288,7 @@ sources={{
 }}
 />
 
-3. Run your new discovery job to test it. Click **Run Now** for the job on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Oracle databases are detected, discovery will import a list of all instances, databases, and connection details.
+Run your new discovery job to test it. Click **Run Now** for the job on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Oracle databases are detected, discovery will import a list of all instances, databases, and connection details.
 
 <ThemedImage
 alt="Run Oracle job"
@@ -381,32 +381,68 @@ Postgres SQL database discovery (introduced in v17.11.00) is for \*nix discovery
 
 For discovery to return detailed info about your database instance, you will need access to the tables:
 
-* pg_database
-* pg_tablespace
-* pg_stat_activity
-* init_server_addr (function)
+* `pg_database`
+* `pg_tablespace`
+* `pg_stat_activity`
+* `init_server_addr` (function)
 
-### Setting up your Postgres SQL discovery job
+### Set Up Your Postgres SQL Discovery Job
 
-1) To begin discovering your Postgres SQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
+To begin discovering your Postgres SQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
-Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the Postgres database itself and the second (_Discovery Targets Credentials_) to authenticate to the \*nix server itself.
+Be sure to fill out both sets of credentials:
+- **Database Username / Password:** to authenticate to the Postgres database. 
+- **Discovery Targets Credentials:** to authenticate to the \*nix server.
 
-You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_ when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+<ThemedImage
+alt="New Postgres discovery job"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/postgres-job-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-job-dark.png'),
+}}
+/>
 
-![](/assets/images/D42-23580_Postgres-ad-job-edit-page.png)
+You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
-2) Kick off your new discovery job to test it (select **Run Now** on the discovery jobs screen). As Postgres databases are detected, discovery will import a list of all instances, databases, and connection details.
+<ThemedImage
+alt="Discovery Target(s) Credential(s)"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-dark.png'),
+}}
+/>
 
-### Viewing Postgres SQL DB discovery job results
+Run your new discovery job to test it. Click **Run Now** for the job on the list page under **Discovery > HyperVisors /\*nix /Windows** As Postgres databases are detected, discovery will import a list of all instances, databases, and connection details.
 
-3) Once the job finishes, you can view the results of your database discovery. There are a couple of different ways to see the database details; the most direct is via the discovered Postgres application components themselves. On the Device42 main menu, select **Applications -> Application Components**. If you don’t see your Postgres DB instances right at the top of the list, you can search for _Postgres_ to narrow down the list, or filter the list **By Category > Database**.
+<ThemedImage
+alt="Run Postgres DB discovery job"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/postgres-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-run-now-dark.png'),
+}}
+/>
 
-![](/assets/images/postgresSQL.jpg)
+### View Postgres SQL DB Discovery Job Results
+
+When the job finishes, you can view the results of your database discovery. There are a couple of different ways to see the database details; the most direct is via the discovered Postgres application components themselves. On the Device42 main menu, select **Applications > Application Components**. If you don’t see your Postgres DB instances right at the top of the list, you can search for "Postgres" to narrow down the list, or filter the list **By Category > Database**.
+
+<ThemedImage
+alt="Postgres DB in Application Components"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/postgres-app-components-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-app-components-dark.png'),
+}}
+/>
 
 You can also select **Resources > Databases > On-Prem Databases** to display a list of databases.
 
-![](/assets/images/AD2-700x407.png)
+<ThemedImage
+alt="Postgres DB in Application Components"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-dark.png'),
+}}
+/>
 
 ## DB2 Discovery (on \*nix targets)
 
@@ -417,53 +453,55 @@ DB2 database discovery (introduced in v18.02.00) is for \*nix discovery targets 
 For discovery to return detailed info about your database instance, you will require the following permissions:
 
 **1. Privileges for ENV_SYS_INFO:**
-   - SELECT or CONTROL privilege on the ENV_SYS_INFO administrative view
-   - EXECUTE privilege on the ENV_GET_SYS_INFO table function
+   - **SELECT** or **CONTROL** privilege on the `ENV_SYS_INFO` administrative view.
+   - **EXECUTE** privilege on the `ENV_GET_SYS_INFO` table function.
 
 **2. Privileges for SNAPAPPL_INFO:**
-   - SELECT or CONTROL privilege on the SNAPAPPL_INFO administrative view
-   - EXECUTE privilege on the SNAP_GET_APPL_INFO_V95 table function OR DATAACCESS authority
+   - **SELECT** or **CONTROL** privilege on the `SNAPAPPL_INFO` administrative view
+   - **EXECUTE** privilege on the `SNAP_GET_APPL_INFO_V95` table function or **DATAACCESS** authority.
 
 **3. Privileges for ENV_INST_INFO:**
-   - SELECT or CONTROL privilege on the ENV_INST_INFO administrative view
-   - DATAACCESS authority OR DBADM authority OR SQLADM authority OR ACCESSCTRL authority OR SECADM authority
+   - **SELECT** or **CONTROL** privilege on the `ENV_INST_INFO` administrative view
+   - One of the following authorities: **DATAACCESS**, **DBADM**, **SQLADM**, **ACCESSCTRL**, or **SECADM**.
 
 **4. Privileges for DBCFG:**
-   - SELECT or CONTROL privilege on the DBCFG administrative view
-   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+   - **SELECT** or **CONTROL** privilege on the `DBCFG` administrative view
+   - One of the following authorities: **DATAACCESS**, **DBADM**, or **SQLADM**.
 
 **5. Privileges for CONTAINER_UTILIZATION:**
-   - SELECT or CONTROL privilege on the CONTAINER_UTILIZATION administrative view
-   - DATAACCESS authority OR DBADM authority OR SQLADM authority OR ACCESSCTRL authority OR SECADM authority
+   - **SELECT** or **CONTROL** privilege on the `CONTAINER_UTILIZATION` administrative view.
+   - One of the following authorities: **DATAACCESS**, **DBADM**, **SQLADM**, **ACCESSCTRL**, or **SECADM**.
 
 **6. Privileges for Monitoring:**
-   - EXECUTE privilege on the MON_GET_CONNECTION
-   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+   - **EXECUTE** privilege on the `MON_GET_CONNECTION`.
+   - One of the following authorities: `DATAACCESS`, `DBADM`, or `SQLADM`.
 
 **7. Privileges for Routines:**
-   - EXECUTE privilege on the GET_DBSIZE_INFO, WLM_SET_CONN_ENV, MON_GET_CONTAINER, and MON_GET_TABLESPACE routines
-   - DATAACCESS authority OR DBADM authority OR SQLADM authority
+   - **EXECUTE** privilege on the `GET_DBSIZE_INFO`, `WLM_SET_CONN_ENV`, `MON_GET_CONTAINER`, and `MON_GET_TABLESPACE` routines.
+   - One of the following authorities: **DATAACCESS**, **DBADM**, or **SQLADM**.
 
 **Additional SELECT Privileges:**
-   - SELECT privilege on the SYSIBM.SYSTABLESPACES
-   - SELECT privilege on the SYSIBM.SYSDUMMY1
-   - SELECT privilege on the SYSIBM.SYSVERSIONS
+   - SELECT privilege on the `SYSIBM.SYSTABLESPACES`
+   - SELECT privilege on the `SYSIBM.SYSDUMMY1`
+   - SELECT privilege on the `SYSIBM.SYSVERSIONS`
 
 **Required Authorities:**
    - One of the following authorities is required for overall access:
-      - SYSMON
-      - SYSMAINT
-      - SYSCTRL
-      - SYSADM
+      - **SYSMON**
+      - **SYSMAINT**
+      - **SYSCTRL**
+      - **SYSADM**
 
 
-### Setting up your DB2 discovery job
+### Set Up Your DB2 Discovery Job
 
 To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
-Be sure to fill out both sets of credentials – the first set (_Database Username / Password_) to authenticate to the DB2 database itself and the second (_Discovery Targets Credentials_) to authenticate to the \*nix server itself.
+Be sure to fill out both sets of credentials:
+- **Database Username / Password:** to authenticate to the DB2 database. 
+- **Discovery Target(s) Credential(s)** to authenticate to the \*nix server itself.
 
-You can enter an ordered list of preferred _Discovery Target(s) Credential(s)_ when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
 <ThemedImage
 alt="Nix discovery job"
@@ -473,9 +511,9 @@ sources={{
 }}
 />
 
-### Viewing DB2 discovery job results
+### View DB2 Discovery Job Results
 
-Once the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
+when the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the On-Prem Databases list page. On the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for _DB2_ to narrow down the list.
 
 Click on your DB2 instance name under the _Resource Name_ column to see more information about that database.
 
@@ -494,20 +532,38 @@ Device42 v18.01.00 adds a new Database discovery job type that you can use to di
 This database discovery job is useful in cases when the main detailed database discovery (in OS jobs) cannot determine the proper connection settings to the database. When this occurs, a database connection string for the discovery job is used instead as the connection settings are provided by the user.
 
 :::note
- If you have already discovered cloud databases using cloud autodiscovery jobs, and you then perform a Database Connections discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
+If you have already discovered cloud databases using cloud autodiscovery jobs, and you then perform a Database Connections discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
 :::
 
 - Select **Discovery > Database** from the main menu to display the Database discovery list page.
 
-![](/assets/images/discovery-database-menu.png)
+<ThemedImage
+alt="Database Discoveries menu"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-dark.png'),
+}}
+/>
 
-- Click on a Database discovery _Name_ to view that job. Click **+Add** at the top right of the page to add a new Database discovery job.
+- Click on a database discovery name to view that job. Click **+Add** at the top right of the page to add a new database discovery job.
 
-![](/assets/images/database-discovery-list.png)
+<ThemedImage
+alt="Database Discoveries list page"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-dark.png'),
+}}
+/>
 
 - Click **Edit** at the bottom right of the page to edit an existing job. Click **+Add More** to add additional Database Connection information for the job.
 
-![](/assets/images/D42-25010_db-AD-job-1.png)
+<ThemedImage
+alt="Add DB connection details"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-dark.png'),
+}}
+/>
 
 - Enter or select the Database Connections information:
     - **Name** – Connection name
@@ -516,9 +572,9 @@ This database discovery job is useful in cases when the main detailed database d
     - **Server** –  IP address of the DB server
     - **Port** – DB server port
     - **Credential** – DB server access credentials
-    - **Extra** – Specific to the database type: 
-      - _Instance_ for Oracle (required)
-      - _Database_ for Postgres and DB2 (required)
+    - **Extra** – Enter a name specific to the database type: 
+      - Enter an **Instance:** name for Oracle (required)
+      - Enter a **Database:** name for Postgres and DB2 (required)
       - Not required for MS SQL
 
 - Use the **trash can icon** to remove a Connections line.
@@ -567,9 +623,21 @@ You can view Discovery Scores for Database jobs that have run.
 Discovered databases are added to the On-Prem Databases list page.
 
 - Select **Resources > Databases > On-Prem Databases** to display the list page.
+  
+<ThemedImage
+alt="On-Prem Databases menu location"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-dark.png'),
+}}
+/>
 
-![](/assets/images/on-prem-databases-menu.png)
+- Click on the name of the database you want to see in the **Resource Name** column.
 
-- Click on the name of the database you want to see in the _Resource Name_ column.
-
-![](/assets/images/on-prem-databases-resource-name.png)
+<ThemedImage
+alt="On-Prem Databases list page"
+sources={{
+    light: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-dark.png'),
+}}
+/>
