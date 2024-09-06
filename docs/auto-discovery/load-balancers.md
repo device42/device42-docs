@@ -3,38 +3,54 @@ title: "Load Balancers"
 sidebar_position: 18
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction
 
 Device42 SNMP autodiscovery provides a new option for F5 load balancer discovery that returns discovered load balancers as both devices and Managed Resources. Discovering F5 load balancers as managed resources provides additional details about the load balancers and related resources that include resource maps that visually show the relationships between load balancers and their related resources. It also simplifies the chart view for Affinity Groups by visually presenting the servers underneath a load balancer.
 
 ## Managed Resources Views
 
-Discovered F5 load balancers are included in the Managed Resources list. Select _Resources > Managed Resources_ from the Device42 menu to display the list. See the [Managed Resources](https://docs.device42.com/auto-discovery/resources/) page for more information.
+Discovered F5 load balancers are included in the Managed Resources list. Navigate to **Resources > All Resources** from the Device42 menu to display the list. See the [Managed Resources](resources/index.mdx) page for more information.
 
-Click the _Vendor Resource Type_ filter drop-down and select _F5_ to display load balancer resources.
+Click the **Vendor Resource Type** filter dropdown and check "F5" to display load balancer resources.
 
-![](/assets/images/Load-Balancers_resources-listdrop-down.png)
+<ThemedImage
+  alt="Resources list page"
+  sources={{
+    light: useBaseUrl('/assets/images/load-balancers/resources-f5-light.png'),
+    dark: useBaseUrl('/assets/images/load-balancers/resources-f5-dark.png'),
+  }}
+/>
 
+Click on a load balancer under the **Resource Name** column to see details about that load balancer. You can use the links in the panel on the right to see details about related resources.
+
+<ThemedImage
+  alt="View load balancer details"
+  sources={{
+    light: useBaseUrl('/assets/images/load-balancers/load-balancer-details-light.png'),
+    dark: useBaseUrl('/assets/images/load-balancers/load-balancer-details-dark.png'),
+  }}
+/>
  
+Click **Resource Map** at the top left of the page to see the topography map for the resource. Under **Tools & Breakdown** on the left panel, you can view, add, highlight, and search items by resource type to include in the map.
 
-Click on a load balancer _Resource Name_ to see details about that load balancer. You can use the links in the panel on the right to see details about related resources.
+The image below shows an example resource map for clustered load balancers.
 
-![](/assets/images/Load-Balancers_single-resource-props.png)
+<ThemedImage
+  alt="View resource map"
+  sources={{
+    light: useBaseUrl('/assets/images/load-balancers/f5-resource-map-light.png'),
+    dark: useBaseUrl('/assets/images/load-balancers/f5-resource-map-dark.png'),
+  }}
+/>
 
- 
 
-Click _Resource Map_ at the top left of the page to see the topography map for the resource. You can select which _Resource Types_ you want to include in the map.
-
-![](/assets/images/Load-Balancers_cluster-map.png)
-
-The image below shows another example resource map for clustered load balancers.
-
-![](/assets/images/Load-Balancers_single-map.png)
-
-You will notice that the Chart views for Affinity Groups are now much simpler and easier to understand. Select _Applications > Affinity Groups_ to display the affinity group list.
+The chart views for Affinity Groups are now much simpler and easier to understand. Navigate to **Applications > Affinity Groups** from the main menu to display the affinity group list.
 
 ![](/assets/images/Load-Balancers_AG-list.png)
 
-Click the _Chart_ link to view the chart for an affinity group with a load balancer.
+Click the **Chart** link to view the chart for an affinity group with a load balancer.
 
 ![](/assets/images/Load-Balancers_AG-chart.png)
