@@ -34,7 +34,7 @@ You can also specify interfaces, IP addresses, and MAC addresses to be ignored d
 
 ## MSSQL Server Database Discovery (on Windows Targets)
 
-MSSQL server discovery is supported on discovery targets running Microsoft Windows, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure the discovery credentials have appropriate permissions to view the databases you are interested in discovering.
+Microsoft SQL Server (MSSQL) server discovery is supported on discovery targets running Microsoft Windows, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure the discovery credentials have appropriate permissions to view the databases you are interested in discovering.
 
 Device42 supports autodiscovery on Windows and \*nix platforms for the following MSSQL versions:
 
@@ -106,7 +106,7 @@ You can see the status of the discovery job on the job setup page. Scroll down t
 
 Once the job finishes, there are multiple ways to view the results of your database discovery. 
 
-#### Access Your Results Through the Discovered MSSQL Application Components
+### Access Your Results Through the Discovered MSSQL Application Components
 
 The most direct method for viewing the discovered database details is via the discovered MSSQL application components themselves. 
 
@@ -142,9 +142,9 @@ sources={{
 
 For a rundown of the database details that discovery provides, jump to the [**Available SQL Database Instance Information**](#available-sql-database-instance-information) section.
 
-#### Access Your Results Using the Continuous Integration (CI) of a Discovered Windows Server Instance
+### Another Way To View SQL Database Details
 
-You can also view the discovered database details by navigating to the CI of your discovered Windows server instance.
+Results are also available by browsing to the discovered Windows server instance's CI; either search for the device from the dashboard, via **Devices > All Devices**, or view your discovery job's results page and jump to the servers from there. You can also go to **Analytics > Discovery Scores** and search for the discovery job. 
 
 Either search for the device from the dashboard, via **Devices > All Devices**, navigate to your discovery job results page and access the servers from there, or go to **Analytics > Discovery Scores** and search for your discovery job. 
 
@@ -379,15 +379,15 @@ sources={{
 
 ### Oracle CDB/PDB Matching Process and Regular Processing Procedures
 
-An Oracle database instance is created for each CDB and PDB, even in cases where they share the same endpoint listener.
+An Oracle database instance is created for each Container Database (CDB) and Pluggable Database (PDB), even in cases where they share the same endpoint listener.
 
-Whenever possible, each root database instance (CDB) will be matched with the same endpoint as the incoming resource (CDB or PDB). If a root database instance (CDB) is found, the discovery attempts to locate all related child databases (PDBs) and iterates through all of the child records. If any child database name matches the name of the incoming resource, the child DB is identified as the same as the incoming DB, and the existing record is updated with the new incoming resource data.
+We attempt to match any root database instance (CDB) with the same endpoint as our incoming resource (CDB or PDB). If we find a root database instance (CDB), we try to locate all related child databases (PDBs) for it and iterate through all of the child records. If any child database name matches the name of the incoming resource, we identify this database instance as the same as the incoming one and update the existing record with the new incoming resource data.
 
-If no child database instance resources are found, the resource is matched to the root resource. The discovery only proceeds according to regular processing if there is no match with any root resources.
+If we can't find any child database instance resources, we match the resource to the root resource. If there's no match to the root resource, we proceed with regular processing.
 
-Orphaned PDBs aren't matched to the root CDB if a fresh CDB is incoming.
+We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
 
-If a candidate database instance is identified as a child of a CDB, it skips the matching process.
+If a candidate database instance is detected to be a child of a CDB we skip the matching process
 
 ## Postgres SQL Database Discovery (on \*nix targets)
 
@@ -542,7 +542,7 @@ sources={{
 
 When the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the **On-Prem Databases** list page.
 
-On the Device42 main menu, select **Resources -> Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for "DB2" to narrow down the list.
+On the Device42 main menu, select **Resources > Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for "DB2" to narrow down the list.
 
 Click on your DB2 instance name under the **Resource Name** column to view more information about the database.
 
@@ -561,7 +561,7 @@ Device42 v18.01.00 adds a new database discovery job type for discovering inform
 This database discovery job type is useful when the main detailed database discovery (in OS jobs) cannot determine the proper connection settings for a specific database, because the database connection discovery job instead uses a string containing connection settings provided by the user.
 
 :::note
-If you have already discovered cloud databases using cloud autodiscovery jobs when you perform a database connections discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
+If you have already discovered cloud databases using cloud autodiscovery jobs when you perform a database connection discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
 :::
 
 - Select **Discovery > Database** from the main menu to display the **Database Discoveries** list page.
@@ -579,8 +579,8 @@ sources={{
 <ThemedImage
 alt="Database Discoveries list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-dark.png'),
 }}
 />
 
@@ -596,13 +596,13 @@ sources={{
 
 - Enter or select the **Database Connections** information:
 
-    - **Name** – Connection name
-    - **Application Component** – Application component to link to
-    - **Platform** – Database type: Oracle, MS SQL, Postgres, or DB2
-    - **Server** –  IP address of the DB server
-    - **Port** – DB server port
-    - **Credential** – DB server access credentials
-    - **Extra** – Enter a name specific to the database type:
+    - **Name:** Connection name
+    - **Application Component:** Application component to link to
+    - **Platform:** Database type: Oracle, MS SQL, Postgres, or DB2
+    - **Server:**  IP address of the DB server
+    - **Port:** DB server port
+    - **Credential:** DB server access credentials
+    - **Extra:** Enter a name specific to the database type:
 
       - Enter an **Instance:** name for Oracle (required)
       - Enter a **Database:** name for Postgres and DB2 (required)
