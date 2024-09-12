@@ -89,8 +89,8 @@ The external Ping Sweep utility is a standalone tool that does a ping sweep on s
 
 1. Download the ping sweep `.zip` file from the [Device42 Autodiscovery Tools](https://www.device42.com/autodiscovery/) page.
 2. Unzip the downloaded `d42-ping-sweep.zip` file containing five files:
-    - `d42_pingsweep_windows_386.exe` (32bit version)
-    - `d42_pingsweep_windows_x64.exe` (64bit version)
+    - `d42_pingsweep_windows_386.exe` (32-bit version)
+    - `d42_pingsweep_windows_x64.exe` (64-bit version)
     - `d42_pingsweep_linux`
     - `ping.cfg.sample`
     - `version.txt`
