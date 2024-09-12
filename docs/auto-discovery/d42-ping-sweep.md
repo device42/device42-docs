@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 ## Built-in Ping Sweep Autodiscovery
 
 
-Device42's Ping Sweep autodiscovery performs a series of pings against the specified network(s), for a quick initial discovery of which IPs are live and respond to pings, and which are not.
+Device42's Ping Sweep autodiscovery performs a series of pings against the specified network(s) for a quick initial discovery of which IPs are live and respond to pings and which are not.
 
 For the time being, an external standalone [Device42 Ping Sweep utility](https://www.device42.com/autodiscovery/) is still available, but it may be deprecated in the future. See the [Using the External Ping Sweep Utility](#using-the-external-ping-sweep-utility) section below for information on using the standalone tool.
 
@@ -69,13 +69,13 @@ Select **Resources > All IP Addresses** from the Device42 menu to display the 
 
 ### General Ping Sweep Usage Considerations
 
-Please add the respective subnets in Device42 before discovering and uploading IP information – otherwise all IPs will go to an "undefined" subnet.
+Please add the respective subnets in Device42 before discovering and uploading IP information, otherwise, all IPs will go to an "undefined" subnet.
 
 **Ping Sweep considerations and best practices:**
 
 - MAC address discovery works only for local LANs.
 - If the reverse DNS option is selected, discovery will take longer.
-- Depending on the behavior of your network devices, some subnets or IP addresses will show up as used. For example, some networks that live behind load balancers, as some LBs will reply to pings for every IP on a given range.
+- Depending on the behavior of your network devices, some subnets or IP addresses will show up as used. For example, as some load balancers reply to pings for every IP on a given range, networks that live behind these load balancers may show up as used.
 - Doing a discovery using a wireless card would only discover itself.
 - Please note that there's both a built-in Ping Sweep tool and a standalone [external Ping Sweep utility](#using-the-external-ping-sweep-utility) version of the tool that runs as a standalone Windows application.
 
@@ -103,7 +103,7 @@ The external Ping Sweep utility is a standalone tool that does a ping sweep on s
 
 ### Configure the Ping Sweep Settings
 
-Use the `ping.cfg.sample` file to select your settings. Make a copy of this file and rename it to “ping.cfg”.
+Use the `ping.cfg.sample` file to select your settings. Make a copy of this file and rename it to `ping.cfg`.
 
 Below is a sample of the `ping.cfg` file:
 
