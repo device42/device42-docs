@@ -30,7 +30,7 @@ If you already have one or more Device42 remote collectors running, simply enabl
 
 ![](/assets/images/WEB-808_1.png)
 
-3. From the **View remote collector** screen, click the **Edit** button on the upper-right hand corner. Scroll to the **NetFlow options** and click **Show**.
+3. From the **View remote collector** screen, click the **Edit** button on the upper right-hand corner. Scroll to the **NetFlow options** and click **Show**.
 
 ![](/assets/images/WEB-808_2.png)
 
@@ -38,7 +38,7 @@ If you already have one or more Device42 remote collectors running, simply enabl
     - Check the **Enable NetFlow** checkbox.
     - **Default Protocol:** Choose TCP or UDP if you'll be using one or the other, otherwise traffic without a protocol will be ignored. 
     - You may optionally configure IPs to ignore, ports to ignore, or a NetFlow Forwarding IP address, but this will not be necessary for many setups. 
-    - Click **Save** in the lower-right-hand corner and your RC is now configured for NetFlow collection.
+    - Click **Save** in the lower right-hand corner and your RC is now configured for NetFlow collection.
 
 ![](/assets/images/WEB-808_3.png)
 
@@ -77,7 +77,7 @@ The following options are available to augment the behavior of `d42-netflow-coll
 
 The NetFlow collector will capture and send data to Device42 in 5-minute increments by default. You may customize this interval using the `-i` command switch.
 
-Device42 will attempt to associate the data it receives with services known to Device42. If there are no services with which to associate the collected data, Device42 will retain one million rows of the most recent data, discarding the oldest information as needed. The data in this million-row buffer is matched against as new services are discovered.
+Device42 will attempt to associate the data it receives with services known to Device42. If there are no services with which to associate the collected data, Device42 will retain one million rows of the most recent data, discarding the oldest information as needed. As new services are discovered, data is matched against this million-row buffer.
 
 ## Licensing
 
