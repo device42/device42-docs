@@ -3,19 +3,39 @@ title: "Operating Systems Supported in Autodiscovery"
 sidebar_position: 21
 ---
 
-## Background: The Device42 Test Lab
+## Background on the Device42 Test Lab
 
-We test on as many operating systems as we can get our hands on for agentless autodiscovery. This list is by no means exhaustive or exclusive but should provide a good starting point. As a general rule - _if there's an OS giving a customer trouble, we're happy to try to build in support for it._ Note all discoveries can be run without agents via the Device42 main appliance or can optionally utilize one or more remote collectors. Agentless Windows discovery requires that at least one instance of the Windows Discovery Service (WDS) be deployed somewhere on your network that can reach your desired discovery targets.
+We test on as many operating systems as we can get our hands on for agentless autodiscovery. This list is by no means exhaustive or exclusive but should provide a good starting point. As a general rule, if there's an OS giving you trouble, we're happy to try and build in support for it. You can [email support](mailto:support@device42.com) or [submit a request](https://support.device42.com/) on our website.
 
-**Major Linux distributions** should all work well with autodiscovery, including: **Debian / Ubuntu, Redhat / CentOS / Fedora, SuSe, OpenSuSE**, etc. **Most UNIX distros** are well supported including **AIX, OpenBSD, FreeBSD, HP-UX, and Solaris**; other UNIX distros should also be autodiscovered (via SSH).
+:::note
+All discoveries can be run without agents on the Device42 Main Appliance optionally using one or more remote collectors. Agentless Windows discovery requires at least one instance of the Windows Discovery Service (WDS) to be deployed somewhere on your network that can reach your desired discovery targets.
+:::
 
-Major **Windows releases (7, 8, 10, Server 2000+) are all supported**, and should all work well with autodiscovery (via WMI/WinRM).
+## Supported Distros and Operating Systems
 
-If you are running at least Device42 v15.14.02+, discovery of the **IBM i powered mid-range** line and IBM z/OS powered mainframes is also supported.
+**Major Linux distributions** work well with autodiscovery, including: 
+- Debian 
+- Ubuntu
+- Red Hat
+- CentOS
+- Fedora
+- SUSE
+- OpenSUSE 
+  
+**Most UNIX distros** are well supported, including:
+- AIX
+- OpenBSD
+- FreeBSD
+- HP-UX
+- Solaris
 
- 
+Other UNIX distros should also work well with autodiscovery (via SSH).
 
-## Tested distros / operating systems
+Major **Windows releases (7, 8, 10, Server 2000+) are all supported** and should all work well with autodiscovery (via WMI/WinRM).
+
+If you are running Device42 v15.14.02+, discovery of the **IBM i powered mid-range** line and **IBM z/OS** powered mainframes are also supported.
+
+## Tested Distros and Operating Systems
 
 <table>
   <tbody>
