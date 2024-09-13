@@ -5,17 +5,17 @@ sidebar_position: 22
 
 The [Device42 Packet Capture tool](https://www.device42.com/autodiscovery/) enables packet capture to be leveraged as a means of discovery. Packet capture discovers service communication happening in real-time for any service listeners known to Device42. It lets you discover service communications that are too infrequent for scheduled discovery jobs to catch.
 
-Device42 packet capture supports both individual and promiscuous interfaces allowing you the flexibility to deploy and use packet capture in whatever way makes the most sense for your IT environment.
+Device42 packet capture supports both individual and promiscuous interfaces, allowing you the flexibility to deploy and use packet capture in the way that makes the most sense for your IT environment.
 
 ## Prerequisites
 
 You need the following to use the Device42 Packet Capture tool:
 
 - A Device42 Main Appliance (MA) running v16.00.00 or above.
-- Permitted network communication from the machine you'll be capturing packets on to your Device42 MA.
+- Network communication allowed from the machine you'll be capturing packets on to your Device42 MA.
 - An active network adapter connected to the target traffic capture network.
 - A packet capture library installed on your operating system:
-   - On **Windows**, use a WinPcap-compatible library like [Npcap](https://npcap.com/). Be sure to select the **install in API-Compatible mode** option during setup.
+   - On **Windows**, use a WinPcap-compatible library like [Npcap](https://npcap.com/). Be sure to select the **Install in API-Compatible mode** option during setup.
    - On **Linux**, use `libpcap`.
   
 You can optionally enable promiscuous mode (aka 'monitor' mode) for the network or the interface of interest.
@@ -37,8 +37,8 @@ Watch our [Intro to Packet Capture video](https://www.youtube.com/watch?v=y1U37X
 4. Configure the utility by editing the `d42pcap.json`file. At minimum, configure the following sections to run the Packet Capture utility:
 
    - **Point the utility at your Device42 instance** by inputting its IP address, username, and password in the `device42` section of the config file. Save the file.
-   - Enter the name of your capture interface in the `device` property of the `pcap` section. Use the name as shown under `ipconfig` on Windows or `ifconfig` on Linux. For example `ens32`.
-   - Adjust the interval property of the common section. The default is to relay 60-second chunks of capture data to Device42 to not overwhelm the MA, especially if filtering isn't used or when you're capturing traffic from many devices.
+   - Enter the name of your capture interface in the `device` property of the `pcap` section. Use the name as shown under `ipconfig` on Windows or `ifconfig` on Linux. For example, `ens32`.
+   - Adjust the interval property of the common section. The default is to relay 60-second chunks of capture data to Device42 to not overwhelm the MA, especially if filtering isn't used or you're capturing traffic from many devices.
 
 5. The utility may be installed to run as a Windows or Linux Service as desired. See the [Installing Device42 Packet Capture as a System Service](#installing-device42-packet-capture-as-a-system-service) section.
 
