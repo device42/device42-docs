@@ -8,7 +8,7 @@ sidebar_position: 21
 We test on as many operating systems as we can get our hands on for agentless autodiscovery. This list is by no means exhaustive or exclusive but should provide a good starting point. As a general rule, if there's an OS giving you trouble, we're happy to try and build in support for it. You can [email support](mailto:support@device42.com) or [submit a request](https://support.device42.com/) on our website.
 
 :::note
-All discoveries can be run without agents on the Device42 Main Appliance optionally using one or more remote collectors. Agentless Windows discovery requires at least one instance of the Windows Discovery Service (WDS) to be deployed somewhere on your network that can reach your desired discovery targets.
+All discoveries can be run without agents on the Device42 Main Appliance with the option of using one or more remote collectors. Agentless Windows discovery requires at least one instance of the Windows Discovery Service (WDS) to be deployed on your network, where it can reach your desired discovery targets.
 :::
 
 ## Supported Distros and Operating Systems
