@@ -14,8 +14,8 @@ Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows aut
 **Resource utilization is only available and will only function if:**
 
 - The licensing module is enabled. Check if **Resource Utilization** is **Enabled** under **Tools > Settings > Licensing**. The **Enable Resource Utilization Tracking for Device(s)** checkbox (pictured above) will be disabled if the licensing module is disabled.
-- The **Enable Resource Utilization Tracking for Device(s)** is checked at the time of discovery.
-- The 'verify monitoring' option is checked after a device has been discovered. If the job is scheduled to run again, it should bring in data the next time the discovery job runs.
+- The **Enable Resource Utilization Tracking for Device(s)** is checked at the time of discovery on a discovery job.
+- The **Is Device42 monitoring enabled** option is set as **Yes** after a device has been discovered. If the job is scheduled to run again, it should bring in data the next time the discovery job runs.
 
 * * *
 
