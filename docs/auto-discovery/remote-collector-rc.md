@@ -14,7 +14,7 @@ The Remote Collector (RC) is a virtual appliance that is deployed separately fro
 Windows discovery requires at least one [Windows Discovery Service](getstarted/installation/windows-discovery-service-installation.md) (WDS) instance to be deployed.
 :::
 
-You may configure an unlimited number of remote collector appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor, and other auto discoveries across networks requiring only HTTPS access, eliminating the need to open numerous ports up across network segments.
+You may configure an unlimited number of RC appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor, and other autodiscoveries across networks requiring only HTTPS access, eliminating the need to open numerous ports up across network segments.
 
 ### RC Sizing Recommendations
 
@@ -25,11 +25,11 @@ For one RC per 1000 workloads, the sizing recommendations are:
 
 ## RC Installation and Configuration
 
-To download the Remote Collector, head to our [Autodiscovery tools download page](https://www.device42.com/autodiscovery/). Under "D42 Remote Collector", which should be found at the top of the page click the **Download** button.
+To download the RC, head to our [**Autodiscovery** tools download page](https://www.device42.com/autodiscovery/). In the **D42 Remote Collector (RC)** section at the top of the page, click the **Download** button.
 
-We currently offer an `.OVF` image for direct download. Should your hypervisor not support the OVF VM image format, please contact [support@device42.com](mailto:support@device42.com) and we'll will work with you to provide an image compatible with your hypervisor. Deploy the VM image to your hypervisor, boot it, and log in using the VM console or via SSH, Port 22. 
+We currently offer an `.OVF` image for direct download. Should your hypervisor not support the OVF virtual machine (VM) image format, please contact [support@device42.com](mailto:support@device42.com) and we will work with you to provide an image compatible with your hypervisor. Deploy the VM image to your hypervisor, boot it, and log in via the VM console or SSH, Port 22.
 
-The default credentials for the Remote Collector are:
+The default credentials for the RC are:
 
 Username:
     ```
@@ -46,13 +46,13 @@ After logging in to the console, you will see the main console menu:
 
 ### Initial (First-Boot) Network Config
 
-Upon initial installation, first configure your network settings to proceed with setup. A static IP is best as Device42 can lose contact with an RC with a changing (dynamic) IP address. 
+Upon initial installation, configure your network settings to proceed with setup. It is best to use a static IP for your network, as Device42 can lose contact with RCs that have changing (dynamic) IP addresses.
 
-On the main console menu, choose **Network Interfaces** and press enter on the name of your interface to edit it. Use the space bar to unselect DHCP and assign a static IP address using the following screen.
+On the main console menu, choose **Network Interfaces** and press `enter` on the name of your interface to edit it. Use the `space bar` to unselect DHCP and assign a static IP address using the following screen.
 
 ![](/assets/images/D42-23170_RC-edit-network-interface.png)
 
-The **PREFIX** field above asks for an integer that represents the subnet mask in slash notation. For example, for `255.255.255.0`, which is a `/24`, you will enter `24`. Note that the **PREFIX** field has been removed and as soon as your RC connects to Device42, it will be updated.
+The **PREFIX** field above asks for an integer that represents the subnet mask in slash notation. For example, for `255.255.255.0`, which is a `/24`, you would enter `24`. Note that the **PREFIX** field has been removed, and as soon as your RC connects to Device42, it will be updated.
 
 ### Connect your Remote Collector to Device42
 
@@ -68,13 +68,13 @@ From the main console menu, select **RC Setup** to register your RC with your ma
   }}
 />
 
-Click **Generate OTP** in the top-right and copy the password you receive.
+Click **Generate OTP** in the top right and copy the password you receive.
 
-In the RC console, under **RC Setup** enter your OTP along with the IP address or FQDN of the main appliance:
+In the RC console, under **RC Setup** enter your OTP along with the IP address or FQDN of the Main Appliance:
 
 ![](/assets/images/D42-23170_RC-setup-OTP.png)
 
-When the initial setup is complete, more detailed information about the RC's configuration is visible under the **RC Setup** submenu, including the option to reset and reconfigure your RC.
+When the initial setup is complete, more detailed information about the configuration of the RC is visible under the **RC Setup** submenu, including the option to reset and reconfigure your RC.
 
 ![](/assets/images/D42-23170_RC-setup-before-reset.png)
 
@@ -82,7 +82,7 @@ After the initial registration on port 443, all subsequent communication occurs 
 
 ## View and Edit Remote Collectors
 
-Click the Remote Collector **Name** on the list page to view or edit a remote collector. Click the **Edit** button to edit the RC.
+Click the RC **Name** on the list page to view or edit a specific RC. Click the **Edit** button to edit the RC.
 
 Note that the view and edit pages now includes a **MAC Address** field showing the address of the RC. Be careful editing this address; an incorrect address will cause the RC to disconnect.
 
@@ -90,7 +90,7 @@ Note that the view and edit pages now includes a **MAC Address** field showing
 
 ### Remote Collector List Page Actions
 
-Navigate to the RC list page under **Discovery > Remote Collectors** for the Actions dropdown menu. 
+Navigate to the RC list page under **Discovery > Remote Collectors** for the **Select an action** dropdown menu. 
 
 <ThemedImage
   alt="Remote Collector list page actions"
@@ -104,7 +104,7 @@ Select RC(s) from the table, choose one of the following actions, and click the 
 
 - **Delete with Detailed Confirmation**: Delete the selected RC(s) with a confirmation prompt.
 - **Export Selected Items as CSV**: Export a CSV file with information about the selected RC(s).
-- **Clear Logs**: Clear the log files for the selected RC(s).
+- **Clear logs**: Clear the log files for the selected RC(s).
 - **Reboot Collectors**: Reboot the selected connected RC(s). Note that if your RC is exhibiting unusual behavior, rebooting the RC can be a good first step to resolving the problem.
 - **Set Remote Collector Logging Level**: Set the RC logging level. Select **Information** to reduce the log file size. You can also set a Global Logging Level via the RC console.
 
@@ -122,7 +122,7 @@ The proxy settings within the MA and RC are set independently but are often iden
 
 ## Scalability
 
-Device42 remote collectors provide robust scalability by offloading discovery workloads from your Main Appliance(s). You can deploy multiple remote collectors for each main appliance. Device42 recommends one remote collector with one Windows Discovery Service for every 1,000 workloads.
+Device42 RCs provide robust scalability by offloading discovery workloads from your MA. You can deploy multiple remote collectors for each main appliance. Device42 recommends one remote collector with one Windows Discovery Service for every 1,000 workloads.
 
 ## Remote Collector Deployment Example
 
@@ -134,11 +134,11 @@ In the deployment example pictured, an RC is deployed within each isolated DMZ N
 
 Please note that the diagram doesn't show the majority of network connectivity that would be present, and instead focuses mainly on what is discovered by the MA vs. the RC, and the communication between the RC and MA.
 
-As mentioned briefly in the introduction, all communication and discovery information is securely transmitted between the RC and the MA once a connection is established via Port 443 (HTTPS/SSL). This means a single, secure and easily monitored 1:1 rule allows for comprehensive and continuous discovery of the secured network segment - as often as scheduled or desired - without compromising its isolation or security.
+As mentioned briefly in the introduction, all communication and discovery information is securely transmitted between the RC and the MA once a connection is established via Port 443 (HTTPS/SSL). This means a single, secure, and easily monitored 1:1 rule allows for comprehensive and continuous discovery of the secured network segment - as often as scheduled or desired - without compromising its isolation or security.
 
 ## Running Remote Discoveries
 
-Once registered, you can schedule any autodiscovery job from the MA and instruct them to run on the remote collectors of your choosing. Each autodiscovery screen shows a **Remote Collector** dropdown menu. Click this box to display all registered RCs and choose the RC you would like the discovery job to run from:
+Once registered, you can schedule any autodiscovery job from the MA and instruct it to run on the remote collector of your choosing. Each autodiscovery screen shows a **Remote Collector** dropdown menu. Click this box to display all registered RCs and choose the RC you would like the discovery job to run from:
 
 ![Add SNMP autodiscovery and select Remote Collector](/assets/images/Add-SNMP-autodisc-RC-v15.PNG)
 
