@@ -1,0 +1,81 @@
+---
+title: "Jamf Autodiscovery"
+sidebar_position: 15.5
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Device42 supports [Jamf](https://www.jamf.com/) autodiscovery from v19.02 of the Main Appliance. Run a Jamf cloud autodiscovery job to bring in your Apple ecosystem data.
+
+## Jamf Autodiscovery Items
+
+Currently, Jamf autodiscovery retrieves data on the following:
+
+- Computers
+- Mobile devices
+- IP and MAC addresses
+- Installed software and applications
+- Extension attributes (Custom Fields)
+
+## Requirements for Jamf autodiscovery
+
+To run a Jamf autodiscovery job, you need to set the appropriate permissions in your Jamf account and provide your Jamf username and password when creating the job.
+
+### Permission Requirements
+
+A standard Jamf user account with read-all permissions is required for autodiscovery. The easiest way to grant read-all permissions is to create a standard user account with the **Auditor** privilege set. 
+
+Alternatively, you can use a **Custom** privilege set with all-read permissions enabled. 
+
+For information on standard accounts and privilege sets, see the [Jamf Pro User Accounts and Groups](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Jamf_Pro_User_Accounts_and_Groups.html) documentation.
+
+### Authentication Requirements 
+
+Your Jamf account username and password are required in the **Basic credentials** field of the **Add Cloud Autodiscovery** form.  
+
+Your username and password are used to request a bearer token. Bearer token authentication is then used for subsequent requests.
+
+## Create a Jamf Autodiscovery Job
+
+Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Select **Jamf** from the **Type** dropdown menu.
+
+<ThemedImage
+  alt="Add a new Jamf job"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-dark.png'),
+  }}
+/>
+
+Optionally, add a **Customer for discovered devices:**
+
+<ThemedImage
+  alt="Add customer"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-dark.png'),
+  }}
+/>
+
+### Run Now or Schedule the Job
+
+Scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
+
+<ThemedImage
+  alt="Create a discovery schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-schedule-dark.png'),
+  }}
+/>
+
+To run the job immediately, click **Save** to add it to the list of Cloud autodiscovery jobs and then click **Run Now**.
+
+<ThemedImage
+  alt="Create a discovery schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-dark.png'),
+  }}
+/>
