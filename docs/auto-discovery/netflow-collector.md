@@ -21,7 +21,7 @@ If you already have one or more Device42 remote collectors running, you may want
 
 ### Installing the Device42 RC for NetFlow Collection
 
-1. To **install the Device42 Remote Collector for NetFlow collection**, see the "RC Installation and Configuration" section of the [Device42 RC documentation page.](auto-discovery/remote-collector-rc.md) After installation, return to this page to complete NetFlow Configuration for your RC.
+1. To **install the Device42 Remote Collector for NetFlow collection**, see the "RC Installation and Configuration" section of the [Device42 RC documentation page.](auto-discovery/remote-collector-rc.mdx) After installation, return to this page to complete NetFlow Configuration for your RC.
 2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu, _Discovery > Remote Collectors_ and clicking the Name of the Remote Collector you want to use for NetFlow collection: 
 
 ![](/assets/images/WEB-808_1.png)
