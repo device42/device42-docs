@@ -5,7 +5,7 @@ sidebar_position: 25
 
 ## What is Resource Utilization?
 
-Device42's Resource Utilization (RU) features are enabled for users with an installed RU license. RU is also known as the "enable monitoring for discovered devices" setting. This powerful module collects and examines server resource usage metrics, which can fuel advanced business and capacity planning decisions, migration planning, move-group selection (via Affinity Groups), cloud target rightsizing, and support a variety of other digital transformation projects.
+Device42's Resource Utilization (RU) features are enabled for users with an installed RU license. RU is also known as the "enable monitoring for discovered devices" setting. This powerful module collects and examines server resource usage metrics, which can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Affinity Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
 
 Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform CIs, stats are currently displayed.
 
@@ -13,7 +13,7 @@ Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows aut
 
 **Resource utilization is only available and will only function if:**
 
-- The licensing module is enabled. Check if **Resource Utilization** is **Enabled** under **Tools > Settings > Licensing**. The **Enable Resource Utilization Tracking for Device(s)** checkbox (pictured above) will be disabled if the licensing module is disabled.
+- The licensing module is enabled. Check whether **Resource Utilization** is **Enabled** under **Tools > Settings > Licensing**. The **Enable Resource Utilization Tracking for Device(s)** checkbox (pictured above) will be disabled if the licensing module is disabled.
 - The **Enable Resource Utilization Tracking for Device(s)** is checked at the time of discovery on a discovery job.
 - The **Is Device42 monitoring enabled** option is set as **Yes** after a device has been discovered. If the job is scheduled to run again, it should bring in data the next time the discovery job runs.
 
@@ -21,13 +21,15 @@ Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows aut
 
 ## Handling of the Same IP/Machine Instance Across Multiple RCs
 
-If an IP is discovered across multiple RCs, Device42 will **not** monitor that IP again if it is already being monitored; were this otherwise permitted, unexpected behavior would likely result. We will adjust this and other RU workflows based on user feedback - please do let us know about any ideas or changes you have that would help you!
+If an IP is discovered across multiple Remote Collectors (RCs), Device42 will **not** monitor that IP again if it is already being monitored; were this otherwise permitted, unexpected behavior would likely result. We will adjust this and other RU workflows based on user feedback - please do let us know about any ideas or changes you have that would help you!
 
 ### Monitoring Management - Example Scenarios
 
-Let’s consider three Devices A, B, and C, and two Remote Collectors, RC#1 & #2. Monitoring is currently **disabled** on all three.
+Consider the following scenario:
 
-Consider a scenario where two discovery jobs are configured:
+You have three Devices, A, B, and C, and two RCs, RC#1 and #2. Monitoring is currently **disabled** on all three.
+
+Two discovery jobs are configured:
 
 1. Job#1 includes Device A and Device B
 2. Job#2 includes Device B and Device C
@@ -52,19 +54,19 @@ Then you change the settings on Job #2 and run it from RC#2 with monitoring enab
 - DeviceB with monitoring on RC#1
 - DeviceC with monitoring on RC#2
 
-Note that DeviceB does not switch which RC it's attached to.
+Note that DeviceB does not switch the RC that it's attached to.
 
 * * *
 
 ### How Can I Switch Device RU Monitoring to Another RC?
 
-If you _want_ to move a device to another RC, open the device list, select the device, and select a **Disable monitoring for selected devices...** action. After disabling monitoring, re-run the job again with monitoring re-enabled on the new target RC.
+If you _want_ to move a device to another RC, open the device list, select the device, and select one of the **Disable monitoring for selected devices...** actions. After disabling monitoring, run the job again with monitoring re-enabled on the new target RC.
 
 ![Disable RU Monitoring on devices](/assets/images/disable_RU_monitoring_device_list_view-1.png)
 
-The difference between the options deals with the handling of historical data for the device in question. The **...but keep Data** action stores data for as long as needed, and if the same device were rediscovered, the existing data will be automatically utilized. The **...and delete data** option simply deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
+The options differ according to how they handle the historical data for the device in question. The **...but keep data** action stores data for as long as needed, so that if the same device were rediscovered, the existing data would be automatically utilized. The **...and delete data** option simply deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
 
-Now re-run Job#2 on RC#2 with monitoring enabled once again. After that run, you can see the device has moved to RC2:
+Now rerun Job#2 on RC#2 with monitoring enabled once again. After that run, you can see the device has moved to RC2:
 
 - DeviceA with monitoring on RC#1
 - DeviceB with monitoring on RC#2
@@ -89,19 +91,19 @@ You can think about these series as if they were Excel sheets, with the first co
 
 ![A memory series in Device42](/assets/images/sensor_data_series.png)
 
-In general, charts don't use all data points as there tends to be quite a lot of them. For example, a 30-second interval for a month equals 86,400 data points. Instead, data is aggregated, which is a common way to visualize data of this type.
+In general, charts don't use all the data points, as there tend to be quite a lot of them. For example, a 30-second interval used for a month would generate 86,400 data points. Instead, data is aggregated, which is a common way to visualize data of this type.
 
-Aggregation takes multiple data points and converts their values to one depending on the selected aggregation function. Currently, Device42 does this one of three ways: `MIN`, `AVG`, and `MAX`.
+Aggregation takes multiple data points and converts their values to one data point, depending on the selected aggregation function. Currently, Device42 does this one of three ways: `MIN`, `AVG`, or `MAX`.
 
 * * *
 
-<table><tbody><tr><td width="50%">As an example, to generate <strong>`AVG`</strong> physical values from 5-minute intervals with a point every minute from the table in the screenshot above, we will get:</td><td width="30%">The <strong>`MIN`</strong> setting, instead, would return the smallest value from each set:</td></tr><tr><td width="50%"><ul><li><code>(53.242 + 51.672) / 2</code> = <b>52.457</b></li><li><code>(52.688 + 52.676) / 2</code> = <b>52.682</b></li></ul></td><td width="30%"><ul><li><code>53.242 &lt; <b>51.672</b></code> = <b>51.672</b></li><li><code>52.688 &gt; <b>52.676</b></code> = <b>52.676</b></li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="50%">As an example, if we were to generate <strong>`AVG`</strong> physical values from 5-minute intervals, with a point every minute, from the table in the screenshot above, we would get:</td><td width="30%">The <strong>`MIN`</strong> setting, instead, would return the smallest value from each set:</td></tr><tr><td width="50%"><ul><li><code>(53.242 + 51.672) / 2</code> = <b>52.457</b></li><li><code>(52.688 + 52.676) / 2</code> = <b>52.682</b></li></ul></td><td width="30%"><ul><li><code>53.242 &lt; <b>51.672</b></code> = <b>51.672</b></li><li><code>52.688 &gt; <b>52.676</b></code> = <b>52.676</b></li></ul></td></tr></tbody></table>
 
 * * *
 
 ### What Happens if an RC Is Down?
 
-When an RC is down, no data will be shown as the RC must be responsive to queries for data. Charts and reports will show empty gaps in data for periods where RCs were down.
+When an RC is down, no data will be shown, as the RC must be responsive to queries for data. Charts and reports will show empty gaps in data for periods when RCs were down.
 
 ### Data Capture Intervals
 
@@ -113,7 +115,7 @@ Available intervals:
 
 ### Data Visualization
 
-To visualize data, choose the **Trends** option from the **...** (ellipsis) menu in the upper-right hand corner of any device that has RU enabled.
+To visualize data, choose the **Trends** option from the **...** (ellipsis) menu in the upper-right-hand corner of any device that has RU enabled.
 
 Note this option will not be displayed if monitoring is not active or the license does not allow it:
 
@@ -168,13 +170,13 @@ If results cannot be retrieved from an RC (if the RC is down, etc.), an **Inacce
 
 ## Reporting
 
-There are three types of Resource Utilization data reports available via **Analytics > Reports** based on captured RU data.
+There are three types of RU data reports available via **Analytics > Reports** based on captured RU data.
 
 **Users may select the "Type of Data" they would like to see:**
 
-- **Minimum**: Report uses data minimums.
-- **Maximum**: Report uses data maximums.
-- **Average**: Report uses data averages.
+- **Minimum**: Report uses data minimums
+- **Maximum**: Report uses data maximums
+- **Average**: Report uses data averages
 
 **Peak (Maximum) calculations:**
 
@@ -197,7 +199,7 @@ Currently, this API endpoint provides results in CSV format. JSON format may be 
 - **`id`**: Device ID
 - **`ids`**: Comma-separated list of IDs. _Optional_.
 - **`metric`**: The aggregation function that will be used. Can be `AVG`, `MIN`, or `MAX`.
-- **`timezoneoffset`**: Your timezone GMT offset in minutes. For Moscow it is -180 (minus) and for NY 240 (without plus)
+- **`timezoneoffset`**: Your time zone is represented by GMT offset in minutes. For Moscow it is -180 (minus) and for NY 240 (without plus)
 - **`end_date`**: The date of the final data point in US date and 24H time format, 12/31/17 15:16:17.
 - **`timeperiod`**: The number of hours that you want to observe.
 
@@ -225,7 +227,7 @@ To control the number of data points, use the `interval` or `density` parameter.
 - **`interval`**: Specify the number of seconds between data points. For example, if you want to get AVG/MIN/MAX data at 5-minute intervals for the last 24 hours, set `interval=300` and you will receive 288 data points.
 - **`density`**: The number of points to collect per interval. This is similar to `interval`, but you should use it if you want to get an exact number of points for a given interval. For example, if you use a time of `period=6` (24 hours) and `density=100`, you will get 100 points with an interval of approximately 14.5 minutes. With a density of 1000, you will get 1000 points with a 1.5-minute interval.
 
-**Important Limitation**: If the device polling interval is `N` seconds, and `N > interval`, the RC will reset `interval` to `N`. For example, if the polling interval for the device is 15 seconds and you set `density=1000` and `period=1` (30 min), you will not get 1000 points. Instead, you will get `30 min * 60 seconds = 1800 seconds / 15 seconds polling interval = 120 points`.
+**Important Limitation**: If the device polling interval is `N` seconds, and `N > interval`, the RC will reset `interval` to `N`. For example, if the polling interval for the device is 15 seconds, and you set `density=1000` and `period=1` (30 min), you will not get 1000 points. Instead, you will get `30 min * 60 seconds = 1800 seconds / 15 seconds polling interval = 120 points`.
 
 **CSV contains next type-measure combinations of data:**
 
@@ -239,11 +241,11 @@ To control the number of data points, use the `interval` or `density` parameter.
 - **`Disk-(total,write,read)_transfer_diff`**: Difference between raw transfer at the end and the start of the interval
 - **`Nic-(in,out)_speed`**: Aggregated speed for the interface
 - **`Nic-(in,out)_transfer`**: Raw transfer for the network interface at the end of the interval
-- **`Nic-(in,out)_transfer_diff`**: Difference between raw transfer at the end and the start of the interval
+- **`Nic-(in,out)_transfer_diff`**: Difference between raw transfer at the end and at the start of the interval
 
 ### What if My RC Is Offline?
 
-If your target Remote Collector is offline, you will not be able to fetch data from it. All fields will either come back empty or will display the `-` character. Charts, too, will be empty. One exception is the PDU main page, which will display the latest values because its data is cached.
+If your target RC is offline, you will not be able to fetch data from it. All fields will either come back empty or will display the `-` character. Charts, too, will be empty. One exception is the PDU main page, which will display the latest values because its data is cached.
 
 ### RU Note: Use Static IP Addresses
 
@@ -253,4 +255,4 @@ If an RC and the Windows discovery service are both using DHCP IPs, automated IP
 We strongly recommended that **static** IP Addresses be used for all Device42 appliances, RCs, etc.
 :::
 
-In the case that DHCP does break a connection, re-run the discovery job to resume monitoring. DHCP IP addresses are **not** a supported configuration.
+In the case that DHCP does break a connection, rerun the discovery job to resume monitoring. DHCP IP addresses are **not** a supported configuration.
