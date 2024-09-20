@@ -6,7 +6,7 @@ sidebar_position: 15.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 supports [Jamf](https://www.jamf.com/) autodiscovery from v19.02 of the Main Appliance. Run a Jamf cloud autodiscovery job to bring in data about your Apple ecosystem.
+Device42 supports [Jamf](https://www.jamf.com/) autodiscovery from v19.02 of the Main Appliance. Run a Jamf cloud autodiscovery job to bring in your Apple ecosystem data.
 
 ## Jamf Autodiscovery Items
 
@@ -20,7 +20,7 @@ Currently, Jamf autodiscovery retrieves data on the following:
 
 ## Requirements for Jamf autodiscovery
 
-To run a Jamf autodiscovery job, you need to set the appropriate permissions in your Jamf account and provide your username and password on the Device42 autodiscovery job.
+To run a Jamf autodiscovery job, you need to set the appropriate permissions in your Jamf account and provide your Jamf username and password when creating the job.
 
 ### Permission Requirements
 
@@ -28,13 +28,13 @@ A standard Jamf user account with read-all permissions is required for autodisco
 
 Alternatively, you can use a **Custom** privilege set with all-read permissions enabled. 
 
-For information on standard accounts and privilege sets, see the [Jamf User Accounts and Groups](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Jamf_Pro_User_Accounts_and_Groups.html) official documentation.
+For information on standard accounts and privilege sets, see the [Jamf Pro User Accounts and Groups](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Jamf_Pro_User_Accounts_and_Groups.html) documentation.
 
 ### Authentication Requirements 
 
-Your Jamf account username and password are required in the **Basic credentials** field when creating a discovery job.  
+Your Jamf account username and password are required in the **Basic credentials** field of the **Add Cloud Autodiscovery** form.  
 
-Your username and password are first used to request a bearer token. Bearer token authentication is then used for subsequent requests.
+Your username and password are used to request a bearer token. Bearer token authentication is then used for subsequent requests.
 
 ## Create a Jamf Autodiscovery Job
 
@@ -48,7 +48,7 @@ Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Selec
   }}
 />
 
-Optionally, add a customer for the discovered devices.
+Optionally, add a **Customer for discovered devices:**
 
 <ThemedImage
   alt="Add customer"
@@ -70,7 +70,7 @@ Scroll down to create a run schedule for the job. Create multiple schedules for 
   }}
 />
 
-To run the job immediately, save it to add it to the list of Cloud autodiscovery jobs and click **Run Now**.
+To run the job immediately, click **Save** to add it to the list of Cloud autodiscovery jobs and then click **Run Now**.
 
 <ThemedImage
   alt="Create a discovery schedule"
