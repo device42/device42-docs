@@ -1,23 +1,21 @@
 ---
-title: "DOQL AI Chat"
+title: "InsightsAI Chat"
 sidebar_position: 3
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-DOQL AI generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your Device42 CMDB. 
+InsightsAI allows users to generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your CMDB. 
 
-By typing plain English messages, like “I want a list of devices with Windows 10 operating system,” you'll get queries that can be executed without requiring deep knowledge of the query language or data model. 
-
-The AI provides the necessary commands and you can preview the results or create standard reports directly.
+By typing plain English messages, like “Which SSL/TLS certificates are expiring in the next 90 days?” InsightsAI willl create the query that can be executed without requiring deep knowledge of the query language or data model. You are able to preview the results, and refine it as needed.
 
 ## Create a New Chat
 
-Navigate to **Analytics > Ask DOQL AI** from the Device42 Main Appliance to create a new chat. 
+Navigate to **Analytics > Ask InsightsAI** from the Device42 Main Appliance to create a new chat. 
 
 <ThemedImage
-  alt="DOQL AI menu location"
+  alt="InsightsAI menu location"
   sources={{
     light: useBaseUrl('/assets/images/doql-ai/1-menu-light.png'),
     dark: useBaseUrl('/assets/images/doql-ai/1-menu-dark.png'),
@@ -25,7 +23,7 @@ Navigate to **Analytics > Ask DOQL AI** from the Device42 Main Appliance to crea
   style={{ width: '70%' }} 
 />
 
-From the Ask DOQL AI page, type in a description of the data you want to fetch in the text box.
+From the Ask InsightsAI page, type in a description of the data you want to fetch in the text box.
 
 <ThemedImage
   alt="DOQL AI page"
@@ -49,11 +47,11 @@ Get me a query for 50 resources discovered in the past week ordered by resource 
 
 Click the **+ New Chat** button to create a new chat in a new browser tab. 
 
-Go to the DOQL AI Chats list page by clicking the **Past Chats** button.
+Go to the InsightsAI Chats list page by clicking the **Past Chats** button.
 
 ## Query Result Options
 
-DOQL AI generates an SQL query with the table and parameters in response to your input. See [Database Viewer Schema](db-viewer-schema.md) for information on locating database field names and descriptions.
+InsightsAI generates an SQL query with the table and parameters in response to your input. See [Database Viewer Schema](db-viewer-schema.md) for information on locating database field names and descriptions.
 
 The input for this example is:
 
@@ -71,9 +69,9 @@ find all devices in production
 
 ### Refine the Responses
 
-If the data or query needs to be refined, ask a follow-up question or redirect the DOQL AI to get better or different data.  
+If the data or query needs to be refined, ask a follow-up question, InsightsAI will provide a new responsee.  
 
-For example, the previous results did not include information on device types. You can give DOQL AI another direction to include the type of device and only find virtual devices.
+For example, the previous results did not include information on device types. You can give InsightsAI another direction to include the type of device and only find virtual devices.
 
 <ThemedImage
   alt="Follow-up response"
@@ -83,7 +81,7 @@ For example, the previous results did not include information on device types. Y
   }}
 />
   
-DOQL AI will run queries and self-correct if necessary. For example, when asked to look for Windows 10 and 11 devices, the AI encountered an error as it initially searched in the `os` column, but made the correction of looking in the `os_name` column. 
+InsightsAI will run queries and self-correct if necessary. For example, when asked to look for Windows 10 and 11 devices, the AI encountered an error as it initially searched in the `os` column, but made the correction of looking in the `os_name` column. 
 
 <ThemedImage
   alt="Self-correction example"
@@ -93,11 +91,11 @@ DOQL AI will run queries and self-correct if necessary. For example, when asked 
   }}
 />
 
-Although the DOQL AI brain knows the data model well, it continues to learn and train on the input and will provide increasingly accurate responses and need fewer refinement questions over time.
+Although the InsightsAI brain knows the data model well, it continues to learn and train on the input and will provide increasingly accurate responses and need fewer refinement questions over time. InsightsAI only has access to the default database schema, not your data. 
 
 ### Copy the SQL Response
 
-From the DOQL AI response, select the **Copy** option to copy the SQL query to your clipboard. You can paste the SQL code into a new tab of an existing report to build a report.
+From the InsightsAI response, select the **Copy** option to copy the SQL query to your clipboard. You can paste the SQL code into a new tab of an existing report to build a report.
 
 ### Preview Query Results
 
@@ -115,7 +113,7 @@ You can search for specific items using the **Search** bar, search individual co
 
 ### Create a Report Page
 
-To save the generated query, click **Report** on the DOQL AI [response toolbar](#query-result-options) to go to the report setup page and provide a **Report Name**.
+To save the generated query, click **Report** on the InsightsAI [response toolbar](#query-result-options) to go to the report setup page and provide a **Report Name**.
 
 <ThemedImage
   alt="Report page options"
@@ -138,14 +136,14 @@ To save the generated query, click **Report** on the DOQL AI [response toolbar](
 - **(2) Export:** Download a `.tsv` or `.xls` file of the query result. 
 - **(3) Report Schedule:** Periodically run the query and email the results by filling in the fields.
 
-## DOQL AI Chats List Page
+## InsightsAI Chats List Page
 
-Click the **Past Chats** button on the [Ask DOQL AI](#create-a-new-chat) page or [chat response](#query-result-options) page to navigate to the list page. The DOQL AI Chats List Page contains a record of your past chats that are automatically saved. 
+Click the **Past Chats** button on the [Ask DOQL AI](#create-a-new-chat) page or [chat response](#query-result-options) page to navigate to the list page. The InsightsAI Chats List Page contains a record of your past chats that are automatically saved. 
 
 You can create a **New Chat** from the list page.
 
 <ThemedImage
-  alt="DOQL AI Chats list page"
+  alt="InsightsAI Chats list page"
   sources={{
     light: useBaseUrl('/assets/images/doql-ai/7-list-page-light.png'),
     dark: useBaseUrl('/assets/images/doql-ai/7-list-page-dark.png'),
@@ -176,10 +174,10 @@ Delete one or more chats by selecting them and choosing a delete option from the
 
 The following notice is available when you click **About DOQL AI** below the chat bar:
 
-DOQL AI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found at https://docs.device42.com/reports/device42-doql/db-viewer-schema/.
+InsightsAI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found at https://docs.device42.com/reports/device42-doql/db-viewer-schema/.
 
-DOQL AI generates SQL query as a response to customer natural language inquiries. The inquiries are then uploaded to the DOQL AI cloud service, which generates the SQL response. DOQL AI utilizes OpenAI APIs as part of its generative AI process. The generated SQL is validated for accuracy and error free execution however the customer CMDB data is not exposed as part of the process.
+InsightsAI generates SQL query as a response to customer natural language inquiries. The inquiries are then uploaded to the InsightsAI cloud service, which generates the SQL response. InsightsAI utilizes OpenAI APIs as part of its generative AI process. The generated SQL is validated for accuracy and error free execution however the customer CMDB data is not exposed as part of the process.
 
 :::tip
-See [Device42 Object Query Language](index.md) for information on DOQL queries.
+See [Device42 Object Query Language](index.md) for information on database queries.
 :::
