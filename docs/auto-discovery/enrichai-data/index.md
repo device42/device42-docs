@@ -120,7 +120,7 @@ Please make sure the following is in place to ensure connectivity with EnrichAI:
    - `https://enrichai.device42.io/api/normalizations`
 3. Register the license online.
 
-[DOQL AI](/reports/device42-doql/doql-ai.mdx) generates queries based on natural language prompts you provide. Entered prompts are sent to the endpoint `ai42.device42.io`.
+[InsightsAI AI](/reports/device42-doql/doql-ai.mdx) generates queries based on natural language prompts you provide. Entered prompts are sent to the endpoint `ai42.device42.io`.
 
 ## Using the EnrichAI Interface
 
