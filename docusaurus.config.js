@@ -620,6 +620,10 @@ const config = {
             from: ['/device42-doql/db-viewer-schema/'],
           },
           {
+            to: '/reports/device42-doql/insightsai/',
+            from: ['/reports/device42-doql/doql-ai/'],
+          },
+          {
             to: '/reports/dbb-cookbook/',
             from: ['/dbb-cookbook/'],
           },
