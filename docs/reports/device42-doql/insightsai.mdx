@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 InsightsAI allows users to generates queries from the natural language descriptions you provide, streamlining the process of getting information and detailed reports from your CMDB. 
 
-By typing plain English messages, like “Which SSL/TLS certificates are expiring in the next 90 days?” InsightsAI willl create the query that can be executed without requiring deep knowledge of the query language or data model. You are able to preview the results, and refine it as needed.
+By typing plain English messages, like “Which SSL/TLS certificates are expiring in the next 90 days?” InsightsAI will create the query that can be executed without requiring deep knowledge of the query language or data model. You are able to preview the results, and refine it as needed.
 
 ## Create a New Chat
 
@@ -17,8 +17,8 @@ Navigate to **Analytics > Ask InsightsAI** from the Device42 Main Appliance to c
 <ThemedImage
   alt="InsightsAI menu location"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/1-menu-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/1-menu-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/1-menu-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/1-menu-dark.png'),
   }}
   style={{ width: '70%' }} 
 />
@@ -28,8 +28,8 @@ From the Ask InsightsAI page, type in a description of the data you want to fetc
 <ThemedImage
   alt="DOQL AI page"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/2-chat-page-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/2-chat-page-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/2-chat-page-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/2-chat-page-dark.png'),
   }}
 />
 
@@ -62,32 +62,22 @@ find all devices in production
 <ThemedImage
   alt="DOQL AI example response"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/3-enter-query-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/3-enter-query-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/3-enter-query-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/3-enter-query-dark.png'),
   }}
 />
 
 ### Refine the Responses
 
-If the data or query needs to be refined, ask a follow-up question, InsightsAI will provide a new responsee.  
+If the data or query needs to be refined, ask a follow-up question, InsightsAI will provide a new response.  
 
 For example, the previous results did not include information on device types. You can give InsightsAI another direction to include the type of device and only find virtual devices.
 
 <ThemedImage
   alt="Follow-up response"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/refine-response-device-type-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/refine-response-device-type-dark.png'),
-  }}
-/>
-  
-InsightsAI will run queries and self-correct if necessary. For example, when asked to look for Windows 10 and 11 devices, the AI encountered an error as it initially searched in the `os` column, but made the correction of looking in the `os_name` column. 
-
-<ThemedImage
-  alt="Self-correction example"
-  sources={{
-    light: useBaseUrl('/assets/images/doql-ai/self-correct-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/self-correct-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/refine-response-device-type-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/refine-response-device-type-dark.png'),
   }}
 />
 
@@ -106,8 +96,8 @@ You can search for specific items using the **Search** bar, search individual co
 <ThemedImage
   alt="Results preview"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/4-preview-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/4-preview-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/4-preview-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/4-preview-dark.png'),
   }}
 />
 
@@ -118,8 +108,8 @@ To save the generated query, click **Report** on the InsightsAI [response toolba
 <ThemedImage
   alt="Report page options"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/5-report-options-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/5-report-options-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/5-report-options-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/5-report-options-dark.png'),
   }}
 />
 
@@ -128,8 +118,8 @@ To save the generated query, click **Report** on the InsightsAI [response toolba
     <ThemedImage
     alt="Report example"
     sources={{
-        light: useBaseUrl('/assets/images/doql-ai/6-view-report-light.png'),
-        dark: useBaseUrl('/assets/images/doql-ai/6-view-report-dark.png'),
+        light: useBaseUrl('/assets/images/insightsai/6-view-report-light.png'),
+        dark: useBaseUrl('/assets/images/insightsai/6-view-report-dark.png'),
     }}
     />    
 
@@ -138,15 +128,15 @@ To save the generated query, click **Report** on the InsightsAI [response toolba
 
 ## InsightsAI Chats List Page
 
-Click the **Past Chats** button on the [Ask DOQL AI](#create-a-new-chat) page or [chat response](#query-result-options) page to navigate to the list page. The InsightsAI Chats List Page contains a record of your past chats that are automatically saved. 
+Click the **Past Chats** button on the [InsightsAI](#create-a-new-chat) page or the [chat response](#query-result-options) page to navigate to the list page. The InsightsAI Chats List Page contains a record of your past chats that are automatically saved. 
 
 You can create a **New Chat** from the list page.
 
 <ThemedImage
   alt="InsightsAI Chats list page"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/7-list-page-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/7-list-page-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/7-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/7-list-page-dark.png'),
   }}
 />
 
@@ -155,8 +145,8 @@ Click **+ More** to filter the chat queries by specific initial queries, users, 
 <ThemedImage
   alt="List page filter options"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/7-filters-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/7-filters-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/7-filters-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/7-filters-dark.png'),
   }}
 />
 
@@ -165,14 +155,14 @@ Delete one or more chats by selecting them and choosing a delete option from the
 <ThemedImage
   alt="List page actions"
   sources={{
-    light: useBaseUrl('/assets/images/doql-ai/7-actions-light.png'),
-    dark: useBaseUrl('/assets/images/doql-ai/7-actions-dark.png'),
+    light: useBaseUrl('/assets/images/insightsai/7-actions-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/7-actions-dark.png'),
   }}
 />
 
 ## Data Privacy Notice
 
-The following notice is available when you click **About DOQL AI** below the chat bar:
+The following notice is available when you click **About InsightsAI** below the chat bar:
 
 InsightsAI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found at https://docs.device42.com/reports/device42-doql/db-viewer-schema/.
 
