@@ -7,6 +7,8 @@ sidebar_position: 18
 
 Device42 SNMP autodiscovery provides a new option for F5 load balancer discovery that returns discovered load balancers as both devices and Managed Resources. Discovering F5 load balancers as managed resources provides additional details about the load balancers and related resources that include resource maps that visually show the relationships between load balancers and their related resources. It also simplifies the chart view for Affinity Groups by visually presenting the servers underneath a load balancer.
 
+The recommended best practice for Load balancer discovery is to first identify the devices using SNMP. This will identify the devices and associated resources. Next perform a Windows/*nix discovery of the back end resources to get more detailed inforamtion. Once you have the devices discovered you can then perform the API based "Load Balancer" discovery to link the devices correctly.
+
 ## Managed Resources Views
 
 Discovered F5 load balancers are included in the Managed Resources list. Select _Resources > Managed Resources_ from the Device42 menu to display the list. See the [Managed Resources](https://docs.device42.com/auto-discovery/resources/) page for more information.
