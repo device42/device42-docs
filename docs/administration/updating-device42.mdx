@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import vmConsole from '/assets/images/updating-device42/vm-menu-options.png'
 
-Updating to the latest Device42 ensures you get the most out of your CMDB and benefit from the newest features, integrations, security, and performance improvements.
+Updating to the latest version of Device42 ensures you get the most out of your CMDB and benefit from the newest features, integrations, and security and performance improvements.
 
 ## How to Update the Device42 Main Appliance
 
@@ -26,7 +26,7 @@ To update the Main Appliance, you need to download the update file. In some case
 
 -  From the Main Appliance, navigate to **Tools > Update** and click the [**Check for latest version** link](https://www.device42.com/update/). 
 
-    You can visit [https://www.device42.com/update/](https://www.device42.com/update/) directly, however, it's useful to navigate to the link from the **Update Software** page, as you can take note of your current version to later verify a successful update.
+    You can visit [https://www.device42.com/update/](https://www.device42.com/update/) directly, but navigating to the link on the **Update Software** page allows you to take note of your current version, which is useful for verifying a successful update later.
 
     <ThemedImage
     alt="Update Software page"
@@ -41,9 +41,9 @@ To update the Main Appliance, you need to download the update file. In some case
 
     ![Website form](/assets/images/updating-device42/website-form.png)
 
-- You'll receive an automated email with several links to download the `.zip.enc` file. Choose the first link (in bold) if your Main Appliance has already been updated to the latest [major](https://semver.org/) version and you're applying a minor or patch release update, or if the latest update is to a major version. 
+- You'll receive an automated email with several links to download the `.zip.enc` file. If your Main Appliance has already been updated to the latest [major](https://semver.org/) version and you're applying a minor or patch-release update, or if your MA's latest update was to a major version, choose the first link (in bold).
 
-    If your Main Appliance is one or several releases behind the current major version, choose the second or third link depending on your version to first update it to the major version. When you've updated to the latest major version, you may need to perform a second update to the current minor or patch release version afterward.
+    If your Main Appliance is one or several releases behind the current major version, choose the second or third link, depending on your version, to first update it to the major version. When you've updated to the latest major version, you may need to perform a second update to the current minor or patch-release version afterward.
 
     ![Email with links](/assets/images/updating-device42/email.png)
 
@@ -52,7 +52,7 @@ To update the Main Appliance, you need to download the update file. In some case
 Head to the Appliance Manager by entering `http://your-device42-IP-or-FQDN:4242` or `https://your-device42-IP-or-FQDN:4343` into your browser. Optionally, you can take a virtual machine snapshot from your virtualization platform as a backup.
 
 :::note
-The default credentials for the Appliance Manager are `d42admin / default` or for AWS instances `d42admin / AWS_INSTANCE_ID`. Please ensure you change these to your own secure credentials.
+The default credentials for the Appliance Manager are `d42admin / default`, or for AWS instances, `d42admin / AWS_INSTANCE_ID`. Please ensure you change these to your own secure credentials.
 :::
 
 Navigate to **Backup/Restore > Backup Now** and select the **Main Appliance** checkbox. If you want to include users and settings, select the **Backup Meta Data** option. **Run** the backup.
@@ -61,7 +61,7 @@ Navigate to **Backup/Restore > Backup Now** and select the **Main Appliance** ch
 
 ### 3. Upload the Update File
 
-From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the [`.zip.enc` file](#obtain-the-update-file-or-url) or enter the update URL.
+From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the [`.zip.enc` file](#obtain-the-update-file-or-url) **or** enter the update URL.
 
 ![Upload file or enter URL in the Appliance Manager](/assets/images/updating-device42/upload-file.png)
 
@@ -71,24 +71,24 @@ A green status bar indicates the upload progress.
 
 When the file has been uploaded, log in to the VM console.
 
-### 4. Log In to the VM Console:
+### 4. Log In to the VM Console
 
-There are two ways to log into the VM console:
+There are two ways to log in to the VM console:
 
 1. **From VM Console:** Access the VM console through your virtual platform.
 2. **Via SSH:** 
-   - Use port 404 on the Device42 IP address.
-   - If you're using a power appliance, use port 442.
 
-For AWS deployments, SSH into the device using the username `device42` and password: `AWS-KEYFILE`. For example,
+     - Use port 404 on the Device42 IP address.
+     - If you're using a power appliance, use port 442.
+     - For AWS deployments, SSH in to the device using `device42` as your username and `AWS-KEYFILE` as your password. For example:
 
-```shell
-ssh -i /path/to/your/private-key.pem -p port_number username@hostname
-```
+     ```shell
+     ssh -i /path/to/your/private-key.pem -p port_number username@hostname
+     ```
 
 ### 5. Apply the Update 
 
-Select option **a** in the console to apply the update. It usually takes between 15 to 30 minutes to apply the update. 
+Select option **a** in the console to apply the update. It usually takes 15 to 30 minutes to apply the update. 
 
 <img alt="VM console menu options" src={vmConsole} width="90%"/>
 
@@ -105,6 +105,8 @@ sources={{
 style={{ width: '80%' }}
 />
 
-## Updating the Remote Collector
+## Updating the Remote Collectors
 
-When the Device42 main appliance is updated, the updates are automatically applied to your Remote Collectors as part of the overall Device42 update process. This happens as long as the Remote Collectors are connected to a Device42 Main Appliance.
+When the Device42 Main Appliance is updated, the updates are automatically applied to your Remote Collectors as part of the overall Device42 update process, so long as the Remote Collectors are connected to a Device42 Main Appliance.
+
+If your Remote Collectors are connected to a Device42 Main Appliance, updates will be automatically applied to the Remote Collectors when the Main Appliance is updated.
