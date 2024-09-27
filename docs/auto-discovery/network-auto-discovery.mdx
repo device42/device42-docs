@@ -6,15 +6,15 @@ sidebar_position: 27
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This guide provides instructions for configuring and running Simple Network Management Protocol (SNMP)  discovery across your network. 
+This guide provides instructions for configuring and running Simple Network Management Protocol (SNMP) discovery across your network. 
 
-Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you have a device that needs additional support!
+Please see our [list of supported hardware vendors for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) and let us know if you have a device that needs additional support!
 
 ## Introduction to SNMP-Based Autodiscovery
 
-SNMP is a widely supported a protocol and a standard for managing network-connected hardware. There are three widely deployed versions: SNMP v1, v2c (most commonly used), and v3. 
+SNMP is a widely supported protocol and standard for managing network-connected hardware. There are three broadly deployed versions: SNMP v1, v2c (most commonly used), and v3. 
 
-SNMP is typically used in a read-only capacity, but it can support read and write permissions. By default it uses port 161. SNMP exposes management data in the form of variables, which are organized in a Management Information Base (MIB). A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
+SNMP is typically used in a read-only capacity, but it can support read and write permissions. By default, it uses port 161. SNMP exposes management data in the form of variables, which are organized in a Management Information Base (MIB). An MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
 
 :::Note 
 SNMP autodiscovery now supports IPv6 addresses for device discovery.
@@ -22,9 +22,9 @@ SNMP autodiscovery now supports IPv6 addresses for device discovery.
 
 ### SNMP Autodiscovery Items
 
-Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) page. 
+Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Autodiscovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) page. 
 
-SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. If the credentials are **not** be the same, you can add those devices using separate discovery jobs.
+SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. If the credentials are **not** the same, you can add those devices using separate discovery jobs.
 
 ### Categories of Discovered SNMP Data
 
@@ -79,7 +79,7 @@ Job configuration fields:
 - **Get all Switch Ports**: Retrieve all switch ports.
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
 - **Use Alias/Name for port description**: Choose if you prefer the Alias/Name for the port description.
-- **Delete older MAC association after**: Specify a number of days to delete MAC addresses not found.
+- **Delete older MAC association after**: Specify the number of days after which unfound MAC addresses are deleted.
 - **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, uncheck this option.
 
 <ThemedImage
@@ -99,7 +99,7 @@ Job configuration fields:
 **Huawei Switches:**
 - By default, some Huawei devices ship with LLDP (Link Layer Discovery Protocol) via SNMP disabled.
 - You must switch it on by creating a new 'mib-view' and attaching the 'ISO tree' containing the Huawei LLDP MIB to the community.
-- Consult Huawei's documentation for complete setup and management details.
+- Consult the Huawei documentation for complete setup and management details.
 
 **Cisco Switches:**
 - Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing the collection of the per-VLAN MAC tables.
@@ -112,7 +112,7 @@ Switches running newer versions of Cisco IOS:
 snmp-server group v3group v3 auth context vlan- match prefix
 ```
 
-Switches with older IOS releases (hat don't support "match prefix wildcard"):
+Switches with older IOS releases (that don't support "match prefix wildcard"):
 - Issue the above command for newer IOS releases on EACH VLAN configured for the switch.
 - Use `show snmp context` to list configured VLANs.
 
@@ -185,12 +185,12 @@ Expand the **Network Device Options** section to reveal settings specific to dis
   }}
 />
 
-If you select **Get all switch ports**, you will see extra form items:
+If you select **Get all switch ports**, you will see six extra form items:
 
 1. **Port name prefix to ignore macs**: Ignore MAC addresses from ports that start with this prefix.
 2. **VLANs to ignore**: Do not discover MAC addresses on these VLANs.
 3. **Give precedence to hostname**: Check this option to give precedence to the discovered hostname in the network device discovery.
-4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up to date leave this at "0". This will delete all stale MAC addresses not discovered on the switch port anymore. Otherwise, you can choose the number of days after you want to delete the stale MAC association with a switch port.
+4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up to date, leave this at "0". This will delete all stale MAC addresses not discovered on the switch port anymore. Otherwise, you can choose the number of days after you want to delete the stale MAC association with a switch port.
 5. **Discovered port types to ignore**: You might not want to see certain port types in your switch port list. Here you can choose what port types to ignore. For the first time:
     - You will have to let it find the port types the first time.
     - If you want to ignore specific port types, you must manually delete the corresponding switch ports. You can filter by discovered type under **IPAM > Switch Ports**.
