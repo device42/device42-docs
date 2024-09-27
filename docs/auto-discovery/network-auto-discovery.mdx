@@ -6,32 +6,40 @@ sidebar_position: 27
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The following steps explain configuring and running SNMP discovery against your network. Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you have a device that needs additional support!
+This guide provides instructions for configuring and running Simple Network Management Protocol (SNMP)  discovery across your network. 
 
-## Intro to SNMP-based discovery
+Please see our [list of vendors supported by Device42 for SNMP autodiscovery](auto-discovery/vendors-supported-in-snmp-auto-discovery.md) for a list of supported hardware vendors. Please let us know if you have a device that needs additional support!
 
-SNMP, or Simple Network Management Protocol, is a protocol and a standard that is supported by just about any managed network-connected hardware. There are three widely deployed versions: SNMP v1, v2c _(most commonly used)_, and v3. SNMP is typically utilized read-only, but supports read/write and by default utilizes port 161. SNMP exposes management data in the form of 'variables', which are organized in what is known as a MIB, or "Management Information Base". A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
+## Introduction to SNMP-Based Autodiscovery
 
-**Note**: SNMP autodiscovery now supports IPv6 addresses for device discovery.
+SNMP is a widely supported a protocol and a standard for managing network-connected hardware. There are three widely deployed versions: SNMP v1, v2c (most commonly used), and v3. 
 
-### What can be autodiscovered using SNMP?
+SNMP is typically used in a read-only capacity, but it can support read and write permissions. By default it uses port 161. SNMP exposes management data in the form of variables, which are organized in a Management Information Base (MIB). A MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
 
-Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) page. SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. Should the credentials \*not\* be the same, you may instead add devices using different credentials separately, as their own discovery job.
+:::Note 
+SNMP autodiscovery now supports IPv6 addresses for device discovery.
+:::
 
-### Specific categories of data SNMP can discover
+### SNMP Autodiscovery Items
+
+Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) page. 
+
+SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. If the credentials are **not** be the same, you can add those devices using separate discovery jobs.
+
+### Categories of Discovered SNMP Data
 
 Depending on device type and compatibility matrix linked above, the following data is discovered:
 
-- **Switch inventory:** Switch name, serial #, model and manufacturer.
+- **Switch inventory:** Switch name, serial number, model and manufacturer.
 - **Stacked switches:** For stacked switches, it will add the stack as a cluster device and all physical devices as part of the cluster.
-- **Access Points**: Access points will be added as device type other than Controller device as the device host.
-- **VLANs**: L2 vlans.
-- **Subnets:** L3 subnets.
+- **Access Points**: Access points will be added as device type other than controller device as the device host.
+- **VLANs**: Layer 2 VLANs.
+- **Subnets:** Layer 3 subnets.
 - **Switch IP and MAC address**: IP address and MAC address belonging to the switch.
 - **IP to MAC address association:** Basically the ARP table, if available. So all IPs that are available with MAC association.
-- **MAC address to switch port association:** Switch ports and MAC addresses found on that port. (MAC table)
+- **MAC address to switch port association:** Switch ports and MAC addresses found on that port (MAC table).
 
-MAC to switch port association brings only switch ports that have MAC addresses associated. Using the "Get all switch ports" option you can get:
+The MAC to switch port association brings only switch ports with MAC addresses. Use the **Get all switch ports** option to get:
 
 - **Port name**
 - **Port description**
@@ -39,11 +47,12 @@ MAC to switch port association brings only switch ports that have MAC addresses 
 - **Port administratively up/down status**
 - **Remote port connectivity, if any**
 
-* * *
 
 ## SNMP discovery jobs
 
-### Create or edit an SNMP discovery job
+### Create or Edit an SNMP Discovery Job
+
+Go to **Discovery > SNMP** to add a new network autodiscovery job.
 
 <ThemedImage
   alt="SNMP menu location"
@@ -53,21 +62,25 @@ MAC to switch port association brings only switch ports that have MAC addresses 
   }}
 />
 
-**Note**: when creating an SNMP job for Cisco Nexus, you must set up an SNMP server context for the management VRF (this actually needs to be done for any Cisco VRF contexts that you want to query over SNMP): snmp\-server context mymgmt vrf management
+When creating an SNMP job for Cisco Nexus, you must set up an SNMP server context for the management VRF. This actually needs to be done for any Cisco VRF contexts that you want to query over SNMP: 
 
-Go to _Discovery > SNMP_ to add a new network autodiscovery job.
+```shell
+snmp-server context mymgmt vrf management
+```
+
+Job configuration fields:
 
 - **IP Address**: Enter the IP address of a switch or an IP range.
 - **Port**: Leave at 161 if you are unsure
 - **SNMP Version**: Choose SNMP v1, v2c, or v3
-- **Community String**: Save your community string(s) as passwords, and select them for v1 or v2c. See below for v3.
+- **Community String**: Save your community strings as passwords, and select them for v1 or v2c. See below for v3.
 - **Run Autodiscovery on CDP/LLDP Neighbors**: Find all CDP/LLDP neighbors that are reachable.
 - **Strip Domain Name**: Strip domain name from discovered switch name.
 - **Get all Switch Ports**: Retrieve all switch ports.
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
 - **Use Alias/Name for port description**: Choose if you prefer the Alias/Name for the port description.
-- **Delete older MAC association after**: Delete any MAC addresses not found for the specified number of days.
-- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, then you will need to uncheck the ICMP/TCP Port Check option.
+- **Delete older MAC association after**: Specify a number of days to delete MAC addresses not found.
+- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, uncheck this option.
 
 <ThemedImage
   alt="ICMP/TCP Port Check option"
@@ -78,39 +91,36 @@ Go to _Discovery > SNMP_ to add a new network autodiscovery job.
 />
 
 
-### Device-specific SNMP v3 info
+### Vendor-Specific SNMP v3 Information
 
-Note on Cisco Nexus 7K switches:
-- The user for SNMP v3 autodiscovery may need to be in the network-operator / vdc-operator group.
+**Cisco Nexus 7K switches:**
+- The user for SNMP v3 autodiscovery may need to be in the `network-operator` or `vdc-operator` group.
 
-Note on Huawei Switches:
-- By default, some Huawei devices ship with LLDP (link layer discovery protocol) via SNMP off.
+**Huawei Switches:**
+- By default, some Huawei devices ship with LLDP (Link Layer Discovery Protocol) via SNMP disabled.
 - You must switch it on by creating a new 'mib-view' and attaching the 'ISO tree' containing the Huawei LLDP MIB to the community.
-- Consult Huawei's documentation for complete setup & management details.
+- Consult Huawei's documentation for complete setup and management details.
 
-Note on Cisco Switches:
+**Cisco Switches:**
 - Changing from SNMP v1 or v2c to v3 on many Cisco switches can cause SNMP polling of Netdisco to stop functioning, preventing the collection of the per-VLAN MAC tables.
 - You will likely see an authorization error in the Macsuck log if this is happening.
 - To fix this authentication error on Cisco hardware, an additional SNMP-server configuration is required on these switches that enables access to the per-VLAN/per-context MAC address table:
 
 Switches running newer versions of Cisco IOS:
 - Simply run this command once:
-``` 
+```shell 
 snmp-server group v3group v3 auth context vlan- match prefix
 ```
 
-Switches with older IOS releases (versions that don't support "match prefix wildcard"):
+Switches with older IOS releases (hat don't support "match prefix wildcard"):
 - Issue the above command for newer IOS releases on EACH VLAN configured for the switch.
 - Use `show snmp context` to list configured VLANs.
-
-
-* * *
 
 ### Preferred Credentials
 
 You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. 
 
-Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking on the **magnifying glass icon**.
+Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking the **magnifying glass icon**.
 
 <ThemedImage
   alt="Add SNMP credentials in order"
@@ -120,7 +130,7 @@ Click on the **+ Add another community string** button at the bottom of the **
   }}
 />
 
-Reorder the credentials by clicking on the **up** and **down** arrow buttons to the right of the screen.
+Reorder the credentials by clicking the **up** and **down** arrow buttons to the right of the screen.
 
 <ThemedImage
   alt="Move SNMP credentials"
@@ -155,7 +165,7 @@ For SNMP v3, we support the following **Privacy Protocols**:
 
 ## Network Device Options
 
-Expanding the "Network Device Options" section will reveal the following settings, specific to the discovery of network-connected hardware and devices: 
+Expand the **Network Device Options** section to reveal settings specific to discovering network-connected hardware: 
 
 <ThemedImage
   alt="Network device options"
@@ -175,17 +185,17 @@ Expanding the "Network Device Options" section will reveal the following setting
   }}
 />
 
-If you select _Get all switch ports_, you will see 6 extra form items:
+If you select **Get all switch ports**, you will see extra form items:
 
-1. **Port name prefix to ignore macs**: Ignore mac addresses from ports that start with this prefix.
+1. **Port name prefix to ignore macs**: Ignore MAC addresses from ports that start with this prefix.
 2. **VLANs to ignore**: Do not discover MAC addresses on these VLANs.
 3. **Give precedence to hostname**: Check this option to give precedence to the discovered hostname in the network device discovery.
-4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up-to-date leave this at 0. This will delete all stale MAC addresses not discovered on the switch port anymore. Otherwise, you can choose the # of days after you want to delete the stale MAC association with a switch port.
+4. **Delete older mac association after**: To keep your mac addresses and switch port connectivity up to date leave this at "0". This will delete all stale MAC addresses not discovered on the switch port anymore. Otherwise, you can choose the number of days after you want to delete the stale MAC association with a switch port.
 5. **Discovered port types to ignore**: You might not want to see certain port types in your switch port list. Here you can choose what port types to ignore. For the first time:
-    - You will have to let it find the port types the first time,
-    - and if you want to ignore some, you will have to delete the switch ports manually(you can filter by discovered type on IPAM > Switch Ports),
-    - add the ports to ignore list on the discovery page
-6. **Discovered port types not to count:** Similar to above. This will still bring the ports in, but selected port types will not be included in the count.
+    - You will have to let it find the port types the first time.
+    - If you want to ignore specific port types, you must manually delete the corresponding switch ports. You can filter by discovered type under **IPAM > Switch Ports**.
+    - Add the ports to ignore list on the discovery page
+6. **Discovered port types not to count:** Similar to above. This will still bring the ports in, excluding selected port types from the count.
 
 ## Run Now or Schedule
 
@@ -209,11 +219,11 @@ Select **Run Now** from the list page to run the job right away.
 
 Select **Add another Autodiscovery Schedule** from when editing the job to create a run schedule for the job.
 
-A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
+A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the **Run Now** button next to the job after creation.
 
 ## Status
 
-You can view the status and/or results of a discovery job during or after the job has run by visiting the job edit screen: 
+You can view the status and results of a discovery job during or after the job has run by visiting the job edit screen: 
 
 <ThemedImage
   alt="SNMP job status"
@@ -223,7 +233,7 @@ You can view the status and/or results of a discovery job during or after the jo
   }}
 />
 
-You can also see a real-time report of all running jobs and their statuses by visiting _Reports > Job Status:_ 
+You can also see a real-time report of all running jobs and their statuses by visiting **Reports > Job Status**:
 
 <ThemedImage
   alt="SNMP job status"
@@ -245,4 +255,4 @@ Status information can be viewed in full after each execution of the respective 
   }}
 />
 
-Once you have saved the network switch for autodiscovery, you will need to kick off the autodiscovery process. If not scheduled, click on the "Run now" button on the list, view, or edit page.
+When you have saved the network switch for autodiscovery, you will need to run the autodiscovery process. If not scheduled, click on the **Run now** button on the list, view, or edit page.
