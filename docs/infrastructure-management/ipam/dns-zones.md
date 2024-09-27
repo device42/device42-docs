@@ -3,7 +3,7 @@ title: "DNS Zones"
 sidebar_position: 2
 ---
 
-DNS zones can be added manually or (preferrably) via DNS auto-discovery as discussed at: [discovery/setup-dns-autodiscovery.md](auto-discovery/setup-dns-autodiscovery.md)
+DNS zones can be added manually or (preferrably) via DNS auto-discovery as discussed at: [discovery/setup-dns-autodiscovery.mdx](auto-discovery/setup-dns-autodiscovery.mdx)
 
 ## DNS Zone Add/Edit page
 
