@@ -7,7 +7,7 @@ Converting existing power autodiscovery jobs to the new PowerRC SNMP autodiscove
 
 ### Power (RC) Setup
 
-**First, follow the instructions to setup a Remote Collector (RC) here:** - [discovery/remote-collector-rc.md](auto-discovery/remote-collector-rc.md)
+**First, follow the instructions to setup a Remote Collector (RC) here:** - [discovery/remote-collector-rc.md](auto-discovery/remote-collector-rc.mdx)
 
 ### Migrating Existing Power Appliance Jobs to Power RC
 
