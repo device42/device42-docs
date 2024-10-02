@@ -26,8 +26,8 @@ The sections below guide you through how to set up users or roles with minimum r
     - operator
     - guest  
 
-6. Select the minimum "operator" role.
-7. Click **OK** and save the user.
+6. Select the minimum **operator** role.
+8. Click **OK** and save the user.
 
 ### HPE StoreEasy
 
@@ -43,7 +43,7 @@ The StoreEasy platform relies on local users created at the server level. Curren
 3. Select the **Security & Domains** submenu
 4. Select **Users** and then **Create User**.
 5. Enter a username and password and click **Next**.
-6. Grant the user the “browse” role on the appropriate domain.
+6. Grant the user the **browse** role on the appropriate domain.
 7. Click **Finish** and save the user.
 
 **Example CLI user creation:**
