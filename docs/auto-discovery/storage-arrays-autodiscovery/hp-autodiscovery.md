@@ -46,7 +46,7 @@ The StoreEasy platform relies on local users created at the server level. Curren
 6. Grant the user the “browse” role on the appropriate domain.
 7. Click **Finish** and save the user.
 
-### Example CLI User Creation
+**Example CLI user creation:**
 
 ```
 createuser d42discovery all browse
