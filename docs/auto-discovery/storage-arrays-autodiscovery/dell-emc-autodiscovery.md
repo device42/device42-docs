@@ -15,31 +15,32 @@ Follow the steps in the sections below to set up users or roles with minimum rea
 
 Compellent discovery requires use of an associated Dell Storage Manager appliance.
 
-1. Log into your DSM deployment’s web UI.
-2. Select Data Collector settings.
-3. Go to the Users tab.
-4. Go to the Users & User Groups tab.
+1. Log in to your DSM deployment’s web UI.
+2. Select **Data Collector** settings.
+3. Go to the **Users** tab.
+4. Go to the **Users & User Groups** tab.
 5. Create a user and assign it the **Reporter** role.
-6. Select your new user and connect it to your target Storage Center via the “Select Storage Center Mappings” menu.
+6. Select your new user and connect it to your target **Storage Center** via the **Select Storage Center Mappings** menu.
 
-### VNX or VMAX using EMC SMIS Provider
+### VNX or VMAX Using EMC SMIS Provider
 
-Login to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `https://<SMIS-Provider-IP>:5989/ECOMConfig`.
+Log in to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `https://<SMIS-Provider-IP>:5989/ECOMConfig`.
 
-- Click on _Add User_ and create a user with the **monitor** role.
+- Click **Add User** and create a user with the **monitor** role.
 
 ![Add User](/assets/images/dell-emc-autodiscovery/smis-add-user.png)
 
-- Use the Dynamic Settings shown below.
+- Use the **Dynamic Settings** shown below.
 
 ![Dynamic Settings](/assets/images/dell-emc-autodiscovery/smis-dynamic-settings.png)
 
 ### EMC Data Domain
 
-1. Log into the Data Domain console.
-2. Select _Administration → Access_ from the left panel.
-3. Go to the _Local Users_ tab.
+1. Log in to the Data Domain console.
+2. Select **Administration → Access** on the left panel.
+3. Go to the **Local Users** tab.
 4. Create a user and assign one of the available roles:
+
     - admin
     - limited-admin
     - security
@@ -47,25 +48,26 @@ Login to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `
     - back-operator
     - none  
           
-        Select the minimum _**user**_ role.
-5. Click _OK_ and save the user.
+6. Select the minimum **user** role.
+7. Click **OK** and save the user.
 
 ### EMC Unity
 
-1. Log into the EMC Unity Console console.
-2. Click on the gear icon in the tool bar to open the Settings window.
-3. Click on _Users and Groups_ tab.
-4. Click on the + button to add a User. This will launch the Create User Wizard.
-5. Select type of user on first page, and click _Next_.
-6. Enter username and password, and click _Next_.
+1. Log in to the EMC Unity Console console.
+2. Click on the gear icon in the tool bar to open the **Settings** window.
+3. Click on the **Users and Groups** tab.
+4. Click on the **+** button to add a user. This will launch the **Create User** wizard.
+5. Select type of user on first page, and click **Next**.
+6. Enter username and password, and click **Next**.
 7. Assign one of the available roles:
+
     - Administrator
     - Storage Administrator
     - Operator
     - VM Administrator  
           
-        Select the minimum _**Operator**_ role
-8. Click _Finish_ and save the user.
+8. Select the minimum **Operator** role.
+9. Click **Finish** and save the user.
 
 ### Isilon
 
@@ -95,64 +97,74 @@ Create a new role and add the following read-only permissions:
 - ISI_PRIV_SMB
 - ISI_PRIV_STATISTICS
 
+**You can also use CLI commands to create such roles:**
 
-You can also use CLI commands to create such roles.
-
-1. Login to the cluster using SSH.
+1. Log in to the cluster using SSH.
 
 2. Run the following commands:
 
    - To create a read-only role:
+  
        ```
        isi auth roles create –name readonly_role –description “Read-only role for D42”
        ```
+   
    - To give permissions to this role add all the permissions from above:
+   
        ```
        isi auth roles modify readonly_role –add-priv-ro=ISI_PRIV_LOGIN_PAPI
        ```
-   - Create a USER:
-       ```
+   
+   - To create a USER:
+
+      ```
        isi auth users create readonly_user –enabled yes –password xxxxxx
        ```
-   - Add user to the role:
+   
+   - To add a user to the role:
+
        ```
        isi auth roles modify readonly_role –add-user=readonly_user
        ```
 
-**Creating the Role/User via Web UI**
+**Alternatively, you can create the Role/User via the web UI**
 
-1. Login to the Cluster Web UI.
-2. Select _Access Tab → Membership & Roles_.
-3. Select the _Users Tab_.
-4. Select Provider “LOCAL: System”
-5. Create User
-    - Set user name and password
-    - Select primary group “Users”
-    - Enable the account
-6. Select the _Roles Tab_.
-7. Create a role
-    - Set Role Name
-    - Add member (User created above)
-    - Add the following privileges as Read only  
-        _Console  
-        Platform API  
-        SSH  
-        Shutdown  
-        Support  
-        Auth  
-        Audit  
-        Cluster  
-        Devices  
-        FTP  
-        HDFS  
-        HTTP  
-        Monitoring  
-        NDMP  
-        Network  
-        NFS  
-        Remote Support  
-        SmartPools  
-        SMB  
-        Statistics  
-        Namespace Traverse  
-        Namespace Acces_s
+1. Log in to the cluster web UI.
+2. Select **Access Tab → Membership & Roles**.
+3. Select the **Users** tab.
+4. Select **LOCAL: System** for the provider.
+5. Create user:
+
+    - Set the username and password.
+    - Select **Users** as the primary group.
+    - Enable the account.
+
+7. Select the **Roles** tab.
+8. Create a role:
+
+    - Set the **Role Name**.
+    - Add the member (the user created above).
+    - Add the following privileges as read-only:
+
+        - Console  
+        - Platform API  
+        - SSH  
+        - Shutdown  
+        - Support  
+        - Auth  
+        - Audit  
+        - Cluster  
+        - Devices  
+        - FTP  
+        - HDFS  
+        - HTTP  
+        - Monitoring  
+        - NDMP  
+        - Network  
+        - NFS  
+        - Remote Support  
+        - SmartPools  
+        - SMB  
+        - Statistics  
+        - Namespace Traverse  
+        - Namespace Acces_s
