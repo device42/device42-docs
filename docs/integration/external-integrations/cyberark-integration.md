@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import account from '/assets/images/cyberark-integration/create_account_for_d42_cyberark.png'
 
-Each Device42 autodiscovery job is configured to use one (or more) sets of system credentials. If you already use CyberArk to manage passwords and other secrets or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
+Each Device42 autodiscovery job is configured to use one or more sets of system credentials. If you already use CyberArk to manage passwords and other secrets, or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
 
 CyberArk offers useful features such as automatic password rotation, which can be configured to rotate secrets per your specific corporate policies and industry guidelines.
 
@@ -21,7 +21,7 @@ The CyberArk AIMWebService API is needed for the integration. To use the API, pu
 
 **Configuring CyberArk:**
 
-- Login to CyberArk as an administrator.
+- Log in to CyberArk as an administrator.
 - Select the **Applications** tab, then click **Add Application**.
 - Create an account for Device42.
 
@@ -86,4 +86,4 @@ style={{ width: '70%' }}
 The following note in the UI describes how passwords are retrieved and matched between CyberArk and Device42 systems:
 
 > By default passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided then the username will be matched directly.
-You may also customize the Folder or Safe the password is retrieved from by utilizing Password Custom fields named Folder and Safe.
+You may also customize the Folder or Safe from which the password is retrieved by utilizing the Password Custom fields named Folder and Safe.
