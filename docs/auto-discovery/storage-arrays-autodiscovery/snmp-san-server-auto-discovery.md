@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## SNMP Discovery Overview
 
-The SNMP autodiscovery method can be used for any SNMP-compatible device. For [SNMP Network Device discovery, see our Network Device discovery documentation](/auto-discovery/network-auto-discovery.mdx). For SNMP- based Server autodiscovery, read below.
+The SNMP autodiscovery method can be used for any SNMP-compatible device. For [SNMP Network Device discovery, see our Network Device discovery documentation](/auto-discovery/network-auto-discovery.mdx). For SNMP-based Server autodiscovery, read on.
 
 This page discusses the discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](/auto-discovery/linux-unix-server-auto-discovery.mdx). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines with Dell OpenManage installed, it will also find serial numbers, models, and some other relevant information.
 
@@ -20,7 +20,7 @@ Device42 recommends that you execute Hypervisor server discovery using our speci
 
 Netapp and EMC SANs are supported. Inventory data, such as name, hardware model, serial number, OS, Mac address, IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
 
-## Setting up a NAS/SAN Storage Autodiscovery Job
+## Setting Up a NAS/SAN Storage Autodiscovery Job
 
 Navigate to **Discovery > SNMP** and click **+ Add Jobs**.
 
