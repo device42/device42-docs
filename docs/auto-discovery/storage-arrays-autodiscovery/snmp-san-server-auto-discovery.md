@@ -3,9 +3,14 @@ title: "SNMP SAN/Server Autodiscovery"
 sidebar_position: 5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## SNMP Discovery Overview
 
-The SNMP autodiscovery method can be used for any SNMP-compatible devices. For [SNMP Network Device discovery, see our Network Device discovery documentation here](/auto-discovery/network-auto-discovery.mdx). For SNMP based Server autodiscovery, read below. This page discusses discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](/auto-discovery/linux-unix-server-auto-discovery.mdx). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines and have Dell OpenManage installed, it will additionally find serial #, model, and some other relevant information.
+The SNMP autodiscovery method can be used for any SNMP-compatible devices. For [SNMP Network Device discovery, see our Network Device discovery documentation here](/auto-discovery/network-auto-discovery.mdx). 
+
+For SNMP based Server autodiscovery, read below. This page discusses discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](/auto-discovery/linux-unix-server-auto-discovery.mdx). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines and have Dell OpenManage installed, it will additionally find serial #, model, and some other relevant information.
 
 **Note:** Device42 recommends that you execute Hypervisor server discovery using our specialized Hypervisor job types. See the  [Windows / Hyper-V Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page and the [Linux / UNIX server auto-discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page for more information.
 
@@ -15,18 +20,50 @@ Netapp and EMC SANs are supported. Inventory data such as name, hardware model, 
 
 ## Setting up a NAS/SAN Storage autodiscovery job
 
-![](/assets/images/SNMP-menuadd-job-1-700x395.png)
+Navigate to **Discovery > SNMP** and click **+ Add Jobs**.
 
-The autodiscovery job specification takes an IP range, port, version, and community string as input. It can also be scheduled like other autodiscovery jobs.
+<ThemedImage
+  alt="Create the autodiscovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-job-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-job-dark.png'),
+  }}
+/>
+
+The autodiscovery job specification takes the FQDN or IP addresses of servers to be discovered and ignored as input. You can also list any OIDs and operating systems that should be ignored in the autodiscovery process.
+
+Under **Credential(s)**, select the SNMP version and add a community string.  
+
+<ThemedImage
+  alt="SNMP Credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/credentials-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/credentials-dark.png'),
+  }}
+/>
+
+It can also be scheduled like other autodiscovery jobs.
 
 ## Run Now or Schedule
 
-![](/assets/images/image-700x115.png)
+Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+
+<ThemedImage
+  alt="Schedule SNMP job"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-schedule-dark.png'),
+  }}
+/>
 
 Select **Run Now** from the list page to run the job right away.
 
-![](/assets/images/AD_Blade-Discovery-Run-Schedule.png)
-
-Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+<ThemedImage
+  alt="Run SNMP job now"
+  sources={{
+    light: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/snmp-san-server-auto-discovery/snmp-run-now-dark.png'),
+  }}
+/>
 
 A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
