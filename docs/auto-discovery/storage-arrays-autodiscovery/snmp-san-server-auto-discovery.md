@@ -18,7 +18,7 @@ Device42 recommends that you execute Hypervisor server discovery using our speci
 
 ## NetApp, EMC, and Dell NAS/SAN Storage Discovery
 
-Netapp and EMC SANs are supported. Inventory data, such as name, hardware model, serial number, OS, Mac address, IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
+Netapp and EMC SANs are supported. Inventory data, such as name, hardware model, serial number, OS, MAC address, IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
 
 ## Setting Up a NAS/SAN Storage Autodiscovery Job
 
