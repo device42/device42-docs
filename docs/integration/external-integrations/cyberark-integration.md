@@ -3,53 +3,87 @@ title: "CyberArk Integration"
 sidebar_position: 8
 ---
 
-Each Device42 Autodiscovery job is configured to use one (or more) sets of system credentials. If you already use CyberArk to manage passwords and other secrets or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import account from '/assets/images/cyberark-integration/create_account_for_d42_cyberark.png'
+
+Each Device42 autodiscovery job is configured to use one or more sets of system credentials. If you already use CyberArk to manage passwords and other secrets, or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
 
 CyberArk offers useful features such as automatic password rotation, which can be configured to rotate secrets per your specific corporate policies and industry guidelines.
 
-**Note: Passwords retrieved from CyberArk are not viewable in Device42!**
+:::note
+Passwords retrieved from CyberArk are not viewable in Device42.
+:::
 
-## Configuring the CyberArk Integration
+## Configure CyberArk
+
+The CyberArk AIMWebService API is needed for the integration. To use the API, purchase and install the [Central Credential Provider (CCP) plugin](https://docs.cyberark.com/credential-providers/latest/en/content/ccp/installation.htm) on CyberArk.
 
 **Configuring CyberArk:**
 
-- Login to CyberArk as an Administrator.
-- Select the _Applications_ tab, then click _Add Application_.
+- Log in to CyberArk as an administrator.
+- Select the **Applications** tab, then click **Add Application**.
 - Create an account for Device42.
 
-![create account for d42 cyberark](/assets/images/create_account_for_d42_cyberark.png)
+<img alt="Create an account for Device42 CyberArk" src={account} width="90%"/>
 
-- Click _Add_.
-- Check the box to _Allow extended authentication restrictions_.
+- Click **Add**.
+- Check the box to **Allow extended authentication restrictions**.
 
-![allow extended auth restrictions](/assets/images/allow_extended_auth_restrictions.png)
+![allow extended auth restrictions](/assets/images/cyberark-integration/allow_extended_auth_restrictions.png)
 
-### **Configuring Device42:**
+## Configure the Device42 CyberArk Integration
 
-- Select _Tools > Integrations > CyberArk_ from the Device42 menu.
+Navigate to **Tools > Integrations > CyberArk** from the Device42 main menu.
 
-![](/assets/images/WEB-811_1.jpg)
+<ThemedImage
+alt="CyberArk menu option"
+sources={{
+    light: useBaseUrl('/assets/images/cyberark-integration/menu-location-light.png'),
+    dark: useBaseUrl('/assets/images/cyberark-integration/menu-location-dark.png'),
+}}
+/>
 
-- Select the checkbox to _Enable CyberArk_ and enter your CyberArk RESTful API information.
+Select the **Enable CyberArk** checkbox and enter your CyberArk RESTful API information.
 
-![](/assets/images/WEB-811_2.jpg)
+<ThemedImage
+alt="Enable CyberArk"
+sources={{
+    light: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-light.png'),
+    dark: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-dark.png'),
+}}
+/>
 
-- Verify connectivity by clicking _Test_ and entering a managed account name.
+Click **Test** and enter the managed account name to verify connectivity.
 
-![](/assets/images/WEB-811_3.jpg) ![test success](/assets/images/account_OS_found.png)
+<ThemedImage
+alt="Test CyberArk"
+sources={{
+    light: useBaseUrl('/assets/images/cyberark-integration/test-name-light.png'),
+    dark: useBaseUrl('/assets/images/cyberark-integration/test-name-dark.png'),
+}}
+/>
 
-- Select _Save_.
+On confirmation of success, click **Save**.
 
-![cyberark config updated](/assets/images/Cyberark_config_updated.png)
+![Test success notice](/assets/images/cyberark-integration/account_OS_found.png)
 
-If you run into configuration errors related to SSL errors, you may need to select the _Skip HTTPS Certificate Verification_ option on the CyberArk configuration page before trying again.
+![CyberArk config updated notice](/assets/images/cyberark-integration/Cyberark_config_updated.png)
 
-![](/assets/images/WEB-811_4.jpg)
+If you run into configuration errors related to SSL errors, you may need to select the **Skip HTTPS Certificate Verification** option on the CyberArk configuration page before trying again.
 
-## Using the Device42 CyberArk Integration for Discovery
+<ThemedImage
+alt="Skip HTTPS verification option"
+sources={{
+    light: useBaseUrl('/assets/images/cyberark-integration/skip-verification-light.png'),
+    dark: useBaseUrl('/assets/images/cyberark-integration/skip-verification-dark.png'),
+}}
+style={{ width: '70%' }} 
+/>
 
-To create a new password object using CyberArk, simply select _CyberArk_ from the _Password Storage_ drop-down menu:
+## Note on Password Matching
 
-![](/assets/images/WEB-811_5.jpg)
+The following note in the UI describes how passwords are retrieved and matched between CyberArk and Device42 systems:
 
-**Note**: By default, passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided, then the username will be matched directly. If a Label is used, it must match the Username in Cyberark. You may also customize the folder or safe the password is retrieved from by utilizing _Password Custom fields_ named _Folder_ and _Safe_.
+> By default passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided then the username will be matched directly.
+You may also customize the Folder or Safe from which the password is retrieved by utilizing the Password Custom fields named Folder and Safe.
