@@ -8,17 +8,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## SNMP Discovery Overview
 
-The SNMP autodiscovery method can be used for any SNMP-compatible devices. For [SNMP Network Device discovery, see our Network Device discovery documentation here](/auto-discovery/network-auto-discovery.mdx). 
+The SNMP autodiscovery method can be used for any SNMP-compatible device. For [SNMP Network Device discovery, see our Network Device discovery documentation](/auto-discovery/network-auto-discovery.mdx). For SNMP- based Server autodiscovery, read below.
 
-For SNMP based Server autodiscovery, read below. This page discusses discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](/auto-discovery/linux-unix-server-auto-discovery.mdx). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines and have Dell OpenManage installed, it will additionally find serial #, model, and some other relevant information.
+This page discusses the discovery of servers and SANs via SNMP. This method will also find Windows and Linux servers. However, more information will be retrieved by the [Linux & UNIX Server Auto-Discovery documentation pages](/auto-discovery/linux-unix-server-auto-discovery.mdx). For Linux and Windows servers, this method retrieves the name, MAC & IP addresses, and IP properties. If the servers happen to be Dell machines with Dell OpenManage installed, it will also find serial numbers, models, and some other relevant information.
 
-**Note:** Device42 recommends that you execute Hypervisor server discovery using our specialized Hypervisor job types. See the  [Windows / Hyper-V Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page and the [Linux / UNIX server auto-discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page for more information.
+:::note
+Device42 recommends that you execute Hypervisor server discovery using our specialized Hypervisor job types. See the  [Windows / Hyper-V Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page and the [Linux / UNIX server auto-discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page for more information.
+:::
 
-## NetApp, EMC, & Dell NAS/SAN Storage Discovery
+## NetApp, EMC, and Dell NAS/SAN Storage Discovery
 
-Netapp and EMC SANs are supported. Inventory data such as name, hardware model, serial #, OS, mac address, and IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
+Netapp and EMC SANs are supported. Inventory data, such as name, hardware model, serial number, OS, Mac address, IP properties, and more are retrieved. If you happen to run Dell storage devices, the Device42 community has contributed some scripts that support API-level native discovery via Dell Storage Manager. See our [Dell Storage Discovery blog post](https://www.device42.com/blog/2018/06/05/dell-storage-discovery-script-by-the-device42-community/) for more information, or jump over to the [Device42 GitHub page](https://github.com/device42/dellstorage-device42) if you're only looking for the script!
 
-## Setting up a NAS/SAN Storage autodiscovery job
+## Setting up a NAS/SAN Storage Autodiscovery Job
 
 Navigate to **Discovery > SNMP** and click **+ Add Jobs**.
 
@@ -30,9 +32,9 @@ Navigate to **Discovery > SNMP** and click **+ Add Jobs**.
   }}
 />
 
-The autodiscovery job specification takes the FQDN or IP addresses of servers to be discovered and ignored as input. You can also list any OIDs and operating systems that should be ignored in the autodiscovery process.
+The autodiscovery job specification takes the FQDN or IP addresses of the servers to be discovered and ignored as input. You can also list any OIDs and operating systems that should be ignored in the autodiscovery process.
 
-Under **Credential(s)**, select the SNMP version and add a community string.  
+Under **Credential(s)**, select the **SNMP Version** and add a **Community String:**  
 
 <ThemedImage
   alt="SNMP Credentials"
@@ -42,11 +44,11 @@ Under **Credential(s)**, select the SNMP version and add a community string.
   }}
 />
 
-It can also be scheduled like other autodiscovery jobs.
+The job can also be scheduled like other autodiscovery jobs.
 
 ## Run Now or Schedule
 
-Select **Add another Autodiscovery Schedule** from the when editing the job to create a run schedule for the job.
+Click **Add another Autodiscovery Schedule** from the **Autodiscovery Schedule** section when editing the job to create a run schedule for the job.
 
 <ThemedImage
   alt="Schedule SNMP job"
@@ -66,4 +68,6 @@ Select **Run Now** from the list page to run the job right away.
   }}
 />
 
-A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the "Run Now" button next to the job after creation.
+:::note
+To prevent a large amount of jobs from running initially, newly created jobs will not run on the first day they are made. If you would like to run a job after its initial creation, simply select the **Run Now** button next to the job after creation.
+:::
