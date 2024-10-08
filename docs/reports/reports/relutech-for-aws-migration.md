@@ -31,7 +31,7 @@ The initial recommended approach starts by performing Operating System level sca
 ## SNMP Job Creation
 
 
-For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.md) autodiscovery job:
+For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.mdx) autodiscovery job:
 
 - First enter the IP/FQDN of all the devices that the credentials and access apply to under "servers".
 
