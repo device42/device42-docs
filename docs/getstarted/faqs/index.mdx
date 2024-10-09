@@ -1,19 +1,22 @@
 ---
-title: "FAQ's"
+title: "FAQs"
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Whether you're new to Device42 or a seasoned pro, this list of **Device42 frequently asked questions** probably has information you'll find useful. This list is updated pretty regularly, and contains a selection of the questions most often asked about Device42.
+The **Device42 frequently asked questions** list is regularly updated and includes information for both new users and seasoned professionals.
 
-If you've just downloaded Device42 for the first time and are looking for help getting up and running, please refer to our [getting started guide](getstarted/index.md) if you're looking for help getting your instance up and running. The getting started guide is tailored to new users, specifically.
+If you've just downloaded Device42 for the first time and want help getting your instance up and running, our [Getting Started](getstarted/index.md) guide is specifically tailored for users who are new to our software.
 
-## How do I log into my Device42 instance?
+## How Do I Log In to My Device42 Instance?
 
-With a default configuration, visit: `https://IP_or_fqdn_for_device42_vm` in your favorite web browser, and then log in by entering the following \[default\] credentials: Default user: `admin` Default pass: `adm!nd42`
+With a default configuration, visit `https://IP_or_fqdn_for_device42_vm` in your favorite web browser, and  log in using the following default credentials:
 
-## Which browser should I use?
+- Username: `admin`
+- Password: `adm!nd42`
+
+## Which Browser Should I Use?
 
 Device42 recommends using the web browsers (or more recent versions) listed below.
 
@@ -22,44 +25,63 @@ Device42 recommends using the web browsers (or more recent versions) listed belo
 - Firefox — 72.0.1
 - Safari — 13.1.2 (13609.3.5.1.5)
 
-## How do I get my current data into Device42?
+## How Do I Get My Current Data Into Device42?
 
-**There are many ways to get your data into Device42**:
+You can use any of the following tools to import your data to Device42:
 
-- [**Device42 Auto-discovery**](auto-discovery/index.mdx): D42 features a variety of autodiscovery methods, the best of which depends on your needs: SNMP network device discovery, VMware auto-discovery, ping sweep, Windows and Linux auto-discovery, and more; you may also use individual python/powershell scripts to customize & automate your discovery and/or inventory process. Read about the [recommended initial discovery sequence](auto-discovery/autodisc-best-practices.md) here, as well!
-- [**Microsoft Excel / CSV (spreadsheet) import**:](integration/imports/index.md) _Tools > Imports/Exports (xls)_ has options for MS Excel spreadsheet import, including sample Excel sheets that will help you format your existing spread sheets to make bringing your existing data into Device42 as easy as possible.
-- The [**Device42 Generic Import Tool**](https://www.device42.com/blog/2018/06/19/new-features-added-to-the-generic-import-tool/) is another way to import data from existing spreadsheets of just about any format, mapping fields as appropriate via the Device42 generic import tool. For manual spreadsheet import, see this [walkthrough on how to best format an existing spreadsheet for import into Device42.](getstarted/importing-data-from-existing-spreadsheets.mdx)
-- [**RESTful APIs**](https://api.device42.com): Programatically automate your network documentation and/or leverage your asset data for scripts & automation! Add these to your regular work flow to leverage Device42 as single source of truth for systems such as provisioning and monitoring.
-- The **Device42 Web UI**: Of course, you can always use the web-UI _(user interface)_ to add data :)
-- **Templates/bulk operations**: Certain types of objects are easier to add using templates or models. For example, [PDU models](infrastructure-management/power-units/defining-pdu-models.md) to create PDUs, [Switch port templates](infrastructure-management/ipam/switch-templates.md) to create switches and ports, [Patch panel models](infrastructure-management/power-units/defining-pdu-models.md) to create patch panel ports and bulk back port connectivity for patch panels.
+- [**Device42 autodiscovery**](auto-discovery/index.mdx): Device42 features a variety of autodiscovery methods for different user needs, including SNMP network device discovery, VMware autodiscovery, ping sweep, Windows and Linux autodiscovery, and more. You may also use individual Python or PowerShell scripts to customize and automate your discovery and inventory processes.
 
-## What is the recommended order for running different discoveries?
+  :::note
+  Review the [recommended initial discovery sequence](auto-discovery/autodisc-best-practices.md) to learn more.
+  :::
 
-See the "Recommended Initial Discovery Sequence" section of the [autodiscovery best practices](/auto-discovery/autodisc-best-practices/) page for a full detailed rundown.
+- [**Microsoft Excel / CSV (spreadsheet) import**](integration/imports/index.md): The **Tools > Imports/Exports (xls)** page outlines your options for importing MS Excel spreadsheets to Device42 and provides sample Excel sheets to help you format your existing spreadsheets so that uploading your existing data is as easy as possible.
+- [**Device42 generic import tool**](https://www.device42.com/blog/2018/06/19/new-features-added-to-the-generic-import-tool/): You can use the Device42 generic import tool to add and map fields for existing data from most spreadsheet formats. Learn more about formatting best practices in the Device42 walkthrough for manually [Importing Data From Existing Spreadsheets](getstarted/importing-data-from-existing-spreadsheets.mdx).
+- [**RESTful APIs**](https://api.device42.com): These enable you to programatically automate your network documentation and leverage your asset data for scripts and automation. Simply add RESTful APIs to your regular workflow to leverage Device42 as single source of truth for systems such as provisioning and monitoring.
+- **Device42 web UI**: You can use the Device42 web interface to import your data.
+- **Templates/bulk operations**: Certain object types are easier to add using templates or models. For example, it is easier to use [PDU models](infrastructure-management/power-units/defining-pdu-models.md) to create PDUs, [switch port templates](infrastructure-management/ipam/switch-templates.md) to create switches and ports, and [patch panel models](infrastructure-management/power-units/defining-pdu-models.md) to create patch panel ports and bulk backport connectivity for patch panels.
 
-**In short**: run network discovery first to build your Layer 2 network landscape. Discovered devices, going forward, are added to their appropriate subnets as they are discovered -- _Note that if device discoveries are run before the subnets for those devices exist in Device42, you might run into issues and/or create extra work for yourself!_
+## What Is the Recommended Order for Running Different Discoveries?
 
-## How do I set up an RC / Remote collector?
+The **Recommended Initial Discovery Sequence** section of the [**Autodiscovery Best Practices**](/auto-discovery/autodisc-best-practices/) provides a detailed rundown of how to order multiple discoveries.
 
-Setting up a remote collector is easy! See the [RC Setup Instructions](auto-discovery/remote-collector-rc.md) which include deployment examples.
+**In short**: Run network discovery first to build your layer-2 network landscape. Discovered devices will then be added to their appropriate subnets as they are discovered.
 
-## How do I migrate my existing data from other tools?
+:::note
+If device discoveries are run before the subnets for devices that exist in Device42, you might run into issues or create extra work for yourself!
+:::
 
-We provide few ready to use scripts to migrate your data from tools like RackTables, Rackmonkey, OpenDCIM, Solarwinds IPAM, Aperture etc. and the download links can be found at [Device42 Migration page](https://www.device42.com/migrations/) or at [Device42 github repository](https://github.com/device42).
+## How Do I Set Up a Remote Collector?
 
-## What discovery jobs can I run from a Remote Collector / RC?
+Easily set up a remote collector by referring to the instructions and deployment examples on the Device42 [Remote Collector](auto-discovery/remote-collector-rc.md) page.
 
-Current releases of Device42 support ALL discovery jobs, now including WMI & Power SNMP from RC's. If you are reading this, all of them! [Setup your RC](auto-discovery/remote-collector-rc.md) today! (RC will only automatically update when it coincides with an MA update)
+## How Do I Migrate My Existing Data From Other Tools?
 
-## How do I Migrate Existing Power Appliance Jobs to a Remote Collector (RC)?
+The Device42 [Migrations](https://www.device42.com/migrations/) page provides a few ready-to-use scripts for migrating your data from tools like RackTables, Rackmonkey, OpenDCIM, SolarWinds IPAM, Aperture, etc. The download links for these scripts can also be found in the [Device42 GitHub repository](https://github.com/device42).
 
-Migrating jobs that were created for the original standalone power appliance is possible with existing tools. Simply follow the [existing power job migration guide here](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) to migrate jobs to the new RC of your choice.
+## Which Discovery Jobs Can I Run From a Remote Collector?
 
-## How do I add blade servers to Device42?
+Current releases of Device42 support **all** discovery jobs, including WMI and Power SNMP from remote collectors. [Set up your remote collector](auto-discovery/remote-collector-rc.md) today!
 
-This topic has been discussed on support portal : [How to represent blade servers in Device42?](https://support.device42.com/hc/en-usentries/23369387) tldr; Add a new device with "blade chassis" selected. Then you add devices, type "blade", and choose the blade chassis device as the host device. _Note that blade chassis accept blades in "blade slots", which you can custom-configure to match your chassis & port layout!_
+:::note
+Remote collectors will only automatically update when a remote-collector update coincides with a main-appliance update.
+::
 
-## How do I handle unknown device types?
+## How Do I Migrate Existing Power Appliance Jobs to a Remote Collector?
+
+You can use existing tools to migrate jobs that were created for the original standalone power appliance to a new remote collector of your choosing. Simply follow the [Power RC Setup and Existing Job Migration](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) guide.
+
+## How Do I Add Blade Servers to Device42?
+
+The Device42 Support Portal article, [How to represent blade servers in Device42](https://support.device42.com/hc/en-us/articles/222221468-How-to-represent-blade-servers-in-device42#:~:text=When%20adding%20a%20new%20device,the%20blade%20server%20belongs%20to.), discusses this in detail.
+
+**In short**: Add a new device with "blade chassis" selected. When you add devices, type "blade" and choose the blade chassis device as the host device.
+
+:::note
+Blade chassis accept blades in "blade slots" that you can custom-configure to match your chassis and port layout!
+:::
+
+## How Do I Handle Unknown Device Types?
 
 <ThemedImage
   alt="Change type for selected devices, re-classify unknown devices"
@@ -70,45 +92,49 @@ This topic has been discussed on support portal : [How to represent blade server
   style={{ width: '80%' }} 
 />
 
-During initial device discovery, some devices will show up as type "unknown". This can be fixed by:
+During initial device discovery, some devices will show up as type "unknown". This can be fixed using the following methods:
 
-- Changing the associated hardware model (this will change all associated devices - current and future). Do this from **Infrastructure > [Hardware Models](/infrastructure-management/devices/hardware-models-templates.mdx)**.
-- From **Devices > All Devices**, you can filter for type "unknown" and bulk change the device type.
-- You can export unknown devices in Excel format by clicking the **Report** button on the top right corner of the device list page. Edit the Excel file to match **Tools > Imports/Exports (xls)**. Change the type and re-import the Excel file.
-- Make the change using REST APIs.
+- From **Infrastructure > [Hardware Models](/infrastructure-management/devices/hardware-models-templates.mdx)**, change the associated hardware model. This will change all current and future associated devices.
+- From **Devices > All Devices**, filter for type "unknown" and bulk change the device type.
+- Export unknown devices in Excel format by clicking the **Report** button in the top right corner of the device list page. Edit the Excel file to match **Tools > Imports/Exports (xls)**. Change the type and re-import the Excel file.
+- Make the change using RESTful APIs.
 
-## How can I create reports?
+## How Can I Create Reports?
 
-Data can be exported in excel or csv format using:
+Data can be exported in Excel or CSV format by downloading current data from the following locations:
 
-- Reports > Reports > Add Report.
-- Reports > Generate Run Book
-- Tools > Exports (CSV)
-- Tools -> Imports/Exports to download current data.
+- **Reports > Reports > Add Report**
+- **Reports > Generate Run Book**
+- **Tools > Exports (CSV)**
+- **Tools -> Imports/Exports**
 
-## How do I backup my data?
+## How Do I Back Up My Data?
 
-Device42 appliance manager runs at https://your\_device42\_ip\_or\_FQDN:4242/ Default username password is d42admin/default You can create backup from Backup/Restore > Backup now.
+Log in to the Device42 appliance manager at `https://your\_device42\_ip\_or\_FQDN:4242/` using the following default credentials:
 
-This is also discussed under section : [appliance manager.](/administration/appliance-manager/)
+- Username:`d42admin`
+- Password: `default`
 
-## How do I update to the latest release?
+Create a backup from **Backup/Restore > Backup now**.
 
-1. Download the latest release update file from [Device42 update page](https://www.device42.com/update/)
-2. From the D42 main menu: _Tools > Update;_ Click _"Link to Appliance Manager"_, then browse to the downloaded update file ; Click "Upload".
-3. Choose Option #3 on the Main Appliance's VM console to apply the update; follow the on-screen prompts.
+This is also discussed on the [Appliance Manager](/administration/appliance-manager/) page.
 
-This is also detailed on the support portal: [D42 Upgrade steps.](https://support.device42.com/hc/en-usentries/21783332)
+## How Do I Update to the Latest Release?
 
-For more information about Main Appliance and Remote Collector updates, see the  [Main Appliance and Remote Collector](/administration/appliance-manager/) page.
+1. Download the latest release update file from the Device42 [Update](https://www.device42.com/update/) page.
+2. From the Device42 main menu, navigate to **Tools > Update**, click **Link to Appliance Manage**, browse to the downloaded update file, and click **Upload**.
+3. Choose **Option 3** on the Main Appliance virtual machine console to apply the update, and follow the on-screen prompts.
 
-You can subscribe to the [Device42 Blog rss feed](https://www.device42.com/blog/feed/) or follow us on [twitter](https://twitter.com/device42) to get immediate notifications for new releases.
+The [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/articles/222221228-Upgrade-Steps-Device42) are also detailed on our Support Portal.
 
-## How do I Install Device42 xen/kvm appliance if import existing disk image option is missing?
+Learn more about main-appliance and remote-collector updates on the [Appliance Manager](/administration/appliance-manager/) page.
 
-If you are trying to install the Device42 appliance on Xen or KVM based platforms, but the import disk image option is missing, see our page [Installing Device42 Appliance but Import to disk is missing](/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/)
+You can subscribe to the [Device42 Blog RSS feed](https://www.device42.com/blog/feed/) or follow us on [X](https://x.com/device42) to get immediate notifications for new releases.
 
-## Where can I get help with something not covered here?
+## How Do I Install the Device42 Appliance on Xen/KVM if the Import Existing Disk Image Option Is Missing?
 
-We always recommend searching the [Device42 support portal](https://support.device42.com/hc/en-us) when faced with a question that doesn't seem to be addressed in our documentation. That said, if you do find one, or get stuck, go ahead and open a support ticket. Send a note to support@device42.com or visit the 'support' tab at the top of this page.
+If you are trying to install the Device42 appliance on Xen- or KVM-based platforms but the **Import Disk Image** option is missing, follow the instructions on our [Import Disk Alternate Install](/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/) page.
 
+## Where Can I Get Help With Something Not Covered Here?
+
+We always recommend searching the [Device42 Support Portal](https://support.device42.com/hc/en-us) when faced with a question that doesn't seem to be addressed in our documentation. That said, if you cannot find a solution or get stuck, please open a support ticket by sending a note to [support@device42.com](mailto:support@device42.com) or visiting the **Support** tab at the top of this page.
