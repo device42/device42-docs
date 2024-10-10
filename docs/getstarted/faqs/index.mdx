@@ -43,7 +43,7 @@ You can use any of the following tools to import your data to Device42:
 
 ## What Is the Recommended Order for Running Different Discoveries?
 
-The **Recommended Initial Discovery Sequence** section of the [**Autodiscovery Best Practices**](/auto-discovery/autodisc-best-practices/) provides a detailed rundown of how to order multiple discoveries.
+The recommended **Initial Discovery Sequence** section of the [**Autodiscovery Best Practices**](/auto-discovery/autodisc-best-practices/) provides a detailed rundown of how to order multiple discoveries.
 
 **In short**: Run network discovery first to build your layer-2 network landscape. Discovered devices will then be added to their appropriate subnets as they are discovered.
 
@@ -53,7 +53,7 @@ If device discoveries are run before the subnets for devices that exist in Devic
 
 ## How Do I Set Up a Remote Collector?
 
-Easily set up a remote collector by referring to the instructions and deployment examples on the Device42 [Remote Collector](auto-discovery/remote-collector-rc.md) page.
+Easily set up a Remote Collector (RC) by referring to the instructions and deployment examples on the Device42 [Remote Collector](auto-discovery/remote-collector-rc.md) page.
 
 ## How Do I Migrate My Existing Data From Other Tools?
 
@@ -61,15 +61,15 @@ The Device42 [Migrations](https://www.device42.com/migrations/) page provides a 
 
 ## Which Discovery Jobs Can I Run From a Remote Collector?
 
-Current releases of Device42 support **all** discovery jobs, including WMI and Power SNMP from remote collectors. [Set up your remote collector](auto-discovery/remote-collector-rc.md) today!
+Current releases of Device42 support **all** discovery jobs, including WMI and Power SNMP from RCs. [Set up your RC](auto-discovery/remote-collector-rc.md) today!
 
 :::note
-Remote collectors will only automatically update when a remote-collector update coincides with a main-appliance update.
+RCs will only automatically update when an RC update coincides with an MA update.
 ::
 
 ## How Do I Migrate Existing Power Appliance Jobs to a Remote Collector?
 
-You can use existing tools to migrate jobs that were created for the original standalone power appliance to a new remote collector of your choosing. Simply follow the [Power RC Setup and Existing Job Migration](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) guide.
+You can use existing tools to migrate jobs that were created for the original standalone power appliance to a new RC of your choosing. Simply follow the [Power RC Setup and Existing Job Migration](infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.md) guide.
 
 ## How Do I Add Blade Servers to Device42?
 
@@ -123,11 +123,11 @@ This is also discussed on the [Appliance Manager](/administration/appliance-mana
 
 1. Download the latest release update file from the Device42 [Update](https://www.device42.com/update/) page.
 2. From the Device42 main menu, navigate to **Tools > Update**, click **Link to Appliance Manage**, browse to the downloaded update file, and click **Upload**.
-3. Choose **Option 3** on the Main Appliance virtual machine console to apply the update, and follow the on-screen prompts.
+3. Choose **Option 3** on the Main Appliance (MA) virtual machine (VM) console to apply the update, and follow the on-screen prompts.
 
 The [Device42 Upgrade Steps](https://support.device42.com/hc/en-us/articles/222221228-Upgrade-Steps-Device42) are also detailed on our Support Portal.
 
-Learn more about main-appliance and remote-collector updates on the [Appliance Manager](/administration/appliance-manager/) page.
+Learn more about MA and RC updates on the [Appliance Manager](/administration/appliance-manager/) page.
 
 You can subscribe to the [Device42 Blog RSS feed](https://www.device42.com/blog/feed/) or follow us on [X](https://x.com/device42) to get immediate notifications for new releases.
 
