@@ -3,7 +3,7 @@ title: "Advanced Routing"
 sidebar_position: 2
 ---
 
-You can add complex or advanced routing for your Device42 appliance or delete it using the console menu. 
+You can add complex or advanced routing for your Device42 appliance or delete it using the virtual machine (VM) console menu. 
 
 To add a new route, follow these steps:
 
@@ -20,7 +20,7 @@ To add a new route, follow these steps:
     
     ![Add route option](/assets/images/advanced-routing/3-route-options.png)
 
-5. Fill in the new route details and click **Add Route**. Use the **Tab** key to navigate to the next field. 
+5. Fill in the new route details and click **Add Route**. Use the `Tab` key to navigate to the next field. 
    
     ![Add route details](/assets/images/advanced-routing/4-route-details.png)
 
