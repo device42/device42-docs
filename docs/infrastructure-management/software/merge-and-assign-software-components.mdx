@@ -31,26 +31,27 @@ You can merge software components and assign them to a component suite as follow
     }}
   />
 
-### View Assigned Components in a Suite
+## View Assigned Components in a Suite
 
 To view the software components in a suite, select the suite **Name** from the **Software Components** list page. The assigned software components are listed in the **Software Components in this Suite** box.
 
-  <ThemedImage
-    alt="Software components in suite box"
-    sources={{
-      light: useBaseUrl('/assets/images/merge-assign-software-components/software-components-in-suite-light.png'),
-      dark: useBaseUrl('/assets/images/merge-assign-software-components//software-components-in-suite-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Software components in suite box"
+  sources={{
+    light: useBaseUrl('/assets/images/merge-assign-software-components/software-components-in-suite-light.png'),
+    dark: useBaseUrl('/assets/images/merge-assign-software-components//software-components-in-suite-dark.png'),
+  }}
+/>
 
-### Merging Software Components with the Same Name
+## Merging Software Components with the Same Name
 
 To merge software components with the same name into a suite, you must first merge them together, then merge them into a suite. A new component suite cannot have the same **name + vendor** combination as an existing software component; it must have a unique **name + vendor** combination.
 
+
 For example, if you had:
 
-1. Software component `ABC`, with vendor `Cisco`
-2. Software component `ABC` with vendor `MS`
-3. Software component `ABC-Suite` with vendor `None`
+1. A software component `ABC`, with the vendor `Cisco`.
+2. A software component `ABC`, with the vendor `MS`.
+3. A software component `ABC-Suite`, with the vendor `None`.
 
 You could merge either `1.` **or** `2.` into `3.` without problem. However, if you tried to merge `1.` **and** `2.` into `3.`, you would receive a validation error prompting you to merge `1.` with `2.` before trying to merge them into `3.`.
