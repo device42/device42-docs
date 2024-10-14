@@ -7,7 +7,7 @@ The RC is shipped as a virtual appliance and can be downloaded on our Discovery 
 
 ## Installation Instructions
 
-Visit the [**RC Installation and Configuration**](/auto-discovery/remote-collector-rc/#rc-installation-and-configuration.md) section of the [Remote Collector](/auto-discovery/remote-collector-rc.md) page for detailed installation instructions.
+Visit the [**RC Installation and Configuration**](/auto-discovery/remote-collector-rc/#rc-installation-and-configuration.mdx) section of the [Remote Collector](/auto-discovery/remote-collector-rc.mdx) page for detailed installation instructions.
 
 ## Default RC Credentials
 
