@@ -33,7 +33,7 @@ When sensors are discovered, they are created with Asset records in Device42. If
 
 ## Legacy documentation - Standalone Power Appliance, Depreciated 2017
 
-**Note to Power Monitoring / Control Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring or control going forward. See the [Remote Collector page](auto-discovery/remote-collector-rc.md) for setup details and for information on obtaining a Remote Collector going forward!**
+**Note to Power Monitoring / Control Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring or control going forward. See the [Remote Collector page](auto-discovery/remote-collector-rc.mdx) for setup details and for information on obtaining a Remote Collector going forward!**
 
 The actual monitoring occurs in a separate virtual appliance from the main Device42 appliance. Please note that you can optionally monitor power using Device42 Remote Collectors from v14.0.0 forward, as well as the dedicated power appliance. This is done for three reasons:
 
@@ -43,7 +43,7 @@ The actual monitoring occurs in a separate virtual appliance from the main Devic
 
 ### Installation
 
-The installation process for one or more monitoring appliances is similar to installation of the Device42 main appliance. If you would like to set up power monitoring using a Remote Collector (RC), see the [instructions for setting up an RC](auto-discovery/remote-collector-rc.md).
+The installation process for one or more monitoring appliances is similar to installation of the Device42 main appliance. If you would like to set up power monitoring using a Remote Collector (RC), see the [instructions for setting up an RC](auto-discovery/remote-collector-rc.mdx).
 
 Refer to the appropriate link(s) below for installation on your selected virtualization platform:  
 \- [VMWare Player](getstarted/installation/installation-vmware-player.mdx)  
