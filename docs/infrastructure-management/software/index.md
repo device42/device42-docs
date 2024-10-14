@@ -2,12 +2,34 @@
 title: "Software"
 ---
 
-## Software
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Select _Resources > Software Components_ to select the following items: All Software Components, Software License Models, Software in Use, or EOL / EOS.
+The Software License Management (SLM) module allows you to create and maintain a comprehensive, accurate profile of software deployed across all Windows and Linux machine instances within your IT infrastructure.
 
-![](/assets/images/Software_menu.png)
+Navigate to **Resources > Software Components** and select the relevant page for viewing or managing your software:
 
-When you create a discovery job, remember to select the _Discover Software_ option to discover software information.
+* [All Software Components](software-components.mdx)
+* [Software License Models](software-license-management.mdx)
+* [Software in Use](software-in-use.mdx)
+* [EOL / EOS](software-eol-eos.mdx)
 
-![](/assets/images/WEB-293_SoftwareServices-Discover-Options.png)
+<ThemedImage
+  alt="The Software Components section in the Resources menu"
+  sources={{
+    light: useBaseUrl('/assets/images/software/software-menu-light.png'),
+    dark: useBaseUrl('/assets/images/software/software-menu-dark.png'),
+  }}
+/>
+
+## Discover Software
+
+When creating a discovery job, select the **Discover Software** option under **Software and Applications** to ensure that all software information is found.
+
+<ThemedImage
+  alt="Discover Software option"
+  sources={{
+    light: useBaseUrl('/assets/images/software/discover-software-option-light.png'),
+    dark: useBaseUrl('/assets/images/software/discover-software-option-dark.png'),
+  }}
+/>
