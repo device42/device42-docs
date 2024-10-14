@@ -6,43 +6,58 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Select _Resources > Software Components > All Software Components_ to view, edit, or add software component information.
+## Discover Software Components
+
+When creating or editing a discovery job under **Discovery > Hypervisors / \*nix / Windows**, you will see the following autodiscovery form:
 
 <ThemedImage
-  alt="View software components"
+  alt="Add discovery job"
   sources={{
-    light: useBaseUrl('/assets/images/software-components-view-light.png'),
-    dark: useBaseUrl('/assets/images/software-components-view-dark.png'),
+    light: useBaseUrl('/assets/images/software-license-management/add-discovery-job-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/add-discovery-job-dark.png'),
   }}
 />
 
-Click the software _Name_ to edit an existing component.
-
-When you create a discovery job, remember to select the _Discover Software_ option to discover software information.
+Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to facilitate the autodiscovery of software on Windows and Linux machines in the defined CIDR blocks, hostnames, domain servers, or IP range(s).
 
 <ThemedImage
-  alt="Discovery job options"
+  alt="The Discover Software option"
   sources={{
-    light: useBaseUrl('/assets/images/software-components-discover-light.png'),
-    dark: useBaseUrl('/assets/images/software-components-discover-dark.png'),
+    light: useBaseUrl('/assets/images/software-license-management/software-and-applications-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-and-applications-dark.png'),
   }}
 />
 
-### Software Components Actions
+All major Linux distributions are supported, and software registered across various package managers will be discovered.
 
-Select one of more software components, and then select an Action to apply that action to the components.
+### View Software Components
+
+To view the full list of discovered software, navigate to **Resources > Software Components > All Software Components**.
 
 <ThemedImage
-  alt="Software component actions"
+  alt="All Software Components menu location"
   sources={{
-    light: useBaseUrl('/assets/images/software-components-actions-light.png'),
-    dark: useBaseUrl('/assets/images/software-components-actions-dark.png'),
+    light: useBaseUrl('/assets/images/software-license-management/software-components-menu-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-components-menu-dark.png'),
+  }}
+  style={{ width: '90%' }} 
+/>
+
+As with other list views in Device42, you can sort the discovered software components using the column headers, the various **Advanced** filters on the right side of the page, the **search box** at the top of the page, or the bulk actions in the **Select an Action** dropdown.
+
+<ThemedImage
+  alt="Software component list page"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-component-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-component-list-page-dark.png'),
   }}
 />
 
-### Add a Software Component
+Click the software **Name** to view and edit an existing component.
 
-Click _Add Software Component_ to add a new component.
+## Manually Add a Software Component
+
+Click **Add Software Component** to add a new component.
 
 <ThemedImage
   alt="Add new software component"
@@ -52,4 +67,93 @@ Click _Add Software Component_ to add a new component.
   }}
 />
 
-Enter the software **Name**, **Software Type**, and the **License Model**. You can also enter Notes and Tags. Click **Save** at the bottom of the page to save the component.
+Enter the **Name**, **Software Type**, and **License Model**. You can also enter **Notes** and **Tags**. Click **Save** at the bottom of the page to save the component.
+
+## Edit a Software Component
+
+Click on the name of a software component and then select **Edit** to add additional details to its record. For example, you can specify a **License Model**, select a **Vendor**, add and define a **Category**, and add **Notes** and **Tags**.
+
+Check the **Track Licensed Count by Keys** checkbox to base the software usage count on keys, rather than the total number of software component instances.
+
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-1-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-1-dark.png'),
+  }}
+/>
+
+You can also add **Software Component Aliases** and **Software License Keys**, view the actual instances of the discovered software under **Software In Use**, and add **Purchase/Support Info**.
+
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-2-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-2-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="Change software component"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/change-component-3-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/change-component-3-dark.png'),
+  }}
+/>
+
+## Bulk Actions
+
+On the **All Software Components** list page, you can make bulk modifications to specific software components:
+
+- Use the checkbox to the left of each instance to choose records from the list.
+- **Select an Action** from the dropdown.
+- Click the **hammer icon** to execute the action.
+
+<ThemedImage
+  alt="Software component bulk actions"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/software-actions-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/software-actions-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
+
+The available actions are:
+
+- **Delete with Detailed Confirmation**
+- **Fast Background Delete**
+- **Export selected items**
+- **Assign Software to Suite**
+- **Refresh/update Software counts**
+- **Refresh/update OS counts**
+- **Mark selected Software as Managed**
+- **Mark selected Software as Prohibited**
+- **Mark selected Software as Ignored**
+- **Mark selected Software as Unmanaged**
+
+For example, you could select several software components and choose to:
+
+- **Mark selected Software as Ignored** and Device42 would remove the components from the list and ignore them in future discoveries.
+- **Mark selected Software as Prohibited** and Device42 would send alerts whenever prohibited software was found on a user's machine (if the alert was configured).
+_ **Refresh/update Software counts** and the software counts (but not the autodiscovery job) would be run immediately.
+
+:::note
+The **Refresh/update Software counts** action is useful when you have changed the licensing or software count configuration and want to see the impact of the change immediately.
+:::
+
+### Assign Software to Suite
+
+The **Assign Software to Suite** action is also useful, as it allows you to group selected software components into sets.
+
+For example, if you wanted to group Adobe products, you would create a suite and then assign Adobe software components to it.
+
+- To create the suite, you could either select an existing software component and define it as a suite or create a new software component using the **Add Software Component** button and call it something like "Adobe Software Suite".
+- Then, you could select Adobe software components from the list, choose **Assign Software to Suite** from the **Select an Action** dropdown, and click the **hammer icon** to assign the selected software components to an Adobe suite.
+
+<ThemedImage
+  alt="Assign software to suite"
+  sources={{
+    light: useBaseUrl('/assets/images/software-license-management/assign-software-to-suite-light.png'),
+    dark: useBaseUrl('/assets/images/software-license-management/assign-software-to-suite-dark.png'),
+  }}
+/>
