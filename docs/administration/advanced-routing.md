@@ -3,17 +3,30 @@ title: "Advanced Routing"
 sidebar_position: 2
 ---
 
-You can add complex or advanced routing for your Device42 appliance or delete it using the console menu.
+You can add complex or advanced routing for your Device42 appliance or delete it using the virtual machine (VM) console menu. 
 
-1. To configure advanced routing, choose option **15** from the **Device42 Setup/Troubleshooting Menu**. Log in to the console of the Device42 VM to access this menu: 
+To add a new route, follow these steps:
 
-    ![advanced-routing-option](/assets/images/advanced-routing/console-advanced-routing-option.png)
+1. Log in to the Device42 VM console.
+2. Choose **(u) Network, Connectivity and Utilities**.
 
-2. To add a new route, enter option **a**. Print the routing table with option **b**.
+    ![Network options](/assets/images/advanced-routing/1-network.png)
+
+3. Select **(r) Routing**.
+   
+    ![Routing options](/assets/images/advanced-routing/2-routing.png)
     
-    ![Advanced routing options](/assets/images/advanced-routing/console-routing-submenu.png)
+4. Select **(a) Add a new Route** from the **Routing Configuration Main Menu**.
+    
+    ![Add route option](/assets/images/advanced-routing/3-route-options.png)
 
-3. After configuring the new route, enter option **d** to apply changes. The Device42 VM must be manually rebooted to clear deleted routes.
+5. Fill in the new route details and click **Add Route**. Use the `Tab` key to navigate to the next field. 
+   
+    ![Add route details](/assets/images/advanced-routing/4-route-details.png)
+
+6. After configuring the new route, enter option **(p) Apply Routes** from the previous menu to apply the changes. 
+   
+The Device42 VM must be manually rebooted to clear deleted routes.
 
 :::info
 Advanced routing instructions are also available [in video format here](how-to-videos/add-a-new-route-to-device42.md).

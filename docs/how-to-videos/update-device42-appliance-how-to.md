@@ -1,13 +1,20 @@
 ---
-title: "Update Device42 Appliance How To"
+title: "How To Update the Device42 Main Appliance"
 sidebar_position: 18
 ---
 
 import ReactPlayer from 'react-player'
 
-A quick walkthrough of the very simple Device42 update process. If you've never updated before, follow right along and enjoy all the new features updating Device42 always brings!
+The walkthrough video demonstrates how to update the Device42 Main Appliance by following these steps:
+1. Download the `.zip.enc` update file.
+2. Perform the backup in the Appliance Manager.
+3. Upload the `.zip.enc` update file in the Appliance Manager.
+4. Apply the update from the Virtual Machine (VM) console.
+5. Verify the update from the Main Appliance.
 
-<ReactPlayer controls url='https://device42.wistia.com/medias/94b4xkda0y' />
+Visit [Updating Device42](administration/updating-device42.mdx) for detailed instructions on each step, including links, default credentials for the Appliance Manager, and the SSH command needed to access the VM console deployed on AWS or another cloud server.
+
+<ReactPlayer controls url='https://device42.wistia.com/medias/rn694vqehp' />
 <br/><br/>
 
-Please e-mail support@device42.com with any questions, comments, or requests for more how-to's and say you saw it on our docs site!
+Please email [support@device42.com](mailto:support@device42.com) with any questions, comments, and requests for more how-to videos.

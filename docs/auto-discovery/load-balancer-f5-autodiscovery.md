@@ -21,7 +21,7 @@ For F5 discovery, ensure you have a **local username** with access to the F5 API
 
 If you're discovering an F5, do the following. You'll want to scan your F5 pool members via either SSH or the API, depending on the device's OS.
 
-1. Start by scanning an F5 device via SNMP. Do this by adding a job under _Discovery → SNMP_ (Make sure you configure SNMP on your F5!), and input the correct (matching) community string. See the [Load Balancers](auto-discovery/load-balancers.md) page for more information about SNMP discovery.
+1. Start by scanning an F5 device via SNMP. Do this by adding a job under _Discovery → SNMP_ (Make sure you configure SNMP on your F5!), and input the correct (matching) community string. See the [Load Balancers](auto-discovery/load-balancers.mdx) page for more information about SNMP discovery.
 2. After you've discovered via SNMP, go ahead and scan the F5 with the native F5 interface that can be found in _Discovery -> _UCS/ACI/Load Balancers_._ _(Note: This requires an account w/ F5 API permissions!)_.
 
 - For other load balancer types, select the _Platform_ for that type from the drop-down menu.

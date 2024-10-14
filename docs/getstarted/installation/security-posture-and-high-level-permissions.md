@@ -7,10 +7,12 @@ The section outlines how Device42 ensures data security in transit and at rest, 
 
 ## Security Posture
 
-- All data in transit from WDS to RC and RC to MA is over SSL or HTTPS.
+- All data in transit from Windows Discovery Service (WDS) to Remote Collector (RC), and RC to Main Appliance (MA) is transferred via Secure Sockets Layer (SSL) or HTTPS.
 - All data stays at rest within the MA in an end-user environment.
 - Only data voluntarily shared by the end user leaves the premises.
 
 ## Required Permissions
 
-Device42 uses the principle of least privilege in it’s agentless discovery. For a detailed overview of permissions, please reference our Pre-requisites guide or please see the discovery section on our website and locate the relevant jobs for clarity on required permissions.
+Device42 uses the principle of least privilege in its agentless discovery.
+
+For a detailed overview of permissions, please reference our prerequisites guide or use the **Discovery** section on our website to locate the relevant jobs and view their required permissions.
