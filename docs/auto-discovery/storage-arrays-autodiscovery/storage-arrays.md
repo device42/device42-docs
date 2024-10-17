@@ -3,80 +3,160 @@ title: "Viewing Storage Arrays"
 sidebar_position: 6
 ---
 
-## Introduction
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Storage Arrays are identified and returned by Device42 [Storage Arrays autodiscovery](./). Storage Arrays also display their resource details, related resources, and topology map.
+Storage Arrays are identified and returned by Device42 [Storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
 
 ## View All Storage Arrays
 
-Select _Resources > Storage > Arrays_ from the Device42 menu to display the storage arrays list.
+Select **Resources > Storage > Arrays** from the Device42 menu to display the storage arrays list page.
 
-![](/assets/images/SA-2-list-page.png)
+<ThemedImage
+  alt="Storage arrays list page"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/light-page-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/light-page-dark.png'),
+  }}
+/>
 
-Device42 displays the Storage Arrays list page. On this page, you can _Search by name_, or filter the list by _Type_.
+Device42 displays the Storage Arrays list page. On this page, you can **Search by name**, or filter the list by **Type**.
 
-![](/assets/images/Storage-arrays-filter-by-type.png)
+<ThemedImage
+  alt="Storage arrays search and filter"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/search-filter-type-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/search-filter-type-dark.png'),
+  }}
+/>
 
-**Note**: The Storage Arrays list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+:::note
+The Storage Arrays list page also includes an **Advanced Search** option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx)documentation page for instructions.
+:::
 
-Click on an array _Name_ to see details about that array. You can use the links in the panel on the right to see details about that related resource.
+Click on an array **Name** to see details about that array. You can use the links in the panel on the right to see details about that related resource.
 
-![](/assets/images/SA-5-view-page.png)
-
-![](/assets/images/SA-6-related-resources.png)
+<ThemedImage
+  alt="Storage array example"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/array-example-details-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/array-example-details-dark.png'),
+  }}
+/>
+<ThemedImage
+  alt="Storage array related resource"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/array-example-related-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/array-example-related-dark.png'),
+  }}
+/>
 
 ### View Storage Arrays Mapped to Devices
 
-Devices that have attached storage arrays display links to those arrays in the Parts tab of the device view page. The example below shows the Parts tab of a physical device with links to storage.
+Devices that have attached storage arrays display links to those arrays in the **Parts** tab of the device view page. The example below shows the **Parts** tab of a physical device with a link to storage.
 
-![](/assets/images/physical-device-to-stoarge-array-1-UMA.png)
+<ThemedImage
+  alt="Physical device example"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/view-physical-device-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/view-physical-device-dark.png'),
+  }}
+/>
 
-Click on a Parts link to see that resource (in this case a LUN).
+<ThemedImage
+  alt="Physical device parts with storage array"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/device-parts-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/device-parts-dark.png'),
+  }}
+/>
 
-![](/assets/images/physical-device-to-stoarge-array-2-UMA.png)
+Click on a **Parts** link to see that resource (in this case a LUN).
+
+<ThemedImage
+  alt="Linked storage array example"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/linked-resource-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/linked-resource-dark.png'),
+  }}
+/>
 
 ## Resource Maps and Trends Graphs
 
-Click _Resource Map_ at the top left of the page to see the topography map for the array. You can select which _Resource Types_ you want to include in the map.
+Click **Resource Map** at the top left of the page to see the topography map for the array. On the left panel, you can add, highlight, or search by type or individual items to customize the chart view.
 
-![](/assets/images/Storage-arrays-resource-map.png)
-
-Click _Trends_ at the top left of the page to see graphs for data such as Read Data Rate, Write Data Rate, IOs Rate, etc., for the storage array.
-
-![](/assets/images/SA-8-trends-1.png)
-
-Select the _Available Metrics_ drop-down to choose which Trends charts you want to see.
-
-![](/assets/images/SA-9-trends-2-available-metrics.png)
+<ThemedImage
+  alt="Storage array resource map"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/linked-resource-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/linked-resource-dark.png'),
+  }}
+/>
 
 ## Edit Storage Arrays
 
-Click _Edit_ on the Storage Array view page to edit the array. You can add or edit _Notes_ or _Tags_ for the array, select Yes/No for _In Service,_ and select or add a _Service Level_ value_._
+Click **Edit** on the Storage Array view page to edit the array. You can add or edit **Notes** (1) or **D42 Tags** (2) for the array, toggle **Yes** or **No** for **In Service** (3), and select or add a **Service Level** value (4).
 
-![](/assets/images/SA-7-edit-page.png)
+<ThemedImage
+  alt="Storage array edit options"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/edit-options-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/edit-options-dark.png'),
+  }}
+/>
 
-Click _Save_ to save your edits; click _Cancel_ to discard them.
+Click **Save** to save your edits or click **Cancel** to discard them.
 
-## Delete Storage Arrays
+## Storage Arrays Actions
 
-Select one or more arrays from the list, and select either _Fast Background Delete_ or _Delete with Detailed Confirmation_ from the Actions menu, and then click the lightning bolt icon.
+Select one or more arrays from the list and choose an action from the menu. 
 
-![](/assets/images/SA-3-action-menu.png)
+To delete items, choose **Delete with Detailed Confirmation**, **Fast Background Delete**, or **Fast Background Archive** from the Actions menu. Click the hammer icon to execute the selected action.
+
+You can also select storage arrays to **Add to Business Application**.
+
+<ThemedImage
+  alt="Storage array actions"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/storage-array-actions-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/storage-array-actions-dark.png'),
+  }}
+/>
 
 Confirm the deletion if prompted.
 
-![](/assets/images/SA-4-delete-confirm.png)
+<ThemedImage
+  alt="Storage array actions"
+  sources={{
+    light: useBaseUrl('/assets/images/storage-arrays/array-delete-confirmation-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays/array-delete-confirmation-dark.png'),
+  }}
+/>
 
- 
-
-## Storage Array Discovery Job Import/Export
+## Storage Array Discovery Job Import and Export
 
 You can import or export storage array discovery jobs using an Import/Export Excel file.
 
-- Select _Tools > Imports/Exports (xls)_ from the Device42 main menu, and then select _Autodiscovery – Create Storage Array Autodiscovery Jobs > Download Sample Excel File_.
+- Select **Tools > Imports/Exports (xls)** from the Device42 main menu. Locate the **Autodiscovery – Create Storage Array Autodiscovery Jobs** row and click **Download Sample Excel File**.
 
-![](/assets/images/D42-20971_storage-array-imp-exp.png)
+    <ThemedImage
+    alt="Storage array import and export"
+    sources={{
+        light: useBaseUrl('/assets/images/storage-arrays/download-sample-excel-light.png'),
+        dark: useBaseUrl('/assets/images/storage-arrays/download-sample-excel-dark.png'),
+    }}
+    />
 
-![](/assets/images/D42-20971_storage-array-imp-exp-xlxs.png)
+- Fill in the Excel file to set up your storage array discovery job. Click on the tips in the cell headings for details on what values to enter in each column.
+  
+    ![Sample Excel file](/assets/images/storage-arrays/sample-excel-download.png)
 
-- Use the Excel file to set up your storage array discovery job and then use _Upload Excel file_ at the top of the Imports/Exports page to upload the file to Device42.
+- **Browse** to the Excel file at the top of the Imports/Exports page and click **Upload** to add the storage array discovery jobs to Device42.
+
+    <ThemedImage
+    alt="Import Excel file"
+    sources={{
+        light: useBaseUrl('/assets/images/storage-arrays/import-excel-sheet-light.png'),
+        dark: useBaseUrl('/assets/images/storage-arrays/import-excel-sheet-dark.png'),
+    }}
+    />
