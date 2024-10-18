@@ -6,7 +6,7 @@ sidebar_position: 31
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-TCP port scan autodiscovery helps speed up autodiscovery by pre-scanning a specified range of IP addresses. Device42 determines which machines exist, which ports the machines have open, and whether they are running \*nix or Windows. 
+TCP port scan autodiscovery accelerates autodiscovery by pre-scanning a specified range of IP addresses. Device42 determines which machines exist, which ports the machines have open, and whether they are running \*nix or Windows. 
 
 When the scan is complete, Device42 will use the resulting TCP scan data to either create or update an autodiscovery job for the qualifying IPs.
 
