@@ -6,11 +6,11 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Storage Arrays are identified and returned by Device42 [Storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
+Storage arrays are identified and returned by Device42 [Storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
 
 ## View All Storage Arrays
 
-Select **Resources > Storage > Arrays** from the Device42 menu to display the storage arrays list page.
+Select **Resources > Storage > Arrays** from the Device42 menu to display the **Storage Arrays** list page.
 
 <ThemedImage
   alt="Storage arrays list page"
@@ -20,7 +20,7 @@ Select **Resources > Storage > Arrays** from the Device42 menu to display the 
   }}
 />
 
-Device42 displays the Storage Arrays list page. On this page, you can **Search by name**, or filter the list by **Type**.
+On this page, you can **Search by name** or filter the list by **Type**.
 
 <ThemedImage
   alt="Storage arrays search and filter"
@@ -31,7 +31,7 @@ Device42 displays the Storage Arrays list page. On this page, you can **Search 
 />
 
 :::note
-The Storage Arrays list page also includes an **Advanced Search** option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx)documentation page for instructions.
+The **Storage Arrays** list page also includes an **Advanced Search** option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
 :::
 
 Click on an array **Name** to see details about that array. You can use the links in the panel on the right to see details about that related resource.
@@ -53,7 +53,7 @@ Click on an array **Name** to see details about that array. You can use the li
 
 ### View Storage Arrays Mapped to Devices
 
-Devices that have attached storage arrays display links to those arrays in the **Parts** tab of the device view page. The example below shows the **Parts** tab of a physical device with a link to storage.
+Devices with attached storage arrays display links to those arrays in the **Parts** tab of the device view page. The example below shows the **Parts** tab of a physical device with a link to storage.
 
 <ThemedImage
   alt="Physical device example"
@@ -95,7 +95,7 @@ Click **Resource Map** at the top left of the page to see the topography map f
 
 ## Edit Storage Arrays
 
-Click **Edit** on the Storage Array view page to edit the array. You can add or edit **Notes** (1) or **D42 Tags** (2) for the array, toggle **Yes** or **No** for **In Service** (3), and select or add a **Service Level** value (4).
+Click **Edit** on the storage array view page to edit the array. You can add or edit **Notes** (1) or **D42 Tags** (2) for the array, toggle **Yes** or **No** for **In Service** (3), and select or add a **Service Level** value (4).
 
 <ThemedImage
   alt="Storage array edit options"
@@ -111,7 +111,7 @@ Click **Save** to save your edits or click **Cancel** to discard them.
 
 Select one or more arrays from the list and choose an action from the menu. 
 
-To delete items, choose **Delete with Detailed Confirmation**, **Fast Background Delete**, or **Fast Background Archive** from the Actions menu. Click the hammer icon to execute the selected action.
+To delete items, choose **Delete with Detailed Confirmation**, **Fast Background Delete**, or **Fast Background Archive** from the **Select an action** dropdown menu. Click the **hammer icon** to execute the selected action.
 
 You can also select storage arrays to **Add to Business Application**.
 
