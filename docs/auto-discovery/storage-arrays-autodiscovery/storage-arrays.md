@@ -6,7 +6,7 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Storage arrays are identified and returned by Device42 [Storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
+Storage arrays are identified and returned by the Device42 [storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
 
 ## View All Storage Arrays
 
