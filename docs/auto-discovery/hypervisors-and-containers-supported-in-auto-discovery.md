@@ -6,7 +6,7 @@ sidebar_position: 30
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This page lists the platforms, Operating Systems (OS), and container platforms supported by Device42 autodiscovery. The details and limitations about the Docker, Cisco ASA/NX OS, and Nutanix autodiscovery process are also discussed.
+Device42 autodiscovery supports various platforms, operating systems (OSes), and container platforms. The full list, including the details and limitations of the Docker, Cisco ASA/NX OS, and Nutanix autodiscovery processes, can be found below.
 
 If you are looking for instructions to get started with Hypervisor, Linux (\*nix), or Windows discovery, see either: 
 - the [Windows / Hyper-V Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page 
@@ -61,9 +61,9 @@ If you are using a hypervisor, a container platform, or an orchestration tool yo
 - Docker API discovery returns basic container data with IPs and MAC addresses.
 - Regular Docker discovery also returns service ports.
 - By running Docker and connecting to the host, you can map connections to the container.
-- You can see on the Docker host how to get the source ports of containers, without having to login to the container to identify the connection.
+- You can see on the Docker host how to get the source ports of containers, without having to log in to the container to identify the connection.
 - You can use the `docker top` command and supply just the container ID; you would need to use `sudo` commands for this.
-- We support all standard Docker cloud operating systems such as EKS (AWS Kubernetes), GKE (Google Kubernetes), AKS (Azure Kubernetes), and standalone Kubernetes, as well as Ubuntu, CentOS, Debian, Arch Linux and Fedora.
+- We support all standard Docker cloud operating systems such as EKS (AWS Kubernetes), GKE (Google Kubernetes), AKS (Azure Kubernetes), and standalone Kubernetes, as well as Ubuntu, CentOS, Debian, Arch Linux, and Fedora.
 
 ### Cisco ASA/NX OS Autodiscovery Notes
 
@@ -71,7 +71,7 @@ Device42's Cisco ASA/NX OS autodiscovery augments firewall/ASA discoveries with 
 
 ### Nutanix Autodiscovery Notes
 
-If you have previously ran a Device42 discovery job, and are discovering new resources, then in some cases, you will need to delete and re-run to have a complete view. Note that this is a discovery workaround for the time being.
+If you have previously run a Device42 discovery job, and are discovering new resources, then in some cases, you will need to delete and re-run to have a complete view. Note that this is a discovery workaround for the time being.
 
 ### Ignore IP and MAC Addresses From Autodiscovery
 
