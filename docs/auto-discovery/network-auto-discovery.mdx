@@ -165,7 +165,7 @@ For SNMP v3, we support the following **Privacy Protocols**:
   }}
 />
 
-## Network Device Options
+### Network Device Options
 
 Expand the **Network Device Options** section to reveal settings specific to discovering network-connected hardware: 
 
@@ -177,7 +177,7 @@ Expand the **Network Device Options** section to reveal settings specific to dis
   }}
 />
 
-### Get all switch ports
+### Get All Switch Ports
 
 <ThemedImage
   alt="Network port types"
@@ -198,6 +198,24 @@ If you select **Get all switch ports**, you will see six extra form items:
     - If you want to ignore specific port types, you must manually delete the corresponding switch ports. You can filter by discovered type under **IPAM > Switch Ports**.
     - Add the ports to ignore list on the discovery page
 6. **Discovered port types not to count:** Similar to above. This will still bring the ports in, excluding selected port types from the count.
+
+## Globally Exclude OIDs
+
+You can set certain OIDs to be ignored globally to prevent them from being collected during SNMP discovery.
+
+Navigate to **Tools > Global Settings** and scroll down to the **Ignore OID(s):** field. Add individual an OID or a group of OIDs using dot notation. For documentation purposes, you can optionally include a comment on the on the same line of the OID(s) using text notation.
+
+<ThemedImage
+  alt="Global Settings Ignore OID(s) field"
+  sources={{
+    light: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-dark.png'),
+  }}
+/>
+
+:::note
+When OIDs are set to be ignored globally, existing discovery jobs will not automatically inherit these ignored OIDs. To apply the ignored OIDs to existing discovery jobs, a new discovery job must be created.
+:::
 
 ## Run Now or Schedule
 
