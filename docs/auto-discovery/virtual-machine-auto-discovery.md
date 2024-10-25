@@ -1,5 +1,5 @@
 ---
-title: "VM (Virtual Machine) Autodiscovery"
+title: "Virtual Machine Autodiscovery"
 sidebar_position: 36
 ---
 
@@ -35,12 +35,12 @@ VMWare platforms can be discovered directly from the Device42 UI. Platforms incl
   </tbody>
 </table>
 
-While configuring the job, you may elect to have your primary Device42 appliance directly perform the discovery, or you may designate a [remote collector](remote-collector-rc.mdx) to run each task.
+While configuring the job, you may elect to have your primary Device42 appliance directly perform the discovery, or you may designate a [Remote Collector (RC)](remote-collector-rc.mdx) to run each task.
 
 ## Setting up VMware/Citrix XenServer/oVirt/KVM/LXC Autodiscovery
 
-From the Device42 main menu, under **Discovery > Hypervisors/\*nix/Windows** add a Hypervisor, UNIX/Linux (\*nix), or a Windows discovery job to connect to your hosts or guests and gather physical and VM details. 
-
+From the Device42 main menu, under **Discovery > Hypervisors/\*nix/Windows**, add a Hypervisor, UNIX/Linux (\*nix), or a Windows discovery job to connect to your hosts or guests and gather physical and Virtual Machine (VM) details. 
+ 
 <ThemedImage
   alt="VM Discovery Job"
   sources={{
@@ -51,25 +51,25 @@ From the Device42 main menu, under **Discovery > Hypervisors/\*nix/Windows** add
 
 **Job Name:**  Enter a unique name to identify the autodiscovery job.
 
-**Remote Collector:** Optionally run the discovery job from the chosen remote collector instead of the main appliance.
+**Remote Collector:** Optionally run the discovery job from the chosen RC instead of the Main Appliance (MA).
 
 **Job Debug Level:** Set to **Debug On** to collect extra debug info that's useful to include in a support ticket.
 
 **Platform:** Choose the VM platform, such as Vmware, Citrix XenServer, oVirt Server, KVM or libvirt, Docker, LXC, etc.
 
-**URL Prefix:** This will be HTTPS in most cases. But, if you have changed it, you have the option to switch it to HTTP.
+**URL Prefix:** This will be HTTPS in most cases. But if you've changed it, you have the option to switch it to HTTP.
 
 **Discovery Target(s):**  This is the FQDN or IP of the vCenter server or the ESX server. If using FQDN, set up DNS resolution in the Device42 VM console first.
 
 **Port:** This is 443 by default. Only change if you have changed it.
 
-**Discovery Target(s) Credential(s):** Specify username and password (account credentials) with permission to view all the hosts and virtual machine inventory info. For oVirt, the username is most probably in the format of `username@domain`, for example, `admin@internal`.
+**Discovery Target(s) Credential(s):** Specify username and password (account credentials) with permission to view all the hosts and VM inventory info. For oVirt, the username is most probably in the format of `username@domain`, for example, `admin@internal`.
 
 :::caution
 Please do not set up an autodiscovery scan using critical production account credentials. Please create a separate, dedicated account to use only for discovery.
 :::
 
-Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result.
+Depending on the permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You the customer are responsible for any such behavior that might result.
 
 ## Discovery Job Options - Hypervisor / \*nix / Windows
 
@@ -83,13 +83,13 @@ Depending on permissions granted and your configured password policies, account 
   }}
 />
 
-**Strip domain suffix:** Checking this will strip domain suffixes from host and VM names.
+**Strip domain suffix:** Checking this box will strip domain suffixes from host and VM names.
 
-**VM name to use:** if the virtual machine has a different name on the host and as found from the tools, you can choose which name should be used while adding/updating the VM in device42. Available for VMware only for now.
+**VM name to use:** If the VM has a different name on the host and as found from the tools, you can choose which name should be used while adding/updating the VM in device42. Available for VMware only for now.
 
-**Add multiple VM names as alias:** If the VM name on the host and as found from tools don't match, you can add the second name as a device alias by checking this option. Available for VMware only for now.
+**Add multiple VM names as alias:** If the VM name on the host and the VM name found from tools don't match, you can add the second name as a device alias by checking this box. Currently only available for VMware.
 
-**Track VM name change:** Added in v5.8.0 to track any changes to the VM name. This applies if the name is changed on an existing VM (verified by UUID). If the new name already exists in the system - it will be ignored.
+**Track VM name change:** Added in v5.8.0 to track any changes to the VM name. This applies if the name is changed on an existing VM (verified by UUID). If the new name already exists in the system, it will be ignored.
 
 **Prepend VM Host Name:** Prepend (add) VMhost name to the front of the discovered guest name for each discovered VM.
 
@@ -105,13 +105,13 @@ Depending on permissions granted and your configured password policies, account 
 
 **Ignore Host OS Info:** Do not discover host operating system information.
 
-**Allow hosts with duplicate serials:** Create two VMs (don't merge) hosts that have the same serial #.
+**Allow hosts with duplicate serials:** Create two VM hosts (don't merge) with the same serial number.
 
 **Ignore host serial #:** Do not discover the host serial number.
 
 **Ignore host UUID #:** Do not discover the host UUID number.
 
-**Action for VM not found:** Choose one of four actions for stale, deleted, or VMs that are no longer discovered.
+**Action for VM not found:** Choose one of the following four actions for stale, deleted, or no longer discovered VMs:
 
 <ThemedImage
   alt="Host Discovery"
@@ -123,13 +123,13 @@ Depending on permissions granted and your configured password policies, account 
 />
 
 - **Remove Host Association**: Remove the host association. 
-- **Change Service Level**: Remove and change the service level to a new specified level. This way it is easy to filter and report on these.
+- **Change Service Level**: Remove and change the service level to a new specified level, to make it easy to filter and report on these VMs.
 - **Delete VM**: Delete the device.
 - **Do Nothing**: Take no action.
 
-**Object Category for discovered devices:** Select an object category to assign to uncategorized devices that are discovered.
+**Object Category for discovered devices:** Select an object category to assign to all uncategorized devices discovered.
 
-**Overwrite existing object categories:** If selected, overwrite existing object categories with the selected category.
+**Overwrite existing object categories:** If selected, existing object categories will be overwritten with the selected category.
 
 ### Hypervisor Options
 
@@ -141,13 +141,13 @@ Depending on permissions granted and your configured password policies, account 
   }}
 />
 
-**Toggle service level on VM power state:** If a VM is powered off, checking this will mark that virtual machine as "Not in Service".
+**Toggle service level on VM power state:** If a VM is powered off, checking this box will mark that VM as "Not in Service".
 
-**Get Guest OS Info:** Grabs the guest OS information for a VM from VMware. This is not as detailed as machine-level WMI/SSH discovery.
+**Get Guest OS Info:** This grabs the guest OS information for a VM from VMware. It is not as detailed as machine-level WMI/SSH discovery.
 
-**Ignore Guest UUID:** Do not discover guest UUID #.
+**Ignore Guest UUID:** Do not discover guest UUID number.
 
-**Discover vCloud:** Discover vCloud instances (if using vCloud connector for vSphere, vRealize, etc.). This will create custom fields for any VMWare tags as well.
+**Discover vCloud:** Discover vCloud instances (if using vCloud connector for vSphere, vRealize, etc.) and create custom fields for any VMWare tags.
 
 ### Miscellaneous Options
 
@@ -159,13 +159,13 @@ Depending on permissions granted and your configured password policies, account 
   }}
 />
 
-**Add first discovered disk for VM:** Add the first discovered vHDD to the device properties (default is false). Might not be accurate for your particular environment so use this option with care.
+**Add first discovered disk for VM:** Add the first discovered vHDD to the device properties (the default is false). This might not be accurate for your particular environment so use this option with care.
 
 ## Run Now or Schedule
 
-You can schedule the autodiscovery to run on a recurring basis. Specifically, you can choose to have it run on certain days of the week and at a specific time each day.
+You can schedule the autodiscovery to run on a recurring basis. Specifically, you can choose to run autodiscovery on certain days of the week and at a specific time each day.
 
-Select **Add another Autodiscovery Schedule** when creating or editing the job to create a run schedule for the job.
+Select **Add another Autodiscovery Schedule** when creating or editing a job to create a run schedule for that job.
 
 <ThemedImage
   alt="Schedule job"
@@ -175,7 +175,7 @@ Select **Add another Autodiscovery Schedule** when creating or editing the job t
   }}
 />
 
-Select **Run Now** from the list page to run the job right away.
+Select **Run Now** from the list page to run the job immediately.
 
 <ThemedImage
   alt="Run job"
