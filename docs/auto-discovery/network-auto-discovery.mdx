@@ -16,8 +16,6 @@ SNMP is a widely supported protocol and standard for managing network-connected 
 
 SNMP is typically used in a read-only capacity, but it can support read and write permissions. By default, it uses port 161. SNMP exposes management data in the form of variables, which are organized in a Management Information Base (MIB). An MIB essentially describes the variables available on a given system, each of which can be remotely queried via SNMP.
 
-Network devices can be discovered by Device42 using SNMP v1, v2c, or v3. If you're looking to do [Storage discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.mdx) via SNMP, you may want to visit the dedicated [SNMP SAN/Server Auto-Discovery](storage-arrays-autodiscovery/snmp-san-server-auto-discovery.mdx) page. SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are the same across all neighbors. Should the credentials \*not\* be the same, you may instead add devices using different credentials separately, as their own discovery job.
-
 :::note 
 SNMP autodiscovery supports IPv6 addresses for device discovery.
 :::
@@ -30,14 +28,14 @@ SNMP discovery will pull in CDP/LLDP neighbors as long as SNMP credentials are t
 
 ### Categories of Discovered SNMP Data
 
-Depending on device type and compatibility matrix linked above, the following data is discovered:
+Depending on the device type and compatibility matrix linked above, the following data is discovered:
 
-- **Switch inventory:** Switch name, serial number, model and manufacturer.
-- **Stacked switches:** For stacked switches, it will add the stack as a cluster device and all physical devices as part of the cluster.
-- **Access Points**: Access points will be added as device type other than controller device as the device host.
+- **Switch inventory:** The switch name, serial number, model, and manufacturer.
+- **Stacked switches:** Stacked switches are added as cluster devices and all physical devices as part of the cluster.
+- **Access Points**: Access points are added as the device host with a device type other than controller device.
 - **VLANs**: Layer 2 VLANs.
 - **Subnets:** Layer 3 subnets.
-- **Switch IP and MAC address**: IP address and MAC address belonging to the switch.
+- **Switch IP and MAC address**: The IP address and MAC address belonging to the switch.
 - **IP to MAC address association:** Basically the ARP table, if available. So all IPs that are available with MAC association.
 - **MAC address to switch port association:** Switch ports and MAC addresses found on that port (MAC table).
 
@@ -132,7 +130,7 @@ Click on the **+ Add another community string** button at the bottom of the **
   }}
 />
 
-Reorder the credentials by clicking the **up** and **down** arrow buttons to the right of the screen.
+Re-order the credentials by clicking the **up** and **down** arrow buttons to the right of the screen.
 
 <ThemedImage
   alt="Move SNMP credentials"
@@ -203,7 +201,7 @@ If you select **Get all switch ports**, you will see six extra form items:
 
 You can set certain OIDs to be ignored globally to prevent them from being collected during SNMP discovery.
 
-Navigate to **Tools > Global Settings** and scroll down to the **Ignore OID(s):** field. Add individual an OID or a group of OIDs using dot notation. For documentation purposes, you can optionally include a comment on the on the same line of the OID(s) using text notation.
+Navigate to **Tools > Global Settings** and scroll down to the **Ignore OID(s):** field. Add an individual OID or a group of OIDs using dot notation. For documentation purposes, you can optionally include a comment in text notation on the same line as the OID(s).
 
 <ThemedImage
   alt="Global Settings Ignore OID(s) field"
@@ -227,7 +225,7 @@ When OIDs are set to be ignored globally, existing discovery jobs will not autom
   }}
 />
 
-Select **Run Now** from the list page to run the job right away.
+Select **Run Now** from the list page to run the job immediately.
 
 <ThemedImage
   alt="SNMP job schedule"
