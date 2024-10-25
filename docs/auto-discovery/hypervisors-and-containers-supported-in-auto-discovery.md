@@ -9,7 +9,7 @@ If you were looking for how-to instructions to get started with Hypervisor, Linu
 
 ## Supported Hypervisor / Container Platforms
 
-Device42 is constantly expanding its list of hypervisor and container platforms supported by autodiscovery. For instructions on how to configure and run these discovery jobs, please refer to [Hypervisor Autodiscovery](auto-discovery/virtual-machine-auto-discovery.md). The list of supported platforms currently includes:
+Device42 is constantly expanding its list of hypervisor and container platforms supported by autodiscovery. For instructions on how to configure and run these discovery jobs, please refer to [Hypervisor Autodiscovery](auto-discovery/virtual-machine-auto-discovery.mdx). The list of supported platforms currently includes:
 
 ![](/assets/images/D42-25011_supported-hyperv-platforms.png)
 
