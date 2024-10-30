@@ -438,7 +438,7 @@ The following is a table of commands we sometimes or always run as `sudo`. For t
 | `vzlist`            | Sometimes      | Aix                                                       |
 | `zlogin`            | Always         | Solaris (For Zones)                                       |
 
-These commands sometimes change, so please check with Device42 for the current list. Below you can see an example of how to allow a particular user or group to run a specific sudo command without being prompted for a password:
+Below you can see an example of how to allow a particular user or group to run a specific sudo command without being prompted for a password:
 
 ```
 **%your-group-here ALL = (ALL) NOPASSWD:/usr/sbin/dmidecode, /sbin/hdparm, /sbin/fdisk**
