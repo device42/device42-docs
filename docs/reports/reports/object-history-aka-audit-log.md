@@ -22,23 +22,23 @@ Go to **Analytics > Audit Logs > History** to view the audit history. Use the se
   }}
 />
 
-The **History (Audit Logs)** table includes the following sortable columns:
+The **History (Audit Logs)** table includes the following sortable columns :
 
-- **Type**: Displays the category of the object the change was made on (for example, Device, Global Settings, Affinity Group, Contract, and so on).
-- **Object**: The specific object that was changed. Click an object to filter the table by that object.
-- **Changed**:  Shows what was added and what was changed. For database objects, the database ID of the object is shown.
-- **Action**: The type of action that was logged (for example, Insert, Delete, Update, View, Login, API).
-- **Origin**: Displays the source of the change (for example, UI, API, Task, and Internal). 
+- **Type**: Indicates the category of the object that was changed (for example, Device, Global Settings, Affinity Group, Contract, and so on).
+- **Object**: Displays the specific object that was changed. Click an object to filter the table by that object.
+- **Changed**: Shows what was added and what was changed. For database objects, the database ID of the object is shown.
+- **Action**: Displays the type of action that was logged (for example, Insert, Delete, Update, View, Login, API).
+- **Origin**: Shows the source of the change (for example, UI, API, Task, and Internal). 
 
 ### Dropdown Filters
 
-Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit results to a specific duration or between specified dates. 
+Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit results to a specific duration. 
 
 The **User**, **Type**, **Action**, and **Origin** dropdown menus are included in the UI by default. To add additional filters, click the **+ More** button.
 
 Use the **Advanced** button to query the audit logs by properties such as `object_id` and `action_id`. 
 
-Click on the gear icon to save the filters you've applied for quick access later or save the view as the default view. 
+Click on the **gear icon** to save the filters you've applied for quick access later or to save the view as the default view. 
 
 <ThemedImage
   alt="Dropdown filters"
@@ -51,7 +51,7 @@ Click on the gear icon to save the filters you've applied for quick access later
 
 ### Export as CSV
 
-Under the **Action** menu is the option to **Export Selected Columns as CSV**. Click the hammer icon to execute the action. 
+Under the **Action** menu is the option to **Export Selected Columns as CSV**. Click the **hammer icon** to execute the action. 
 
 <ThemedImage
   alt="Action dropdown"
