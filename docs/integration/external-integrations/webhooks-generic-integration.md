@@ -3,47 +3,70 @@ title: "Webhooks - Generic Integration"
 sidebar_position: 28
 ---
 
-## What is a webhook and how are they used in Device42?
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Webhooks are used to initiate an external action in another part of your IT environment when some "event", based on rules you define, occurs. Also known as _HTTP callbacks_, webhooks are "fired" at HTTP endpoints (URLs) when a configured "Webhook Action" criteria is met. Within Device42, anything that produces an audit-log entry can also be configured to "fire" a webhook.
+## What Is a Webhook and How Are They Used in Device42?
 
-For example, when a Device42 auto-discovery job finds a new device, when details about an existing device change, or when an existing device is deleted are three simple examples of actions that can be configured to trigger webhooks from Device42. An IT Administrator might configure a webhook to deliver a "message" to one or more IT employees via a webhook-compatible endpoint _(like Slack or Skype)_, letting them know that this action took place.
+Webhooks are used to initiate an external action in another part of your IT environment when an 'event', based on rules you define, occurs. Also known as **HTTP callbacks**, webhooks send data to HTTP endpoints (URLs) when a configured **Webhook Action** condition is met. In Device42, any change that produces an audit-log entry can be configured to trigger a webhook.
 
-## Creating a webhook action in Device42
+An IT administrator might configure a webhook to deliver a message to one or more IT employees via a webhook-compatible endpoint (like Slack or Skype), letting them know when a webhook action has taken place.
 
-Configuring Device42 to send a webhook is a simple two-step process:
+A webhook can be triggered by other events, such as when an autodiscovery job finds a new device, when details about an existing device change, and when an existing device is deleted.
 
-1. Define one or more **Webhook Endpoints:** the HTTP URLs Device42 should send your webhooks to via **Tools -> Webhooks -> Endpoints -> Add Webhook Endpoint**.
+## Define a Webhook in Device42
 
-![](/assets/images/WEB-806_1.png)
+Configuring Device42 to send a webhook is a simple process of two broad steps:
 
-2. Define a **Webhook Action:** the Device42 action(s) that will trigger your webhook, and the endpoints they should go to via **Tools -> Webhooks -> Actions -> Add Webhook Actions**. 
+1. Navigate to **Tools > Webhooks > Endpoints** and click **+ Add Webhook Endpoint** to define one or more HTTP URLs that Device42 should send your webhooks to. See [Webhook Endpoint Options](#webhook-endpoint-options) for an explanation of the fields. 
 
-![](/assets/images/WEB-806_2.png)
+    <ThemedImage
+    alt="Webhook endpoint"
+    sources={{
+        light: useBaseUrl('/assets/images/webhooks-generic-integration/add-endpoint-light.png'),
+        dark: useBaseUrl('/assets/images/webhooks-generic-integration/add-endpoint-dark.png'),
+    }}
+    />
 
-## Webhook Options
+2. Define the Device42 action(s) that will trigger your webhook. Go to **Tools > Webhooks > Actions** and click **+ Add Webhook Action**. The webhook will be triggered when changes are made to the object categories you select from the **Available categories**. 
 
-### Webhook Action Screen options
+    <ThemedImage
+    alt="Webhook action"
+    sources={{
+        light: useBaseUrl('/assets/images/webhooks-generic-integration/define-action-light.png'),
+        dark: useBaseUrl('/assets/images/webhooks-generic-integration/define-action-dark.png'),
+    }}
+    />
 
-- **Name:** User-defined name for webhook action 
-- **Process All Categories:** Hides "Available Categories" choices; webhooks fired on changes in all categories 
-- **Available Categories:** Specify the CI categories you'd like to trigger the webhook on 
-- **Process Add Events:** Trigger a webhook if a new CI is added to a _Chosen Categories_ 
-- **Process Delete Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is deleted 
-- **Process Change Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is Changed 
-- **Process View Events:** Trigger a webhook if a "View event" is logged on a CI in _Chosen Categories_ 
-- **Process Login Events:** Trigger a webhook if a "Login event" is recorded on a CI in _Chosen Categories_ 
-- **Destination:** Choose the defined endpoint(s) to receive triggered webhook events
+    Add the endpoint you defined in Step 1 by clicking **+ Add another Webhook Action Endpoints**. See [Webhook Actions Options](#webhook-action-options) for an explanation of the fields. 
+  
+    <ThemedImage
+    alt="Add endpoint"
+    sources={{
+        light: useBaseUrl('/assets/images/webhooks-generic-integration/add-destination-light.png'),
+        dark: useBaseUrl('/assets/images/webhooks-generic-integration/add-destination-light.png'),
+    }}
+    />
 
-### Webhook Endpoint Screen options
+### Webhook Endpoint Options
 
-![](/assets/images/WEB-806_3.png)
+- **Name:** Provide a name for the webhook endpoint. 
+- **URL:** Enter the URL destination where the webhook sends data about the event.
+- **Endpoint:** Choose **Slack** or **Zapier** to reveal fields specific to those endpoints or select **Custom** if targeting anything else. 
+- **Channel:** _Slack Endpoint only_. Specify the Slack channel that should receive a message when the webhook is received.
+- **Username:** _Slack Endpoint only_. Specify the Slack username for the account that sends the message.
+- **Icon:** _Slack Endpoint only_. Specify a custom icon that is sent when the webhook is triggered.
+- **Webhook Header:** Define custom header payloads in the **Name** and **Token** fields.
 
+### Webhook Action Options
 
-- **Name:** User-defined name for webhook endpoint 
-- **URL:** URL destination for webhook 
-- **Endpoint:** Choose Slack or Zapier to reveal fields specific to those endpoints; Choose custom if targeting anything else 
-- **Channel:** _Slack Endpoint only_; Specify Slack channel that should receive message when webhook is received 
-- **Username:** _Slack Endpoint only_; Specify the Slack username the message will originate "From" 
-- **Icon:** _Slack Endpoint only_; Specify a custom "From" icon 
-- **Webhook Header:** Define custom Header payloads; each includes a user-defined 'Name' and 'Token' field.
+- **Name:** Enter a name for the webhook action. 
+- **Process All Categories:** Select this option to hide the **Available Categories** choices, causing the webhook to be triggered by changes in all categories. 
+- **Available Categories:** Specify which Configuration Item (CI) categories trigger the webhook. 
+- **Process Add Events:** Trigger a webhook if a new CI is added to a **Chosen Categories** object.
+- **Process Delete Events:** Trigger a webhook if a CI in any of the **Chosen Categories** is deleted. 
+- **Process Change Events:** Trigger a webhook if a CI in any of the **Chosen Categories** is Changed. 
+- **Process View Events:** Trigger a webhook if a "View event" is logged on a CI in the **Chosen Categories**. 
+- **Process Login Events:** Trigger a webhook if a "Login event" is recorded on a CI in the **Chosen Categories**.
+- **Destination:** Choose the defined endpoint(s) to receive data from the triggered webhook event.
+- **Changed Fields Only:** Trigger a webhook only when changes are made to significant fields and not when changes are made to metadata like logs or notes.
