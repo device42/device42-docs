@@ -1,40 +1,99 @@
 ---
-title: "Object History (aka audit log)"
+title: "Object History (Audit Logs)"
 sidebar_position: 11
 ---
 
-Every action in Device42 via the User interface, autodiscovery jobs, RESTful API calls or imports are recorded as history. In this section, we discuss how to view the history.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Centralized audit log
+Every change made to Device42 Configuration Items (CIs), via the user interface, autodiscovery jobs, RESTful API calls, or imports, is recorded as history. 
 
-![wpid2183-history.png](/assets/images/wpid2183-history.png)
+This section discusses how to view and filter audit logs and exclude object categories (models) from being logged. 
 
-Go to **Analytics > Audit Logs > History** to view the audit history.
+## The Audit Log List Page
 
-The Type column shows the category of he object (e.g. device, customer, contract, hardware, ...).
+Go to **Analytics > Audit Logs > History** to view the audit history. Use the search bar on the right to find changes made by a specific user or source. 
 
-The Object column shows the specific object that was changed. Clicking on an object in this column will filter the display to show only log entries for this object.
+<ThemedImage
+  alt="History (audit log) list page"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-list-page-dark.png'),
+  }}
+/>
 
-The Changed column show what was added and what was changed. For any database objects, the database id of the object is shown.
+The **History (Audit Logs)** table includes the following sortable columns :
 
-The Action column shows the type of action that was logged (e.g. Insert, Delete, Update, View, Login, API).
+- **Type**: Indicates the category of the object that was changed (for example, Device, Global Settings, Affinity Group, Contract, and so on).
+- **Object**: Displays the specific object that was changed. Click an object to filter the table by that object.
+- **Changed**: Shows what was added and what was changed. For database objects, the database ID of the object is shown.
+- **Action**: Displays the type of action that was logged (for example, Insert, Delete, Update, View, Login, API).
+- **Origin**: Shows the source of the change (for example, UI, API, Task, and Internal). 
 
-The From column shows you if it was done through the UI, API, bulk import, a task, etc.
+### Dropdown Filters
 
-The Search box enables you to search for a specific username and/or type of content.
+Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit results to a specific duration. 
 
-### History filters
+The **User**, **Type**, **Action**, and **Origin** dropdown menus are included in the UI by default. To add additional filters, click the **+ More** button.
 
-![wpid2184-History_filters.png](/assets/images/wpid2184-History_filters.png)
+Use the **Advanced** button to query the audit logs by properties such as `object_id` and `action_id`. 
 
-The Filter box allows you to filter down the audit results displayed by action time, action, from, user name, or content type.
+Click on the **gear icon** to save the filters you've applied for quick access later or to save the view as the default view. 
 
-### Object history from individual objects
+<ThemedImage
+  alt="Dropdown filters"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/time-filter-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/time-filter-dark.png'),
+  }}
+/>
 
-![wpid2185-Object_history_from_individual_objects.png](/assets/images/wpid2185-Object_history_from_individual_objects.png)
 
-In addition to this centralized audit log, you can access object history for an individual object from any object's view or edit page. In this history you will be able to filter between direct changes to the device, as well as changes to related objects such as software and services. The default view is for "Direct Only". So if you would like to see changes made to related data, such as the IPs of a device, you will need to change the Related option to "All" or "Related Only".
+### Export as CSV
 
-### Accessing Legacy Change History
+Under the **Action** menu is the option to **Export Selected Columns as CSV**. Click the **hammer icon** to execute the action. 
 
-With the release of the enhanced Audit Log in version 10.3.0 of Device42, change history from previous versions has been moved to Tools>Templates and Bulk Operations>Misc Tools, Legacy Change History. This will allow you to access changes made prior to 10.3.0. A report is also available titled "Change History" that will allow you to easily export the old change history.
+<ThemedImage
+  alt="Action dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/action-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/action-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
+
+## View History for Individual Objects
+
+In addition to this centralized audit log, you can access the history of an individual object from its view or edit page. 
+
+<ThemedImage
+  alt="Object history button"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-dark.png'),
+  }}
+/>
+
+The default view is **Direct Only**. To see changes made to related data, such as the IPs of a device, change the filter option to **All** or **Related Only**.
+
+<ThemedImage
+  alt="Object history filter"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-dark.png'),
+  }}
+/>
+
+## Audit Log Exclusions
+
+You can turn off history tracking for object categories. Navigate to **Tools > Settings > History (Audit Log) Exclusions** and click **Edit**. 
+
+Select one or more object categories from the **Available Models** and use the arrow button to add them to the **Excluded Models** box. 
+
+<ThemedImage
+  alt="Select exclusions interface"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/exclusions-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/exclusions-dark.png'),
+  }}
+/>
