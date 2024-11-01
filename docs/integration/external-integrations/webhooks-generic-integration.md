@@ -62,7 +62,7 @@ Configuring Device42 to send a webhook is a simple process of two broad steps:
 
 - **Name:** Enter a name for the webhook action. 
 - **Process All Categories:** Select this option to hide the **Available Categories** choices, causing the webhook to be triggered by changes in all categories. 
-- **Available Categories:** Specify which CI categories trigger the webhook. 
+- **Available Categories:** Specify which Configuration Item (CI) categories trigger the webhook. 
 - **Process Add Events:** Trigger a webhook if a new CI is added to a **Chosen Categories** object.
 - **Process Delete Events:** Trigger a webhook if a CI in any of the **Chosen Categories** is deleted. 
 - **Process Change Events:** Trigger a webhook if a CI in any of the **Chosen Categories** is Changed. 
