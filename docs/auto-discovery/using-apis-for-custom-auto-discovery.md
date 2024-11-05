@@ -2,7 +2,7 @@
 title: "Using APIs for Custom Autodiscovery"
 sidebar_position: 34
 ---
-If you find you need autodiscovery methods that aren't provided by Device42, you can create your own autodiscovery tools that use Device42 APIs to load data into a Device42 instance.
+If you need autodiscovery methods that aren't provided by Device42, you can create your own autodiscovery tools that use Device42 APIs to load data into a Device42 instance.
 
 Device42 provides several [sample scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts) you can use as a basis for custom autodiscovery tools, including the following:
 
@@ -14,7 +14,7 @@ Device42 provides several [sample scripts](https://github.com/device42/Device42-
 - `linux_auto_dics_multi.py`: This script runs on a *nix system with Paramiko to get inventory using SSH from an IP range, and uploads to the Device42 appliance.
 - `winservice.py`: This script runs against Active Directory computers, servers, or a list of IP addresses, and uploads discovered services as application components to the Device42 appliance.
 
-All these scripts are written in Python, but you can use any programming language that can call RESTful APIs.
+All these scripts are written in Python, but you can use any programming language that calls RESTful APIs.
 
 The remainder of this document demonstrates how to use one of these scripts. We use IronPython for this example because it is simple to install. You can drop the executables into a folder, and as long as you have the .NET 4 framework installed, you are good to go.
 
