@@ -16,6 +16,8 @@ If you are looking for instructions to get started with Hypervisor, Linux (\*nix
 
 Device42 is constantly expanding the hypervisor and container platforms supported by autodiscovery. 
 
+For instructions on how to configure and run these discovery jobs, please refer to [Hypervisor Autodiscovery](auto-discovery/virtual-machine-auto-discovery.mdx). 
+
 The list of supported platforms currently includes:
 
 - \*nix
