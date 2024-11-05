@@ -1,0 +1,99 @@
+---
+title: "Object History (Audit Logs)"
+sidebar_position: 11
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Every change made to Device42 Configuration Items (CIs), via the user interface, autodiscovery jobs, RESTful API calls, or imports, is recorded as history. 
+
+This section discusses how to view and filter audit logs and exclude object categories (models) from being logged. 
+
+## The Audit Log List Page
+
+Go to **Analytics > Audit Logs > History** to view the audit history. Use the search bar on the right to find changes made by a specific user or source. 
+
+<ThemedImage
+  alt="History (audit log) list page"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-list-page-dark.png'),
+  }}
+/>
+
+The **History (Audit Logs)** table includes the following sortable columns :
+
+- **Type**: Indicates the category of the object that was changed (for example, Device, Global Settings, Affinity Group, Contract, and so on).
+- **Object**: Displays the specific object that was changed. Click an object to filter the table by that object.
+- **Changed**: Shows what was added and what was changed. For database objects, the database ID of the object is shown.
+- **Action**: Displays the type of action that was logged (for example, Insert, Delete, Update, View, Login, API).
+- **Origin**: Shows the source of the change (for example, UI, API, Task, and Internal). 
+
+### Dropdown Filters
+
+Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit results to a specific duration. 
+
+The **User**, **Type**, **Action**, and **Origin** dropdown menus are included in the UI by default. To add additional filters, click the **+ More** button.
+
+Use the **Advanced** button to query the audit logs by properties such as `object_id` and `action_id`. 
+
+Click on the **gear icon** to save the filters you've applied for quick access later or to save the view as the default view. 
+
+<ThemedImage
+  alt="Dropdown filters"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/time-filter-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/time-filter-dark.png'),
+  }}
+/>
+
+
+### Export as CSV
+
+Under the **Action** menu is the option to **Export Selected Columns as CSV**. Click the **hammer icon** to execute the action. 
+
+<ThemedImage
+  alt="Action dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/action-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/action-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
+
+## View History for Individual Objects
+
+In addition to this centralized audit log, you can access the history of an individual object from its view or edit page. 
+
+<ThemedImage
+  alt="Object history button"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-dark.png'),
+  }}
+/>
+
+The default view is **Direct Only**. To see changes made to related data, such as the IPs of a device, change the filter option to **All** or **Related Only**.
+
+<ThemedImage
+  alt="Object history filter"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-dark.png'),
+  }}
+/>
+
+## Audit Log Exclusions
+
+You can turn off history tracking for object categories. Navigate to **Tools > Settings > History (Audit Log) Exclusions** and click **Edit**. 
+
+Select one or more object categories from the **Available Models** and use the arrow button to add them to the **Excluded Models** box. 
+
+<ThemedImage
+  alt="Select exclusions interface"
+  sources={{
+    light: useBaseUrl('/assets/images/object-history-aka-audit-log/exclusions-light.png'),
+    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/exclusions-dark.png'),
+  }}
+/>
