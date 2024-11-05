@@ -3,7 +3,13 @@ title: "Vendors Supported in SNMP Autodiscovery"
 sidebar_position: 35
 ---
 
-Device42 aims to support as many vendors as possible for SNMP-based discovery. We have verified support for the following list of vendors:
+Device42 aims to support as many vendors as possible for SNMP-based discovery. Here's a list of vendors that we have verified support for.
+
+Note that this list is not all-inclusive; it's intended to give a sense of the vendors that we support. 
+
+Even if the vendor is not listed, discovery will generally still bring in some information even if your specific hardware has not yet been added. 
+
+## Vendors that we've verified support for include:
 
 |              |             |              |             |            |
 |--------------|-------------|--------------|-------------|------------|
@@ -48,14 +54,15 @@ Device42 aims to support as many vendors as possible for SNMP-based discovery. W
 | CPI          | Isilon      | Ricoh        | Uplogix     |            |
 | Cradlepoint  | Juniper     | Riedo        | UTP         |            |
 
-:::note
-This list is not all-inclusive; it's intended to give you a sense of the vendors that we support.
 
-Even if a vendor is not listed, discovery usually still brings in some information, even if the specific hardware has not been added yet.
-:::
+## Adding support for non-verified vendors
 
-## Adding Support for Unverified Vendors
+Device42 is open to supporting as many vendors as possible for SNMP-based discovery. Should you happen to run across a device that isn't being discovered fully, or if you have hardware you'd like to see supported, simply go ahead and [generate an SNMPwalk of the device](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md) in question by navigating to **Application > Generate SNMP Template** in your Appliance Manager.
 
-If you come across a device that isn't fully discovered or if you have hardware you want to see supported, you can [generate an SNMP walk of the device](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md) by navigating to **Application > Generate SNMP Template** in your Appliance Manager.
+Fill out the form and attach your MIB Files. Once this processes, select the standard data you're looking to have added. After you've completed this form, it will be routed to our engineers for inclusion!
 
-Fill out the form and attach your MIB Files. Once this processes, select the standard data you want added. Once you've completed this form, it will be routed to our engineers for inclusion!
+
+
+
+ 
+
