@@ -3,7 +3,13 @@ title: "Vendors Supported in SNMP Autodiscovery"
 sidebar_position: 35
 ---
 
-Device42 aims to support as many vendors as possible for SNMP-based discovery. We have verified support for the following list of vendors:
+Device42 aims to support as many vendors as possible for SNMP-based discovery. Here's a list of vendors that we have verified support for.
+
+Note that this list is not all-inclusive; it's intended to give a sense of the vendors that we support. 
+
+Even if the vendor is not listed, discovery will generally still bring in some information even if your specific hardware has not yet been added. 
+
+## Vendors that we've verified support for include:
 
 |              |             |              |             |            |
 |--------------|-------------|--------------|-------------|------------|
@@ -48,13 +54,8 @@ Device42 aims to support as many vendors as possible for SNMP-based discovery. W
 | CPI          | Isilon      | Ricoh        | Uplogix     |            |
 | Cradlepoint  | Juniper     | Riedo        | UTP         |            |
 
-:::note
-This list is not all-inclusive; it's intended to give you a sense of the vendors that we support.
 
-Even if a vendor is not listed, discovery usually still brings in some information, even if the specific hardware has not been added yet.
-:::
-
-## Adding Support for Unverified Vendors
+## Adding support for non-verified vendors
 
 If you come across a device that isn't fully discovered or if you have hardware that you want to see supported, you can [generate an SNMP walk of the device](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md) by navigating to **Application > Generate SNMP Template** in your Appliance Manager.
 
