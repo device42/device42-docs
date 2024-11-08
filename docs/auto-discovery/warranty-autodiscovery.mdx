@@ -6,11 +6,11 @@ sidebar_position: 37
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-# Discover Warranty Details with Device42
+## Discover Warranty Details With Device42
 
-Device42 supports autodiscovery of hardware warranties, making tracking within Device42 a breeze.
+Device42 supports the autodiscovery of hardware warranties, making tracking within Device42 a breeze.
 
-The Device42 warranty autodiscovery and management tools will find and help you keep track of your hardware warranties from Dell, IBM, Lenovo, and Meraki. The functionality originally started as a standalone script, which still functions, and is now integrated into the main UI – select _Discovery > Warranty Sync_ from the main menu.
+The Device42 warranty autodiscovery and management tools find and help you track your hardware warranties from Dell, IBM, Lenovo, and Meraki. The functionality originally started as a standalone script, which still functions, and is now integrated into the main UI. Select **Discovery > Warranty Sync** from the main menu.
 
 <ThemedImage
   alt="Warranty sync menu"
@@ -20,11 +20,11 @@ The Device42 warranty autodiscovery and management tools will find and help you 
   }}
 />
 
-To configure automatic warranty discovery, you'll need to simply request API keys from the vendors that require them (currently Dell and Meraki), and once you've provided Device42 with your API access keys, simply let Device42 loose! As long as your device CIs have a model and serial number present so Device42 knows what vendor to ask, and the ID of the machine, warranty autodiscovery does the rest, automatically discovering and populating your hardware's service contract information.
+To configure automatic warranty discovery, you need to request API keys from the vendors that require them (currently Dell and Meraki). Once you've provided Device42 with the API access keys, machine IDs, and CI model and serial numbers, the warranty autodiscovery automatically discovers and populates your hardware's service contract information.
 
-## Detailed Warranty Sync Instructions
+### Detailed Warranty Sync Instructions
 
-**Supported Vendors:**
+Device42 supports warranty autodiscovery for the following vendors:**
 
 - Dell
 - IBM
@@ -32,57 +32,61 @@ To configure automatic warranty discovery, you'll need to simply request API key
 - Meraki
 - Cisco (Preview)
 
-**Note**: Cisco Warranty Discovery is a preview feature of Device42 v18.01.00.
+:::note
+Cisco Warranty Discovery is a preview feature of Device42 v18.01.00.
+:::
 
-### API Keys, Configuration and Prerequisites:
+### API Keys, Configuration, and Prerequisites
 
-1. For the script to successfully retrieve warranty information for a given device, the device’s model and serial number fields must be correctly filled out (entered or discovered). If you have more than one Vendor entry for a given vendor, the best option is to merge them prior to discovery. For example, to merge all lexical variations of "Dell" into a single vendor, head to _Infrastructure -> Vendors_ and check the boxes next to all variations of 'dell': 
+1. For the script to successfully retrieve warranty information for a given device, the device model and serial number fields must be correctly filled out (entered or discovered). If you have more than one vendor entry for a given vendor, the best option is to merge them prior to discovery.
 
+    For example, to merge all lexical variations of "Dell" into a single vendor, head to **Infrastructure -> Vendors** and check the boxes next to all the relevant variations:
 
-<ThemedImage
-  alt="Merge lexically similar vendors"
-  sources={{
-    light: useBaseUrl('/assets/images/discover-warranty-merge-light.png'),
-    dark: useBaseUrl('/assets/images/discover-warranty-merge-dark.png'),
-  }}
-  
-/>
-<br/><br/>
+    <ThemedImage
+      alt="Merge lexically similar vendors"
+      sources={{
+        light: useBaseUrl('/assets/images/discover-warranty-merge-light.png'),
+        dark: useBaseUrl('/assets/images/discover-warranty-merge-dark.png'),
+      }}
+    />
+    <br/><br/>
 
-2. The Device42 _Model field_ must be set to one of the following: _Dell, IBM, Lenovo, or Meraki_ – hardware with different vendor name variations will not return a warranty. You can easily add the proper Alias to each vendor if your vendors are named differently. On the vendor edit screen, simply add _dell_ to the Dell vendor entry, _ibm_ for IBM, _meraki_ for Meraki, and finally _lenovo_ to the Lenovo vendor entry: 
+2. The Device42 **Model** field must be set to  **Dell**, **IBM**, **Lenovo**, or **Meraki**. Hardware with different vendor name variations will not return a warranty. You can easily add the proper **Vendor Aliases** to the vendors if your vendors are named differently. On the vendor edit screen, update the vendor entries. Simply enter `dell` for  Dell `ibm` for IBM, `meraki` for Meraki, and `lenovo` for Lenovo:
 
-<ThemedImage
-  alt="Edit vendor"
-  sources={{
-    light: useBaseUrl('/assets/images/discover-warranty-vendor-light.png'),
-    dark: useBaseUrl('/assets/images/discover-warranty-vendor-dark.png'),
-  }}
-/>
+    <ThemedImage
+      alt="Edit vendor"
+      sources={{
+        light: useBaseUrl('/assets/images/discover-warranty-vendor-light.png'),
+        dark: useBaseUrl('/assets/images/discover-warranty-vendor-dark.png'),
+      }}
+    />
 
-<ThemedImage
-  alt="Add vendor aliases"
-  sources={{
-    light: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-light.png'),
-    dark: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-dark.png'),
-  }}
-/>
-<br/><br/>
+    <ThemedImage
+      alt="Add vendor aliases"
+      sources={{
+        light: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-light.png'),
+        dark: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-dark.png'),
+      }}
+    />
+    <br/><br/>
 
 3. Get your API keys:
 
-    **Dell API key**: Instructions for obtaining a Dell API key are available (this moved to TechDirect, now requires a valid Dell login) from here: [TechDirect APIs](https://tdm.dell.com/td-auth?lang=en_UShttps://techdirect.dell.com/Portal/Login.aspx?ReturnUrl=%2Fportal%2FAboutAPIs.aspxtdLegacyUrl=%2Fportal%2FAboutAPIs.aspx).
+    **Dell API key**: Instructions for obtaining a Dell API key are now available from [TechDirect](https://tdm.dell.com/td-auth?lang=en_UShttps://techdirect.dell.com/Portal/Login.aspx?ReturnUrl=%2Fportal%2FAboutAPIs.aspxtdLegacyUrl=%2Fportal%2FAboutAPIs.aspx), which requires a valid Dell login.
 
-    **Meraki API keys**: A Meraki API key must be obtained to enable Device42 to retrieve warranty information. Here are [instructions to obtain a Meraki API key](https://developer.cisco.com/meraki/api-v1/#!authorization/obtaining-your-meraki-api-key).
+    **Meraki API keys**: Device42 requires you to [obtain a Meraki API key](https://developer.cisco.com/meraki/api-v1/#!authorization/obtaining-your-meraki-api-key) min order to retrieve warranty information.
 
-    **Lenovo API keys**: Lenovo provides a warranty lookup API key to customers requesting it through their Sales or Support Account Representatives.
+    **Lenovo API keys**: Lenovo provides a warranty lookup API key to customers who request it via Lenovo Sales or Support Account Representatives.
 
-    ** IBM API keys**: Log in to your [IBM account](https://login.ibm.com/authsvc/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=https%3A%2F%2Flogin.ibm.com%2Foidc%2Fendpoint%2Fdefault%2Fauthorize%3FqsId%3D18d7b5a9-bbe1-4d66-9e31-57a48ef148c5%26client_id%3DOGMyMGQ1MzQtZDFhYi00) for warranty lookup information.
+    **IBM API keys**: Log in to your [IBM account](https://login.ibm.com/authsvc/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=https%3A%2F%2Flogin.ibm.com%2Foidc%2Fendpoint%2Fdefault%2Fauthorize%3FqsId%3D18d7b5a9-bbe1-4d66-9e31-57a48ef148c5%26client_id%3DOGMyMGQ1MzQtZDFhYi00) to access your warranty lookup information.
 
-    **Note:** If using the standalone warranty script (instructions in  the _STANDALONE_ section below), Python 2.7 must be installed along with the python library requests.
+    :::note
+    If using the standalone warranty script (instructions in the **STANDALONE** section below), Python 2.7 must be installed along with the python library requests.
+    :::
 
 ### Secure Communication Details
 
-Both the UI and the warranty script transmit the same information (relevant serial number(s)) to the appropriate vendor via port 443 SSL, including the API key entered into Device42 for this purpose _only_ if required by the vendor (Dell/Meraki). Payload looks as follows:
+Both the UI and the warranty script transmit the same information (relevant serial number(s)) to the appropriate vendor via port 443 SSL. This only includes the API key entered into Device42 if required by the vendor (Dell or Meraki). Payload looks as follows:
 
 ```
 payload = {'id': inline_serials, 'apikey': self.api_key, 'accept': 'Application/json'}
@@ -96,18 +100,19 @@ Lenovo/IBM - support.lenovo.com https port 443
 Meraki - api.meraki.com https port 443
 ```
 
-## Configuring a Job / API Key Example
+## Configuring a Job With an API Key
 
-1. Select _Discovery > Warranty Sync_ from the main menu, then click _Add Warranty Check_ and name your job.
-2. Select a vendor:
+1. Select **Discovery > Warranty Sync** from the main menu, click **Add Warranty Check**, and **Name** your job.
+2. Select a **Vendor**:
     
-    For Dell or Meraki, be sure to enter your matching API key (see _API Keys_ section above for details on obtaining a Dell/Meraki API key). If you select Dell, be sure to select the API Version from the drop-down list (current default is Version 5).
+    For Dell or Meraki, be sure to enter your matching API key (see the **API Keys** section above for details on obtaining a Dell or Meraki API key). If you select Dell, ensure you choose the API version from the dropdown (the current default is version 5).
     
-    For IBM/Lenovo, you are required to be a large enterprise customer and will need to contact your sales representative who will put you in contact with the correct team for the API key.
+    For IBM or Lenovo, you are required to be a large enterprise customer and need to contact a sales representative who will put you in contact with the correct team for the API key.
     
-3. You can add your API key right from this screen. Click the magnifying glass on the _Access Key_ field, and in the upper right of the window that opens, click _Add Password_ and add your key as shown below. Repeat these steps for the _Secret Key_ if necessary.
-4. Choose your Order Number Generation and Debug Level options, set a schedule if desired, and save the job.
-5. Go ahead and run the job!
+3. Add your API key right by clicking the magnifying glass on the **Access Key** field, clicking **Add Password** in the upper-right corner of the popup, and add your key as shown below. Repeat these steps for the **Secret Key** if necessary.
+4. Choose your **Order Number Type** and **Debug level** options.
+5. Set a schedule if desired and save the job.
+6. Go ahead and run the job!
 
 <ThemedImage
   alt="Add API key"
@@ -117,54 +122,57 @@ Meraki - api.meraki.com https port 443
   }}
 />
 
-As long as your API key is active, and devices have a valid model, vendor, and serial information the sync will gather warranty information. On each device in the _LifeCycle_ tab or in _Infrastructure > Purchases_, you will find past and present warranty information. This includes order details, contract/service types, and dates.
+As long as your API key is active, and devices have a valid model, vendor, and serial number, the sync will gather warranty information. On each device in the **Life Cycle** tab or under **Infrastructure > Purchases**, you will find past and present warranty information. This includes order details, contract and service types, and dates.
 
 ![](/assets/images/WEB-598_warranty-ad-purchase-support-tab.png)
 
-## If you are using the STANDALONE Warranty Script:
+### Configuring the STANDALONE Warranty Script
 
-1. Create a working directory. Copy the files from [Device42’s GitHub `warranty_check` Repo](https://github.com/device42/warranty_check/)
-2. Copy the file _warranty.cfg.example_ to _warranty.cfg_
-3. Set the required parameters in warranty.cfg _[D42 instance info & API keys]_:
+1. Create a working directory. Copy the files from [Device42’s `warranty_check` GitHub repo](https://github.com/device42/warranty_check/).
+2. Copy the file `warranty.cfg.example` to `warranty.cfg`.
+3. Set the required parameters in `warranty.cfg` **[D42 instance info & API keys]**:
 
-<ThemedImage
-  alt="Warranty script"
-  sources={{
-    light: useBaseUrl('/assets/images/discovery-warranty-script-light.png'),
-    dark: useBaseUrl('/assets/images/discovery-warranty-script-dark.png'),
-  }}
-/>
+    <ThemedImage
+      alt="Warranty script"
+      sources={{
+        light: useBaseUrl('/assets/images/discovery-warranty-script-light.png'),
+        dark: useBaseUrl('/assets/images/discovery-warranty-script-dark.png'),
+      }}
+    />
 
-4. Run the script! `$ python starter.py`
+4. Run the script!
 
-## Obtaining the Standalone Script (note: may be deprecated in the future)
+    ```
+    $ python starter.py
+    ```
 
-As noted above, this functionality is now built into the main UI:
+### Obtaining the STANDALONE Script
 
-The latest version of the standalone script can be [downloaded from GitHub](https://codeload.github.com/device42/warranty_check/zip/refs/heads/master)
+As noted above, this functionality is now built into the main UI.
 
-## Cisco Support API Info
+The latest version of the standalone script can be [downloaded from GitHub](https://codeload.github.com/device42/warranty_check/zip/refs/heads/master), although this may be deprecated in future.
+
+### Cisco Support API Info
 
 :::info
-The required Cisco API, SN2INFO, is not available by default and access needs to be requested from Cisco.
+The required Cisco API, SN2INFO, is not available by default and you need to request access from Cisco.
 :::
 
-Cisco discovery specifically uses Cisco’s Support API labeled `Serial Number to Information`. The endpoint used is: 
+Cisco discovery specifically uses the Cisco support API, labeled **Serial Number to Information**, and the following endpoint: 
 `https://apix.cisco.com/sn2info/v2/coverage/summary/serial_numbers/{sr_no,sr_no,sr_no}.`
 
-Click this link for more information: [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!serial-number-to-information/get-coverage-summary-by-serial-numbers)
+Visit [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!serial-number-to-information/get-coverage-summary-by-serial-numbers) to learn more about the Cisco support API.
 
-If you have questions on getting access to the Cisco Support APIs, you can do so by registering an application on the Cisco API Console. You should have only the Client Credentials checkbox selected and nothing else. This should allow you to use your client ID and secret to generate a authorization token using oauth2.0 to make requests to the API.
+If you have questions about accessing the Cisco Support API, you can register an application on the Cisco API console. Select only the Client Credentials checkbox selected and nothing else. This should allow you to use your client ID and secret to generate an authorization token, using OAuth 2.0 to make requests to the API.
 
-Click this link for more information: [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!application-registration/application-registration)
+Visit [![](https://static.production.devnetcloud.com/images/favicon.ico)Cisco Developer](https://developer.cisco.com/docs/support-apis/#!application-registration/application-registration) to learn more about registering an application.
 
-The App Registration form in the Cisco API console is where a majority of the configuration is needed to get Cisco warranty discovery working.
+Most of the configuration information required for a successful Cisco warranty discovery is entered in the App Registration form in the Cisco API console.
 
-The "Application Type" should be a "Service".
+The **Application Type** should be a **Service**.
 
-The API should be enabled and will be displayed in the "My Apps & Keys" section.
+The API should be enabled and will be displayed in the **My Apps & Keys** section.
 
+### Meraki Details
 
-## Meraki Details
-
-For Meraki warranty discovery, they require that a user has all access points with corresponding serial numbers and hardware model set to "Meraki" as vendor prior to sync.
+For Meraki warranty discovery, all access points with corresponding serial numbers and hardware models need to have **Meraki** set as the vendor prior to sync.
