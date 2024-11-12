@@ -57,12 +57,6 @@ Even if the vendor is not listed, discovery will generally still bring in some i
 
 ## Adding support for non-verified vendors
 
-Device42 is open to supporting as many vendors as possible for SNMP-based discovery. Should you happen to run across a device that isn't being discovered fully, or if you have hardware you'd like to see supported, simply go ahead and [generate an SNMPwalk of the device](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md) in question by navigating to **Application > Generate SNMP Template** in your Appliance Manager.
+If you come across a device that isn't fully discovered or if you have hardware that you want to see supported, you can [generate an SNMP walk of the device](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md) by navigating to **Application > Generate SNMP Template** in your Appliance Manager.
 
-Fill out the form and attach your MIB Files. Once this processes, select the standard data you're looking to have added. After you've completed this form, it will be routed to our engineers for inclusion!
-
-
-
-
- 
-
+Fill out the form, attach your MIB files, and select the standard data you want added. Once you've completed this form, it will be routed to our engineers for inclusion!
