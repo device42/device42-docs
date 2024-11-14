@@ -8,7 +8,7 @@ sidebar_position: 1
 The Device Add and  Change pages have direct entry for device properties such as name, asset number, and serial number. You can also set the device _Type_, which allows you to define a Physical, Virtual or Cluster device. The _Network Device_ checkbox should be checked for all network hardware, _Blade Chassis_ if the device happens to be a blade chassis, and _Virtual/Container Host_ if the device will host virtual devices. Service Level defines a device's production status, while _Hardware_ allows a user to select the appropriate hardware model.
 
 :::note
-As of  v16.19.00, devices found by autodiscovery that have hardware models are now presented in Device42 as physical devices (previously these devices were sometimes presented as ‘unknown’ or ‘other’). 'Other' type devices are now also identified as physical, with the “other” device subtypes now being physical device subtypes. Previously any previously undiscovered hardware would come in as ‘unknown’ device types until defined by the user.
+Devices found by autodiscovery that have hardware models are now presented in Device42 as physical devices (previously these devices were sometimes presented as ‘unknown’ or ‘other’). 'Other' type devices are now also identified as physical, with the “other” device subtypes now being physical device subtypes. Previously any previously undiscovered hardware would come in as ‘unknown’ device types until defined by the user.
 :::
 
 ### View Devices

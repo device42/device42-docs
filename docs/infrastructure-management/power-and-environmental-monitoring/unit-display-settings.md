@@ -35,7 +35,7 @@ This setting allows an administrator to specify the default voltage for Device42
 
 _Toggle temperature displays in Device42's Power and Envirosnmental Monitoring Module_
 
-The **"Display Metric Power Values"** Checkbox controls **Temperature Display**. _note: this feature was renamed to "Display Metric Temperatures" in versions newer than v13.1.0._
+The **"Display Metric Power Values"** Checkbox controls **Temperature Display**. 
 
 - **Checked** - converts all temperature values from Farenheight (\*F) values to Celsius (\*C), also changing the display units to Celsius.
     

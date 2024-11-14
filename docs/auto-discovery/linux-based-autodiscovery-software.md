@@ -3,7 +3,7 @@ title: "Linux Based Autodiscovery Software"
 sidebar_position: 17
 ---
 
-**Note:** Since v13.2, Device42 has supported Linux (and UNIX) based autodiscovery from within the main UI. If you are simply trying to run discovery against Linux or UNIX, see our [Linux and UNIX Server AutoDiscovery Instructions.](linux-unix-server-auto-discovery.mdx) or our [Remote Collector documentation](remote-collector-rc.mdx). If you want to use the standalone Linux discovery tools, continue reading below.
+**Note:** Device42 supports Linux (and UNIX) based autodiscovery from within the main UI. If you are simply trying to run discovery against Linux or UNIX, see our [Linux and UNIX Server AutoDiscovery Instructions.](linux-unix-server-auto-discovery.mdx) or our [Remote Collector documentation](remote-collector-rc.mdx). If you want to use the standalone Linux discovery tools, continue reading below.
 
 # Linux Based Autodiscovery Software
 

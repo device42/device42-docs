@@ -13,7 +13,7 @@ If a 'burnt' secret/password is forgotten, it MUST be reset & regenerated. Stori
 
 ### Storing a Password as a Burnt Secret
 
-Creating a "burnt" secret/password is very similar to the creation of a 'normal' stored secret. Simply head to the _Secrets_ menu and add a new secret/password. In v15.07.00+, the _Password Storage_ option can be set to "Burnt" (as opposed to the default of "Normal") which will cause a secret to be stored non-retrievable:
+Creating a "burnt" secret/password is very similar to the creation of a 'normal' stored secret. Simply head to the _Secrets_ menu and add a new secret/password. The _Password Storage_ option can be set to "Burnt" (as opposed to the default of "Normal") which will cause a secret to be stored non-retrievable:
 
 ![](/assets/images/Secrets-5-add-burnt-700x303.png)
 

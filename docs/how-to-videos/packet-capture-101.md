@@ -16,7 +16,7 @@ With Device42 Packet Capture you can discover service communications happening i
 
 ## Packet Capture Prerequisites
 
-- A functioning Device42 MA (destination for captured data), running v16.00.00+ or newer.
+- A functioning Device42 MA (destination for captured data).
 - Network communication allowed from the machine you’ll be capturing packets on to your Device42 MA.
 - An active network adapter connected to the target traffic capture network.
 - If using Windows, a WinPcap-compatible library (like npcap) must be installed – Be sure to select the option “install in API-Compatible mode”during setup!

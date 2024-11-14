@@ -55,7 +55,7 @@ Azure based on Inventory Sample: ![Cloud Recommendation Engine Azure based on in
 
 ### Disk (HDD) and NIC RU Details Considered by CRE
 
-As of Device42 v16.03.00, CRE also factors NIC and HDD config details as well as new RU information into recommendation calculations (in addition to CPU and Memory (RAM) RU and inventory data as noted above).
+CRE also factors NIC and HDD config details as well as new RU information into recommendation calculations (in addition to CPU and Memory (RAM) RU and inventory data as noted above).
 
 The following RU data for NICs and HDDs is now available:
 

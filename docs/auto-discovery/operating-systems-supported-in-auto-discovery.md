@@ -33,7 +33,7 @@ Other UNIX distros should also work well with autodiscovery (via SSH).
 
 Major **Windows releases (7, 8, 10, Server 2000+) are all supported** and should all work well with autodiscovery (via WMI/WinRM).
 
-If you are running Device42 v15.14.02+, discovery of the **IBM i powered mid-range** line and **IBM z/OS** powered mainframes are also supported.
+Discovery of the **IBM i powered mid-range** line and **IBM z/OS** powered mainframes are also supported.
 
 ## Tested Distros and Operating Systems
 

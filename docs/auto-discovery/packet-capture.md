@@ -11,7 +11,7 @@ Device42 packet capture supports both individual and promiscuous interfaces, all
 
 You need the following to use the Device42 Packet Capture tool:
 
-- A Device42 Main Appliance (MA) running v16.00.00 or above.
+- A Device42 Main Appliance (MA).
 - Network communication allowed from the machine you'll be capturing packets on to your Device42 MA.
 - An active network adapter connected to the target traffic capture network.
 - A packet capture library installed on your operating system:
