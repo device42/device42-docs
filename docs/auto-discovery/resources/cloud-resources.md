@@ -3,72 +3,125 @@ title: "Cloud Resources"
 sidebar_position: 30
 ---
 
-## Introduction
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Cloud Resources are items identified and returned by Device42 autodiscovery jobs and can be visualized in the resource map view. Information can be discovered and sorted by Cloud Vendor, Regions, Subnets, VPC (Virtual Private Cloud), and any other discovered resource types within your environments.
 
- 
+Cloud resources are items identified and returned by Device42 autodiscovery jobs and are visualized in the resource map view.
 
-Note: While you can display Azure and GCP environments today in the resource map, AWS will display more accurate information at this time, but we are currently working to add the like-for-like functionality with all clouds, which will release in the near future.
+Discovered information can be sorted by cloud vendor, regions, subnets, Virtual Private Cloud (VPC), and other discovered resource types in your environments.
+
+:::note
+While you can display Azure and GCP environments in the resource map, AWS currently displays more accurate information. We are working to add this like-for-like functionality for all cloud accounts.
+:::
 
 ## View Cloud Resources
 
-Select _Infrastructure >_ Cloud Infrastructures from the Device42 menu to display the resources list.
+Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the Device42 menu to display the resources list page.
 
-![](/assets/images/RM-docs-1-1.png)
+<ThemedImage
+  alt="Cloud Resources in menu"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/menu-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/menu-dark.png'),
+  }}
+/> 
 
- 
+### Cloud Accounts List Page
 
- 
+From the Cloud Infrastructure list page, you can use the search bar and **Cloud Vendor** dropdown to filter the cloud accounts. Add additional filtering criteria using the **+ More** button.
 
-Device42 displays the Cloud Infrastructure list page. You can search by name or filter the list by Cloud Account or by Cloud Vendor on this page.
+<ThemedImage
+  alt="Cloud Resources list page with filter"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/list-page-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/list-page-dark.png'),
+  }}
+/>  
 
- 
+## Resource Map View
 
-![](/assets/images/RM-doc-2-1.png)
+From the list page, click on a cloud account to view its details. Navigate back up to the **Cloud Vendor** to view all accounts.
 
-Once you have selected the Cloud account you wish to view, you will be taken to the account overview. From here, you can select the resource map view to display the resource map for the account.
+Access the **Resource Map** view to view the cloud account and its related resources and assets in a chart view.
 
-![](/assets/images/RM-docs-3-1.png)
+<ThemedImage
+  alt="Resource map link"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/resource-map-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/resource-map-dark.png'),
+  }}
+/>  
 
-Once in the Resource Map view, you can navigate through the cloud environment, including navigating back up to the Cloud provider to view all accounts.
+Click on the account level or provider to display additional cloud accounts in your environment.
 
-![](/assets/images/RM-docs-4-1.png)
+<ThemedImage
+  alt="Resource map overview example"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/resource-map-overview-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/resource-map-overview-dark.png'),
+  }}
+/>  
 
-Below you can see that once you click on the account level/provider, it displays the additional cloud accounts within your environment.
+The **Show All** view can be applied to all areas in the resource map. Please note that large environments will take a few seconds to fully populate.
 
-![](/assets/images/RM-docs-5-1-1.png)
+<ThemedImage
+  alt="Show All"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/show-all-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/show-all-dark.png'),
+  }}
+/>
 
-We have also enabled the summary panel, which allows you to search by the resource's name to quickly identify your assets.
+### Tools and Summary Panel
 
-![](/assets/images/RM-docs-6-1.png)
+Use the summary panel on the left to search by resource name and quickly identify your assets.
 
- 
+Below the search bar are filter options that are identified by their resource type. 
 
-Additionally, below the search function in the summary panel, you will see the other filter options that are identified by resource type. For the example below, we use VPCs within this cloud environment, select VPCs, and then the resource map will not only bring those items up but highlight them for quick identification
+For example, click the **target icon** for *VPCs (VRF Groups)* to display and highlight those items on the map for quick identification.
 
-![](/assets/images/Screenshot-2023-06-15-at-1.36.53-PM.png)
+<ThemedImage
+  alt="Highlight VPCs in resource map"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/highlight-vpcs-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/highlight-vpcs-dark.png'),
+  }}
+/>   
 
- 
+### View Details with Resource Icons
 
- 
+Regions and some resource items have an **expand icon** (1) to drill down into regions and other resources and a **magnifying glass icon** (2) to see the resources in the region.
 
-If you want to drill down into the regions similar to the example below, then you will select the spyglass icon, next you will be able to focus on a particular region and have the ability to quickly identify the resources/assets within that region. You can expand as needed.
+<ThemedImage
+  alt="Icons"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/icons-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/icons-dark.png'),
+  }}
+  style={{ width: '40%' }} 
+/>  
 
-![](/assets/images/RM-docs-8-1.png)
+The **magnifying glass** icon will change to a **compass icon** and an info box will open that you can use to identify the resources and assets within that region. Click **Show All** to load and display all the listed resources on the map.
 
-Another option within the regions is the ability to 'Show All'.
+<ThemedImage
+  alt="Select expanded item example"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/magnify-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/magnify-dark.png'),
+  }}
+/>
 
-**Note:** Please keep in mind that large environments will need a few seconds to fully populate, so please be patient
+:::info
+Please keep in mind that large environments will need a few seconds to fully populate.
+:::
 
-![](/assets/images/RM-docs-9-1.png)
+Click the **expand icon** (2) and then select the resource to open a summary box displaying important information such as the **Service Level**, **Last Changed** date and time, **Vendor Resource Type**, and **Resource Categories**.
 
-Once expanded, you can see the resources within the region, and then a summary box displays important information such as Service Level, Last Change date/time, Resource Type, and Resource Category.
-
-![](/assets/images/RM-docs-10-1.png)
-
- 
-
-The 'Show All' view can be applied to all areas in the resource map, but please remember that large environments will take a few seconds to fully populate.
-
-![](/assets/images/RM-docs-11-1.png)
+<ThemedImage
+  alt="Select expanded item example"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-resources/expanded-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-resources/expanded-dark.png'),
+  }}
+/>
