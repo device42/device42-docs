@@ -7,7 +7,7 @@ Welcome to **The Hitchhiker's Guide to Device42**, AKA the Device42 docs site.
 
 The following pages contain answers to the ultimate questions about infrastructure, the data center, and everything _(and the answers to many common Device42 questions, too)_.
 
-**Navigate through the Device42 documentation topics using the left-hand navigation bar or the search box found hanging out at the top right of the page - _much the same way that bricks don't_.**
+Navigate through the Device42 documentation topics using the left-hand navigation bar or the search box found hanging out at the top right of the page - in much the same way that bricks don't.
 
 * * *
 
