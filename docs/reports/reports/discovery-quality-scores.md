@@ -7,7 +7,7 @@ sidebar_position: 8
 
 The Discovery Scores page provides users with an the ability to view the success of their discovery jobs on a granular level. Via the quality scores page, users can see each device that was discovered, the target IP it was discovered from _(which is also a link to that job's page)_, the job name, time stamps, and status of port check and auth.
 
-Device42 refactored Discovery Scores to more accurately reflect what Device42 does during discovery. With that release, when Device42 is communicating with an API rather than an individual endpoint (e.g., a virtual machine), Device42 is now creating an _API Manager_ discovery score record to report success or failures against the API endpoint directly. Devices returned by the API will then generate individual discovery score records.
+The discovery scores have been refactored to reflect what Device42 does during discovery more accurately. When Device42 communicates with an API rather than an individual endpoint (e.g., a virtual machine), Device42 now creates an _API Manager_ discovery score record to report successes or failures against the API endpoint directly. Devices returned by the API will then generate individual discovery score records.
 
 To view the Discovery Scores page, select  _Analytics > Discovery Status > Discovery Scores_ from the main menu_._
 
@@ -58,7 +58,7 @@ The following is a short explanation of the fields present on the "Discovery Sco
 - **Queue**: Queue processing success for the job. 
 - **Cumulative Score**: The cumulative success score for the actions attempted by the job. Click into the job for a list of attempted actions.
 
-In addition, the progress section of each supported discovery has been centralized and redone to show more consistent progress. In addition, the objects-added count has been converted to a hyperlink to quickly show all the discovery scores where objects were added to the system.
+The progress section of each supported discovery has been centralized and redone to show more consistent progress, and the objects-added count has been converted to a hyperlink to show the discovery scores for newly added objects more quickly.
 
 Click an item in the _Job Name_ column of the Select Discovery Score page to see the View Discovery Job page for that job.
 
