@@ -3,11 +3,11 @@ title: "Part Model Templates"
 sidebar_position: 4
 ---
 
-v15.04.00+ supports parts having ports, parts slots, and more. If you are looking for information about [adding parts slots (and/or blade slots) to devices has its own section.](../devices/device-parts-slots.md)
+Device42 supports parts having ports, parts slots, and more. If you are looking for information about [adding parts slots (and/or blade slots) to devices has its own section.](../devices/device-parts-slots.md)
 
 ### Part Model Templates
 
-"Part Models" are templates that define parts. As of v15.04.00, users may now create parts templates that optionally include ports.
+"Part Models" are templates that define parts. You can create parts templates that optionally include ports.
 
 Define a new part by visiting DataCenter > Parts > Parts Models, or edit any existing by simply viewing it and choosing the “Ports Layout” button in the upper right hand corner:
 

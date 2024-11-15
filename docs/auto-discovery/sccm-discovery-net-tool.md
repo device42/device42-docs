@@ -4,7 +4,7 @@ sidebar_position: 26
 ---
 
 :::note
-This tool will be deprecated in the near future. From v18.11.00 of Device42, SCCM integration is available natively from the Device42 Main Appliance, or using the WDS service. You can continue to use the tool for now, but we recommend that you use the native functionality.
+This tool will be deprecated in the near future. SCCM integration is currently available natively from the Device42 Main Appliance, as well as via the WDS service. You can continue to use the tool for now, but we recommend you use the native functionality.
 
 Please see our new [SCCM documentation](auto-discovery/sccm-discovery.mdx).
 :::

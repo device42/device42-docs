@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## About Database Discovery
 
-Database (DB) discovery was introduced in Device42 v16.02.00 and currently supports Windows and \*nix-based discovery jobs detecting Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
+Database (DB) discovery currently supports Windows and \*nix-based discovery jobs detecting Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
 
 :::note
 Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
@@ -20,7 +20,7 @@ By default, the target machine ports are defined by the database vendors as foll
 - Postgres: 5432
 - Oracle: 1521
 
-Dynamic discovery detects which ports to use. As of v16.17.00, Device42 supports MSSQL and Oracle database discovery for customers with database instances configured to listen on non-standard ports, especially on shared database servers that host multiple instances. During database discovery, Device42 will identify and connect via the discovered active listening port.
+Dynamic discovery detects which ports to use. Device42 supports MSSQL and Oracle database discovery for customers with database instances configured to listen on non-standard ports, especially on shared database servers that host multiple instances. During database discovery, Device42 will identify and connect via the discovered active listening port.
 
 If you want to specify database discovery details yourself, including the database server port, server IP address, and database access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
 
@@ -224,9 +224,9 @@ If your environment includes SQL cluster databases, discovery returns the follow
 
 ## Oracle Database Discovery (on Windows and \*nix targets)
 
-Oracle database discovery (introduced in v16.04.00) is supported for Windows and \*nix discovery targets. Oracle discovery jobs require a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you want to discover.
+Oracle database discovery is supported for Windows and \*nix discovery targets. Oracle discovery jobs require a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you want to discover.
 
-As of v16.14.01, Device42 now supports autodiscovery on Windows and \*nix platforms for the following Oracle database versions:
+Device42 supports autodiscovery on Windows and \*nix platforms for the following Oracle database versions:
 
 **Oracle 10g**
 
@@ -255,7 +255,7 @@ As of v16.14.01, Device42 now supports autodiscovery on Windows and \*nix platfo
 - Windows 64 bit
 - CentOS 7 64 bit
 
-As of v16.17.00, Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all The IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
+Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all The IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
 
 ### Minimum Permissions Requirements for Oracle Discovery
 
@@ -391,7 +391,7 @@ If a candidate database instance is detected to be a child of a CDB we skip the 
 
 ## Postgres SQL Database Discovery (on \*nix targets)
 
-From v17.11.00 onward, Device42 offers Postgres SQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
+Device42 offers Postgres SQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
 
 ### Minimum Permissions Requirements for Postgres SQL Discovery
 
@@ -463,7 +463,7 @@ sources={{
 
 ## DB2 Discovery (on \*nix targets)
 
-DB2 database discovery (introduced in v18.02.00) is for \*nix discovery targets and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have the appropriate permissions for viewing the databases you are interested in discovering.
+DB2 database discovery is for \*nix discovery targets and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have the appropriate permissions for viewing the databases you are interested in discovering.
 
 ### Permissions for DB2 Discovery
 
@@ -556,7 +556,7 @@ sources={{
 
 ## Database Connections Discovery Jobs
 
-Device42 v18.01.00 adds a new database discovery job type for discovering information about the databases in your environment. Database discovery is based on the database connection information, such as the application components and DB server details, that you supply for the job. Returned database information is added to the **On-Prem Databases** list page.
+Discover information about the databases in your environment using the database discovery job type. Database discovery is based on the database connection information, such as the application components and DB server details, that you supply for the job. Returned database information is added to the **On-Prem Databases** list page.
 
 This database discovery job type is useful when the main detailed database discovery (in OS jobs) cannot determine the proper connection settings for a specific database, because the database connection discovery job instead uses a string containing connection settings provided by the user.
 
