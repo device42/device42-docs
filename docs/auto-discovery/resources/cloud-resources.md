@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Cloud resources are items identified and returned by Device42 autodiscovery jobs and are visualized in the resource map view.
 
-Discovered information can be sorted by cloud vendor, regions, subnets, Virtual Private Cloud (VPC), and other discovered resource types in your environments.
+Discovered information can be sorted by cloud vendor, region, subnet, Virtual Private Cloud (VPC), and other discovered resource types in your environments.
 
 :::note
 While you can display Azure and GCP environments in the resource map, AWS currently displays more accurate information. We are working to add this like-for-like functionality for all cloud accounts.
@@ -17,7 +17,7 @@ While you can display Azure and GCP environments in the resource map, AWS curren
 
 ## View Cloud Resources
 
-Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the Device42 menu to display the resources list page.
+Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the Device42 menu to display the Cloud Accounts list page.
 
 <ThemedImage
   alt="Cloud Resources in menu"
@@ -29,7 +29,7 @@ Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the
 
 ### Cloud Accounts List Page
 
-From the Cloud Infrastructure list page, you can use the search bar and **Cloud Vendor** dropdown to filter the cloud accounts. Add additional filtering criteria using the **+ More** button.
+From the Cloud Accounts list page, you can use the search bar and **Cloud Vendor** dropdown to filter the cloud accounts. Add additional filtering criteria using the **+ More** button.
 
 <ThemedImage
   alt="Cloud Resources list page with filter"
@@ -79,7 +79,7 @@ Use the summary panel on the left to search by resource name and quickly identif
 
 Below the search bar are filter options that are identified by their resource type. 
 
-For example, click the **target icon** for *VPCs (VRF Groups)* to display and highlight those items on the map for quick identification.
+For example, click the **target icon** for **VPCs (VRF Groups)** to display and highlight those items on the map for quick identification.
 
 <ThemedImage
   alt="Highlight VPCs in resource map"
@@ -102,7 +102,7 @@ Regions and some resource items have an **expand icon** (1) to drill down into r
   style={{ width: '40%' }} 
 />  
 
-The **magnifying glass** icon will change to a **compass icon** and an info box will open that you can use to identify the resources and assets within that region. Click **Show All** to load and display all the listed resources on the map.
+The **magnifying glass icon** will change to a **compass icon** and an info box will open that you can use to identify the resources and assets within that region. Click **Show All** to load and display all the listed resources on the map.
 
 <ThemedImage
   alt="Select expanded item example"
@@ -116,7 +116,7 @@ The **magnifying glass** icon will change to a **compass icon** and an info box 
 Please keep in mind that large environments will need a few seconds to fully populate.
 :::
 
-Click the **expand icon** (2) and then select the resource to open a summary box displaying important information such as the **Service Level**, **Last Changed** date and time, **Vendor Resource Type**, and **Resource Categories**.
+Click the **expand icon** and then select the resource to open a summary box displaying important information such as the **Service Level**, **Last Changed** date and time, **Vendor Resource Type**, and **Resource Categories**.
 
 <ThemedImage
   alt="Select expanded item example"
