@@ -6,7 +6,7 @@ sidebar_position: 8.5
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Device42 Windows Service Wrapper is an executable (available separately for i386 32-bit and 64-bit architectures) that can be installed as a service. Download the Windows Service Wrapper from [the Device42 Autodiscovery page](https://www.device42.com/autodiscovery/). The service wrapper calls the Device42 Windows agent that you can download from your Device42 Main Appliance (MA).
+The Device42 Windows Service Wrapper is an executable (available separately for i386 32-bit and 64-bit architectures) that can be installed as a service. Download the Windows Service Wrapper from [the Device42 Autodiscovery page](https://www.device42.com/autodiscovery/). The service wrapper calls the Device42 Windows agent, whichyou can download from your Device42 Main Appliance (MA).
 
 ## Installation Overview
 
@@ -109,6 +109,6 @@ The `agent_local.log` file will be created under the current working directory.
 
 If the service doesn’t start, it's usually because it can’t read the `d42config.json` file.
 
-It should be located under `$ProgramData\Device42` or `%windir%\system32` (`sc` reads from the system folder by default, so for any non-standard location, this is where the file needs to be).
+The file should be located under `$ProgramData\Device42` or `%windir%\system32` (`sc` reads from the system folder by default, so for any non-standard location, this is where the file needs to be).
 
 Another issue might be that the format or the values are incorrect.
