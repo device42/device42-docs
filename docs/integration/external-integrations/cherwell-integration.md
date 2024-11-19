@@ -34,7 +34,7 @@ To sync your autodiscovered hardware, servers, software, services, and/or assets
 
 ## Affinity Group Configuration for Cherwell
 
-_**Device42 version v15.11.07+ required**_
+**The latest Device42 version is required**
 
 Creation of Affinity Groups in Cherwell is not enabled by default. To enable affinity groups in `mapping.xml`. Relevant Attributes are as follows:
 

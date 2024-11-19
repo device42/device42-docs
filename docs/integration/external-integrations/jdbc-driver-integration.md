@@ -13,7 +13,7 @@ Download the Device42 JDBC driver – which should work with any JDBC-compatible
 
 System requirements for connecting to Device42 via JDBC are:
 
-- Current Device42 installation (v15.14.02 and above), properly configured, licensed, running, and accessible.
+- A current Device42 installation, properly configured, licensed, running, and accessible.
 - A host system for the D42 JDBC driver running a platform that supports Java.
 - A JDBC-compatible client to connect to the Device42 JDBC data source.
 

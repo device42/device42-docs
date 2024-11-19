@@ -21,7 +21,7 @@ With just a few minutes of setup, your Device42-Jira integration will allow you 
 
 ### Prerequisites:
 
-* Administrator privileges to a running Device42 v15.11.01 or newer virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
+* Administrator privileges to a running Device42 virtual appliance. [Update your software](https://device42.com/update/) or [download a free trial](https://device42.com/download/).
 * Administrator privileges to a JSM Cloud account.
 
 ### Setting Up Device42

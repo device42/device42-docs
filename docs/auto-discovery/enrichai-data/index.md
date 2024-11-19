@@ -28,7 +28,7 @@ From Device42 version 18.12, the following vendor attributes, operating system a
 | OS Version Number           | General version number of the release                          |
 | Key Support Dates  | See the table below for details on the available date fields  |
 
-Note that from the v18.12 release, the **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI data. Both the 32 and 64-bit architectures will coalesce into a single entry since OS dates, licensing, patches, and risk profiles are not affected by architecture.
+The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI data. Both the 32 and 64-bit architectures will coalesce into a single entry since OS dates, licensing, patches, and risk profiles are not affected by architecture.
 
 ### Key Support Dates
 

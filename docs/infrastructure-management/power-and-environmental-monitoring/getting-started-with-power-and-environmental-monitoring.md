@@ -35,7 +35,7 @@ When sensors are discovered, they are created with Asset records in Device42. If
 
 **Note to Power Monitoring / Control Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring or control going forward. See the [Remote Collector page](auto-discovery/remote-collector-rc.mdx) for setup details and for information on obtaining a Remote Collector going forward!**
 
-The actual monitoring occurs in a separate virtual appliance from the main Device42 appliance. Please note that you can optionally monitor power using Device42 Remote Collectors from v14.0.0 forward, as well as the dedicated power appliance. This is done for three reasons:
+The actual monitoring occurs in a separate virtual appliance from the main Device42 appliance. Please note that you can optionally monitor power using Device42 Remote Collectors as well as the dedicated power appliance. This is done for three reasons:
 
 1. First, continuous monitoring is fairly resource intensive and would interfere with the primary Device42 functionality if run on the same appliance.
 2. Second, you have the flexibility to place the monitoring appliance in a separate network segment.
