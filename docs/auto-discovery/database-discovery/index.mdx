@@ -391,25 +391,10 @@ If a candidate database instance is detected to be a child of a CDB we skip the 
 
 ### Oracle User Discovery Updates
 
-We previously gathered all Oracle users and collected them as "Device42 Databases" by running the query:
-
-```sql
-SELECT * from SYS.ALL_USERS
-```
-
-We updated the query to retrieve Oracle users that have at least one associated database object:
-
-```sql
-SELECT *
-FROM sys.all_users
-WHERE EXISTS (
-    SELECT 1
-    FROM sys.all_objects
-    WHERE owner = username
-); 
-```
+We previously gathered all Oracle users and collected them as "Device42 Databases". We now only retrieve Oracle users that have at least one associated database object.
 
 In addition, we've made the following changes to the UI:
+
 1. Added **Database Instance Name** under the identifier (generally the service name).
 2. Renamed **Database** to **Database/Schema** and only show ones with attached objects for Oracle.
    
