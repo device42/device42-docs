@@ -389,6 +389,15 @@ We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
 
 If a candidate database instance is detected to be a child of a CDB we skip the matching process
 
+### Oracle User Discovery Updates
+
+We previously gathered all Oracle users and collected them as "Device42 Databases". We now only retrieve Oracle users that have at least one associated database object.
+
+In addition, we've made the following changes to the UI:
+
+1. Added **Database Instance Name** under the identifier (generally the service name).
+2. Renamed **Database** to **Database/Schema** and only show ones with attached objects for Oracle.
+   
 ## Postgres SQL Database Discovery (on \*nix targets)
 
 Device42 offers Postgres SQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
