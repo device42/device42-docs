@@ -6,13 +6,13 @@ sidebar_position: 1.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Create an [Automox](https://www.automox.com/) cloud discovery job and get up-to-date details about your devices, operating systems and software packages into Device42 to serve as a source of truth for your IT environment.
+[Automox](https://www.automox.com/) cloud discovery retrieves up-to-date details about your devices, operating systems, and software packages directly into Device42, which serves as a source of truth for your IT environment.
 
-This page covers outlines the items discovered from running an Automox discovery job, authentication requirements, and how to set up and schedule the job.
+This page outlines the Automox autodiscovery items, authentication requirements, and how to set up and schedule a discovery job.
 
 ## Automox Autodiscovery Items
 
-Device42 retrieves the following details:
+Device42 gets the following details when an Automox discovery job is run:
 
 - Device name
 - Serial number and UUID
@@ -42,7 +42,7 @@ Name the autodiscovery job and under the **Type** dropdown, select **Automox**.
   }}
 />
 
-Next to **Bearer Token**, Click on the **magnifying glass icon** and select or create a Secret with your Automox username and password. 
+Next to **Bearer Token**, click on the **magnifying glass icon** and select or create a Secret with your Automox username and password. 
 
 <ThemedImage
   alt="Provide your Automox credentials"
@@ -58,7 +58,7 @@ You can optionally select or add a **Service Level** to associate with the disco
 
 Choose an **Object Category for discovered devices**. If you'd like for the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
 
-Associate tags to discovered devices to help categorize, and later filter, the discovered devices by the chosen tags. 
+Add **Tags for discovered devices** to categorize and later help you filter the discovered devices by your chosen tags.  
 
 <ThemedImage
   alt="Optional autodiscovery job fields"
@@ -70,7 +70,7 @@ Associate tags to discovered devices to help categorize, and later filter, the d
 
 ### Schedule the Autodiscovery Job
 
-You can automate the autodiscovery process by choosing the day(s) and time for the job to run. 
+You can automate the autodiscovery process by choosing the day(s) and time(s) when the job runs. 
 
 Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 
@@ -84,7 +84,7 @@ Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 
 ### Run Now
 
-Run the job immediately by navigating back to the Cloud Autodiscovery list page and clicking **Run Now** for the job. 
+Run the job immediately by navigating back to the **Cloud Autodiscovery** list page and clicking **Run Now** next to the job. 
 
 <ThemedImage
   alt="Run the Automox job immediately"
