@@ -1,0 +1,95 @@
+---
+title: "Automox Autodiscovery"
+sidebar_position: 1.5
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+[Automox](https://www.automox.com/) cloud discovery retrieves up-to-date details about your devices, operating systems, and software packages directly into Device42, which serves as a source of truth for your IT environment.
+
+This page outlines the Automox autodiscovery items, authentication requirements, and how to set up and schedule a discovery job.
+
+## Automox Autodiscovery Items
+
+Device42 gets the following details when an Automox discovery job is run:
+
+- Device name
+- Serial number and UUID
+- Operating System (name and version)
+- Hardware make and model
+- CPU model
+- RAM
+- Mounts
+- IP and MAC addresses
+- Installed software packages (display name and version)
+
+## Authentication Requirements
+
+Your Automox username and password are required for Device42 to request a bearer token. Bearer token authentication is then used for subsequent requests.
+
+## Create an Automox Discovery Job
+
+Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+
+Name the autodiscovery job and under the **Type** dropdown, select **Automox**. 
+
+<ThemedImage
+  alt="Add a new Automax job"
+  sources={{
+    light: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-dark.png'),
+  }}
+/>
+
+Next to **Bearer Token**, click on the **magnifying glass icon** and select or create a Secret with your Automox username and password. 
+
+<ThemedImage
+  alt="Provide your Automox credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/automox-autodiscovery/add-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/add-credentials-dark.png'),
+  }}
+/>
+
+### Optional Fields
+
+You can optionally select or add a **Service Level** to associate with the discovered Automox Configuration Items. 
+
+Choose an **Object Category for discovered devices**. If you'd like for the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
+
+Add **Tags for discovered devices** to categorize and later help you filter the discovered devices by your chosen tags.  
+
+<ThemedImage
+  alt="Optional autodiscovery job fields"
+  sources={{
+    light: useBaseUrl('/assets/images/automox-autodiscovery/options-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/options-dark.png'),
+  }}
+/>
+
+### Schedule the Autodiscovery Job
+
+You can automate the autodiscovery process by choosing the day(s) and time(s) when the job runs. 
+
+Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
+
+<ThemedImage
+  alt="Schedule the job"
+  sources={{
+    light: useBaseUrl('/assets/images/automox-autodiscovery/schedule-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/schedule-dark.png'),
+  }}
+/>
+
+### Run Now
+
+Run the job immediately by navigating back to the **Cloud Autodiscovery** list page and clicking **Run Now** next to the job. 
+
+<ThemedImage
+  alt="Run the Automox job immediately"
+  sources={{
+    light: useBaseUrl('/assets/images/automox-autodiscovery/run-now-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/run-now-dark.png'),
+  }}
+/>
