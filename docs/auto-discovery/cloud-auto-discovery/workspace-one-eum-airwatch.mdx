@@ -1,0 +1,99 @@
+---
+title: "Workspace ONE UEM (AirWatch) Autodiscovery"
+sidebar_position: 8
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Workspace ONE Unified Endpoint Management (UEM), formerly known as VMware AirWatch, is supported by Device42 autodiscovery. 
+
+Create and schedule an autodiscovery job to fetch data about the devices and apps managed by your Workspace ONE UEM account to keep your Device42 CMDB updated as a central source of truth. 
+
+This page outlines the discovered items and how to set up and run a Workspace ONE autodiscovery job.
+
+## Workspace ONE Autodiscovery Items
+
+Currently, the following data is retrieved:
+
+- Computers
+- Mobile devices
+- IP and MAC addresses
+- Installed software and applications
+
+## Create a Workspace ONE Autodiscovery Job
+
+Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+
+Name the autodiscovery job and under the **Type** dropdown, select **Workspace One**. Provide the **URL** and **Tenant** of your account and select the **Remote Collector** to use for the job. 
+
+<ThemedImage
+  alt="Create a basic Workspace ONE autodiscovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/add-new-job-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/add-new-job-dark.png'),
+  }}
+/>
+
+### Add Credentials 
+
+Provide you Workspace ONE EUM username and password by creating a secure secret. Click the **magnifying glass** icon next to **Basic credentials** to add a new secret.
+
+<ThemedImage
+  alt="Add new secret"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/basic-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/basic-credentials-dark.png'),
+  }}
+/>
+
+### Optional Fields
+
+Choose how to associate vendor metadata to the autodiscovered items. You can specify whether to **Add device vendor metadata as** **Custom Fields**, **Tags** or **Do Nothing**.
+
+<ThemedImage
+  alt="Vendor metadata option"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/vendor-metadata-option-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/vendor-metadata-option-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
+
+Choose an **Object Category for discovered devices**. If you'd like the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
+
+Associate tags to discovered devices to help categorize, and later filter, the discovered devices by the chosen tags.
+
+<ThemedImage
+  alt="Additional options"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/additional-options-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/additional-options-dark.png'),
+  }}
+/>
+
+### Schedule the Autodiscovery Job
+
+You can automate the autodiscovery process by choosing the day(s) and time for the job to run. 
+
+Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
+
+<ThemedImage
+  alt="Schedule job"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/job-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/job-schedule-dark.png'),
+  }}
+/>
+
+### Run Now
+
+Run the job immediately by navigating back to the Cloud Autodiscovery list page and clicking **Run Now** for the job. 
+
+<ThemedImage
+  alt="Run the job"
+  sources={{
+    light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/run-job-now-light.png'),
+    dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/run-job-now-dark.png'),
+  }}
+/>
