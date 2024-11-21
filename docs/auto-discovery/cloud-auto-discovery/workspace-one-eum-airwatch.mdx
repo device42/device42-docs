@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Workspace ONE Unified Endpoint Management (UEM), formerly known as VMware AirWatch, is supported by Device42 autodiscovery. 
 
-Create and schedule an autodiscovery job to fetch data about the devices and apps managed by your Workspace ONE UEM account to keep your Device42 CMDB updated as a central source of truth. 
+Create and schedule an autodiscovery job to fetch data about the devices and apps managed by your Workspace ONE UEM account and keep your Device42 CMDB updated as a central source of truth.
 
-This page outlines the discovered items and how to set up and run a Workspace ONE autodiscovery job.
+This page outlines the discovered items and how to set up and run a Workspace ONE UEM autodiscovery job.
 
-## Workspace ONE Autodiscovery Items
+## Workspace ONE UEM Autodiscovery Items
 
 Currently, the following data is retrieved:
 
@@ -25,7 +25,7 @@ Currently, the following data is retrieved:
 
 Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
 
-Name the autodiscovery job and under the **Type** dropdown, select **Workspace One**. Provide the **URL** and **Tenant** of your account and select the **Remote Collector** to use for the job. 
+Name the autodiscovery job, and under the **Type** dropdown, select **Workspace One**. Provide your account **URL** and **Tenant**, and select a **Remote Collector** to use for the job. 
 
 <ThemedImage
   alt="Create a basic Workspace ONE autodiscovery job"
@@ -37,7 +37,7 @@ Name the autodiscovery job and under the **Type** dropdown, select **Workspace O
 
 ### Add Credentials 
 
-Provide you Workspace ONE EUM username and password by creating a secure secret. Click the **magnifying glass** icon next to **Basic credentials** to add a new secret.
+Provide you Workspace ONE EUM username and password by creating a secure Secret. Click the **magnifying glass icon** next to **Basic credentials** to add a new Secret.
 
 <ThemedImage
   alt="Add new secret"
@@ -49,7 +49,7 @@ Provide you Workspace ONE EUM username and password by creating a secure secret.
 
 ### Optional Fields
 
-Choose how to associate vendor metadata to the autodiscovered items. You can specify whether to **Add device vendor metadata as** **Custom Fields**, **Tags** or **Do Nothing**.
+Choose how to associate vendor metadata to the autodiscovered items. Under **Add device vendor metadata as**, you can specify **Custom Fields**, **Tags**, or **Do Nothing**.
 
 <ThemedImage
   alt="Vendor metadata option"
@@ -62,7 +62,7 @@ Choose how to associate vendor metadata to the autodiscovered items. You can spe
 
 Choose an **Object Category for discovered devices**. If you'd like the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
 
-Associate tags to discovered devices to help categorize, and later filter, the discovered devices by the chosen tags.
+Add **Tags for discovered devices** to categorize and later help you filter the discovered devices by your chosen tags. 
 
 <ThemedImage
   alt="Additional options"
@@ -74,7 +74,7 @@ Associate tags to discovered devices to help categorize, and later filter, the d
 
 ### Schedule the Autodiscovery Job
 
-You can automate the autodiscovery process by choosing the day(s) and time for the job to run. 
+You can automate the autodiscovery process by choosing the day(s) and time(s) that the job will run. 
 
 Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 
@@ -88,7 +88,7 @@ Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 
 ### Run Now
 
-Run the job immediately by navigating back to the Cloud Autodiscovery list page and clicking **Run Now** for the job. 
+Run the job immediately by navigating back to the **Cloud Autodiscovery** list page and clicking **Run Now** next to the job. 
 
 <ThemedImage
   alt="Run the job"
