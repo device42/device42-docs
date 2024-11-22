@@ -6,9 +6,9 @@ sidebar_position: 15
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Tags help with filtering objects and grouping objects. For example, you could define a "Project X" tag and associate that tag with all the devices, IP addresses, and other items associated with Project X.
+Tags are useful for filtering and grouping objects. For example, you could define a "Project X" tag and associate that tag with all the devices, IP addresses, and other items associated with Project X.
 
-Tags can be placed on most objects in Device42 and most reports can be filtered by tags.
+Most objects in Device42 can be tagged and most reports can be filtered according to tags.
 
 Navigate to the Tags list page under **Infrastructure > Organization > Tags** to view, edit, and create tags.
 
@@ -22,9 +22,9 @@ Navigate to the Tags list page under **Infrastructure > Organization > Tags** to
 
 ### Create Tags
 
-Click the **+ Add Tags** button to create a new tag. Tag names can contain spaces. The **Slug** is a unique resource identifier for the tag and is automatically filled in.
+Click the **+ Add Tags** button to create a new tag. Tag names can contain spaces. The **Slug** is a unique resource identifier for each tag and is automatically filled in.
 
-You can also create new tags directly from an object or autodiscovery job configuration page under the **Tags** field.
+You can also create new tags directly from an object or autodiscovery job configuration page, under the **Tags** field.
 
 <ThemedImage
   alt="Add a new tag"
@@ -37,7 +37,7 @@ You can also create new tags directly from an object or autodiscovery job config
 
 ### View and Edit Tags
 
-Click the name of a tag from the list page to view the objects that have been tagged with it. To remove an association, click **Edit**, check the **Delete?** checkbox and **Save**.
+On the Tags list page, you can click on a tag name to view the objects with that tag. To remove an association, click **Edit**, check the **Delete?** checkbox, and click **Save**.
 
 <ThemedImage
   alt="Add a new tag"
@@ -50,7 +50,7 @@ Click the name of a tag from the list page to view the objects that have been ta
 
 ### Tagging Objects
 
-Add a tag to a device by filling in the **Tag** field when creating or editing a device. You also specify tags to discovered objects when configuring an autodiscovery job. 
+Add a tag to a device by filling in the **Tag** field when creating or editing a device. You also specify tags for discovered objects when configuring an autodiscovery job. 
 
 <ThemedImage
   alt="Tagging a device"
@@ -62,9 +62,9 @@ Add a tag to a device by filling in the **Tag** field when creating or editing a
 
 ### Merging Tags
 
-Due to misspellings or duplication, you may end up with multiple tags and can merge them together.
+Due to misspellings or duplication, you may end up with multiple similar tags. You can merge them as follows:
 
-From the Tags list page, select two or more tags, choose **Merge selected tags** from the actions menu, and click the **hammer icon** to execute the merge. 
+From the Tags list page, select two or more tags, choose **Merge selected tags** from the **Select an action** dropdown, and click the **hammer icon** to execute the merge. 
 
 <ThemedImage
   alt="Merge action"
