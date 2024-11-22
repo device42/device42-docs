@@ -3,40 +3,73 @@ title: "Tags"
 sidebar_position: 15
 ---
 
-Tags help with filtering objects and grouping disparate objects. For example, you could define a "Project X" tag and associate that tag with all the devices, IP addresses, etc... that are associated with Project X.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Tags can be placed on most objects in Device42.
+Tags help with filtering objects and grouping objects. For example, you could define a "Project X" tag and associate that tag with all the devices, IP addresses, and other items associated with Project X.
 
-Most reports can be filtered based on tags.
+Tags can be placed on most objects in Device42 and most reports can be filtered by tags.
 
-### Creating tags
+Navigate to the Tags list page under **Infrastructure > Organization > Tags** to view, edit, and create tags.
 
-![Creating tags](/assets/images/wpid-media_14144930840731.png)
+<ThemedImage
+  alt="Tags list page"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/list-page-light.png'),
+    dark: useBaseUrl('/assets/images/tags/list-page-dark.png'),
+  }}
+/>
 
-From the tags list page, click Add Tag to create a tag. Click on a tag to edit the tag.
+### Create Tags
 
-![](/assets/images/wpid-media_14144932471591.png)
+Click the **+ Add Tags** button to create a new tag. Tag names can contain spaces. The **Slug** is a unique resource identifier for the tag and is automatically filled in.
 
-For each tag, you give it a name and a slug (essential a unique resource identifier).
+You can also create new tags directly from an object or autodiscovery job configuration page under the **Tags** field.
 
-In the example above, 2 devices and 1 IP addresses were "tagged" with tag "nh4th". 
-Tags containing spaces should be wrapped in double quotes, for example, "tag space".
+<ThemedImage
+  alt="Add a new tag"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/add-tag-light.png'),
+    dark: useBaseUrl('/assets/images/tags/add-tag-dark.png'),
+  }}
+  style={{ width: '50' }} 
+/>
 
-An example of tagging a device with 'nh4th' is shown below...
+### View and Edit Tags
 
-![](/assets/images/wpid-media_14144934131171.png)
+Click the name of a tag from the list page to view the objects that have been tagged with it. To remove an association, click **Edit**, check the **Delete?** checkbox and **Save**.
 
+<ThemedImage
+  alt="Add a new tag"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/tagged-items-light.png'),
+    dark: useBaseUrl('/assets/images/tags/tagged-items-dark.png'),
+  }}
+  style={{ width: '50' }} 
+/>
 
-### Merging tags
+### Tagging Objects
 
-If you end up with multiple tags that you would like to merge, ie. due to misspelling or duplication, you can do so easily in Device42. To merge two or more tags first browse to the tags page in Device42 in Tools>Tags.
+Add a tag to a device by filling in the **Tag** field when creating or editing a device. You also specify tags to discovered objects when configuring an autodiscovery job. 
 
-![Merging tags](/assets/images/2016-04-18-tags-01.png)
+<ThemedImage
+  alt="Tagging a device"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/tagged-device-light.png'),
+    dark: useBaseUrl('/assets/images/tags/tagged-device-dark.png'),
+  }}
+/>
 
-From the tags list page, select the tags that you would like to merge and from the Action menu click "Merge Selected Tags"
+### Merging Tags
 
-![Merging tags](/assets/images/2016-04-18-tags-02.png)
+Due to misspellings or duplication, you may end up with multiple tags and can merge them together.
 
-You should receive a confirmation message, and clicking "Okay" will confirm the merge.
+From the Tags list page, select two or more tags, choose **Merge selected tags** from the actions menu, and click the **hammer icon** to execute the merge. 
 
-![Merging tags](/assets/images/2016-04-18-tags-03.png)
+<ThemedImage
+  alt="Merge action"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/merge-tags-light.png'),
+    dark: useBaseUrl('/assets/images/tags/merge-tags-dark.png'),
+  }}
+/>
