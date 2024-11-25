@@ -5,9 +5,13 @@ sidebar_position: 1
 
 Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
 
+:::warning
+Please note that the JSM Assets integration will no longer be supported after December 30, 2024.
+:::
+
 ## Device42 for Jira Service Management
 
-_This section is about the [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app. Refer to the [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab) for information about the [Device42 for JSM **Assets**](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview) app._
+_This section is about the [Device42 for JSM](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management) app. Refer to the [Device42 for JSM Assets section](#configure-device42-for-jsm-assets-the-settings-tab) for information about the Device42 for JSM **Assets** app._
 
 JSM Cloud seamlessly integrates with Device42 using the [Device42 for Jira Service Management app available from the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1218369/device42-for-jira-service-management). The Device42 JSM app efficiently transmits data and augments JSM Cloud capabilities.
 
@@ -84,22 +88,6 @@ Click **View in Device42** to view the full details of the record in Device42.
 
 ![alt_text](/assets/images/jsm-solution-guide/image28.png)
 
-Finally, back in Device42, the linked Jira record will be displayed at the bottom of the corresponding Device42 record:
-
-![Linked issue](/assets/images/jsm-solution-guide/image75.png)
-
-### Linking Jira Records from Device42
-
-You can also browse to a configuration item in Device42 and create or attach Jira tickets there.
-
-Go to the **Jira** section of the record in Device42 and select either **+ Add Jira Issue** or **+ Link to Jira issue**.
-
-![Linking from device42](/assets/images/jsm-solution-guide/image77.png)
-
-New tickets are linked and immediately viewable in JSM.
-
-![](/assets/images/jsm-solution-guide/image27.png)
-
 ### Customizing Syncing Device42 Record Types with Jira
 
 It's important to note that, by default, only a subset of Device42 information is synchronized with Jira. This is controlled by a DOQL query and is customizable. You can change the DOQL queries in your Jira integration settings in **Device42 at Tools > Integrations > External Integrations**:
@@ -114,7 +102,7 @@ See the [Jira Cloud Integration](integration/external-integrations/jira-integrat
 
 ### Jira Service Management Integration
 
-In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the [Device42 for Jira Service Management Assets integration](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview). See the following section or watch our [Device42 JSM Assets integration](https://device42.wistia.com/medias/b087w5fps8) video for more details.
+In addition to integrating with regular Jira issues, Device42 can also be integrated with Jira Service Management directly through the Device42 for Jira Service Management Assets integration. See the following section or watch our [Device42 JSM Assets integration](https://device42.wistia.com/medias/b087w5fps8) video for more details.
 
 ### Resources
 
@@ -619,5 +607,3 @@ If you look at a device with software on it, you should now see "Software In Use
 ## Additional Resources
 
 Video: [How to set up Jira Service Management assets integration with Device42](https://device42.wistia.com/medias/b087w5fps8) 
-
-[Device42 for Jira Service Management Assets app on Atlassian Marketplace](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets?hosting=cloud&tab=overview)
