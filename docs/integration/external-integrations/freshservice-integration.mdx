@@ -70,7 +70,7 @@ Ensure that cloud services are enabled and configured:
 Enable the Device42 integration in Freshservice using the Discovery Hub setup wizard.
 
 1. Log in to your Freshservice agent account.
-2. Click the **ellipsis icon** and select **Admin**. Use the search bar at the top of the page to search for "hub."
+2. Click the **ellipsis icon** and select **Admin**. Use the search bar at the top of the page to search for "hub".
 3. From the Discovery Hub view, click **Steps to configure trial**.
      
     ![Discovery Hub](/assets/images/freshservice-integration/discovery-hub-start.png)
@@ -84,7 +84,7 @@ Enable the Device42 integration in Freshservice using the Discovery Hub setup wi
    
     ![Fill in the config form](/assets/images/freshservice-integration/integration-config-form-install.png)
 
-   - Choose your **Cloud Connector** region from the dropdown that matches the Cloud Services option selected in Device42. See Step 3 of the [Check Your Device42 Settings](#1-enable-the-cloud-connector-in-device42) section above.
+   - From the dropdown, choose your **Cloud Connector** region that matches the Cloud Services option selected in Device42. See Step 3 of the [Check Your Device42 Settings](#1-enable-the-cloud-connector-in-device42) section above.
    - Enter the **Verification Token** generated from the Device42 external integration you added. Make sure you're using the token from the External Integrations view page and **not** the token from the **+ Add External Integrations** form.
 7.  Under the **Freshservice Default Approver** dropdown, select your admin user from the list. If this list is populated, then the information you've entered so far should be correct. If you are unable to select a user, check the URL and Cloud Connector
 
@@ -122,7 +122,7 @@ Now, when you're logged out of both Device42 and Freshservice, clicking the **Fr
 
 ## Integration App Settings
 
-Use the integration app's configuration page to sync data from Device42 to Freshservice and view, and edit, the data mapping between Device42 and Freshservice.
+Use the integration app's configuration page to sync data from Device42 to Freshservice and view and edit the data mapping between Device42 and Freshservice.
 
 From Freshservice, navigate to the Device42 integration app's settings page:
 
@@ -138,22 +138,22 @@ Data synchronization (sync) brings in new CIs and updates the existing ones with
 
 You can schedule a daily sync and run the sync immediately. We recommend that you run a full sync after installing the integration app.
 
-[From the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the  **Schedule Synchronization** section. 
+[From the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section. 
 
     ![Schedule synchronization](/assets/images/freshservice-integration/schedule-sync.png)
 
 To run the sync immediately, click the **Manual sync** button to reveal the options:
 
-- Select **Run Full Sync** (1) to sync all items from Device42 to Freshservice regardless of when the items were added or updated in Device42.
+- Select **Run Full Sync** (1) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
 - Select **Run Partial Sync** (2) to sync items that have changed in Device42 (either added or updated) since the last successful sync.
 
-To automatically fetch data from Device42 daily, Check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** to perform the sync. 
+To automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** to perform the sync. 
 
 ### View Sync History Logs
 
 View the history logs by clicking the **Sync History** button. Viewing synchronization history is useful for debugging issues and seeing the number of devices brought into Freshservice. 
 
-From here, you can view previous synchronizations and currently running ones. You can select a row from the sync history table to view logs (if any) associated with it. The displayed text is limited to ~4000 characters.
+From here, you can view previous synchronizations and currently running ones. You can select a row from the sync history table to view logs (if any) associated with it. The displayed text is limited to 4,000 characters.
 
 :::note
 A full sync will be forced during upgrades to get new data from Device42. It will appear as a full upgrade instead of an incremental one under the synchronization history type. This will occur until a successful sync is performed.
@@ -161,7 +161,7 @@ A full sync will be forced during upgrades to get new data from Device42. It wil
 
 ## Data Mapping
 
-[From the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the  **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data mapping options.
+[From the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data mapping options.
 
 ![Data Mapping buttons](/assets/images/freshservice-integration/mapping.png)
 
@@ -175,10 +175,10 @@ We understand that some fields within Device42 may not easily translate to a fie
 
 ![](/assets/images/FS_Data_Map_2-700x316.png)
 
-1. Navigate to _Assets > Inventory_ from the Freshservice Dashboard.
+1. Navigate to **Assets > Inventory** from the Freshservice dashboard.
 2. On the inventory screen, select the asset imported from Device42 that you want to view mapped and unmapped data.
 3. On the right panel of the page, you will see the Device42 application. Click this to expand the application.
-4. Once this window is expanded, click the _View Device42 Data_ button
+4. Once this window is expanded, click the **View Device42 Data** button
 
 ![](/assets/images/FS_Data_Map_3.png)
 
@@ -186,7 +186,7 @@ We understand that some fields within Device42 may not easily translate to a fie
 
 ![](/assets/images/FS_Data_Map_4-700x318.png)
 
-- If you close this and select the _View Asset in Device42_, you will be redirected to the asset in Device42.
+- If you close this and select **View Asset in Device42**, you will be redirected to the asset in Device42.
 
 ![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
 
