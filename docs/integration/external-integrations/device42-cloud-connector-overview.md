@@ -23,7 +23,7 @@ Click _Save_ to save your changes.
 
 - [Atlassian JIRA (cloud)](integration/external-integrations/jira-integrations/device42-jira-cloud-integration.mdx)
 - [ServiceNow](device42-servicenow-connector.md)
-- [Freshservice](integration/external-integrations/freshservice-integration.md)
+- [Freshservice](integration/external-integrations/freshservice-integration.mdx)
 - Insight in JSM Cloud
 - [Opsgenie](integration/external-integrations/opsgenie-integration.md)
 - [PagerDuty](integration/external-integrations/pagerduty-integration.md)
