@@ -6,7 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This tutorial demonstrates how to load sample data into the Device42 Main Appliance (MA) using the Device42 API. You don't need any prior programming knowledge, only the ability to execute a bash script of curl commands from the command prompt.
+This tutorial demonstrates how to load sample data into the Device42 Main Appliance (MA) using the Device42 API. You don't need prior programming knowledge, only the ability to execute a bash script of curl commands from the command prompt.
 
 To run the script, you need a \*nix system with curl, a data transfer tool built into Linux and Ubuntu.
 
@@ -35,9 +35,9 @@ To run the script, you need a \*nix system with curl, a data transfer tool built
 
 5. Log in to your Device42 MA.
 
-Running the script adds sample data – including a building, two rooms, six vendors, four racks, seven devices, and three customers – to your MA. Depending on your settings, you may see statistics for these additions on your dashboard. Some data isn't displayed in the dashboard, but can be found by browsing the system (for example, data concerning custom keys and value pairs).
+Running the script adds sample data to your MA, including a building, two rooms, six vendors, four racks, seven devices, and three customers. Depending on your settings, you may see statistics for these additions on your dashboard. Some data isn't displayed in the dashboard but can be found by browsing the system (for example, data concerning custom keys and value pairs).
 
-You can view data added for an object category by navigating to the list page for that category from the main menu. For example, if you go to **Resources > All Devices**, you'll see the newly created records with names beginning with `nh-demo-`.
+You can view data added for an object category by navigating to the relevant list page from the main menu. For example, if you go to **Resources > All Devices**, you'll see the newly created records with names beginning with `nh-demo-`.
 
 <ThemedImage
   alt="New devices added on the list page"
@@ -51,7 +51,7 @@ You can view data added for an object category by navigating to the list page fo
 
 Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section.
 
-Each line in the script has a curl statement like the one below. Note that the backslashes (`\`) aren't in the original script and are used here to continue the command on a new line for readability.
+Each line in the script has a curl statement like the one below. Note that the backslashes (`\`) aren't in the original script; they are used here to continue the command on a new line for readability.
 
 ```bash
 #Add a Building
@@ -100,7 +100,7 @@ The following screenshot shows the documentation for the **Create/update** racks
 You can get an ID one of two ways:
 
 - You can use the endpoint for the object (for example, `/api.1.0/rooms/`) to get it programmatically. This method is most appropriate for a more complex program written in Java or Python.
-- If you are executing curl commands in a shell script, you can open the MA, go to **Infrastructure > DataCenter > Rooms**, and hover over a room name to view its URL in the lower left corner of your screen. The last number in the URL is the unique ID
+- If executing curl commands in a shell script, you can open the MA, go to **Infrastructure > DataCenter > Rooms**, and hover over a room name to view its URL in the lower left corner of your screen. The last number in the URL is the unique ID
 
   <ThemedImage
     alt="Hover over room name"
@@ -111,7 +111,7 @@ You can get an ID one of two ways:
     style={{ width: '60%' }} 
   />
 
-  For example: If you hover over the **DF2** hyperlink, you'll see that the last number in the URL is `26`. This is its unique ID.
+  For example, if you hover over the **DF2** hyperlink, you'll see that the last number in the URL is `26`. This is its unique ID.
 
 ## Next Steps
 
