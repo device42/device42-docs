@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import apiImage from '/assets/images/tutorial-loading-data-using-spreadsheets/buildings-api-parameters.png'
 
-In this tutorial, we will load data to the Main Appliance using the API import feature. You can load any type of data that can be loaded via the Device42 API, which means it is possible to import just about all of your data using the import feature. 
+In this tutorial, you will learn to use the API import feature to load data to the Main Appliance (MA). Any type of data that can be loaded via the Device42 API can be uploaded using the import feature, allowing you to import the most data this way.
 
 To get started, navigate to **Tools > Imports/Exports (xls)**.
 
@@ -17,16 +17,16 @@ To get started, navigate to **Tools > Imports/Exports (xls)**.
     light: useBaseUrl('/assets/images/tutorial-loading-data-using-spreadsheets/imports-xls-menu-location-light.png'),
     dark: useBaseUrl('/assets/images/tutorial-loading-data-using-spreadsheets/imports-xls-menu-location-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
 
 ## Workflow Overview
 
-The easiest way to create an API Import spreadsheet is to look through the list of import types (3) on the page to find the one you need. Click the **Download Sample Excel File** link (4) and add your data to it. 
+The easiest way to create an API import spreadsheet is to look through the Generic API Import Excel Sheet list page to find the **Type of Import** (3) you need. Click the **Download Sample Excel File** link (4) next to the relevant import type and add your data to it.
 
-To learn what the fields in the spreadsheet mean and which parameters are required, click the **View Documentation** link (5) to go to the API documentation.
+To learn about the spreadsheet fields and required parameters, click **View Documentation** (5) to read the API documentation.
 
-Click the **Browse** button (1) to select a prepared Excel file on your machine and click the green **Import** button (2) to upload the data.
+Once you have completed the spreadsheet, click the **Browse** button (1). Select the prepared Excel file on your machine and click the green **Import** button (2) to upload your data.
 
 <ThemedImage
   alt="Imports/Exports (xls) page"
@@ -34,10 +34,10 @@ Click the **Browse** button (1) to select a prepared Excel file on your machine 
     light: useBaseUrl('/assets/images/tutorial-loading-data-using-spreadsheets/import-excel-page-light.png'),
     dark: useBaseUrl('/assets/images/tutorial-loading-data-using-spreadsheets/import-excel-page-dark.png'),
   }}
-  style={{ width: '110%' }} 
+  style={{ width: '110%' }}
 />
 
-Alternatively, you can download all your current data (6) and add new data to it. If the **Type of Import** contains the words "Create" or "Update", you can change and add data elements, and then upload the spreadsheet with the **Import** button (2).
+Alternatively, you can click **Download Current Data** (6) to update existing data records with new information. If the **Type of Import** (3) contains the words "Create" or "Update", you can change and add data elements, then upload the spreadsheet using the **Import** button (2).
 
 ## Buildings Example
 
@@ -45,19 +45,21 @@ Alternatively, you can download all your current data (6) and add new data to it
 
 ![Loading sample data](/assets/images/tutorial-loading-data-using-spreadsheets/building-xls-modified-sample.png)
 
-Let's start by uploading building data. When you open the downloaded sample spreadsheet, you'll see the API URL and HTTP request method on the first two rows. 
+Let's start by uploading building data. When you open the downloaded sample spreadsheet, you'll see the API URL and HTTP request method on the first two rows. In the above example, these are `/api/1.0/buildings/` and `POST`, respectively.
 
-The third row contains the field names. The actual data starts from the fourth row onwards. The example above shows two buildings to be loaded into Device42. If we wanted to load 20 buildings, we would put the data on rows 4 through 23 of the spreadsheet.
+The third row contains the field names, such as `name`, `address`, and `contact_name`.
+
+The actual data starts from the fourth row onwards. The example shows that two buildings, `New Haven DC` and `New York DC`, are to be uploaded to Device42. If you wanted to load 20 buildings, you would enter the data in rows 4-23 of the spreadsheet.
 
 ### Consult the API Docs
 
-As you can see from the [documentation](https://api.device42.com/#Buildings_postBuildings), the name of the building is required but the rest of the fields are optional and can be left blank.
+As noted in the [API documentation](https://api.device42.com/#Buildings_postBuildings), the name of the building is required, but the rest of the fields are optional and can be left blank.
 
 <img src={apiImage} width="90%"/>
 
 ### Upload the Excel File
 
-From the Main Appliance, **Browse** to your buildings spreadsheet and click the **Import** button to upload the data.
+From the Generic API Import Excel Sheet list page on the MA, **Browse** to your buildings spreadsheet and click **Import** to upload the data.
 
 You'll see a message indicating a successful upload.
 
@@ -72,7 +74,7 @@ You'll see a message indicating a successful upload.
 
 ### View the Uploaded Data
 
-Navigate to **Infrastructure > Buildings** and find the two buildings listed in the table. You can click on a building name to view its details, edit, or add more information to it.
+Navigate to **Infrastructure > Buildings**. The buildings you added to the spreadsheet will appear on the Buildings list page. You can click on a building **Name** to view its details and edit or add more information to it.
 
 <ThemedImage
   alt="Buildings list page with new data"
@@ -83,7 +85,7 @@ Navigate to **Infrastructure > Buildings** and find the two buildings listed in 
 
 />
 
-You can also view the new building data from the **Classic Dashboard** on the home page. Click the number across the **Buildings** statistics to go to the buildings list page.
+You can also view the new building data from the **Classic Dashboard** on the home page. In the **Building Statistics** table, click the number across from **Buildings** to go to the Buildings list page.
 
 <ThemedImage
   alt="Buildings list page with new data"
@@ -94,30 +96,28 @@ You can also view the new building data from the **Classic Dashboard** on the ho
   
 />
 
-## Load Related Data
+### Load Related Data
 
-Next, let's add a couple of rooms. Download the **Rooms - Create Rooms** sample spreadsheet and add room data to it.
+Once you've created buildings, you can load rooms by downloading the **Rooms - Create Rooms** sample spreadsheet and adding room data to it.
 
-A unique `building` name or the `building_id` is required to add a new room record,  which means that building data needs to be added before room data. Most of the other imports will have logical references like these.
+A unique `building` name or `building_id` is required to add a new room record, which means that building data needs to be added before room data.
 
-### Upload Order
+Most of the imports contain similar logical references, so we recommend you upload objects in the following order:
 
-A good order for uploading objects to Device42 is the following:
-
-* Add Buildings 
-* Add Rooms 
-* Add Vendors 
-* Add Racks 
-* Add Hardware Models 
-* Add Devices 
-* Add Devices to Racks 
-* Add Assets 
-* Add Switches (Devices) 
-* Add VLANs 
-* Add Subnets 
-* Add IP Addresses 
-* Add Application Components
+1. Add Buildings
+2. Add Rooms
+3. Add Vendors
+4. Add Racks
+5. Add Hardware Models
+6. Add Devices
+7. Add Devices to Racks
+8. Add Assets
+9. Add Switches (Devices)
+10. Add VLANs
+11. Add Subnets
+12. Add IP Addresses
+13. Add Application Components
 
 ## Next Steps
 
-Next, we encourage you to follow the [Navigating the Device42 User Interface](/getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx) tutorial. Browse through the documentation for more detailed information on the various Device42 features.
+Next, we encourage you to follow the [Device42 user interface](/getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx) tutorial. Browse through the documentation for more detailed information about the various Device42 features.
