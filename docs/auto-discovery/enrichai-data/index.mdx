@@ -3,6 +3,9 @@ title: "EnrichAI Data"
 sidebar_position: 99
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 EnrichAI Data is a Device42 service to enrich discovered data. Currently, Device42 supports the enrichment of discovered device OS data and vendor data.
 
 ## Data Fields
@@ -126,15 +129,33 @@ Please make sure the following is in place to ensure connectivity with EnrichAI:
 
 Select **Analytics > EnrichAI Data** to display the EnrichAI Data list page.
 
-![](/assets/images/18.04.00_EnrichAI_data-list-page.jpg)
+<ThemedImage
+  alt="Enrich AI Button"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery-enrich-ai/enrich-ai-button-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery-enrich-ai/enrich-ai-button-dark.png'),
+  }}
+/>
 
 Click the **Enriched Value** link to view the data record. If you want, you can lock an EnrichAI data record to prevent Device42 from updating it in the future.
 
-![](/assets/images/18.04.00_EnrichAI_data-view-page-os.jpg)
+<ThemedImage
+  alt="Data lock button"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery-enrich-ai/enrich-ai-data-lock-button-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery-enrich-aienrich-ai-data-lock-button-dark.png'),
+  }}
+/>
 
 Device42 also currently displays EnrichAI Data information on OS and vendor view pages that have been enriched. The image below shows a vendor view page with EnrichAI Data – click the link to go to the data view page. Enriched data information is also available via API and DOQL in the vendor and deviceOS DOQL views.
 
-![](/assets/images/18.04.00_EnrichAI_vendor-view-page.jpg)
+<ThemedImage
+  alt="Vendor view"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery-enrich-ai/enrich-ai-vendor-view-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery-enrich-ai/enrich-ai-vendor-view-dark.png'),
+  }}
+/>
 
 ## EnrichAI Data Handling and Security Practices
 
