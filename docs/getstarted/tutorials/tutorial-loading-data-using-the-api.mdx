@@ -6,7 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This tutorial will show you how to load sample data into the Device42 Main Appliance using the Device42 API. You don't need any prior programming knowledge and only need to execute a bash script of curl commands from the command prompt.
+This tutorial demonstrates how to load sample data into the Device42 Main Appliance (MA) using the Device42 API. You don't need prior programming knowledge, only the ability to execute a bash script of curl commands from the command prompt.
 
 To run the script, you need a \*nix system with curl, a data transfer tool built into Linux and Ubuntu.
 
@@ -28,11 +28,11 @@ To run the script, you need a \*nix system with curl, a data transfer tool built
     $ sh /tmp/demo_script.sh
     ```
     You will see information displayed in the terminal as the script executes and each curl statement outputs a success message. 
-5. Now log in to your Device42 Main Appliance. 
+5. Log in to your Device42 MA.
 
-Running the script adds sample data including a building, two rooms, six vendors, four racks, seven devices, and three customers to your Main Appliance. You'll see statistics of the additions on your dashboard, depending on your settings. Some data like custom keys and value pairs aren't displayed in the dashboard, but you'll see them when browsing the data in the system.
+Running the script adds sample data to your MA, including a building, two rooms, six vendors, four racks, seven devices, and three customers. Depending on your settings, you may see statistics for these additions on your dashboard. Some data isn't displayed in the dashboard but can be found by browsing the system (for example, data concerning custom keys and value pairs).
 
-You can view data added for an object category by navigating to that category's list page from the main menu. For example, if you go to **Resources > All Devices** you'll see the newly created records with names beginning with "nh-demo-".
+You can view data added for an object category by navigating to the relevant list page from the main menu. For example, if you go to **Resources > All Devices**, you'll see the newly created records with names beginning with `nh-demo-`.
 
 <ThemedImage
   alt="New devices added on the list page"
@@ -46,7 +46,7 @@ You can view data added for an object category by navigating to that category's 
 
 Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section. 
 
-Each line in the script has a curl statement like the one below. Note that the `\` backslashes aren't in the original script and are used here to continue the command on a new line for readability.
+Each line in the script has a curl statement like the one below. Note that the backslashes (`\`) aren't in the original script; they are used here to continue the command on a new line for readability.
 
 ```bash
 #Add a Building
@@ -90,9 +90,10 @@ This is the documentation for the **Create/update** racks API with the optional 
 
 ![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/racks-api-paramaters.png)
 
-There are two ways to get an ID. First, you can do it programmatically using the endpoint for the object, like `/api.1.0/rooms/`. This method is most appropriate for a more complex program written in Java or Python. 
+There are two ways to get an ID. 
 
-If you are executing curl commands in a shell script, do the following: From the Main Appliance, go to **Infrastructure > DataCenter > Rooms**. Then, hover over the name of the room for which you wish to find the ID.
+- You can use the endpoint for the object (for example, `/api.1.0/rooms/`) to get it programmatically. This method is most appropriate for a more complex program written in Java or Python.
+- If executing curl commands in a shell script, you can open the MA, go to **Infrastructure > DataCenter > Rooms**, and hover over a room name to view its URL in the lower left corner of your screen. The last number in the URL is the unique ID.
 
 <ThemedImage
   alt="Hover over room name"
@@ -103,7 +104,7 @@ If you are executing curl commands in a shell script, do the following: From the
   style={{ width: '60%' }} 
 />
 
-For example, hover over the "IDF2" hyperlink, and look at the lower left corner of your screen to see the small URL of the room. The unique ID is the last number in the URL, which is "26". 
+  For example, if you hover over the **DF2** hyperlink, you'll see that the last number in the URL is `26`. This is its unique ID.
 
 ## Next Steps
 
