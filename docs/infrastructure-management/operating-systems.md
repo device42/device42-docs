@@ -19,7 +19,7 @@ If the operating system record has been enriched, key maintenance dates may be d
 
 ![Windows device EnrichAI data example](/assets/images/operating-system-enrichai-data.png)
 
-See the [Operating System Attributes](auto-discovery/enrichai-data/index.md#operating-system-attributes) and [Key Support Dates](auto-discovery/enrichai-data/index.md#key-support-dates) sections of the [EnrichAI Data](auto-discovery/enrichai-data/#operating-system-attributes) page for the list of fields that can be populated through EnrichAI.
+See the [Operating System Attributes](auto-discovery/enrichai-data/index.mdx#operating-system-attributes) and [Key Support Dates](auto-discovery/enrichai-data/index.mdx#key-support-dates) sections of the [EnrichAI Data](auto-discovery/enrichai-data/#operating-system-attributes) page for the list of fields that can be populated through EnrichAI.
 
 Note that data will only be populated by EnrichAI if it's used by the OS vendor and if the data is available.
 
