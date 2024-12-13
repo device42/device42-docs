@@ -1,0 +1,177 @@
+---
+title: "EnrichAI Data"
+sidebar_position: 99
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+EnrichAI Data is a Device42 service for enhancing discovered data. Device42 supports the enrichment of Operating System (OS) and vendor data for discovered devices.
+
+## Data Fields
+
+The EnrichAI Data service populates the following vendor attributes, operating system attributes, and support date fields according to the available data. The data is mined from validated, authoritative sources to ensure accuracy.
+
+### Vendor Attributes
+
+| Vendor Attributes       | Description                                             |
+|-------------------------|---------------------------------------------------------|
+| Vendor Name             | The standardized vendor company title     |
+| Parent                  | The name of the vendor's corporate parent company (if one exists)  |
+| Vendor Name Aliases     | A list of any other names the vendor is known as (if they exist)               |
+
+### Operating System Attributes
+
+| Field               | Description                                                   |
+|---------------------|---------------------------------------------------------------|
+| OS Name             | The standardized name of the OS       |
+| OS Family              | The OS release family              |
+| OS Edition             | The identifier indicating the edition of the OS              |
+| OS Vendor              | The name of the OS vendor                  |
+| OS Version Number           | The general version number of the release                          |
+| Key Support Dates  | See the details for the available date fields in the table below  |
+
+:::note
+The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI Data. The 32- and 64-bit architectures have been coalesced into a single entry, since the architecture does not affect OS dates, licensing, patches, or risk profiles.
+:::
+
+### Key Support Dates
+
+| Key Support Dates                  | Description                                                           |
+|------------------------------------|-----------------------------------------------------------------------|
+| Base Release Date                  | When the OS became available                                        |
+| Release Start Date                 | When support for the specific OS release became available                                |
+| Release End Date                   | When support for the OS release will end                                   |
+| End of Life Date                    | When the OS will no longer be sold                                    |
+| End of Support Date                 | When mainstream support will no longer be available                                    |
+| Extended End of Support Date        | When extended support will no longer be available                                         |
+| End Of Maintenance Date             | When patches will no longer be released under standard maintenance agreement |
+| Extended End Of Maintenance Date    | When patches will no longer be released under extended maintenance agreement |
+
+:::note
+Depending on the vendor, OS, and availability of information, EnrichAI Data may not populate all the date fields.
+:::
+
+## EnrichAI Data Collection
+
+When EnrichAI Data is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the EnrichAI Data service, where it is processed in background tasks to prevent negative system impact. When EnrichAI Data finds a match, it responds with enriched data. All enriched data is displayed on the EnrichAI Data page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
+
+When presented with a new or unique data entry, the EnrichAI Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the EnrichAI Data service to ensure the discovered values are correct and up to date. All data sent to EnrichAI Data is anonymous and untraceable; it will never contain identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
+
+```json
+[
+  {
+    "client_id": "D42",
+    "client_version": "999.99.99.9999999999",
+    "items": [
+      {
+        "entity_type": "os",
+        "parameters": {
+          "os_architecture": "",
+          "os_name": "junos",
+          "os_version": "12.3R12-S1",
+          "os_version_no": ""
+        },
+        "req_id": "os_7"
+      },
+      {
+        "entity_type": "vendor",
+        "parameters": {
+          "vendor": "brocade"
+        },
+        "req_id": "vendor_3"
+      },
+      {
+        "context_info": {
+          "discovery_type": "",
+          "hardware_name": "",
+          "hardware_vendor_name": ""
+        },
+        "entity_type": "software",
+        "parameters": {
+          "category": "",
+          "hidden_name": "(https://support.microsoft.com/help/4598481) KB4598481",
+          "name": "KB4598481",
+          "vendor": "Microsoft",
+          "version": "KB4598481"
+        },
+        "req_id": "software_912"
+      },
+      {
+        "context_info": {
+          "discovery_type": "vserver/*nix",
+          "hardware_name": "",
+          "hardware_vendor_name": ""
+        },
+        "entity_type": "service",
+        "parameters": {
+          "description": "Apache Tomcat Web Application Container",
+          "displayName": "tomcat",
+          "prettyName": "tomcat",
+          "vendor": ""
+        },
+        "req_id": "service_5803"
+      }
+    ]
+  }
+]
+```
+
+## EnrichAI Data Connectivity
+
+Please do the following to ensure connectivity with EnrichAI Data:
+
+1. Configure the Cloud Connector and check that it is reachable.
+2. Make sure the EnrichAI Data endpoints are reachable, including the registration endpoint:
+
+   - `https://registration.device42.com`
+   - `https://crs.device42.io/`
+   - `https://enrichai.device42.io/api/normalizations`
+
+3. Register the license online.
+
+Device42 [InsightsAI](/reports/device42-doql/insightsai.mdx) generates queries based on natural language prompts. The prompts you enter are sent to the `ai42.device42.io` endpoint.
+
+## Using the EnrichAI Data Interface
+
+Select **Analytics > EnrichAI Data** to display the EnrichAI Data list page.
+
+<ThemedImage
+  alt="Enrich AI Menu"
+  sources={{
+    light: useBaseUrl('/assets/images/enrichai-data/enrichai-data-menu-light.png'),
+    dark: useBaseUrl('/assets/images/enrichai-data/enrichai-data-menu-dark.png'),
+  }}
+/>
+
+Click the **Enriched Value** link to view the data record. If desired, you can click the **Lock** button on an EnrichAI data record to prevent Device42 from updating it in the future.
+
+<ThemedImage
+  alt="Data lock button"
+  sources={{
+    light: useBaseUrl('/assets/images/enrichai-data/lock-button-light.png'),
+    dark: useBaseUrl('/assets/images/enrichai-data/lock-button-dark.png'),
+  }}
+/>
+
+Device42 also currently displays information from EnrichAI Data on vendor and OS view pages that have been enriched. The image below shows a vendor view page with enriched data. Next to **Enriched Vendor**, you can click the link to open the data view page. Enriched data is also available via API and Device42 Object Query Language (DOQL) in the vendor and device OS DOQL views.
+
+<ThemedImage
+  alt="Vendor view"
+  sources={{
+    light: useBaseUrl('/assets/images/enrichai-data/vendor-enriched-data-light.png'),
+    dark: useBaseUrl('/assets/images/enrichai-data/vendor-enriched-data-dark.png'),
+  }}
+/>
+
+## Data Handling and Security Practices
+
+1. No personal or personally identifiable data is maintained by the EnrichAI Data service.
+2. Data sent to EnrichAI Data is not associated with or tracked to the calling system or installation.
+3. Unmatched values (those without a corresponding match in EnrichAI Data) are stored for future mining and resolution. This storage has no association with the calling system or installation.
+4. Only Device42 personnel work with these non-identifiable data elements.
+5. Data collected for future enrichment mining is stored in the United States.
+
+:::note
+Device42 reserves the right to change and update the internal matching algorithm and the golden records provided with this service.
+:::
