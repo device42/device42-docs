@@ -133,7 +133,7 @@ Consider the following example of a network switch:
 - You can edit the **Service Level** status.
 
 
-  If you have a server that is in procurement and waiting to be installed, you can select the **In Procurement** option from the **Service Level** dropdown and reserve rack space for the device after procurement.
+  If you have a server that is in procurement or awaiting installation, you can select the **In Procurement** option from the **Service Level** dropdown to reserve rack space for the device after procurement.
 - The **Serial #** and **Asset #** fields are displayed for physical and blade devices.
 
 ### Non-Editable Fields 
@@ -150,7 +150,9 @@ Fields populated through EnrichAI Data, like **OS Version** or OS **End of Life*
 
 ### Warning: Changing a Device Type
 
-It is possible to change a device type, for example, from **physical** to **virtual**, **cluster**, or **unknown**. Please be aware that when you change a device type, you will lose all the attributes specific to that device type. Device42 presents an alert with potential change conflicts when a user alters a device type.
+It is possible to change a device type, for example, from **physical** to **virtual**, **cluster**, or **unknown**. Please be aware that when you change a device type, you will lose all the attributes specific to that device type.
+
+Device42 presents an alert with potential change conflicts when a user alters a device type.
 
 <ThemedImage
   alt="Change conflict warning"
