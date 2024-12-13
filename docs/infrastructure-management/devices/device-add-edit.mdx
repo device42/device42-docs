@@ -6,43 +6,41 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Device List and Add/Change Pages
+## Device List, Add Device, and Change Device Pages
 
-The Device Add and Change pages have direct entry for device properties such as name, asset number, and serial number. You can also set the device _Type_, which allows you to define a Physical, Virtual or Cluster device. The _Network Device_ checkbox should be checked for all network hardware, _Blade Chassis_ if the device happens to be a blade chassis, and _Virtual/Container Host_ if the device will host virtual devices. Service Level defines a device's production status, while _Hardware_ allows a user to select the appropriate hardware model.
+The Device Add and Change pages provide direct for device properties such as the device **Name** and **Asset** and **Serial** numbers. You can also set the device **Type**, which allows you to define a **physical**, **virtual**, or **cluster** device. The **Network Device** checkbox should be checked for all network hardware, the **Blade Chassis** checkbox should be checked for blade chassis devices, and the **Virtual/Container Host** box should be checked for devices that will host virtual devices. You can use **Service Level** to define a device's production status and **Hardware** to select the appropriate device hardware model.
 
 :::note
-Devices found by autodiscovery that have hardware models are now presented in Device42 as physical devices (previously these devices were sometimes presented as ‘unknown’ or ‘other’). 'Other' type devices are now also identified as physical, with the “other” device subtypes now being physical device subtypes. Previously any previously undiscovered hardware would come in as ‘unknown’ device types until defined by the user.
+Device42 no longer identifies previously undiscovered hardware as **unknown** by default. Autodiscovery assigns the **physical** type to devices with hardware models. The **other** type and subtypes have been reclassified as the **physical** type and subtypes.
 :::
 
 ### View Devices
 
-- Select **Resources > Compute > All Devices** to display a list of devices.
+Select **Resources > Compute > All Devices** to display a list of devices.
 
-  <ThemedImage
-    alt="All devices button"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/all-devices-button-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/all-devices-button-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="All devices button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/all-devices-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/all-devices-button-dark.png'),
+  }}
+/>
 
-- Click on a device _Name_ to see details about the device.
+Click on a device **Name** to view the device details.
 
-  <ThemedImage
-    alt="All devices button"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/view-device-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/view-device-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="All devices button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/view-device-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/view-device-dark.png'),
+  }}
+/>
 
-Scroll down the page to view details organized into tabs. Though the tabs will change by device type, most devices will have these tabs:
+Scroll down the page to view the details organized into tabs. Although the tabs change by device type, most devices have the following tabs:
 
 - [Properties](device-properties-tab.mdx) (1) 
 - [Other](device-other-tab.md) (2)
 - [Parts](device-parts-tab.md) (3)
-
-We will discuss the direct properties of devices below and the four tabs in the other sections of the documentation.
 
 <ThemedImage
   alt="Device tabs"
@@ -52,32 +50,35 @@ We will discuss the direct properties of devices below and the four tabs in the 
   }}
 />
 
+We'll discuss the direct properties of devices below. The other tabs are discussed elsewhere in the documentation.
+
 ### Add a Device
 
-- Select **Resources > Compute > All Devices** and then click **Add Device** in the upper-right corner.
+Select **Resources > Compute > All Devices** and then click **Add Device** in the upper-right corner.
 
-  <ThemedImage
-    alt="Add devices button"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/add-device-button-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/add-device-button-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Add devices button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/add-device-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/add-device-button-dark.png'),
+  }}
+/>
 
-- When you select _Add Device_,  you will see the generic device add page with the _Type_ shown as blank. New devices also default to _In Service_, with a _Service Level_ set to Production.
-- Enter a _Name_ for the device and then select the device Type (physical, virtual, or cluster).
+When you select **Add Device**, you will see the generic Add Device page with the **Type** shown as blank. By default, new devices are assigned the **In Service** property and their **Service Level** is set to **Production**.
 
-  <ThemedImage
-    alt="Device Types"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/device-types-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/device-types-dark.png'),
-    }}
-  />
+Enter a **Name** for the device and select **physical**, **virtual**, or **cluster** for the device **Type**.
 
-The available options and fields on the Add Device page are different depending on which device _Type_ you select.
+<ThemedImage
+  alt="Device Types"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/device-types-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/device-types-dark.png'),
+  }}
+/>
 
-- For example, for physical devices, you can select or add a _Physical Subtype_.
+The available options and fields on the Add Device page differ according to the device **Type** selected:
+
+- For physical devices, you can select or add a **Physical Subtype**.
 
   <ThemedImage
     alt="Physical Subtypes"
@@ -87,7 +88,7 @@ The available options and fields on the Add Device page are different depending 
     }}
   />
 
-- For virtual devices, you can select a _Virtual Subtype_.
+- For virtual devices, you can select a **Virtual Subtype**.
 
     <ThemedImage
       alt="Virtual Subtypes"
@@ -97,7 +98,7 @@ The available options and fields on the Add Device page are different depending 
       }}
     />
 
-- The cluster devices, the page displays a list of _Available Devices in Cluster_.
+- The cluster devices, the page displays an **Available Devices in Cluster** list.
 
   <ThemedImage
     alt="Clusters"
@@ -107,14 +108,15 @@ The available options and fields on the Add Device page are different depending 
     }}
   />
 
-Enter or select the options you want for the device, and then click  _Save_ to save the device and add it to the appropriate device list.
+Enter or select the options you want for the device, then **Save** the device and add it to the appropriate device list.
 
 ## Basic Device Addition and Editing
 
-- Select _Devices > All Devices_ to display a list of devices.
-- Click on a device _Name_ to see details about the device, and then click _Edit_ at the top right of the View page.
+Select **Devices > All Devices** to display a list of devices.
 
-As an example, let us consider a network switch:
+Click on a device **Name** to see the details for that device, and then click **Edit** in the top right of the View page.
+
+Consider the following example of a network switch:
 
 <ThemedImage
   alt="Edit Device"
@@ -124,19 +126,19 @@ As an example, let us consider a network switch:
   }}
 />
 
-- The highlighted check boxes above represent whether the device is a **Network Device**, **Blade Chassis**, a **Virtual/Container Host**. 
-  <!-- Keep the two line spacing for Docusaurus to render the sub-paragraphs on a new line. -->
+- The highlighted checkboxes above indicate whether the device is a **Network Device**, **Blade Chassis**, or **Virtual/Container Host**. 
+  <!-- Keep the two-line spacing for Docusaurus to render the sub-paragraphs on a new line. -->
   
-  **It is important to choose the correct attributes**: you can only add switch ports to devices with the **Network Device** option checked. Similarly, blades can be only be added to a **Blade Chassis**, and only a **Virtual/Container Host** can have guests.
+  **It is important to choose the correct attributes**: You can only add switch ports to devices with the **Network Device** option checked. Similarly, blades can only be added to a **Blade Chassis**, and only a **Virtual/Container Host** can have guests.
 - You can edit the **Service Level** status.
 
 
-  If you have a server which is in procurement and waiting to be installed, you can add a service level called **In Procurement**, and reserve rack space for the device in future. You can add a services level with the **+ (addition) symbol** next to the **Service Level** dropdown menu.
-- The **Serial #** and **Asset #** fields are displayed for physical and blade device.
+  If you have a server that is in procurement and waiting to be installed, you can select the **In Procurement** option from the **Service Level** dropdown and reserve rack space for the device after procurement.
+- The **Serial #** and **Asset #** fields are displayed for physical and blade devices.
 
-### Non-editable Fields 
+### Non-Editable Fields 
 
-Fields populated through EnrichAI, like **OS Version** or OS **End of Life**, are not editable. To set these fields, [EnrichAI must be disabled](auto-discovery/enrichai-data/enrichai-opt-out.md) and the record disconnected from the EnrichAI record.
+Fields populated through EnrichAI Data, like **OS Version** or OS **End of Life**, are not editable. To set these fields, you need to [disable EnrichAI Data](auto-discovery/enrichai-data/enrichai-opt-out.md) and disconnect the record from the EnrichAI Data record.
 
 <ThemedImage
   alt="Non-editable fields"
@@ -148,7 +150,7 @@ Fields populated through EnrichAI, like **OS Version** or OS **End of Life**, ar
 
 ### Warning: Changing a Device Type
 
-It is possible to change a device type (e.g. from physical to virtual, cluster, or unknown). Please be aware that when you change a device type, you will lose all attributes that are specific to the device type. Device42 presents an alert of potential change conflicts when a user chooses to change the type of a device.
+It is possible to change a device type, for example, from **physical** to **virtual**, **cluster**, or **unknown**. Please be aware that when you change a device type, you will lose all the attributes specific to that device type. Device42 presents an alert with potential change conflicts when a user alters a device type.
 
 <ThemedImage
   alt="Change conflict warning"
@@ -158,25 +160,25 @@ It is possible to change a device type (e.g. from physical to virtual, cluster, 
   }}
 />
 
-**When you change from a physical device to another device type, you will lose the following:**
+When you change from a physical device type, you lose the following:
 
-- the rack, room, or storage room information
-- the hardware model
-- any IP or power connectivity
-- if it was a blade chassis, it will no longer be one
-- all blade information
+- The rack, room, or storage room information
+- The hardware model
+- Any IP or power connectivity
+- The blade chassis property
+- All blade information
 
-**When you change from a virtual device to another device type, you will lose the following:**
+When you change from a virtual device type, you lose the following:
 
-- if it was a virtual host, it will no longer be one
-- any cloud instance Data
+- The virtual host property
+- Any cloud instance data
 
-**When you change from a blade device to another device type, you will lose the following:**
+When you change from a blade device type, you lose the following:
 
-- blade host information
-- the blade chassis slot # will be cleared
-- the hardware model
-- storage room information
-- any IP or power connectivity
+- The blade host information
+- The blade chassis slot number
+- The hardware model
+- The storage room information
+- Any IP or power connectivity
 
-**When you change from a cluster device to another device type, you will lose all cluster associations.**
+When you change from a cluster device type, you lose all cluster associations.
