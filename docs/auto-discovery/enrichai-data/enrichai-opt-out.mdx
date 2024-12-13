@@ -6,11 +6,15 @@ sidebar_position: 100
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-EnrichAI Data is a Device42 service to enrich discovered data – currently Device42 supports enrichment of discovered device OS data and Vendor data – additional data types will be added in future releases. This section details the steps to take if you choose to disable this enrichment service. Please note that if you re-discover data that was previously enriched, then you will lose that data until you opt back into the EnrichAI cloud service.
+This section demonstrates how to disable EnrichAI Data, the Device42 service that enhances data from device discoveries.
 
- 
+:::note
+Please note that if you rediscover previously enriched data, you will lose that data until you opt back in to the EnrichAI Data cloud service.
+:::
 
-Select _Tools > Cloud Services_ to display the Cloud Services page.
+Take the following steps to opt out of the EnrichAI Data service:
+
+Select **Tools > Cloud Services** to display the Cloud Services page.
 
 <ThemedImage
   alt="Cloud Services Button"
@@ -20,7 +24,7 @@ Select _Tools > Cloud Services_ to display the Cloud Services page.
   }}
 />
 
-You can see the status of your cloud services from this view. In this example EnrichAI is currently Enabled.
+This page shows the status of your cloud services. In the example below, **EnrichAI** has been **Enabled**.
 
 <ThemedImage
   alt="View integrations page"
@@ -30,7 +34,7 @@ You can see the status of your cloud services from this view. In this example En
   }}
 />
 
-To disable this feature, you will click the _Edit_ button in the bottom right corner of the screen.
+To disable this feature, click the **Edit** button in the bottom-right corner of the screen.
 
 <ThemedImage
   alt="Edit Button"
@@ -39,7 +43,8 @@ To disable this feature, you will click the _Edit_ button in the bottom right co
     dark: useBaseUrl('/assets/images/enrichai-opt-out/edit-button-dark.png'),
   }}
 />
-Once the _Edit_ button has been selected, you will see the option to disable the EnrichAI service highlighted below.
+
+In the Edit view, you are presented with the option to opt out of the EnrichAI Data service, as highlighted below. Click **disable** to do so.
 
 <ThemedImage
   alt="Disable Button"
@@ -49,7 +54,7 @@ Once the _Edit_ button has been selected, you will see the option to disable the
   }}
 />
 
-Select the action you would like which in this example is to _Disable._
+The **Disable EnrichAI** dialog gives you the option to **Disable** or **Cancel**. Select **Disable** to opt out of the EnrichAI Data service and return to the Edit view.
 
 <ThemedImage
   alt="Disable prompt"
@@ -59,7 +64,7 @@ Select the action you would like which in this example is to _Disable._
   }}
 />
 
-_EnrichAI_ will show as being _Disabled_. Select _Save_ in the bottom right to save your changes.
+The **EnrichAI** is now **Disabled**. You can **Save** your changes in the bottom-right corner of the page.
 
 <ThemedImage
   alt="Save button"
@@ -69,4 +74,4 @@ _EnrichAI_ will show as being _Disabled_. Select _Save_ in the bottom right to s
   }}
 />
 
-If you would like to opt back into the EnrichAI service, then you will follow the same steps to enable. Once re-enabled we recommend to re-run your discovery jobs to ensure that your data is enriched.
+You can follow the same steps to opt back in to the EnrichAI Data service. After re-enabling, we recommend rerunning your discovery jobs to ensure your data is enriched.
