@@ -19,7 +19,7 @@ Alternatively, go to your Main Appliance login page and click the **Appliance Ma
 
 <ThemedImage
   alt="Main Appliance login screen with Appliance Manager link"
-  sources={{a
+  sources={{
     light: useBaseUrl('/assets/images/device42-appliance-manager-login/ma-login-screen-light.png'),
     dark: useBaseUrl('/assets/images/device42-appliance-manager-login/ma-login-screen-dark.png'),
   }}
