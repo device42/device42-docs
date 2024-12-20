@@ -3,29 +3,43 @@ title: "Clone a Device"
 sidebar_position: 3
 ---
 
-![](/assets/images/clone-a-device.png)
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Tools > Templates & Bulk Operations > Clone Device
+Cloning a device in Device42 saves time and provides consistency when adding multiple similar devices.
 
-Choose the device you wish to clone, then select / deselect the properties you wish to include in the clone/s.
+Navigate to **Tools > Templates & Bulk Operations > Clone Device**.
 
-Value2 and Notes will not be associated.
+- Select a **Device to clone** using the **magnifying glass icon** and choose the properties to include in the clone(s) using the checkboxes.
 
-![](/assets/images/clone-a-device-2.png)
+    **Notes** will not be associated with the clones.
 
-1. Input the # of devices (clones) you wish to create
-2. Select a device profile name for the clone/s to be created
+    <ThemedImage
+    alt="Device to Clone's name and properties"
+    sources={{
+        light: useBaseUrl('/assets/images/clone-a-device/name-and-properties-light.png'),
+        dark: useBaseUrl('/assets/images/clone-a-device/name-and-properties-dark.png'),
+    }}
+    />
 
-Or
-
-1. Input a comma separated list of device names to be used for the clone/s
+- Input the number of clones you wish to create in the **# of devices** field. Next, choose between naming all the clone(s) by a **Device Name Profile** or naming each clone individually by entering a comma-separated list of names.
     
-    ![](/assets/images/clone-a-device-3.png)
+    <ThemedImage
+    alt="Number of clones and naming options"
+    sources={{
+        light: useBaseUrl('/assets/images/clone-a-device/count-and-name-light.png'),
+        dark: useBaseUrl('/assets/images/clone-a-device/count-and-name-dark.png'),
+    }}
+    />
 
-Other properties:
+- Optionally, include an **Asset Number Profile**, **Service Level**, and **Customer** to associated to the clone(s). Note to apply a **Service Level** or **Customer** to the clone(s), deselect their respective checkboxes under **Properties**.
 
-1. Choose Asset Number Profile to be assigned to clone/s
-2. Choose Service Level to be assigned to clone/s
-3. Choose Customer to be assigned to clone/s
+    When you're ready to create the clone(s), click **Clone** in the bottom-right corner.
 
-When ready to create clone/s, click "Clone" in lower right hand corner
+    <ThemedImage
+    alt="Other properties options and Clone button"
+    sources={{
+        light: useBaseUrl('/assets/images/clone-a-device/other-properties-light.png'),
+        dark: useBaseUrl('/assets/images/clone-a-device/other-properties-dark.png'),
+    }}
+    />
