@@ -3,35 +3,105 @@ title: "Device - Blade Chassis"
 sidebar_position: 4
 ---
 
-The device blades tab will be present for blade chassis devices.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![](/assets/images/wpid5666-media_1424466777768.png)
+## View Blade Chassis Devices
 
-The Blades tab shows information about each device in the chassis. Blades are sorted by slot #. Each blade has a link to its device page and displays device name, serial #, asset #, slot # and hardware model.
+Locate your blade chassis in Device42 by navigating to **Resources > All Devices** and filtering for blade chassis devices:
 
-### Add new blades from the chassis device tab
+- Click **+ More** and select the **Blade Chassis** checkbox to display its dropdown menu.
+- Choose **Yes** from the dropdown. 
 
-![Add new blades from the chassis device tab](/assets/images/wpid5667-media_1424467098621.png)
+<ThemedImage
+  alt="Filtering for blade chassis on the Devices list page"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/filter-devices-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/filter-devices-dark.png'),
+  }}
+/>
 
-In edit mode, you can add blades to a chassis right from the chassis edit page by going to the blades tab and clicking on Add new blade. The hardware model for the blade device must exist beforehand. The list to select the hardware model starts populating as you start typing the hardware model name.
+## The Blades Tab
 
-### Interactive chassis layout
+Select a blade chassis from the Devices list page. Scroll down to the **Blades** tab, located below the device basic details section.
 
-![v15+ Interactive chassis layout](/assets/images/v15_blade_layout_visual_editor.png)
+The **Blades** tab shows information about each device in the chassis. Blades are sorted by **Slot** number. Each blade has a link to its device page and displays its **Serial #**, **Asset #**, **Slot Location**, and **Hardware Model**.
 
-To visually edit a blade, that blades' hardware model must first have been defined. Details around defining hardware models can be found in the [hardware model (templates) documentation](hardware-models-templates.mdx), as these actions are universal to all devices.
+<ThemedImage
+  alt="Blade tab on a blade chassis device"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/blades-tab-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/blades-tab-dark.png'),
+  }}
+/>
 
-For blade-specific templating information, see the [blade slots documentation page here](device-blade-slots.md).
+### Add a New Blade 
 
-If you click the layout button on the top right of the page, you can visualize the blades in a chassis and use drag and drop to position the blades in the correct slots. Please note that in order to edit/move blades within the interactive layout, the blade slots numbers must be numeric and not alphanumeric.
+In device **Edit** mode, from the **Blade** tab, you can add blades to a chassis by clicking **+ Add New Blade**. The hardware model for the blade device must exist beforehand.
 
-There are fields that you can set in the Hardware Model for the blade chassis that will determine how the blades are positioned...
+<ThemedImage
+  alt="Adding a new blade"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/add-new-blade-window-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/add-new-blade-window-dark.png'),
+  }}
+/>
 
-![](/assets/images/media_1424516428153.png)
+## The Interactive Blade Chassis Layout
 
-- **Max # of normal blade size** : The number of blades that the chassis holds. 
-- **Normal Blade Size for regular slot** : The size of blades for the Max # of normal blade size parameter. 
-- **Max blades per row** : The number of vertical columns of blades. 
-- **Slot Numbering** : How to number the slots. 
-- **Module Positioning** : Horizontal or vertical positioning
+Layouts allow you to visualize blades within their chassis. The overall layout architecture is defined by the chassis [Hardware Model](#editing-hardware-models), which needs to be defined before you add and position specific blades. 
 
+From the view mode of the [device chassis page](#view-blade-chassis-devices), click the **ellipsis menu** and select **Layout** from the dropdown. 
+
+<ThemedImage
+  alt="Device Layout button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/layout-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/layout-button-dark.png'),
+  }}
+/>
+
+Click **Turn ON** to edit the layout. Drag and drop the blades to position them in the correct slots. Please note that the blade slot numbers must be numeric and not alphanumeric.
+
+<ThemedImage
+  alt="Edit Layout button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/layout-view-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/layout-view-dark.png'),
+  }}
+/>
+
+
+:::tip
+For blade-specific templating information, see the [Blade Slots documentation](device-blade-slots.md).
+:::
+
+### Editing Hardware Models
+
+To edit the layout of a blade, first define its Hardware Model under **Infrastructure > Hardware Models > + Add Device Hardware Model**. 
+
+<ThemedImage
+  alt="Hardware Model menu"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/hardware-model-menu-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/hardware-model-menu-dark.png'),
+  }}
+/>
+
+You can find a link to an existing Hardware Model in the right panel of an individual **Layout**.
+
+Add a **New Slot** to an existing model by dragging it to the layout and filling in the fields:
+
+<ThemedImage
+  alt="Add new blade"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-chassis/new-blade-slot-in-model-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-chassis/new-blade-slot-in-model-dark.png'),
+  }}
+/>
+
+- **Choose Slot Size:**  Choose between full, half, double options, and quarter heights.
+- **Choose orientation:** Select **Vertical** or **Horizontal** positioning.
+- **Slot Number:** Enter the next slot number in the sequence.
+
+Visit the [Hardware Model (Templates)](hardware-models-templates.mdx) page to view details about Hardware Models that apply to all devices, not only blades.
