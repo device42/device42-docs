@@ -3,24 +3,42 @@ title: "Device42 Appliance Manager login"
 sidebar_position: 6
 ---
 
-The Device42 Appliance Manager can be accessed at http://your-ip-address-or-FQDN:4242 (or https://your-ip-address-or-FQDN:4343 when https is enabled).
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The default username and password is `d42admin` and `default`.
+Use the Device42 Appliance Manager to back up your data, update the Main Appliance, generate a log bundle [for uploading to the Device42 Support Portal](https://upload.device42.com/), restart the application, and configure **System** and **Global Settings**.
 
-Please change it as soon as you login.
+## Access the Appliance Manager
 
-![D42 Appliance Manager Link and Login Process v15+](/assets/images/appl-mgr-link-login-v15.png)
+![Device42 Appliance Manager Home Screen v19](/assets/images/device42-appliance-manager-login/ap-home-view.png)
 
-Alternatively, the main app login page has a link to appliance manager as well.
+- For HTTP, access the Appliance Manager using port 4242: `http://your-ip-address-or-FQDN:4242`
+- For HTTPS, use port 4343: `https://your-ip-address-or-FQDN:4343`
 
-![Device42 Appliance Manager Home Screen v15](/assets/images/d42-appliance-manager-home-v15.png)
+Alternatively, go to your Main Appliance login page and click the **Appliance Manager** link.
 
-### Change your password
+<ThemedImage
+  alt="Main Appliance login screen with Appliance Manager link"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-appliance-manager-login/ma-login-screen-light.png'),
+    dark: useBaseUrl('/assets/images/device42-appliance-manager-login/ma-login-screen-dark.png'),
+  }}
+/>
 
-![Appliance Manager, Change Password](/assets/images/appl-mgr-change-password.png)
+## Login Credentials
+
+The default username and password are `d42admin` and `default`. Please [change the password](#change-your-password) as soon as you log in.
+
+![Appliance Manager login screen](/assets/images/device42-appliance-manager-login/ap-login-screen.png)
+
+### Change Your Password
+
+Click your username at the top of the left sidebar and select **Change password**.
+
+![Change Password screen in Appliance Manager](/assets/images/device42-appliance-manager-login/change-password.png)
 
 ## AWS Login 
 
-For *marketplace* AWS installations, use `d42admin` as the username and your **AWS Instance ID** as the default password. See [the AWS installation instructions](https://docs.device42.com/getstarted/installation/installation-amazon-web-services/#accessing-the-d42-appliance-manager---aws-marketplace-installs) for more information.
+For **marketplace** AWS installations, use `d42admin` as the username and your **AWS Instance ID** as the default password. See [the AWS installation instructions](https://docs.device42.com/getstarted/installation/installation-amazon-web-services/#accessing-the-d42-appliance-manager---aws-marketplace-installs) for more information.
 
-If you *manually* installed AWS using a downloaded image, use the default Device42 username, `d42admin`, and password, `default`, to log into the Appliance Manager.
+If you **manually** installed AWS using a downloaded image, use the default Device42 username, `d42admin`, and password, `default`, to log in to the Appliance Manager.
