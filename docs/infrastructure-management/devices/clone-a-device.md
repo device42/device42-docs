@@ -22,7 +22,7 @@ Navigate to **Tools > Templates & Bulk Operations > Clone Device**.
     }}
     />
 
-- Input the number of clones you wish to create in the **# of devices** field. Next, choose between naming all the clone(s) by a **Device Name Profile** or naming each clone individually by entering a comma-separated list of names.
+- Input the number of clones you wish to create in the **# of devices** field. Next, choose between naming all the clone(s) by selecting a **Device Name Profile** or naming each clone individually by entering a comma-separated list of names.
     
     <ThemedImage
     alt="Number of clones and naming options"
@@ -32,9 +32,9 @@ Navigate to **Tools > Templates & Bulk Operations > Clone Device**.
     }}
     />
 
-- Optionally, include an **Asset Number Profile**, **Service Level**, and **Customer** to associated to the clone(s). Note to apply a **Service Level** or **Customer** to the clone(s), deselect their respective checkboxes under **Properties**.
+- Optionally, you can include an original **Asset Number Profile**, **Service Level**, and **Customer** to be associated with the clone(s). If you apply a new **Service Level** or **Customer** to the clone(s), be sure you deselect the relevant checkbox under **Properties** to prevent the original device property from being cloned.
 
-    When you're ready to create the clone(s), click **Clone** in the bottom-right corner.
+- When you're ready to create the clone(s), click **Clone** in the bottom-right corner.
 
     <ThemedImage
     alt="Other properties options and Clone button"
