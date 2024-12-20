@@ -104,4 +104,4 @@ Add a **New Slot** to an existing model by dragging it to the layout and filling
 - **Choose orientation:** Select **Vertical** or **Horizontal** positioning.
 - **Slot Number:** Enter the next slot number in the sequence.
 
-Visit the [Hardware Model (Templates)](hardware-models-templates.mdx) page to learn about Hardware Model details that apply to all devices, not only blades.
+Visit the [Hardware Model (Templates)](hardware-models-templates.mdx) page to view details about Hardware Models that apply to all devices, not only blades.
