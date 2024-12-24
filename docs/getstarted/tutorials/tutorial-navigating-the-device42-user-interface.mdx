@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Prerequisites
 
-This tutorial uses sample data added to the Main Appliance from the [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx). You can still follow along if you have at least one building record that includes a room with related rack CIs (Configuration Items).
+This tutorial uses sample data added to the Main Appliance (MA) from the [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx). You can still follow along if you have at least one building record that includes a room with related rack Configuration Items (CIs).
 
 ## Dashboard View
 
-On the home page of the Main Appliance, you'll see your dashboard below the notification summary. The dashboard provides summary information and statistics for items added or discovered by Device42. Select a dashboard option that displays the most useful information for you from the dropdown menu.
+On the MA homepage, you'll see your dashboard below the notification summary. The dashboard provides summary information and statistics for items added or discovered by Device42. There are multiple dashboard layouts available. The **Insights+ Overview** dashboard is the default option, but you can use the dropdown menu to select the layout that is most useful to you.
 
 <ThemedImage
     alt="Select dashboard"
@@ -22,7 +22,7 @@ On the home page of the Main Appliance, you'll see your dashboard below the noti
     }}
 />
 
-If you've followed the [spreadsheets tutorial](/getstarted/tutorials/device42-tutorial.mdx), [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx), or run an autodiscovery job, your dashboard statistics will reflect the new CIs. 
+If you've followed the [spreadsheets](/getstarted/tutorials/device42-tutorial.mdx) or [API](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx) tutorial or run an autodiscovery job, your dashboard statistics will reflect the new CIs.
 
 <ThemedImage
     alt="Classic Dashboard list view link"
@@ -32,7 +32,7 @@ If you've followed the [spreadsheets tutorial](/getstarted/tutorials/device42-tu
     }}
 />
 
-Click on the building count, or navigate to **Infrastructure > DataCenter > Buildings** to go to the buildings list view. 
+Click on the building count, or navigate to **Infrastructure > DataCenter > Buildings** to view the Buildings list page.
 
 <ThemedImage
     alt="Buildings list view"
@@ -51,9 +51,8 @@ Click on the **New Haven DC** building, scroll down, and select the **NHDC1** ro
         dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/ellipsis-button-dark.png'),
     }}
 />
- 
 
-Click the ellipsis button on the **NHDC1** room page and select **Room Layout**.
+Click the ellipsis menu on the **NHDC1** room page and select **Room Layout**.
 
 <ThemedImage
     alt="Room Layout button"
@@ -62,11 +61,10 @@ Click the ellipsis button on the **NHDC1** room page and select **Room Layout**.
         dark: useBaseUrl('/assets/images/tutorial-navigating-the-device42-user-interface/new-haven-example-dark.png'),
     }}
 />
- 
 
-## Room Layout View 
+## Room Layout View
 
-This is the room layout view. Here we can view the racks and their layout in a room.
+The Room Layout page displays the layout of the racks in a room.
 
 <ThemedImage
     alt="Room Layout view"
@@ -76,18 +74,18 @@ This is the room layout view. Here we can view the racks and their layout in a r
     }}
 />
 
-
 Under **Display Options**, you can choose which text and color coding to apply to the layout:
+
 - **Rack Display:** Choose the text to include on the rack labels.
-- **Rack Color:** Choose between the usage or temperature heatmaps, or select a [custom field](/administration/custom-key-value-pairs-explained.mdx). 
+- **Rack Color:** Choose between the usage or temperature heatmaps or select a [custom field](/administration/custom-key-value-pairs-explained.mdx).
 
 :::info
-See [Buildings and Rooms](/infrastructure-management/buildings-rooms-and-racks/buildings-and-rooms/#room-layout-view.mdx) for information on editing room layouts.
+See the [Buildings and Rooms](/infrastructure-management/buildings-rooms-and-racks/buildings-and-rooms/#room-layout-view.mdx) documentation to learn more about editing room layouts.
 :::
 
 If you have the **DCM Power Module**, you will also see options for power and temperature heat maps.
 
-Now hover over the rack **NH-DC1-04** example.
+Now, hover over the rack **NH-DC1-04** example.
 
 <ThemedImage
     alt="Room Layout view"
@@ -97,14 +95,14 @@ Now hover over the rack **NH-DC1-04** example.
     }}
 />
 
-When you do this, you will see a hover box with detailed information about the rack. Now, click on the **View NH-DC1-04 Layout** link to go to the rack layout view.
+When you do this, you will see a hover box with detailed information about the rack. Click the **View NH-DC1-04 Layout** link to view the Rack Layout page.
 
 ## Rack Layout View
 
-Here you see an image of the front of the rack on the left and the back of the rack on the right.
+An image of the front of the rack is displayed on the left-hand side of the page, and an image of the back of the rack is displayed on the right.
 
 :::tip
-If you want to add a new rack with the kind of information shown below, navigate to **Infrastructure > Racks** and click **+ Add Rack** on the right of the Racks list page.
+If you want to add a new rack with the kind of information shown below, navigate to **Infrastructure > Racks** and click **+ Add Rack** in top right corner of the Racks list page.
 :::
 
 <ThemedImage
@@ -117,13 +115,13 @@ If you want to add a new rack with the kind of information shown below, navigate
 
 As with the room layout view, if you have the DCM Power Module, you will see options for power and temperature heat maps.
 
-While hovering over the "NHCTCC01" device, you can see details about the device itself, and because the device is a blade chassis, you also see hyperlinks that will take you to the details page for each of the individual blades in chassis NHCTCC01.
+Hover over the **NHCTCC01** device to see details about the device. Note that because NHCTCC01 is a blade chassis, there are hyperlinks that will take you to the details page for each of the individual blades in the chassis.
 
-Now click the **View Topology** link on the bottom right.
+Now click the **View Topology** link in the bottom right corner of the page.
 
 ## Topology Charts
 
-The topology impact chart is a diagram of the physical and virtual machines and the applications they support.
+The topology impact chart is a diagram of your physical and virtual machines and the applications they support.
 
 <ThemedImage
     alt="Topology example"
@@ -133,13 +131,13 @@ The topology impact chart is a diagram of the physical and virtual machines and 
     }}
 />
 
-This is a fairly simple example but they can get quite complex. These impact charts are very useful for assessing the impact of losing a particular server. This can be helpful during business continuity planning or when trying to track down a root cause during a production outage.
+This is a fairly simple example but they can get quite complex. Impact charts are very useful for assessing the impact of losing a particular server. This is helpful for business continuity planning or tracking down the root cause of a production outage.
 
 ## The List View
 
-Go to **Resources > All Devices** to view all your devices. 
+Go to **Resources > All Devices** to view all your devices on the Devices list page.
 
-All Device42 objects have a list view. The add, filter, search, and action tools are common to all Device42 objects.
+All Device42 objects have a list view page with tools that allow you to add, filter, search, and perform bulk actions on the objects.
 
 <ThemedImage
     alt="Devices list view"
@@ -149,13 +147,13 @@ All Device42 objects have a list view. The add, filter, search, and action tools
     }}
 />
 
-On the right side of the screen, you see a button to add a device (1). 
+The **+ Add** button on the right side of the screen is used to add devices (1).
 
-You'll see several filters that can be applied to reduce the size of the list (2). You can filter by device type, hardware model, OS, and more. If you have hundreds or thousands of devices, these filters can be very useful. 
+You'll see several filters that can be applied to reduce the size of the list (2). You can filter by device **Type**, **Hardware** model, **Customers**, and more. If you have hundreds or thousands of devices, these filters can be very useful.
 
-Similarly, there is a search box for filtering the list (3). If you type "nh-demo" into the search box, the list will filter down to just the devices that contain the string "nh-demo". 
+Similarly, you can filter the list using the **search box** (3). If you type `nh-demo` in the search box, the list will display only the devices that contain the string `nh-demo`.
 
-There is an action bar for bulk operations, like deleting items (4).
+You can use the **Select an action** dropdown bulk operations, like deleting items (4).
 
 ## Bulk Actions
 
@@ -168,15 +166,15 @@ There is an action bar for bulk operations, like deleting items (4).
     style={{ width: '70%' }} 
 />
 
-Click the **Select and action** dropdown menu to see several bulk action choices. You can delete the selected devices or perform any of the actions in the dropdown on the selected devices. To execute the selected action, select one or more devices and click the **hammer icon**.
+Click the **Select an action** dropdown to see several bulk action choices. You can select one or more devices and click the **hammer icon** to execute an action.
 
-You will find bulk actions on most Device42 objects, but the options will vary for each object.
+You will find bulk actions available for most Device42 objects, but the options will vary for each object.
 
 ## Detail View
 
 All objects in Device42 have a list view, a detail view, and an edit view. Most objects also have a **History (Audit Logs)** button that shows a history of changes to the object.
 
-Click a device name to view its details.  
+On the Devices list page, click on the **Name** of a device to view its details.  
 
 <ThemedImage
     alt="View device details"
@@ -186,9 +184,9 @@ Click a device name to view its details.
     }}
 />
 
-Notice the set of buttons on the top right corner of the view. Click the **Edit** button to open up the fields for editing and additions. Click the **ellipsis icon** for related view options, including the **Impact Chart** option we saw above.
+Notice the set of buttons in the top right corner of the detail view. Click the **Edit** button to open the fields for editing and additions. Click the **ellipsis menu** for related view options, including the **Impact Chart** option, which opens the topology impact chart discussed above.
 
-Scroll down for tabs that open subpages of data for the device.
+Scroll further down the page to find tabs that open subpages of data for the device.
 
 <ThemedImage
     alt="Device view tabs"
@@ -198,4 +196,6 @@ Scroll down for tabs that open subpages of data for the device.
     }}
 />
 
-Browse through the documentation for more detailed information on the various Device42 features.
+## Next Steps
+
+After completing the tutorials, you can browse our documentation to find more detailed information on the various Device42 features.
