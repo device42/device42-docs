@@ -96,10 +96,6 @@ const config = {
             from: ['/getstarted/installation/installation-microsoft-hyper/'],
           },
           {
-            to: '/getstarted/installation/installation-vmware-player/',
-            from: ['/getstarted/installation/installation-vmware-player-workstation-2/'],
-          },
-          {
             to: '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/',
             from: ['/getstarted/installation/installation-xen-kvm-virt-manager/'],
           },
