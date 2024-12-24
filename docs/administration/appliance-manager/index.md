@@ -11,7 +11,7 @@ The Device42 Appliance Manager runs on port 4242 (HTTP by default; enable HTTPs 
 - [Changing Device42 Appliance Hostname](administration/appliance-manager/changing-device42-appliance-hostname.md)
 - [Collecting SNMPWALK output for troubleshooting](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.md)
 - [Delete History Logs](administration/appliance-manager/delete-history-logs.md)
-- [Device42 Appliance Manager login](administration/appliance-manager/device42-appliance-manager-login.md)
+- [Device42 Appliance Manager login](administration/appliance-manager/device42-appliance-manager-login.mdx)
 - [Device42 Restore](administration/appliance-manager/device42-restore.md)
 - [Enable or Disable TLS versions from Appliance Manager](administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager.md)
 - [Enabling SSL in Appliance Manager](administration/appliance-manager/enabling-ssl-in-appliance-manager.md)
