@@ -6,27 +6,11 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 has a Core license for autodiscovery and offers additional license modules for more discovery and data retrieval capabilities.
+## Updating Your Device42 License
 
-The Core license includes the discovery of physical, virtual, and cloud components, IT inventory and asset management, all out-of-the-box integrations, RESTful APIs and webhooks, warranty and SSL certificate management, cable management, password management, and IP address management.
+Device42 licenses are valid for one year from the date of purchase. To continue using Device42 after the license expires, please renew it.
 
-Device42 licensing is based on license units. The units are consumed at different rates by different discovered resources. For example:
-
-- 1 Device = 1 License Unit (1 : 1)
-- 10 Containers = 1 License Unit (10 : 1)
-- 50 TB Storage = 1 License Unit (50 TB : 1)
-- 1 Platform-as-a-Service (PaaS) = 1 License Unit (1 : 1)
-- 10 Function-as-a-Service (FaaS) = 1 License Unit (10 : 1)
-- 100 Archived Records = 1 License Unit (100 : 1)
-
-:::note
-Please note that Device42 lowered the license cost of AWS S3 and Azure Blob Storage Container cloud storage resource types from 1.00 to 0.10.
-:::
-
-For more information about Device42 core licensing and available licensing modules, visit our [Licensing/Purchasing FAQs page.](https://www.device42.com/company/faqs/?__hstc=51647990.ff5a79f118fd1dd66635c3ee1a2d193e.1631544705170.1639762215281.1640032949648.107&__hssc=51647990.2.1640032949648&__hsfp=1853336022)
-
-
-## View Licenses
+### Where Do I Find My License Information?
 
 To see your current Device42 licenses, navigate to **Tools > Settings > Licensing** from the main menu to display the Licensing page.
 
@@ -49,7 +33,78 @@ The top left of the page displays the available license modules and whether they
   style={{ width: '40%' }} 
 />
 
-The lower portion of the page displays the number of purchased licenses and the number of license units consumed by the different discovered components.
+### How Do I Get a Device42 License?
+
+After [purchasing](https://www.device42.com/pricing/?nab=0) or renewing your Device42 license, you'll receive a license file via email to upload on the Licensing page of the Main Appliance. 
+
+:::info
+If you need a developer or test license, please email [support@device42.com](mailto:support@device42.com).
+:::
+
+### How Do I Apply My License?
+
+Go to the License page under **Tools > Settings > Licensing** and do the following: 
+
+- **Browse** to located your the `.lic` license file on your machine. Click **Upload & Apply**.
+
+  <ThemedImage
+    alt="Upload license"
+    sources={{
+      light: useBaseUrl('/assets/images/licensing/upload-license-light.png'),
+      dark: useBaseUrl('/assets/images/licensing/upload-license-dark.png'),
+    }}
+  />
+
+- Head back to the home page of the Main Appliance to register the license. If your instance has internet access, click **Register Now** to complete the registration process. If your instance doesn't have internet access, copy and email the registration code to [support@device42.com](mailto:support@device42.com) to complete the registration process.
+
+  <ThemedImage
+    alt="Complete registration grace period"
+    sources={{
+      light: useBaseUrl('/assets/images/licensing/complete-registration-light.png'),
+      dark: useBaseUrl('/assets/images/licensing/complete-registration-dark.png'),
+    }}
+  />
+
+  You have 30 days to complete the registration process, but we recommend doing it right away.
+
+  ![Registration success message](/assets/images/licensing/success-message-dark.png)
+
+- After registering your license, refresh the browser. The banner will disappear, and you'll see the updated expiration date on the Licensing page.
+
+### How Do I Know When My License Expires?
+
+You can check the **License Valid Until(YYYYMMDD):** date on the License page under **Tools > Settings > Licensing**.
+
+Two weeks before your license expires, on the home page of your Main Appliance, you'll see a red banner with a notification message counting down the days to the expiration date. 
+
+<ThemedImage
+  alt="Expiration banner"
+  sources={{
+    light: useBaseUrl('/assets/images/licensing/expiration-banner-light.png'),
+    dark: useBaseUrl('/assets/images/licensing/expiration-banner-dark.png'),
+  }}
+/>
+
+## What Uses a License in Device42?
+
+Device42 has a Core license for autodiscovery and offers additional license modules for more discovery and data retrieval capabilities.
+
+The Core license includes the discovery of physical, virtual, and cloud components, IT inventory and asset management, all out-of-the-box integrations, RESTful APIs and webhooks, warranty and SSL certificate management, cable management, password management, and IP address management.
+
+Device42 licensing is based on license units. The units are consumed at different rates by different discovered resources. For example:
+
+- 1 Device = 1 License Unit (1 : 1)
+- 10 Containers = 1 License Unit (10 : 1)
+- 50 TB Storage = 1 License Unit (50 TB : 1)
+- 1 Platform-as-a-Service (PaaS) = 1 License Unit (1 : 1)
+- 10 Function-as-a-Service (FaaS) = 1 License Unit (10 : 1)
+- 100 Archived Records = 1 License Unit (100 : 1)
+
+:::note
+Please note that Device42 lowered the license cost of AWS S3 and Azure Blob Storage Container cloud storage resource types from 1.00 to 0.10.
+:::
+
+The lower portion of the page under **Tools > Settings > Licensing** displays the number of purchased licenses and the number of license units consumed by the different discovered components.
 
 <ThemedImage
   alt="License breakdown"
@@ -59,15 +114,4 @@ The lower portion of the page displays the number of purchased licenses and the 
   }}
 />
 
-## Upload a New License
-
-After receiving your new license file from Device42, go to the License page and **browse** to the license file (1), and click **Upload & Apply**.
-
-<ThemedImage
-  alt="Upload license"
-  sources={{
-    light: useBaseUrl('/assets/images/licensing/upload-license-light.png'),
-    dark: useBaseUrl('/assets/images/licensing/upload-license-dark.png'),
-  }}
-  style={{ width: '45%' }} 
-/>
+For more information about Device42 core licensing and available licensing modules, visit our [Licensing/Purchasing FAQs page.](https://www.device42.com/company/faqs/?__hstc=51647990.ff5a79f118fd1dd66635c3ee1a2d193e.1631544705170.1639762215281.1640032949648.107&__hssc=51647990.2.1640032949648&__hsfp=1853336022)
