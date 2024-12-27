@@ -177,13 +177,31 @@ Click the **Download Default Mapping** button and download the `mapping.xml` fil
 
 Open the `mapping.xml` file in a text or code editor. 
 
-You'll see multiple `<task>` elements. The tasks either copy data from Device42 to Freshservice or create relationships between Device42 asset types. For example, from Device42, you can bring in device data, bring in software data, and then bring in the device to software relationship.
+You'll see multiple `<task>` elements. The tasks typically copy data from Device42 to Freshservice or create relationships between Device42 asset types. For example, from Device42, you can bring in device data, bring in software data, and then bring in the device to software relationship.
 
-The important `<task>` attributes for mapping are `enable` and the maximum or minimum version required to run the task. Some tasks don't have a version requirement. Refer to the [task summary table below](#the-mappingxml-file-task-types-and-descriptions) for a descriptions of all the tasks and their version requirements.
+**Task Attributes**:
 
-Nested in each `<task>` element are:
-- `<api>`: Contains the target asset type in Freshservice (for example, `Hardware`) and contains the DOQL query to fetch data from Device42.
-- `<mapping>`: Contains `<field>` elements to map the Device42 field to the Freshservice field.
+You can turn off syncing for individual tasks by setting the `enable=` attribute to `false`.
+
+The `name` attribute specifies the name of the task and can be edited.
+
+The `description` attribute provides a brief description of the task and can be edited.
+
+The `d42_min_version` and `d42_max_version` attributes specify the minimum and maximum Device42 versions required to run the task. Tasks may have a maximum and/or minimum version requirement to run the or no version requirement. 
+
+Refer to the [task summary table below](#the-mappingxml-file-task-types-and-descriptions) for the descriptions of all the top-level tasks and their version requirements.
+
+**Task Elements**:
+
+The `<api>` element contains the following elements related to the Device42 data:
+- `<target>`: The default Device42 `asset-type` is equivalent to the Freshservice `type`. For example, the `Hardware` type in Device42 is `product` in Freshservice. In most cases, the `asset-type` value will be empty
+- `<resource>`: Contains the DOQL query to fetch data from Device42.
+
+The `<mapping>` element defines where the data is placed in Freshservice:
+- `doql-suffix=`: The suffix to add to the DOQL query to fetch only the data that has changed since the last sync.
+- `<field>`: The first field element is the data return from the query. The second field element is the mapping to the Freshservice item.
+  - `target=`: The Freshservice field to map to. Visit the [Freshservice API documentation](https://api.freshservice.com/) to find the field names.
+  - `escape=`: Some characters aren't supported in Freshservice fields and need to be escaped. Set to `true` by default, but if you encounter mismatches on the `name` field in particular, try setting the value to `false`.
 
 For example, the following `<task>` element copies product information from Device42 to Freshservice:
 
@@ -196,9 +214,7 @@ For example, the following `<task>` element copies product information from Devi
                           doql="
                             select distinct
                                 view_vendor_v1.name as manufacturer,
-                                case WHEN view_device_v2.type = 'Virtual' THEN view_device_v2.type WHEN view_device_v2.type = 'Cluster' THEN view_device_v2.type ELSE coalesce(view_hardware_v2.name, view_device_v2.type) END as name
-                                from view_device_v2 left join view_hardware_v2 on view_device_v2.hardware_fk = view_hardware_v2.hardware_pk
-                                left join view_vendor_v1 on vendor_pk=vendor_fk
+                            <!-- and so on... -->
                             "
                         />
             </api>
@@ -216,27 +232,27 @@ Quickly understand the DOQL query in the `<resource>` element: copy the query an
 
 ### The `mapping.xml` File Tasks
 
-Use this table to look up the default mapping tasks in the `mapping.xml` file.
+Use this table to look up the default mapping tasks in the `mapping.xml` file that are one level deep in the `<tasks>` element.
 
 Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`):
 
-| Type                 | Description                                          | Min Version | Max Version |
+| `type`                 | `description`                                          | Min Version | Max Version |
 |----------------------|------------------------------------------------------|-------------|-------------|
 | product              | Copy Product info from Device42 to Freshservice     | 19.19.00    | 16.18.02    |
 | asset                | Copy Servers from Device42 to Freshservice using DOQL v2 | 19.04.00    | 19.03.99    |
-| asset                | Copy Servers from Device42 to Freshservice using DOQL v1 | -           | 16.18.02    |
-| software             | Copy Softwares from Device42 to Freshservice using DOQL | -           | -           |
+| asset                | Copy Servers from Device42 to Freshservice using DOQL v1 |            | 16.18.02    |
+| software             | Copy Softwares from Device42 to Freshservice using DOQL |            |            |
 | software_installation| Create Software Install from Software in Use        | 16.19.00    | 16.18.02    |
-| asset_relationship   | Create Relationship from Service Communication      | -           | -           |
-| asset_relationship   | Create Relationship from Business Apps              | -           | -           |
-| asset_relationship   | Copy Business Application from Device42 to Freshservice | -           | 16.18.02    |
-| asset_relationship   | Create Relationship from Devices to Business Apps   | -           | -           |
-| contract             | Copy contract info from Device42 to Freshservice    | -           | -           |
-| contract_asset       | Create association between asset and contract       | -           | -           |
-| contract             | Copy Software Licensing info from Device42 to Freshservice | -           | -           |
-| asset_relationship   | Create relationship between Host and Virtual Machine | -           | -           |
-| asset_relationship   | Create relationship between cluster and device      | -           | -           |
-| asset                | Copy AWS ALB from Device42 to Freshservice          | 19.04.00    | -           |
+| asset_relationship   | Create Relationship from Service Communication      |            |            |
+| asset_relationship   | Create Relationship from Business Apps              |            |            |
+| asset_relationship   | Copy Business Application from Device42 to Freshservice |            | 16.18.02    |
+| asset_relationship   | Create Relationship from Devices to Business Apps   |          |            |
+| contract             | Copy contract info from Device42 to Freshservice    |            |            |
+| contract_asset       | Create association between asset and contract       |            |            |
+| contract             | Copy Software Licensing info from Device42 to Freshservice |            |            |
+| asset_relationship   | Create relationship between Host and Virtual Machine |            |           |
+| asset_relationship   | Create relationship between cluster and device      |            |           |
+| asset                | Copy AWS ALB from Device42 to Freshservice          | 19.04.00    |            |
 
 ### How Do I Add a Custom Device42 Field to Freshdesk?
 
@@ -253,7 +269,11 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
             <task enable="false" name="Create relationship between cluster and device" type="asset_relationship" description="Create relationship between cluster and device">
     ```
 
-- Remove the corresponding query from the last `<task>` with the attribute `<description="Delete asset relationships from Freshservice that do not exist in Device42">`. For example, if you want to disable the relationship between clusters and devices, remove the following query from the `<resource doql="` attribute:
+- Remove the corresponding relationship query from the last `<task>` with the attribute `<description="Delete asset relationships from Freshservice that do not exist in Device42">` that's nested in the `description="D42 AWS ALB to Freshservice AWS ALB">` `<task>` element.
+
+    ![Task location in VS Code](/assets/images/freshservice-integration/nested-relationship-query-in-vscode.png)
+  
+    For example, if you want to disable the relationship between clusters and devices, remove the following query snippet from the `<resource doql="` attribute:
 
     ```xml
     <task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42">
@@ -264,7 +284,7 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
                             doql="
                                     <!-- ... other queries -->
 
-                                    <!-- remove this part of that query -->
+                                    <!-- remove this part of the query -->
                                     select 
                         dc.name as dependent_device_name,
                         format('Device-%s', dc.device_pk) as dependent_device_device42_id,
@@ -285,7 +305,7 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
 
     ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
 
-### How Can I Troubleshoot Data Mapping Issues?
+### How Do I Troubleshoot Data Mapping Issues?
 
 ### View Mapped and Unmapped Data for Specific Assets
 
