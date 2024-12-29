@@ -167,9 +167,9 @@ You can customize the mapping between fields in Device42 and Freshservice by dow
 
 ### Download the Mapping File From Freshservice
 
-[From the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data mapping options.
+[From the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data-mapping buttons.
 
-![Data Mapping buttons](/assets/images/freshservice-integration/mapping.png)
+![Data-mapping buttons](/assets/images/freshservice-integration/mapping.png)
 
 Click the **Download Default Mapping** button and download the `mapping.xml` file. 
 
@@ -177,33 +177,57 @@ Click the **Download Default Mapping** button and download the `mapping.xml` fil
 
 Open the `mapping.xml` file in a text or code editor. 
 
-You'll see multiple `<task>` elements. The tasks typically copy data from Device42 to Freshservice or create relationships between Device42 asset types. For example, from Device42, you can bring in device data, bring in software data, and then bring in the device to software relationship.
+You'll see multiple `<task>` elements. There are tasks that copy data from Device42 to Freshservice, create relationships between Device42 assets, and delete assets or relationships from Freshservice if they don't exist in Device42. For example, there are tasks to bring in device data, bring in software data, and a task to create the device to software relationship from Device42 in Freshservice. 
+
+You can modify and add to these tasks to customize the data mapping between Device42 and Freshservice.
+
+Refer to [The `mapping.xml` File Tasks table below](#the-mappingxml-file-tasks) for descriptions of the default mapping tasks, types, and their version requirements. 
 
 **Task Attributes**:
 
-You can turn off syncing for individual tasks by setting the `enable=` attribute to `false`.
+Turn off syncing for individual tasks by setting the `enable` attribute to `false`.
 
-The `name` attribute specifies the name of the task and can be edited.
+```xml
+        <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
+```
 
-The `description` attribute provides a brief description of the task and can be edited.
-
-The `d42_min_version` and `d42_max_version` attributes specify the minimum and maximum Device42 versions required to run the task. Tasks may have a maximum and/or minimum version requirement to run the or no version requirement. 
-
-Refer to the [task summary table below](#the-mappingxml-file-task-types-and-descriptions) for the descriptions of all the top-level tasks and their version requirements.
+- `name` : The task name can be edited and appears in the data mapping table of the integration app.
+- `type` : A Freshservice classification of the data. The valid types are: 
+  - `product`
+  - `asset`
+  - `software`
+  - `software_installation`
+  - `asset_relationship`
+  - `contract`
+  - `contract_asset`
+  - `component`
+  - `deployment`
+  - `service`
+  - `daemon_set`
+  - `stateful_set`
+- `description` : An editable brief description.
+- The `d42_min_version` and `d42_max_version` attributes specifies the minimum and maximum Device42 versions required to run the task. Tasks may have a maximum or minimum version, both or neither. You can generally leave this out when creating new tasks.
 
 **Task Elements**:
 
-The `<api>` element contains the following elements related to the Device42 data:
-- `<target>`: The default Device42 `asset-type` is equivalent to the Freshservice `type`. For example, the `Hardware` type in Device42 is `product` in Freshservice. In most cases, the `asset-type` value will be empty
-- `<resource>`: Contains the DOQL query to fetch data from Device42.
+The `<api>` and `<mapping>` elements are nested in each task. The `<api>` element relates to Device42 data and the `<mapping>` element relates to Freshservice data. Refer to the [Freshservice API documentation](https://api.freshservice.com/) for details.
 
-The `<mapping>` element defines where the data is placed in Freshservice:
-- `doql-suffix=`: The suffix to add to the DOQL query to fetch only the data that has changed since the last sync.
-- `<field>`: The first field element is the data return from the query. The second field element is the mapping to the Freshservice item.
-  - `target=`: The Freshservice field to map to. Visit the [Freshservice API documentation](https://api.freshservice.com/) to find the field names.
-  - `escape=`: Some characters aren't supported in Freshservice fields and need to be escaped. Set to `true` by default, but if you encounter mismatches on the `name` field in particular, try setting the value to `false`.
+The `<api>` element contains:
+- `<target>` : Holds any additional `asset-type` classifications from Device42 and will be empty in most cases. For example, `Hardware` refers to the Hardware Model that details of physical devices are organized under.
+- `<resource>` : The DOQL query used fetch data from Device42.
 
-For example, the following `<task>` element copies product information from Device42 to Freshservice:
+The `<mapping>` element contains:
+- `key`: Used to look up the item in Freshservice. Usually has `name` as the value.
+- `doql-suffix` : A query condition to fetch data that's been updated since the last sync. Leaving out this value results in a full data sync.
+ 
+Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second element describes the equivalent field in Freshservice.
+  - `resource` : Is the same as the `target` value.
+  - `source-type` : Not functionally critical. Used to provide the data type that's displayed in the integration app's data mapping table.
+  - `target=` : The field to map from Device42 to Freshservice. The Freshservice convention is to use display name in snake case with occasionally the ID of the asset type as a suffix. For example `memory_max_usage` and `memory_reservation_used`. The sync process can figure out the ID. Please look up the target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
+  - `escape=` : Used on `target="name"` fields. Some characters used in Device42 aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true` but disable it if mismatching issues occur.
+
+
+The following `<task>` element copies product information from Device42 to Freshservice:
 
 ```xml
     <tasks>
@@ -227,35 +251,32 @@ For example, the following `<task>` element copies product information from Devi
 ```
 
 :::tip
-Quickly understand the DOQL query in the `<resource>` element: copy the query and paste it into the InsightsAI chat window in Device42 under **Analytics > InsightsAI**.
+Quickly interpret DOQL query snippets in the context of the Device42 data tables using the InsightsAI chat under **Analytics > InsightsAI**.
 :::
 
-### The `mapping.xml` File Tasks
+### Additional Matching Logic for Updating Existing Items
 
-Use this table to look up the default mapping tasks in the `mapping.xml` file that are one level deep in the `<tasks>` element.
+Some `<task>` elements in `mapping.xml` have a helper `<matching>` element to update synched data that exist in Freshservice now, but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which fields from the query are used to match to which attributes on the asset to try finding a match. For example:
 
-Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`):
-
-| `type`                 | `description`                                          | Min Version | Max Version |
-|----------------------|------------------------------------------------------|-------------|-------------|
-| product              | Copy Product info from Device42 to Freshservice     | 19.19.00    | 16.18.02    |
-| asset                | Copy Servers from Device42 to Freshservice using DOQL v2 | 19.04.00    | 19.03.99    |
-| asset                | Copy Servers from Device42 to Freshservice using DOQL v1 |            | 16.18.02    |
-| software             | Copy Softwares from Device42 to Freshservice using DOQL |            |            |
-| software_installation| Create Software Install from Software in Use        | 16.19.00    | 16.18.02    |
-| asset_relationship   | Create Relationship from Service Communication      |            |            |
-| asset_relationship   | Create Relationship from Business Apps              |            |            |
-| asset_relationship   | Copy Business Application from Device42 to Freshservice |            | 16.18.02    |
-| asset_relationship   | Create Relationship from Devices to Business Apps   |          |            |
-| contract             | Copy contract info from Device42 to Freshservice    |            |            |
-| contract_asset       | Create association between asset and contract       |            |            |
-| contract             | Copy Software Licensing info from Device42 to Freshservice |            |            |
-| asset_relationship   | Create relationship between Host and Virtual Machine |            |           |
-| asset_relationship   | Create relationship between cluster and device      |            |           |
-| asset                | Copy AWS ALB from Device42 to Freshservice          | 19.04.00    |            |
+```xml
+        <task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice ..."> 
+        <!-- Device42 query -->
+            <matching>
+                <source-1 
+                     device42-id="device42_id" 
+                     name="name" 
+                     serial-number="serial_no" 
+                     uuid="uuid" 
+                     item-id="instance_id"
+                     mac-address="snmp_device_mac_address"
+                     imei-number="imei" 
+                />
+            </matching>
+            <mapping ...>
+            <!-- and so on... -->
+```            
 
 ### How Do I Add a Custom Device42 Field to Freshdesk?
-
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
@@ -284,7 +305,8 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
                             doql="
                                     <!-- ... other queries -->
 
-                                    <!-- remove this part of the query -->
+                                    <!-- remove or comment out this cluster and device relationship query -->
+
                                     select 
                         dc.name as dependent_device_name,
                         format('Device-%s', dc.device_pk) as dependent_device_device42_id,
@@ -305,7 +327,87 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
 
     ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
 
-### How Do I Troubleshoot Data Mapping Issues?
+### How Do I Troubleshoot Data Mapping and Syncing Issues?
+
+### The `mapping.xml` File Tasks
+
+Use this table to look up the mapping tasks in the `mapping.xml` file.
+
+Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`):
+
+| Description                                                        | Type                  | d42_min_version | d42_max_version |
+|--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
+| Copy Product info from Device42 to Freshservice                    | product              | 16.19.00       | 16.18.02       |
+| Copy Servers from Device42 to Freshservice using DOQL v2          | asset                | 19.04.00       | 19.03.99       |
+| Copy Servers from Device42 to Freshservice using DOQL v1          | asset                |                 | 16.18.02       |
+| Copy Softwares from Device42 to Freshservice using DOQL            | software             |                 |                 |
+| Create Software Install from Software In Use                       | software_installation| 16.19.00       | 16.18.02       |
+| Create Relationship from Service Communication                     | asset_relationship   |                 |                 |
+| Create Relationship from Business Apps                             | asset_relationship   |                 |                 |
+| Copy Business Application from Device42 to Freshservice            | asset                | 16.19.00       | 16.18.02       |
+| Create Relationship from Devices to Business Apps                  | asset_relationship   |                 |                 |
+| Copy contract info from Device42 to Freshservice                   | contract             |                 |                 |
+| Create association between asset and contract                      | contract_asset       |                 |                 |
+| Copy Software Licensing info from Device42 to Freshservice         | contract             |                 |                 |
+| Create relationship between Host and Virtual Machine               | asset_relationship   |                 |                 |
+| Create relationship between cluster and device                     | asset_relationship   |                 |                 |
+| Copy AWS ALB from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy AWS Security Group from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy AWS VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS RDS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AZURE Subnet from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy Azure Disk from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy Azure Security Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
+| Copy Azure Subscription from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy Azure Application Gateway from Device42 to Freshservice       | asset                | 19.04.00       |                 |
+| Copy AWS EBS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS Key Pair from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy AWS S3 from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
+| Copy AWS Public IP from Device42 to FreshService                   | asset                | 19.04.10       |                 |
+| Copy Azure VPC from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy GCP Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy GCP VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy GCP Disk from Device42 to Freshservice                        | asset                | 19.04.00       |                 |
+| Copy GCP Firewall Rules from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy CPU Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
+| Copy RAM Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
+| Copy Network Adapter from Device42 to Freshservice using DOQL      | component            |                 |                 |
+| Copy Hard Disk Parts from Device42 to Freshservice using DOQL      | component            |                 |                 |
+| Copy Mount Point(Logical Drive) from Device42 to Freshservice      | component            |                 |                 |
+| Copy Mount Point(Datastore) from Device42 to Freshservice          | component            |                 |                 |
+| Copy Printer Input Parts from Device42 to Freshservice using DOQL  | component            |                 |                 |
+| Copy Printer Output Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
+| Copy Printer Marker Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
+| Copy Interface Component from Device42 to Freshservice using DOQL  | component            | 19.04.00       |                 |
+| Copy GCP LB from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
+| Copy Azure Images from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy Azure Network Interface from Device42 to Freshservice         | asset                | 19.04.00       |                 |
+| Copy AWS Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
+| Copy GCP Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
+| Copy Azure Resource Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
+| Copy AWS Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy Azure Public IP from Device42 to FreshService                 | asset                | 19.04.10       |                 |
+| Copy GCP Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy GCP BigQuery Table from Device42 to FreshService              | asset                | 19.04.10       |                 |
+| Copy Azure Key Vault from Device42 to Freshservice                 | asset                | 19.04.00       |                 |
+| Copy VMware VCenter Resource Pool from Device42 to Freshservice    | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Network from Device42 to Freshservice          | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Disk from Device42 to Freshservice             | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Datastore from Device42 to Freshservice        | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Datacenter from Device42 to Freshservice       | asset                | 19.04.10       |                 |
+| Copy AWS K8 Pod from Device42 to FreshService                      | asset                | 19.04.10       |                 |
+| Copy AWS K8s Namespace from Device42 to Freshservice               | asset                | 19.04.10       |                 |
+| Copy AWS K8s Deployment from Device42 to Deployment                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Service from Device42 to Service                      | asset                | 19.04.10       |                 |
+| Copy AWS K8s Daemon Set from Device42 to Daemon Set                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Replica Set from Device42 to FreshService             | asset                | 19.04.10       |                 |
+| Copy AWS K8s Cron Job from Device42 to FreshService                | asset                | 19.04.10       |                 |
+| Copy GCP Public IP from Device42 to Freshservice                   | asset                | 19.04.10       |                 |
+| Copy AWS K8s Config Map from Device42 to Config Map                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Stateful Set from Device42 to Stateful Set            | asset                | 19.04.10       |                 |
+| Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
+| Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
 
 ### View Mapped and Unmapped Data for Specific Assets
 
