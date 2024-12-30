@@ -128,7 +128,7 @@ Now, when you're logged out of both Device42 and Freshservice, clicking the **Fr
 
 You can use the integration app's configuration page to sync data from Device42 to Freshservice, as well as to view and edit the data mapping between Device42 and Freshservice.
 
-From Freshservice, navigate to the settings page of the Device42 integration app:
+From Freshservice, navigate to the settings tab, located on the configuration page of the Device42 integration app:
 
 1. Click the **ellipsis menu** and select **Admin**. Enter `apps` in the search bar at the top of the screen to quickly bring up the **Apps** option. 
 2. From the **Apps** page, click **Manage Apps**.
@@ -170,7 +170,7 @@ To download the full logs, use the **Download Full Log** button in the lower-lef
     ![](/assets/images/WEB-755_FS-view-sync-history-2.png)
 
 :::note
-A full sync will be forced during upgrades to get new data from Device42. It will appear as a full upgrade instead of an incremental one under the synchronization history type. This will occur until a successful sync is performed.
+A full sync will be forced during upgrades to get new data from Device42. The sync history type will listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
 
 ## Data Mapping Between Device42 and Freshservice
@@ -261,12 +261,12 @@ Typically, the first `<field>` represents the Device42 data returned from the qu
   - `escape`: This is used on `target="name"` fields, as some characters used in Device42 aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true`, but disable it if mismatching issues occur.
 
 :::tip
-Use the InsightsAI chat under **Analytics > InsightsAI** to quickly interpret DOQL query snippets in the context of the Device42 data tables.
+Use the InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query snippets quickly in the context of the Device42 data tables.
 :::
 
 ### Additional Matching Logic for Updating Existing Items
 
-Some `<task>` elements in `mapping.xml` have a helper `<matching>` element to update synched data that exist in Freshservice now, but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which fields from the query are used to match to which attributes on the asset to try finding a match. For example:
+Some `<task>` elements in `mapping.xml` have a helper `<matching>` element for updating synched data that currently exists in Freshservice but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which query fields are used to match which asset attributes when trying to find a match. For example:
 
 ```xml
         <task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice ..."> 
@@ -284,7 +284,8 @@ Some `<task>` elements in `mapping.xml` have a helper `<matching>` element to up
             </matching>
             <mapping ...>
             <!-- and so on... -->
-```      
+```
+
 ### Reupload the `mapping.xml` File
 
 Save the file and upload it back to Freshservice with the **Upload Custom Mapping** button [from the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice).
@@ -295,7 +296,7 @@ Save the file and upload it back to Freshservice with the **Upload Custom Mappin
 
 Use this table to look up the mapping tasks in the `mapping.xml` file.
 
-Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`)
+Each `<task>` element has the following `type`, `description`, and (`d42_min_version` or `d42_max_version`) version attributes.
 
 Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-task-element-attributes) section above for a list of valid types.
 
@@ -375,35 +376,35 @@ Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-ta
 
 ## Data Mapping FAQs
 
-This section answers some common questions about data mapping between Device42 and Freshservice. We're actively working on improving the integration and this documentation. For technical questions please [contact support](support@device42.com) and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
+This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
 
 ### How Do I Add a Custom Device42 Field to Freshdesk?
 
-To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify a `<task>` that's most closely related to the custom field you want to create.
+To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify the `<task>` that's most closely related to the custom field you want to create.
 
-[Find an existing task](#the-mappingxml-file-tasks) with a query related to the field you want to map to Freshservice. For example, if you want to add a custom field about servers, inspect and modify the "Copy Servers from Device42 to Freshservice using DOQL v2" task. Add new `<field>` elements (one for Device42 and one for Freshservice) to the `<mapping>` element of the `<task>`.
+[Find an existing task](#the-mappingxml-file-tasks) with a query related to the field you want to map to Freshservice. For example, if you want to add a custom field about servers, inspect and modify the `Copy Servers from Device42 to Freshservice using DOQL v2` task. Add new `<field>` elements (one for Device42 and one for Freshservice) to the `<mapping>` element of the `<task>`.
 
-Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. Use the InsightsAI chat under **Analytics > InsightsAI** to help find the tables and fields you need to query, if needed.
+Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. If needed, use the InsightsAI chat under **Analytics > InsightsAI** to help you find the tables and fields you need to query.
 
-If you can't find a task best fits your custom field, you can create a new `<task>` element in the `mapping.xml` file.
+If you can't find a task related to your custom field, you can create a new `<task>` element in the `mapping.xml` file.
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
-Change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element of the `<task>` that corresponds to the Device42 field you want to pull from.
+In the `<task>` that corresponds with the Device42 field you want to pull from, change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element.
 
 Refer to [The `<task>` Element Elements](#the-task-element-elements) section for a description of the `<field>` element attributes.
 
 ### How Do I Turn Off Device-to-Device Communication in the Freshdesk Relationship Maps?
 
-You'll need to modify two `<task>` elements within the `mapping.xml` file.
+You need to modify two `<task>` elements within the `mapping.xml` file.
 
-- [Find the `<task>` element](#the-mappingxml-file-tasks) in the `mapping.xml` file that creates the relationship between the asset types you want to disable. Set the `enable` attribute from `true` to `false` to disable the relationship. For example:
+- In your `mapping.xml` file, [find the `<task>` element](#the-mappingxml-file-tasks) that creates the relationship between the asset types you want to disable. Set the `enable` attribute from `true` to `false` to disable the relationship. For example:
 
     ```xml
             <task enable="false" name="Create relationship between cluster and device" type="asset_relationship" description="Create relationship between cluster and device">
     ```
 
-- Remove the corresponding relationship query from the last `<task>` with the attribute `<description="Delete asset relationships from Freshservice that do not exist in Device42">` that's nested in the `description="D42 AWS ALB to Freshservice AWS ALB">` `<task>` element.
+- Remove the corresponding relationship query from the last `<task>` with the attribute `<description="Delete asset relationships from Freshservice that do not exist in Device42">`, which is nested in the `description="D42 AWS ALB to Freshservice AWS ALB">` `<task>` element.
 
     ![Task location in VS Code](/assets/images/freshservice-integration/nested-relationship-query-in-vscode.png)
   
@@ -436,23 +437,23 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
                 </api>
     ```
 
-- Save the file and [upload it back to Freshservice](#reupload-the-mappingxml-file) with the **Upload Custom Mapping** button.
+- Save the file and [reupload it to Freshservice](#reupload-the-mappingxml-file) with the **Upload Custom Mapping** button.
 
 ### How Do I Troubleshoot Data Mapping and Syncing Issues?
 
-From Freshservice, go to **Admin** and search for "apps" and click **Manage Apps**. Find the **Device42 for Freshservice** app and under the **Settings** dropdown, select **Edit settings**. Under the **Schedule Synchronization**, click the **Sync History** button.
+From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**. Find the **Device42 for Freshservice** app, open the **Settings** dropdown, and select **Edit settings**. Under the **Schedule Synchronization**, click the **Sync History** button.
 
 ![Data mapping and syncing error](/assets/images/freshservice-integration/sync-error-message.png)
 
 ## View Mapped and Unmapped Data for Specific Assets
 
-We understand that some fields within Device42 may not easily translate to a field within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
+We understand that some fields within Device42 may not easily translate to fields within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
 
 ![](/assets/images/FS_Data_Map_2-700x316.png)
 
 1. Navigate to **Assets > Inventory** from the Freshservice dashboard.
-2. On the inventory screen, select the asset imported from Device42 that you want to view mapped and unmapped data.
-3. On the right panel of the page, you will see the Device42 application. Click this to expand the application.
+2. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
+3. On the right panel of the page, under **Apps**, you will see the Device42 application. Click this to expand the application.
 4. Once this window is expanded, click the **View Device42 Data** button
 
 ![](/assets/images/FS_Data_Map_3.png)
@@ -461,7 +462,7 @@ We understand that some fields within Device42 may not easily translate to a fie
 
 ![](/assets/images/FS_Data_Map_4-700x318.png)
 
-- If you close this and select **View Asset in Device42**, you will be redirected to the asset in Device42.
+- If you close this chart and select **View Asset in Device42**, you will be redirected to the asset in Device42.
 
 ![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
 
@@ -503,7 +504,7 @@ We understand that some fields within Device42 may not easily translate to a fie
 
 ### The Warranty Contract Type in Freshservice
 
-Warranty information from Device42 is brought into Freshservice and has **Warranty** as the **Contract Type**. The **Service** and other types will fall under the **Maintenance** category.
+Warranty information from Device42 is brought into Freshservice, with **Warranty** as the **Contract Type**. Service and other types will fall under the **Maintenance** category.
 
 ![](/assets/images/New-Contract-Type-1-250x72.png)
 
@@ -531,6 +532,6 @@ You can sync business apps from Device42 to business services in Freshservice. 
 
 You can sync device purchase line items in Device42 to contracts in Freshservice.
 
-If the purchase line item in Device42 is of type **Lease**, it will have the **Lease** contract type in Freshservice as well. Everything other than the **Lease** type, such as the **Service** type, will go into the **Maintenance** type.
+If the purchase line item in Device42 has the **Lease** type, it will have the **Lease** contract type in Freshservice as well. Purchase line items with types other than the **Lease** type, such as the **Service** type, will be assigned Freshservice **Maintenance** type.
 
 ![](/assets/images/Sync-Purchase-Line-Items-250x126.png)
