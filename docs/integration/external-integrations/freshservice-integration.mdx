@@ -292,7 +292,7 @@ Each `<task>` element has the following `type`, `description`, and version attri
 
 Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-task-element-attributes) section above for a list of valid types.
 
-| Description                                                        | Type                  | d42_min_version | d42_max_version |
+| `description=`                                                        | `type=`                  | `d42_min_version=` | `d42_max_version=` |
 |--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
 | Copy Product info from Device42 to Freshservice                    | product              | 16.19.00       | 16.18.02       |
 | Copy Servers from Device42 to Freshservice using DOQL v2          | asset                | 19.04.00       | 19.03.99       |
@@ -382,7 +382,7 @@ If you can't find a task best fits your custom field, you can create a new `<tas
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
-Change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element of the `<task>` that corresponds to the Device42 field you want to pull from
+Change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element of the `<task>` that corresponds to the Device42 field you want to pull from.
 
 Refer to [The `<task>` Element Elements](#the-task-element-elements) section for a description of the `<field>` element attributes.
 
