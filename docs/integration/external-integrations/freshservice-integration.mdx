@@ -13,16 +13,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Device42 integrates with Freshservice to provide the following capabilities: 
 
-- Enhanced ITSM workflows with detailed device, user, and software details.
+- Enhanced ITSM workflows with detailed device, user, and software information.
 - An understanding of how changes to a particular application or network port could affect your business services. 
-- Flexible CMDB import options ensure the right data is brought into the right place.
-- Access both Device42 and Freshservice with a single login. 
+- Flexible CMDB import options that ensure the right data is brought into the right place.
+- A single login page for accessing both Device42 and Freshservice. 
   
   ![Single Device42 Freshservice login](/assets/images/freshservice-integration/d42-freshworks-login.png)
 
 ## Install the Device42 Integration App on Freshservice
 
-The installation process has three steps that are discussed in more detail in the sections that follow.
+The installation process has three steps, which are discussed in more detail in the sections that follow.
 
 1. In Device42, under **Tools > Cloud Services**, enable the **Cloud Connector** and set the **D42 URL for SaaS apps**. 
 2. In Device42, create a new integration under **Tools > External Integrations**.
@@ -35,6 +35,7 @@ Ensure that cloud services are enabled and configured:
 1. Navigate to **Tools > Integrations > Cloud Services**.
 2. Enter your externally accessible Device42 IP address or FQDN in the **D42 URL for SaaS apps** field. If you have configured a digital certificate, you can enter the name of the device instead. 
 3. Select your **Cloud Connector** location or environment. It's set to **USA** by default.
+
     ![Configure Cloud Services](/assets/images/freshservice-integration/cloud-services-settings.png)
 
 ### 2. Create a Freshservice External Integration in Device42
@@ -45,13 +46,14 @@ Ensure that cloud services are enabled and configured:
    :::
 2. Enter the **URL** of your Freshservice instance.
 3. Under **Type**, choose **Freshservice**.
-4. You can optionally select **Enable Freshworks SSO** to enable single sign-on. We recommend using this feature for a seamless login experience when working with the integration. 
+4. You can optionally select **Enable Freshworks SSO** to activate single sign-on (SSO). We recommend using this feature for a seamless login experience when working with the integration. 
 
     ![Add external integration](/assets/images/freshservice-integration/add-external-integration.png)
 
-    To enable the single-sign-in feature, ensure that you have an administrator in your Device42 instance with the same email address as your Freshservice agent:
+    To enable the SSO feature, ensure that you have an administrator in your Device42 instance with the same email address as your Freshservice agent:
+
     - Navigate to **Tools > Admin & Permissions > Administrators**. 
-    - Click **+ Add Local Admin** if you need to create an admin user with the same associated email address.
+    - Click **+ Add Local Admin** if you need to create an admin user with the email address associated with your Freshservice agent.
     
     <ThemedImage
     alt="Add admin user"
@@ -70,7 +72,7 @@ Ensure that cloud services are enabled and configured:
 Enable the Device42 integration in Freshservice using the Discovery Hub setup wizard.
 
 1. Log in to your Freshservice agent account.
-2. Click the **ellipsis icon** and select **Admin**. Use the search bar at the top of the page to search for "hub".
+2. Click the **ellipsis menu** and select **Admin**. Use the search bar at the top of the page to search for `hub`.
 3. From the Discovery Hub view, click **Steps to configure trial**.
      
     ![Discovery Hub](/assets/images/freshservice-integration/discovery-hub-start.png)
@@ -84,19 +86,20 @@ Enable the Device42 integration in Freshservice using the Discovery Hub setup wi
    
     ![Fill in the config form](/assets/images/freshservice-integration/integration-config-form-install.png)
 
-   - From the dropdown, choose your **Cloud Connector** region that matches the Cloud Services option selected in Device42. See Step 3 of the [Check Your Device42 Settings](#1-enable-the-cloud-connector-in-device42) section above.
+   - From the dropdown, choose the **Cloud Connector** region that matches the option you selected under **Cloud Services** in Device42 (see step 3 of the [Enable the Cloud Connector in Device42](#1-enable-the-cloud-connector-in-device42) section above.
    - Enter the **Verification Token** generated from the Device42 external integration you added. Make sure you're using the token from the External Integrations view page and **not** the token from the **+ Add External Integrations** form.
-7.  Under the **Freshservice Default Approver** dropdown, select your admin user from the list. If this list is populated, then the information you've entered so far should be correct. If you are unable to select a user, check the URL and Cloud Connector
+
+7.  Open the **Freshservice Default Approver** dropdown and select your admin user from the list. If the list is populated, then the information you've entered so far should be correct. If you are unable to select a user, check the URL and Cloud Connector.
 
     ![Set the default approver](/assets/images/freshservice-integration/default-approver.png)
 
 8.  Click **Install** to add the app to your Freshservice instance.
 
-### Complete the Single Sign-On Setup
+## Complete the Single Sign-On Setup
 
 After installing the integration app in Freshservice, you'll be able to complete the SSO configuration in the Device42 Appliance Manager.
 
-1. Ensure that you have checked the **Enable SSO** option on the Device42 External Integration. See Step 4 of the [External Integration setup](#2-create-a-freshservice-external-integration-in-device42) above.
+1. Ensure that you have checked the **Enable SSO** option on the Device42 External Integration. See Step 4 of the [Create a Freshservice External Integration in Device42](#2-create-a-freshservice-external-integration-in-device42) section above.
 2. From the Appliance Manager, navigate to **Global Settings > SAML/SSO Settings**.
 3. Check the **Enable Freshworks SSO** checkbox. 
     
@@ -106,27 +109,28 @@ After installing the integration app in Freshservice, you'll be able to complete
     
     ![Restart button](/assets/images/freshservice-integration/restart-application.png)
 
-Test the single sign-on:
+Test the SSO as follows:
+
 1. Log in to your Freshworks instance with the same email address as your [Device42 admin user](#2-create-a-freshservice-external-integration-in-device42).
 2. Log out of Device42 and refresh the page. Click on the new **Freshworks Login** button. 
    
     ![Freshworks login button](/assets/images/freshservice-integration/freshworks-login-button.png)
 
-3. Authorize the Freshworks single sign-on the first time you use it.
+3. Authorize the Freshworks SSO the first time you use it.
    
     ![Authorize the Freshworks login](/assets/images/freshservice-integration/sso-authorization.png)   
 
-Now, when you're logged out of both Device42 and Freshservice, clicking the **Freshworks Login** button in Device42 will direct you to the Freshworks sign-in page. 
-   
-    ![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in.png)  
+Now, when you're logged out of both Device42 and Freshservice, clicking the **Freshworks Login** button in Device42 will direct you to the Freshworks sign-in page.
+
+![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in.png)  
 
 ## Integration App Settings
 
-Use the integration app's configuration page to sync data from Device42 to Freshservice and view and edit the data mapping between Device42 and Freshservice.
+You can use the integration app's configuration page to sync data from Device42 to Freshservice, as well as to view and edit the data mapping between Device42 and Freshservice.
 
-From Freshservice, navigate to the Device42 integration app's settings page:
+From Freshservice, navigate to the settings tab, located on the configuration page of the Device42 integration app:
 
-1. Click the **ellipsis icon** and select **Admin**. Search for "apps" using the search bar at the top of the screen to quickly bring up the **Apps** option. 
+1. Click the **ellipsis menu** and select **Admin**. Enter `apps` in the search bar at the top of the screen to quickly bring up the **Apps** option.
 2. From the **Apps** page, click **Manage Apps**.
 3. Under the **Installed Apps** tab, find the **Device42 for Freshservice** app and select **Settings > Edit settings**.
     
@@ -134,7 +138,7 @@ From Freshservice, navigate to the Device42 integration app's settings page:
 
 ### Run the Data Synchronization
 
-Data synchronization (sync) brings in new CIs and updates the existing ones within Freshservice. Locate the synced data under **Assets > Inventory** in Freshservice. 
+Data synchronization (sync) imports new CIs and updates the existing ones within Freshservice. Locate the synced data under **Assets > Inventory** in Freshservice.
 
 You can schedule a daily sync and run the sync immediately. We recommend that you run a full sync after installing the integration app.
 
@@ -145,50 +149,324 @@ You can schedule a daily sync and run the sync immediately. We recommend that yo
 To run the sync immediately, click the **Manual sync** button to reveal the options:
 
 - Select **Run Full Sync** (1) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
-- Select **Run Partial Sync** (2) to sync items that have changed in Device42 (either added or updated) since the last successful sync.
+- Select **Run Partial Sync** (2) to sync only the items that have been changed in Device42 (either added or updated) since the last successful sync.
 
-To automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** to perform the sync. 
+To automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** at which to perform the sync. 
 
 ### View Sync History Logs
 
-View the history logs by clicking the **Sync History** button. Viewing synchronization history is useful for debugging issues and seeing the number of devices brought into Freshservice. 
+From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**. Find the **Device42 for Freshservice** app, open the **Settings** dropdown, and select **Edit Settings**. 
 
-From here, you can view previous synchronizations and currently running ones. You can select a row from the sync history table to view logs (if any) associated with it. The displayed text is limited to 4,000 characters.
+The synchronization history is useful for debugging issues and seeing the number of devices brought into Freshservice. You can view the previous and currently running syncs.
+
+Select a row from the sync history table to view the logs associated with it (if there are any). The displayed text is limited to 4,000 characters.
+
+    ![](/assets/images/WEB-755_FS-view-sync-history.png)
+
+Scroll down to view error messages and other details.
+
+To download the full logs, use the **Download Full Log** button in the lower-left corner of the text area.
+
+    ![](/assets/images/WEB-755_FS-view-sync-history-2.png)
 
 :::note
-A full sync will be forced during upgrades to get new data from Device42. It will appear as a full upgrade instead of an incremental one under the synchronization history type. This will occur until a successful sync is performed.
+A full sync will be forced during upgrades to get new data from Device42. The sync history type will listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
 
-## Data Mapping
+## Data Mapping Between Device42 and Freshservice
 
-[From the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data mapping options.
+[From the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the data-mapping buttons.
 
-![Data Mapping buttons](/assets/images/freshservice-integration/mapping.png)
+![Data-mapping buttons](/assets/images/freshservice-integration/mapping.png)
 
-From here, you can view and edit which fields from Device42 are mapped to Freshservice for the device and software items.
+- In the **Schedule Synchronization** section, view the currently mapped fields and their data types by clicking the **Data Mapping** button to reveal the integration app's **Data Mapping Chart**. 
 
-![View current mapping](/assets/images/freshservice-integration/view-mappings.png)
+    ![View current mapping](/assets/images/freshservice-integration/view-mappings.png)
 
-### View Mapped and Unmapped Data for Specific Assets
+- Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. Click the **Download Default Mapping** button to download the `mapping.xml` file, then open the file in a text or code editor to view and edit the data mapping.
 
-We understand that some fields within Device42 may not easily translate to a field within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
+## The `mapping.xml` File Structure
+
+There are multiple `<task>` elements in the `mapping.xml` file. You can customize the data mapping between Device42 and Freshservice by modifying and adding to these tasks. Refer to [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) table below for descriptions of the default mapping tasks, types, and their version requirements. 
+
+For example, The following `<task>` element copies product information from Device42 to Freshservice:
+
+```xml
+    <tasks>
+        <task enable="true" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
+            <api>
+                <target asset-type="Hardware"/>
+                <resource
+                          doql="
+                            select distinct
+                                view_vendor_v1.name as manufacturer,
+                            <!-- ... -->
+                            "
+                        />
+            </api>
+            <mapping key="name" doql-suffix=" where GREATEST(view_hardware_v2.last_changed, view_vendor_v1.last_changed, view_device_v2.last_changed) >'%s'">
+                <field resource="name" source-type="string" target="name" target-type="string" max-length="255" escape="true"/>
+                <field resource="manufacturer" source-type="string" target="manufacturer" target-type="string"
+                   not-null="true" set-space="true" min-length="1" max-length="255"/>
+            </mapping>
+        </task>
+```
+
+There are tasks that copy data from Device42 to Freshservice, create relationships between Device42 assets, and delete assets or relationships from Freshservice if they don't exist in Device42. For example, there is a task that brings in device data, a task that brings in software data, and a task that creates the device-to-software relationship from Device42 in Freshservice. 
+
+### The `<task>` Element Attributes
+
+- `enable`: You can turn off syncing for individual tasks by setting the `enable` attribute to `false`. For example:
+
+    ```xml
+            <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
+    ```
+
+- `name`: You can edit the task name. Task names appear in the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
+- `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
+
+  - `product`
+  - `asset`
+  - `software`
+  - `software_installation`
+  - `asset_relationship`
+  - `contract`
+  - `contract_asset`
+  - `component`
+  - `deployment`
+  - `service`
+  - `daemon_set`
+  - `stateful_set`
+
+- `description`: You can write and edit a brief task description.
+- `d42_min_version` and `d42_max_version`: These attributes specify the minimum and maximum Device42 versions required to run a task. Tasks may have a maximum version, a minimum version, both, or neither. You can generally leave this out when creating new tasks.
+
+### The `<task>` Element Elements
+
+The `<api>` and `<mapping>` elements are nested in each task. The `<api>` element relates to Device42 data and the `<mapping>` element relates to Freshservice data. Refer to the [Freshservice API documentation](https://api.freshservice.com/) for further details.
+
+The `<api>` element contains:
+
+- `<target>`: This holds any additional `asset-type` classifications from Device42 and will be empty in most cases. For example, `Hardware` refers to the Hardware Model under which the details of physical devices are organized.
+- `<resource>`: This is the DOQL query used to fetch data from Device42.
+
+The `<mapping>` element contains:
+
+- `key`: This is used to look the item up in Freshservice. It usually has `name` as its value.
+- `doql-suffix`: A query condition used to fetch data that has been updated since the last sync. Omitting this value results in a full data sync.
+
+Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second `<field>` element describes the equivalent field in Freshservice.
+
+- `resource`: The same as the `target` value.
+- `source-type`: Not functionally critical; this provides the data type displayed on the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
+- `target`: The Device42 field to be mapped to Freshservice. The Freshservice convention is to use the display name in snake case, occasionally with the ID of the asset type as a suffix. For example, `memory_max_usage` and `memory_reservation_used`. The sync process determines the ID. Please look up which target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
+- `escape`: This is used on `target="name"` fields, as some characters used in Device42 aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true` but disable it if mismatching issues occur.
+
+:::tip
+Use the InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query snippets quickly in the context of the Device42 data tables.
+:::
+
+### Additional Matching Logic for Updating Existing Items
+
+Some `<task>` elements in `mapping.xml` have a helper `<matching>` element for updating synched data that currently exists in Freshservice but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which query fields are used to match which asset attributes when trying to find a match. For example:
+
+```xml
+        <task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice ..."> 
+        <!-- Device42 query -->
+            <matching>
+                <source-1 
+                     device42-id="device42_id" 
+                     name="name" 
+                     serial-number="serial_no" 
+                     uuid="uuid" 
+                     item-id="instance_id"
+                     mac-address="snmp_device_mac_address"
+                     imei-number="imei" 
+                />
+            </matching>
+            <mapping ...>
+            <!-- and so on... -->
+```
+
+### Reupload the `mapping.xml` File
+
+Save the file and upload it back to Freshservice with the **Upload Custom Mapping** button [from the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice).
+
+    ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
+
+### The `mapping.xml` File Tasks
+
+Use this table to look up the mapping tasks in the `mapping.xml` file.
+
+Each `<task>` element has the following `type`, `description`, and (`d42_min_version` and `d42_max_version`) version attributes.
+
+Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-task-element-attributes) section above for a list of valid types.
+
+| `description=`                                                        | `type=`                  | `d42_min_version=` | `d42_max_version=` |
+|--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
+| Copy Product info from Device42 to Freshservice                    | product              | 16.19.00       | 16.18.02       |
+| Copy Servers from Device42 to Freshservice using DOQL v2          | asset                | 19.04.00       | 19.03.99       |
+| Copy Servers from Device42 to Freshservice using DOQL v1          | asset                |                 | 16.18.02       |
+| Copy Softwares from Device42 to Freshservice using DOQL            | software             |                 |                 |
+| Create Software Install from Software In Use                       | software_installation| 16.19.00       | 16.18.02       |
+| Create Relationship from Service Communication                     | asset_relationship   |                 |                 |
+| Create Relationship from Business Apps                             | asset_relationship   |                 |                 |
+| Copy Business Application from Device42 to Freshservice            | asset                | 16.19.00       | 16.18.02       |
+| Create Relationship from Devices to Business Apps                  | asset_relationship   |                 |                 |
+| Copy contract info from Device42 to Freshservice                   | contract             |                 |                 |
+| Create association between asset and contract                      | contract_asset       |                 |                 |
+| Copy Software Licensing info from Device42 to Freshservice         | contract             |                 |                 |
+| Create relationship between Host and Virtual Machine               | asset_relationship   |                 |                 |
+| Create relationship between cluster and device                     | asset_relationship   |                 |                 |
+| Copy AWS ALB from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy AWS Security Group from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy AWS VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS RDS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AZURE Subnet from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy Azure Disk from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy Azure Security Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
+| Copy Azure Subscription from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy Azure Application Gateway from Device42 to Freshservice       | asset                | 19.04.00       |                 |
+| Copy AWS EBS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy AWS Key Pair from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy AWS S3 from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
+| Copy AWS Public IP from Device42 to FreshService                   | asset                | 19.04.10       |                 |
+| Copy Azure VPC from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy GCP Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
+| Copy GCP VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
+| Copy GCP Disk from Device42 to Freshservice                        | asset                | 19.04.00       |                 |
+| Copy GCP Firewall Rules from Device42 to Freshservice              | asset                | 19.04.00       |                 |
+| Copy CPU Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
+| Copy RAM Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
+| Copy Network Adapter from Device42 to Freshservice using DOQL      | component            |                 |                 |
+| Copy Hard Disk Parts from Device42 to Freshservice using DOQL      | component            |                 |                 |
+| Copy Mount Point(Logical Drive) from Device42 to Freshservice      | component            |                 |                 |
+| Copy Mount Point(Datastore) from Device42 to Freshservice          | component            |                 |                 |
+| Copy Printer Input Parts from Device42 to Freshservice using DOQL  | component            |                 |                 |
+| Copy Printer Output Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
+| Copy Printer Marker Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
+| Copy Interface Component from Device42 to Freshservice using DOQL  | component            | 19.04.00       |                 |
+| Copy GCP LB from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
+| Copy Azure Images from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
+| Copy Azure Network Interface from Device42 to Freshservice         | asset                | 19.04.00       |                 |
+| Copy AWS Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
+| Copy GCP Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
+| Copy Azure Resource Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
+| Copy AWS Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy Azure Public IP from Device42 to FreshService                 | asset                | 19.04.10       |                 |
+| Copy GCP Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
+| Copy GCP BigQuery Table from Device42 to FreshService              | asset                | 19.04.10       |                 |
+| Copy Azure Key Vault from Device42 to Freshservice                 | asset                | 19.04.00       |                 |
+| Copy VMware VCenter Resource Pool from Device42 to Freshservice    | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Network from Device42 to Freshservice          | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Disk from Device42 to Freshservice             | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Datastore from Device42 to Freshservice        | asset                | 19.04.10       |                 |
+| Copy VMware VCenter Datacenter from Device42 to Freshservice       | asset                | 19.04.10       |                 |
+| Copy AWS K8 Pod from Device42 to FreshService                      | asset                | 19.04.10       |                 |
+| Copy AWS K8s Namespace from Device42 to Freshservice               | asset                | 19.04.10       |                 |
+| Copy AWS K8s Deployment from Device42 to Deployment                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Service from Device42 to Service                      | asset                | 19.04.10       |                 |
+| Copy AWS K8s Daemon Set from Device42 to Daemon Set                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Replica Set from Device42 to FreshService             | asset                | 19.04.10       |                 |
+| Copy AWS K8s Cron Job from Device42 to FreshService                | asset                | 19.04.10       |                 |
+| Copy GCP Public IP from Device42 to Freshservice                   | asset                | 19.04.10       |                 |
+| Copy AWS K8s Config Map from Device42 to Config Map                | asset                | 19.04.10       |                 |
+| Copy AWS K8s Stateful Set from Device42 to Stateful Set            | asset                | 19.04.10       |                 |
+| Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
+| Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
+
+## Data Mapping FAQs
+
+This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
+
+### How Do I Add a Custom Device42 Field to Freshdesk?
+
+To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify the `<task>` that's most closely related to the custom field you want to create.
+
+[Find an existing task](#the-mappingxml-file-tasks) with a query related to the field you want to map to Freshservice. For example, if you want to add a custom field about servers, inspect and modify the `Copy Servers from Device42 to Freshservice using DOQL v2` task. Add new `<field>` elements (one for Device42 and one for Freshservice) to the `<mapping>` element of the `<task>`.
+
+Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. If needed, use the InsightsAI chat under **Analytics > InsightsAI** to help you find the tables and fields you need to query.
+
+If you can't find a task related to your custom field, you can create a new `<task>` element in the `mapping.xml` file.
+
+### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
+
+In the `<task>` that corresponds with the Device42 field you want to pull from, change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element.
+
+Refer to [The `<task>` Element Elements](#the-task-element-elements) section for a description of the `<field>` element attributes.
+
+### How Do I Turn Off Device-to-Device Communication in the Freshdesk Relationship Maps?
+
+You need to modify two `<task>` elements within the `mapping.xml` file.
+
+- In your `mapping.xml` file, [find the `<task>` element](#the-mappingxml-file-tasks) that creates the relationship between the asset types you want to disable. Set the `enable` attribute from `true` to `false` to disable the relationship. For example:
+
+    ```xml
+            <task enable="false" name="Create relationship between cluster and device" type="asset_relationship" description="Create relationship between cluster and device">
+    ```
+
+- Remove the corresponding relationship query from the last `<task>` with the attribute `<description="Delete asset relationships from Freshservice that do not exist in Device42">`, which is nested in the `description="D42 AWS ALB to Freshservice AWS ALB">` `<task>` element.
+
+    ![Task location in VS Code](/assets/images/freshservice-integration/nested-relationship-query-in-vscode.png)
+  
+    For example, if you want to disable the relationship between clusters and devices, remove the following query snippet from the `<resource doql="` attribute:
+
+    ```xml
+    <task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42">
+                <api>
+                    <target
+                            delete="true"/>
+                    <resource
+                            doql="
+                                    <!-- ... other queries -->
+
+                                    <!-- remove or comment out this cluster and device relationship query -->
+
+                                    select 
+                        dc.name as dependent_device_name,
+                        format('Device-%s', dc.device_pk) as dependent_device_device42_id,
+                                    'Member of' as downstream_relationship,
+                        dp.name as dependency_device_name,
+                        format('Device-%s', dp.device_pk) as dependency_device_device42_id,
+                                    'Includes' as upstream_relationship
+                                    from view_devices_in_cluster_v1 dic
+                                    inner join view_device_v2 dp on dic.parent_device_fk = dp.device_pk
+                                    inner join view_device_v2 dc on dic.child_device_fk = dc.device_pk
+                                    where lower(dp.type) = 'cluster'
+                                "
+                            />
+                </api>
+    ```
+
+- Save the file and [reupload it to Freshservice](#reupload-the-mappingxml-file) with the **Upload Custom Mapping** button.
+
+### How Do I Troubleshoot Data Mapping and Syncing Issues?
+
+From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**. Find the **Device42 for Freshservice** app, open the **Settings** dropdown, and select **Edit settings**. Under the **Schedule Synchronization**, click the **Sync History** button.
+
+![Data mapping and syncing error](/assets/images/freshservice-integration/sync-error-message.png)
+
+## View Mapped and Unmapped Data for Specific Assets
+
+We understand that some fields within Device42 may not easily translate to fields within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
 
 ![](/assets/images/FS_Data_Map_2-700x316.png)
 
 1. Navigate to **Assets > Inventory** from the Freshservice dashboard.
-2. On the inventory screen, select the asset imported from Device42 that you want to view mapped and unmapped data.
-3. On the right panel of the page, you will see the Device42 application. Click this to expand the application.
-4. Once this window is expanded, click the **View Device42 Data** button
+2. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
+3. On the right panel of the page, under **Apps**, you will see the Device42 application. Click this to expand the application.
+4. Once this window is expanded, click the **View Device42 Data** button.
 
-![](/assets/images/FS_Data_Map_3.png)
+    ![](/assets/images/FS_Data_Map_3.png)
 
-- A window will open, and mapped and unmapped data for the current device will be displayed.
+    A window will open, and mapped and unmapped data for the current device will be displayed.
 
-![](/assets/images/FS_Data_Map_4-700x318.png)
+    ![](/assets/images/FS_Data_Map_4-700x318.png)
 
-- If you close this and select **View Asset in Device42**, you will be redirected to the asset in Device42.
+5. Close this window and select **View Asset in Device42** to be redirected to the asset in Device42.
 
-![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
+    ![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
 
 ## Data Types Transferred from Device42 to Freshservice
 
@@ -228,7 +506,7 @@ We understand that some fields within Device42 may not easily translate to a fie
 
 ### The Warranty Contract Type in Freshservice
 
-Warranty information from Device42 is brought into Freshservice and has **Warranty** as the **Contract Type**. The **Service** and other types will fall under the **Maintenance** category.
+Warranty information from Device42 is brought into Freshservice, with **Warranty** as the **Contract Type**. Service and other types will fall under the **Maintenance** category.
 
 ![](/assets/images/New-Contract-Type-1-250x72.png)
 
@@ -256,6 +534,6 @@ You can sync business apps from Device42 to business services in Freshservice. 
 
 You can sync device purchase line items in Device42 to contracts in Freshservice.
 
-If the purchase line item in Device42 is of type **Lease**, it will have the **Lease** contract type in Freshservice as well. Everything other than the **Lease** type, such as the **Service** type, will go into the **Maintenance** type.
+If the purchase line item in Device42 has the **Lease** type, it will have the **Lease** contract type in Freshservice as well. Purchase line items with types other than the **Lease** type, such as the **Service** type, will be assigned Freshservice **Maintenance** type.
 
 ![](/assets/images/Sync-Purchase-Line-Items-250x126.png)
