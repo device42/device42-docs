@@ -179,7 +179,7 @@ A full sync will be forced during upgrades to get new data from Device42. It wil
 
     ![View current mapping](/assets/images/freshservice-integration/view-mappings.png)
 
-- Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and reuploading the `mapping.xml` file. Click the **Download Default Mapping** button and download the `mapping.xml` file. Open the file in a text or code editor to view and edit the data mapping.
+- Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. Click the **Download Default Mapping** button and download the `mapping.xml` file. Open the file in a text or code editor to view and edit the data mapping.
 
 ## The `mapping.xml` File Structure
 
@@ -218,7 +218,7 @@ There are tasks that copy data from Device42 to Freshservice, create relationshi
             <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
     ```
 
-- `name` : The task name can be edited and appears in the data mapping table of the integration app.
+- `name` : The task name can be edited and appears in the [data mapping table of the integration app](#data-mapping-between-device42-and-freshservice).
 - `type` : A Freshservice classification of the data. The valid types are: 
   - `product`
   - `asset`
@@ -249,7 +249,7 @@ The `<mapping>` element contains:
  
 Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second element describes the equivalent field in Freshservice.
   - `resource` : Is the same as the `target` value.
-  - `source-type` : Not functionally critical. Used to provide the data type that's displayed in the integration app's data mapping table.
+  - `source-type` : Not functionally critical. Used to provide the data type that's displayed on the [integration app's data mapping table](#data-mapping-between-device42-and-freshservice).
   - `target` : The field to map from Device42 to Freshservice. The Freshservice convention is to use display name in snake case with occasionally the ID of the asset type as a suffix. For example `memory_max_usage` and `memory_reservation_used`. The sync process can figure out the ID. Please look up the target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
   - `escape` : Used on `target="name"` fields. Some characters used in Device42 aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true` but disable it if mismatching issues occur.
 
@@ -277,13 +277,20 @@ Some `<task>` elements in `mapping.xml` have a helper `<matching>` element to up
             </matching>
             <mapping ...>
             <!-- and so on... -->
-```            
+```      
+### Reupload the `mapping.xml` File
+
+Save the file and upload it back to Freshservice with the **Upload Custom Mapping** button [from the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice).
+
+    ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
 
 ### The `mapping.xml` File Tasks
 
 Use this table to look up the mapping tasks in the `mapping.xml` file.
 
-Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`):
+Each `<task>` element has the following `type`, `description`, and version attributes (`d42_min_version` and `d42_max_version`)
+
+Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-task-element-attributes) section above for a list of valid types.
 
 | Description                                                        | Type                  | d42_min_version | d42_max_version |
 |--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
@@ -361,7 +368,7 @@ Each `<task>` element has the following `type`, `description`, and version attri
 
 ## Data Mapping FAQs
 
-This section answers some common questions about data mapping between Device42 and Freshservice. We're actively working on improving the integration and this documentation. If you have any questions please [contact support](support@device42.com). 
+This section answers some common questions about data mapping between Device42 and Freshservice. We're actively working on improving the integration and this documentation. For technical questions please [contact support](support@device42.com) and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
 
 ### How Do I Add a Custom Device42 Field to Freshdesk?
 
@@ -420,9 +427,7 @@ You'll need to modify two `<task>` elements within the `mapping.xml` file.
                 </api>
     ```
 
-- Save the file and upload it back to Freshservice with the **Upload Custom Mapping** button [from the **Settings** tab of the **Configuration** page](#configure-the-integration-in-freshservice).
-
-    ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
+- Save the file and [upload it back to Freshservice](#reupload-the-mappingxml-file) with the **Upload Custom Mapping** button.
 
 ### How Do I Troubleshoot Data Mapping and Syncing Issues?
 
