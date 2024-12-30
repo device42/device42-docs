@@ -12,6 +12,12 @@ Device42 offers several autodiscovery tools, some of which are internal to Devic
 
 You may run the autodiscovery tools in any combination and order that makes sense for your environment. All autodiscovery jobs can be run on a regular schedule to automate a significant portion of your network documentation.
 
+:::caution
+Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
+
+Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+:::
+
 ### Start With the Network
 
 Running network discovery first is recommended to lay the framework for the rest of your discoveries. By first discovering your network, you collect data on the in-use subnets that contain all of the IP addresses to be discovered and construct the Layer 2 framework by discovering VLANs with live MAC addresses. 
@@ -21,33 +27,6 @@ Note that starting with the network is not a requirement, but if IPs are discove
 ### Discovery Exclusion List
 
 Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
-
-The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
-
-The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
-
-<ThemedImage
-  alt="Exclude server(s) box in discovery job"
-  sources={{
-    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
-    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
-  }}
-/>
-
-Note that previously created jobs will not be affected or updated with changes to the exclusion list.
-
-### Cloning Discovery Jobs
-
-
-:::caution
-Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
-
-Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
-:::
-
-### Discovery Exclusion List
-
-Prevent discovery from attempting to communicate with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
 
 The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
 
