@@ -223,7 +223,7 @@ There are tasks that copy data from Device42 to Freshservice, create relationshi
     ```
 
 - `name`: You can edit the task name. Task names appear in the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
-- `type`: This indicates [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
+- `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
 
   - `product`
   - `asset`
@@ -252,10 +252,10 @@ The `<api>` element contains:
 
 The `<mapping>` element contains:
 
-- `key`: This is used to look the item up in Freshservice. It usually has a `name` as its value.
+- `key`: This is used to look the item up in Freshservice. It usually has `name` as its value.
 - `doql-suffix`: A query condition used to fetch data that has been updated since the last sync. Omitting this value results in a full data sync.
 
-Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second element describes the equivalent field in Freshservice.
+Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second `<field>` element describes the equivalent field in Freshservice.
 
 - `resource`: The same as the `target` value.
 - `source-type`: Not functionally critical; this provides the data type displayed on the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
