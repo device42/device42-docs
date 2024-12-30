@@ -219,7 +219,7 @@ There are tasks that copy data from Device42 to Freshservice, create relationshi
     ```
 
 - `name` : The task name can be edited and appears in the [data mapping table of the integration app](#data-mapping-between-device42-and-freshservice).
-- `type` : A Freshservice classification of the data. The valid types are: 
+- `type` : A [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are: 
   - `product`
   - `asset`
   - `software`
@@ -372,15 +372,17 @@ This section answers some common questions about data mapping between Device42 a
 
 ### How Do I Add a Custom Device42 Field to Freshdesk?
 
-To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify or create a new `<task>`.
+To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify a `<task>` that's most closely related to the custom field you want to create.
 
-[Find an existing task](#the-mappingxml-file-tasks) with a query related to the field you want to map to Freshservice. For example, if you want to add a custom field regarding services, modify the "Copy Servers from Device42 to Freshservice using DOQL v2" task. Add new `<field>` elements (one for Device42 and one for Freshservice) to the `<mapping>` element of the `<task>`.
+[Find an existing task](#the-mappingxml-file-tasks) with a query related to the field you want to map to Freshservice. For example, if you want to add a custom field about servers, inspect and modify the "Copy Servers from Device42 to Freshservice using DOQL v2" task. Add new `<field>` elements (one for Device42 and one for Freshservice) to the `<mapping>` element of the `<task>`.
 
-Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. Use the InsightsAI chat under **Analytics > InsightsAI** to help find the tables and fields you need to query.
+Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. Use the InsightsAI chat under **Analytics > InsightsAI** to help find the tables and fields you need to query, if needed.
+
+If you can't find a task best fits your custom field, you can create a new `<task>` element in the `mapping.xml` file.
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
-Change the `resource` and `target` attributes of the `<field>` element in the `<mapping>` element of the `<task>` that corresponds to the Device42 field you want to map to Freshservice. 
+Change the `resource` and `target` attributes of the `<field>` elements in the `<mapping>` element of the `<task>` that corresponds to the Device42 field you want to pull from
 
 Refer to [The `<task>` Element Elements](#the-task-element-elements) section for a description of the `<field>` element attributes.
 
