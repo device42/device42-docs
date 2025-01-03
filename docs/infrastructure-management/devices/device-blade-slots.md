@@ -3,44 +3,96 @@ title: "Device - Blade Slots"
 sidebar_position: 5
 ---
 
-### Blade Slot Overview
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Chassis Blade slots can be added to hardware models that have been designated Blade host / Chassis during creation.
+A blade slot is a placeholder for a blade server in a blade chassis. You can add blade slots to a Hardware Model that has been configured as a **Blade Host/Chassis** with the same number, type, and layout of blade slots as its corresponding physical hardware.
 
-Blade slots can be laid out on any ‘Blade host / Chassis’ hardware model during creation or while editing an existing hardware model.
+## Create or Edit a Chassis Hardware Model 
 
-![Add Device Hardware Model Blade](/assets/images/add_device_hardware_model_blade_HL.png)
+Navigate to **Infrastructure > Hardware Models** and select an existing hardware model or click **+ Add Device Hardware Model** to create a new one.
 
-### Add Blade Slots to Chassis
+For **Physical Subtype**, choose **Rackable** or a similarly defined subtype to reveal the **Blade Host/Chassis** option and select it.
 
-Add as many blade slots as needed to match the layout of your hardware. In the example below, the 5th half-height slot is being added (will be numbered #4) to the chassis being modeled:
+<ThemedImage
+  alt="Add Device Hardware Model for blade chassis"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/add-hardware-model-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/add-hardware-model-dark.png'),
+  }}
+/>
 
-![Add Blade Slots to chassis](/assets/images/chassis_blade_slots.png)
+### Add Blade Slots to the Chassis
+
+Scroll down to **Chassis Blade Slots** and add as many blade slots as necessary to match the layout of your hardware. 
+
+<ThemedImage
+  alt="Add blade slots to chassis Hardware Model"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/add-hardware-model-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/add-hardware-model-dark.png'),
+  }}
+/>
+
+Click **Save** or **Save and continue editing** to save your progress. 
 
 ### Adjust Layout on Existing Hardware Model
 
-You can easily edit the layout of the slots after creation by clicking the “Model Layout” button on the hardware model.
+Search for the Hardware Model you created from the Hardware Model list page and click **Model Layout** to create or adjust the visual layout of the blade slots.
 
-![Edit blade chassis model layout](/assets/images/view_hardware_model_Model_layout_button-HL.PNG)
+<ThemedImage
+  alt="Model Layout button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/model-layout-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/model-layout-button-dark.png'),
+  }}
+/>
 
-### Using the Visual Model Editor
+## Using the Visual Model Editor
 
-Click “Turn ON” to enable edit mode, and then drag and drop parts slots as desired. Slots that were created when the part model was defined will appear in the left column “Unmapped Existing Parts” and/or “Unmapped Existing Blade Slots”:
+Click **Turn ON** to enable edit mode, then drag and drop blade slots as desired. 
 
-![Un-mapped templated blade slots](/assets/images/UNMAPPED_EXISTING_BLADE_SLOTS-Blade_chassis_populated.PNG)
+<ThemedImage
+  alt="Turn ON button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/turn-on-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/turn-on-button-dark.png'),
+  }}
+  style={{ width: '35%' }} 
+/>
 
-Click any parts or blade slot and click the “Edit” button on the lower left to reorient, rename, or to place a part into a parts slot:
+The slots created when the Hardware Model was defined will appear in the left column under **Un-mapped Existing Blade Slots**.
 
-![Edit a part slots](/assets/images/edit_a_parts_slot_part_layout_view.png)
+Toggle the grid background on or off using the **third semi-circle icon** to help you align the slots.
 
-_Note that editing a BLADE slot offers different options:_
+<ThemedImage
+  alt="Unmapped blade slots"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/unmapped-slots-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/unmapped-slots-dark.png'),
+  }}
+/>
 
-![Editing a blade has different options](/assets/images/EDIT_BLADE_SLOT_Blade_chassis_Layout_view.PNG)
+### Editing a Blade Slot
 
-When editing a blade slot, similar to a parts slot, you may add a number and/or change the orientation between horizontal and vertical. However, you can not put a part into a blade slot; you instead have the ability to set the blade height.
+Double-click a blade slot to change the slot size, orientation, or number. 
 
-![Enter Blade Slot Information](/assets/images/enter_parts_slot_information.png)
+Note that parts cannot be placed into a blade slot; however, you can specify the height of the blade that occupies the slot.
 
-When you have finished editing your layout, simply “Save” the edits you made. You will see a green save confirmation in the upper left. You may now “Turn OFF” edit mode and your changes will remain saved:
+<ThemedImage
+  alt="Edit blade slot fields"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/edit-slot-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/edit-slot-dark.png'),
+  }}
+/>
 
-![Changes saved succesfully, complete blade chassis layout](/assets/images/Dell_m1000_example_layout_COMPLETE.PNG)
+When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation notice at the top of the left panel. 
+
+<ThemedImage
+  alt="Save button on visual model editor"
+  sources={{
+    light: useBaseUrl('/assets/images/device-blade-slots/save-button-light.png'),
+    dark: useBaseUrl('/assets/images/device-blade-slots/save-button-dark.png'),
+  }}
+/>
