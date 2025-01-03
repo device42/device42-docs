@@ -6,9 +6,7 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-A blade slot is a placeholder for a blade server in a blade chassis. Configure a chassis Hardware Model with the number and type of blade slots of the physical hardware, and then it's layout.
-
-Chassis Blade slots are added to hardware models that have been designated **Blade Host/Chassis** during creation.
+A blade slot is a placeholder for a blade server in a blade chassis. You can add blade slots to a Hardware Model that has been configured as a **Blade Host/Chassis** with the same number, type, and layout of blade slots as its corresponding physical hardware.
 
 ## Create or Edit a Chassis Hardware Model 
 
@@ -26,7 +24,7 @@ For **Physical Subtype**, choose **Rackable** or a similarly defined subtype to 
 
 ### Add Blade Slots to the Chassis
 
-Scroll down to **Chassis Blade Slots** and add as many blade slots as needed to match the layout of your hardware. 
+Scroll down to **Chassis Blade Slots** and add as many blade slots as necessary to match the layout of your hardware. 
 
 <ThemedImage
   alt="Add blade slots to chassis Hardware Model"
@@ -52,7 +50,7 @@ Search for the Hardware Model you created from the Hardware Model list page and 
 
 ## Using the Visual Model Editor
 
-Click **Turn ON** to enable edit mode, and then drag and drop parts slots as desired. 
+Click **Turn ON** to enable edit mode, then drag and drop parts slots as desired. 
 
 <ThemedImage
   alt="Turn ON button"
@@ -63,9 +61,9 @@ Click **Turn ON** to enable edit mode, and then drag and drop parts slots as des
   style={{ width: '35%' }} 
 />
 
-Slots that were created when the Hardware Model was defined will appear in the left column under **Unmapped Existing Blade Slots**.
+The slots created when the Hardware Model was defined will appear in the left column under **Un-mapped Existing Blade Slots**.
 
-Toggle the grid background on or off using the **third semi-circle icon** to help align the slots.
+Toggle the grid background on or off using the **third semi-circle icon** to help you align the slots.
 
 <ThemedImage
   alt="Unmapped blade slots"
@@ -77,7 +75,7 @@ Toggle the grid background on or off using the **third semi-circle icon** to hel
 
 ### Editing a Blade Slot
 
-Double-click a blade slot to change the slot size, orientation, or number. Note that you can not put a part into a blade slot, but you can set the blade height instead.
+Double-click a blade slot to change the slot size, orientation, or number. Note that you cannot put a part into a blade slot, but you can set the blade height instead.
 
 <ThemedImage
   alt="Edit blade slot fields"
@@ -87,7 +85,7 @@ Double-click a blade slot to change the slot size, orientation, or number. Note 
   }}
 />
 
-When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation in the upper left. 
+When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation at the top of the left column. 
 
 <ThemedImage
   alt="Save button on visual model editor"
