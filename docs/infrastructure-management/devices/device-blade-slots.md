@@ -50,7 +50,7 @@ Search for the Hardware Model you created from the Hardware Model list page and 
 
 ## Using the Visual Model Editor
 
-Click **Turn ON** to enable edit mode, then drag and drop parts slots as desired. 
+Click **Turn ON** to enable edit mode, then drag and drop blade slots as desired. 
 
 <ThemedImage
   alt="Turn ON button"
@@ -75,7 +75,9 @@ Toggle the grid background on or off using the **third semi-circle icon** to hel
 
 ### Editing a Blade Slot
 
-Double-click a blade slot to change the slot size, orientation, or number. Note that you cannot put a part into a blade slot, but you can set the blade height instead.
+Double-click a blade slot to change the slot size, orientation, or number. 
+
+Note that parts cannot be placed into a blade slot; however, you can specify the height of the blade that occupies the slot.
 
 <ThemedImage
   alt="Edit blade slot fields"
@@ -85,7 +87,7 @@ Double-click a blade slot to change the slot size, orientation, or number. Note 
   }}
 />
 
-When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation at the top of the left column. 
+When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation notice at the top of the left panel. 
 
 <ThemedImage
   alt="Save button on visual model editor"
