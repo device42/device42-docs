@@ -468,6 +468,46 @@ We understand that some fields within Device42 may not easily translate to field
 
     ![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
 
+## Examples of `mapping.xml` File Edits for Specific Use Cases
+
+### Example 1: How can I adjust the sync to not import contracts from Device42 to Freshservice?
+
+To disable the contract sync, set the `enable` attribute to `false` to the `<task>` elements with the descriptions:
+- `Copy contract info from Device42 to Freshservice` (around line `2411).
+- `Create association between asset and contract` (around line `2452).
+- Optionally, you can disable the Software Licensing tasks, as it's also synced a contract type with the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2493`).
+
+Finding the tasks and disabling them looks like this:
+
+1. Around line `2411`, find the task with the description `Copy contract info from Device42 to Freshservice`. 
+   
+    ![Line 2411](/assets/images/freshservice-integration/example-vscode-line-2411.png)
+
+   Change `enable="true"` to `false`:
+
+    ```xml
+    <task enable="false" name="Copy contract info from Device42 to Freshservice" type="contract" description="Copy contract info from Device42 to Freshservice">
+    ``` 
+
+2. Find the `Create association between asset and contract` task around line `2452` of `mapping.xml`:
+
+    ![Line 2452](/assets/images/freshservice-integration/example-vscode-line-2452.png)
+
+    Change `enable="true"` to `false`:
+
+    ```xml
+            <task enable="false" name="Device Contract Associations" type="contract_asset" description="Create association between asset and contract">
+    ```
+3. If you also want to disable the Software Licensing sync, find the `Copy Software Licensing info from Device42 to Freshservice` task around line `2493`:
+
+    ![Line 2476](/assets/images/freshservice-integration/example-vscode-line-2476.png)
+
+    Change `enable="true"` to `false` as follows:
+
+    ```xml
+        <task enable="false" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">
+    ```
+
 ## Data Types Transferred from Device42 to Freshservice
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
