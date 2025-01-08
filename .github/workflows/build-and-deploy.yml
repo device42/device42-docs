@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_artifact:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
 
   deploy_dev:
     needs: build_artifact
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: dev
     steps:
     - name: Checkout code
@@ -73,7 +73,7 @@ jobs:
 
   deploy_stg:
     needs: deploy_dev
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: stg
     steps:
     - name: Checkout code
@@ -106,7 +106,7 @@ jobs:
 
   deploy_prod:
     needs: deploy_stg
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: prod
     steps:
     - name: Checkout code
