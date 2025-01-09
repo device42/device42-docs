@@ -199,14 +199,14 @@ A full sync will be forced during upgrades to get new data from Device42. The sy
 
     ![Data-mapping buttons](/assets/images/freshservice-integration/data-mapping-buttons-2.png)
 
-- Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. Click the **Download Default Mapping** button to download the `mapping.xml` file.
+- Click the **Download Default Mapping** button to download the `mapping.xml` file. Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. 
 - Explore the mapped fields and their data types by selecting an asset type (for example, **Devices**) from the **Data Mapping Chart**. Scroll to the bottom of the page to view the mapping table.
 
     ![View current mapping](/assets/images/freshservice-integration/view-mappings-2.png)
 
 ## The `mapping.xml` File Structure
 
-Open the `mapping.xml` file in a text or code editor to view and edit the data mapping. You'll see multiple `<task>` elements in the `mapping.xml` file. Version 1.0 of the file has around 6010 lines.
+Open the `mapping.xml` file in a text or code editor to view and edit the data mapping. Version 1.0 of the file has around 6010 lines. There are tasks to sync data and tasks to create relationships between CI types that exist in Device42 to Freshservice. Two cleanup tasks delete any assets or asset relationships from Freshservice that do not exist in Device42.
 
     ![mapping.xml in VS Code](/assets/images/freshservice-integration/mapping-v1-annotated.png)
 
@@ -235,7 +235,7 @@ For example, The following `<task>` element copies product information from Devi
         </task>
 ```
 
-There are tasks that copy data from Device42 to Freshservice, create relationships between Device42 assets, and delete assets or relationships from Freshservice if they don't exist in Device42. For example, there is a task that brings in device data, a task that brings in software data, and a task that creates the device-to-software relationship from Device42 in Freshservice. 
+Let's take a closer look at the attributes and elements of the `<task>` elements so you can understand what to adapt or emulate to suit your particular case.
 
 ### The `<task>` Element Attributes
 
@@ -244,6 +244,8 @@ There are tasks that copy data from Device42 to Freshservice, create relationshi
     ```xml
             <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
     ```
+
+    Note that if you turn off a task where the Freshservice type is `asset` or `asset_relationship`, you'll need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-disable-a-relationship-between-two-asset-types-that-exist-in-device42-from-syncing-to-freshservice).
 
 - `name`: You can edit the task name. Task names appear in the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
 - `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
@@ -266,7 +268,7 @@ There are tasks that copy data from Device42 to Freshservice, create relationshi
 
 ### The `<task>` Element Elements
 
-The `<api>` and `<mapping>` elements are nested in each task. Think of the `<api>` element as relating to Device42 data and the `<mapping>` element as relating to the Freshservice fields. Refer to the [Freshservice API documentation](https://api.freshservice.com/) for further details.
+The `<api>` and `<mapping>` elements are nested in each task. Think of the `<api>` element as relating to Device42 data and the `<mapping>` element as relating to the Freshservice fields. 
 
 The `<api>` element contains:
 
@@ -321,9 +323,9 @@ Save the file and upload it back to Freshservice with the **Upload Custom Mappin
 
 Use this table to look up the mapping tasks in the `mapping.xml` file.
 
-Each `<task>` element has the following `type`, `description`, and (`d42_min_version` and `d42_max_version`) version attributes.
+Each `<task>` element has the following Freshservice `type`, `description`, and (`d42_min_version` and `d42_max_version`) version attributes.
 
-Refer to the `type` explanation in the [The `<task>` Element Attributes](#the-task-element-attributes) section above for a list of valid types.
+For a quick look of all the valid Freshservice `types`, see the [The `<task>` Element Attributes](#the-task-element-attributes) section above.
 
 | `description=`                                                        | `type=`                  | `d42_min_version=` | `d42_max_version=` |
 |--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
@@ -419,7 +421,7 @@ In the `<task>` that corresponds with the Device42 field you want to pull from, 
 
 Refer to [The `<task>` Element Elements](#the-task-element-elements) section for a description of the `<field>` element attributes.
 
-### How Do I Disable a Relationship Between Two Asset Types?
+### How Do I Disable a Relationship Between Two Asset Types that exist in Device42 From Syncing to Freshservice?
 
 You need to modify two `<task>` elements within the `mapping.xml` file.
 
@@ -497,11 +499,13 @@ We understand that some fields within Device42 may not easily translate to field
 
 This section provides specific examples of how to edit the `mapping.xml` file to change what is synced from Device42 to Freshservice.
 
-### Example 1: How Do I Adjust the Sync To Not Import Contracts From Device42 to Freshservice?
+The line estimates in the examples are based on the default version 1.0 of the `mapping.xml` file and won't match exactly if you've customized the sync or are using an updated version.
 
-To disable the contract sync, set the `enable` attribute to `false` to the `<task>` elements with the descriptions outlined in detail in the steps below:
+### Example 1: How Can I Stop the Sync From Importing Contracts From Device42 to Freshservice?
 
-1. Around line `2372`, find the task with the description `Copy contract info from Device42 to Freshservice`. 
+To stop importing contracts to Freshservice, set the `enable` attribute to `false` to these `<task>` elements:
+
+1. Find the task with the description `Copy contract info from Device42 to Freshservice`(line `2372`):
    
     ![Line 2372](/assets/images/freshservice-integration/example-vscode-4.png)
 
@@ -511,7 +515,7 @@ To disable the contract sync, set the `enable` attribute to `false` to the `<tas
     <task enable="false" name="Copy contract info from Device42 to Freshservice" type="contract" description="Copy contract info from Device42 to Freshservice">
     ``` 
 
-2. Find the `Create association between asset and contract` task around line `2413` of `mapping.xml`:
+2. Find the `Create association between asset and contract` task around line `2413`:
 
     ![Line 2413](/assets/images/freshservice-integration/example-vscode-5.png)
 
@@ -520,7 +524,7 @@ To disable the contract sync, set the `enable` attribute to `false` to the `<tas
     ```xml
             <task enable="false" name="Device Contract Associations" type="contract_asset" description="Create association between asset and contract">
     ```
-3. Optionally, if you want to disable Software Licensing from being synced, find the `Copy Software Licensing info from Device42 to Freshservice` task around line `2437`:
+3. If you want to disable Software Licensing from being synced, find the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2437`):
 
     ![Line 2437](/assets/images/freshservice-integration/example-vscode-6.png)
 
@@ -532,11 +536,11 @@ To disable the contract sync, set the `enable` attribute to `false` to the `<tas
 
 4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
 
-### Example 2: How Do I Adjust the Sync To Not Import Software From Device42 to Freshservice?
+### Example 2: How Do I Disable Software Imports From Syncing to Freshservice?
 
-To disable software from syncing to Freshservice, set the `enable` attribute to `false` to the following`<task>` elements:
+You can disable software from syncing to Freshservice by setting the `enable` attribute to `false` to the following`<task>` elements:
 
-1. Around line `2087` on `mapping.xml`, find the task with the description `Copy Softwares from Device42 to Freshservice using DOQL`. 
+1. Find the task with the description `Copy Softwares from Device42 to Freshservice using DOQL` (line `2087`). 
    
     ![Line 2087](/assets/images/freshservice-integration/example-vscode-1.png)
 
@@ -566,7 +570,16 @@ To disable software from syncing to Freshservice, set the `enable` attribute to 
     ```xml
     <task enable="false" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_max_version="16.18.02">
     ```
-3. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
+3. Software Licensing from Device42 syncs to `contract` in Freshservice. Find and disable the `Copy Software Licensing info from Device42 to Freshservice` task (line `2437`):
+
+    ![Line 2437](/assets/images/freshservice-integration/example-vscode-6.png)
+
+    Change `enable="true"` to `false` as follows:
+
+    ```xml
+        <task enable="false" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">
+    ```
+4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
 
 ## Data Types Transferred from Device42 to Freshservice
 
