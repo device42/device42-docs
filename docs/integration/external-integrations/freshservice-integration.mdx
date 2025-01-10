@@ -18,7 +18,13 @@ Device42 integrates with Freshservice to provide the following capabilities:
 - Flexible CMDB import options that ensure the right data is brought into the right place.
 - A single login page for accessing both Device42 and Freshservice. 
   
-  ![Single Device42 Freshservice login](/assets/images/freshservice-integration/d42-freshworks-login.png)
+    <ThemedImage
+    alt="Freshworks login button"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-dark.png'),
+    }}
+    />
 
 ## Install the Device42 Integration App on Freshservice
 
@@ -98,7 +104,7 @@ Enable the Device42 integration in Freshservice using the Discovery Hub setup wi
 
 6. Fill in the fields on the form. Enter your **Freshservice Domain Name**.
    
-    ![Fill in the config form](/assets/images/freshservice-integration/integration-config-form-install.png)
+    ![Fill in the config form](/assets/images/freshservice-integration/integration-config-form-install-2.png)
 
    - From the dropdown, choose the **Cloud Connector** region that matches the option you selected under **Cloud Services** in Device42 (see step 3 of the [Enable the Cloud Connector in Device42](#1-enable-the-cloud-connector-in-device42) section above.
    - Enter the **Verification Token** generated from the Device42 external integration you added. Make sure you're using the token from the External Integrations view page and **not** the token from the **+ Add External Integrations** form.
