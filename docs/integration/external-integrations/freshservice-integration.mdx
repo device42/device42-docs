@@ -245,7 +245,7 @@ Let's take a closer look at the attributes and elements of the `<task>` elements
             <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
     ```
 
-    Note that if you turn off a task where the Freshservice type is `asset` or `asset_relationship`, you'll need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-disable-a-relationship-between-two-asset-types-that-exist-in-device42-from-syncing-to-freshservice).
+    Note that if you turn off a task where the corresponding Freshservice type is `asset` or `asset_relationship` (for example, devices, business apps, resources in Device42), you'll need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-disable-a-relationship-between-two-asset-types-that-exist-in-device42-from-syncing-to-freshservice).
 
 - `name`: You can edit the task name. Task names appear in the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
 - `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
