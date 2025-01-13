@@ -164,9 +164,11 @@ Delete one or more chats by selecting them and choosing a delete option from the
 
 The following notice is available when you click **About InsightsAI** below the chat bar:
 
-InsightsAI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found at https://docs.device42.com/reports/device42-doql/db-viewer-schema/.
-
-InsightsAI generates SQL query as a response to customer natural language inquiries. The inquiries are then uploaded to the InsightsAI cloud service, which generates the SQL response. InsightsAI utilizes OpenAI APIs as part of its generative AI process. The generated SQL is validated for accuracy and error free execution however the customer CMDB data is not exposed as part of the process.
+> InsightsAI uses publicly available Device42 field names and descriptions for training and does not expose any data residing in the internal tables or data structures that include customer-specific or proprietary data. The field names and descriptions used for training the large language model and generative AI engine are documented and can be found [via the] [Database Viewer Schema](https://docs.device42.com/reports/device42-doql/db-viewer-schema/).
+>
+>InsightsAI generates SQL query as a response to customer natural language inquiries. The inquiries are then uploaded to the InsightsAI cloud service, which generates the SQL response. InsightsAI utilizes OpenAI APIs as part of its generative AI process. The generated SQL is validated for accuracy and error free execution however the customer CMDB data is not exposed as part of the process.
+>
+>InsightsAI is enabled by default and can be disabled via a toggle in the admin UI which enables and disables cloud services. By using InsightsAI you consent to the processing of your data by Open AI pursuant to the Business Terms governing Open AI’s API usage by Device42 as set forth at [Business terms](https://openai.com/policies/business-terms/) (for the purposes thereof, you are “End User” and your data is “Customer Content”).
 
 :::tip
 See [Device42 Object Query Language](index.md) for information on database queries.

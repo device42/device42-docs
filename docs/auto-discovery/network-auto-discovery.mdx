@@ -122,6 +122,10 @@ You can enter preferred community string credentials when you create an SNMP dis
 
 Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking the **magnifying glass icon**.
 
+:::note
+For successful SNMP v3 discovery, please only use one set of SNMP v3 credentials per username. Currently, entering multiple credentials with shared passwords results in only one of the credential sets being used. 
+:::
+
 <ThemedImage
   alt="Add SNMP credentials in order"
   sources={{
