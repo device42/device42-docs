@@ -488,20 +488,27 @@ We understand that some fields within Device42 may not easily translate to field
 
 ![](/assets/images/FS_Data_Map_2-700x316.png)
 
-1. Navigate to **Assets > Inventory** from the Freshservice dashboard.
-2. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
-3. On the right panel of the page, under **Apps**, you will see the Device42 application. Click this to expand the application.
-4. Once this window is expanded, click the **View Device42 Data** button.
+1. Navigate to **Assets > Inventory** from the Freshservice dashboard. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
 
-    ![](/assets/images/FS_Data_Map_3.png)
+    ![Inventory screen](/assets/images/freshservice-integration/unmapped-inventory-1.png)
 
-    A window will open, and mapped and unmapped data for the current device will be displayed.
+2. On the right panel of the page, under **Apps**, you will see the Device42 application. Click the box to expand it and click the **View Device42 Data** button.
 
-    ![](/assets/images/FS_Data_Map_4-700x318.png)
+    ![View Device42 Data button](/assets/images/freshservice-integration/unmapped-apps-2.png)
 
-5. Close this window and select **View Asset in Device42** to be redirected to the asset in Device42.
+3. A window will open, and mapped and unmapped data for the current device will be displayed.
 
-    ![](/assets/images/D42_View_Virtual_Device_1-700x254.png)
+    ![Mapped and unmapped data](/assets/images/freshservice-integration/unmapped-data-3.png)
+
+4. Click **View Asset in Device42** to be redirected to the asset in Device42.
+
+    <ThemedImage
+    alt="View Asset in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-dark.png'),
+    }}
+    />
 
 ## Examples of Changing the `mapping.xml` File for Specific Use Cases
 
@@ -646,36 +653,138 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 | Affinity Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
 | VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
 
+## Freshservice Contract Types
+
+Navigate to **Assets > Contracts** in Freshservice to view the available contract types.
+
+![Contract location in Freshservice](/assets/images/freshservice-integration/fs-contracts.png)
+
+Freshservice contract types are mapped from Device42 types as follows:
+
+The **Contract Type** dropdown in Freshservice displays the available contract types:
+
+![Contract types in Freshservice](/assets/images/freshservice-integration/fs-contract-types.png)
+
+| Freshservice Contract Type  | Corresponding Device42 Type      |
+|--------------------------|--------------------------------------|
+| Lease                   | Purchase Line Item type: Lease     |
+| Warranty                | Purchase Line Item type: Warranty                            |
+| Maintenance             | Purchase Line Item types: Service, In-Service, Subscription, (none)   |
+| Software License        | Software Licensing                  |
+
+### Sync Purchase Line Items types to Contracts
+
+In Device42, a Purchase Line Item is an individual entry associated with a larger Purchase (located under **Infrastructure > Purchases**). Contract Purchase Line Items sub-types include Lease, Warranty, Subscription, Service, and In-Service and (none) for unspecified types:
+
+    <ThemedImage
+    alt="PO Line Item Types in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/po-contract-types-dropdown-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/po-contract-types-dropdown-dark.png'),
+    }}
+    />
+
+The Purchase Line Item **Lease** and **Warranty** contract types map to the Freshservice **Lease** and **Warranty** types. The other Purchase Line Item contract types (Service, In-Service, Subscription, none (unspecified)) are assigned to the Freshservice **Maintenance** type. 
+
+![Synced Maintenance Contract Type in Freshservice](/assets/images/freshservice-integration/maintenance-type-contracts.png)
+
+For example, this Purchase Line Item in Device42 with an unspecified contract type is synced to Freshservice as a **Maintenance** contract:
+
+- Purchase Line Item in Device42:
+    <ThemedImage
+    alt="Unspecified Contract Type in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/line-item-example-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/line-item-example-d42-dark.png'),
+    }}
+    />
+
+- Synced Maintenance Contract in Freshservice:
+  
+    ![Maintenance Contract Type in Freshservice](/assets/images/freshservice-integration/line-item-example-fs.png)
+
 ### The Warranty Contract Type in Freshservice
 
-Warranty information from Device42 is brought into Freshservice, with **Warranty** as the **Contract Type**. Service and other types will fall under the **Maintenance** category.
+Warranty information from Device42 is brought into Freshservice, with **Warranty** as the **Contract Type**. 
 
-![](/assets/images/New-Contract-Type-1-250x72.png)
+- Warranty items in Device42:
+    <ThemedImage
+    alt="Warranty items in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/warranty-items-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/warranty-items-d42-dark.png'),
+    }}
+    />
 
-![](/assets/images/New-Contract-Type-2-250x79.png)
+- Warranty items synced to Freshservice
+  
+    ![Warranty Contract Type in Freshservice](/assets/images/freshservice-integration/fs-warranty-items.png)
 
-### Software Licensing Syncs with Contracts
+### Software Licensing Syncs to Contracts
 
-You can sync software licensing data in Device42 to contracts in Freshservice.
-
-If the licensing information is available on both devices – Purchase line item (type = software licensing) and Software Component page, then the Purchase line item is considered during the sync.
+Software license contracts in Device42 are synced to Freshservice as **Software License** contracts when a Software Component has an associated Purchase Line Item or License Count that is not null (empty).
 
 ![Software-Licensing-Sync](/assets/images/Software-Licensing-Sync-250x110.png)
 
-### Business Apps Can Be Synced
+The DOQL query in the `mapping.xml` file for Software Licensing is:
 
-You can sync business apps from Device42 to business services in Freshservice. A business service is an asset type in Freshservice. Business app relationships are also available.
+```xml
+       <task enable="false" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">
+            <api>
+                <target/>
+                <resource
+                          doql="
+                            select 	case when p.order_no is null then s.name else s.name || '-' || p.order_no || '-' || pli.line_no end as name,
+                                    'Software License' as contract_type_name,
+                                    case when v.name is not null then v.name else sv.name end vendor_name,
+                                    pli.cost unit_cost, pli.start_date, pli.end_date,
+                                    s.name software_name,
+                                    case when pli.quantity is not null then pli.quantity else s.licensed_count end licensed_count,
+                                    case when pli.quantity is not null then pli.quantity else s.licensed_count end * pli.cost as cost,
+                                    pli.contract_id,
+                                    case when slm.is_free = true then 'Free' else 'Volume' end license_type,
+                                    pli.frequency,
+                                    'per_unit' as pricing_model,
+                                    case when pli.notes is not null and pli.notes &lt;&gt; '' then pli.notes else s.notes end as notes
+                            from view_software_v1 s
+                            left outer join view_softwarelicensemodel_v1 slm on s.softwarelicensemodel_fk = slm.softwarelicensemodel_pk
+                            left outer join view_purchaselineitems_to_softwares_v1 plis on s.software_pk = plis.software_fk
+                            left outer join view_purchaselineitem_v1 pli on plis.purchaselineitem_fk = pli.purchaselineitem_pk
+                            left outer join view_purchase_v1 p on pli.purchase_fk = p.purchase_pk
+                            left outer join view_vendor_v1 v on p.vendor_fk = v.vendor_pk
+                            left outer join view_vendor_v1 sv on s.vendor_fk = sv.vendor_pk
+                            WHERE
+                                lower(s.software_type) = 'managed' and
+                                (pli.purchaselineitem_pk is not null or s.licensed_count is not null) and
+                                (v.name is not null or sv.name is not null)
+                            "
+                        />
+            </api>
+```
 
-![business-apps-sync](/assets/images/business-apps-sync-250x74.png)
+## Business Applications Sync to Business Services in Freshservice
 
-![](/assets/images/business-apps-sync-2-250x110.png)
+Using the default mapping, Business Applications in Device42 are synced to Freshservice as the Business Services asset type. The Business Application relationships are also synced.
 
-![](/assets/images/business-apps-sync-3-250x261.png)
+- In Freshservice, navigate to **Assets > Inventory** (1) and select **Business Service** as the **Asset Type** (2) to view the synced Business Apps. Click on an item to view its details.
 
-### Sync Purchase Line Items to Contracts
+    ![Business Services in Freshservice](/assets/images/freshservice-integration/fs-business-service.png)
 
-You can sync device purchase line items in Device42 to contracts in Freshservice.
+- Click **Relationships** to see a mini map of the selected Business Service. 
 
-If the purchase line item in Device42 has the **Lease** type, it will have the **Lease** contract type in Freshservice as well. Purchase line items with types other than the **Lease** type, such as the **Service** type, will be assigned Freshservice **Maintenance** type.
+    ![Business Service Relationships in Freshservice](/assets/images/freshservice-integration/fs-business-app-mini-map.png)
 
-![](/assets/images/Sync-Purchase-Line-Items-250x126.png)
+- When viewing the full map, you can select the *Level of Relationships** to display. 
+
+    ![Business Service Full Map in Freshservice](/assets/images/freshservice-integration/fs-business-app-full-map.png)
+
+The example Business Service in Freshservice above looks like this as a Business Application in Device42:
+
+    <ThemedImage
+    alt="Business Application in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/business-app-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/business-app-d42-dark.png'),
+    }}
+    />
+
