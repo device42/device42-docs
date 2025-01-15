@@ -511,7 +511,9 @@ The line estimates in the examples are based on the default version 1.0 of the `
 
 ### Example 1: How Can I Stop the Sync From Importing Contracts From Device42 to Freshservice?
 
-To stop importing contracts to Freshservice, set the `enable` attribute to `false` in the following `<task>` elements:
+Do a text search for tasks in the `mapping.xml` file that contain the word `contract` in their `description` attribute. You can also search for contract-related tasks in the [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table.
+
+Set the `enable` attribute to `false` on those `<task>` elements:
 
 1. Find the task with the description `Copy contract info from Device42 to Freshservice` (around line `2372`):
    
@@ -543,11 +545,17 @@ To stop importing contracts to Freshservice, set the `enable` attribute to `fals
         <task enable="false" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">
     ```
 
-4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
+4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file). The "Contracts" mapping will no longer appear as a selection option in the **Data Mapping Chart** box
+
+    ![Data Mapping Chart](/assets/images/freshservice-integration/upload-custom-mapping.png)
+
+5. Run a [partial sync](#run-the-data-synchronization) to confirm that contract items are no longer being synced, or wait until the scheduled sync runs.
 
 ### Example 2: How Do I Prevent Software Imports From Syncing to Freshservice?
 
-You can stop software from syncing to Freshservice by setting the `enable` attribute to `false` to the following `<task>` elements:
+Do a text search for tasks in the `mapping.xml` file that contain the word `software` in their `description` attribute. You can also search for contract-related tasks in the [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table. 
+
+Set the `enable` attribute to `false` on those `<task>` elements:
 
 1. Find the task with the description `Copy Softwares from Device42 to Freshservice using DOQL` (around line `2087`). 
    
@@ -592,6 +600,15 @@ You can stop software from syncing to Freshservice by setting the `enable` attri
     ```
 
 4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
+5. Run a [partial sync](#run-the-data-synchronization) to confirm that software items are no longer being synced, or wait until the scheduled sync runs.
+
+    - Go to **Assets > Software** in the integration app. The page is populated before disabling software imports:
+
+    ![Software before](/assets/images/freshservice-integration/software-freshservice-before-changes.png) 
+
+    - After disabling software imports, the page will be empty:
+  
+    ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png) 
 
 ## Data Types Transferred from Device42 to Freshservice
 
