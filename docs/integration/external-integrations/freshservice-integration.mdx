@@ -148,7 +148,7 @@ Test the SSO as follows:
 
 Now, when you're logged out of both Device42 and Freshservice, clicking the **Freshworks Login** button in Device42 will direct you to the Freshworks sign-in page.
 
-![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in-2.png)  
+    ![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in-2.png)  
 
 ## Using the Integration App
 
@@ -201,7 +201,33 @@ To download the full logs, use the **Download Full Log** button in the lower-lef
 A full sync will be forced during upgrades to get new data from Device42. The sync history type will listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
 
-## Data Mapping Between Device42 and Freshservice
+## View Mapped and Unmapped Data for Specific Assets
+
+We understand that some fields within Device42 may not easily translate to fields within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
+
+1. Navigate to **Assets > Inventory** from the Freshservice dashboard. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
+
+    ![Inventory screen](/assets/images/freshservice-integration/unmapped-inventory-1.png)
+
+2. On the right panel of the page, under **Apps**, you will see the Device42 application. Click the box to expand it and click the **View Device42 Data** button.
+
+    ![View Device42 Data button](/assets/images/freshservice-integration/unmapped-apps-2.png)
+
+3. A window will open, and mapped and unmapped data for the current device will be displayed.
+
+    ![Mapped and unmapped data](/assets/images/freshservice-integration/unmapped-data-3.png)
+
+4. Click **View Asset in Device42** to be redirected to the asset in Device42.
+
+    <ThemedImage
+    alt="View Asset in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-dark.png'),
+    }}
+    />
+
+## Custom Data Mapping
 
 [From the **Settings** tab of the **Configuration** page](#find-the-settings-tab), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the custom mapping buttons.
 
@@ -482,34 +508,6 @@ From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**
 
 To download the full logs, scroll down and click the **Download Full Log** button in the lower-left corner of the text area.
 
-## View Mapped and Unmapped Data for Specific Assets
-
-We understand that some fields within Device42 may not easily translate to fields within Freshservice. We’ve added the ability to view these fields to eliminate the need to navigate between applications so that you can view all required fields from one location. To view mapped and unmapped data for a device within Freshservice, follow the steps below.
-
-![](/assets/images/FS_Data_Map_2-700x316.png)
-
-1. Navigate to **Assets > Inventory** from the Freshservice dashboard. On the inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
-
-    ![Inventory screen](/assets/images/freshservice-integration/unmapped-inventory-1.png)
-
-2. On the right panel of the page, under **Apps**, you will see the Device42 application. Click the box to expand it and click the **View Device42 Data** button.
-
-    ![View Device42 Data button](/assets/images/freshservice-integration/unmapped-apps-2.png)
-
-3. A window will open, and mapped and unmapped data for the current device will be displayed.
-
-    ![Mapped and unmapped data](/assets/images/freshservice-integration/unmapped-data-3.png)
-
-4. Click **View Asset in Device42** to be redirected to the asset in Device42.
-
-    <ThemedImage
-    alt="View Asset in Device42"
-    sources={{
-        light: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-light.png'),
-        dark: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-dark.png'),
-    }}
-    />
-
 ## Examples of Changing the `mapping.xml` File for Specific Use Cases
 
 This section provides specific examples of how to edit the `mapping.xml` file to change the data synced from Device42 to Freshservice.
@@ -672,7 +670,7 @@ The **Contract Type** dropdown in Freshservice displays the available contract t
 | Maintenance             | Purchase Line Item types: Service, In-Service, Subscription, (none)   |
 | Software License        | Software Licensing                  |
 
-### Sync Purchase Line Items types to Contracts
+### Sync Purchase Line Items Types to Contracts
 
 In Device42, a Purchase Line Item is an individual entry associated with a larger Purchase (located under **Infrastructure > Purchases**). Contract Purchase Line Items sub-types include Lease, Warranty, Subscription, Service, and In-Service and (none) for unspecified types:
 
@@ -724,9 +722,9 @@ Warranty information from Device42 is brought into Freshservice, with **Warranty
 
 Software license contracts in Device42 are synced to Freshservice as **Software License** contracts when a Software Component has an associated Purchase Line Item or License Count that is not null (empty).
 
-![Software-Licensing-Sync](/assets/images/Software-Licensing-Sync-250x110.png)
+![Software Licensing in Freshservice](/assets/images/freshservice-integration/fs-software-license.png)
 
-The DOQL query in the `mapping.xml` file for Software Licensing is:
+For reference, the DOQL query in the `mapping.xml` file for Software Licensing is:
 
 ```xml
        <task enable="false" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">
@@ -762,11 +760,11 @@ The DOQL query in the `mapping.xml` file for Software Licensing is:
             </api>
 ```
 
-## Business Applications Sync to Business Services in Freshservice
+## Syncing Business Applications to Freshservice
 
 Using the default mapping, Business Applications in Device42 are synced to Freshservice as the Business Services asset type. The Business Application relationships are also synced.
 
-- In Freshservice, navigate to **Assets > Inventory** (1) and select **Business Service** as the **Asset Type** (2) to view the synced Business Apps. Click on an item to view its details.
+- In Freshservice, navigate to **Assets > Inventory** (1) and select **Business Service** as the **Asset Type** (2) to view the synced Business Applications. Click on an item to view its details.
 
     ![Business Services in Freshservice](/assets/images/freshservice-integration/fs-business-service.png)
 
