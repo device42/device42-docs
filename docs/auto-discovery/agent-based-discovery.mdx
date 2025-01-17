@@ -182,18 +182,18 @@ For best results, we recommend running the command with `sudo`. Make sure that 
 
 ### Using a Limited Account
 
-The Linux agent runs as `root` by default. However, it is possible to configure the agent to run with a limited, non-root account. Heres how you can create one:
+The Linux agent runs as `root` by default. However, it is possible to configure the agent to run with a limited, non-root account. Here's how you can create one:
 
-1. **Create a Limited Account**:
-   - Create a new Linux account (eg. `d42_limited`) without root access.
+1. **Create a limited account**:
+   - Create a new Linux account (for example, `d42_limited`) without root access.
    - Disable login access to ensure the account cannot be used for remote shell access. Use the following command:
 
      ```bash
      sudo useradd -r -s /usr/sbin/nologin d42_limited
      ```
 
-2. **Grant Sudo Permissions for Required Commands**:
-   - Assign the account permission to run the commands required by the discovery agent. Edit the sudoers file using `visudo`:
+2. **Grant sudo permissions for required commands**:
+   - Assign the account permission to run the commands required by the discovery agent. Edit the `/etc/sudoers` file using `visudo`:
 
      ```bash
      sudo visudo
@@ -207,7 +207,7 @@ The Linux agent runs as `root` by default. However, it is possible to configure 
 
      Read the [Commands Required by the Discovery Agent](#commands-required-by-the-discovery-agent) section to see the full list of commands required by the agent.
 
-3. **Configure File Ownership and Permissions**:
+3. **Configure file ownership and permissions**:
    - Make sure that the `d42agent` binary is still owned by `root` and has restricted permissions:
 
      ```bash
@@ -215,7 +215,7 @@ The Linux agent runs as `root` by default. However, it is possible to configure 
      sudo chmod 0700 /home/system_dev42/bin/d42agent
      ```
 
-4. **Run the Agent with the Limited Account**:
+4. **Run the agent with the limited account**:
    - Use `sudo` to execute the agent with the limited account:
    
      ```bash
@@ -261,9 +261,9 @@ uname
 wget
 ```
 
-We'll need to ensure all these commands are executable by the limited account through `sudo` without requiring a password.
+We need to ensure the limited account can execute all these commands through `sudo` without requiring a password.
 
-Here's a shell script that can be used to check if the limited account has access to all the required commands:
+Here's a shell script that can be used to check whether the limited account has access to the commands:
 
 ```bash 
 #!/bin/bash
