@@ -9,7 +9,7 @@ sidebar_position: 13
 
 * * *
 
-**See The [Device42 DOQL DOCUMENTATION PAGE](docs/reports/device42-doql/index.md) for DOQL documentation.**
+**See The [Device42 DOQL DOCUMENTATION PAGE](docs/reports/device42-doql/index.mdx) for DOQL documentation.**
 
 * * *
 

@@ -7,7 +7,7 @@ sidebar_position: 1
 Note that the much more capable Advanced Reporting Engine has superseded what is now referred to as "Legacy Reporting", and should be utilized for creation of any new reports going forward.
 :::
 
-These sections cover entries found in the reporting menu of the Device42 appliance. This is broken into a main [Reporting section](./reports/index.md), an [overview of the Device42 Object Query Language](./device42-doql/index.md), and a [Data Building Blocks Cookbook](./dbb-cookbook/index.md) that is a collection of queries you might find useful.
+These sections cover entries found in the reporting menu of the Device42 appliance. This is broken into a main [Reporting section](./reports/index.md), an [overview of the Device42 Object Query Language](./device42-doql/index.mdx), and a [Data Building Blocks Cookbook](./dbb-cookbook/index.md) that is a collection of queries you might find useful.
 
 Explore these categories and dive into specific sub-pages using the sidebar on the left.
 
