@@ -6,7 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The database Viewer Schema tools are resource for consulting on the structure of the Device42 database. 
+The database Viewer Schema tools are a resource for consulting on the structure of the Device42 database. 
 
 This page walks you through how to access and use the two database viewer tools: the **Entity Relationship Diagram** (ERD) and the **Data Dictionary**.
 
