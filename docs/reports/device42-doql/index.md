@@ -80,7 +80,7 @@ select "Region" from view_telcocircuit_custom_fields_flat_v1
 select "region name" from view_telcocircuit_custom_fields_flat_v1
 ```
 
-- For `region`, since it only has lowercase characters and no spaces, the query could be:
+- For `region`, since it only has lowercase characters and no spaces, the query is:
 ```sql
 select region from view_telcocircuit_custom_fields_flat_v1
 ```
@@ -157,13 +157,11 @@ The query URL links to the DOQL query API endpoint and returns the results of th
     }}
     />
 
-## About Device42 DOQL
+## Device42 DOQL Notes
 
-Note that wherever possible, DOQL syntax is equivalent to PostgreSQL syntax.
-
-- This document does its best to highlight the areas where the two syntaxes DIFFER.
-- POST calls are recommended rather than GET calls, as the URL length isn't limited in POST calls.
-- If using GET calls, note that URL length is limited, and any special characters in the query need to be URL-encoded (for example, `%20` for `space` and `%3B` for `%`).
+- Wherever possible, DOQL syntax is equivalent to PostgreSQL syntax, but this document highlights the areas where the two syntaxes differ.
+- `POST` calls are recommended rather than `GET` calls, as the URL length isn't limited in `POST` calls.
+- If using `GET` calls, note that URL length is limited, and any special characters in the query need to be URL-encoded (for example, `%20` for `space` and `%3B` for `%`).
 
 ## Sample Database Schema
 
