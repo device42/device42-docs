@@ -187,22 +187,29 @@ The Linux agent runs as `root` by default. However, it is possible to configure 
 1. **Create a Limited Account**:
    - Create a new Linux account (eg. `d42_limited`) without root access.
    - Disable login access to ensure the account cannot be used for remote shell access. Use the following command:
+
      ```bash
      sudo useradd -r -s /usr/sbin/nologin d42_limited
      ```
 
 2. **Grant Sudo Permissions for Required Commands**:
    - Assign the account permission to run the commands required by the discovery agent. Edit the sudoers file using `visudo`:
+
      ```bash
      sudo visudo
      ```
+
    - Add the following entry to grant `d42_limited` access to specific commands:
+
      ```
      d42_limited ALL=(ALL) NOPASSWD: /usr/sbin/arp, /bin/cat, /sbin/ifconfig, /usr/bin/curl, /usr/bin/wget, /bin/ls, /usr/sbin/dmidecode, /usr/bin/lsof, /usr/bin/ps, /usr/bin/python3, /bin/uname, /usr/bin/systemctl, /sbin/ip, /usr/bin/df, /usr/bin/free, /usr/bin/mount, /usr/sbin/iptables
      ```
 
+     Read the [Commands Required by the Discovery Agent](#commands-required-by-the-discovery-agent) section to see the full list of commands required by the agent.
+
 3. **Configure File Ownership and Permissions**:
    - Make sure that the `d42agent` binary is still owned by `root` and has restricted permissions:
+
      ```bash
      sudo chown root:root /home/system_dev42/bin/d42agent
      sudo chmod 0700 /home/system_dev42/bin/d42agent
@@ -210,6 +217,7 @@ The Linux agent runs as `root` by default. However, it is possible to configure 
 
 4. **Run the Agent with the Limited Account**:
    - Use `sudo` to execute the agent with the limited account:
+   
      ```bash
      sudo -u d42_limited /home/system_dev42/bin/d42agent
      ```
@@ -217,9 +225,68 @@ The Linux agent runs as `root` by default. However, it is possible to configure 
 ### Commands Required by the Discovery Agent
 
 The limited account must have access to the following commands to ensure proper functionality:
-- `arp`, `cat`, `chkconfig`, `crontab`, `curl`, `df`, `dmesg`, `dmidecode`, `docker`, `dpkg`, `fdisk`, `find`, `format`, `getconf`, `grep`, `hdparm`, `hostname`, `ifconfig`, `ip`, `iptables`, `lsof`, `lsblk`, `lspci`, `mount`, `netstat`, `ps`, `python3`, `rpm`, `service`, `systemctl`, `uname`, `wget`, and more as specified by your discovery requirements.
 
-Ensure all these commands are executable by the limited account through `sudo` without requiring a password.
+```bash
+arp
+cat
+chkconfig
+crontab
+curl
+df
+dmesg
+dmidecode
+docker
+dpkg
+fdisk
+find
+format
+getconf
+grep
+hdparm
+hostname
+ifconfig
+ip
+iptables
+lsof
+lsblk
+lspci
+mount
+netstat
+ps
+python3
+rpm
+service
+systemctl
+uname
+wget
+```
+
+We'll need to ensure all these commands are executable by the limited account through `sudo` without requiring a password.
+
+Here's a shell script that can be used to check if the limited account has access to all the required commands:
+
+```bash 
+#!/bin/bash
+
+# List of commands required by the discovery agent
+commands=(
+    arp
+    cat
+    chkconfig
+    ...
+    # Add the rest of the commands from the list above
+)
+
+# Check if the limited account has access to all the required commands
+for command in "${commands[@]}"; do
+    sudo -u d42_limited command -v $command > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "Command $command not found or not executable by d42_limited"
+    fi
+done
+```
+
+You can run this script to verify that the limited account has access to all the required commands.
 
 ## Linux and Mac Note
 
