@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 The database Viewer Schema tools are a resource for consulting on the structure of the Device42 database. 
 
-This page walks you through how to access and use the two database viewer tools: the **Entity Relationship Diagram** (ERD) and the **Data Dictionary**.
+This page walks you through how to access and use the two database viewer tools, the Entity Relationship Diagram (ERD) and the Data Dictionary.
 
 ## Locate the Viewer Tools
 
-The database viewer tools are found under the help menu. Mouse over the **question mark icon** to reveal the **Viewer Schema** options: **Entity Relationship Diagram** and **Data Dictionary**.
+The database viewer tools are found under the help menu. Hover your cursor over the **question mark icon** to reveal the **Viewer Schema** options: **Entity Relationship Diagram** and **Data Dictionary**.
 
 <ThemedImage
   alt="Viewer Schema menu location"
@@ -24,9 +24,9 @@ The database viewer tools are found under the help menu. Mouse over the **questi
 
 ## Entity Relationship Diagram
 
-The Entity Relationship Diagram (ERD) is a handy way to navigate the Device42 database schema, visualize relationships, and use the information to assemble DOQL queries. 
+The ERD is a handy way to navigate the Device42 database schema, visualize relationships, and use the information to assemble DOQL queries. 
 
-- The ERD is searchable using the **Find** field at the top left. By searching for `device`, database views that contain "device" are highlighted (for example, `view_device_v1` and other related fields), while others fade into the background:
+- The ERD is searchable using the **Find** field at the top left of the page. By searching for `device`, database views that contain "device" are highlighted (for example, `view_device_v1` and other related fields), while others fade into the background:
 
     <ThemedImage
     alt="EDR Viewer example"
@@ -56,11 +56,11 @@ The Entity Relationship Diagram (ERD) is a handy way to navigate the Device42 da
 
 ## Data Dictionary
 
-The Data Dictionary is a text-based viewer used to explore the details of the Device42 database. Each view lists the **Column** names in the database table, the **Data Type** of those columns, and a short **Description** of each of those fields.
+The Data Dictionary is a text-based viewer used to explore the details of the Device42 database. Each view lists the **Column** names in the database table, the **Data Type** for those columns, and a short **Description** of each of those fields.
 
-You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language (**DOQL**), or **All** (both) views.
+You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language (**DOQL**), or both (**All**) views.
 
-- **DBB**: Structured database views requiring little-to-no extra view joining, composed to let you quickly create reports. These views are refreshed on a nightly basis. 
+- **DBB**: Structured database views require little-to-no extra view-joining, and are composed to let you quickly create reports. These views are refreshed on a nightly basis. 
 
     <ThemedImage
     alt="Data Dictionary DBB view"
@@ -70,7 +70,7 @@ You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language
     }}
     />
 
-- **DOQL**: Raw, less-structured views that provide full access to all the information discovered and stored in Device42. Use these views to create custom queries and reports for any use case, whether building queries from scratch or just adding one or two more fields to a DBB-based report.
+- **DOQL**: These raw, less-structured views provide full access to all the information discovered and stored in Device42. Use them to create custom queries and reports for any use case, whether building queries from scratch or just adding one or two more fields to a DBB-based report.
 
     <ThemedImage
     alt="Data Dictionary DOQL view"
