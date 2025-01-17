@@ -60,7 +60,7 @@ The Data Dictionary is a text-based viewer used to explore the details of the De
 
 You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language (**DOQL**), or **All** (both) views.
 
-- **DBB**: Data Building Blocks are database views requiring little-to-no extra view joining, composed to let you quickly create reports. These views are refreshed on a nightly basis. 
+- **DBB**: Structured database views requiring little-to-no extra view joining, composed to let you quickly create reports. These views are refreshed on a nightly basis. 
 
     <ThemedImage
     alt="Data Dictionary DBB view"
@@ -70,7 +70,7 @@ You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language
     }}
     />
 
-- **DOQL**: Device42 Object Query Language views provide full access to all the information discovered and stored in Device42. These raw views of our data are less structured than the DBB views. You can create custom queries and reports for any specific use case, whether building queries from scratch or just adding one or two more fields to a DBB-based report.
+- **DOQL**: Raw, less-structured views that provide full access to all the information discovered and stored in Device42. Use these views to create custom queries and reports for any use case, whether building queries from scratch or just adding one or two more fields to a DBB-based report.
 
     <ThemedImage
     alt="Data Dictionary DOQL view"
