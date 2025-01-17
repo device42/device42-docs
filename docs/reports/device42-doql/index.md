@@ -66,11 +66,11 @@ See the [Database Viewer Schema page](db-viewer-schema.md) for information on th
 
 ## DOQL Queries Against Custom Fields
 
-When constructing DOQL queries against custom fields, keep in mind that custom field names are usually case-sensitive. Custom field names with only lowercase characters and no spaces can be referenced (as the column name in the database) with any casing in queries. Custom field names with **upper-case characters** or **spaces** must be referenced using the exact casing in double-quotes.
+When constructing DOQL queries against custom fields, keep in mind that custom field names are usually case-sensitive. Custom field names with only lowercase characters and no spaces can be referenced (as the column name in the database) with any casing in queries. Custom field names with **uppercase characters** or **spaces** must be referenced using the exact casing in double quotes.
 
 **For example, consider the following telco custom field names**:
 
-- For `Region`, the appropriate query would need to be: 
+- For `Region`, the appropriate query would be: 
 ```sql
 select "Region" from view_telcocircuit_custom_fields_flat_v1
 ```
@@ -159,7 +159,7 @@ The query URL links to the DOQL query API endpoint and returns the results of th
 
 ## About Device42 DOQL
 
-Note that wherever possible, DOQL Syntax is equivalent to PostgreSQL syntax.
+Note that wherever possible, DOQL syntax is equivalent to PostgreSQL syntax.
 
 - This document does its best to highlight the areas where the two syntaxes DIFFER.
 - POST calls are recommended rather than GET calls, as the URL length isn't limited in POST calls.
