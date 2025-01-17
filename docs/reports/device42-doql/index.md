@@ -6,10 +6,10 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-DOQL queries are run against the Device42 database both using HTTPS and via the RESTful API. You can make requests using curl, or can alternatively point your favorite REST API client at the DOQL query endpoints below. Consult the DOQL query parameters, explained below, and example queries that follow can be helpful as well.
+DOQL queries are run against the Device42 database via both HTTPS and the RESTful API. You can make requests using curl, or alternatively, by pointing your favorite REST API client at the DOQL query endpoints below. Consulting the DOQL query parameters and example queries that follow can be helpful as well.
 
 :::tip
-Use our [InsightsAI chat](insightsai.mdx) under **Analytics > InsightsAI** of the MA to create and interpret DOQL query snippets quickly in the context of the Device42 data tables. 
+Use our [InsightsAI chat](insightsai.mdx), under **Analytics > InsightsAI** on the MA, to create and interpret DOQL query snippets quickly in the context of the Device42 data tables. 
 :::
 
 ### DOQL Query API Endpoint Example
@@ -44,19 +44,19 @@ curl -k -s -X POST \
 
 ### DOQL API Query Parameters
 
-The following database query parameters can be utilized with DOQL via the API. The required parameters are `query` and `output_type`.
+The following database query parameters can be used with DOQL via the API. The required parameters are `query` and `output_type`.
 
-- **`query`**: the DOQL query you want to run, a `SELECT` command whose results are to be returned as CSV data (required).
-- **`delimiter`**: Specifies the character that separates columns within each row (line) of the file. The default a comma (`,`). This must be a single one-byte character.
-- **`header`**: If `yes` specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
-- **`quote`**: Specifies the quoting character to be used when a data value is quoted. The default is a double-quote (`"`). This must be a single one-byte character.
+- **`query`**: This is the DOQL query you want to run, a `SELECT` command that returns results as CSV data (required).
+- **`delimiter`**: This specifies the character that separates columns within each row (line) of the file. The default is a comma (`,`). This must be a single one-byte character.
+- **`header`**: If `yes`, this specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
+- **`quote`**: This specifies the quoting character to be used when a data value is quoted. The default is a double-quote (`"`). It must be a single one-byte character.
 - **`null_string`**: A parameter defining how null values are represented in the CSV. The default is an empty string, but you can customize this (for example, to represent nulls with a specific string like `'NULL'`).
-- **`quote_escape`**: Specifies the character that should appear before a data character that matches the `QUOTE` value. The default is the same as the `QUOTE` value (so that the quoting character is doubled if it appears in the data). This must be a single one-byte character.
+- **`quote_escape`**: This specifies the character that should appear before a data character that matches the `QUOTE` value. The default is the same as the `QUOTE` value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
 - **`output_type`**: Get JSON results by setting this parameter to `json`.
 
 ### The Data Dictionary, ERD, and Viewer Schema
 
-The data dictionary is available in JSON format via the API at the following endpoint:
+The Data Dictionary is available in JSON format via the API at the following endpoint:
 
 ```
 /services/data/v1.0/dd/
@@ -66,11 +66,7 @@ See the [Database Viewer Schema page](db-viewer-schema.md) for information on th
 
 ## DOQL Queries Against Custom Fields
 
-When constructing DOQL queries against custom fields, keep in mind that custom field names that contain any **upper-case characters** or **spaces** require your queries to match this casing and format exactly as written, in double quotes.
-
-### Custom Fields are Usually Case Sensitive
-
-Custom field names with only lowercase characters and no spaces can be referenced (as the column name in the database) with any casing in queries. Custom field names with **upper-case characters** or **spaces** must be referenced using the exact casing in quotes.
+When constructing DOQL queries against custom fields, keep in mind that custom field names are usually case-sensitive. Custom field names with only lowercase characters and no spaces can be referenced (as the column name in the database) with any casing in queries. Custom field names with **uppercase characters** or **spaces** must be referenced using the exact casing in double quotes.
 
 **For example, consider the following telco custom field names**:
 
@@ -84,14 +80,14 @@ select "Region" from view_telcocircuit_custom_fields_flat_v1
 select "region name" from view_telcocircuit_custom_fields_flat_v1
 ```
 
-- For `region`, since it only has lowercase characters and no spaces, the query can be:
+- For `region`, since it only has lowercase characters and no spaces, the query could be:
 ```sql
 select region from view_telcocircuit_custom_fields_flat_v1
 ```
 
 ## Saved DOQL Queries
 
-With Saved DOQL queries, you can centrally store, track, and re-use queries written for prior integrations, automation projects, or other efforts. You can reference the name of a saved query (for example, "Prod_Switches") to call it from any integration. Saved queries are also leveraged by Device42 integrations as 'system-defined' queries, and at the same time allow easy addition and customization of those queries.
+With **Saved DOQL Queries**, you can centrally store, track, and re-use queries written for prior integrations, automation projects, or other efforts. It is easy to add and customize these queries. You can reference the name of a saved query (for example, "Prod_Switches") to call it from any integration. Saved queries are also leveraged by Device42 integrations as 'system-defined' queries.
 
 To add, edit, and view your stored DOQL queries, go to **Tools > Integrations > Saved DOQL Queries** from the main menu.
 
@@ -105,7 +101,7 @@ To add, edit, and view your stored DOQL queries, go to **Tools > Integrations > 
 
 ### Add a New Saved DOQL Query
 
-- Click **+ Add Saved DOQL Query** to add a new query from the "DOQL Query View" list page.
+- Click **+ Add Saved DOQL Query** to add a new query from the **DOQL Query View** list page.
 
     <ThemedImage
     alt="Saved DOQL Queries menu item"
@@ -137,11 +133,11 @@ Each saved DOQL query has an associated **Query URL**, which can be seen next to
   }}
 />
 
-The query URL links to the DOQL query API endpoint and returns the results of that specific DOQL query in .CSV format. For more information on running DOQL queries via the Device42 API, see the first section of this page, [Querying DOQL using the Device42 API](#querying-doql-using-the-device42-api).
+The query URL links to the DOQL query API endpoint and returns the results of that specific DOQL query in CSV format. For more information on running DOQL queries via the Device42 API, see the [DOQL Query API Endpoint Example](#doql-query-api-endpoint-example) and [DOQL API Query Parameters](##doql-api-query-parameters) sections of this page.
 
 ### Edit or Clone an Existing Saved DOQL Query
 
-- To edit an existing DOQL query, click the name of the query you'd like to edit, and from the "View Saved DOQL Query" screen, click "**Edit**" in the upper-right corner. You can also **Clone DOQL Query** to create a new query based on the existing one.
+- To edit an existing DOQL query, click the name of the query you'd like to edit, and from the **View Saved DOQL Query** screen, click **Edit** in the upper-right corner. You can also **Clone DOQL Query** to create a new query based on the existing one.
 
     <ThemedImage
     alt="Edit button for saved DOQL Query"
@@ -163,11 +159,11 @@ The query URL links to the DOQL query API endpoint and returns the results of th
 
 ## About Device42 DOQL
 
-Note that wherever possible, DOQL Syntax are equivalent to PostgreSQL syntax.
+Note that wherever possible, DOQL syntax is equivalent to PostgreSQL syntax.
 
-- This document does its best to highlight those areas in which the syntax DIFFER.
-- POST calls are recommended rather than GET calls, as url length does not have limitations in POST calls.
-- If using GET calls, note that URL length is limited, and any special characters in the query need to be URL encoded (i.e. %20 for space, %3B for "%").
+- This document does its best to highlight the areas where the two syntaxes DIFFER.
+- POST calls are recommended rather than GET calls, as the URL length isn't limited in POST calls.
+- If using GET calls, note that URL length is limited, and any special characters in the query need to be URL-encoded (for example, `%20` for `space` and `%3B` for `%`).
 
 ## Sample Database Schema
 
@@ -184,7 +180,7 @@ Below is a sample database schema in JSON format:
       },
       {
         "column": "Test End User",
-        "description": "Related Field for endusers - Log for API - for Application Component",
+        "description": "Related Field for end users - Log for API - for Application Component",
         "data_type": "text"
       }
     ],
