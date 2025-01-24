@@ -118,6 +118,20 @@ Visit the dedicated page for each machine type:
 - [Linux/UNIX discovery](linux-unix-server-auto-discovery.mdx)
 - [Windows and Hyper-V discoveries](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx)
 
+### Scanning Timeout, Retries, and Failure Behavior
+
+For *nix scans (via SSH), you can set the scanning timeout when configuring the autodiscovery job under the **Miscellaneous** section.
+
+  <ThemedImage
+    alt="Set *nix timeout"
+    sources={{
+      light: useBaseUrl('/assets/images/autodiscovery/timeout-option-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/timeout-option-dark.png'),
+    }}
+  />
+
+Retries are done on WDS (Windows Discovery Service) scans. WDS retries a scan until it either gets a successful set of results or fails with the same errors across several retries. This design accounts for sporadic failures due to system load or temporary network issues with WMI/WDS.
+
 ## IPMI Autodiscovery
 
 Discover iLO, iDrac, or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS-level discovery methods, the BMC IP and MAC address will show up in the device properties.
