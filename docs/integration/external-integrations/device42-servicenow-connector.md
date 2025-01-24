@@ -176,7 +176,7 @@ That's all there is to it. ServiceNow should now have access to your new data so
 | Format           | Default: CSV                                                                                                                           |
 | Server           | Default: `${x_192652_device42.server}`                                                                                                   |
 | Port             | Default: 443                                                                                                                           |
-| File Path        | Cloud Connector `sn/route_doql_csv/YOUR_DOQL_QUERY_NAME Direct Connect /services/data/v1.0/query/?saved_query_name=YOUR_DOQL_QUERY_NAME` |
+| File Path        | **Cloud Connector** `sn/route_doql_csv/YOUR_DOQL_QUERY_NAME` **Direct Connect** `/services/data/v1.0/query/?saved_query_name=YOUR_DOQL_QUERY_NAME` |
 | Username         | Username is required to send credentials with request, use any value eg. `servicenow_data_source`                                     |
 | Password         | Password will be the verification token of the integration you set up in Device42                                                   |
 
@@ -281,9 +281,9 @@ Note the **Verification Token**, you'll need to enter this in ServiceNow:
 
     ![](/assets/images/SN_Store_Download_2.png)
 
-    - On the settings page click at the top of the page to enable editing (See below)
+    - On the settings page click at the top of the page to enable editing (See below).
 
-    - Fill in the URL for the Device42 connector (`_connect.device42.net_`),  and paste in the Verification token you have from D42 (see first steps above) and enter your D42 URL, then Save.
+    - Fill in the URL for the Device42 connector (`connect.device42.net`),  and paste in the Verification token you have from Device42 (see first steps above) and enter your D42 URL, then **Save**.
 
 ![](/assets/images/SN_Store_Download_3.png)
 
@@ -325,13 +325,13 @@ If you have any questions that weren't covered here, feel free to reach out to [
 
 ### Increasing the Field Size for Imported Device42 Data
 
-If data coming in from Device42 is being truncated, follow the steps below in ServiceNow to increase the column length limit. These steps are to be done at the discretion of the user. Please be aware that making changes to the `_sys_properties_` table will affect all applications and cause the field lengths for all import sets to automatically increase in size if the data being imported is greater than the default character limit.
+If data coming in from Device42 is being truncated, follow the steps below in ServiceNow to increase the column length limit. These steps are to be done at the discretion of the user. Please be aware that making changes to the `sys_properties` table will affect all applications and cause the field lengths for all import sets to automatically increase in size if the data being imported is greater than the default character limit.
 
 To have the import set table column size automatically based on the size of the data, follow these steps in ServiceNow:
 
 - Search for "tables".
 - Click **System Definition > Tables**.
-- Find the `_sys_properties_ table` and click it.
+- Find the `sys_properties table` and click it.
 - Scroll down the page and find **Related Links**.
 - Click **Show List**.
 - Add a new system property with the following information:
@@ -354,11 +354,11 @@ If you updated the ServiceNow app from version 4.0.0 or older, a script should b
     
 	![](/assets/images/Web-780-1_fix-scripts.png)
 
-- Search for the fix script with the name `_D42_Remove_Software_Instances_`.
+- Search for the fix script with the name `D42_Remove_Software_Instances`.
 
 	![](/assets/images/Web-780-2_remove-software-instances.png)
 
-- Click **`_D42_Remove_Software_Instances_`**.
+- Click **`D42_Remove_Software_Instances`**.
 
 	![](/assets/images/Web-780_paste-script-3.png)
 
