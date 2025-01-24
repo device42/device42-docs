@@ -211,7 +211,7 @@ Add Device42 as the Datasource choice list record (New York and Orlando+).
 
 1. Navigate to **System Definition > Scripts – Background**.
 2. Ensure that the script is set to run in the **global** scope.
-3. Paste the following script into the **Run Script** text box and select **Run Script**.
+3. Paste the following script into the text box and select **Run Script**.
 
 ### Run the Script
 
