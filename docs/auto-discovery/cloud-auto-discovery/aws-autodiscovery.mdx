@@ -131,12 +131,15 @@ Note that some Discovery items require enabling the feature and cannot be discov
 
 ### Additional Endpoint Information
 
-_**Regular Discovery**_
+**Regular Discovery**
 
 - [sts.amazonaws.com](https://sts.amazonaws.com)
-- `https://organizations.us-east-1.amazonaws.com` _(Only if one of any of the available features is enabled.)_
+- `sts.<region_name>.amazonaws.com` or `sts.*.amazonaws.com` (Try these endpoints if you encounter an SSL certificate error).
+- `https://organizations.us-east-1.amazonaws.com` (Only if one of any of the available features is enabled).
 
-_**K8s cluster endpoints access per K8s RBAC setup**_
+
+
+**K8s cluster endpoints access per K8s RBAC setup**
 
 - `/api/v1/namespaces/kube-system`
 - `/api/v1/nodes?watch=False`
@@ -144,7 +147,7 @@ _**K8s cluster endpoints access per K8s RBAC setup**_
 - `/apis/apps/v1/deployments?watch=False` or `/apis/extensions/v1beta1/deployments?watch=False` (depends on K8s version)
 - `/apis/networking.k8s.io/v1beta1/ingresses?watch=False` or `/apis/extensions/v1beta1/ingresses?watch=False` (depends on K8s version)
 
-_**Example IAM Policy**_ _(except for K8s cluster endpoints, since it is controlled by K8s RBAC)._
+**Example IAM Policy** (except for K8s cluster endpoints, since it is controlled by K8s RBAC).
 
 ```
 {
