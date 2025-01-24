@@ -69,19 +69,19 @@ Each ServiceNow data source points to one data source endpoint. From ServiceNow,
 
 - Cloud Connector Configuration:
         ```
-        sn/route_doql_csv/&#123;DOQL Name}
+        sn/route_doql_csv/{DOQL Name}
         ```
 
 - Direct Connection Configuration (3.0.0+ only)
         ```
-        /services/data/v1.0/query/?saved_query_name=&#123;DOQL Name}&delimiter=,&header=yes&output_type=csv
+        /services/data/v1.0/query/?saved_query_name={DOQL Name}&delimiter=,&header=yes&output_type=csv
         ```
 
 **Version 2.0.1 (or previous)**
 
 - Cloud Connector Configuration
         ```
-        sn/route_doql_csv/&#123;VERIFICATION TOKEN}/&#123;DOQL NAME}
+        sn/route_doql_csv/{VERIFICATION TOKEN}/{DOQL NAME}
         ```
 
 The general request flow is laid out in the sections below.
@@ -108,7 +108,7 @@ In ServiceNow, you can create and modify existing data sources and set their fil
 **Increase Field Length:**
 
 The file path field for a data source is limited to 100 characters by default. If you are unable to enter your entire file path, you can work around the character limit in two ways: 
-- Assign your custom query to a system property and use it in the field with `_$&#123;name_of_your_system_property}_`.
+- Assign your custom query to a system property and use it in the field with `_${name_of_your_system_property}_`.
 - You may also increase the character limit of this field by navigating to **System Definition > Tables > sys_data_source > File Path** and increasing the max character length of the data source-file-path field on this page and update the table.
 
 **System Property Method:**
@@ -120,7 +120,7 @@ The file path field for a data source is limited to 100 characters by default. I
 
 Don't include the `?` symbol in your system property as ServiceNow will percent-encode them when retrieving the system property value. Instead include the `?` symbol in the file path field itself.
 ```
-/services/data/v1.0/query/?$&#123;name_of_your_system_property}
+/services/data/v1.0/query/?${name_of_your_system_property}
 ```
 
 **Version 3.0.0+**
@@ -134,7 +134,7 @@ Cloud Connection
 
 - Username: You may use any value here, but it is required.
 
-- Password : `$&#123;x_192652_device42.instance_key}`
+- Password : `${x_192652_device42.instance_key}`
 
 Please note in versions 3+, because we use the Identification and Reconciliation Engine (IRE) all records will appear to be ignored.
 
@@ -146,13 +146,13 @@ Please note in versions 3+, because we use the Identification and Reconciliation
         ```
 
 - Username: You may use any value here, but it is required
-- Password: `$&#123;x_192652_device42.instance_key}`
+- Password: `${x_192652_device42.instance_key}`
 
 **Version 2.0.1 (or previous)**
 
 - Cloud Connection
         ```
-        sn/route_doql_csv/$&#123;x_192652_device42.instance_key}/SAVEDDOLQNAME
+        sn/route_doql_csv/${x_192652_device42.instance_key}/SAVEDDOLQNAME
         ```
  
 To add a custom DOQL data source, in ServiceNow, head to **System Import Sets -> Administration -> Data sources**:
@@ -174,7 +174,7 @@ That's all there is to it. ServiceNow should now have access to your new data so
 | Import set table | The table which you would like the data to be imported to                                                                              |
 | Type             | Default: File                                                                                                                          |
 | Format           | Default: CSV                                                                                                                           |
-| Server           | Default: `$&#123;x_192652_device42.server}`                                                                                                   |
+| Server           | Default: `${x_192652_device42.server}`                                                                                                   |
 | Port             | Default: 443                                                                                                                           |
 | File Path        | Cloud Connector `sn/route_doql_csv/YOUR_DOQL_QUERY_NAME Direct Connect /services/data/v1.0/query/?saved_query_name=YOUR_DOQL_QUERY_NAME` |
 | Username         | Username is required to send credentials with request, use any value eg. `servicenow_data_source`                                     |
