@@ -108,15 +108,15 @@ In ServiceNow, you can create and modify existing data sources and set their fil
 **Increase Field Length:**
 
 The file path field for a data source is limited to 100 characters by default. If you are unable to enter your entire file path, you can work around the character limit in two ways: 
-- Assign your custom query to a system property and use it in the field with `_${name_of_your_system_property}_`.
+- Assign your custom query to a system property and use it in the field with `${name_of_your_system_property}`.
 - You may also increase the character limit of this field by navigating to **System Definition > Tables > sys_data_source > File Path** and increasing the max character length of the data source-file-path field on this page and update the table.
 
 **System Property Method:**
 
 | **Connection Type** | **Name**                     | **Type** | **Value**                                                                                          |
 |----------------------|------------------------------|----------|----------------------------------------------------------------------------------------------------|
-| **Cloud Connection** | `name_of_your_system_property` | String   | `_YOUR_DOQL_NAME_`                                                                                 |
-| **Direct Connection**| `name_of_your_system_property` | String   | `saved_query_name=_YOUR_DOQL_NAME_&delimiter=,&header=yes&output_type=csv`                          |
+| **Cloud Connection** | `name_of_your_system_property` | String   | `YOUR_DOQL_NAME`                                                                                 |
+| **Direct Connection**| `name_of_your_system_property` | String   | `saved_query_name=YOUR_DOQL_NAME&delimiter=,&header=yes&output_type=csv`                          |
 
 Don't include the `?` symbol in your system property as ServiceNow will percent-encode them when retrieving the system property value. Instead include the `?` symbol in the file path field itself.
 ```
