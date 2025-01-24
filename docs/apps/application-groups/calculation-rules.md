@@ -1,10 +1,10 @@
 ---
-title: "AppFocus Filters"
+title: "Calculation Rules (AppFocus Filters)"
 sidebar_position: 1
 ---
 
 :::note
-Affinity Groups have been renamed to **Application Groups**. AppFocus Filters are now called **Application Group Calculation Rules**
+Affinity Groups have been renamed to **Application Groups**. AppFocus Filters are now called **Application Group Calculation Rules** in the UI.
 :::
 
 The Affinity Group AppFocus Filters allow you to choose a set of device or resource characteristics and use it to define the items included in the Affinity Group's initial resource relationship analysis. You can use filters to either suggest Affinity Groups or create them automatically.
