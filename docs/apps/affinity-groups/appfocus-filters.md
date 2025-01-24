@@ -2,7 +2,7 @@
 title: "AppFocus Filters"
 sidebar_position: 1
 ---
-The Affinity Group AppFocus Filters allow you to choose a set of device or resource characteristics and use it to define the information included in the Affinity Group's initial resource relationship analysis. You can use filters to either suggest Affinity Groups or create them automatically.
+The Affinity Group AppFocus Filters allow you to choose a set of device or resource characteristics and use it to define the items included in the Affinity Group's initial resource relationship analysis. You can use filters to either suggest Affinity Groups or create them automatically.
 
 Device42 includes three predefined AppFocus Filters: Database, LB VIP, and Database Server. You can disable these filters or change their outcome, but we recommend that you do not edit them.
 
