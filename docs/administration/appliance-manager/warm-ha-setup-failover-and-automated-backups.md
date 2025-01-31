@@ -26,9 +26,11 @@ You can add the auto-restore schedule using crontab syntax. Configure the interv
 
 ![Warm HA Settings](/assets/images/warm-ha-setup/set-up-restore.png)
 
-Credentials for passphrase, SFTP server settings and backup file name should be identical on both production and standby appliance. Both NFS and SFTP paths and credential settings are configured in their respective sub-menu's in the Device42 Appliance Manager. Look for **NFS Server Settings** or **SFTP Server Settings** once you choose your restore method:
+Credentials for passphrase, SFTP server settings and backup file name should be identical on both production and standby appliance. You can use Amazon S3, NFS and SFTP as backup locations.
 
-![Configure NFS or SFTP Server Settings](/assets/images/warm-ha-setup/sftp-settings.png)
+Both NFS and SFTP paths and credential settings are configured in their respective sub-menu's in the Device42 Appliance Manager. Look for **NFS Server Settings**, **SFTP Server Settings**, and **Amazon S3 Settings** once you choose your restore method:
+
+![Configure server settings](/assets/images/warm-ha-setup/server-settings.png)
 
 While doing an auto-restore all schedules get disabled, so if there is another one that falls within that window, it will not kick off. To know whether an auto-restore succeeded or failed, we have also added success and failure notifications. Mail server settings must be set for that to work.
 
