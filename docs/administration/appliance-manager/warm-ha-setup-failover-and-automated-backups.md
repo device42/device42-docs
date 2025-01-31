@@ -30,7 +30,7 @@ You can add the auto-restore schedule using crontab syntax. Configure the interv
 
 The credentials you use for the passphrase, SFTP server settings, and the backup file name should be identical on both the production and the standby appliance. You can use Amazon S3, NFS, and SFTP as backup locations.
 
-Both NFS and SFTP paths and credential settings are configured in their respective sub-menus in the Device42 Appliance Manager. Once you have chosen your restore method, look for **NFS Server Settings**, **SFTP Server Settings**, and **Amazon S3 Settings** in the left sidebar:
+The NFS and SFTP paths, their credential settings and the S3 settings are configured in their respective sub-menus in the Device42 Appliance Manager. Once you have chosen your restore method, look for **NFS Server Settings**, **SFTP Server Settings**, and **Amazon S3 Settings** in the left sidebar:
 
 ![Configure server settings](/assets/images/warm-ha-setup/server-settings.png)
 
@@ -40,7 +40,9 @@ While doing an auto-restore, all schedules get disabled, so if another auto-rest
 
 Any attempt to auto-restore from a backed-up file will fail if the metadata is not included in the backup.
 
-It is critical that you select to include **Backup Meta Data** as an option under **Backup schedule** for backups to your SFTP, NFS, or S3 storage.
+It is critical that you select to include **Backup Meta Data** as an option under **Backup schedules** for backups to your SFTP, NFS, or S3 storage.
+
+    ![Backup meta data](/assets/images/warm-ha-setup/backup-schedules.png)
 
 Without the metadata, restore and passphrase settings will not be included in the backup archive and the appliance will have no reference for using the data when attempting to restore from schedule.
 
