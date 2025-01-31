@@ -3,23 +3,32 @@ title: "Warm HA Setup, Failover, and Automated Backups"
 sidebar_position: 19
 ---
 
-## Automated Restores to Backup Appliance for Warm HA
 
-Device42 now allows you to put a second appliance in standby mode and do period restorations to the device for use as a failover. This process consists of two steps: setting up the automated restores, and setting the backup appliance to production in the event of a device failure.
+**Automate restores to back up your Main Appliance for warm standby/High Availability (HA).**
 
-### Setting Up Automated Restores for Warm HA Appliance
+Device42 allows you to put a second appliance in standby mode and do period restorations to the device for use as a failover. This process consists of two steps: setting up the automated restores, and setting the backup appliance to production in the event of a device failure.
 
-![Warm HA Settings](/assets/images/automated-restore-15.png)
+From the [Device42 Appliance Manager](device42-appliance-manager-login.mdx), you can set up automated restores to a backup appliance. This is done by setting the appliance to standby mode and configuring the appliance to restore from a backup file on a remote server. The appliance will then automatically restore from the backup file at the specified interval.
 
-You can now declare an appliance to be in standby mode, and can then enable regular restores from either an NFS export or an SFTP location. Putting the appliance in standby mode does the following:
+### Set Up Automated Restores for Warm HA Appliance
 
-- Disables the background scheduler that runs the autodiscovery jobs.
-- Disables scheduled reports.
-- Disables running any backups from the appliance.
+Log in to the Appliance Manager and navigate to **Global Settings > Appliance Mode**. You will see the following screen with the option to enable standby mode:
 
-You can add the auto-restore schedule using crontab syntax. Configure the interval of how often you want to pick up the backup file from the remote server. Credentials for passphrase, SFTP server settings and backup file name should be identical on both production and standby appliance. Both NFS and SFTP paths and credential settings are configured in their respective sub-menu's in the Device42 Appliance Manager. Look for "NFS Server Settings" or "SFTP Server Settings" once you choose your restore method. See screenshot below:
+![Enable standby in Appliance Manager](/assets/images/warm-ha-setup/enable-standby.png)
 
-![Configure NFS or SFTP Server Settings](/assets/images/backup-sftp-15.png)
+You can declare an appliance to be in standby mode, and can then enable regular restores from either an NFS export or an SFTP location. Putting the appliance in standby mode does the following:
+
+- Disables the background scheduler that runs the autodiscovery jobs
+- Disables scheduled reports
+- Disables running any backups from the appliance
+
+You can add the auto-restore schedule using crontab syntax. Configure the interval of how often you want to pick up the backup file from the remote server. 
+
+![Warm HA Settings](/assets/images/warm-ha-setup/set-up-restore.png)
+
+Credentials for passphrase, SFTP server settings and backup file name should be identical on both production and standby appliance. Both NFS and SFTP paths and credential settings are configured in their respective sub-menu's in the Device42 Appliance Manager. Look for **NFS Server Settings** or **SFTP Server Settings** once you choose your restore method:
+
+![Configure NFS or SFTP Server Settings](/assets/images/warm-ha-setup/sftp-settings.png)
 
 While doing an auto-restore all schedules get disabled, so if there is another one that falls within that window, it will not kick off. To know whether an auto-restore succeeded or failed, we have also added success and failure notifications. Mail server settings must be set for that to work.
 
@@ -47,13 +56,25 @@ When running Device42 in HA mode with a Warm Standby configured, in the event of
 
 e.g. sending the parameter: _“appliance\_mode=production”_ **will toggle a warm standby appliance to production mode.**, while sending the parameter: _“appliance\_mode=standby”_ **will toggle a production appliance to warm standby mode.**
 
-An example API POST call that toggles a Device42 appliance instance from standby to production with ‘curl’: ![Example curl API POST](/assets/images/failover_API_call_curl.PNG) curl -X POST -d "appliance\_mode=production" -u 'd42admin:default' https://Device42Instance:4343/api/1.0/appliancemode/ --insecure
+An example API POST call that toggles a Device42 appliance instance from standby to production with ‘curl’: 
+
+```bash
+ curl -X POST -d "appliance\_mode=production" -u 'd42admin:default' https://Device42Instance:4343/api/1.0/appliancemode/ --insecure
+```
+
+![Example curl API POST](/assets/images/failover_API_call_curl.PNG)
 
 _By embedding the above call into a script that is called in response to a failure event detected by your monitoring system, the failover process can be fully automated._ The following example uses Nagios along with the above example API call to automate a Device42 warm standby to production in a failover scenario.
 
-**_Nagios Automated Failover Example:_** 1. First, add the following configuration github link to your Nagios host file: ![nagios host file additions](/assets/images/automated_failover-Nagios_host_file.PNG)
+**_Nagios Automated Failover Example:_** 
 
-1. Second create a script file similar to this example github link: ![Example curl API POST](/assets/images/nagios_automated_failover_script.PNG)
+1. First, add the following configuration github link to your Nagios host file: 
+
+    ![nagios host file additions](/assets/images/automated_failover-Nagios_host_file.PNG)
+
+2. Second create a script file similar to this example github link: 
+ 
+    ![Example curl API POST](/assets/images/nagios_automated_failover_script.PNG)
 
 The above example (if utilized exactly as written) only enables automated failover to the secondary instance \[no failback\]. The provisions to failback are present in the example script \[see the commented lines following OK), lines #11+12\], but are currently commented out. Though it may be unnecessary depending on the failure mode of the primary instance, it’s not a bad idea as a precaution that your production script attempts to send an API call to the primary instance, placing it into standby and thus preventing it from running jobs should it recover until a failback is intentionally initiated.
 
