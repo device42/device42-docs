@@ -99,7 +99,7 @@ The general request flow is laid out in the sections below.
 
 ### Custom Device42 DOQL Datasources
 
-Using Device42's stored [Device42 object query language (DOQL)](docs/reports/device42-doql/index.md), you can fully customize the data that your Device42 instance sends to ServiceNow.
+Using Device42's stored [Device42 object query language (DOQL)](docs/reports/device42-doql/index.mdx), you can fully customize the data that your Device42 instance sends to ServiceNow.
 
 In Device42, navigate to **Tools > Integrations > Saved DOQL Queries** to add a new saved DOQL query and then add a new ServiceNow data source that points to that query.
 
