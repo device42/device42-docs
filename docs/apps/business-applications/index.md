@@ -4,11 +4,11 @@ title: "Business Applications"
 
 ## Using Business Applications
 
-Device42 Business Applications offers a powerful way to build custom maps of business critical functions. Besides looking different than [Affinity Groups](/apps/application-groups/index.mdx), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Applications can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
+Device42 Business Applications offers a powerful way to build custom maps of business critical functions. Besides looking different than [Application Groups](/apps/application-groups/index.mdx), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Applications can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
 
 Using Business Applications, you'll be able to catalog all of your business and mission-critical applications. All of the following are possible:
 
-- Creating Business Applications from scratch or from existing Affinity Groups
+- Creating Business Applications from scratch or from existing Application Groups
 - Adding and removing devices and connectivity
 - Customizing the resource layout, connections, and their labels
 - Saving customized layout(s) and returning to edit them at any time
@@ -29,9 +29,9 @@ Using Business Applications, you'll be able to catalog all of your business and 
 
 ![](/assets/images/D42-23306_biz-app-canvas.png)
 
-The page displays the business application name; hover over _Application Details_ to see information about the application. The left panel contains icons for adding devices, affinity groups, or application components to your business application and a menu bar above the icons.  You can also now run a _Service Dependencies Report_ for the Business Application, which details all the communications for the devices within the Business Application.
+The page displays the business application name; hover over _Application Details_ to see information about the application. The left panel contains icons for adding devices, Application groups, or application components to your business application and a menu bar above the icons.  You can also now run a _Service Dependencies Report_ for the Business Application, which details all the communications for the devices within the Business Application.
 
-Click a device, affinity group, or application component object on the canvas to see details about that item. Links in the details box or below the object take you to the view pages for those items.
+Click a device, Application group, or application component object on the canvas to see details about that item. Links in the details box or below the object take you to the view pages for those items.
 
 ![](/assets/images/D42-23306_biz-app-object-details.png)
 
@@ -65,15 +65,15 @@ Click a device, affinity group, or application component object on the canvas to
 
 ![](/assets/images/D42-23306_biz-app-add-device-popup.png)
 
-### Add Affinity Groups
+### Add Application Groups
 
-Efficiently keep track of changes and additions of devices by setting up an affinity group. After adding an affinity group to an application, configure an alert to send notifications when devices are added or changed to the affinity group. First, add a new affinity group as follows: 
+Efficiently keep track of changes and additions of devices by setting up an Application group. After adding an Application group to an application, configure an alert to send notifications when devices are added or changed to the Application group. First, add a new Application group as follows: 
 
-- Drag an _Affinity Group_ block to the canvas – this will bring up the Add Affinity Group box.  You can _Search_ by group type, group name, tag, primary device name, or service name
+- Drag an _Application Group_ block to the canvas – this will bring up the Add Application Group box.  You can _Search_ by group type, group name, tag, primary device name, or service name
 - When you click on a group in the list, you will see the number of devices in that group.
-- Select an affinity group from the list, and then click **Add**. Device42 adds the Affinity Group with all its devices and connections to the canvas.
+- Select an Application group from the list, and then click **Add**. Device42 adds the Application Group with all its devices and connections to the canvas.
 
-![](/assets/images/D42-23306_biz-app-add-affinity-group-popup.png)
+![](/assets/images/D42-23306_biz-app-add-Application-group-popup.png)
 
 #### Add an Alert
 
@@ -136,7 +136,7 @@ To delete a device (or other objects on the canvas), either select the device an
 
 ![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-3-PopupMenu.png)
 
-**Note**: Removing a device does not remove connections on the canvas, nor does it affect calculated information stored in Affinity Groups.
+**Note**: Removing a device does not remove connections on the canvas, nor does it affect calculated information stored in Application Groups.
 
 ### Rename a Device
 
@@ -151,7 +151,7 @@ You can add and edit connections between object on the canvas.
 1. Hover over a device object to display the object’s connection points (green dots). Click a green dot and drag the connection to a point on any other object. ![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-4-ConnectorPoint.png)
 2. To delete a connection, select the connection and press the _Delete_ key, or right-click and select _Delete_ from the context menu.
 
-**Note:** Deleting a connection does not affect calculated information stored in Affinity Groups.
+**Note:** Deleting a connection does not affect calculated information stored in Application Groups.
 
 ### Name Connections
 

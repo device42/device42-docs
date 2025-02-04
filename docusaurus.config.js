@@ -185,11 +185,11 @@ const config = {
           },
           {
             to: '/apps/application-groups/',
-            from: ['/apps/affinity-groups/'],
+            from: ['/affinity-groups/'],
           },
           {
             to: '/apps/application-groups/calculation-rules/',
-            from: ['/apps/affinity-groups/appfocus-filters/'],
+            from: ['/affinity-groups/appfocus-filters/'],
           },
           {
             to: '/apps/enterprise-application-dependency-mapping/',

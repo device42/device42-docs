@@ -11,29 +11,29 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 Affinity Groups have been renamed to **Application Groups**. AppFocus Filters are now called **Application Group Calculation Rules**
 :::
 
-Affinity Groups assists customers and partners with application grouping activities based on observed communication patterns.
+Application Groups assists customers and partners with application grouping activities based on observed communication patterns.
 
 ### Pinned Services
 
-Affinity Groups uses the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Affinity group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
+Application Groups uses the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Application group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
 
-After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Affinity Groups. The collected information includes service names and communication details, and affinities are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. Users define services critical to their use case, and then Affinity Groups are processed. The result is a visualized grouping of communication patterns.
+After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Application Groups. The collected information includes service names and communication details, and affinities are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. Users define services critical to their use case, and then Application Groups are processed. The result is a visualized grouping of communication patterns.
 
-## Using Affinity Groups - How-To
+## Using Application Groups - How-To
 
-From the Device42 menu, navigate to **Applications > Affinity Groups**.
+From the Device42 menu, navigate to **Applications > Application Groups**.
 
-From this screen, enter your search criteria and click the **Chart** link next to the Affinity Group you'd like to view. Affinity Groups are automatically calculated daily at 2 AM for all pinned services.
+From this screen, enter your search criteria and click the **Chart** link next to the Application Group you'd like to view. Application Groups are automatically calculated daily at 2 AM for all pinned services.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic1.png)
 
-Application Component Categories are now also used in Affinity Groups. Any Application Component Categories associated with a device used to create an Affinity Group will be associated with the Affinity Group. You can now quickly drill down to your discovered database impact Affinity Groups or web server dependency Affinity Groups at the click of a button.
+Application Component Categories are now also used in Application Groups. Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)
 
 ### Pinning other 'Core' services
 
-Affinity Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Affinity Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Affinity Group.
+Application Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Application Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Application Group.
 
 Navigate to your critical Core services and pin them using the dropdown menu:
 
@@ -45,17 +45,17 @@ Database services are considered 'core services' and are therefore pinned automa
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
 
-### Viewing Affinity Group Impact Charts
+### Viewing Application Group Impact Charts
 
-Simply click the **Chart** link next to an Affinity Group name to display the associated Affinity Group Impact Chart. Use the controls at the left of the charts to highlight or search for Affinity Group Dependencies in the chart.
+Simply click the **Chart** link next to an Application Group name to display the associated Application Group Impact Chart. Use the controls at the left of the charts to highlight or search for Application Group Dependencies in the chart.
 
 ![](/assets/images/18.04.00_affinity-groups-chart-1.png)  
 
-Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a **Service Dependencies Report** for Affinity Groups from the Affinity Group chart view page. The Services Dependencies report details all the communications for devices within an Affinity Group.
+Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a **Service Dependencies Report** for Application Groups from the Application Group chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
 
-### Affinity Group Timelines
+### Application Group Timelines
 
-Affinity Group timelines make it easy to see how a given Affinity Group changed over time. Changes to both Devices and Services are marked along the timeline, indicating when devices and/or services were added or removed from each Affinity Group. The timeline can also be used to quickly navigate to specific dates of interest, including those when changes occurred.
+Application Group timelines make it easy to see how a given Application Group changed over time. Changes to both Devices and Services are marked along the timeline, indicating when devices and/or services were added or removed from each Application Group. The timeline can also be used to quickly navigate to specific dates of interest, including those when changes occurred.
 
 ![](/assets/images/18.04.00_affinity-groups-timeline-1.png)
 
@@ -63,32 +63,32 @@ Click on a vertical point in the timeline at the bottom of the chart to see a su
 
 ![](/assets/images/18.04.00_affinity-groups-timeline-2.png)
 
-### Affinity Group Calculations
+### Application Group Calculations
 
-With Affinity Group calculations users can view an Affinity Group calculation from just about any device — open the hamburger menu, and choose **Affinity Group Calculation**.
+With Application Group calculations users can view an Application Group calculation from just about any device — open the hamburger menu, and choose **Application Group Calculation**.
 
 <ThemedImage
-  alt="Affinity group calculation option"
+  alt="Application group calculation option"
   sources={{
-    light: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-light.png'),
-    dark: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-dark.png'),
+    light: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-light.png'),
+    dark: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-dark.png'),
   }}
 />
 <br/><br/>
 
-On the Affinity Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open the summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
+On the Application Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open the summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
 
 <ThemedImage
-  alt="Affinity group calculation detailed view"
+  alt="Application group calculation detailed view"
   sources={{
-    light: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-view-light.png'),
-    dark: useBaseUrl('/assets/images/affinity-groups/affinity-group-calculation-view-dark.png'),
+    light: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-view-light.png'),
+    dark: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-view-dark.png'),
   }}
 />
 
-## Add Affinity Groups to a Business Application
+## Add Application Groups to a Business Application
 
-You can now use a new command on the Affinity Group list page to quickly and easily add multiple affinity groups to an existing or new business application. Simply click up to five affinity groups on the list page and select **Add Affinity Groups to Business Applications** from the Actions menu.
+You can now use a new command on the Application Group list page to quickly and easily add multiple Application groups to an existing or new business application. Simply click up to five Application groups on the list page and select **Add Application Groups to Business Applications** from the Actions menu.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic9.png)
 
@@ -96,6 +96,6 @@ Select the Business Application you want, or add a new one, and click **Add obj
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic10.png)
 
-The Affinity Groups added will be visible on the Business Application canvas. The Devices in each Affinity Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Affinity Group.
+The Application Groups added will be visible on the Business Application canvas. The Devices in each Application Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Application Group.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic11.png)
