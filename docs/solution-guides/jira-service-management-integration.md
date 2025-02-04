@@ -277,7 +277,7 @@ A confirmation window will appear, verifying that the object schema import has b
 
 You can edit an object schema to include a new object to synchronize data from in the app and customize what data is synchronized to the app.
 
-You will need the name of a [Device42 Object Query Language (DOQL)](reports/device42-doql/index.md) query to complete the object creation form. The created DOQL object can be edited, disabled, and deleted from the object schema import sync.
+You will need the name of a [Device42 Object Query Language (DOQL)](reports/device42-doql/index.mdx) query to complete the object creation form. The created DOQL object can be edited, disabled, and deleted from the object schema import sync.
 
 If you didn't select the **Create with default schema** option when you created a [new object schema import](#add-a-new-object-schema-import), you can add data of selected asset types by adding a new object to sync.
 
@@ -287,7 +287,7 @@ Click the **Add object to sync** button to open the new object sync form.
 
 Complete the two required fields to add a new object to sync.
 
-* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](reports/device42-doql/index.md). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
+* **DOQL** Add the DOQL name of the query stored in Device42 here. Read more about DOQL queries in [our docs](reports/device42-doql/index.mdx). This field supports DOQL syntax for complex queries, and you can [edit the object DOQL](#edit-the-doql-of-an-object) later if you need to.
 
 * **Object Type Name** Select the object type from the list, or create a new object type by clicking **+ Object type**.
 
@@ -307,7 +307,7 @@ To edit the DOQL of an object, click the **Edit DOQL** button.
 
 ![](/assets/images/jsm-solution-guide/image47.jpg)
 
-In the DOQL field that opens, add the name of the DOQL query stored in Device42. This field supports [DOQL syntax](reports/device42-doql/index.md) for complex queries.
+In the DOQL field that opens, add the name of the DOQL query stored in Device42. This field supports [DOQL syntax](reports/device42-doql/index.mdx) for complex queries.
 
 ![](/assets/images/jsm-solution-guide/image68.jpg)
 
