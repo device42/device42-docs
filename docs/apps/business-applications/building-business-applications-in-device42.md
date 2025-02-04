@@ -107,15 +107,15 @@ Once you have completed the process above, navigate back to _Apps > Application 
 
 After your Application Groups have been processed, select the _Chart_ button next to an Impact or Dependency to see the view.
 
-![](/assets/images/WEB-519_bus-apps-11-Application-Groupd-View.png)
+![](/assets/images/WEB-519_bus-apps-11-Affinity-Groupd-View.png)
 
 You should see a _Global View_ to highlight the relationships and arrows to represent the direction of communication.  By selecting any of the lines, a _Local View_ will display the services and any Application Components that exist in that relationship.
 
-![](/assets/images/WEB-519_bus-apps-12-Application-Groupd-Chart.png)
+![](/assets/images/WEB-519_bus-apps-12-Affinity-Groupd-Chart.png)
 
 Hovering over the timeline above the view will allow you to identify changes to this Application Group.  This process runs every night to calculate connections that take place each day. As changes are detected, blue checkpoints are created to demonstrate a change has occurred to better understand the changes that occur in your environment.
 
-![](/assets/images/WEB-519_bus-apps-13-Application-Group-Chart-Timeline.png)
+![](/assets/images/WEB-519_bus-apps-13-Affinity-Group-Chart-Timeline.png)
 
 ## Building Business Applications
 

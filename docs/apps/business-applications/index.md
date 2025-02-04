@@ -73,7 +73,7 @@ Efficiently keep track of changes and additions of devices by setting up an Appl
 - When you click on a group in the list, you will see the number of devices in that group.
 - Select an Application group from the list, and then click **Add**. Device42 adds the Application Group with all its devices and connections to the canvas.
 
-![](/assets/images/D42-23306_biz-app-add-Application-group-popup.png)
+![](/assets/images/D42-23306_biz-app-add-affinity-group-popup.png)
 
 #### Add an Alert
 

@@ -3,6 +3,8 @@ title: "Calculation Rules"
 sidebar_position: 1
 ---
 
+# Application Group Calculation Rules
+
 :::note
 Application Groups have been renamed to **Application Groups**. AppFocus Filters are now called **Application Group Calculation Rules** in the UI.
 :::
@@ -21,11 +23,6 @@ AppFocus Filters are integrated directly into the Application Groups section. Yo
 
 ![Suggested AppFocus Filters List Page](/assets/images/app-focus-filters/app-focus-list-page-new.png)
 
-:::note
-You can now pin Application Groups, allowing you to keep important items at the top of the list for quick access.
-
-![Application Groups Pin Icons](/assets/images/app-focus-filters/ag-pin-icons.png)
-:::
 
 ### Creating a new filter
 

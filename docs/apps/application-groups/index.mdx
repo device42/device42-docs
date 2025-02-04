@@ -11,13 +11,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 Affinity Groups have been renamed to **Application Groups**. AppFocus Filters are now called **Application Group Calculation Rules**
 :::
 
-Application Groups assists customers and partners with application grouping activities based on observed communication patterns.
+Application Groups are an opinionated view of the impactful applications and their dependencies in your environment. They are configurable via Calculation Rules (and templates). Application Groups are based on the communication patterns observed in your environment.
+
+After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Application Groups.
+
+The collected information includes service names and communication details. Application Groups are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. 
+
+You define the services critical to your use case, before Application Groups are processed. The result is a visualized grouping of communication patterns.
 
 ### Pinned Services
 
 Application Groups uses the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Application group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
 
-After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Application Groups. The collected information includes service names and communication details, and affinities are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. Users define services critical to their use case, and then Application Groups are processed. The result is a visualized grouping of communication patterns.
+:::note
+You can now pin Application Groups, allowing you to keep important items at the top of the list for quick access.
+:::
+
+![Application Groups Pin Icons](/assets/images/app-focus-filters/ag-pin-icons.png)
 
 ## Using Application Groups - How-To
 
@@ -70,8 +80,8 @@ With Application Group calculations users can view an Application Group calculat
 <ThemedImage
   alt="Application group calculation option"
   sources={{
-    light: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-light.png'),
-    dark: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-dark.png'),
+    light: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-dark.png'),
   }}
 />
 <br/><br/>
@@ -81,8 +91,8 @@ On the Application Group Calculation page, you can see the dependencies of the s
 <ThemedImage
   alt="Application group calculation detailed view"
   sources={{
-    light: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-view-light.png'),
-    dark: useBaseUrl('/assets/images/Application-groups/Application-group-calculation-view-dark.png'),
+    light: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-view-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-view-dark.png'),
   }}
 />
 
