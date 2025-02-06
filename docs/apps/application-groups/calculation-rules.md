@@ -130,8 +130,8 @@ Fill in the fields:
 - **End at**: 
   - Select **Database** to end the calculation at the database level. If you started with a database, this is doesn't count
   - Select **Load Balancer Virtual IP** if that's where your application stops.
-- **Include**: Only include the selected items – to the exclusion of everything else. For example, only include devices that are in production in the calculation. You can generally leave this option blank unless you have a specific reason to include only certain items.
-- **Exclude**: Select categories that don't make sense to include. For example, exclude IPv6 traffic or port 22.
+- **Include**: Include the selected items to the exclusion of everything else. You can generally leave this option blank unless you have a specific reason limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
+- **Exclude**: Select categories that don't make sense to include. For example, you can exclude IPv6 traffic or port 22.
 
 ### **Visualization** Options
 
