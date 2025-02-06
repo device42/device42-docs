@@ -45,7 +45,7 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Application Groups
 
-Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [Application Groups](/apps/application-groups/index.mdx) to further understand this process.
+Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [Application Groups](/apps/application-groups/) to further understand this process.
 
 ### Enabling Application Groups
 

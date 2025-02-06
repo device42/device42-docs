@@ -75,17 +75,35 @@ Efficiently keep track of changes and additions of devices by setting up an Appl
 
 ![](/assets/images/D42-23306_biz-app-add-affinity-group-popup.png)
 
-#### Add an Alert
+### View Application Groups
 
-Next set up the alert. Select _Analytics > Setup Alerts_ from the Device42 menu bar and then click _Add Alert_ on the Select Alert to view page.
+You can see which Application Groups are in the Business Services.:
+
+![](/assets/images/business-services/groups-business-service.png)
+
+### Add an Alert
+
+Next set up the alert. Select **Analytics > Setup Alerts** from the Device42 menu bar and then click **Add Alert** on the Select Alert to view page.
 
 ![](/assets/images/WEB-219_Alerts_Add-Alert-page.jpg)
 
-- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers, which define the conditions that will generate an alert.
-- Select the **Trigger** you want for the Rule Type you selected.
+Business Services are now linked to Application Groups so that you can set up alerts to notify you when a new Application Group dependency is found. 
+
+:::note
+For existing Business Services, you need to edit the Business Service and add the Application Group (previously known as "Affinity Group") to it to continue getting alerts for it.
+:::
+
+![Add Application Group to existing Business Service](/assets/images/business-services/add-application-group.png)
+
+To set up an alert, follow these steps:
+
+![Set up alert](/assets/images/business-services/bs-alerts-config.png)
+
+- Enter a **Name** for the alert, and then select the **Business Service** for the **Rule Type** of the alert. Each Rule Type has associated Triggers, which define the conditions that will generate an alert.
+- For the **Trigger**, select **New Application Group Dependency Found**.
 - Select the **Alert Type**.
-    - If you select **D42 Notification**, select or add the **Escalation Profile** to use for the alert. You use Escalation Profiles to set up email notification escalation tiers. Select _Tools > Admins & Permissions > Escalation Profiles_ to add or edit escalation profiles.
-    - If you select **Alert Integration**, select or add the alert integration (for example, PagerDuty, Opsgenie, etc.) to use for the alert. Select _Tools > Integrations > External Integrations_ to view or add external integrations. Also see [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
+    - If you select **D42 Notification**, select or add the **Escalation Profile** to use for the alert. You use Escalation Profiles to set up email notification escalation tiers. Select **Tools > Admins & Permissions > Escalation Profiles** to add or edit escalation profiles.
+    - If you select **Alert Integration**, select or add the alert integration (for example, PagerDuty, Opsgenie, etc.) to use for the alert. Select **Tools > Integrations > External Integrations** to view or add external integrations. Also see [https://www.device42.com/integrations/](https://www.device42.com/integrations/) for more information about Device42 integrations.
 
 As you construct your alert, Device42 displays the alert definition based on the options you select or enter. The example below shows an Operating System Count alert that sends a notification to the Alert Group 1 escalation profile.
 
@@ -110,7 +128,8 @@ When you are done, click **Save** at the bottom of the page to save the alert.
 ![](/assets/images/WEB-219_Alerts_Add-Alert-additional-options.jpg)
 
 See [Alert Rule Types and Triggers](/reports/reports/setup-alerts-and-notifications/#alert-rule-types-and-triggers) for more information.
-#### View Notifications
+
+### View Alert Notifications
 
 If you select _D42 Notification_ as the _Alert Type_ when you create an alert, Device42 generates a notification when the alert condition triggers the alert. 
 
