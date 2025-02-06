@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 *Affinity Groups* have been renamed to **Application Groups**. *AppFocus Filters* are now called **Application Group Calculation Rules**.
 :::
 
-Application Group Calculation Rules are starting points or 'seeds' that point to what's important in your environment and are used to indirectly configure the resulting Application Groups. The Application Dependency Mapping (ADM) workflow starts with the defining the start points, setting traversal rules and stop points with logic templates to create the Application Group charts.
+Application Group Calculation Rules are starting points or 'seeds' that point to what's important in your environment and are used to indirectly configure the resulting Application Groups. The Application Dependency Mapping (ADM) workflow starts by defining Starting Points, then setting traversal rules and stop points (logic templates) to generate the Application Groups charts.
 
 ![ADM Workflow](/assets/images/calculation-rules/adm-flow.png)
 
@@ -100,7 +100,7 @@ Under **Starting Points** you'll see two options: **Criteria** and **Fixed**.
 
 ### **Group By** and **Tags LIKE** Options
 
-The **Group By** field is required if you chose the **Criteria** option for the Starting Point. The **Group By** criteria will enable multiple AppFocus Application Groups to be generated from one rule. The available **Group By** options will change as different object types are added to the filter's rules.
+The **Group By** field is required if you chose the **Criteria** option for the Starting Point. The **Group By** criteria is used to create multiple Application Groups from one rule.
 
 Use the `%` wildcard in the **Tags LIKE** field to find items that match part of a tag name, for example, enter `app_%` to include items with tags that starting with `app_`.
   
@@ -126,7 +126,7 @@ Fill in the fields:
 - **Name**: Enter a name for the template.
 - **Time Period (in days)**: Choose a relatively recent time period where you know that active communication has occurred, like 30 days.
 - **Levels of Depth**: Enter the number of levels of dependencies you want to include in the calculation. To prevent including dependencies of dependencies, we recommend `5` for regular environments, but increase the value for very complex environments.
-- **Limit of connections**: Limit the number of connections to prevent getting into infrastructure services like an Active Directory or backup serviced. You can increase the value for applications that are very noisy.
+- **Limit of connections**: Limit the number of connections to prevent getting into infrastructure services like an Active Directory or backup server. You can increase the value for applications that are very noisy.
 - **End at**: 
   - Select **Database** to end the calculation at the database level. If you started with a database, this is doesn't count
   - Select **Load Balancer Virtual IP** if that's where your application stops.
