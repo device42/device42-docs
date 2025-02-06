@@ -188,6 +188,14 @@ const config = {
             from: ['/affinity-groups/'],
           },
           {
+            to: '/apps/business-services/',
+            from: ['/business-applications/'],
+          },
+          {
+            to: '/apps/business-services/building-business-services-in-device42.md/',
+            from: ['/business-applications/building-business-applications-in-device42.md/'],
+          },
+          {
             to: '/apps/application-groups/calculation-rules/',
             from: ['/affinity-groups/appfocus-filters/'],
           },
