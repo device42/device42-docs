@@ -93,3 +93,8 @@ The Windows /  \*Nix autodiscovery jobs you run will check to see which applica
 - Discover Applications
 
 ![](/assets/images/App-Comp-AD-Job-Software-Opts.png)
+
+
+:::tip
+Set up Application Groups by defining a Starting Point. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
+:::

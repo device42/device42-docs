@@ -2,6 +2,10 @@
 title: "Application Dependency Mapping"
 ---
 
+:::info
+To find out how Application Groups and charts are generated (as a feature of Device42's ADM capability), see the [Calculation Rules](/apps/application-groups/calculation-rules/) page that explains the starting point of the configuration.
+:::
+
 The Application Dependency Mapping module allows Device42 to autodiscover application dependencies and service dependencies on a deeper level throughout your network.
 
 ## **ADM Module Features include:**

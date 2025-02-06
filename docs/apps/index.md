@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 :::note
-Visit the [Application Groups Calculation Rules](application-groups) page to learn how to configure Application Groups (previously known as Affinity Groups).
+Visit the [Application Groups Calculation Rules](application-groups/calculation-rules) page to learn how to configure Application Groups (previously known as Affinity Groups).
 :::
 
 These sections cover the following entries found in the applications menu of the Device42 appliance:
