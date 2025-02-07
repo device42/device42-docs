@@ -5,15 +5,21 @@ sidebar_position: 1
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process of building Business Applications within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.mdx) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
+:::info 
+Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
+:::
+
+This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.mdx) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 
-After you have performed successful discovery, all discovered Application Dependency data can be viewed under the Applications section in the Device42 main menu. The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md).
+After you have performed successful discovery, all discovered Application Dependency data can be viewed under the **Applications** section in the Device42 main menu. 
+
+The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md).
 
 ![](/assets/images/Web_732_1.png)
 
-The Services section located under _Resources > Services_ will provide you with list views of all your Services including Service Instances, Scheduled Tasks, Listener ports, and Service communications.
+The Services section located under **Resources > Services** will provide you with list views of all your Services including Service Instances, Scheduled Tasks, Listener ports, and Service communications.
 
 ![](/assets/images/Web_732_1_Joined.png)
 
@@ -45,7 +51,7 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Application Groups
 
-Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [Application Groups](/apps/application-groups/index.mdx) to further understand this process.
+Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [Application Groups](/apps/application-groups/) to further understand this process.
 
 ### Enabling Application Groups
 
@@ -133,7 +139,7 @@ You should see that an Application Group was found along with the number of devi
 
 ![](/assets/images/Web_732_12.png)
 
-Select _Add_ to add all devices that belong to this Application Group.  Repeat this process if there are any other Application Groups or devices that need to be added to this Business Application.
+Select _Add_ to add all devices that belong to this Application Group.  Repeat this process if there are any other Application Groups or devices that need to be added to this Business Service.
 
 Once you have successfully imported everything over, use the toolbars at the top and right of the screen to label and color code the objects
 
@@ -145,7 +151,7 @@ Double click a line or anywhere on the canvas to add text. Use this to represent
 
 ![](/assets/images/Web_732_14.png)
 
-Congratulations! You have now built a Business Application by leveraging Device42’s discovery and Application Group capabilities.
+Congratulations! You have now built a Business Service by leveraging Device42’s discovery and Application Group capabilities.
 
 ![](/assets/images/Web_732_15.png)
 
@@ -161,9 +167,9 @@ Congratulations! You have now built a Business Application by leveraging Device4
 
 ![](/assets/images/Web_732_17.png)
 
-- If you know the servers that are part of your Business Application, you can tag them with the Business Application name, then easily search for these devices by this tag when you are building your Business Applications.
+- If you know the servers that are part of your Business Service, you can tag them with the Business Service name, then easily search for these devices by this tag when you are building your Business Service.
 
-When creating a Business Application, drag the _Device_ icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
+When creating a Business Service, drag the _Device_ icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
 
 ![](/assets/images/Web_732_18.png)
 
