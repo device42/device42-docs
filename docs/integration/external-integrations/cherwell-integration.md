@@ -36,7 +36,7 @@ To sync your autodiscovered hardware, servers, software, services, and/or assets
 
 **The latest Device42 version is required**
 
-Creation of Application Groups in Cherwell is not enabled by default. To enable Application groups in `mapping.xml`. Relevant Attributes are as follows:
+Creation of Application Groups in Cherwell is not enabled by default. To enable Application Groups in `mapping.xml`. Relevant Attributes are as follows:
 
 - `Copy Application Group data from Device42 to Cherwell`: _true/false_. Enable/disable Application Group mapping in Cherwell - _disabled by default._
 - `reset-connections`: _true/false_. A setting of `true` resets all existing upstream/downstream service relationships, removing them from Cherwell before new relationships are processed - _enabled by default_.

@@ -71,7 +71,7 @@ Click a device, Application Group, or Application Component object on the canvas
 
 ### Add Application Groups
 
-Efficiently keep track of changes and additions of devices by setting up an Application group. After adding an Application group to an application, configure an alert to send notifications when devices are added or changed to the Application group. First, add a new Application group as follows: 
+Efficiently keep track of changes and additions of devices by setting up an Application Group. After adding an Application Group to an application, configure an alert to send notifications when devices are added or changed to the Application Group. First, add a new Application Group as follows: 
 
 - Drag an **Application Group** block to the canvas – this will bring up the Add Application Group box.  You can **Search** by group type, group name, tag, primary device name, or service name
 - When you click on a group in the list, you will see the number of devices in that group.
