@@ -18,7 +18,13 @@ Application Group Calculation Rules are starting points or 'seeds' that point to
 
 Choose starting points based on what you want the resulting Application Group to focus on, such as a service, database, or Saturn application. The Starting Point(s) you choose will be the Application Group's focus. For example:
 
-![Application Group AppFocus chart](/assets/images/calculation-rules/app-focus-chart.png)
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_applicationgroup-light.png'),
+    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_applicationgroup-dark.png'),
+  }}
+/>
 
 In addition to creating new rules, you can use Device42's predefined rules that are based on common use cases: **Database**, **LB VIP**, and **Database Server** . You can disable these rules or change their outcome, but they are maintained by Device42 and cannot be edited.
 
@@ -81,7 +87,13 @@ Under **Starting Points** you'll see two options: **Criteria** and **Fixed**.
 
   - Select an **Object Type**.
             
-    ![Object Type](/assets/images/calculation-rules/select-object-type.png) 
+    <ThemedImage
+      alt="Docusaurus themed image"
+      sources={{
+        light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_application_group_calc_rule_light.png'),
+        dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_application_group_calc_rule_dark.png'),
+      }}
+    />
 
   - You can add a **Tags** filter and provide part of the tag's name under the **Contains** text box.
 
@@ -156,7 +168,13 @@ Toggle on the **Store and Display Connection Metadata** option to display commun
 
 Click on the **chart** link under the **My Application Groups** tab. Click on the boxes to see details about the resource and click on the connection lines to see the dependencies and relationships between the resources.
 
-  ![Application Group Chart](/assets/images/calculation-rules/app-group-chart.png)
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_light.png'),
+    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_dark.png'),
+  }}
+/>
 
 ## (Legacy) Creating a New Calculation Rule
 
