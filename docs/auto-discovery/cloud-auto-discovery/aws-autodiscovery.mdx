@@ -343,6 +343,12 @@ If you don't want to follow the steps above, you can either:
 
 AWS Cloud Discovery Jobs can use AWS roles to discover accounts. When the job includes the AWS role, the discovery job will dynamically grab multiple accounts from AWS. We previously aimed to maintain a 1:1 relationship between roles and accounts. Now, a single role can discover multiple accounts. This enables AWS users to set up discovery and specify the precise account to create, or leave the account empty to have the discovery job create cloud accounts as a result of the discovery.
 
+## Cloud Instance Statuses
+
+All VMs in Device42 have their statuses normalized into one of three buckets: **Running**, **Stopped** or **Deleted**. This allows for a consistent understanding regardless of which hypervisor or cloud is used. 
+
+Device42's statuses aren't mapped to the naming convention of the cloud provider. For example, [in AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html), a VM states include **Running**, **Stopped**, and **Terminated**. In Device42, the **Terminated** state is mapped to **Deleted**.
+
 ## Setting Up Environment Credentials using EC2 Instance Profiles
 
 You can perform AWS discovery without supplying any form of long-term, programmatic credentials by leveraging Instance Profiles or IAM roles for Amazon EC2 instances.
