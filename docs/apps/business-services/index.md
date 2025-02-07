@@ -29,9 +29,9 @@ Using Business Applications, you'll be able to catalog all of your business and 
 
 ![](/assets/images/D42-23306_biz-app-canvas.png)
 
-The page displays the business application name; hover over _Application Details_ to see information about the application. The left panel contains icons for adding devices, Application groups, or application components to your business application and a menu bar above the icons.  You can also now run a _Service Dependencies Report_ for the Business Application, which details all the communications for the devices within the Business Application.
+The page displays the business application name; hover over _Application Details_ to see information about the application. The left panel contains icons for adding devices, Application Groups, or application components to your business application and a menu bar above the icons.  You can also now run a _Service Dependencies Report_ for the Business Application, which details all the communications for the devices within the Business Application.
 
-Click a device, Application group, or application component object on the canvas to see details about that item. Links in the details box or below the object take you to the view pages for those items.
+Click a device, Application Group, or application component object on the canvas to see details about that item. Links in the details box or below the object take you to the view pages for those items.
 
 ![](/assets/images/D42-23306_biz-app-object-details.png)
 
@@ -67,7 +67,7 @@ Click a device, Application group, or application component object on the canvas
 
 ### Add Application Groups
 
-Efficiently keep track of changes and additions of devices by setting up an Application group. After adding an Application group to an application, configure an alert to send notifications when devices are added or changed to the Application group. First, add a new Application group as follows: 
+Efficiently keep track of changes and additions of devices by setting up an Application Group. After adding an Application Group to an application, configure an alert to send notifications when devices are added or changed to the Application Group. First, add a new Application Group as follows: 
 
 - Drag an _Application Group_ block to the canvas – this will bring up the Add Application Group box.  You can _Search_ by group type, group name, tag, primary device name, or service name
 - When you click on a group in the list, you will see the number of devices in that group.
