@@ -6,16 +6,16 @@ sidebar_position: 1
 ## Overview
 
 :::info 
-Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
+Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
 :::
 
-This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery/index.mdx) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
 ## Viewing Discovery Data
 
 After you have performed successful discovery, all discovered Application Dependency data can be viewed under the **Applications** section in the Device42 main menu. 
 
-The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md).
+The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications).
 
 ![](/assets/images/Web_732_1.png)
 

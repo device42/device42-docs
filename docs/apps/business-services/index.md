@@ -3,12 +3,12 @@ title: "Business Applications"
 ---
 
 :::info 
-Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
+Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
 :::
 
 ## Using Business Services
 
-Device42 Business Services offers a powerful way to build custom maps of business critical functions. Besides looking different than [Application Groups](/apps/application-groups/index.mdx), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Services can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
+Device42 Business Services offers a powerful way to build custom maps of business critical functions. Besides looking different than [Application Groups](/apps/application-groups/), Business Applications are also different because they are not automatically built out based solely on discovered connections and devices. Business Services can be totally designed and customized by you, and can _include any and all of the resources that you identify as critical to your business!_
 
 Using Business Services, you'll be able to catalog all of your business and mission-critical applications. All of the following are possible:
 

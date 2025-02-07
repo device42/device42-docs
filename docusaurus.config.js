@@ -192,8 +192,8 @@ const config = {
             from: ['/business-applications/'],
           },
           {
-            to: '/apps/business-services/building-business-services-in-device42.md/',
-            from: ['/business-applications/building-business-applications-in-device42.md/'],
+            to: '/apps/business-services/building-business-services-in-device42/',
+            from: ['/business-applications/building-business-applications-in-device42.md'],
           },
           {
             to: '/apps/application-groups/calculation-rules/',
