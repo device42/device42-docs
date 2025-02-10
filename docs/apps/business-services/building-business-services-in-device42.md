@@ -1,5 +1,5 @@
 ---
-title: "Building Business Applications in Device42"
+title: "Building Business Services in Device42"
 sidebar_position: 1
 ---
 
