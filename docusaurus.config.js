@@ -185,19 +185,19 @@ const config = {
           },
           {
             to: '/apps/application-groups/',
-            from: ['/affinity-groups/'],
+            from: ['/apps/affinity-groups/'],
           },
           {
             to: '/apps/business-services/',
-            from: ['/business-applications/'],
+            from: ['/apps/business-applications/'],
           },
           {
             to: '/apps/business-services/building-business-services-in-device42/',
-            from: ['/business-applications/building-business-applications-in-device42/'],
+            from: ['/apps/business-applications/building-business-applications-in-device42/'],
           },
           {
             to: '/apps/application-groups/calculation-rules/',
-            from: ['/affinity-groups/appfocus-filters/'],
+            from: ['/apps/affinity-groups/appfocus-filters/'],
           },
           {
             to: '/apps/enterprise-application-dependency-mapping/',
