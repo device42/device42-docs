@@ -125,7 +125,7 @@ Use the `%` wildcard in the **Tags LIKE** field to find items that match part of
   }}
 />
 
-### **Calculation Rules** 
+### **Calculation Logic Templates** 
 
 After you've selected the Starting Points, we need to know how you want to define and calculate the dependencies and determine what is and is not considered in the Application Group.
 
@@ -165,6 +165,32 @@ Leave the **Visualization** option blank to include all levels of dependencies i
 Toggle on the **Store and Display Connection Metadata** option to display communication lines and data (like the IP address and port) between boxes in the Application Group chart.
 
   ![Connection Metadata](/assets/images/calculation-rules/viz-metadata.png)
+
+## Running **Calculation Rules**  
+
+**Enabled** Calculation Rules are processed nightly at 2 AM. 
+
+Run one or many Calculation Rules to generate Application Groups and Suggestions. 
+
+- Click the **Process Now** button at the top-right of a saved Calculation Rule to run it immediately.
+
+  <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/process-now-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/process-now-dark.png'),
+    }}
+  />
+
+- Select one or more Calculation Rules from the Application Groups list page and select **Run Background Processing** from the **Actions** dropdown.
+
+  <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/run-background-processing-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/run-background-processing-dark.png'),
+    }}>
+
 
 ## Charts
 
