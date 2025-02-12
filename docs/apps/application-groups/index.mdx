@@ -24,10 +24,16 @@ You define the services critical to your use case, before Application Groups are
 Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Application Group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
 
 :::note
-Pin Application Groups to keep important items at the top of the list for quick access.
+Pin Application Groups to keep important items at the top of the list.
 :::
 
-![Application Groups Pin Icons](/assets/images/app-focus-filters/ag-pin-icons.png)
+<ThemedImage
+  alt="Application Group pinning"
+  sources={{
+    light: useBaseUrl('/assets/images/application-groups/pin-ag-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/pin-ag-dark.png'),
+  }}
+/>
 
 ## Using Application Groups - How-To
 
