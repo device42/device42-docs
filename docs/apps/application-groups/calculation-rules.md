@@ -191,6 +191,9 @@ Run one or many Calculation Rules to generate Application Groups and Suggestions
       dark: useBaseUrl('/assets/images/calculation-rules/run-background-processing-dark.png'),
     }}>
 
+There are four statuses for Calculation Rules: **Processing..**, **Completed**, **Failed**, and **Warnings**. Hover over the **i** icon for more details.
+
+![Calculation Rule Status](/assets/images/calculation-rules/calc-rule-execution-statuses.png)
 
 ## Charts
 
