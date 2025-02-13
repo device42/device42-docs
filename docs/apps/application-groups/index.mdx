@@ -150,10 +150,19 @@ Database services are considered 'core services' and are therefore pinned automa
     }}
   />  
 
-  **Tips:**
+  **User tips:**
   * You'll be prompted to save the position of the nodes after you've moved them, or do so preemptively by clicking the **Save Node Positions** button.
   
-- Click the relationship lines in the Global View to open the Local View panel displaying those relationships. On the Local View, click the dependency lines between services, processes, and devices to see connection stats (like the listener IP address, protocol, port, and average number of connections over time) . For lines to Application Components, the **Reason** and **What is affected** values are displayed if available.
+### Relationship Lines and Metadata
+
+[Application Components](application-components/index) are displayed as stand-alone nodes, and are connected to any associated services and devices via dotted lines.  
+
+Impact charts include Global and Local Views. Only Application Components that are focus items are displayed in the Global View.
+
+Click the dependency lines in the Global View to open the Local View panel displaying those relationships. 
+
+- From the Local View, click the dependency lines between services, processes, and devices to see connection-related details and statistics: **Listener IP/FQDN**, **Protocol**, **Port**, and **Net\* Average Connections** over time (if available). 
+- The dotted lines link to Application Components: the **Reason** and **What is affected** values are displayed (if available).
 
 If you don't see this historical communication metadata, make sure you have the [**Store and Display Connection Metadata** option enabled in **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
 
@@ -165,11 +174,7 @@ If you don't see this historical communication metadata, make sure you have the 
     }}
   />  
 
-
-
-
-
-Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a **Service Dependencies Report** for Application Groups from the Application Group chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
+You can also run a **Service Dependencies Report** for from the chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
 
 ## Timelines
 
