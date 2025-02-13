@@ -153,7 +153,9 @@ Database services are considered 'core services' and are therefore pinned automa
   **Tips:**
   * You'll be prompted to save the position of the nodes after you've moved them, or do so preemptively by clicking the **Save Node Positions** button.
   
-- Click on the nodes to see details about the resource. Click on relationship lines to see communication-related data (like the IP address and ports) between notes. If you don't see these data points, make sure you have the [**Store and Display Connection Metadata** option enabled in **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
+- Click the relationship lines in the Global View to open the Local View panel displaying those relationships. On the Local View, click the dependency lines between services, processes, and devices to see connection stats (like the listener IP address, protocol, port, and average number of connections over time) . For lines to Application Components, the **Reason** and **What is affected** values are displayed if available.
+
+If you don't see this historical communication metadata, make sure you have the [**Store and Display Connection Metadata** option enabled in **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
 
   <ThemedImage
     alt="Chart lines"
