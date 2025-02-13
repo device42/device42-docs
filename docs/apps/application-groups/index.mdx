@@ -4,6 +4,7 @@ title: "Application Groups"
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import statusImage from '/assets/images/calculation-rules/calc-rule-execution-statuses.png'
 
 ## Overview
 
@@ -49,9 +50,9 @@ Application Component Categories are now also used in Application Groups. Any Ap
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)
 
-### Running Application Groups
+### Processing Application Groups
 
-Application Groups are calculated daily at 2 AM. You can also manually run Application Groups from several locations in the UI:
+By default, enabled Application Groups are calculated daily at 2 AM. You can run Application Groups at any time from several locations in the UI:
 
 - Click the **ellipsis icon** and select **Run Background processing**.
   <ThemedImage
@@ -84,27 +85,32 @@ Application Groups are calculated daily at 2 AM. You can also manually run Appli
 
 Hover over the status chip for status feedback information the processing group.
 
-  ![Calculation Rule Status](/assets/images/calculation-rules/calc-rule-execution-statuses.png)
+  <img src={statusImage} width='60%'/>
 
 ### Issues Processing Application Groups
 
 **Unmanaged Application Groups**
 
-Application Groups won't run unless they are associated with a Calculation Rule. If you updated a legacy Affinity Group with a single resource, or have deleted an associated Calculation Rule, you'll see an notification about "unmanaged Application Groups" prompting you to associate the resource with a Calculation Rule.
+Application Groups won't run unless they are associated with a Calculation Rule. If you updated a legacy Affinity Group with a single resource, or have deleted an associated Calculation Rule, you'll see the following notification:
 
-Edit or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points) and add the orphaned resource to the rule. 
+>The Application Group is unmanaged as it has no Calculation Rule associated. In order to add it to processing, add a fixed rule with the items in focus.
 
 ![Unmanaged Application Group Notification](/assets/images/application-groups/unmapped-ag-notice.png)
+
+Edit or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points) and add the orphaned resource to the rule. 
 
 **Invalidated Application Groups**
 
 If you encounter the following notifications, create a new Calculation Rule with the resources of the original group as an AppFocus (**Starting Point**) and select an existing **Group By** field.
 
-- If you change the **Group By** configuration of a Calculation Rule, the Application Group will be invalidated and you'll see the following notification.
+- If you change the **Group By** configuration of a Calculation Rule, the Application Group will be invalidated. You'll get the following message:
+  > This Application Group has been invalidated because its AppFocus no longer matches its Calculation Rule.
 
   ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice.png)
 
 - If an associated Calculation Rule included a custom field grouping and that custom field is deleted, the Application Group will be invalidated and processing will fail. 
+
+  > Could not find the Custom Field to group by. Please check the Calculation Rule configuration.
 
   ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice-custom-field.png)
 
@@ -122,15 +128,48 @@ Database services are considered 'core services' and are therefore pinned automa
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
 
-### Viewing Application Group Impact Charts
+## Impact Charts 
 
-Simply click the **Chart** link next to an Application Group name to display the associated Application Group Impact Chart. Use the controls at the left of the charts to highlight or search for Application Group Dependencies in the chart.
+- Click on a **Chart** link next to an Application Group name under the **My Application Groups** tab to view the Application Group Impact Chart.
 
-![](/assets/images/18.04.00_affinity-groups-chart-1.png)  
+  <ThemedImage
+    alt="Chart links"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/chart-links-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/chart-links-dark.png'),
+    }}
+  />  
+
+- Use the controls at the left of the charts to highlight or search for dependencies and items of interest. 
+
+  <ThemedImage
+    alt="Application Group Impact Chart"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/apache-cluster-chart-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/apache-cluster-chart-dark.png'),
+    }}
+  />  
+
+  **Tips:**
+  * You'll be prompted to save the position of the nodes after you've moved them, or do so preemptively by clicking the **Save Node Positions** button.
+  
+- Click on the nodes to see details about the resource. Click on relationship lines to see communication-related data (like the IP address and ports) between notes. If you don't see these data points, make sure you have the [**Store and Display Connection Metadata** option enabled in **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
+
+  <ThemedImage
+    alt="Chart lines"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/oracle-chart-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/oracle-chart-dark.png'),
+    }}
+  />  
+
+
+
+
 
 Note that Application Components are now displayed as stand-alone nodes, and are connected to any associated services and/or devices via dotted lines. You can also now run a **Service Dependencies Report** for Application Groups from the Application Group chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
 
-### Application Group Timelines
+## Timelines
 
 Application Group timelines make it easy to see how a given Application Group changed over time. Changes to both Devices and Services are marked along the timeline, indicating when devices and/or services were added or removed from each Application Group. The timeline can also be used to quickly navigate to specific dates of interest, including those when changes occurred.
 
@@ -140,9 +179,9 @@ Click on a vertical point in the timeline at the bottom of the chart to see a su
 
 ![](/assets/images/18.04.00_affinity-groups-timeline-2.png)
 
-### Application Group Calculations
+## View Application Group Calculations
 
-With Application Group calculations users can view an Application Group calculation from just about any device — open the hamburger menu, and choose **Application Group Calculation**.
+With Application Group calculations, you can view an Application Group calculation from just about any device — open the hamburger menu, and choose **Application Group Calculation**.
 
 <ThemedImage
   alt="Application group calculation option"
@@ -151,7 +190,14 @@ With Application Group calculations users can view an Application Group calculat
     dark: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-dark.png'),
   }}
 />
-<br/><br/>
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_light.png'),
+    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_dark.png'),
+  }}
+/>
 
 On the Application Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open the summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
 

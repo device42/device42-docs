@@ -5,6 +5,7 @@ sidebar_position: 1
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import statusImage from '/assets/images/calculation-rules/calc-rule-execution-statuses.png'
 
 # Overview of Application Group Calculation Rules
 
@@ -207,23 +208,12 @@ Run one or many Calculation Rules to generate Application Groups and Suggestions
     sources={{
       light: useBaseUrl('/assets/images/calculation-rules/run-background-processing-light.png'),
       dark: useBaseUrl('/assets/images/calculation-rules/run-background-processing-dark.png'),
-    }}>
+    }}
+  />
 
 There are four statuses for Calculation Rules: **Processing..**, **Completed**, **Failed**, and **Warnings**. Hover over the **i** icon for more details.
 
-![Calculation Rule Status](/assets/images/calculation-rules/calc-rule-execution-statuses.png)
-
-## Charts
-
-Click on the **Chart** link under the **My Application Groups** tab. Click on the boxes to see details about the resource and click on the connection lines to see the dependencies and relationships between the resources.
-
-<ThemedImage
-  alt="Docusaurus themed image"
-  sources={{
-    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_light.png'),
-    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_dark.png'),
-  }}
-/>
+  <img src={statusImage} width='60%'/>
 
 ## (Legacy) Creating a New Calculation Rule
 
