@@ -82,6 +82,18 @@ Application Groups are calculated daily at 2 AM. You can also manually run Appli
     }}
   />
 
+Hover over the status chip for status feedback information the processing group.
+
+  ![Calculation Rule Status](/assets/images/calculation-rules/calc-rule-execution-statuses.png)
+
+### Issues Processing Application Groups
+
+Application Groups won't run unless they are associated with a Calculation Rule. If you updated a legacy Affinity Group with a single resource, or have deleted an associated Calculation Rule, you'll see an notification about "unmanaged Application Groups" prompting you to associate the resource with a Calculation Rule.
+
+Edit or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points) and add the orphaned resource to the rule. 
+
+![](/assets/images/application-groups/unmapped-ag-notice.png)
+
 ### Pinning other 'Core' services
 
 Application Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Application Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Application Group.
