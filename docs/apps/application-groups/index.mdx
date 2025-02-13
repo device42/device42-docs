@@ -88,11 +88,25 @@ Hover over the status chip for status feedback information the processing group.
 
 ### Issues Processing Application Groups
 
+**Unmanaged Application Groups**
+
 Application Groups won't run unless they are associated with a Calculation Rule. If you updated a legacy Affinity Group with a single resource, or have deleted an associated Calculation Rule, you'll see an notification about "unmanaged Application Groups" prompting you to associate the resource with a Calculation Rule.
 
 Edit or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points) and add the orphaned resource to the rule. 
 
-![](/assets/images/application-groups/unmapped-ag-notice.png)
+![Unmanaged Application Group Notification](/assets/images/application-groups/unmapped-ag-notice.png)
+
+**Invalidated Application Groups**
+
+If you encounter the following notifications, create a new Calculation Rule with the resources of the original group as an AppFocus (**Starting Point**) and select an existing **Group By** field.
+
+- If you change the **Group By** configuration of a Calculation Rule, the Application Group will be invalidated and you'll see the following notification.
+
+  ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice.png)
+
+- If an associated Calculation Rule included a custom field grouping and that custom field is deleted, the Application Group will be invalidated and processing will fail. 
+
+  ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice-custom-field.png)
 
 ### Pinning other 'Core' services
 
