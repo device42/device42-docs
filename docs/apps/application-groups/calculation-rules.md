@@ -148,13 +148,13 @@ Fill in the fields:
 
 - **Name**: Enter a name for the template.
 - **Time Period (in days)**: Choose a relatively recent time period, when you know that active communication has occurred, like 30 days.
-- **Levels of Depth**: Enter the number of levels of dependencies you want to include in the calculation. To prevent including dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
+- **Levels of Depth**: This is the max number of connections a node can have. To prevent including dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
 - **Limit of connections**: Limit the number of connections to prevent getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
-- **End at**: 
+- **End at**: these decide where we ‘end’ our calculations. 
   - Select **Database** to end the calculation at the database level. If you started with a database, this option won't apply as a calculation end.
   - Select **Load Balancer Virtual IP** if that's where your application stops.
-- **Include**: Include the selected items to the exclusion of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
-- **Exclude**: Select categories that don't make sense to include. For example, you can exclude IPv6 traffic or port 22.
+- **Include**: Include the selected items *to the exclusion* of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
+- **Exclude**: Select categories that don't make sense to include. You can exclude resources, devices, services, or Application Components. For example, you can exclude IPv6 traffic or port 22.
 
 Save and run the Calculation Group Logic Template by clicking **Process Now**.
 
