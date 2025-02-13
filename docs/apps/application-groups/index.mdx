@@ -13,7 +13,7 @@ Affinity Groups have been renamed **Application Groups**. AppFocus Filters are n
 
 Application Groups are an opinionated view of the impactful applications and their dependencies in your environment. They are configurable via [Calculation Rules](calculation-rules) (and templates). Application Groups are based on the communication patterns observed in your environment.
 
-After discovery has been run within your environment _(we recommend a 30-day minimum period)_, the detailed application dependency information that has been collected should now be ready to use with Application Groups.
+After discovery has been run within your environment (we recommend a 30-day minimum period), the detailed application dependency information that has been collected should now be ready to use with Application Groups.
 
 The collected information includes service names and communication details. Application Groups are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. 
 
@@ -48,6 +48,39 @@ From this screen, enter your search criteria and click the **Chart** link next t
 Application Component Categories are now also used in Application Groups. Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)
+
+### Running Application Groups
+
+Application Groups are calculated daily at 2 AM. You can also manually run Application Groups from several locations in the UI:
+
+- Click the **ellipsis icon** and select **Run Background processing**.
+  <ThemedImage
+    alt="Run Application Group from the ellipsis menu"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/my-ag-ellipsis-run-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/my-ag-ellipsis-run-dark.png'),
+    }}
+  />
+
+- Bulk run selected Application Groups from the **Actions** menu by selecting **Run Background processing**.
+  
+  <ThemedImage
+    alt="Bulk run Application Groups"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/my-ag-bulk-run-action-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/my-ag-bulk-run-action-dark.png'),
+    }}
+  />
+
+- Select and Application Group from the list page and click **Process Now**.
+  
+  <ThemedImage
+    alt="Process Application Group now"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/ag-process-now-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/ag-process-now-dark.png'),
+    }}
+  />
 
 ### Pinning other 'Core' services
 

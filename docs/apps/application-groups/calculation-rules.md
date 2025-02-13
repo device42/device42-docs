@@ -125,15 +125,23 @@ Use the `%` wildcard in the **Tags LIKE** field to find items that match part of
   }}
 />
 
-### **Calculation Rules** 
+### **Calculation Rule Templates** 
 
-After you've selected the Starting Points, we need to know how you want to define and calculate the dependencies and determine what is and is not considered in the Application Group.
+After you've selected the Starting Points, we need to know how you want to define and calculate the dependencies and determine what is and is not considered in the Application Groups.
 
 The **Calculation Logic Template** allows you to add multiple rules and conditions to groups in a user-friendly interface. You can create templates that target different parts of your environment, such as active traffic or Active Directory, or a template that does both.
 
 Under **Applications > Application Groups**, click the **Settings** button and select **Create Calculation Logic Template**. 
 
 We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backwards compatibility.
+
+<ThemedImage
+  alt="New Calculation Logic Template"
+  sources={{
+    light: useBaseUrl('/assets/images/calculation-rules/logic-template-form-light.png'),
+    dark: useBaseUrl('/assets/images/calculation-rules/logic-template-form-dark.png'),
+  }}
+/>
 
 Fill in the fields:
 
@@ -147,9 +155,19 @@ Fill in the fields:
 - **Include**: Include the selected items to the exclusion of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
 - **Exclude**: Select categories that don't make sense to include. For example, you can exclude IPv6 traffic or port 22.
 
+Save and run the Calculation Group Logic Template by clicking **Process Now**.
+
+  <ThemedImage
+    alt="Process Calculation Group Logic Template"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/template-process-now-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/template-process-now-dark.png'),
+    }}
+  />
+
 ### **Visualization** Options
 
-The **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the number of levels of dependencies shown in the visualization.
+The Calculation Rule **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the number of levels of dependencies shown in the visualization.
 
 Leave the **Visualization** option blank to include all levels of dependencies in the Application Group and dependency visualization or enter a value to limit the number of levels shown.
 
