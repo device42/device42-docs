@@ -101,12 +101,12 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
 
 **Invalidated Application Groups**
 
-If you encounter the following notifications, create a new Calculation Rule with the resources of the original group as an AppFocus (**Starting Point**) and select an existing **Group By** field.
-
 - If you change the **Group By** configuration of a Calculation Rule, the Application Group will be invalidated. You'll get the following message:
   > This Application Group has been invalidated because its AppFocus no longer matches its Calculation Rule.
 
   ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice.png)
+
+  Reverting to the exact original **Group By** value will reactivate the existing application group.
 
 - If an associated Calculation Rule included a custom field grouping and that custom field is deleted, the Application Group will be invalidated and processing will fail. 
 
