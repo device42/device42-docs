@@ -132,7 +132,7 @@ After you've selected the Starting Points, we need to know how you want to defin
 
 The **Calculation Logic Template** allows you to add multiple rules and conditions to groups in a user-friendly interface. You can create templates that target different parts of your environment, such as active traffic or Active Directory, or a template that does both.
 
-Under **Applications > Application Groups**, click the **Settings** button. Our predefined Logic Template, the "D42 Default Template", mimics our default Application Group logic closely and excludes IPv6.
+Under **Applications > Application Groups**, click the **Settings** button. Our predefined Logic Template, the **D42 Default Template**, mimics our default Application Group logic closely and excludes IPv6.
 
 From the template list page, click **Create Calculation Logic Template**. 
 
