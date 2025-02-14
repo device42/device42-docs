@@ -217,6 +217,18 @@ There are four statuses for Calculation Rules: **Processing..**, **Completed**, 
 
   <img src={statusImage} width='60%'/>
 
+## Bulk Apply Logic Templates
+
+You can apply a Calculation Logic Template to multiple Calculation Rules at once. From the Application Groups Calculation Rules tab, under the **Actions** menu, select the **Set Calculation Template**.
+
+  <ThemedImage
+    alt="Bulk Apply Calculation Logic Templates"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/ag-bulk-apply-templates-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/ag-bulk-apply-templates-dark.png'),
+    }}
+  />
+
 ## (Legacy) Creating a New Calculation Rule
 
 - Click **+ Add** at the top right of the list page to add a new AppFocus Filter.
