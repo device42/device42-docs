@@ -50,6 +50,34 @@ Application Component Categories are now also used in Application Groups. Any Ap
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)
 
+### The **Settings** Page
+
+To navigate to the Application Group settings, click the **Settings** button in the top right corner of the Application Groups page.
+
+  <ThemedImage
+    alt="Run Application Group from the ellipsis menu"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/settings-button-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/settings-button-dark.png'),
+    }}
+  />
+
+From the settings page, you can:
+
+- Enable or disable Application Groups.
+- See the **Status** of the Application Group processing and the **Last Processed** date and time.
+- Create and manage Calculation Logic Templates, which allow you to define the rules and conditions regarding Application Group dependencies. You'll specify which Logic Template to use when configuring a [Calculation Rule](calculation-rules#create-a-new-calculation-rule) to generate Application Groups.
+
+You can use the predefined **D42 Default Template** or create your own. See [Calculation Rules](calculation-rules#calculation-logic-templates) for descriptions of the Logic Template fields and how the templates fit into the ADM workflow.
+
+  <ThemedImage
+    alt="Settings page"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/ag-settings-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/ag-settings-dark.png'),
+    }}
+  />
+
 ### Processing Application Groups
 
 By default, enabled Application Groups are calculated daily at 2 AM. You can run Application Groups at any time from several locations in the UI:
@@ -128,7 +156,7 @@ Database services are considered 'core services' and are therefore pinned automa
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
 
-## Impact Charts 
+## Impact **Charts** 
 
 - Click on a **Chart** link next to an Application Group name under the **My Application Groups** tab to view the Application Group Impact Chart.
 
@@ -150,7 +178,7 @@ The Application Group Impact Chart displays the relationships between Applicatio
     }}
   />  
 
-### Usability Tips  
+### Chart Usability Tips  
 
 Use the left panel controls to highlight or search for dependencies and items of interest. 
 
@@ -183,7 +211,7 @@ If you don't see this historical communication metadata, make sure you have the 
 
 You can also run a **Service Dependencies Report** for from the chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
 
-## Timelines
+## Application Group Timelines
 
 Application Group timelines make it easy to see how a given group changed over time. Changes to services and resources are marked along the timeline, indicating when they were added or removed from the group. 
 
@@ -213,7 +241,7 @@ The timeline can also be used to quickly navigate to specific dates of interest,
 
   ![Timeline Changes](/assets/images/application-groups/timeline-node-changes.png)
 
-## View Application Group Calculations
+## View the Calculation of Devices
 
 With Application Group calculations, you can view an Application Group calculation from just about any device — open the hamburger menu, and choose **Application Group Calculation**.
 
