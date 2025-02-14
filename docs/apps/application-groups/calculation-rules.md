@@ -5,6 +5,7 @@ sidebar_position: 1
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import statusImage from '/assets/images/calculation-rules/calc-rule-execution-statuses.png'
 
 # Overview of Application Group Calculation Rules
 
@@ -125,33 +126,53 @@ Use the `%` wildcard in the **Tags LIKE** field to find items that match part of
   }}
 />
 
-### **Calculation Rules** 
+### **Calculation Logic Templates** 
 
-After you've selected the Starting Points, we need to know how you want to define and calculate the dependencies and determine what is and is not considered in the Application Group.
+After you've selected the Starting Points, we need to know how you want to define and calculate the dependencies and determine what is and is not considered in the Application Groups.
 
 The **Calculation Logic Template** allows you to add multiple rules and conditions to groups in a user-friendly interface. You can create templates that target different parts of your environment, such as active traffic or Active Directory, or a template that does both.
 
-Under **Applications > Application Groups**, click the **Settings** button and select **Create Calculation Logic Template**. 
+Under **Applications > Application Groups**, click the **Settings** button. Our predefined Logic Template, the **D42 Default Template**, mimics our default Application Group logic closely and excludes IPv6.
 
-We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backwards compatibility.
+From the template list page, click **Create Calculation Logic Template**. 
+
+We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backward compatibility with the formats used before the logic template was introduced.
+
+<ThemedImage
+  alt="New Calculation Logic Template"
+  sources={{
+    light: useBaseUrl('/assets/images/calculation-rules/logic-template-form-light.png'),
+    dark: useBaseUrl('/assets/images/calculation-rules/logic-template-form-dark.png'),
+  }}
+/>
 
 Fill in the fields:
 
 - **Name**: Enter a name for the template.
 - **Time Period (in days)**: Choose a relatively recent time period, when you know that active communication has occurred, like 30 days.
-- **Levels of Depth**: Enter the number of levels of dependencies you want to include in the calculation. To prevent including dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
-- **Limit of connections**: Limit the number of connections to prevent getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
-- **End at**: 
+- **Levels of Depth**: Set the maximum number of connections a node can have. To avoid including the dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
+- **Limit of connections**: Limit the number of connections to avoid getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
+- **End at**: Specify where the calculation will ‘end’. 
   - Select **Database** to end the calculation at the database level. If you started with a database, this option won't apply as a calculation end.
   - Select **Load Balancer Virtual IP** if that's where your application stops.
-- **Include**: Include the selected items to the exclusion of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
-- **Exclude**: Select categories that don't make sense to include. For example, you can exclude IPv6 traffic or port 22.
+- **Include**: Include the selected items *to the exclusion* of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to include only devices that are in production. 
+- **Exclude**: Select categories that it doesn't make sense to include in the calculation. You can exclude resources, devices, services, or Application Components. For example, you can exclude IPv6 traffic or port 22.
+
+Save and run the Calculation Logic Template by clicking **Process Now**.
+
+  <ThemedImage
+    alt="Process Calculation Logic Template"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/template-process-now-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/template-process-now-dark.png'),
+    }}
+  />
 
 ### **Visualization** Options
 
-The **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the number of levels of dependencies shown in the visualization.
+The Calculation Rule **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the levels of dependencies shown in the visualization.
 
-Leave the **Visualization** option blank to include all levels of dependencies in the Application Group and dependency visualization or enter a value to limit the number of levels shown.
+Leave the **Visualization** option blank to include all levels of dependencies in the Application Group and dependency visualization, or enter a value to limit the number of levels shown.
 
 
   <ThemedImage
@@ -166,17 +187,47 @@ Toggle on the **Store and Display Connection Metadata** option to display commun
 
   ![Connection Metadata](/assets/images/calculation-rules/viz-metadata.png)
 
-## Charts
+## Running **Calculation Rules**  
 
-Click on the **Chart** link under the **My Application Groups** tab. Click on the boxes to see details about the resource and click on the connection lines to see the dependencies and relationships between the resources.
+**Enabled** Calculation Rules are processed nightly at 2 AM. 
 
-<ThemedImage
-  alt="Docusaurus themed image"
-  sources={{
-    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_light.png'),
-    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_dark.png'),
-  }}
-/>
+Run one or many Calculation Rules to generate Application Groups and Suggestions. 
+
+- Click the **Process Now** button at the top right of a saved Calculation Rule to run it immediately.
+
+  <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/process-now-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/process-now-dark.png'),
+    }}
+  />
+
+- Select one or more Calculation Rules from the Application Groups list page and select **Run Background Processing** from the **Actions** dropdown.
+
+  <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/run-background-processing-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/run-background-processing-dark.png'),
+    }}
+  />
+
+There are four statuses for Calculation Rules: **Processing..**, **Completed**, **Failed**, and **Warnings**. Hover over the **i** icon for more details.
+
+  <img src={statusImage} width='60%'/>
+
+## Bulk Apply Logic Templates
+
+You can apply a Calculation Logic Template to multiple Calculation Rules at once. From the Application Group Calculation Rules tab, under the **Actions** menu, select the **Set Calculation Template**.
+
+  <ThemedImage
+    alt="Bulk Apply Calculation Logic Templates"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/ag-bulk-apply-templates-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/ag-bulk-apply-templates-dark.png'),
+    }}
+  />
 
 ## (Legacy) Creating a New Calculation Rule
 
