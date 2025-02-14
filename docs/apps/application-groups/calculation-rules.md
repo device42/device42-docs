@@ -132,11 +132,11 @@ After you've selected the Starting Points, we need to know how you want to defin
 
 The **Calculation Logic Template** allows you to add multiple rules and conditions to groups in a user-friendly interface. You can create templates that target different parts of your environment, such as active traffic or Active Directory, or a template that does both.
 
-Under **Applications > Application Groups**, click the **Settings** button. Our predefined Logic Template, "D42 Default Template", mimics our default Application Group logic closely and excludes IPv6.
+Under **Applications > Application Groups**, click the **Settings** button. Our predefined Logic Template, the **D42 Default Template**, mimics our default Application Group logic closely and excludes IPv6.
 
 From the template list page, click **Create Calculation Logic Template**. 
 
-We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backwards compatibility before the logic template was introduced.
+We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backward compatibility with the formats used before the logic template was introduced.
 
 <ThemedImage
   alt="New Calculation Logic Template"
@@ -150,18 +150,18 @@ Fill in the fields:
 
 - **Name**: Enter a name for the template.
 - **Time Period (in days)**: Choose a relatively recent time period, when you know that active communication has occurred, like 30 days.
-- **Levels of Depth**: This is the max number of connections a node can have. To prevent including dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
-- **Limit of connections**: Limit the number of connections to prevent getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
-- **End at**: these decide where we ‘end’ our calculations. 
+- **Levels of Depth**: Set the maximum number of connections a node can have. To avoid including the dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
+- **Limit of connections**: Limit the number of connections to avoid getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
+- **End at**: Specify where the calculation will ‘end’. 
   - Select **Database** to end the calculation at the database level. If you started with a database, this option won't apply as a calculation end.
   - Select **Load Balancer Virtual IP** if that's where your application stops.
-- **Include**: Include the selected items *to the exclusion* of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to only include devices that are in production in the calculation. 
-- **Exclude**: Select categories that don't make sense to include. You can exclude resources, devices, services, or Application Components. For example, you can exclude IPv6 traffic or port 22.
+- **Include**: Include the selected items *to the exclusion* of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to include only devices that are in production. 
+- **Exclude**: Select categories that it doesn't make sense to include in the calculation. You can exclude resources, devices, services, or Application Components. For example, you can exclude IPv6 traffic or port 22.
 
-Save and run the Calculation Group Logic Template by clicking **Process Now**.
+Save and run the Calculation Logic Template by clicking **Process Now**.
 
   <ThemedImage
-    alt="Process Calculation Group Logic Template"
+    alt="Process Calculation Logic Template"
     sources={{
       light: useBaseUrl('/assets/images/calculation-rules/template-process-now-light.png'),
       dark: useBaseUrl('/assets/images/calculation-rules/template-process-now-dark.png'),
@@ -170,9 +170,9 @@ Save and run the Calculation Group Logic Template by clicking **Process Now**.
 
 ### **Visualization** Options
 
-The Calculation Rule **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the number of levels of dependencies shown in the visualization.
+The Calculation Rule **Visualization** option determines the default chart depth rendered, which is useful for large environments where you want to limit the levels of dependencies shown in the visualization.
 
-Leave the **Visualization** option blank to include all levels of dependencies in the Application Group and dependency visualization or enter a value to limit the number of levels shown.
+Leave the **Visualization** option blank to include all levels of dependencies in the Application Group and dependency visualization, or enter a value to limit the number of levels shown.
 
 
   <ThemedImage
@@ -193,7 +193,7 @@ Toggle on the **Store and Display Connection Metadata** option to display commun
 
 Run one or many Calculation Rules to generate Application Groups and Suggestions. 
 
-- Click the **Process Now** button at the top-right of a saved Calculation Rule to run it immediately.
+- Click the **Process Now** button at the top right of a saved Calculation Rule to run it immediately.
 
   <ThemedImage
     alt="Docusaurus themed image"
@@ -219,7 +219,7 @@ There are four statuses for Calculation Rules: **Processing..**, **Completed**, 
 
 ## Bulk Apply Logic Templates
 
-You can apply a Calculation Logic Template to multiple Calculation Rules at once. From the Application Groups Calculation Rules tab, under the **Actions** menu, select the **Set Calculation Template**.
+You can apply a Calculation Logic Template to multiple Calculation Rules at once. From the Application Group Calculation Rules tab, under the **Actions** menu, select the **Set Calculation Template**.
 
   <ThemedImage
     alt="Bulk Apply Calculation Logic Templates"
