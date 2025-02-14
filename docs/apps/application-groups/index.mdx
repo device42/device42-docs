@@ -150,28 +150,25 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
 
 ## Application Components
 
-Application Component Categories are now also used in Application Groups. Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
+Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. 
 
-![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)  
+<ThemedImage
+  alt="Application Components categories filter"
+  sources={{
+    light: useBaseUrl('/assets/images/application-groups/app-comp-categories-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/app-comp-categories-dark.png'),
+  }}
+/>
 
-## Pinned Services (Legacy)
+You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
 
-Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. 
-
-
-### Pinning other 'Core' services
-
-Application Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Application Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Application Group.
-
-Navigate to your critical Core services and pin them using the dropdown menu:
-
-![](/assets/images/Screen-Shot-2022-05-29-at-7.47.50-PM.png)
-
-### Database Services - Pinned by default
-
-Database services are considered 'core services' and are therefore pinned automatically. Notice the green checkmarks indicating they are already pinned:
-
-![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
+<ThemedImage
+  alt="Application Components details"
+  sources={{
+    light: useBaseUrl('/assets/images/application-groups/app-comp-details-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/app-comp-details-dark.png'),
+  }}
+/>
 
 ## Impact Charts
 
@@ -258,37 +255,31 @@ The timeline can also be used to quickly navigate to specific dates of interest,
 
   ![Timeline Changes](/assets/images/application-groups/timeline-node-changes.png)
 
-## View the Calculation of Devices
+## Devices with Application Group Calculations
 
-With Application Group calculations, you can view an Application Group calculation from just about any device — open the hamburger menu, and choose **Application Group Calculation**.
+With Application Group calculations, you can view an Application Group calculation from just about any device under the **Application Group Calculation** tab.
 
-<ThemedImage
-  alt="Application group calculation option"
-  sources={{
-    light: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-light.png'),
-    dark: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-dark.png'),
-  }}
-/>
-
-<ThemedImage
-  alt="Docusaurus themed image"
-  sources={{
-    light: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_light.png'),
-    dark: useBaseUrl('/assets/images/calculation-rules/10.92.11.208_admin_core_device_14135_affinity_group_calc_dark.png'),
-  }}
-/>
-
-On the Application Group Calculation page, you can see the dependencies of the selected device or database. Click on the device to open the summary of the device and two buttons. Click on **View** to see more information on the device, or click on **Topology** for a detailed association map.
-
+On the Application Group Calculation page, you can see the dependencies of the selected device or database. Click on a node to view its details and on a connection line to open the **Local View** panel of the chart.
+  
 <ThemedImage
   alt="Application group calculation detailed view"
   sources={{
-    light: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-view-light.png'),
-    dark: useBaseUrl('/assets/images/application-groups/affinity-group-calculation-view-dark.png'),
+    light: useBaseUrl('/assets/images/application-groups/device-calc-chart-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/device-calc-chart-dark.png'),
   }}
 />
 
-## Add Application Groups to a Business Services
+You can easily switch to the following tabs from this view:
+
+- Info
+- Application Group Calculation
+- Impact Chart
+- Topology
+- Impact List
+- Trends
+- Audit Logs
+
+## Add Application Groups to Business Services
 
 You can quickly and easily add multiple Application Groups to an existing or new Business Service. Simply select Application Groups on the list page and choose **Add Application Groups to Business Applications** from the **Actions** dropdown.
 
@@ -331,3 +322,21 @@ Navigate to **Analytics > Setup Alerts** and then click **Create**:
     dark: useBaseUrl('/assets/images/application-groups/bs-alert-dark.png'),
   }}
 />
+
+## Pinned Services (Legacy)
+
+Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. 
+
+### Pinning other 'Core' services
+
+Application Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Application Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Application Group.
+
+Navigate to your critical Core services and pin them using the dropdown menu:
+
+![](/assets/images/Screen-Shot-2022-05-29-at-7.47.50-PM.png)
+
+### Database Services - Pinned by default
+
+Database services are considered 'core services' and are therefore pinned automatically. Notice the green checkmarks indicating they are already pinned:
+
+![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
