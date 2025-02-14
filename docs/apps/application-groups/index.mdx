@@ -271,16 +271,40 @@ On the Application Group Calculation page, you can see the dependencies of the s
   }}
 />
 
-## Add Application Groups to a Business Application
+## Add Application Groups to a Business Services
 
 You can now use a new command on the Application Group list page to quickly and easily add multiple Application Groups to an existing or new business application. Simply click up to five Application Groups on the list page and select **Add Application Groups to Business Applications** from the Actions menu.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic9.png)
 
-Select the Business Application you want, or add a new one, and click **Add objects to the Business Application**.
+Select the Business Service you want, or add a new one, and click **Add objects to the Business Application**.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic10.png)
 
 The Application Groups added will be visible on the Business Application canvas. The Devices in each Application Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Application Group.
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic11.png)
+
+### Business Service Dependency Alerts
+
+Business Services that were created from Application Groups can be configured to send alerts when dependencies are added or removed. There is a metadata linking Business Services to the Application Groups they were created from. 
+
+:::note
+Alerts on Business Applications prior to v19.05 (now Business Services) will no longer work. Please re-add the Application Group to the Business Service to enable alerts. Business Application alerts have been improved to be less noisy and more accurate and targeted.
+:::
+
+Navigate to **Analytics > Setup Alerts** and then click **Create**:
+
+- Set **Business Service** from the available **Rule Types**.
+- You can choose to be notified when a **New Application Group [is] Found** or when an **Application Group [is] Removed**. 
+- Choose the Business Service you want to monitor from the **Available objects** list.
+- Edit the **Notification Template** as needed.
+- Add a webhook endpoint to receive the alert, if required.
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/application-groups/bs-alert-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/bs-alert-dark.png'),
+  }}
+/>
