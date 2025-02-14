@@ -8,7 +8,7 @@ import statusImage from '/assets/images/calculation-rules/calc-rule-execution-st
 
 ## Overview
 
-:::note
+:::tip
 Affinity Groups have been renamed **Application Groups**. AppFocus Filters are now called [**Application Group Calculation Rules**](calculation-rules).
 :::
 
@@ -20,35 +20,41 @@ The collected information includes service names and communication details. Appl
 
 You define the services critical to your use case, before Application Groups are processed. The result is a visualized grouping of communication patterns.
 
-### Pinned Services
-
-Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. Application Group impact charts are only created for servers with pinned services, and you are free to pin other services you consider important, as well.
+## Using Application Groups
 
 :::note
-Pin Application Groups to keep important items at the top of the list.
+Please note that you need a ADM license to use Application Groups. Email support at [support@device42.com](mailto:support@device42.com) to enable this module in your Main Appliance.
 :::
 
-<ThemedImage
-  alt="Application Group pinning"
-  sources={{
-    light: useBaseUrl('/assets/images/application-groups/pin-ag-light.png'),
-    dark: useBaseUrl('/assets/images/application-groups/pin-ag-dark.png'),
-  }}
-/>
+Application Groups are calculated with [Calculation Rules](calculation-rules) based on [Logic Templates](calculation-rules#calculation-logic-templates), offering advanced capabilities and customizations beyond the previous reliance on pinning services as a starting point and DOQL queries. You can use a range of services, devices, and Application Components as starting points for your Application Groups. 
 
-## Using Application Groups - How-To
+See [Calculation Rules](calculation-rules) to learn how to create and manage Calculation Rules and Logic Templates.
 
-Please note that you need a ADM license to use Application Groups. Please email support at [support@device42.com](mailto:support@device42.com) to enable this module in your Main Appliance.
+![ADM Workflow](/assets/images/calculation-rules/adm-flow.png) 
 
-From the Device42 menu, navigate to **Applications > Application Groups**.
+### Application Group List Page
 
-From this screen, enter your search criteria and click the **Chart** link next to the Application Group you'd like to view. Application Groups are automatically calculated daily at 2 AM for all pinned services.
+From the Device42 menu, navigate to the list page under **Applications > Application Groups**.
 
-![](/assets/images/WEB-721_Affinity_Groups_Pic1.png)
+- Start by creating a new [**Calculation Rule**](calculation-rules)(1) to generate Application Group(s) and suggestions, which you can choose to  accept or ignore.
 
-Application Component Categories are now also used in Application Groups. Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
+  <ThemedImage
+    alt="Application Group Suggestions"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/ag-suggestions-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/ag-suggestions-dark.png'),
+    }}
+  />  
 
-![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)
+- Y can bulk manage the groups using options from the **Actions** menu,  view the [Impart Charts](index#impact-charts) of your Application Groups, search and filter the records. You can pin Application Groups to keep important items at the top of the list.
+
+  <ThemedImage
+    alt="Application Group pinning"
+    sources={{
+      light: useBaseUrl('/assets/images/application-groups/pin-ag-light.png'),
+      dark: useBaseUrl('/assets/images/application-groups/pin-ag-dark.png'),
+    }}
+  />  
 
 ### The Settings Page and Templates
 
@@ -141,6 +147,17 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
   > Could not find the Custom Field to group by. Please check the Calculation Rule configuration.
 
   ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice-custom-field.png)
+
+## Application Components
+
+Application Component Categories are now also used in Application Groups. Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
+
+![](/assets/images/WEB-721_Affinity_Groups_Pic2.png)  
+
+## Pinned Services (Legacy)
+
+Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. 
+
 
 ### Pinning other 'Core' services
 
