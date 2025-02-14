@@ -23,12 +23,12 @@ You define the services critical to your use case, before Application Groups are
 ## Using Application Groups
 
 :::note
-Please note that you need a ADM license to use Application Groups. Email support at [support@device42.com](mailto:support@device42.com) to enable this module in your Main Appliance.
+Please note that you need an ADM license to use Application Groups. Email support at [support@device42.com](mailto:support@device42.com) to enable this module in your Main Appliance.
 :::
 
 Application Groups are calculated with [Calculation Rules](calculation-rules) based on [Logic Templates](calculation-rules#calculation-logic-templates), offering advanced capabilities and customizations beyond the previous reliance on pinning services as a starting point and DOQL queries. You can use a range of services, devices, and Application Components as starting points for your Application Groups. 
 
-See [Calculation Rules](calculation-rules) to learn how to create and manage Calculation Rules and Logic Templates.
+See the [Calculation Rules](calculation-rules) page to learn how to create and manage Calculation Rules and Logic Templates.
 
 ![ADM Workflow](/assets/images/calculation-rules/adm-flow.png) 
 
@@ -46,7 +46,7 @@ From the Device42 menu, navigate to the list page under **Applications > Applica
     }}
   />  
 
-- Y can bulk manage the groups using options from the **Actions** menu,  view the [Impart Charts](index#impact-charts) of your Application Groups, search and filter the records. You can pin Application Groups to keep important items at the top of the list.
+- From the list page, you can then bulk manage Application Groups using options from the **Actions** menu, view the [Impart Charts](index#impact-charts) of your Application Groups, and search and filter the records. You can also pin Application Groups to keep important items at the top of the list.
 
   <ThemedImage
     alt="Application Group pinning"
@@ -58,7 +58,7 @@ From the Device42 menu, navigate to the list page under **Applications > Applica
 
 ### Settings and Logic Templates
 
-To navigate to the Application Group settings, click the **Settings** button in the top right corner of the Application Groups page.
+To navigate to the Application Group settings, click the **Settings** button in the top-right corner of the Application Groups page.
 
   <ThemedImage
     alt="Run Application Group from the ellipsis menu"
@@ -68,13 +68,13 @@ To navigate to the Application Group settings, click the **Settings** button in 
     }}
   />
 
-From the settings page, you can:
+From the Application Group Settings page, you can:
 
 - Enable or disable Application Groups.
-- See the **Status** of the Application Group processing and the **Last Processed** date and time.
+- See the **Status** of Application Group calculations and the **Last Processed** date and time.
 - Create and manage Calculation Logic Templates, which allow you to define the rules and conditions regarding Application Group dependencies. You'll specify which Logic Template to use when configuring a [Calculation Rule](calculation-rules#create-a-new-calculation-rule) to generate Application Groups.
 
-You can use the predefined **D42 Default Template** or create your own. See [Calculation Rules](calculation-rules#calculation-logic-templates) for descriptions of the Logic Template fields and how the templates fit into the ADM workflow.
+You can use the predefined **D42 Default Template** or create your own. See the [Calculation Rules](calculation-rules#calculation-logic-templates) documentation for descriptions of the Logic Template fields and how the templates fit into the ADM workflow.
 
   <ThemedImage
     alt="Settings page"
@@ -89,6 +89,7 @@ You can use the predefined **D42 Default Template** or create your own. See [Cal
 By default, enabled Application Groups are calculated daily at 2 AM. You can run Application Groups at any time from several locations in the UI:
 
 - Click the **ellipsis icon** and select **Run Background processing**.
+
   <ThemedImage
     alt="Run Application Group from the ellipsis menu"
     sources={{
@@ -107,7 +108,7 @@ By default, enabled Application Groups are calculated daily at 2 AM. You can run
     }}
   />
 
-- Select and Application Group from the list page and click **Process Now**.
+- Select an Application Group from the list page and click **Process Now**.
   
   <ThemedImage
     alt="Process Application Group now"
@@ -125,7 +126,7 @@ Hover over the status chip for processing details.
 
 **Unmanaged Application Groups**
 
-Application Groups won't run unless they are associated with a Calculation Rule. If you updated a legacy Affinity Group with a single resource, or have deleted an associated Calculation Rule, you'll see the following notification:
+Application Groups won't run unless they are associated with a Calculation Rule. If you delete an associated Calculation Rule or have a legacy Affinity Group with a single resource, you'll see the following notification:
 
 >The Application Group is unmanaged as it has no Calculation Rule associated. In order to add it to processing, add a fixed rule with the items in focus.
 
@@ -136,13 +137,14 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
 **Invalidated Application Groups**
 
 - If you change the **Group By** configuration of a Calculation Rule, the Application Group will be invalidated. You'll get the following message:
+
   > This Application Group has been invalidated because its AppFocus no longer matches its Calculation Rule.
 
   ![Invalidated Application Group Notification](/assets/images/application-groups/invalidated-ag-notice.png)
 
   Reverting to the exact original **Group By** value will reactivate the existing application group.
 
-- If an associated Calculation Rule included a custom field grouping and that custom field is deleted, the Application Group will be invalidated and processing will fail. 
+- If an associated Calculation Rule includes a Custom Field grouping and that Custom Field is deleted, the Application Group will be invalidated and processing will fail. 
 
   > Could not find the Custom Field to group by. Please check the Calculation Rule configuration.
 
@@ -150,7 +152,7 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
 
 ## Impact Charts
 
-- Click on a **Chart** link next to an Application Group name under the **My Application Groups** tab to view the Application Group Impact Chart.
+- Under the **My Application Groups** tab, click on the **Chart** link next to an Application Group name to view the Application Group Impact Chart.
 
   <ThemedImage
     alt="Chart links"
@@ -160,7 +162,7 @@ Edit or create a new rule and [select **Fixed** as the **Starting Point**](calcu
     }}
   />  
 
-The Application Group Impact Chart displays the relationships between Application Components, services, and devices.
+The Application Group Impact Chart displays the relationships between Application Components, Services, and Devices.
 
   <ThemedImage
     alt="Application Group Impact Chart"
@@ -172,9 +174,9 @@ The Application Group Impact Chart displays the relationships between Applicatio
 
 ### Chart Usability Tips  
 
-Use the left panel controls to highlight or search for dependencies and items of interest. 
+Use the controls in the left panel to highlight or search for dependencies and items of interest. 
 
-You'll be prompted to save the position of the nodes after you've moved them, or do so preemptively by clicking the **Save Node Positions** button.
+You'll be prompted to save the position of the nodes after you've moved them, although you can also save preemptively by clicking the **Save Node Positions** button.
 
 - Focus on a node in the chart view using the **microscope icon**.
 
@@ -184,14 +186,14 @@ You'll be prompted to save the position of the nodes after you've moved them, or
 
 [Application Components](application-components/index) are displayed as stand-alone nodes, and are connected to any associated services and devices via dotted lines.  
 
-Impact charts include Global and Local Views. Only Application Components that are focus items are displayed in the Global View.
+Impact charts include a Global View and a Local View. Only Application Components that are focus items are displayed in the Global View.
 
 Click the dependency lines in the Global View to open the Local View panel displaying those relationships. 
 
 - From the Local View, click the dependency lines between services, processes, and devices to see connection-related details and statistics: **Listener IP/FQDN**, **Protocol**, **Port**, and **Net\* Average Connections** over time (if available). 
 - The dotted lines link to Application Components: the **Reason** and **What is affected** values are displayed (if available).
 
-If you don't see this historical communication metadata, make sure you have the [**Store and Display Connection Metadata** option enabled in **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
+If you don't see this historical communication metadata, make sure you have the [**Store and Display Connection Metadata** option enabled in the **Visualization** options](calculation-rules#visualization-options) of that Application Group's Calculation Rule.
 
   <ThemedImage
     alt="Chart lines"
@@ -201,13 +203,13 @@ If you don't see this historical communication metadata, make sure you have the 
     }}
   />  
 
-You can also run a **Service Dependencies Report** for from the chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
+You can also run a **Service Dependencies Report** from the chart view page. The Services Dependencies report details all the communications for devices within an Application Group.
 
 ## Application Group Timelines
 
-Application Group timelines make it easy to see how a given group changed over time. Changes to services and resources are marked along the timeline, indicating when they were added or removed from the group. 
+Application Group timelines make it easy to see how a given group has changed over time. Changes to services and resources are marked along the timeline, indicating when they were added or removed from the group. 
 
-The timeline can also be used to quickly navigate to specific dates of interest, including those when changes occurred.
+The timeline can also be used to navigate quickly to specific dates of interest, including the dates that changes occurred.
 
 - Click on the **Time Settings** icon to open the timeline.
 
@@ -219,7 +221,7 @@ The timeline can also be used to quickly navigate to specific dates of interest,
     }}
   /> 
 
-- In the timeline, select a vertical point at the bottom of the chart to see a summary of changes. Click **Show Details** to open a panel listing and linking to the changed items.
+- In the timeline, select a vertical point at the bottom of the chart to see a summary of changes. Click **Show Details** to open a panel that lists and provides links to the changed items.
 
   <ThemedImage
     alt="Time Settings icon"
@@ -229,7 +231,7 @@ The timeline can also be used to quickly navigate to specific dates of interest,
     }}
   /> 
 
-- View the changes to dependency and non-dependency Application Group relationships to the timeline. Non-dependency relationships refer to those with Application Components and some resource-to-resource relationships.
+- You can view the changes to dependency and non-dependency Application Group relationships on the timeline. Non-dependency relationships include connections with Application Components and certain resource-to-resource associations.
 
   ![Timeline Changes](/assets/images/application-groups/timeline-node-changes.png)
 
@@ -237,7 +239,7 @@ The timeline can also be used to quickly navigate to specific dates of interest,
 
 With Application Group calculations, you can view an Application Group calculation from just about any device under the **Application Group Calculation** tab.
 
-On the Application Group Calculation page, you can see the dependencies of the selected device or database. Click on a node to view its details and on a connection line to open the **Local View** panel of the chart.
+On the Application Group Calculation page, you can see the dependencies of the selected device or database. You can click on a node to view its details and click on a connection line to open the **Local View** panel of the chart.
   
 <ThemedImage
   alt="Application group calculation detailed view"
@@ -281,7 +283,7 @@ You can quickly and easily add multiple Application Groups to an existing or new
     }}
   />
 
-- The Application Groups added will be visible on the Business Application canvas. The Devices in each Application Group added will have their own color. There are up to five different colors used to help indicate which devices came from which Application Group.
+- The Application Groups added will be visible on the Business Application canvas. The added devices are given colors based on their Application Groups. There are up to five different colors used to indicate which devices are from which Application Groups.
 
   <ThemedImage
     alt="Business Service map"
@@ -296,12 +298,12 @@ You can quickly and easily add multiple Application Groups to an existing or new
 Business Services that were created from Application Groups can be configured to send alerts when dependencies are added or removed. There is a metadata linking Business Services to the Application Groups they were created from. 
 
 :::note
-Alerts on Business Applications prior to v19.05 (now Business Services) will no longer work. Please re-add the Application Group to the Business Service to enable alerts. Business Application alerts have been improved to be less noisy and more accurate and targeted.
+Alerts on Business Applications (now Business Services) prior to v19.05 will no longer work. Please re-add the Application Group to the Business Service to enable alerts. Business Application alerts have been improved to be less noisy, more accurate, and more targeted.
 :::
 
 Navigate to **Analytics > Setup Alerts** and then click **Create**:
 
-- Set **Business Service** from the available **Rule Types**.
+- Select **Business Service** from the available **Rule Types**.
 - You can choose to be notified when a **New Application Group [is] Found** or when an **Application Group [is] Removed**. 
 - Choose the Business Service you want to monitor from the **Available objects** list.
 - Edit the **Notification Template** as needed.
@@ -318,7 +320,7 @@ Navigate to **Analytics > Setup Alerts** and then click **Create**:
 
 ## Application Components
 
-Any Application Component Categories associated with a device used to create an Application Group will be associated with the Application Group. 
+Any Application Component Categories associated with a device that is used to create an Application Group will also be associated with that Application Group. 
 
 <ThemedImage
   alt="Application Components categories filter"
@@ -328,7 +330,7 @@ Any Application Component Categories associated with a device used to create an 
   }}
 />
 
-You can now quickly drill down to your discovered database impact Application Groups or web server dependency Application Groups at the click of a button.
+You can now quickly drill down to your discovered **Database** impact Application Groups or **Web Server** dependency Application Groups at the click of a button.
 
 <ThemedImage
   alt="Application Components details"
@@ -340,9 +342,9 @@ You can now quickly drill down to your discovered database impact Application Gr
 
 ## Pinned Services (Legacy)
 
-Application Groups use the concept of pinned services. Pinned services represent the ‘core dependencies’ of your infrastructure, and discovered database services are automatically pinned by default. 
+Application Groups use the concept of pinned services. Pinned services represent the core dependencies of your infrastructure, and discovered database services are automatically pinned by default. 
 
-### Pinning other 'Core' services
+### Pinning Other 'Core' services
 
 Application Groups are only generated for your Core services, which are those services that have been pinned in Device42. If you don't see the Application Group Impact Chart you're looking for, ensure you've pinned the relevant services. Note that only pinned service listeners will lead to the formation of an Application Group.
 
@@ -352,6 +354,6 @@ Navigate to your critical Core services and pin them using the dropdown menu:
 
 ### Database Services - Pinned by default
 
-Database services are considered 'core services' and are therefore pinned automatically. Notice the green checkmarks indicating they are already pinned:
+Database services are considered Core services and are therefore pinned automatically. Notice the green checkmarks indicating they are already pinned:
 
 ![](/assets/images/WEB-721_Affinity_Groups_Pic4.png)
