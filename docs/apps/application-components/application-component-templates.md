@@ -3,6 +3,9 @@ title: "Application Component Templates"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction
 
 You can use Application Component Templates to create and define your own application components based on services discovered by Device42 [Hypervisor /*nx/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) autodiscovery jobs run against *nix and Windows platforms. Device42 adds any application components created based on your templates to the Application Components list page.
@@ -36,19 +39,47 @@ Click _Add_ at the upper right of the template list page to add a new template
 
 ### Application Component Template Configuration
 
-- Enter a _Template Name_ (required).
-- Select whether the template should be _Enabled_ (Yes/No) for use in autodiscovery – this allows you to create a template but enable it only when you are ready to use it or disable it without having to delete it.
+- Enter a **Name** for the template (required).
+- Select whether the template should be **Enabled** for use in autodiscovery – this options lets you enable the template only when you are ready to use it or disable it without having to delete it.
+
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/add-app-comp-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/add-app-comp-dark.png'),
+  }}
+/>
 
 ### Characteristics
 
-- Select the _Rule Type_ (Windows/\*Nix) to select which platform Device42 autodiscovery will search for the service(s) on which the application component will be based.
-- Select, enter, or add (plus sign) the _Service_ autodiscovery will look for to create the application component (required).
-- Enter a port in the _Only services listening on this port_ field to optionally specify the service port to further filter services that are listening on the specified port. Leave the field empty to ignore the port.
-- You can enter a text string pattern in the _Only services containing the following Command Argument text:_ field to compare against Service Command Arguments on discovered service instances to create application components more specific to a service; discovery only generates application components for services whose arguments contain that string.
+- Select the **Service Type** (Windows or \*Nix) to select which platform Device42 autodiscovery will search for the service(s) on which the application component will be based.(required).
+- Select, enter, or add (plus sign) the **Associated Service** autodiscovery will look for to create the application component (required).
+- Enter a port in the **Only services listening on this port** field to optionally specify the service port to further filter services that are listening on the specified port. Leave the field empty to ignore the port.
+- For **Match Type**, choose between **Text** or **Regular Expression** option to specify how you want to filter services:
+  - You can enter a text string pattern in the **Only services containing the following Command Argument text:** field to compare against Service Command Arguments on discovered service instances to create application components more specific to a service; discovery only generates application components for services whose arguments contain that string.
 
-![](/assets/images/App-Comp-Temp-add-2.png)
+    <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/match-type-text-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/match-type-text-dark.png'),
+    }}
+    />
+
+  - Enter a regex pattern for more control over how you want to filter services. 
+
+    <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/match-type-regex-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/match-type-regex-dark.png'),
+    }}
+    />
 
 ### Creation Rules
+
+![](/assets/images/App-Comp-Temp-add-2.png)
 
 - Enter an _Application Name Pattern_ to specify how the application component will be named. You can enter static text for the name and also use the following variable to construct the application component name.
     ```
@@ -59,20 +90,29 @@ Click _Add_ at the upper right of the template list page to add a new template
 - Enter a name or partial name in the _Configuration Filename Filter_ field to identify the configuration file(s).
 - Select _Traverse subdirectory_ (Yes/No) to have Device42 traverse the Configuration File Location directory.
 
-### Device42 Details
+### Device42 Details section
 
-- Select the _Category_ for the application component ( e.g., Application Layer, Database, Load Balancer, Other, Web Server).
-- Enter _What is impacted_ by the application component.
-- Select or add the _Responsible Customer or Department_.
-- Enter any _Tags_ you want for the application component.
+- Select the **Application Category** for the Application Component (that is, Application Layer, Database, Load Balancer, Other, Web Server).
+- Enter **What is impacted** by the Application Component.
+- Select or add the **Responsible Customer or Department**.
+- Enter any **Tags** you want for the application component.
 
-![](/assets/images/App-Comp-Temp-add-3.png)
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/d42-details-section-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/d42-details-section-dark.png'),
+  }}
+/>
 
 ### Custom Fields
 
 Select or enter values for any _Custom Fields_ you want for the application component. You can also add _Notes_ for each Custom Field.
 
 Click _Save_ at the upper right of the Add/Edit page to save the template and add it to the application component template list.
+
+![](/assets/images/App-Comp-Temp-add-3.png)
 
 ## Delete Application Component Templates
 
