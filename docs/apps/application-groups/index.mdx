@@ -251,6 +251,7 @@ On the Application Group Calculation page, you can see the dependencies of the s
   }}
 />
 
+
 You can easily switch to the following tabs from this view:
 
 - Info
@@ -260,6 +261,24 @@ You can easily switch to the following tabs from this view:
 - Impact List
 - Trends
 - Audit Logs
+  
+### Filter Devices by Recent Calculations
+
+Filter the devices list page to find any records with Application Group Calculations associated with that device within the last 30 days - either a client or a listener. 
+
+Apply the following **Advanced Filter**:
+
+```
+has_affinity_calculation_data="true"
+```
+
+<ThemedImage
+  alt="Filter devices with calculations"
+  sources={{
+    light: useBaseUrl('/assets/images/application-groups/device-calc-filter-light.png'),
+    dark: useBaseUrl('/assets/images/application-groups/device-calc-filter-dark.png'),
+  }}
+/>
 
 ## Add Application Groups to Business Services
 
