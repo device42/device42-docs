@@ -69,6 +69,12 @@ Click a device, Application Group, or Application Component object on the canvas
 
 ![](/assets/images/D42-23306_biz-app-add-device-popup.png)
 
+### View a Device's Business Service
+
+View which Business Services a device belongs from that device's **Info** tab without running a custom report or opening multiple tabs.
+
+![Device with Business Service](/assets/images/business-services/device-business-service.png)
+
 ### Add Application Groups
 
 Efficiently keep track of changes and additions of devices by setting up an Application Group. After adding an Application Group to an application, configure an alert to send notifications when devices are added or changed to the Application Group. First, add a new Application Group as follows: 
