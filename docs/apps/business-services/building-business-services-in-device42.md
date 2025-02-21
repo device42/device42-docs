@@ -120,51 +120,51 @@ Applications Groups are enabled by default in Device42, but you can disable the 
 
 Now that we have enabled Application Groups, we must identify which services we want to Pin, Star, and Hide to continue to build out our Application Groups.  
 
-Pinning a service will make it a focus point and build an Application Group for that device.  By default, all database services are assigned a Topology Status of _Pinned_, and an Impact View is built for each discovered database server. 
+Pinning a service will make it a focus point and build an Application Group for that device.  By default, all database services are assigned a Topology Status of **Pinned**, and an Impact View is built for each discovered database server. 
 
-_Starring_ a service will include that service and its connection in an Application Group if applicable.  It is recommended to limit Pinning to database services (done by default), web services (optional), and any custom services that belong to a Business Application.
+**Starring** a service will include that service and its connection in an Application Group if applicable.  It is recommended to limit Pinning to database services (done by default), web services (optional), and any custom services that belong to a Business Application.
 
-_Hiding_ a service excludes it from topology and charts. By default, hidden services are excluded from Application Groups but this behavior can be overridden in our DOQL.
+**Hiding** a service excludes it from topology and charts. By default, hidden services are excluded from Application Groups but this behavior can be overridden in our DOQL.
 
 - The easiest method to understand the service connections that have been detected is to execute the Service Dependency Report.
 
-Navigate to _Reports > Advanced Reporting_, expand the _Pre-Defined Reports_ folder, expand the _Application Discovery_ folder and right click on the _Service Dependency Report_, and select _Export As > Excel_.
+Navigate to **Reports > Advanced Reporting**, expand the **Pre-Defined Reports** folder, expand the **Application Discovery** folder, right-click on the **Service Dependency Report**, and select **Export As > Excel**.
 
 ![](/assets/images/WEB-519_bus-apps-7-Service-Dependency-Report-1.png)
 
-This report displays each connection that has been detected through discovery. Enable filtering to each column to help with sorting the data. Record the services under the _Listener Service_ and _Client Service_ columns that are important to you as you will want to make sure to **Star** those services in the next step. Please record the devices these services are running on.  If there are any services you would like to **Hide** from your Application Group views, make a note of these.
+This report displays each connection that has been detected through discovery. Enable filtering to each column to help with sorting the data. Record the services under the **Listener Service** and **Client Service** columns that are important to you, as you want to make sure to **Star** those services in the next step. Please record the devices these services are running on.  If there are any services you would like to **Hide** from your Application Group views, make a note of these.
 
 - When this is completed, there are two common options for Pinning, Starring, and Hiding services
 
-Option 1 (UI) – Navigate to Resources > Services > Services Instances to view a list of ALL the service instances.
+Option 1 (UI): Navigate to **Resources > Services > Services Instances** to view a list of ALL the service instances.
 
-Search for a name of one of the recorded services you want to Star, select one or more service instances by selecting their check box, and then use the drop-down _Action_ menu to set their _Topology status_ to Starred or Hidden (the example below shows a service instance search for _Java_).
+Search for a name of one of the recorded services you want to Star, select one or more service instances by selecting their check box, and then use the drop-down **Action** menu to set their **Topology status** to Starred or Hidden (the example below shows a service instance search for _Java_).
 
 ![](/assets/images/Web_732_7.png)
 
  
 
-To _Pin_ or _Unpin_ a service instance, select the corresponding option from the same drop-down _Action_ menu.
+To **Pin** or **Unpin** a service instance, select the corresponding option from the same drop-down **Action** menu.
 
 ![](/assets/images/Web_732_8.png)
 
-_Option 2 (Excel)_ _–_ Navigate to _Tools > Imports/Exports (xls)_ and scroll down to _Create or update Service Instances_.  Select _Download Current Data_ to the right.
+Option 2 (Excel): Navigate to **Tools > Imports/Exports (xls)**, scroll down to **Create or update Service Instances**, and select **Download Current Data** to the right.
 
-Add a column at the end named **topology\_status**.  Set the column **Service\_display\_name** to be filterable, then locate the services you recorded from the Service Dependency Report you generated above and enter a value of either **Starred** or **Hidden** for their **topology \_status.**
+Add a column at the end named `topology\status`.  Set the column **Service\_display\_name** to be filterable, then locate the services you recorded from the Service Dependency Report you generated above, and enter a value of either **Starred** or **Hidden** for their **topology \_status.**
 
 ![](/assets/images/WEB-519_bus-apps-10-Service-Instance-Impt-Expt.png)
 
 For any service instances you would like **pinned**, enter a value of **yes** under the **pinned** column.
 
-After editing the Service Instances file, navigate back to _Tools > Imports/Exports (xls)_ and import the XLS file back into Device42.
+After editing the Service Instances file, navigate back to **Tools > Imports/Exports (xls)** and import the XLS file back into Device42.
 
-Once you have completed the process above, navigate back to _Apps > Application Groups_, select _Configure_ then select _Process Now_.
+Once you have completed the process above, navigate back to **Apps > Application Groups**, select **Configure** then select **Process Now**.
 
-After your Application Groups have been processed, select the _Chart_ button next to an Impact or Dependency to see the view.
+After your Application Groups have been processed, select the **Chart** button next to an Impact or Dependency to see the view.
 
 ![](/assets/images/WEB-519_bus-apps-11-Affinity-Groupd-View.png)
 
-You should see a _Global View_ to highlight the relationships and arrows to represent the direction of communication.  By selecting any of the lines, a _Local View_ will display the services and any Application Components that exist in that relationship.
+You should see a **Global View** to highlight the relationships and arrows to represent the direction of communication.  By selecting any of the lines, a **Local View** will display the services and any Application Components that exist in that relationship.
 
 ![](/assets/images/WEB-519_bus-apps-12-Affinity-Groupd-Chart.png)
 
@@ -174,13 +174,13 @@ Hovering over the timeline above the view will allow you to identify changes to 
 
 ### (Legacy) Refactoring Application Groups
 
-- There are times when choosing a different query to generate your Application Groups may be better suited for your environment. Navigate to _Tools > Integrations > Saved DOQL Queries_.
+- There are times when choosing a different query to generate your Application Groups may be better suited for your environment. Navigate to **Tools > Integrations > Saved DOQL Queries**.
 
 ![](/assets/images/Web_732_20.png)
 
 The name of the query provides some indication as to what the query is doing.  Select the name to view the query itself.
 
-To choose one of these queries to generate your Application Groups, navigate to _Apps > Application Groups_ and then select _Configure._ Choose your preferred query from the _Saved DOQL Query_ drop-down menu.
+To choose one of these queries to generate your Application Groups, navigate to **Apps > Application Groups** and then select **Configure.** Choose your preferred query from the **Saved DOQL Query** drop-down menu.
 
 ![](/assets/images/Web_732_21.png)
 
