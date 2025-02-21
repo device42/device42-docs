@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 
 :::info 
-*Business Applications* are now named **Business Services**. Also, *Affinity Groups* have been renamed to **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously *AppFocus Filters*) for details on the new ADM flow.
+*Business Applications* are now named **Business Services**. *Affinity Groups* have also been renamed as **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously *AppFocus Filters*) for details on the new ADM flow.
 :::
 
 ## Overview
@@ -41,7 +41,7 @@ The Services section located under **Resources > Services** will provide you w
 
 ## Device Topology
 
-When viewing a device record (select **Resources > All Devices** from the main menu), its **Topology** view will display the inbound and outbound connectivity to that device.
+When viewing a device record (select **Resources > All Devices** from the main menu), the **Topology** view will display the inbound and outbound connectivity to the device.
 
 <ThemedImage
   alt="Device view with Topology link"
@@ -51,9 +51,9 @@ When viewing a device record (select **Resources > All Devices** from the main m
   }}
 />
 
-The **Global View** (left pane) displays a high-level view of the device communication. The **Local View** (right pane) will drill down to display the services and applications that are building these connections. These are connections Device42 has detected to known (in Device42) devices since the very first time you performed the discovery.
+The **Global View** (left pane) displays a high-level view of the device's communication. The **Local View** (right pane) drills down to display the services and applications that build the connections used for communication. These are connections Device42 has detected to known devices (in Device42) since the very first time you performed the discovery.
 
-To display connections to undiscovered devices, select **Display Options** above the topology view and uncheck **Hide client IP addresses with no device/Managed Resources**, and any connections to undiscovered devices should appear.
+To display connections to undiscovered devices, select **Display Options** above the Topology view and uncheck **Hide client IP addresses with no device/Managed Resources**. Any connections to undiscovered devices should be revealed.
 
 <ThemedImage
   alt="'Hide client IP addresses with no device' option unchecked"
@@ -64,38 +64,38 @@ To display connections to undiscovered devices, select **Display Options** above
 />
 
 :::tip
-When viewing a service in the device Topology view, you can **hover** over a Service to **Star** or **Hide** this individual service instance.
+When viewing a service in the device Topology view, you can **hover** over a Service to **Star** or **Hide** an individual service instance.
 :::
 
     ![](/assets/images/Web_732_16.png)
 
 ## Undiscovered Listening Services
 
-In the Local view of the Topology, you may notice Undiscovered Listening Services appearing in the communication.
+In the Local view of the Topology, you may notice Undiscovered Listening Services appear in the communication.
 
 ![](/assets/images/Web_732_4.png)
 
 These services typically arise due to one of the following conditions:
 
-1. Device42 is discovering the services/service connections on the client device but is not actively discovering services/service connections on the listening device.
-2. Device42 is discovering the services on the listener side, but we lack adequate permissions to match the PID to a service name.
-3. It is such a short-lived connection that we may see the client connecting to that port, but we cannot match the listening service to a PID/service name on the listener side while the connection is alive (typical of services listening on ephemeral ports).
+1. Device42 is discovering the services and service connections on the client device but is not actively discovering services and service connections on the listening device.
+2. Device42 is discovering the services on the listener side but lacks adequate permissions to match the PID to a service name.
+3. The Undiscovered Listening Service represents such a short-lived connection that Device42 can see the client connecting to that port but cannot match the listening service to a PID or service name on the listener side while the connection is alive (this is typical of services listening on ephemeral ports).
 
-For highly active servers and environments, these visuals can be quite noisy making it a challenge to identify the key relationships.  To solve this, Device42 offers a feature known as Application Groups.
+For highly active servers and environments, these visuals can be quite noisy, making it a challenge to identify the key relationships.  To solve this, Device42 offers a feature known as Application Groups.
 
 ## Application Groups
 
-Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of configuring Starting Points, End Points, using [Calculation Rules](/apps/application-groups/calculation-rules), the noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  
+Application Groups are used to construct more consumable views of device interdependencies after the evaluation of all of a device's connections. By configuring Starting Points and End Points using [Calculation Rules](/apps/application-groups/calculation-rules), you can limit device communication noise to just meaningful connections and better understand the impact or dependency of a particular device.  
 
 :::note
-Please see [Application Groups](/apps/application-groups/) to further understand generating Application Groups.
+View the [Application Groups](/apps/application-groups/) documentation to learn more about generating Application Groups.
 :::
 
 ### Enabling Application Groups
 
 Applications Groups are enabled by default in Device42, but you can disable the feature at any time. 
 
-- Select **Applications > Application Groups**, and then select **Settings** at the right of the page.
+- Select **Applications > Application Groups**, and then select **Settings** in the top-right corner of the page.
 
     <ThemedImage
     alt="Application Groups Settings"
@@ -187,7 +187,7 @@ To choose one of these queries to generate your Application Groups, navigate to 
 
 ## Building Business Services
 
-To build a Business Service, navigate to **Applications > Business Applications**, and then click **Create** at the top right of the page.
+To build a Business Service, navigate to **Applications > Business Applications**, and then click **Create** in the top right of the page.
 
 <ThemedImage
   alt="Create button"
@@ -198,43 +198,43 @@ To build a Business Service, navigate to **Applications > Business Applications
   style={{ width: '60%' }} 
 />
 
-After naming and saving your new Business Service, click the **View Application** button and toggle on **Edit** mode.  You'll see a blank canvas. Drag items from the left panel to start building the Business Service. 
+After naming and saving your new Business Service, click the **View Application** button and toggle on the **Edit** mode.  You'll see a blank canvas. Drag items from the left panel to start building the Business Service. 
 
 Select **Application Group** and drag it onto the canvas.
 
-You have several options to search for existing Application Groups; in the example, we searched for part of a server name (`server`) that we know is within the AppFocus group of the Application Group we're looking for. The AppFocus group is the focus point for the Application Group and is defined as the group's [Starting Point](/apps/application-groups/calculation-rules).
+You have several options to search for existing Application Groups. In the example, we searched for part of a server name (`server`) that we know is within the AppFocus group of the Application Group we're looking for. The AppFocus group is the focus point for the Application Group and is defined as the group's [Starting Point](/apps/application-groups/calculation-rules).
 
-You'll see that two Application Groups were found that have items containing the word `server` as their focus points.
+You'll see that we found two Application Groups that had items containing the word `server` as their focus points.
 
 <ThemedImage
-  alt="Add Application Group modal window"
+  alt= "Add Application Group modal window"
   sources={{
     light: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-light.png'),
     dark: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-dark.png'),
   }}
-  style={{ width: '60%' }} 
+  style={{ width: '60%'}} 
 />
 
-Select the group you want to add and click **Add** to include it on the canvas.  Repeat this process if there are any other Application Groups, Components, Resources, and Devices that need to be added to this Business Service.
+Select the group you want to add and click **Add** to include it on the canvas. Repeat this process if there are any other Application Groups, Components, Resources, or Devices that you need to add to the Business Service.
 
-Once you have successfully imported everything over, use the toolbars at the top and right of the screen to label and color code the objects
+Once you have successfully imported everything, use the toolbars at the top right of the screen to label and color-code the objects.
 
 Select a box with a device name, then use the **Style** tab on the right to change the color of this box.
 
 <ThemedImage
-  alt="Style tab"
+  alt= "Style tab"
   sources={{
     light: useBaseUrl('/assets/images/building-business-services-in-device42/style-tab-light.png'),
     dark: useBaseUrl('/assets/images/building-business-services-in-device42/style-tab-dark.png'),
   }}
-  style={{ width: '30%' }} 
+  style={{ width: '30%'}} 
 />
 
-Double click a line or anywhere on the canvas to add text. Use this to represent a service, a port, or a logical grouping for the relationship.
+Double-click a line or another area of the canvas to add text. Use this to represent a service, a port, or a logical grouping for the relationship.
 
 ![](/assets/images/Web_732_14.png)
 
-Congratulations! You have now built a Business Service by leveraging Device42’s discovery and Application Group capabilities.
+Congratulations! You have now built a Business Service by leveraging Device42's discovery and Application Group capabilities.
 
 ![](/assets/images/Web_732_15.png)
  
@@ -243,12 +243,12 @@ Congratulations! You have now built a Business Service by leveraging Device42’
 
 In the add or edit mode of the **Hypervisors/\*nix/win for Autodiscovery** job pages, you can expand the **Miscellaneous** section to apply **Tags for discovered devices**. 
 
-- If you know the servers that are part of your Business Service, you can tag them with the Business Service name, then easily search for these devices by this tag when you are building your Business Service.
+- If you know which servers are part of your Business Service, you can tag them with the Business Service name, then easily search and filter devices by this tag when you are building your Business Service.
 
 - When creating a Business Service, drag the **Device** icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
 
     <ThemedImage
-    alt="Searching Devices using tags"
+    alt= "Searching Devices using tags"
     sources={{
         light: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-light.png'),
         dark: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-dark.png'),
