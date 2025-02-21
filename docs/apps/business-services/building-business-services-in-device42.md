@@ -3,11 +3,15 @@ title: "Building Business Services in Device42"
 sidebar_position: 1
 ---
 
-## Overview
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 
 :::info 
-Business Applications are now named **Business Services**. Also, Affinity Groups have been renamed to **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously AppFocus Filters) for details on the new ADM flow.
+*Business Applications* are now named **Business Services**. Also, *Affinity Groups* have been renamed to **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules) (previously *AppFocus Filters*) for details on the new ADM flow.
 :::
+
+## Overview
 
 This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
 
@@ -17,23 +21,53 @@ After you have performed successful discovery, all discovered Application Depend
 
 The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications).
 
-![](/assets/images/Web_732_1.png)
+<ThemedImage
+  alt="Applications menu"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/applications-menu-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/applications-menu-dark.png'),
+  }}
+/>
 
 The Services section located under **Resources > Services** will provide you with list views of all your Services including Service Instances, Scheduled Tasks, Listener ports, and Service communications.
 
-![](/assets/images/Web_732_1_Joined.png)
+<ThemedImage
+  alt="Services menu"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/services-menu-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/services-menu-dark.png'),
+  }}
+/>
 
 ## Device Topology
 
-When viewing a device record (select _Devices_ from the main menu), its _Topology_ view will display the inbound and outbound connectivity to that device.
+When viewing a device record (select **Resources > All Devices** from the main menu), its **Topology** view will display the inbound and outbound connectivity to that device.
 
-![](/assets/images/Web_732_2.png)
+<ThemedImage
+  alt="Device view with Topology link"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/device-view-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/device-view-dark.png'),
+  }}
+/>
 
-The _Global View_ (left pane) displays a high-level view of the device communication. The _Local View_ (right pane) will drill down to display the services and applications that are building these connections.  These are connections Device42 has detected to known (in Device42) devices since the very first time you performed the discovery.
+The **Global View** (left pane) displays a high-level view of the device communication. The **Local View** (right pane) will drill down to display the services and applications that are building these connections. These are connections Device42 has detected to known (in Device42) devices since the very first time you performed the discovery.
 
-To display connections to undiscovered devices, select _Display Options_ above the topology view and uncheck _Hide client IP addresses with no device_, and any connections to undiscovered devices should appear.
+To display connections to undiscovered devices, select **Display Options** above the topology view and uncheck **Hide client IP addresses with no device/Managed Resources**, and any connections to undiscovered devices should appear.
 
-![](/assets/images/Web_732_3.png)
+<ThemedImage
+  alt="'Hide client IP addresses with no device' option unchecked"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/display-options-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/display-options-dark.png'),
+  }}
+/>
+
+:::tip
+When viewing a service in the device Topology view, you can **hover** over a Service to **Star** or **Hide** this individual service instance.
+:::
+
+    ![](/assets/images/Web_732_16.png)
 
 ## Undiscovered Listening Services
 
@@ -51,23 +85,38 @@ For highly active servers and environments, these visuals can be quite noisy mak
 
 ## Application Groups
 
-Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of Pinning, Staring, and Hiding Services, noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  Please see: [Application Groups](/apps/application-groups/) to further understand this process.
+Application Groups are a result of a process that evaluates all the connections for a given device and constructs a more consumable view of its inter-dependencies.  Through a process of configuring Starting Points, End Points, using [Calculation Rules](/apps/application-groups/calculation-rules), the noise is limited to just meaningful connections to better understand the impact or dependency of a particular device.  
+
+:::note
+Please see [Application Groups](/apps/application-groups/) to further understand generating Application Groups.
+:::
 
 ### Enabling Application Groups
 
-Select _Applications > Application Groups_, and then select Configure at the right of the page.
+Applications Groups are enabled by default in Device42, but you can disable the feature at any time. 
 
-![](/assets/images/Web_732_5.png)
+- Select **Applications > Application Groups**, and then select **Settings** at the right of the page.
 
-Next, select the _Enable Application Groups_ check box.
+    <ThemedImage
+    alt="Application Groups Settings"
+    sources={{
+        light: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-settings-light.png'),
+        dark: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-settings-dark.png'),
+    }}
+    />
 
-![](/assets/images/Web_732_6.png)
+- Next, toggle the **Application Groups Enabled** option.
 
-For _Reports_ you can choose either _Generate Impact Groups Only_ or _Generate Impact and Dependency Groups_. We recommend selecting _Generate Impact and Dependency Groups_ to understand upstream and downstream relationships.
+    <ThemedImage
+    alt="Enable Application Groups"
+    sources={{
+        light: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-enabled-light.png'),
+        dark: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-enabled-dark.png'),
+    }}
+    />
 
-Leave the default selection for _Saved DOQL Query_, then select _Save_ and _Process Now_.
 
-### Pinning, Starring, and Hiding Services
+### (Legacy) Pinning, Starring, and Hiding Services
 
 Now that we have enabled Application Groups, we must identify which services we want to Pin, Star, and Hide to continue to build out our Application Groups.  
 
@@ -123,63 +172,11 @@ Hovering over the timeline above the view will allow you to identify changes to 
 
 ![](/assets/images/WEB-519_bus-apps-13-Affinity-Group-Chart-Timeline.png)
 
-## Building Business Applications
+### (Legacy) Refactoring Application Groups
 
-To build a Business Application, navigate to Applications > Business Applications, and then select Add Business Application at the top right of the page.
-
-![](/assets/images/Web_732_10.png)
-
-After you’ve given your Business Application a name, you should see a blank canvas with the ability to drag a _Device_ or _Application Group_ (on the left) over to start building your application. Select _Application Group_ and drag it onto the canvas.
-
-You have several options to search for an existing Application Group; in the below example, we used a device name and then selected _Search_.
-
-![](/assets/images/Web_732_11.png)
-
-You should see that an Application Group was found along with the number of devices that are part of that group.
-
-![](/assets/images/Web_732_12.png)
-
-Select _Add_ to add all devices that belong to this Application Group.  Repeat this process if there are any other Application Groups or devices that need to be added to this Business Service.
-
-Once you have successfully imported everything over, use the toolbars at the top and right of the screen to label and color code the objects
-
-Select a box with a device name, then use the _Style_ tab on the right to change the color of this box.
-
-![](/assets/images/Web_732_13.png)
-
-Double click a line or anywhere on the canvas to add text. Use this to represent a service, a port, or a logical name/grouping for the relationship.
-
-![](/assets/images/Web_732_14.png)
-
-Congratulations! You have now built a Business Service by leveraging Device42’s discovery and Application Group capabilities.
-
-![](/assets/images/Web_732_15.png)
-
- 
-
-## Tips & Tricks
-
-- When viewing a service in the device Topology view, you can **hover** over a Service to **Star** or **Hide** this individual service instance.
-
-![](/assets/images/Web_732_16.png)
-
-- In the _Add/Change Windows and \*nix discovery_ job pages, you can expand the _Miscellaneous_ section to apply _Tags for discovered devices_.
-
-![](/assets/images/Web_732_17.png)
-
-- If you know the servers that are part of your Business Service, you can tag them with the Business Service name, then easily search for these devices by this tag when you are building your Business Service.
-
-When creating a Business Service, drag the _Device_ icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
-
-![](/assets/images/Web_732_18.png)
-
-![](/assets/images/Web_732_19.png)
-
-- Application groups are generated by a saved DOQL query. There are times when choosing a different query to generate your Application Groups may be better suited for your environment. Navigate to _Tools > Integrations > Saved DOQL Queries_.
+- There are times when choosing a different query to generate your Application Groups may be better suited for your environment. Navigate to _Tools > Integrations > Saved DOQL Queries_.
 
 ![](/assets/images/Web_732_20.png)
-
- 
 
 The name of the query provides some indication as to what the query is doing.  Select the name to view the query itself.
 
@@ -187,3 +184,73 @@ To choose one of these queries to generate your Application Groups, navigate to 
 
 ![](/assets/images/Web_732_21.png)
 
+
+## Building Business Services
+
+To build a Business Service, navigate to **Applications > Business Applications**, and then click **Create** at the top right of the page.
+
+<ThemedImage
+  alt="Create button"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/create-button-bs-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/create-button-bs-dark.png'),
+  }}
+  style={{ width: '60%' }} 
+/>
+
+After naming and saving your new Business Service, click the **View Application** button and toggle on **Edit** mode.  You'll see a blank canvas. Drag items from the left panel to start building the Business Service. 
+
+Select **Application Group** and drag it onto the canvas.
+
+You have several options to search for existing Application Groups; in the example, we searched for part of a server name (`server`) that we know is within the AppFocus group of the Application Group we're looking for. The AppFocus group is the focus point for the Application Group and is defined as the group's [Starting Point](/apps/application-groups/calculation-rules).
+
+You'll see that two Application Groups were found that have items containing the word `server` as their focus points.
+
+<ThemedImage
+  alt="Add Application Group modal window"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-dark.png'),
+  }}
+  style={{ width: '60%' }} 
+/>
+
+Select the group you want to add and click **Add** to include it on the canvas.  Repeat this process if there are any other Application Groups, Components, Resources, and Devices that need to be added to this Business Service.
+
+Once you have successfully imported everything over, use the toolbars at the top and right of the screen to label and color code the objects
+
+Select a box with a device name, then use the **Style** tab on the right to change the color of this box.
+
+<ThemedImage
+  alt="Style tab"
+  sources={{
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/style-tab-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/style-tab-dark.png'),
+  }}
+  style={{ width: '30%' }} 
+/>
+
+Double click a line or anywhere on the canvas to add text. Use this to represent a service, a port, or a logical grouping for the relationship.
+
+![](/assets/images/Web_732_14.png)
+
+Congratulations! You have now built a Business Service by leveraging Device42’s discovery and Application Group capabilities.
+
+![](/assets/images/Web_732_15.png)
+ 
+
+## Tips and Tricks: Use Tags    
+
+In the add or edit mode of the **Hypervisors/\*nix/win for Autodiscovery** job pages, you can expand the **Miscellaneous** section to apply **Tags for discovered devices**. 
+
+- If you know the servers that are part of your Business Service, you can tag them with the Business Service name, then easily search for these devices by this tag when you are building your Business Service.
+
+- When creating a Business Service, drag the **Device** icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
+
+    <ThemedImage
+    alt="Searching Devices using tags"
+    sources={{
+        light: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-light.png'),
+        dark: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-dark.png'),
+    }}
+    />
