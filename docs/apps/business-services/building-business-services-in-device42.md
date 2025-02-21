@@ -3,9 +3,6 @@ title: "Building Business Services in Device42"
 sidebar_position: 1
 ---
 
-import ThemedImage from '@theme/ThemedImage'
-import useBaseUrl from '@docusaurus/useBaseUrl'
-
 ## Overview
 
 :::info 
@@ -21,14 +18,6 @@ After you have performed successful discovery, all discovered Application Depend
 The Application Components section is where discovered infrastructure Application Components are stored. See a complete list of Device42’s supported applications here: [ADM supported applications](apps/enterprise-application-dependency-mapping/adm-supported-applications).
 
 ![](/assets/images/Web_732_1.png)
-
-<ThemedImage
-  alt="Cloud Resources list page"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-dark.png'),
-  }}
-/>
 
 The Services section located under **Resources > Services** will provide you with list views of all your Services including Service Instances, Scheduled Tasks, Listener ports, and Service communications.
 
