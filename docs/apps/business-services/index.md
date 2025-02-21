@@ -179,7 +179,7 @@ Click the **File** menu at the top of the canvas and select **Save**.
 
 ## Clone a Business Service
 
-From the Business Services list page, you can easily clone an existing Business Service. You might want to do this to experiment without editing the original, or as the base of a new Business Service, or even to plan out a future deployment or migration. Follow these steps:
+From the Business Services list page, you can easily clone an existing Business Service. You might want to do this to experiment without editing the original, or as the base of a new Business Service, or even to plan out a future deployment or migration. Cloning a Business Service will also clone its Custom Field values. 
 
 From the Business Services list page, select the checkbox for the application you want to clone, and then click **Clone Business Service**.
 
