@@ -184,6 +184,22 @@ const config = {
             from: ['/managed-resources/cloud-resources/'],
           },
           {
+            to: '/apps/application-groups/',
+            from: ['/apps/affinity-groups/'],
+          },
+          {
+            to: '/apps/business-services/',
+            from: ['/apps/business-applications/'],
+          },
+          {
+            to: '/apps/business-services/building-business-services-in-device42/',
+            from: ['/apps/business-applications/building-business-applications-in-device42/'],
+          },
+          {
+            to: '/apps/application-groups/calculation-rules/',
+            from: ['/apps/affinity-groups/appfocus-filters/'],
+          },
+          {
             to: '/apps/enterprise-application-dependency-mapping/',
             from: ['/enterprise-application-dependency-mapping/'],
           },

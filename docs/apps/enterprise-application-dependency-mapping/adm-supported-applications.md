@@ -3,6 +3,10 @@ title: "ADM Detected Applications"
 sidebar_position: 1
 ---
 
+:::info
+Set up Application Groups by defining a Starting Point or processing one of our predefined Calculation Rules. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
+:::
+
 ### Currently Supported Applications
 
 Enterprise Application Dependency Mapping will discover **_all running services, whether or not they are on this list_**.

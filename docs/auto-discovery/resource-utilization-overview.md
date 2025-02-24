@@ -5,7 +5,7 @@ sidebar_position: 25
 
 ## What is Resource Utilization?
 
-Device42's Resource Utilization (RU) features are enabled for users with an installed RU license. RU is also known as the "enable monitoring for discovered devices" setting. This powerful module collects and examines server resource usage metrics, which can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Affinity Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
+Device42's Resource Utilization (RU) features are enabled for users with an installed RU license. RU is also known as the "enable monitoring for discovered devices" setting. This powerful module collects and examines server resource usage metrics, which can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Application Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
 
 Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform CIs, stats are currently displayed.
 

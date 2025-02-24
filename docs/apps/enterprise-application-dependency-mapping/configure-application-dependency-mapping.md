@@ -7,6 +7,10 @@ sidebar_position: 3
 
 To turn on Enterprise Application Mapping, simply check the "Discover Applications" checkbox while configuring your discovery job. If you are new to discovery, see [Getting Started with Auto-Discovery](/getstarted/getting-started-with-auto-discovery.mdx) to get acquainted. If you would like to discover config files, they can also be imported into Device42; select the "Store Application Components Config Files" checkbox.
 
+:::info
+After enabling ADM sampling on the autodiscovery job, set up Application Groups by defining a Starting Point or using the predefined rules. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
+:::
+
 When autodiscovery is run, Application Components will be created based on related services on a server. For instance, a server with Oracle Database running will have a component created that associates all Oracle Database services together on that machine. The Autodiscovery Application will also find the service-to-service connections so you could, for example, see that your Apache service on _Prod-Server1_ is directly dependent on the MySQL service running on _Prod-Database3_.
 
 ![](/assets/images/D42-22008_ADM-sampling-interval.png)
