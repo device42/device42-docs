@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Introduction
 
-You can use Application Component Templates to create and define your own Application Components based on services discovered by [Hypervisor/\*nix/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) autodiscovery jobs run against *nix and Windows platforms. 
+You can use Application Component Templates to create and define your own Application Components based on services discovered by [Hypervisor/\*nix/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery) autodiscovery jobs run against *nix and Windows platforms. 
 
-Device42 adds the Application Components you create using templates to the [Application Components](application-components) list page.
+Device42 adds the Application Components you create using templates to the [Application Components](/apps/application-components) list page.
 
 :::info
 Application Components now automatically [suggest Application Groups](/apps/application-groups#application-group-list-page) that you can accept or ignore under **Applications > Application Groups > Application Group Suggestions** on the Main Appliance. 
