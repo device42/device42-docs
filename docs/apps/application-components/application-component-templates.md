@@ -3,98 +3,251 @@ title: "Application Component Templates"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Introduction
 
-You can use Application Component Templates to create and define your own application components based on services discovered by Device42 [Hypervisor /*nx/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) autodiscovery jobs run against *nix and Windows platforms. Device42 adds any application components created based on your templates to the Application Components list page.
+You can use Application Component Templates to create and define your own Application Components based on services discovered by [Hypervisor/\*nix/Windows](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) autodiscovery jobs run against *nix and Windows platforms. 
+
+Device42 adds the Application Components you create using templates to the [Application Components](application-components) list page.
+
+:::info
+Application Components now automatically [suggest Application Groups](/apps/application-groups#application-group-list-page) that you can accept or ignore under **Applications > Application Groups > Application Group Suggestions** on the Main Appliance. 
+:::
 
 ## View Application Component Templates
 
-Select _Applications > Application Component Templates_ from the Device42 menu to display the templates list.
+Select **Applications > Application Component Templates** from the Device42 menu to display the templates list.
 
-![](/assets/images/Screen-Shot-2022-08-15-at-8.09.50-AM.png)
+<ThemedImage
+  alt="App Comp Templates menu"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/menu-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/menu-dark.png'),
+  }}
+/>
 
-Device42 displays the Application Component Templates list page.  On this page, you can _Search by template name_, or filter the list by _Application Category_, _Enabled, Platform, or Associated Service_ and also click _+More_ to add additional filters.
+On the Application Component Templates list page, you can **Search by template name**, or filter the list by **Application Category**, **Enabled**, **Platform**, **Associated Service**, or by any of the options under **More Filters**.
 
-![](/assets/images/Screen-Shot-2022-08-15-at-8.10.58-AM.png)
+<ThemedImage
+  alt="More filters"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/more-filters-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/more-filters-dark.png'),
+  }}
+/>
 
-**Note**: The Application Component Templates list page also includes an _Advanced Search_ option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page for instructions.
+The Application Component Templates list page also includes an **Advanced Search** option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) page for instructions.
 
-![](/assets/images/WEB-757_Pic4.png)
+<ThemedImage
+  alt="Advanced Search"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/advanced-search-query-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/advanced-search-query-dark.png'),
+  }}
+/>
 
-Click on a template _Name_ to see details about that template. Click _Edit_ at the upper right to change or update an existing template.
+Click on a template name to see more details about that template. Click **Edit** in the upper right corner of the details page to change or update an existing template.
 
-![](/assets/images/Screen-Shot-2022-08-15-at-8.18.59-AM.png)
+<ThemedImage
+  alt="Info view of an Application Component Template"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/template-info-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/template-info-dark.png'),
+  }}
+/>
 
 ## Add an Application Component Template
 
-Click _Add_ at the upper right of the template list page to add a new template.
+You can add a new template by clicking **Create** in the top right of the template list page.
 
-![](/assets/images/Screen-Shot-2022-08-15-at-8.22.28-AM.png)
-
-
-![](/assets/images/Screen-Shot-2022-08-15-at-8.24.27-AM.png)
+<ThemedImage
+  alt="Create an Application Component Template"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/create-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/create-dark.png'),
+  }}
+/>
 
 ### Application Component Template Configuration
 
-- Enter a _Template Name_ (required).
-- Select whether the template should be _Enabled_ (Yes/No) for use in autodiscovery – this allows you to create a template but enable it only when you are ready to use it or disable it without having to delete it.
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/add-app-comp-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/add-app-comp-dark.png'),
+  }}
+/>
+
+- Enter a **Name** for the template (required).
+- Select whether the template should be **Enabled** for use in autodiscovery jobs. This option lets you enable or disable the template according to when you need it without having to delete it when it's not in use.
 
 ### Characteristics
 
-- Select the _Rule Type_ (Windows/\*Nix) to select which platform Device42 autodiscovery will search for the service(s) on which the application component will be based.
-- Select, enter, or add (plus sign) the _Service_ autodiscovery will look for to create the application component (required).
-- Enter a port in the _Only services listening on this port_ field to optionally specify the service port to further filter services that are listening on the specified port. Leave the field empty to ignore the port.
-- You can enter a text string pattern in the _Only services containing the following Command Argument text:_ field to compare against Service Command Arguments on discovered service instances to create application components more specific to a service; discovery only generates application components for services whose arguments contain that string.
+- Select the **Service Type** (Windows or \*Nix) to specify which platform Device42 autodiscovery searches for the service(s) that the Application Component will be based on.(required).
+- Select, enter, or add (using the **plus sign** icon) the **Associated Service** that autodiscovery will search for and use to create the Application Component (required).
+- Enter a port in the **Only services listening on this port** field to limit autodiscovery to only the services that are listening on your chosen port. Leave the field empty to ignore the port.
+- For **Match Type**, select **Text** or **Regular Expression** to specify how you want to filter services:
+  - You can enter a **Text** string pattern that discovery will use to create more service-specific Application Components by only generating Application Components for services with Service Command Arguments that contain the string.
 
-![](/assets/images/App-Comp-Temp-add-2.png)
+    <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/match-type-text-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/match-type-text-dark.png'),
+    }}
+    />
+
+    >Performs simple text contains match on command argument text
+
+  - Enter a **Regular Expression** for more control over how you want to filter services. 
+
+    <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/match-type-regex-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/match-type-regex-dark.png'),
+    }}
+    />
+    >Performs regular expression match on command argument text. Python regular expression syntax is supported. Will generate up to 4 regular expression matches: regex_name variable will contain full match, regex_nameN, where N is 1-3, will contain first 3 group matches, if available.
 
 ### Creation Rules
 
-- Enter an _Application Name Pattern_ to specify how the application component will be named. You can enter static text for the name and also use the following variable to construct the application component name.
+<ThemedImage
+  alt="Creation Rules"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/creation-rules-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/creation-rules-dark.png'),
+  }}
+/>
+
+- Enter an **Application Name Pattern** to specify how the Application Component is named. You can use static text and the following variables to construct the Application Component name.
+
+    >The pattern can contain the following variables:
+    >- `%(device_name)s` (required)
+    >- `%(discovered_listening_ip)s`
+    >- `%(listening_port)s` 
+    >- `%(app_template_name)s`
     ```
-    %(device\_name)s, %(discovered\_listening\_ip)s, %(listening\_port)s, %(app\_template\_name)s
+    %(device_name)s, %(discovered_listening_ip)s, %(listening_port)s, %(app_template_name)s
     ```
-- Select, enter, or add (plus sign) any _Related Software Components_ or _Related Services_ that should associated with the application component. For Related Service, you can specify _Only services listening on this port_.
-- Enter a path in _Configuration File Location_ to specify the directory in which Device42 should look for configuration files.
-- Enter a name or partial name in the _Configuration Filename Filter_ field to identify the configuration file(s).
-- Select _Traverse subdirectory_ (Yes/No) to have Device42 traverse the Configuration File Location directory.
 
-### Device42 Details
+    >When you use regular expression matching, four additional variables are available:
+    >- `%(regex_name)s`  (this will represent the full match),  
+    >- `%(regex_name1)s` 
+    >- `%(regex_name2)s` 
+    >- `%(regex_name3)s`  (these will represent the first three group matches)  
+    ```
+    %(regex_name)s, %(regex_name1)s, %(regex_name2)s, %(regex_name3)s
+    ```   
 
-- Select the _Category_ for the application component ( e.g., Application Layer, Database, Load Balancer, Other, Web Server).
-- Enter _What is impacted_ by the application component.
-- Select or add the _Responsible Customer or Department_.
-- Enter any _Tags_ you want for the application component.
+- Select, enter, or add (using the **plus sign** icon) any **Related Software Components** or **Related Services** that should be associated with the Application Component. For Related Services, you can specify **Only services listening on this port**.
+- Enter a path in **Configuration File Location** to specify the directory that Device42 should search for configuration files.
+- Enter a name or partial name in the **Configuration Filename Filter** field to identify the configuration file(s).
+- Select **Traverse subdirectories** to have Device42 traverse the Configuration File Location directory.
 
-![](/assets/images/App-Comp-Temp-add-3.png)
+### Device42 Details Section
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/d42-details-section-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/d42-details-section-dark.png'),
+  }}
+/>
+
+- Select the **Application Category** for the Application Component (either **Application Layer**, **Database**, **Load Balancer**, **Other**, or **Web Server**).
+- Enter **What is impacted** by the Application Component.
+- Select or add the **Responsible Customer or Department**.
+- Enter any **Tags** you want for the Application Component.
 
 ### Custom Fields
 
-Select or enter values for any _Custom Fields_ you want for the application component. You can also add _Notes_ for each Custom Field.
+Select the templates to which you want to add the Custom Field values, then select **Set Custom Field Value** from the **Actions** menu.
 
-Click _Save_ at the upper right of the Add/Edit page to save the template and add it to the application component template list.
+<ThemedImage
+  alt="Custom Field Value action"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/set-custom-field-value-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/set-custom-field-value-dark.png'),
+  }}
+/>
+
+- If you don't have any Custom Fields defined, you'll be guided to the **Add Custom Field** page where you can add one or several Custom Fields.
+  
+    <ThemedImage
+    alt="Custom Field Value action"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/modal-config-custom-fields-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/modal-config-custom-fields-dark.png'),
+    }}
+    />
+
+To create a new Custom Field, navigate to Tools > Custom Fields and click Create.
+
+    <ThemedImage
+    alt="Custom Field menu location"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/custom-fields-menu-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/custom-fields-menu-dark.png'),
+    }}
+    />
+
+- Configure the new Custom Field. Set the field type and use the checkboxes to specify whether it's **Mandatory**, whether it's **Filterable**, and whether it will **Log for API** (meaning changes for API calls are logged to history).
+
+    <ThemedImage
+    alt="Configure custom field"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/add-appcomp-custom-field-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/add-appcomp-custom-field-dark.png'),
+    }}
+    />
+
+- To add the Custom Field values, select the templates you want to edit and then select **Set Custom Field Value** from the **Actions** menu. Enter the Custom Fields values you want for the Application Component. You can also add **Notes** for each Custom Field.
+
+    <ThemedImage
+    alt="Enter Custom Field value"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/input-custom-value-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/input-custom-value-dark.png'),
+    }}
+    />
 
 ## Delete Application Component Templates
 
-Select one or more templates from the list page, select _Delete with Detailed Confirmation_ from the Actions menu, and then click the hammer icon.
+- Select one or more templates from the list page, then select **Delete with Detailed Confirmation** from the **Actions** menu.
 
-![](/assets/images/App-Comp-Temp-delete.png)
+    <ThemedImage
+    alt="Delete selected items"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/delete-action-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/delete-action-dark.png'),        
+    }}
+    />
 
-Click _Delete_ to delete the template or _Cancel_ to keep it.
+- Click **Delete** to delete the template or **Cancel** to keep it.
 
-![](/assets/images/App-Comp-Temp-delete-2.png)
+    <ThemedImage
+    alt="Delete confirmation dialog box"
+    sources={{
+        light: useBaseUrl('/assets/images/application-component-templates/delete-confirmation-light.png'),
+        dark: useBaseUrl('/assets/images/application-component-templates/delete-confirmation-dark.png'),        
+    }}
+    />
 
 ## Autodiscovery Options
 
-The Windows /  \*Nix autodiscovery jobs you run will check to see which application component templates are enabled and use them to create application components. When you create your discovery jobs, be sure to select the following options in the _Software and Applications_ tab:
+<ThemedImage
+  alt="Autodiscovery Software and Applications options"
+  sources={{
+    light: useBaseUrl('/assets/images/application-component-templates/software-and-apps-options-light.png'),
+    dark: useBaseUrl('/assets/images/application-component-templates/software-and-apps-options-dark.png'),
+  }}
+/>
 
-- Discover Software
-- Discover Services
-- Discover Applications
+The Windows/\*nix autodiscovery jobs you run will check to see which Application Component Templates are enabled and use them to create Application Components. When creating an autodiscovery job, the following necessary options are enabled by default in the **Software and Applications** tab:
 
-![](/assets/images/App-Comp-AD-Job-Software-Opts.png)
-
-
-:::tip
-Set up Application Groups by defining a Starting Point. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
-:::
+- **Discover Software**
+- **Discover Services**
+- **Discover Applications**
