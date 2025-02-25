@@ -1,0 +1,23 @@
+---
+title: "Compute"
+sidebar_position: 8
+---
+
+**Compute Data Building Blocks**
+
+- [Compute Devices](reports/dbb-cookbook/compute-devices.mdx)
+- [Device Count by Device Type](reports/dbb-cookbook/device-count-by-device-type.mdx)
+- [Device Count by Service Level](reports/dbb-cookbook/device-count-by-service-level.mdx)
+- [Device to Rack Inventory](reports/dbb-cookbook/device-to-rack-inventory.mdx)
+- [Devices Missing Device_Type or Service_Level](reports/dbb-cookbook/devices-missing-device_type-or-service_level.mdx)
+- [Physical Device Inventory](reports/dbb-cookbook/physical-device-inventory.mdx)
+- [Physical Devices by Customer Department](reports/dbb-cookbook/physical-devices-by-customer-department.mdx)
+- [Physical Devices Without Hardware Model](reports/dbb-cookbook/physical-devices-without-hardware-model.mdx)
+- [Physical Inventory by Manufacturer](reports/dbb-cookbook/physical-inventory-by-manufacturer.mdx)
+- [VM Density](reports/dbb-cookbook/vm-density.mdx)
+- [VM Devices](reports/dbb-cookbook/vm-devices.mdx)
+- [VM Inventory](reports/dbb-cookbook/vm-inventory.mdx)
+
+ 
+
+Data Building Blocks are materialized database views composed with customer-specific use cases in mind to allow users to quickly create reports with little-to-no extra view joining required. These views are refreshed on a nightly basis. Because of the requirements for this type of reporting, it is necessary for the user to have access to all the Device42 data. A special privilege has been created called _Data Building Blocks_ for this purpose and must be granted for a user to have access to the DBB views. The reason for this is to simplify the access to data for reporting and insight needs.
