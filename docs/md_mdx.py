@@ -30,7 +30,7 @@ def update_links_in_mdx(root):
 def main():
     base = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
     rename_md_to_mdx(base)
-    # update_links_in_mdx(base)
+    update_links_in_mdx(base)
 
 if __name__ == '__main__':
     main()
