@@ -3,29 +3,57 @@ title: "Configure Application Dependency Mapping"
 sidebar_position: 3
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Turning on Application Discovery
 
-To turn on Enterprise Application Mapping, simply check the "Discover Applications" checkbox while configuring your discovery job. If you are new to discovery, see [Getting Started with Auto-Discovery](/getstarted/getting-started-with-auto-discovery.mdx) to get acquainted. If you would like to discover config files, they can also be imported into Device42; select the "Store Application Components Config Files" checkbox.
+Ensure that your Device42 license has Enterprise Application Discovery enabled (**Tools > Settings > Licensing**). Contact the support team for more information if you need to upgrade your license at [support@device42.com](mailto:support@device42.com).
 
-:::info
-After enabling ADM sampling on the autodiscovery job, set up Application Groups by defining a Starting Point or using the predefined rules. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
+:::tip
+If you are new to autodiscovery, or would like to learn more about autodiscovery, see [Getting Started with Auto-Discovery](/getstarted/getting-started-with-auto-discovery.mdx) to get acquainted.
 :::
 
-When autodiscovery is run, Application Components will be created based on related services on a server. For instance, a server with Oracle Database running will have a component created that associates all Oracle Database services together on that machine. The Autodiscovery Application will also find the service-to-service connections so you could, for example, see that your Apache service on _Prod-Server1_ is directly dependent on the MySQL service running on _Prod-Database3_.
+Application discovery is enabled by default for individual autodiscovery jobs with the **Enterprise Application Mapping** option selected under the **Software and Applications** section and the sampling interval set to four hours. 
 
-![](/assets/images/D42-22008_ADM-sampling-interval.png)
+You can change the ADM sampling interval to be used with your autodiscovery job.
 
-![](/assets/images/D42-22008_ADM-discover-apps-store-config-files.png)
 
-## Importing Config Files
+  <ThemedImage
+    alt="*nix autodiscovery job with ADM sampling interval"
+    sources={{
+      light: useBaseUrl('/assets/images/configure-application-dependency-mapping/nix-job-sampling-interval-light.png'),
+      dark: useBaseUrl('/assets/images/configure-application-dependency-mapping/nix-job-sampling-interval-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+  />
 
-If the option to store config files is selected in your Autodiscovery options \[pictured above\], configuration file data will be imported to the Application Components details as well.
+### Importing Config Files
+
+You can opt to store config files by selecting the **Store Applications Components Config Files** option under the **Software and Applications** section of the autodiscovery job.
+
+  <ThemedImage
+    alt="Software and Application section of *nix autodiscovery job"
+    sources={{
+      light: useBaseUrl('/assets/images/configure-application-dependency-mapping/software-and-apps-light.png'),
+      dark: useBaseUrl('/assets/images/configure-application-dependency-mapping/software-and-apps-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+  />
 
 ## Viewing Application Dependencies
 
-To see autodiscovered application dependencies, go to Apps>Application Components, and you will see any Application Components that were autodiscovered.
+When autodiscovery is run, [Application Components](/apps/application-components) will be created based on related services on a server. For example, a server with Oracle Database running will have a component created that associates all Oracle Database services together on that machine. The Autodiscovery Application will also find the service-to-service connections so you could, for example, see that your Apache service on "Prod-Server1" is directly dependent on the MySQL service running on "Prod-Database3".
 
-![Application Component View](/assets/images/select_application_component_view.png)
+To see the autodiscovered application dependencies, go to **Applications > Application Components**.
+
+  <ThemedImage
+    alt="Application Component list page"
+    sources={{
+      light: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-list-page-light.png'),
+      dark: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-list-page-dark.png'),
+    }}
+  />
 
 A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.md).
 
@@ -40,3 +68,17 @@ With Enterprise Application Mapping, your impact charts allow for an enhanced vi
 From this view you can also see discovered configuration information for web-servers, database servers, etc. To view this information, while hovering over one of the services click "Details".
 
 ![view details from impact chart](/assets/images/impact_chart-view_details.png)
+
+## Application Groups
+
+With Application Dependency Mapping, you can create Application Groups to group together devices and services that are related to each other.
+
+You can create an Application Group using one of the discovered Application Components as a starting point that will be one of the focus items for that group. Automatically, Device42 will suggest Application Groups based on the discovered Application Components. Accept the groups that most accurately describes significant dependencies in your environment and ignore the others. 
+
+:::tip
+After configuring ADM sampling on the autodiscovery job, see the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for a further explanation on how Starting Points are used to generate Application Groups. 
+:::
+
+## Turning Off Application Discovery
+
+For individual autodiscovery jobs, select **Off** from the **ADM Interval** dropdown. Then scroll down to the **Software and Applications** section and unselect the **Enterprise Application Mapping** checkbox.
