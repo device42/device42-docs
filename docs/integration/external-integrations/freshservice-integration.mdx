@@ -125,7 +125,12 @@ After installing the integration app in Freshservice, you'll be able to complete
     
     ![SAML/SSO settings](/assets/images/freshservice-integration/saml-sso-settings.png)
 
-4. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
+4. Choose between the login options:
+
+- **Auto Login**: Device42 will try to log you in automatically – without first directing you to the login page. If auto-login fails you will be directed to the login page.
+- **Show Login Page**: Always be directed to the login page (with buttons for normal and SSO login).
+
+1. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
     
     ![Restart button](/assets/images/freshservice-integration/restart-application.png)
 
@@ -790,4 +795,3 @@ The example Business Service in Freshservice above looks like this as a Business
 
 Before deleting the Freshservice external integration in Device42 or making changes to your Cloud Services configuration, first uncheck the **Enable Freshworks SSO** option in Appliance Manager, under **Global Settings > SAML/SSO Settings**.
 
-![SAML/SSO settings](/assets/images/freshservice-integration/saml-sso-settings.png)
