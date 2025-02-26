@@ -3,16 +3,18 @@ title: "Application Dependency Mapping"
 ---
 
 :::info
-Get started. Visit the [Calculation Rules](/apps/application-groups/calculation-rules/) page and set up a Calculation Rule.
+Get started – visit the [Calculation Rules](/apps/application-groups/calculation-rules/) page and set up a Calculation Rule.
 :::
 
 ## What is Application Dependency Mapping?
 
-After configuring and running autodiscovery jobs, Application Dependency Mapping (ADM) works largely automatically and is guided by you. The goal of ADM is to ultimately build insightful models of your IT services and applications in the context of your business services.
+The goal of Application Dependency Mapping (ADM) is to build insightful models of your IT services and applications in the context of your business services.
 
-Application Groups are generated using a set of rules that define the starting point for your applications and logic templates define how discovery traverses the network and when to stop, per application.
+After configuring and running autodiscovery jobs, the Device42dependency mapping module picks up on communication patterns whose shape is guided by you through via Application Groups. 
 
-Add Application groups to your Business Services to visualize and organize the results in a way that makes sense for your business. 
+[Application Groups](/apps/application-groups) are generated using a [set of rules](/apps/application-groups/calculation-rules) that define the starting point for your applications and [Logic Templates](apps/application-groups#calculation-logic-templates) define how discovery traverses the network and when to stop, per application.
+
+Add Application groups to your [Business Services](/apps/business-services) to visualize and organize the results in a way that makes sense for your business. 
 
 On upgrade to v19.05, you'll find ADM easier and faster to configure and consisting of a more natural flow. The logic used to calculate application groups has been significantly enhanced to show the most relevant relationships and your existing applications will now better model shared infrastructure. 
 
