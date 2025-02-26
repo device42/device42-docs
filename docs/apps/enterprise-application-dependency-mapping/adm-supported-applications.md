@@ -9,9 +9,9 @@ Set up Application Groups by defining a Starting Point or processing one of our 
 
 ### Currently Supported Applications
 
-Enterprise Application Dependency Mapping will discover **_all running services, whether or not they are on this list_**.
+Enterprise Application Dependency Mapping will discover all running services, whether or not they are on this list.
 
-The following is a list of applications that Enterprise Application Dependency Mapping can additionally create application components for.
+The following is a list of applications that Enterprise Application Dependency Mapping can additionally create [Application Components](/apps/application-components) for.
 
 Additionally, for any application not on this list you can leverage the use of [Application Component Templates](apps/application-components/application-component-templates.md) to automate Application Component creation with custom logic that will supplement the discovery processes of Device42.
 
