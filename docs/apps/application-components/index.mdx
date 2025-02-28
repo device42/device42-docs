@@ -5,91 +5,97 @@ title: "Application Components"
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Application Components are intended to capture what people generally think of as "Applications." An application might be a CEO Dashboard that requires a web server/farm, an app server, and a database server. An application component might also be linked to just one service. Or an application component might be defined without any underlying service.
+Application Components capture what people generally think of as "applications." An application could be a CEO Dashboard that requires a web server/farm, an app server, and a database server. An Application Component can be linked to just one service or be defined without any underlying service.
 
 ### Defining Application Components Based on Services
 
-Each Service Instance edit form has an option to link that service with an Application Component.
+Each Service Instance edit form includes an option for linking that service with an Application Component.
+
+In the example below, we've linked the "Oracle Recovery" service with the "Oracle Database Server" Application Component.
 
 <ThemedImage
   alt="Edit service instance"
   sources={{
-    light: useBaseUrl('/assets/images/edit-service-instance-light.png'),
-    dark: useBaseUrl('/assets/images/edit-service-instance-dark.png'),
+    light: useBaseUrl('/assets/images/application-components/service-instance-appcomp-light.png'),
+    dark: useBaseUrl('/assets/images/application-components/service-instance-appcomp-dark.png'),
   }}
 />
-
-In the example above, we've linked the oracle\_proce233442 service with the "Oracle Server 0006" Application Component.
 
 If you navigate to the edit form for an Application Component, you can also link one or more services from that screen:
 
 <ThemedImage
-  alt="Editing the application component"
+  alt="Editing the Application Component"
   sources={{
-    light: useBaseUrl('/assets/images/edit-app-component-light.png'),
-    dark: useBaseUrl('/assets/images/edit-app-component-dark.png'),
+    light: useBaseUrl('/assets/images/application-components/edit-service-instances-light.png'),
+    dark: useBaseUrl('/assets/images/application-components/edit-service-instances-dark.png'),
   }}
 />
 
 ### Defining Application Components Not Based on Services
 
+Device42 automatically categorizes Application Components by **Database** or **Web Server**. You can filter the list page based on this **Category**, and can categorize your custom components as well.
+
 <ThemedImage
   alt="Application components list view"
   sources={{
-    light: useBaseUrl('/assets/images/application-component-view-light.png'),
-    dark: useBaseUrl('/assets/images/application-component-view-dark.png'),
+    light: useBaseUrl('/assets/images/application-components/categories-light.png'),
+    dark: useBaseUrl('/assets/images/application-components/categories-dark.png'),
   }}
 />
 
-Device42 now automatically categorizes application components by the following categories: Database, Application Layer, Web Server, Load Balancer, and Other. You can filter the list page based on application component category, and can categorize your custom components as well.
+Let's create a new Application Component with dependencies. All of the dependencies will show up in impact charts, impact lists, and dependency graphs.
 
-<ThemedImage
-  alt="Add affected groups to application component"
-  sources={{
-    light: useBaseUrl('/assets/images/SAN-store-edit-light.png'),
-    dark: useBaseUrl('/assets/images/SAN-store-edit-dark.png'),
-  }}
-/>
+- Define a "store" that depends on a device named "storeeasytp9225". If you like, you can also identify the **Responsible Customer or Department**, and choose which organizational groups are affected by this Application Component.
 
-In the example above, we are defining a "SAN Store" that depends on a device named "sh-SAN-Cluster01". If we'd like, we can also identify the Responsible Department, and choose which organizational groups are affected by this application component.
-
-Next we will define an "exchange server" component as shown below.
-
-<ThemedImage
-  alt="Defining an exchange server component top screen"
-  sources={{
-    light: useBaseUrl('/assets/images/exchange-server-component-1-light.png'),
-    dark: useBaseUrl('/assets/images/exchange-server-component-1-dark.png'),
-  }}
-/>
-<ThemedImage
-  alt="Defining an exchange server component bottom screen"
-  sources={{
-    light: useBaseUrl('/assets/images/exchange-server-component-2-light.png'),
-    dark: useBaseUrl('/assets/images/exchange-server-component-2-dark.png'),
-  }}
-/>
-
-Then we will add an Outlook Web Access(OWA) component that depends on the Exchange component as shown below:
-
-<ThemedImage
-  alt="Adding an OWA component top screen"
-  sources={{
-    light: useBaseUrl('/assets/images/OWA-add-component-1-light.png'),
-    dark: useBaseUrl('/assets/images/OWA-add-component-1-dark.png'),
-  }}
-/>
-<ThemedImage
-  alt="Adding an OWA component bottom screen"
-  sources={{
-    light: useBaseUrl('/assets/images/OWA-add-component-2-light.png'),
-    dark: useBaseUrl('/assets/images/OWA-add-component-2-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Add affected groups to Application Component"
+    sources={{
+      light: useBaseUrl('/assets/images/application-components/store-edit-light.png'),
+      dark: useBaseUrl('/assets/images/application-components/store-edit-dark.png'),
+    }}
+  />
 
 
-All of the dependencies we just created will show up in impact charts, impact lists, and dependency graphs.
+- Next, define a **Main Exchange Server** component:
+
+  <ThemedImage
+    alt="Defining an Exchange Server component top screen"
+    sources={{
+      light: useBaseUrl('/assets/images/application-components/exchange-server-basic-light.png'),
+      dark: useBaseUrl('/assets/images/application-components/exchange-server-basic-dark.png'),
+    }}
+  />
+
+- Add a dependency on the "store" component to the **Main Exchange Server** component, then **Save** the new component.
+  
+  <ThemedImage
+    alt="Defining an exchange server component bottom screen"
+    sources={{
+      light: useBaseUrl('/assets/images/application-components/store-example-dependency-light.png'),
+      dark: useBaseUrl('/assets/images/application-components/store-example-dependency-dark.png'),
+    }}
+  />
+
+- Next, add an **Outlook Web Access (OWA)** component.
+
+  <ThemedImage
+    alt="Adding an OWA component top screen"
+    sources={{
+      light: useBaseUrl('/assets/images/application-components/add-OWA-example-light.png'),
+      dark: useBaseUrl('/assets/images/application-components/add-OWA-example-dark.png'),
+    }}
+  />
+
+- Finally, add the **Main Exchange Server** component as a dependency, as shown below:
+
+  <ThemedImage
+    alt="Adding an OWA component bottom screen"
+    sources={{
+      light: useBaseUrl('/assets/images/application-components/add-exchange-appcomp-example-light.png'),
+      dark: useBaseUrl('/assets/images/application-components/add-exchange-appcomp-example-dark.png'),
+    }}
+  />
 
 :::tip
-Set up Application Groups by defining a Starting Point. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
+Set up Application Groups by defining a Starting Point or accepting suggestions. See the [Application Groups Calculation Rules](/apps/application-groups/calculation-rules) page for more details.
 :::
