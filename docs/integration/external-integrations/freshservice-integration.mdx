@@ -127,7 +127,12 @@ After installing the integration app in Freshservice, set up an External Integra
     
     ![SAML/SSO settings](/assets/images/freshservice-integration/saml-sso-settings.png)
 
-4. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
+4. Choose between the login options:
+
+- **Auto Login**: Device42 will try to log you in automatically, without first directing you to the login page. If the automatic login fails, you will be directed to the login page.
+- **Show Login Page**: Device42 will always direct you to the login page (with buttons for normal and SSO login).
+
+5. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
     
     ![Restart button](/assets/images/freshservice-integration/restart-application.png)
 
@@ -653,6 +658,31 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 | Application Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
 | VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
 
+## Mandatory Attributes Required From Device42 During Sync
+
+The following attributes are required from Device42 during the sync process:
+
+| Entity                   | Mandatory Fields                          |
+|--------------------------|------------------------------------------|
+| Asset                   | `Name`, `Asset_type_id`, `Product_id`   |
+| Software                | `Name`, `Application_type`              |
+| Contract                | `Name`, `Contract_id`, `Contract_type` |
+| Software Installation   | `Application_id`, `Asset_id`           |
+| Relationships           | `Relationship_type_id`, `Primary_id`, `Secondary_id` |
+| Vendors                 | `Name`                                  |
+| Products                | `Name`, `Asset_type_id`                |
+| **Component Entities**      |              |
+| Processor         | `Manufacturer`, `Model`        |
+| Memory            | `Manufacturer`, `Model`        |
+| Network Adapter   | `Manufacturer`, `Model`, `Mac_address` |
+| Hard Disk         | `Capacity`, `Model`           |
+| Logical Drive     | `Drive_name`                  |
+| Datastore         | `Name`, `Capacity`            |
+| Interface         | `Name`, `Type`                |
+| Input Units       | `Name`, `Type`                |
+| Output Units      | `Name`, `Type`                |
+| Marker Supply Units | `Name`, `Type`             |
+
 ## Freshservice Contract Types
 
 Navigate to **Assets > Contracts** in Freshservice to view the available contract types.
@@ -787,4 +817,8 @@ The example Business Service in Freshservice above looks like this as a Business
         dark: useBaseUrl('/assets/images/freshservice-integration/business-app-d42-dark.png'),
     }}
     />
+
+## Deleting the Freshservice External Integration
+
+Before deleting the Freshservice external integration in Device42 or making changes to your Cloud Services configuration, first uncheck the **Enable Freshworks SSO** option in the Appliance Manager, under **Global Settings > SAML/SSO Settings**.
 
