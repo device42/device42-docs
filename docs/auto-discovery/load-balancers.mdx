@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Introduction
 
-The Device42 Simple Network Management Protocol (SNMP) autodiscovery provides a new option for F5 load balancer discovery that returns discovered load balancers as both devices and managed resources. Discovering F5 load balancers as managed resources provides you with additional details about the load balancers and their related resources, including resource maps that visually represent the relationships between load balancers and resources, and simplifies the Affinity Groups chart view by placing the servers beneath a load balancer.
+The Device42 Simple Network Management Protocol (SNMP) autodiscovery provides a new option for F5 load balancer discovery that returns discovered load balancers as both devices and managed resources. Discovering F5 load balancers as managed resources provides you with additional details about the load balancers and their related resources, including resource maps that visually represent the relationships between load balancers and resources, and simplifies the Application Groups chart view by placing the servers beneath a load balancer.
 
 The recommended best practice for Load balancer discovery is to first identify the devices using SNMP. This will identify the devices and associated resources. Next perform a Windows/*nix discovery of the back end resources to get more detailed inforamtion. Once you have the devices discovered you can then perform the API based "Load Balancer" discovery to link the devices correctly.
 
@@ -48,10 +48,10 @@ The image below shows an example resource map for clustered load balancers.
   }}
 />
 
-The chart views for affinity groups are now much simpler and easier to understand. Navigate to **Applications > Affinity Groups** from the Device42 main menu to display the **Affinity Groups** list page.
+The chart views for Application Groups are now much simpler and easier to understand. Navigate to **Applications > Application Groups** from the Device42 main menu to display the **Application Groups** list page.
 
 ![](/assets/images/Load-Balancers_AG-list.png)
 
-Click on **Chart** to view the chart for an affinity group with a load balancer.
+Click on **Chart** to view the chart for an Application Group with a load balancer.
 
 ![](/assets/images/Load-Balancers_AG-chart.png)

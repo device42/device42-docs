@@ -46,7 +46,7 @@ Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >Â
 1. If using the **Start from scratch** option, you need to manually select each permission needed for this application to access the desired resources. The permissions needed are available in the Device42 [cloud autodiscovery](auto-discovery/cloud-auto-discovery/index.mdx) documentation. Select **Add permissions**, search for and select the desired permission, check the relevant box, and choose **Add**. Repeat this for any desired permissions.
 2. If using the **Start from JSON** option, copy and paste the JSON data below, to pull in the necessary permissions from the list in the Discovery section, and save it as a `.json` file. Upload this file on the **Basics** page when creating the role, and the permissions will be automatically defined.
 
-```
+```json
 {
   "properties": {
     "roleName": "D42Discovery",
@@ -57,14 +57,21 @@ Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >Â
     "permissions": [
       {
         "actions": [
+          "Microsoft.AAD/domainservices/read",
+          "Microsoft.AlertsManagement/smartdetectoralertrules/read",
+          "Microsoft.Compute/disks/read",
+          "Microsoft.Compute/sshpublickeys/read",
           "Microsoft.Compute/virtualMachines/read",
+          "Microsoft.Compute/virtualmachines/extensions/read",
+          "Microsoft.Compute/virtualmachinescalesets/read",
           "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
           "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action",
           "Microsoft.ContainerService/managedClusters/read",
           "Microsoft.DBforMariaDB/servers/databases/read",
           "Microsoft.DBforMariaDB/servers/read",
-          "Microsoft.DBforMySQL/servers/databases/read",
-          "Microsoft.DBforMySQL/servers/read",
+          "Microsoft.DBforMySQL/flexibleservers/read",
+          "Microsoft.DBforMySQL/flexibleservers/databases/read",
+          "Microsoft.DBforPostgreSQL/flexibleservers/read",
           "Microsoft.DBforPostgreSQL/serverGroupsv2/*",
           "Microsoft.DBforPostgreSQL/servers/databases/read",
           "Microsoft.DBforPostgreSQL/servers/read",
@@ -75,17 +82,35 @@ Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >Â
           "Microsoft.DocumentDB/databaseAccounts/read",
           "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read",
           "Microsoft.DocumentDB/databaseAccounts/tables/read",
+          "Microsoft.Insights/actiongroups/read",
+          "Microsoft.Insights/components/read",
+          "Microsoft.Insights/datacollectionrules/read",
+          "Microsoft.Insights/metrics/read",
+          "Microsoft.KeyVault/vaults/read",
+          "Microsoft.ManagedIdentity/userassignedidentities/read",
+          "Microsoft.Migrate/migrateprojects/read",
+          "Microsoft.Network/applicationgateways/read",
+          "Microsoft.Network/connections/read",
+          "Microsoft.Network/dnsresolvers/read",
           "Microsoft.Network/loadBalancers/read",
+          "Microsoft.Network/localnetworkgateways/read",
           "Microsoft.Network/networkInterfaces/read",
+          "Microsoft.Network/networksecuritygroups/read",
+          "Microsoft.Network/networkwatchers/flowlogs/read",
+          "Microsoft.Network/networkwatchers/read",
           "Microsoft.Network/privateEndpoints/read",
-          "Microsoft.Network/privateEndpoints/read",
+          "Microsoft.Network/privatednszones/read",
+          "Microsoft.Network/privatednszones/virtualnetworklinks/read",
           "Microsoft.Network/publicIPAddresses/read",
-          "Microsoft.Network/publicIPAddresses/read",
+          "Microsoft.Network/routetables/read",
           "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/read",
+          "Microsoft.Network/virtualnetworkgateways/read",
+          "Microsoft.OperationalInsights/querypacks/read",
           "Microsoft.OperationalInsights/workspaces/read",
-          "Microsoft.OperationalInsights/workspaces/read",
+          "Microsoft.OperationsManagement/solutions/read",
+          "Microsoft.RecoveryServices/vaults/read",
           "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Servicebus/namespaces/read",
           "Microsoft.Sql/managedInstances/databases/read",
           "Microsoft.Sql/managedInstances/read",
           "Microsoft.Sql/servers/databases/read",
@@ -94,6 +119,7 @@ Navigate to **Subscriptions > Select your Subscription > Access Control (IAM) >Â
           "Microsoft.Storage/storageAccounts/blobServices/containers/read",
           "Microsoft.Storage/storageAccounts/privateEndpointConnections/read",
           "Microsoft.Storage/storageAccounts/read",
+          "Microsoft.Web/serverfarms/read",
           "Microsoft.Web/sites/functions/read",
           "Microsoft.Web/sites/read"
         ],
@@ -218,7 +244,7 @@ Next, click **Save and Continue**. Then, you can **Run** the job immediately, or
 |-------------------------------------------------|---------------------------------|------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SQL Server                                      | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags                      | `Microsoft.Sql/servers/read`, `Microsoft.Sql/servers/databases/read`                                                                                                                                                                                                                                        |
 | Managed SQL Server                              | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.Sql/managedInstances/read`, `Microsoft.Sql/managedInstances/databases/read`                                                                                                                                                                                                                       |
-| Azure DB for MySQL                              | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforMySQL/servers/read`, `Microsoft.DBforMySQL/servers/databases/read`                                                                                                                                                                                                                           |
+| Azure DB for MySQL                              | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforMySQL/flexibleservers/read`, `Microsoft.DBforMySQL/flexibleservers/databases/read`                                                                                                                                                                                                                           |
 | Azure DB for Postgres                           | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforPostgreSQL/servers/read`, `Microsoft.DBforPostgreSQL/servers/databases/read`                                                                                                                                                                                                                |
 | Azure DB for MariaDB                            | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DBforMariaDB/servers/read`, `Microsoft.DBforMariaDB/servers/databases/read`                                                                                                                                                                                                                       |
 | Cosmos DB                                       | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags, tables              | `Microsoft.DocumentDB/databaseAccounts/read`, `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/cassandrakeyspaces/read`, `Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/read`, `Microsoft.DocumentDB/databaseAccounts/tables/read`, `Microsoft.DBforPostgreSQL/serverGroupsv2/*`, `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read`, `Microsoft.Network/privateEndpoints/read`, `Microsoft.OperationalInsights/workspaces/read` (Log Analytics Reader on workspace level) |
