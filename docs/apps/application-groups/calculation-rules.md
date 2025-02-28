@@ -172,14 +172,6 @@ From the template list page, click **Create Calculation Logic Template**.
 
 We recommended you select the **Form** format from the dropdown, but we've added the **DOQL** format option for backward compatibility with the formats used before the logic template was introduced.
 
-<ThemedImage
-  alt="New Calculation Logic Template"
-  sources={{
-    light: useBaseUrl('/assets/images/calculation-rules/logic-template-form-light.png'),
-    dark: useBaseUrl('/assets/images/calculation-rules/logic-template-form-dark.png'),
-  }}
-/>
-
   <ThemedImage
     alt="Docusaurus themed image"
     sources={{
@@ -268,7 +260,7 @@ You can process a Calculation Rule from its details page, use choose the process
 
 There are four statuses for Calculation Rules: **Processing..**, **Completed**, **Failed**, and **Warnings**. Hover over the **i** icon for more details.
 
-![Calculation Rule Status](/assets/images/calculation-rules/calc-rule-execution-statuses.png)
+<img src={statusImage} width='60%'/>
 
 ## Bulk Apply Logic Templates
 
