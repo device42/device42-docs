@@ -656,6 +656,31 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 | Application Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
 | VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
 
+## Mandatory Attributes Required From Device42 During Sync
+
+The following attributes are required from Device42 during the sync process:
+
+| Entity                   | Mandatory Fields                          |
+|--------------------------|------------------------------------------|
+| Asset                   | `Name`, `Asset_type_id`, `Product_id`   |
+| Software                | `Name`, `Application_type`              |
+| Contract                | `Name`, `Contract_id`, `Contract_type` |
+| Software Installation   | `Application_id`, `Asset_id`           |
+| Relationships           | `Relationship_type_id`, `Primary_id`, `Secondary_id` |
+| Vendors                 | `Name`                                  |
+| Products                | `Name`, `Asset_type_id`                |
+| **Component Entities**      |              |
+| Processor         | `Manufacturer`, `Model`        |
+| Memory            | `Manufacturer`, `Model`        |
+| Network Adapter   | `Manufacturer`, `Model`, `Mac_address` |
+| Hard Disk         | `Capacity`, `Model`           |
+| Logical Drive     | `Drive_name`                  |
+| Datastore         | `Name`, `Capacity`            |
+| Interface         | `Name`, `Type`                |
+| Input Units       | `Name`, `Type`                |
+| Output Units      | `Name`, `Type`                |
+| Marker Supply Units | `Name`, `Type`             |
+
 ## Freshservice Contract Types
 
 Navigate to **Assets > Contracts** in Freshservice to view the available contract types.
