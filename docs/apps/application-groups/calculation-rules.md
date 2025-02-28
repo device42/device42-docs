@@ -208,9 +208,11 @@ Toggle on the **Store and Display Connection Metadata** option to display commun
 
   ![Connection Metadata](/assets/images/calculation-rules/viz-metadata.png)
 
-## Running Calculation Rules  
+## Processing Calculation Rules  
 
-Run one or many Calculation Rules to generate Application Groups and Suggestions at any time. **Enabled** Calculation Rules are also processed nightly at 2 AM. 
+Process one or many Calculation Rules to generate Application Groups and Suggestions at any time. **Enabled** Calculation Rules are also processed nightly at 2 AM. 
+
+You can process a Calculation Rule from its details page, use choose the process option from the **Actions** menu, or find the process option from the ellipsis menu on the Application Groups list page.
 
 - Click the **Process Now** button at the top-right of a saved Calculation Rule to run it immediately.
 
@@ -229,6 +231,16 @@ Run one or many Calculation Rules to generate Application Groups and Suggestions
     sources={{
       light: useBaseUrl('/assets/images/calculation-rules/run-background-processing-light.png'),
       dark: useBaseUrl('/assets/images/calculation-rules/run-background-processing-dark.png'),
+    }}
+  />
+
+- Click the ellipsis menu and select **Run Background Processing**.
+
+  <ThemedImage
+    alt="Docusaurus themed image"
+    sources={{
+      light: useBaseUrl('/assets/images/calculation-rules/ellipsis-menu-light.png'),
+      dark: useBaseUrl('/assets/images/calculation-rules/ellipsis-menu-dark.png'),
     }}
   />
 
