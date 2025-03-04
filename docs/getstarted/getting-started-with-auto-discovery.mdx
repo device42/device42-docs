@@ -12,7 +12,7 @@ The following how-to runs down quickly enumerating network objects with Device42
 
 **If you're new to Device42**, begin with our [**getting started videos**](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to set up your Remote Collector (RC), connect a Windows Discovery Service (WDS) instance to it, and run your first discovery job. [Watch them now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2) and you'll be an expert in no time!
 
-Ready to learn more? If you prefer videos, visit our [Device42 "How-To" playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or go to the [How-To video section](how-to-videos/index.md) in the docs. 
+Ready to learn more? If you prefer videos, visit our [Device42 "How-To" playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or go to the [How-To video section](how-to-videos/index.mdx) in the docs. 
 
 If you can't find the answer you're looking for, please email support@device42 and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video.
 
@@ -58,12 +58,12 @@ If you’ll be discovering any Microsoft Windows OS-based servers or guests, go 
 
 ### Create Your First Discovery Job
 
-If you're discovering any Microsoft- or Windows-based products, install the [WDS](installation/windows-discovery-service-installation.md) first.
+If you're discovering any Microsoft- or Windows-based products, install the [WDS](installation/windows-discovery-service-installation.mdx) first.
 
 Start by discovering your network. Navigate to **Discovery > SNMP** and click **+ Add Jobs** to create a [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx). This will build out a base for the rest of your network. Then move on to vServer discovery, followed by Windows/Linux servers, etc.
 
 :::info
-See [auto-discovery best practices](auto-discovery/autodisc-best-practices.md) for recommendations on the order in which to run initial discoveries. If you're familiar, jump right into [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
+See [auto-discovery best practices](auto-discovery/autodisc-best-practices.mdx) for recommendations on the order in which to run initial discoveries. If you're familiar, jump right into [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
 :::
 
 <ThemedImage
@@ -86,7 +86,7 @@ The following device types have a hardware model. Each hardware model can be one
 
 Once you change a hardware type, all the corresponding devices that refer to that hardware and are of the type "unknown" will automatically be categorized accordingly.
 
-The hardware bulk edit feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to the category. See the [bulk edit YouTube videos](how-to-videos/add-and-bulk-edit-hardware-models-how-to.md) or [bulk edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information.
+The hardware bulk edit feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to the category. See the [bulk edit YouTube videos](how-to-videos/add-and-bulk-edit-hardware-models-how-to.mdx) or [bulk edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information.
 
 Also, once a hardware type is defined, any newly imported or discovered devices will go into the right category.
 
@@ -108,7 +108,7 @@ sources={{
 
 ## \[DEPRECATED\] - Using the .NET Standalone Discovery Tool
 
-**The .NET discovery tool has been deprecated and is replaced by the [WDS service](installation/windows-discovery-service-installation.md). See [Setting up WDS and RC for Windows Discovery from the UI](installation/windows-discovery-service-installation.md).**
+**The .NET discovery tool has been deprecated and is replaced by the [WDS service](installation/windows-discovery-service-installation.mdx). See [Setting up WDS and RC for Windows Discovery from the UI](installation/windows-discovery-service-installation.mdx).**
 
 Add the URL and the credentials for your Device42 appliance to the settings tab, and head over to the Windows and Linux tab to configure discovery. Enter the IP range (or server names) and credentials (if required), and start the discovery.
 
