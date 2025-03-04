@@ -24,7 +24,7 @@ If you are deploying through the AWS or Azure marketplaces, then the passwords a
 
 - [Amazon Web Services – Installation](getstarted/installation/installation-amazon-web-services.mdx)
 
-- [Microsoft Azure – Installation](getstarted/installation/installation-microsoft-azure.md)
+- [Microsoft Azure – Installation](getstarted/installation/installation-microsoft-azure.mdx)
 
 For the Remote Collector (RC), this means changing the System Console User (Default Credentials: client | device42).
 
@@ -42,9 +42,9 @@ Passwords can have individual permissions to further restrict who can view, edit
 
 - [Password security and permissions](administration/passwords/password-security-and-permissions.mdx)
 
-- [Set default password management group](administration/passwords/set-default-password-management-group.md)
+- [Set default password management group](administration/passwords/set-default-password-management-group.mdx)
 
-- [Leverage password policies](administration/passwords/password-policy.md) to ensure that Device42 users have:
+- [Leverage password policies](administration/passwords/password-policy.mdx) to ensure that Device42 users have:
 
   - Cryptographically strong passwords (that is, minimum counts of numeric, special, and uppercase letter characters)
 
@@ -64,7 +64,7 @@ Limit the number of active superusers on the Main Appliance whenever feasible.
 
 ## Obfuscate Appliance Access
 
-Like any internal production application, Device42 should only be deployed in private networks and should never be allocated a public IP address directly. Device42 does not need to be open to the public internet to integrate with any of the SaaS-based integrations that we maintain as the MA leverages our [cloud connector](integration/external-integrations/device42-cloud-connector-overview.md) to obfuscate your appliance from the public internet. 
+Like any internal production application, Device42 should only be deployed in private networks and should never be allocated a public IP address directly. Device42 does not need to be open to the public internet to integrate with any of the SaaS-based integrations that we maintain as the MA leverages our [cloud connector](integration/external-integrations/device42-cloud-connector-overview.mdx) to obfuscate your appliance from the public internet. 
 
 If you are thinking of deploying Device42 with a dedicated public IP address, it is highly recommended that you reach out to support@device42.com to discuss potential use cases that would merit such a configuration. If you must expose Device42 to the public internet, it is critical that you DO NOT have default credentials configured. Additionally, you should also take measures to restrict access to the management ports used by the appliance. This means restricting access to port 404 (Used for SSH access to the MA) and 4242/4343 (Used for HTTP/HTTPS access to the appliance manager)
 
@@ -86,7 +86,7 @@ From the Appliance Manager, disable HTTP access in **Global Settings -> Enable/D
 
 ### Import an HTTPS certificate
 
-You can add your own HTTPS certificate and key file to further secure the web console. See [Set Up HTTPS Cert](administration/appliance-manager/set-up-https-cert.md) for more information.
+You can add your own HTTPS certificate and key file to further secure the web console. See [Set Up HTTPS Cert](administration/appliance-manager/set-up-https-cert.mdx) for more information.
 
 ### Set inactivity timeouts for user sessions
 
@@ -98,9 +98,9 @@ Device42 provides global inactivity timeouts to kill stale sessions.
 
 ### Set up authentication
 
-If you already leverage a SAML 2.0 provider that enforces 2FA or MFA (like Okta or OneLogin), consider setting up a [SAML 2.0 Configuration](administration/saml-2-0-configuration.md).
+If you already leverage a SAML 2.0 provider that enforces 2FA or MFA (like Okta or OneLogin), consider setting up a [SAML 2.0 Configuration](administration/saml-2-0-configuration.mdx).
 
-In addition to SAML, Device42 can be configured to use Active Directory for authentication. See [Active Directory / LDAP User Sync](auto-discovery/active-directory-sync.md) for more information.
+In addition to SAML, Device42 can be configured to use Active Directory for authentication. See [Active Directory / LDAP User Sync](auto-discovery/active-directory-sync.mdx) for more information.
 
 ### Check audit history events
 
