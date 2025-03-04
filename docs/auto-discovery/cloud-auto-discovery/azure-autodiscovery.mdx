@@ -240,6 +240,12 @@ Next, click **Save and Continue**. Then, you can **Run** the job immediately, or
 
 ## Azure Discovery Items
 
+Azure Database for PostgreSQL flexible servers are discoverable.
+
+![Azure ProsgresSQL chart](/assets/images/azure-autodiscovery/postgresql-flex-server.png)
+
+### Detailed Discovery Items
+
 | Service/Object Name                             | Where in Device42                    | Accessed API                 | Sample Information Generated                     | Permission(s) Required                                                                                                                                                                                                                                                                                   |
 |-------------------------------------------------|---------------------------------|------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SQL Server                                      | Resources -> All Resources      | management.azure.com         | Name, virtual subtype, tags                      | `Microsoft.Sql/servers/read`, `Microsoft.Sql/servers/databases/read`                                                                                                                                                                                                                                        |
