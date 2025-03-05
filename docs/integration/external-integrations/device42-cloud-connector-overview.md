@@ -50,7 +50,7 @@ The Cloud Connector handles routing requests from each external integration inst
 
 - The “appliance GUID”
 - The “verification token GUID”
-- The “am\_guid”
+- The “am_guid”
 
 The verification token is used to search a database on the cloud connector for an account that matches the given verification token. Once it finds a verification token that matches, the request is forwarded to that appliance by the WebSocket Server as identified by the appliance GUID.
 
@@ -64,28 +64,6 @@ Note that the Device42 cloud connector is hosted by AWS, and takes advantage of 
 
 ### Cloud Connector IPs
 
-_Cloud Connector IPs (IPv4 and IPv6):_
+Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the [Cloudflare IP Ranges](https://www.cloudflare.com/en-in/) documentation.
 
-Name: [connect.device42.io](http://connect.device42.io/ "http://connect.device42.io/") (USA) Addresses: 
-
-```
-104.22.78.250
-104.22.79.250
-172.67.26.32
-2606:4700:10::6816:4efa
-2606:4700:10::6816:4ffa
-2606:4700:10::ac43:1a20
-```
-
-Name: [connect-eu.device42.io](http://connect-eu.device42.io/ "http://connect-eu.device42.io/") (Europe) Addresses:
-
-```
-104.22.78.250
-104.22.79.250
-172.67.26.32
-2606:4700:10::6816:4efa
-2606:4700:10::6816:4ffa
-2606:4700:10::ac43:1a20
-```
-
-If you have a question that isn't answered here, please email support@device42.com and we'll be glad both to answer your question, and to include the answer here.
+If you have a question that isn't answered here, please email [support@device42.com](mailto:support@device42) and we'll be glad both to answer your question, and to include the answer here.
