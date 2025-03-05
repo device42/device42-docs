@@ -248,7 +248,7 @@ Open the `mapping.xml` file in a text or code editor to view and edit the data m
 
  You can customize the data mapping between Device42 and Freshservice by modifying and adding to these tasks. Refer to [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) table below for descriptions of the default mapping tasks, types, and their version requirements. 
 
-For example, The following `<task>` element copies product information from Device42 to Freshservice:
+For example, the following `<task>` element copies product information from Device42 to Freshservice:
 
 ```xml
     <tasks>
@@ -436,6 +436,34 @@ For a quick look at all the valid Freshservice `types`, see the [The `<task>` El
 | Copy AWS K8s Stateful Set from Device42 to Stateful Set            | asset                | 19.04.10       |                 |
 | Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
 | Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
+
+### Syncing to Custom Field Names in Freshservice
+
+When creating a custom field in Freshservice to correspond to a Device42 field, you need to set the target field in the XML file to match Freshservice naming conventions. Verify the correct field names via the Freshservice API endpoint before running the sync. 
+
+Field names in Freshservice are automatically generated according to the conventions:
+- lowercase characters
+- spaces are replaced with underscores 
+- the asset type ID is appended to the end of the field name. This suffix is visible in the FS interface and not required in the XML file, but provides a way to verify the field name.
+
+For example, the custom field with the `Used By` label in Freshservice is represented internally as `used_by_12345467`, but you'll use `used_by` in the `mapping.xml` file.
+
+Verify the correct field name as follows:
+1. Navigate to the edit page for the asset type under the Freshservice settings. See this [Freshservice Assets page](https://support.freshservice.com/support/solutions/articles/164410-different-types-of-assets-configuration-items-in-freshservice) if you need help locating the asset type's edit page. Copy the asset type ID in the URL of the edit page.
+2. Open your browser to access the API endpoint. Replace `<Freshservice-Instance>` with your Freshservice instance and `<Asset-Type-ID>` with the asset type ID from the URL.
+   
+```
+<Freshservice-Instance>/api/v2/asset_types/<Asset-Type-ID>/fields
+```
+3. Search the returned JSON for the field label you are interested in to verify the correct field name. 
+
+    <ThemedImage
+    alt="Business Application in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-dark.png'),
+    }}
+    />
 
 ## Data Mapping FAQs
 
