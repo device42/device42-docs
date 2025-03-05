@@ -63,11 +63,25 @@ When you view the details page for an application component, you will see the de
 
 With Enterprise Application Mapping, your impact charts allow for an enhanced view of the relationships between devices, services, and applications. Viewing a device impact chart will now show you the application components that are on it, as well as the services, listening ports, and service connections between devices.
 
-![MSSQL Application impact chart](/assets/images/mssql_app_impact_chart.png)
+<ThemedImage
+    alt="Application Component Impact Chart example"
+    sources={{
+        light: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-impact-chart-light.png'),
+        dark: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-impact-chart-dark.png'),
+    }}
+/>
 
 From this view, you can also see discovered configuration information for web servers, database servers, etc. To view this information, hover over one of the services and click **Details**.
 
-![view details from impact chart](/assets/images/impact_chart-view_details.png)
+
+<ThemedImage
+    alt="Application Component Impact Chart with Details button"
+    sources={{
+        light: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-impact-chart-details-light.png'),
+        dark: useBaseUrl('/assets/images/configure-application-dependency-mapping/app-comp-impact-chart-details-dark.png'),
+    }}
+    style={{ width: '60%' }} 
+/>
 
 ## Application Groups
 
