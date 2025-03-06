@@ -284,7 +284,6 @@ The popup also has links to several additional views.
     style={{ width: '80%' }}
     />
 
-
 ### Heatmaps and Temperature Shading
 
 You can set the object colors to denote usage or temperature information. Choose between the **Usage Heatmap** and **Temperature Heatmap** options under the **Rack color** menu. The legend on the right changes accordingly.
@@ -297,6 +296,8 @@ You can set the object colors to denote usage or temperature information. Choose
   }}
 />
 
+
+
 In addition, you can choose to **Show temperature bubbles** or turn it off.
 
 <ThemedImage
@@ -307,7 +308,6 @@ In addition, you can choose to **Show temperature bubbles** or turn it off.
   }}
   style={{ width: '60%' }}
 />
-
 
 These options are saved in cookies, so you don't have to reselect the combination of options that works best for you when revisiting the page.
 
@@ -342,6 +342,16 @@ The color value is based on the maximum temperature of the rack and corresponds 
 - **Green:** \<\= 75°F (23.88°C)
 - **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
 - **Red:** > 90°F (32.22°C)
+
+You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view will update accordingly.
+
+<ThemedImage
+  alt="Global settings for temperature"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/racks-global-settings-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/racks-global-settings-dark.png'),
+  }}
+/>
 
 ### PDU Power Monitoring
 
