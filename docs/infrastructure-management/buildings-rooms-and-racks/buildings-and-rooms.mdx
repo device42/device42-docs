@@ -24,7 +24,7 @@ You can also add an image, like a floor plan, to the building and view the image
   }}
 />
 
-### Building View
+## Building View
 
 You can add rooms to an existing building by opening the building view from the list page and clicking the **Edit** button. When a room is added, click on the room name from the building view to see that room's details.
 
@@ -46,7 +46,7 @@ View the **Impact Chart** of the building using the button on the top right of t
   }}
 />
 
-### Rooms List View
+## Rooms List View
 
 Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details.
 
@@ -89,6 +89,40 @@ The detailed room information also includes:
 - **Devices:** View basic info about devices (like CRAC and UPS), click a device name to access the device details, or add a new device.
 - **Assets:** View basic info about assets (like breaker panels and DMARC locations), click an asset name to access the asset details, or add a new asset.
 
+
+### Associate Assets to a Room
+
+- You can associate assets to server rooms from the Main Appliance. 
+
+  <ThemedImage
+    alt="Room with assets"
+    sources={{
+      light: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-light.png'),
+      dark: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-dark.png'),
+    }}
+  />
+
+- The association is bi-directional; the asset is visible in the room details and the room is visible in the asset details. 
+
+  <ThemedImage
+    alt="Asset with room association"
+    sources={{
+      light: useBaseUrl('/assets/images/buildings-and-rooms/server-room-info-light.png'),
+      dark: useBaseUrl('/assets/images/buildings-and-rooms/server-room-info-dark.png'),
+    }}
+  />
+
+- The assets associated with a room are visible in the room layout view. However, you cannot add assets to a room from the layout view.
+  
+  <ThemedImage
+    alt="Layout with assets"
+    sources={{
+      light: useBaseUrl('/assets/images/buildings-and-rooms/layout-asset-light.png'),
+      dark: useBaseUrl('/assets/images/buildings-and-rooms/layout-asset-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+  />
+
 ## Room Layout View
 
 Access a **Room Layout** view from a room's detailed view or using the **Show** link next to the room name on the **Rooms** list page. 
@@ -103,7 +137,7 @@ Use the zoom slider to increase or decrease the display size of the layout. Swit
   }}
 />
 
-## Room Layout Editing
+### Room Layout Editing
 
 The room layout represents a room and its objects.
 
