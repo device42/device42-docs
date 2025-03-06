@@ -202,6 +202,33 @@ From the Business Services list page, select the checkbox for the application yo
   }}
 />
 
+## Custom Fields
+
+Store more information about your Business Services by configuring custom fields.
+
+Navigate to **Tools > Custom Fields**, select **Business Services** from the list to go to the Business Services Custom Fields list page, and click **Create**.
+
+Select the relevant object type metadata option:
+- **Text**
+- **Number**
+- **Date**
+- **Yes/No**
+- **URL** 
+- **Picklist**
+- **JSON**
+- **Markup**
+- **Related Field:** Use this option to link the custom field to an existing CI type within Device42.
+
+**Cloud Accounts** are now available as a related field for custom fields, allowing you to effectively link a Business Service to a Cloud Account.
+
+<ThemedImage
+  alt="Cloud Account option in Add Custom Fields"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/cloud-account-option-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/cloud-account-option-dark.png'),
+  }}
+/>
+
 ## Alerts
 
 :::note
