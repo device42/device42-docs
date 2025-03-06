@@ -70,7 +70,10 @@ snmp-server context mymgmt vrf management
 
 Job configuration fields:
 
-- **IP Address**: Enter the IP address of a switch or an IP range.
+- **Server(s)**: Enter the FQDN, the IP addresses of a network device, or an IP range. 
+  :::note
+  When specifying a CIDR block, the job automatically excludes the network and broadcast addresses (the first and last IPs in the block). This is expected behavior. As a workaround, you can manually add individual network or broadcast addresses as targets in the SNMP job.
+  :::
 - **Port**: Leave at 161 if you are unsure
 - **SNMP Version**: Choose SNMP v1, v2c, or v3
 - **Community String**: Save your community strings as passwords, and select them for v1 or v2c. See below for v3.
