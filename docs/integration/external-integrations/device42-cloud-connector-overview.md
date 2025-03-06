@@ -66,4 +66,4 @@ Note that the Device42 cloud connector is hosted by AWS, and takes advantage of 
 
 Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the [Cloudflare IP Ranges](https://www.cloudflare.com/en-in/) documentation.
 
-If you have a question that isn't answered here, please email [support@device42.com](mailto:support@device42) and we'll be glad both to answer your question, and to include the answer here.
+If you have a question that isn't answered here, please email [support@device42.com](mailto:support@device42). We'll gladly answer your question and include the solution here.
