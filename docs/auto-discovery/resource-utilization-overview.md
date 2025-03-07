@@ -7,16 +7,16 @@ import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::note
-You need an installed RU license to use Device42's Resource Utilization features. See [Licensing](/administration/licensing) for more details.
+You need to have an RU license installed in order to use Device42's Resource Utilization features. See [Licensing](/administration/licensing) for more details.
 :::
 
-The Resource Utilization module (RU) tracks and stores data on CPU, memory, disk, and network usage, as well as power and environmental sensors. This data is collected at a user-defined interval and stored in a time-series database (TSDB) on the Remote Collector (RC) that discovered the device. RU data is then used to generate reports under **Analytics > Reports**.
+The Resource Utilization (RU) module tracks and stores data on CPU, memory, disk, and network usage, as well as power and environmental sensors. This data is collected at a user-defined interval and stored in a time-series database (TSDB) on the Remote Collector (RC) that discovered the device. RU data is then used to generate reports under **Analytics > Reports**.
 
 RU resource-usage metrics can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Application Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
 
 ## Enabling Resource Utilization
 
-Enable RU tracking by checking **Enable Resource Utilization Tracking for Device(s)** on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform CIs, stats are currently displayed.
+Enable RU tracking by checking **Enable Resource Utilization Tracking for Device(s)** on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform configuration items (CIs), stats are currently displayed.
 
 <ThemedImage
   alt="Resource Utilization sampling intervals"
@@ -26,10 +26,10 @@ Enable RU tracking by checking **Enable Resource Utilization Tracking for Device
   }}
 />
 
-If the checkbox is inactive or missing, RU licensing module is likely disabled. Check the licensing settings under **Tools > Settings > Licensing**.
+If the checkbox is inactive or missing, the RU licensing module is likely disabled. Check your licensing settings under **Tools > Settings > Licensing**.
 
 <ThemedImage
-  alt="Resource Utilization license enabeled"
+  alt="Resource Utilization license enabled"
   sources={{
     light: useBaseUrl('/assets/images/resource-utilization-overview/license-light.png'),
     dark: useBaseUrl('/assets/images/resource-utilization-overview/license-dark.png'),
@@ -39,9 +39,9 @@ If the checkbox is inactive or missing, RU licensing module is likely disabled. 
 
 ### Enabling Tracking on Devices
 
-Discovered devices will be tracked when **Enable Resource Utilization Tracking for Device(s)** is checked on the discovery job when the job is run. If the option was unselected when the job was run, enable it and it should bring in data the next time the discovery job runs.
+Discovered devices are tracked when **Enable Resource Utilization Tracking for Device(s)** is checked on the discovery job when the job is run. If the option was unselected when the job was run, enable it and it should bring in data the next time the discovery job runs.
 
-On an individual device details page, you'll see that **Is Device42 monitoring enabled** option is set to **Yes**.
+On an individual device's details page, you'll see that the **Is Device42 monitoring enabled** option is set to **Yes**.
 
     <ThemedImage
     alt="Device with monitoring enabled"
@@ -88,9 +88,9 @@ Available intervals:
 
 ### Data Visualization
 
-To visualize data, choose the **Trends** option from any device that has RU enabled. This option will not be displayed if monitoring is not active or the license does not allow it.
+To visualize data, choose the **Trends** option from any device that has RU enabled. This option is not displayed when tracking is not active or the license does not allow it.
 
-Note that `device_sensors` will also be shown here for those users that have power monitoring enabled.
+Note that for users with power tracking enabled, `device_sensors` is also shown here.
 
 <ThemedImage
   alt="Trends button on a device view"
@@ -220,7 +220,7 @@ To control the number of data points, use the `interval` or `density` parameter.
 
 ## What If My RC Is Offline?
 
-If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character.  Charts and reports will show empty gaps in data for periods when RCs were down. One exception is the PDU main page, which will display the latest values because its data is cached.
+If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character.  Charts and reports will show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which will display the latest values because its data is cached.
 
 ## Handling of the Same IP/Machine Instance Across Multiple RCs
 
