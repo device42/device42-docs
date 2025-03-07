@@ -220,7 +220,7 @@ To control the number of data points, use the `interval` or `density` parameter.
 
 ## What If My RC Is Offline?
 
-If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character.  Charts and reports will show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which will display the latest values because its data is cached.
+If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character. Charts and reports will show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which will display the latest values because its data is cached.
 
 ## Handling of the Same IP/Machine Instance Across Multiple RCs
 
