@@ -84,6 +84,9 @@ select "region name" from view_telcocircuit_custom_fields_flat_v1
 ```sql
 select region from view_telcocircuit_custom_fields_flat_v1
 ```
+:::note
+In DOQL views, custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 
+:::
 
 ## Saved DOQL Queries
 
