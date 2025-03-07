@@ -248,7 +248,7 @@ Open the `mapping.xml` file in a text or code editor to view and edit the data m
 
  You can customize the data mapping between Device42 and Freshservice by modifying and adding to these tasks. Refer to [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) table below for descriptions of the default mapping tasks, types, and their version requirements. 
 
-For example, The following `<task>` element copies product information from Device42 to Freshservice:
+For example, the following `<task>` element copies product information from Device42 to Freshservice:
 
 ```xml
     <tasks>
@@ -437,6 +437,37 @@ For a quick look at all the valid Freshservice `types`, see the [The `<task>` El
 | Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
 | Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
 
+### Syncing to Custom Field Names in Freshservice
+
+When creating a custom field in Freshservice that corresponds with a Device42 field, you need to set the target field in the XML file to match Freshservice naming conventions. Verify the correct field names via the Freshservice API endpoint before running the sync. 
+
+Field names in Freshservice are automatically generated according to the following conventions:
+
+- Using lowercase characters
+- Replacing spaces with underscores 
+- Appending the asset type ID to the end of the field name (this suffix provides a means of verifying the field name, and is visible in the Freshservice interface but not required in the XML file)
+
+For example, the custom field with the `Used By` label in Freshservice is represented internally as `used_by_12345467`, but you'll use `used_by` in the `mapping.xml` file.
+
+Use the following steps to verify that the field name is correct:
+
+1. Navigate to the edit page for the asset type under the Freshservice **Settings** (if you need help locating the asset type's edit page, consult the [Freshservice Assets page](https://support.freshservice.com/support/solutions/articles/164410-different-types-of-assets-configuration-items-in-freshservice)). Copy the asset type ID, which appears in the URL of the edit page.
+2. Open your browser to access the API endpoint. Replace `<Freshservice-Instance>` with your Freshservice instance and `<Asset-Type-ID>` with the asset type ID from the URL.
+   
+```
+<Freshservice-Instance>/api/v2/asset_types/<Asset-Type-ID>/fields
+```
+
+3. Search the returned JSON for the field label you are interested in to verify the field name. 
+
+    <ThemedImage
+    alt="Business Application in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-dark.png'),
+    }}
+    />
+
 ## Data Mapping FAQs
 
 This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
@@ -617,7 +648,48 @@ Set the `enable` attribute to `false` on those `<task>` elements:
   
     ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png) 
 
-## Data Types Transferred from Device42 to Freshservice
+### Example 3: How Do I Unlink the Freshservice Asset State From the Device42 In Service Field?    
+
+1. In the `mapping.xml` file, add a 'mapping' to map the Device42 `In Service` field to an `in_service` custom field in Freshservice.
+
+    - Include `view_device_v2.in_service as in_serv` in the `select view_device_v2` statement of the `<resource model="Devices" target="device42"` element:
+
+    ![[Mapping to map to in_service field](/assets/images/freshservice-integration/in-service-field-mapping.png)](/assets/images/freshservice-integration/in-service-field-mapping.png)
+
+    - Add the field mapping for `in_serv`:
+
+    ```xml
+    <field resource="in_serv" source-type="boolean" target="in_service" target-type="boolean" target-header="Hardware"/>
+    ```
+
+    ![[Field mapping for in_serv](/assets/images/freshservice-integration/in-service-field-mapping-2.png)](/assets/images/freshservice-integration/in-service-field-mapping-2.png)
+
+2. In the `d42_sd_sync.py` script, note the following three changes we made to the `update_objects_from_server` method to prevent the Asset State field from changing during updates. Search for `# Custom` comments in the script.
+
+    - **Customization 1:** Define the `asset_state_field_name` as `None`.
+  
+    ```py
+    # Custom
+    asset_state_field_name = None
+    ```
+  
+    - **Customization 2:** Check if the `map_info["@target"]` is `"asset_state"`, then assign the field name.
+
+    ```py
+    # Custom
+    if map_info["@target"] == "asset_state":
+        asset_state_field_name = asset_type_field["name"]
+    ```
+  
+    - **Customization 3:** Prevent the Asset State field from being updated.
+
+    ```py
+    # Custom
+    if asset_state_field_name:
+        data["type_fields"].pop(asset_state_field_name, None)
+    ```
+
+## Data Types Transferred From Device42 to Freshservice
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|

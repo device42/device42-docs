@@ -10,7 +10,7 @@ Workspace ONE Unified Endpoint Management (UEM), formerly known as VMware AirWat
 
 Create and schedule an autodiscovery job to fetch data about the devices and apps managed by your Workspace ONE UEM account and keep your Device42 CMDB updated as a central source of truth.
 
-This page outlines the discovered items and how to set up and run a Workspace ONE UEM autodiscovery job.
+This page outlines the discovered items and how to set up and run a Workspace ONE UEM (WS1) autodiscovery job.
 
 ## Workspace ONE UEM Autodiscovery Items
 
@@ -23,9 +23,11 @@ Currently, the following data is retrieved:
 
 ## Create a Workspace ONE Autodiscovery Job
 
-Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+First, create an API key for the user account on the WS1 console.
 
-Name the autodiscovery job, and under the **Type** dropdown, select **Workspace One**. Provide your account **URL** and **Tenant**, and select a **Remote Collector** to use for the job. 
+In Device42, navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+
+Under the **Type** dropdown, select **Workspace One**. Provide your account **URL** and paste your WS1 API key in the **Tenant** field.
 
 <ThemedImage
   alt="Create a basic Workspace ONE autodiscovery job"
@@ -37,7 +39,7 @@ Name the autodiscovery job, and under the **Type** dropdown, select **Workspace 
 
 ### Add Credentials 
 
-Provide you Workspace ONE EUM username and password by creating a secure Secret. Click the **magnifying glass icon** next to **Basic credentials** to add a new Secret.
+Provide your WS1 username and password by creating a secure Secret. Click the **plus icon** next to **Basic credentials** to add a new Secret.
 
 <ThemedImage
   alt="Add new secret"
@@ -57,7 +59,7 @@ Choose how to associate vendor metadata to the autodiscovered items. Under **Add
     light: useBaseUrl('/assets/images/workspace-one-eum-airwatch/vendor-metadata-option-light.png'),
     dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/vendor-metadata-option-dark.png'),
   }}
-  style={{ width: '50%' }} 
+  style={{ width: '40%' }} 
 />
 
 Choose an **Object Category for discovered devices**. If you'd like the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
@@ -88,7 +90,7 @@ Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 
 ### Run Now
 
-Run the job immediately by navigating back to the **Cloud Autodiscovery** list page and clicking **Run Now** next to the job. 
+On saving, you'll have the option to run the job immediately. 
 
 <ThemedImage
   alt="Run the job"
@@ -97,3 +99,5 @@ Run the job immediately by navigating back to the **Cloud Autodiscovery** list p
     dark: useBaseUrl('/assets/images/workspace-one-eum-airwatch/run-job-now-dark.png'),
   }}
 />
+
+You can also run the job later by navigating back to the **Cloud Autodiscovery** list page and clicking the **Run Now** button next to the job. 
