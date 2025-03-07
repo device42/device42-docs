@@ -352,10 +352,6 @@ const config = {
             from: ['/device42-appliance-manager/pendo-guided-tours-and-usage-information-collection/'],
           },
           {
-            to: '/administration/appliance-manager/securing-the-vm-console-with-password/',
-            from: ['/device42-appliance-manager/securing-the-vm-console-with-password/'],
-          },
-          {
             to: '/administration/appliance-manager/set-fqdn-for-web-access/',
             from: ['/device42-appliance-manager/set-fqdn-for-web-access/'],
           },
