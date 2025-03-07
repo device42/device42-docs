@@ -648,15 +648,15 @@ Set the `enable` attribute to `false` on those `<task>` elements:
   
     ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png) 
 
-### Example 3: How Do I Unlink the Freshservice Asset State from Device42's In Service Field?    
+### Example 3: How Do I Unlink the Freshservice Asset State From the Device42 In Service Field?    
 
-1. In the `mapping.xml` file, add a 'mapping to map to' an `in_service` custom field in Freshservice. 
+1. In the `mapping.xml` file, add a 'mapping' to map the Device42 **In Service** field to an `in_service` custom field in Freshservice.
 
-    - Include `view_device_v2.in_service as in_serv` to the `select view_device_v2` statement in the `<resource model="Devices" target="device42"` element:
+    - Include `view_device_v2.in_service as in_serv` in the `select view_device_v2` statement of the `<resource model="Devices" target="device42"` element:
 
     ![[Mapping to map to in_service field](/assets/images/freshservice-integration/in-service-field-mapping.png)](/assets/images/freshservice-integration/in-service-field-mapping.png)
 
-    - Add a field mapping for `in_serv`:
+    - Add the field mapping for `in_serv`:
 
     ```xml
     <field resource="in_serv" source-type="boolean" target="in_service" target-type="boolean" target-header="Hardware"/>
@@ -664,16 +664,16 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
     ![[Field mapping for in_serv](/assets/images/freshservice-integration/in-service-field-mapping-2.png)](/assets/images/freshservice-integration/in-service-field-mapping-2.png)
 
-2. Note these three changes we made to the `d42_sd_sync.py` script in the `update_objects_from_server` method to prevent the Asset State field from changing during updates. Search for `# Custom` comments in the script.
+2. In the `d42_sd_sync.py` script, note the following three changes we made to the `update_objects_from_server` method to prevent the Asset State field from changing during updates. Search for `# Custom` comments in the script.
 
-    - Customization one: Define `asset_state_field_name` as `None`:
+    - **Customization 1:** Define the `asset_state_field_name` as `None`.
   
     ```py
     # Custom
     asset_state_field_name = None
     ```
   
-    - Customization two: Check if `map_info["@target"]` is `"asset_state"`, then assign the field name:
+    - **Customization 2:** Check if the `map_info["@target"]` is `"asset_state"`, then assign the field name.
 
     ```py
     # Custom
@@ -681,7 +681,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
         asset_state_field_name = asset_type_field["name"]
     ```
   
-    - Customization three: Prevent the Asset State field from being updated:
+    - **Customization 3:** Prevent the Asset State field from being updated.
 
     ```py
     # Custom
@@ -689,7 +689,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
         data["type_fields"].pop(asset_state_field_name, None)
     ```
 
-## Data Types Transferred from Device42 to Freshservice
+## Data Types Transferred From Device42 to Freshservice
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|
