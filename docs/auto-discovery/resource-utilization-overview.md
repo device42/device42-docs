@@ -3,76 +3,53 @@ title: "Resource Utilization Overview"
 sidebar_position: 25
 ---
 
-## What is Resource Utilization?
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Device42's Resource Utilization (RU) features are enabled for users with an installed RU license. RU is also known as the "enable monitoring for discovered devices" setting. This powerful module collects and examines server resource usage metrics, which can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Application Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
+:::note
+You need to have an RU license installed in order to use Device42's Resource Utilization features. See [Licensing](/administration/licensing) for more details.
+:::
 
-Once enabled, you will see a 'monitoring' option on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform CIs, stats are currently displayed.
+The Resource Utilization (RU) module tracks and stores data on CPU, memory, disk, and network usage, as well as power and environmental sensors. This data is collected at a user-defined interval and stored in a time-series database (TSDB) on the Remote Collector (RC) that discovered the device. RU data is then used to generate reports under **Analytics > Reports**.
 
-![](/assets/images/D42-22008_RU-sampling-interval-700x420.png)
+RU resource-usage metrics can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Application Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
 
-**Resource utilization is only available and will only function if:**
+## Enabling Resource Utilization
 
-- The licensing module is enabled. Check whether **Resource Utilization** is **Enabled** under **Tools > Settings > Licensing**. The **Enable Resource Utilization Tracking for Device(s)** checkbox (pictured above) will be disabled if the licensing module is disabled.
-- The **Enable Resource Utilization Tracking for Device(s)** is checked at the time of discovery on a discovery job.
-- The **Is Device42 monitoring enabled** option is set as **Yes** after a device has been discovered. If the job is scheduled to run again, it should bring in data the next time the discovery job runs.
+Enable RU tracking by checking **Enable Resource Utilization Tracking for Device(s)** on Hypervisor/\*nix/Windows autodiscovery jobs. On Linux and Windows-based platform configuration items (CIs), stats are currently displayed.
 
-* * *
+<ThemedImage
+  alt="Resource Utilization sampling intervals"
+  sources={{
+    light: useBaseUrl('/assets/images/resource-utilization-overview/ru-tracking-interval-light.png'),
+    dark: useBaseUrl('/assets/images/resource-utilization-overview/ru-tracking-interval-dark.png'),
+  }}
+/>
 
-## Handling of the Same IP/Machine Instance Across Multiple RCs
+If the checkbox is inactive or missing, the RU licensing module is likely disabled. Check your licensing settings under **Tools > Settings > Licensing**.
 
-If an IP is discovered across multiple Remote Collectors (RCs), Device42 will **not** monitor that IP again if it is already being monitored; were this otherwise permitted, unexpected behavior would likely result. We will adjust this and other RU workflows based on user feedback - please do let us know about any ideas or changes you have that would help you!
+<ThemedImage
+  alt="Resource Utilization license enabled"
+  sources={{
+    light: useBaseUrl('/assets/images/resource-utilization-overview/license-light.png'),
+    dark: useBaseUrl('/assets/images/resource-utilization-overview/license-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-### Monitoring Management - Example Scenarios
+### Enabling Tracking on Devices
 
-Consider the following scenario:
+Discovered devices are tracked when **Enable Resource Utilization Tracking for Device(s)** is checked on the discovery job when the job is run. If the option was unselected when the job was run, enable it and it should bring in data the next time the discovery job runs.
 
-You have three Devices, A, B, and C, and two RCs, RC#1 and #2. Monitoring is currently **disabled** on all three.
+On an individual device's details page, you'll see that the **Is Device42 monitoring enabled** option is set to **Yes**.
 
-Two discovery jobs are configured:
-
-1. Job#1 includes Device A and Device B
-2. Job#2 includes Device B and Device C
-
-* * *
-
-You run Job#1 on RC#1 with monitoring enabled. After discovery, you will have:
-
-- DeviceA with monitoring on RC#1
-- DeviceB with monitoring on RC#1
-- DeviceC without monitoring
-
-Then you decide to run discovery using Job#2 on RC#2 with monitoring disabled. After this discovery job runs, you will have:
-
-- DeviceA with monitoring on RC#1
-- DeviceB with monitoring on RC#1
-- DeviceC without monitoring
-
-Then you change the settings on Job #2 and run it from RC#2 with monitoring enabled. The end result will be:
-
-- DeviceA with monitoring on RC#1
-- DeviceB with monitoring on RC#1
-- DeviceC with monitoring on RC#2
-
-Note that DeviceB does not switch the RC that it's attached to.
-
-* * *
-
-### How Can I Switch Device RU Monitoring to Another RC?
-
-If you _want_ to move a device to another RC, open the device list, select the device, and select one of the **Disable monitoring for selected devices...** actions. After disabling monitoring, run the job again with monitoring re-enabled on the new target RC.
-
-![Disable RU Monitoring on devices](/assets/images/disable_RU_monitoring_device_list_view-1.png)
-
-The options differ according to how they handle the historical data for the device in question. The **...but keep data** action stores data for as long as needed, so that if the same device were rediscovered, the existing data would be automatically utilized. The **...and delete data** option simply deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
-
-Now rerun Job#2 on RC#2 with monitoring enabled once again. After that run, you can see the device has moved to RC2:
-
-- DeviceA with monitoring on RC#1
-- DeviceB with monitoring on RC#2
-- DeviceC with monitoring on RC#2
-
-* * *
+    <ThemedImage
+    alt="Device with monitoring enabled"
+    sources={{
+        light: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-light.png'),
+        dark: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-dark.png'),
+    }}
+    />
 
 ## Technical Details: RU Data Storage
 
@@ -101,10 +78,6 @@ Aggregation takes multiple data points and converts their values to one data poi
 
 * * *
 
-### What Happens if an RC Is Down?
-
-When an RC is down, no data will be shown, as the RC must be responsive to queries for data. Charts and reports will show empty gaps in data for periods when RCs were down.
-
 ### Data Capture Intervals
 
 Available intervals:
@@ -115,15 +88,17 @@ Available intervals:
 
 ### Data Visualization
 
-To visualize data, choose the **Trends** option from the **...** (ellipsis) menu in the upper-right-hand corner of any device that has RU enabled.
+To visualize data, choose the **Trends** option from any device that has RU enabled. This option is not displayed when tracking is not active or the license does not allow it.
 
-Note this option will not be displayed if monitoring is not active or the license does not allow it:
+Note that for users with power tracking enabled, `device_sensors` is also shown here.
 
-![Trends menu item ellipse button](/assets/images/trends_button_ellipse_menu.png)
-
-Note that `device_sensors` will also be shown here for those users that have power monitoring enabled.
-
-* * *
+<ThemedImage
+  alt="Trends button on a device view"
+  sources={{
+    light: useBaseUrl('/assets/images/resource-utilization-overview/trends-button-light.png'),
+    dark: useBaseUrl('/assets/images/resource-utilization-overview/trends-button-dark.png'),
+  }}
+/>
 
 ## Captured Data Details
 
@@ -243,16 +218,57 @@ To control the number of data points, use the `interval` or `density` parameter.
 - **`Nic-(in,out)_transfer`**: Raw transfer for the network interface at the end of the interval
 - **`Nic-(in,out)_transfer_diff`**: Difference between raw transfer at the end and at the start of the interval
 
-### What if My RC Is Offline?
+## What If My RC Is Offline?
 
-If your target RC is offline, you will not be able to fetch data from it. All fields will either come back empty or will display the `-` character. Charts, too, will be empty. One exception is the PDU main page, which will display the latest values because its data is cached.
+If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character.  Charts and reports will show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which will display the latest values because its data is cached.
 
-### RU Note: Use Static IP Addresses
+## Handling of the Same IP/Machine Instance Across Multiple RCs
 
-If an RC and the Windows discovery service are both using DHCP IPs, automated IP changes can break the connection between them, and therefore affect running jobs, etc. 
+If an IP is discovered across multiple Remote Collectors (RCs), Device42 will **not** monitor that IP again if it is already being monitored; were this otherwise permitted, unexpected behavior would likely result. We will adjust this and other RU workflows based on user feedback - please do let us know about any ideas or changes you have that would help you!
 
-:::warning
-We strongly recommended that **static** IP Addresses be used for all Device42 appliances, RCs, etc.
-:::
+### Monitoring Management - Example Scenarios
 
-In the case that DHCP does break a connection, rerun the discovery job to resume monitoring. DHCP IP addresses are **not** a supported configuration.
+Consider the following scenario:
+
+You have three Devices, A, B, and C, and two RCs, RC#1 and #2. Monitoring is currently **disabled** on all three.
+
+Two discovery jobs are configured:
+
+1. Job#1 includes Device A and Device B
+2. Job#2 includes Device B and Device C
+
+* * *
+
+You run Job#1 on RC#1 with monitoring enabled. After discovery, you will have:
+
+- DeviceA with monitoring on RC#1
+- DeviceB with monitoring on RC#1
+- DeviceC without monitoring
+
+Then you decide to run discovery using Job#2 on RC#2 with monitoring disabled. After this discovery job runs, you will have:
+
+- DeviceA with monitoring on RC#1
+- DeviceB with monitoring on RC#1
+- DeviceC without monitoring
+
+Then you change the settings on Job #2 and run it from RC#2 with monitoring enabled. The end result will be:
+
+- DeviceA with monitoring on RC#1
+- DeviceB with monitoring on RC#1
+- DeviceC with monitoring on RC#2
+
+Note that DeviceB does not switch the RC that it's attached to.
+
+## (Legacy) How Can I Switch Device RU Monitoring to Another RC?
+
+If you _want_ to move a device to another RC, open the device list, select the device, and select one of the **Disable monitoring for selected devices...** actions. After disabling monitoring, run the job again with monitoring re-enabled on the new target RC.
+
+![Disable RU Monitoring on devices](/assets/images/disable_RU_monitoring_device_list_view-1.png)
+
+The options differ according to how they handle the historical data for the device in question. The **...but keep data** action stores data for as long as needed, so that if the same device were rediscovered, the existing data would be automatically utilized. The **...and delete data** option simply deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
+
+Now rerun Job#2 on RC#2 with monitoring enabled once again. After that run, you can see the device has moved to RC2:
+
+- DeviceA with monitoring on RC#1
+- DeviceB with monitoring on RC#2
+- DeviceC with monitoring on RC#2
