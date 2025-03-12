@@ -3,13 +3,32 @@ title: "Password Policy"
 sidebar_position: 5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ### Password Policy Options
 
-Select _Tools > Admins & Permissions > Password Policy_ to display the password policy options.
+Select **Tools > Admins & Permissions > Password Profile** to display the password policy options.
 
-![](/assets/images/Secrets-9-pw-policy-700x266.png)
+<ThemedImage
+  alt="Password Policy menu location and options"
+  sources={{
+    light: useBaseUrl('/assets/images/password-policy/menu-and-details-light.png'),
+    dark: useBaseUrl('/assets/images/password-policy/menu-and-details-dark.png'),
+  }}
+/>
 
-Device42 administrators can define user password policy requirements and expiration settings to increase password strength and improve security. Policy settings include:
+Device42 administrators can define user password policy requirements and expiration settings to increase password strength and improve security. 
+
+<ThemedImage
+  alt="Password Policy options"
+  sources={{
+    light: useBaseUrl('/assets/images/password-policy/more-options-light.png'),
+    dark: useBaseUrl('/assets/images/password-policy/more-options-dark.png'),
+  }}
+/>
+
+Policy settings include:
 
 - Minimum password length
 - Minimum number of uppercase, numeric, and special characters
@@ -26,10 +45,23 @@ Select the options you want to enforce and the values for your password rules, a
 - Users are alerted the designated number of days prior to password expiration.
 - Users locked out of their account see an alert when they try to login and must contact their administrator to regain account access.
 
-![](/assets/images/Password-User-Locked.png)
+<ThemedImage
+  alt="Login page with locked account alert"
+  sources={{
+    light: useBaseUrl('/assets/images/password-policy/locked-account-light.png'),
+    dark: useBaseUrl('/assets/images/password-policy/locked-account-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
 
 ### User Password and Account Status
 
-The _Tools > Admins & Permissions_ > _Administrator_ page displays the current password and account status for each user. Administrators can expire a user’s password, exempt a user from password expiration, and unlock a user’s account.
+The **Tools > Admins & Permissions > Administrators** page displays the current password and account status for each user. Administrators can expire a user’s password, exempt a user from password expiration, and unlock a user’s account.
 
-![](/assets/images/Secrets-10-admin-user-list-700x232.png)
+<ThemedImage
+  alt="Administrators list page with locked account icon"
+  sources={{
+    light: useBaseUrl('/assets/images/password-policy/admin-account-locked-light.png'),
+    dark: useBaseUrl('/assets/images/password-policy/admin-account-locked-dark.png'),
+  }}
+/>
