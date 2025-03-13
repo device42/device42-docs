@@ -9,7 +9,7 @@ The Discovery Scores page provides users with an the ability to view the success
 
 The discovery scores have been refactored to reflect what Device42 does during discovery more accurately. When Device42 communicates with an API rather than an individual endpoint (e.g., a virtual machine), Device42 now creates an _API Manager_ discovery score record to report successes or failures against the API endpoint directly. Devices returned by the API will then generate individual discovery score records.
 
-To view the Discovery Scores page, select  _Analytics > Discovery Status > Discovery Scores_ from the main menu_._
+To view the Discovery Scores page, select  _Analytics > Discovery Status > Discovery Scores_ from the main menu.
 
 ![](/assets/images/Discovery-scores-pie-charts-2.png)
 
