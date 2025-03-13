@@ -14,43 +14,41 @@ The Device Add and Change pages provide direct access to device properties such 
 Device42 no longer identifies previously undiscovered hardware as **unknown** by default. Autodiscovery assigns the **physical** type to devices with hardware models. The **other** type and subtypes have been reclassified as the **physical** type and subtypes.
 :::
 
-### View Devices
+### Devices List Page
 
 Select **Resources > Compute > All Devices** to display a list of devices.
 
 <ThemedImage
   alt="All devices button"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/all-devices-button-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/all-devices-button-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/devices-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/devices-list-page-dark.png'),
   }}
 />
 
-Click on a device **Name** to view the device details.
+Configure the grid view to display the columns you want to see by clicking the **gear icon**. You can set the view as **System Default** and/or **User Default** using the checkboxes. 
+
+The **Latest Life Cycle Event** is a useful column to add to the default view to track the status of a device.
 
 <ThemedImage
-  alt="All devices button"
+  alt="Latest Life Cycle Event column selection"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/view-device-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/view-device-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/latest-life-cycle-column-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/latest-life-cycle-column-dark.png'),
   }}
 />
 
-Scroll down the page to view the details organized into tabs. Although the tabs change by device type, most devices have the following tabs:
+### View Device Details
 
-- [Properties](device-properties-tab.mdx) (1) 
-- [Other](device-other-tab.md) (2)
-- [Parts](device-parts-tab.md) (3)
+Click on a device **Name** to view the device details. The details are organized into sections (that were tabs in versions prior to v19.05) and navigable using the **Breakdown** panel.
 
 <ThemedImage
-  alt="Device tabs"
+  alt="Device details"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/device-tabs-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/device-tabs-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/device-details-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/device-details-dark.png'),
   }}
 />
-
-We'll discuss the direct properties of devices below. The other tabs are discussed elsewhere in the documentation.
 
 ### Add a Device
 
