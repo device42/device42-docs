@@ -52,25 +52,25 @@ Click on a device **Name** to view the device details. The details are organized
 
 ### Add a Device
 
-Select **Resources > Compute > All Devices** and then click **Add Device** in the upper-right corner.
+Select **Resources > Compute > All Devices** and then click **Create** in the upper-right corner. You will see the generic form with the **Type** shown as blank.
 
 <ThemedImage
-  alt="Add devices button"
+  alt="Create button"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/add-device-button-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/add-device-button-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/create-device-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/create-device-dark.png'),
   }}
 />
 
-When you select **Add Device**, you will see the generic Add Device page with the **Type** shown as blank. By default, new devices are assigned the **In Service** property and their **Service Level** is set to **Production**.
+ By default, new devices are assigned the **In Service** property and their **Service Level** is set to **Production**.
 
 Enter a **Name** for the device and select **physical**, **virtual**, or **cluster** for the device **Type**.
 
 <ThemedImage
   alt="Device Types"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/device-types-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/device-types-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/device-type-options-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/device-type-options-dark.png'),
   }}
 />
 
@@ -81,8 +81,8 @@ The available options and fields on the Add Device page differ according to the 
   <ThemedImage
     alt="Physical Subtypes"
     sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/physical-subtypes-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/physical-subtypes-dark.png'),
+      light: useBaseUrl('/assets/images/device-add-edit/physical-subtype-options-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/physical-subtype-options-dark.png'),
     }}
   />
 
@@ -91,8 +91,8 @@ The available options and fields on the Add Device page differ according to the 
     <ThemedImage
       alt="Virtual Subtypes"
       sources={{
-        light: useBaseUrl('/assets/images/device-add-edit/virtual-subtypes-light.png'),
-        dark: useBaseUrl('/assets/images/device-add-edit/virtual-subtypes-dark.png'),
+        light: useBaseUrl('/assets/images/device-add-edit/virtual-subtype-options-light.png'),
+        dark: useBaseUrl('/assets/images/device-add-edit/virtual-subtype-options-dark.png'),
       }}
     />
 
@@ -101,8 +101,8 @@ The available options and fields on the Add Device page differ according to the 
   <ThemedImage
     alt="Clusters"
     sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/cluster-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/cluster-dark.png'),
+      light: useBaseUrl('/assets/images/device-add-edit/devices-in-cluster-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/devices-in-cluster-dark.png'),
     }}
   />
 
@@ -136,7 +136,7 @@ Consider the following example of a network switch:
 
 ### Non-Editable Fields 
 
-Fields populated through EnrichAI Data, like **OS Version** or OS **End of Life**, are not editable. To set these fields, you need to [disable EnrichAI Data](auto-discovery/enrichai-data/enrichai-opt-out.mdx) and disconnect the record from the EnrichAI Data record.
+Fields populated through EnrichAI Data, like **End of Life** and **End of Support**, are not editable. To set these fields, you need to [disable EnrichAI Data](auto-discovery/enrichai-data/enrichai-opt-out.mdx) and disconnect the record from the EnrichAI Data record.
 
 <ThemedImage
   alt="Non-editable fields"
