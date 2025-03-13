@@ -31,6 +31,8 @@ _Partial Failure_: If any of the discovery aspects fail, this will result in a "
 
 Each discovered device in the list on the "Discovery Score" view page includes helpful statistics that offer insight into what was discovered from each device.
 
+Device pages now display the latest five Discovery Scores, with the ability to scroll down to see more.
+
 The following is a short explanation of the fields present on the "Discovery Score" page:
 
 ![](/assets/images/Discovery-scores-pie-charts-2-1.png)
