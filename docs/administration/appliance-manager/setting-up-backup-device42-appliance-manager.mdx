@@ -23,7 +23,7 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 
 ### Main Appliance Options
 
-- **Backup Meta Data**: Include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well:
+- **Backup Meta Data**: Include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well.
 
   - Passphrases for backups and password encryption
   - Language
@@ -33,11 +33,11 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
   - All appliance manager settings (including backup schedules)
   - All certificates
 
-- **Backup SSH key pair** (for SFTP backups): Backup the key that was used to set up the SFTP server.
-- **Backup Audit Data**: Backup the audit logs table, if disabled Device42 will backup the DB without that table.
-- **Backup System Configuration Files**: Backup these system configuration files to preserve any manual config optimizations: `/data/pgsql/data/postgresql.override.conf` and `/etc/systemctl.conf`.
+- **Backup SSH key pair** (for SFTP backups): Back up the key that was used to set up the SFTP server.
+- **Backup Audit Data**: Back up the audit logs table. If disabled, Device42 backs up the DB without that table.
+- **Backup System Configuration Files**: Back up the `/data/pgsql/data/postgresql.override.conf` and `/etc/systemctl.conf` system configuration files to preserve any manual config optimizations.
 
-Ignore the "Tenant ID" field; it's a leftover from the old multi-tenancy project and not used anymore.
+Ignore the **Tenant ID** field; it's a leftover from the old multi-tenancy project and is not used anymore.
 
 ![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/run-backup-now.png)
 
@@ -99,19 +99,19 @@ The following table summarizes the backup settings for the selected RC(s):
 </table>
 
 
-## Backup to an SFTP Server
+## Back up to an SFTP Server
 
 The backup file can be scheduled to be sent to a SFTP server. All fields are required.
 
 ![Backup to an SFTP server](/assets/images/setting-up-backup-device42-appliance-manager/sftp-server-settings.png)
 
-## Backup to an NFS server
+## Back up to an NFS server
 
 The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
 
 ![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
-## Backup Using Amazon S3
+## Back up Using Amazon S3
 
 The backup file can be scheduled to be sent to Amazon S3 as well. All fields are required.
 
