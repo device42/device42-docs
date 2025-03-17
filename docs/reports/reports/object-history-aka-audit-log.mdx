@@ -22,7 +22,7 @@ Go to **Analytics > Audit Logs > History** to view the audit history. Use the se
   }}
 />
 
-The **History (Audit Logs)** table includes the following sortable columns :
+Click the **gear icon** to customize the columns displayed in the table. By default, the following columns are included:
 
 - **Type**: Indicates the category of the object that was changed (for example, Device, Global Settings, Application Group, Contract, and so on).
 - **Object**: Displays the specific object that was changed. Click an object to filter the table by that object.
@@ -32,9 +32,9 @@ The **History (Audit Logs)** table includes the following sortable columns :
 
 ### Dropdown Filters
 
-Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit results to a specific duration. 
+Apply filters to narrow down the results displayed in the table. Use the **Action Date/Time** dropdown to limit the results to a specific duration or date range. 
 
-The **User**, **Type**, **Action**, and **Origin** dropdown menus are included in the UI by default. To add additional filters, click the **+ More** button.
+The **User**, **Type**, **Action**, and **Origin** dropdown menus are included in the UI by default. To add additional filters, click the **More Filters** button.
 
 Use the **Advanced** button to query the audit logs by properties such as `object_id` and `action_id`. 
 
@@ -51,7 +51,7 @@ Click on the **gear icon** to save the filters you've applied for quick access l
 
 ### Export as CSV
 
-Under the **Action** menu is the option to **Export Selected Columns as CSV**. Click the **hammer icon** to execute the action. 
+Select the columns you want to export, and use the **Export Selected Columns as CSV** action or the ellipsis icon to the right of each record to export the selected records in CSV format.
 
 <ThemedImage
   alt="Action dropdown"
@@ -59,30 +59,41 @@ Under the **Action** menu is the option to **Export Selected Columns as CSV**. C
     light: useBaseUrl('/assets/images/object-history-aka-audit-log/action-light.png'),
     dark: useBaseUrl('/assets/images/object-history-aka-audit-log/action-dark.png'),
   }}
-  style={{ width: '50%' }} 
 />
 
 ## View History for Individual Objects
 
-In addition to this centralized audit log, you can access the history of an individual object from its view or edit page. 
+In addition to this centralized audit log, you can access the history of an individual object from its view or edit pages. 
 
-<ThemedImage
-  alt="Object history button"
-  sources={{
-    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-light.png'),
-    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-dark.png'),
-  }}
-/>
+- For discovery job objects, use the **ellipsis icon** to access the history log for each object.
+  <ThemedImage
+    alt="Object history button"
+    sources={{
+      light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-light.png'),
+      dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-button-dark.png'),
+    }}
+  />
 
-The default view is **Direct Only**. To see changes made to related data, such as the IPs of a device, change the filter option to **All** or **Related Only**.
+  The default view for history logs is **Direct Only**. To see the changes made to related data, such as the IPs of a device, change the filter option to **All** or **Related Only**.
 
-<ThemedImage
-  alt="Object history filter"
-  sources={{
-    light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-light.png'),
-    dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Object history filter"
+    sources={{
+      light: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-light.png'),
+      dark: useBaseUrl('/assets/images/object-history-aka-audit-log/history-filter-dark.png'),
+    }}
+  />
+
+- Objects like devices and IP addresses have the **Audit Logs** tab on their view pages and also include the **Related** dropdown filter option mentioned above.
+
+  <ThemedImage
+    alt="Object history filter"
+    sources={{
+      light: useBaseUrl('/assets/images/object-history-aka-audit-log/device-view-audit-logs-light.png'),
+      dark: useBaseUrl('/assets/images/object-history-aka-audit-log/device-view-audit-logs-dark.png'),
+    }}
+  />
+
 
 ## Audit Log Exclusions
 
