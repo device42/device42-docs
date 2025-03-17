@@ -68,10 +68,10 @@ Log in to the **web interface** using the default credentials:
 You are now ready to start discovering your IT infrastructure! 
 
 <ThemedImage
-  alt="Device42 Web Interface Login Screen v19"
+  alt="Device42 Web Interface Login Screen v19.05"
   sources={{
-    light: useBaseUrl('/assets/images/login-light.png'),
-    dark: useBaseUrl('/assets/images/login-dark.png'),
+    light: useBaseUrl('/assets/images/login-19.05-light.png'),
+    dark: useBaseUrl('/assets/images/login-19.05-dark.png'),
   }}
   style={{ width: '70%' }} 
 />
