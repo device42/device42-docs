@@ -14,10 +14,16 @@ This page is about managing SSL certificates that have already been discovered b
 
 The list page for certificates, under **Applications > Certificates**, will show you all certificates discovered in Device42 along with their validity details.
 
-Under the **Days To Expiry** column you can quickly see how many days until the certificate expires. Scroll to the right of the table to see the **Serial Number**, **Is Key Encipherment**,
-**Is Key CERT Sign**, **Subject Alternative Name**, **First Detected** date and time, and **Encryption method** columns.
+The fields include:
 
-You can export certificates by selecting them from the list and choosing the **Export selected items** option under the **Select an Action** dropdown menu. Next, click on the **hammer icon** to execute the action.
+- Serial Number
+- Is Key Encipherment
+- Is Key CERT Sign
+- Subject Alternative Name
+- First Detected date and time
+- Encryption method
+
+You can export certificates by selecting them from the list and choosing the **Export Selected items as CSV** option from the **Actions** dropdown menu. 
 
 <ThemedImage
   alt="Certificate list page"
@@ -35,6 +41,8 @@ You can export certificates by selecting them from the list and choosing the **E
 
 Click on the name of a certificate from the list page, under **Applications > Certificates**, to view it.
 
+When viewing a certificate that has been imported, you can now associate FQDN, multiple devices, IPs, and different validity dates with your certificates. This allows you to have a wildcard certificate and easily see the different FQDNs or subdomains associated with it.
+
 <ThemedImage
   alt="View certificate"
   sources={{
@@ -46,26 +54,20 @@ Click on the name of a certificate from the list page, under **Applications > Ce
     ),
   }}
 />
-<br />
-<br />
-
-When viewing a certificate that has been imported, you can now associate and see FQDN, multiple devices, IPs, and different validity dates to your certificates. This allows you to have a wildcard certificate and easily see different FQDNs or subdomains associated with it.
-
-<ThemedImage
-  alt="Device certificate details"
-  sources={{
-    light: useBaseUrl(
-      "/assets/images/certificate-management/device-certificates-details-light.png"
-    ),
-    dark: useBaseUrl(
-      "/assets/images/certificate-management/device-certificates-details-dark.png"
-    ),
-  }}
-/>
 
 ### Certificate Instances
 
 In addition to seeing all certificates, you can now see certificate instances - allowing you to see device/IP address relationships for individual certificates. Locate certificate instances under **Applications > Certificate Instances**. Filter certificate instances based on device building, service level, and customer.
+
+Certificate instances are also displayed in the device details view.
+
+  <ThemedImage
+    alt="Certificate Instances"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
+    }}
+  />
 
 ### Certificate Reports
 

@@ -14,65 +14,108 @@ The Device Add and Change pages provide direct access to device properties such 
 Device42 no longer identifies previously undiscovered hardware as **unknown** by default. Autodiscovery assigns the **physical** type to devices with hardware models. The **other** type and subtypes have been reclassified as the **physical** type and subtypes.
 :::
 
-### View Devices
+### Devices List Page
 
 Select **Resources > Compute > All Devices** to display a list of devices.
 
 <ThemedImage
   alt="All devices button"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/all-devices-button-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/all-devices-button-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/devices-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/devices-list-page-dark.png'),
   }}
 />
 
-Click on a device **Name** to view the device details.
+Configure the grid view to display the columns you want to see by clicking the **gear icon**. You can set the view as the **System Default** or the **User Default** using the checkboxes. 
+
+The **Latest Life Cycle Event** is a useful column to add to the default view for tracking the status of a device.
 
 <ThemedImage
-  alt="All devices button"
+  alt="Latest Life Cycle Event column selection"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/view-device-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/view-device-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/latest-life-cycle-column-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/latest-life-cycle-column-dark.png'),
   }}
 />
 
-Scroll down the page to view the details organized into tabs. Although the tabs change by device type, most devices have the following tabs:
+### View Device Details
 
-- [Properties](device-properties-tab.mdx) (1) 
-- [Other](device-other-tab.md) (2)
-- [Parts](device-parts-tab.md) (3)
+Click on a device's name to enter the device details view.
 
-<ThemedImage
-  alt="Device tabs"
+Version 19.05 introduces an improved device details page. If you prefer the previous layout, you can revert to the **Legacy** details layout. 
+
+There are two new panels that you can hide and expand as needed:
+
+- **Object List** (left): Navigate to the detail view of different devices without going back to the list page. This panel displays the same items shown in the list page grid from the previous screen. Any filters or searches made on the Devices list page are applied to this panel to easily navigate between the devices.
+- **Breakdown** (right): Navigate between sections of the selected device's details. This panel is similar to the tabs of the previous layout but includes a more granular list of sections.
+
+<ThemedImage 
+  alt="Device details"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/device-tabs-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/device-tabs-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/device-details-view-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/device-details-view-dark.png'),
   }}
 />
 
-We'll discuss the direct properties of devices below. The other tabs are discussed elsewhere in the documentation.
+- Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
+  
+  - Info (basic device details)
+  - Application Group Calculation
+  - Layout
+  - Impact Chart
+  - Topology
+  - Impact List
+  - Audit Logs
+
+  <ThemedImage
+    alt="Subpage buttons"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-dark.png'),
+    }}
+  />
+  
+- Columns under the **Asset Lifecycle** subview can now be sorted in ascending or descending order.
+
+  <ThemedImage
+    alt="Asset Lifecycle columns"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/asset-lifecycle-columns-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/asset-lifecycle-columns-dark.png'),
+    }}
+  />
+
+- Discovered [**Certificate Instances**](/infrastructure-management/certificate-management.mdx) are displayed in the device details view.
+
+  <ThemedImage
+    alt="Certificate Instances"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
+    }}
+  />
 
 ### Add a Device
 
-Select **Resources > Compute > All Devices** and then click **Add Device** in the upper-right corner.
+Select **Resources > Compute > All Devices** and then click **Create** in the upper-right corner. You will see the generic form with the **Type** shown as blank.
 
 <ThemedImage
-  alt="Add devices button"
+  alt="Create button"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/add-device-button-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/add-device-button-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/create-device-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/create-device-dark.png'),
   }}
 />
 
-When you select **Add Device**, you will see the generic Add Device page with the **Type** shown as blank. By default, new devices are assigned the **In Service** property and their **Service Level** is set to **Production**.
+By default, new devices are assigned the **In Service** property and their **Service Level** is set to **Production**.
 
 Enter a **Name** for the device and select **physical**, **virtual**, or **cluster** for the device **Type**.
 
 <ThemedImage
   alt="Device Types"
   sources={{
-    light: useBaseUrl('/assets/images/device-add-edit/device-types-light.png'),
-    dark: useBaseUrl('/assets/images/device-add-edit/device-types-dark.png'),
+    light: useBaseUrl('/assets/images/device-add-edit/device-type-options-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/device-type-options-dark.png'),
   }}
 />
 
@@ -83,8 +126,8 @@ The available options and fields on the Add Device page differ according to the 
   <ThemedImage
     alt="Physical Subtypes"
     sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/physical-subtypes-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/physical-subtypes-dark.png'),
+      light: useBaseUrl('/assets/images/device-add-edit/physical-subtype-options-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/physical-subtype-options-dark.png'),
     }}
   />
 
@@ -93,8 +136,8 @@ The available options and fields on the Add Device page differ according to the 
     <ThemedImage
       alt="Virtual Subtypes"
       sources={{
-        light: useBaseUrl('/assets/images/device-add-edit/virtual-subtypes-light.png'),
-        dark: useBaseUrl('/assets/images/device-add-edit/virtual-subtypes-dark.png'),
+        light: useBaseUrl('/assets/images/device-add-edit/virtual-subtype-options-light.png'),
+        dark: useBaseUrl('/assets/images/device-add-edit/virtual-subtype-options-dark.png'),
       }}
     />
 
@@ -103,12 +146,14 @@ The available options and fields on the Add Device page differ according to the 
   <ThemedImage
     alt="Clusters"
     sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/cluster-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/cluster-dark.png'),
+      light: useBaseUrl('/assets/images/device-add-edit/devices-in-cluster-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/devices-in-cluster-dark.png'),
     }}
   />
 
-Enter or select the options you want for the device, then **Save** the device and add it to the appropriate device list.
+:::note
+For dropdown menus that include related lookups — for example, when you select **Physical** and the **Physical Subtype** dropdown appears — you'll see the **+** (plus sign) button. However, if your account lacks the necessary permissions, you won’t be able to create new records.
+:::
 
 ## Basic Device Addition and Editing
 
@@ -138,7 +183,7 @@ Consider the following example of a network switch:
 
 ### Non-Editable Fields 
 
-Fields populated through EnrichAI Data, like **OS Version** or OS **End of Life**, are not editable. To set these fields, you need to [disable EnrichAI Data](auto-discovery/enrichai-data/enrichai-opt-out.mdx) and disconnect the record from the EnrichAI Data record.
+Fields populated through EnrichAI Data, like **End of Life** and **End of Support**, are not editable. To set these fields, you need to [disable EnrichAI Data](auto-discovery/enrichai-data/enrichai-opt-out.mdx) and disconnect the record from the EnrichAI Data record.
 
 <ThemedImage
   alt="Non-editable fields"
