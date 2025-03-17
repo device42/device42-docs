@@ -477,7 +477,7 @@ Use the following steps to verify that the field name is correct:
 
 This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
 
-### How Do I Add a Custom Device42 Field to Freshdesk?
+### Syncing a Custom Device42 Field to Freshdesk (Overview)
 
 To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify the `<task>` that's most closely related to the custom field you want to create.
 
@@ -486,6 +486,82 @@ To add a custom field to Freshservice, modify the `mapping.xml` file and reuploa
 Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. If needed, use the InsightsAI chat under **Analytics > InsightsAI** to help you find the tables and fields you need to query.
 
 If you can't find a task related to your custom field, you can create a new `<task>` element in the `mapping.xml` file.
+
+### How Do I Sync a Device42 Custom Field to Freshservice? (Detailed Steps)
+
+1. First, create and add the new custom field in Device42. You can create a custom field for any CI type using either the UI or the API. In this example, we'll use the UI to create a custom field called `Name` in the **Devices** section of **Custom Fields** in the Main Appliance.
+
+   ![Custom fields organized by CI type](/assets/images/freshservice-integration/ci-custom-field-types.png)
+
+   ![Create a Device custom field](/assets/images/freshservice-integration/create-custom-field.png)
+
+2. You should now see the custom field available for all device types. Navigate to the details page for one of your devices and set a value for the custom field. The example below shows the new **Name** field in the **Custom Fields** section for a Server device named `centos-884163.device42.testing`.
+
+   ![Device custom field](/assets/images/freshservice-integration/server-custom-fields.png)
+
+3. Next, add the new custom field to the `mapping.xml` file. Change the DOQL query in the `Copy Servers from Device42 to Freshservice using DOQL v2` task to map the new custom field to Freshservice. (There are normally three types of task with different `d42_min_version` parameters; update the DOQL for each task type, in case you’re using older or different versions.)
+   
+   ![DOQL changes to map a custom field](/assets/images/freshservice-integration/doql-custom-field-mapping.png)
+
+    ```sql
+    -- The DOQL snippet pictured above:
+    SELECT
+        -- ... existing fields ...
+        view_device_v2.details->>'used by' AS used_by,
+        cf.&quot;Name&quot; as cf_name
+    FROM 
+        view_device_v2
+    LEFT JOIN 
+        view hardware v2 
+        ON view_device_v2.hardware_fk = view_hardware_v2.hardware_pk
+    LEFT JOIN 
+        view_device_custom_fields_flat_v2 cf 
+        ON view_device_v2.device_pk = cf.device_fk
+    LEFT JOIN 
+        network_ip
+        ON view_device_v2.device_pk = network_ip.device_fk
+    LEFT JOIN 
+        network_hw
+        ON view_device_v2.device_pk = network_hw.device_fk
+    ```
+
+    **Explanation of the DOQL changes**:
+
+   - The custom field `Name` is added to the `SELECT` statement.
+    **Syntax notes**: You need to escape the double quotes (`”`) by using the `&quote;` HTML entity. The greater-than (`>`) and less-than (`<`) symbols also need to be escaped. The equality operator works without special quotes. Please check existing DOQL for examples. 
+   - A `LEFT JOIN` is added because all custom fields in Device42 are stored in the `{CI name}_custom_fields` views. For example, the Devices CI is stored in `view_device_custom_fields_flat_v2`.
+
+4. Now it's time to map the custom field to Freshservice. Add a new `<field>` element in the `<mapping>` tag section of the XML file. You'll need to keep Freshservice open and follow the next step to get the exact Freshservice values to use in the new `<field>` element below.
+
+   ![Add a new field element](/assets/images/freshservice-integration/custom-field-map-code.png)
+
+    ```xml
+        <!-- Custom Fields -->
+        <field resource="cf_name" source-type="string" target="cf_name" target-type="string"
+        target-header="Server" not-null="true" set-space="true" min-length="1" max-length="255"/>
+        <!-- Custom Fields -->
+    ```
+
+   **Explanation of the XML changes**:
+
+   - The `resource=` argument is set to the name of the custom field in Freshservice. The custom field name in this example is `cf_name`, which follows the Freshservice convention of using the display name (label) in snake case for the field name, occasionally with the ID of the asset type as a suffix. (See [Syncing to Custom Field Names in Freshservice](#syncing-to-custom-field-names-in-freshservice) for more details).
+   - The `target-header=` argument is set to the name of the CI properties section of the heading name under which the custom field will appear in Freshservice. In this case, `target-header=“Server”` refers to the “Server Properties” heading — there's no need to use "Properties", as it’s automatically added to every asset type.
+
+5. In the Freshservice **Asset Types & Fields** section, find the asset field to which you are mapping the Device42 custom field. In this case, our example device is of the **Server** type, so we find it under **Hardware > Computer > Server**.
+   
+    ![Custom field in Freshservice](/assets/images/freshservice-integration/server-freshservice.png)
+
+6. Now, edit the asset type by clicking on the **pencil icon** all the way on the right, as highlighted below in the screenshot of the **Server** asset type. 
+
+    ![Edit the Server asset type](/assets/images/freshservice-integration/fs-pencil-icon.png)
+
+    Set [the 'target' directive](#the-task-element-elements) to the Device42 field you are mapping to Freshservice. 
+
+    ![Label the custom field in the FS UI](/assets/images/freshservice-integration/fs-label-custom-field.png)
+
+7. Finally, run the sync in Freshservice’s Device42 integration app. You should end up with the custom field you created and set in Device42:
+
+    ![Custom field in Freshservice](/assets/images/freshservice-integration/device-custom-field-fs-final.png)
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
