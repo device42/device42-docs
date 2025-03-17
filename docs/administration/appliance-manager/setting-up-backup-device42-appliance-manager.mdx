@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Follow the steps below to set up one-time and scheduled backups in the Device42 Appliance Manager.
 
-### Set the Passphrase
+## Set the Passphrase
 
 Choose a 12-20 character passphrase to encrypt the backup file. 
 
@@ -16,35 +16,102 @@ You will need this passphrase to restore the backup, so please save it in a safe
 
 ![Set the passphrase](/assets/images/setting-up-backup-device42-appliance-manager/set-passphrase.png)
 
-### One-Time Backup
+## Run Backup Now
 
-Configure the backup using the available options.
+Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 
-Select the **Backup Meta Data** option to include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well:
 
-- Passphrases for backups and password encryption
-- Language
-- Time
-- SSL/HTTPS
-- Host/hostname info
-- All appliance manager settings (including backup schedules)
-- All certificates
+### Main Appliance Options
+
+- **Backup Meta Data**: Include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well.
+
+  - Passphrases for backups and password encryption
+  - Language
+  - Time
+  - SSL/HTTPS
+  - Host/hostname info
+  - All appliance manager settings (including backup schedules)
+  - All certificates
+
+- **Backup SSH key pair** (for SFTP backups): Back up the key that was used to set up the SFTP server.
+- **Backup Audit Data**: Back up the audit logs table. If disabled, Device42 backs up the DB without that table.
+- **Backup System Configuration Files**: Back up the `/data/pgsql/data/postgresql.override.conf` and `/etc/systemctl.conf` system configuration files to preserve any manual config optimizations.
+
+Ignore the **Tenant ID** field; it's a leftover from the old multi-tenancy project and is not used anymore.
 
 ![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/run-backup-now.png)
 
-### Backup to an SFTP Server
+### Remote Collector Options
+
+The following table summarizes the backup settings for the selected RC(s):
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+      <th>Artifacts Backed Up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Backup Meta Data**</td>
+      <td>Backs up various settings and registration data.</td>
+      <td>
+        <ul>
+          <li> TLS configuration (NGINX)</li>
+          <li> RC environment variables</li>
+          <li> WDS keys</li>
+          <li> Hostname settings</li>
+          <li> NTP settings</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>**Backup TLS Key Pair**</td>
+      <td>Backs up the TLS certificate and key</td>
+      <td> 
+        <ul>
+          <li>`/etc/nginx/ssl.crt/server.crt`</li>
+          <li>`/etc/nginx/ssl.cert/server.key`</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>**Backup Configuration files**</td>
+      <td>Backs up the microservice configuration files.</td>
+      <td>Configuration files consumed by individual RC microservices (see the `/opt/rc/configs` directory)</td>
+    </tr>
+    <tr>
+      <td>**Backup Data**</td>
+      <td>Backs up data files.</td>
+      <td>
+        <ul>
+          <li>Power monitor elements</li>
+          <li>Sensor rules</li>
+          <li>Periodic jobs</li>
+          <li>Job manager database</li>
+          <li>InfluxDB data</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Back up to an SFTP Server
 
 The backup file can be scheduled to be sent to a SFTP server. All fields are required.
 
 ![Backup to an SFTP server](/assets/images/setting-up-backup-device42-appliance-manager/sftp-server-settings.png)
 
-### Backup to an NFS server
+## Back up to an NFS server
 
 The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
 
 ![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
-### Backup Using Amazon S3
+## Back up Using Amazon S3
 
 The backup file can be scheduled to be sent to Amazon S3 as well. All fields are required.
 
@@ -52,7 +119,7 @@ The **Region Endpoint** field **is not** simply the endpoint name, as each regio
 
 ![Backup using Amazon S3](/assets/images/setting-up-backup-device42-appliance-manager/s3-settings.png)
 
-### Schedule the Backup
+## Schedule the Backup
 
 You can create multiple backup schedules to automate the backup process. All fields are required.
 
@@ -74,7 +141,7 @@ If your **Current System Time** is incorrect, change it in your VM system config
   }}
 />
 
-### Important Note for Scheduled Backups
+## Important Note for Scheduled Backups
 
 If you intend to use a backup schedule for an auto-restore configuration to a stand-by appliance, as described in the Device42 [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.md) documentation, it's critical that you select the **Backup Meta Data** option for the backup schedule.
 
