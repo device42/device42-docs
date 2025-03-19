@@ -14,9 +14,7 @@ When the scan is complete, Device42 will use the resulting TCP scan data to eith
 
 First, configure the TCP port scan. The result of a TCP port scan is itself a new autodiscovery job.
 
-- From the main menu, select **Discovery > TCP Port Scan** to open the **TCP Port Scan** list page.
-
-- Click **+ Add TCP Port Scan**.
+- From the main menu, select **Discovery > TCP Port Scan** to open the **TCP Port Scan** list page and click **Create**.
 
 - Provide the range of FQDN or IP addresses for the **Server(s)** and specify which **Remote Collector** with Windows Discovery Service (WDS) you want to run the scan on. Optionally, add any servers to exclude from the scan.
 
@@ -28,29 +26,87 @@ First, configure the TCP port scan. The result of a TCP port scan is itself a ne
     }}
     />
 
-- Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the settings you want the \*nix or Windows autodiscovery job to be created with. This will create the appropriate autodiscovery job for you, with the provided naming template and specified settings, and maintain the list of servers based on the results of each TCP port scan run.
+Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the settings you want the \*nix or Windows autodiscovery job to be created with. This will create the appropriate autodiscovery job for you, with the provided naming template and specified settings, and maintain the list of servers based on the results of each TCP port scan run.
+
+- Define the naming template pattern that will be used to generate unique names for the created discovery jobs. Include any credentials under **Username / Password(s)** that are needed to access the target servers.
 
     <ThemedImage
     alt="Auto-create job settings"
     sources={{
-        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-1-light.png'),
-        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-1-dark.png'),
+        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-light.png'),
+        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-dark.png'),
     }}
     />
 
+- Configure the settings related to the discovery of virtual environments.  
+
     <ThemedImage
-    alt="Auto-create job settings"
+    alt="VM options"
     sources={{
-        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-2-light.png'),
-        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-2-dark.png'),
+        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/vm-options-light.png'),
+        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/vm-options-dark.png'),
     }}
     />
 
+- The **Device name format** settings deal with naming preferences for discovered devices and the scope of data that should be collected. 
+
+  <ThemedImage
+  alt="Device name format options"
+  sources={{
+      light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/device-name-format-light.png'),
+      dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/device-name-format-dark.png'),
+  }}
+  />
+
+- The next set of settings relate to the discovery of software and services with two cloud services options (**Discover ProviderID/Cloud ID** and **Use provider token**:).
+
+  <ThemedImage
+  alt="Discover software and app comp settings"
+  sources={{
+      light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/discover-software-app-comp-settings-light.png'),
+      dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/discover-software-app-comp-settings-dark.png'),
+  }}
+  />
+
+  - **Store Application Components Config Files**: Visit the [Application Components](/docs/auto-discovery/application-components) page for more details on application components.
+
+- Apply naming conventions to the discovered devices. Select **Strip domain suffix** to drop everything after the first period (`server.domain.com` becomes `server`) and optionally elect to **Use the server as the device name**.
+
+  <ThemedImage
+  alt="Naming options"
+  sources={{
+      light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/naming-options-light.png'),
+      dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/naming-options-dark.png'),
+  }}
+  />
+
+-  Select a service level to apply to devices when no VM is detected, assign the discovered devices to a VRF group, and associate specific customers to the discovered devices. 
+
     <ThemedImage
-    alt="Auto-create job settings"
+    alt="Service level and VRF group options"
     sources={{
-        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-3-light.png'),
-        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/auto-create-settings-3-dark.png'),
+        light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/service-level-vrfgroup-light.png'),
+        dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/service-level-vrfgroup-dark.png'),
+    }}
+    />
+    
+- Elect for the generated discovery jobs to collect database information.
+
+    <ThemedImage
+    alt="DB settings"
+    sources={{
+      light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/db-settings-light.png'),
+      dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/db-settings-dark.png'),
+    }}
+    />
+
+- Configure metadata settings by selecting an **Object Category for discovered devices** and entering **Tags** to apply to the devices. Tags are particularly useful to use with the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/) feature of Device42.
+
+    <ThemedImage
+    alt="Object settings"
+    sources={{
+      light: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/object-settings-light.png'),
+      dark: useBaseUrl('/assets/images/tcp-port-scan-auto-discovery/object-settings-dark.png'),
     }}
     />
 
@@ -72,7 +128,11 @@ Select **Add another Autodiscovery Schedule** when editing the job to create a r
     }}
 />
 
-Return to the **TCP Port Scan** list page and click **Run Now** to run the job immediately.
+:::note
+Setting the schedule on a TCP port scan job will schedule the TCP port scan job itself, but not the autodiscovery jobs created as a **result** of that TCP port scan.
+:::
+
+Upon saving the job, click **Run Now** to run the job immediately. You can also run the job from the list page.
 
 <ThemedImage
     alt="Schedule TCP scan"
@@ -83,7 +143,3 @@ Return to the **TCP Port Scan** list page and click **Run Now** to run the job i
 />
 
 Newly created jobs will not run on the first day they are created, to prevent an excessive number of jobs from running simultaneously. If you would like to run a job after its initial creation, click the **Run Now** button next to the job after creation.
-
-:::note
-Setting the schedule on a TCP port scan job will schedule the TCP port scan job itself, but not the autodiscovery jobs created as a **result** of that TCP port scan.
-:::
