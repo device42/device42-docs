@@ -44,8 +44,8 @@ From the Device42 main menu, under **Discovery > Hypervisors/\*nix/Windows**, ad
 <ThemedImage
   alt="VM Discovery Job"
   sources={{
-    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-platforms-light.png'),
-    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-platforms-dark.png'),
+    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-job-settings-light.png'),
+    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-job-settings-dark.png'),
   }}
 />
 
@@ -63,7 +63,18 @@ From the Device42 main menu, under **Discovery > Hypervisors/\*nix/Windows**, ad
 
 **Port:** This is 443 by default. Only change if you have changed it.
 
+**Enable Resource Utilization Tracking for Device(s):** Enable this option periodically collect and examine server resource usage metrics. See [Resource Utilization](/auto-discovery/resource-utilization-overview/) for more information.
+
 **Discovery Target(s) Credential(s):** Specify username and password (account credentials) with permission to view all the hosts and VM inventory info. For oVirt, the username is most probably in the format of `username@domain`, for example, `admin@internal`.
+
+<ThemedImage
+  alt="Target Credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-target-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-target-credentials-dark.png'),
+  }}
+/>
+
 
 :::caution
 Please do not set up an autodiscovery scan using critical production account credentials. Please create a separate, dedicated account to use only for discovery.
@@ -119,7 +130,7 @@ Depending on the permissions granted and your configured password policies, acco
     light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-not-found-options-light.png'),
     dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/vm-not-found-options-dark.png'),
   }}
-  style={{ width: '60%' }} 
+  style={{ width: '90%' }} 
 />
 
 - **Remove Host Association**: Remove the host association. 
@@ -136,8 +147,8 @@ Depending on the permissions granted and your configured password policies, acco
 <ThemedImage
   alt="Hypervisor Options"
   sources={{
-    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/host-discovery-light.png'),
-    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/host-discovery-dark.png'),
+    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/hypervisor-options-light.png'),
+    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/hypervisor-options-dark.png'),
   }}
 />
 
@@ -154,8 +165,8 @@ Depending on the permissions granted and your configured password policies, acco
 <ThemedImage
   alt="Miscellaneous options"
   sources={{
-    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/miscellaneous-options-light.png'),
-    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/miscellaneous-options-dark.png'),
+    light: useBaseUrl('/assets/images/virtual-machine-auto-discovery/misc-options-vmware-light.png'),
+    dark: useBaseUrl('/assets/images/virtual-machine-auto-discovery/misc-options-vmware-dark.png'),
   }}
 />
 
@@ -175,7 +186,7 @@ Select **Add another Autodiscovery Schedule** when creating or editing a job to 
   }}
 />
 
-Select **Run Now** from the list page to run the job immediately.
+When you save the job, you'll see the **Run Now** button to run the job immediately. You can also run the job from the list page.
 
 <ThemedImage
   alt="Run job"
