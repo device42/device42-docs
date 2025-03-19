@@ -24,7 +24,7 @@ For F5 discovery, ensure you have a **local username** with access to the F5 API
 
 ### Create a Load Balancer Discovery Job
 
-Navigate to **Discovery > UCS/ACI/Load Balancers**, click **+ Add UCS/ACI/Load Balancers for Autodiscovery**, and select the **Platform** for load balancer type from the dropdown menu.
+Navigate to **Discovery > UCS/ACI/Load Balancers**, click **Create**, and select the **Platform** for load balancer type from the dropdown menu.
 
 <ThemedImage
   alt="Platform list"
@@ -67,9 +67,19 @@ The following options apply to UCS/ACI devices:
 - **Hostname to use:** Choose the hostname format to use for newly discovered devices. Choose between **Discovered Name** or **Serial #**.
 - **Give precedence to hostname** Select to force-overwrite the current hostname for existing devices in Device42, using the hostname option selection in **Hostname to use**.
 - **VRF Group for discovered devices:** Place discovered devices into the chosen VRF group.
+
+<ThemedImage
+  alt="Discovery options"
+  sources={{
+    light: useBaseUrl('/assets/images/load-balancer-f5-autodiscovery/discovery-options-2-light.png'),
+    dark: useBaseUrl('/assets/images/load-balancer-f5-autodiscovery/discovery-options-2-dark.png'),
+  }}
+/>
+
 - **Object Category for discovered devices:** Place discovered objects into the chosen category in Device42.
 - **Overwrite existing object categories:** Select to force-overwrite the object category for existing devices in Device42.
-
+- **Tags:** Add tags to the discovered devices.
+- **Debug level:** Enable debug logging for troubleshooting.
 
 ## Run Now or Schedule
 
@@ -83,7 +93,7 @@ Select **Add another Autodiscovery Schedule** when editing a job to create a run
   }}
 />
 
-Select **Run Now** from the list page to run the job immediately.
+After saving, you'll see the option to **Run Now** to run the job immediately.
 
 <ThemedImage
   alt="Run now option"
@@ -94,3 +104,11 @@ Select **Run Now** from the list page to run the job immediately.
 />
 
 Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select **Run Now** from the autodiscovery list page.
+
+<ThemedImage
+  alt="Run now option on list page"
+  sources={{
+    light: useBaseUrl('/assets/images/load-balancer-f5-autodiscovery/ucs-list-page-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/load-balancer-f5-autodiscovery/ucs-list-page-run-now-dark.png'),
+  }}
+/>
