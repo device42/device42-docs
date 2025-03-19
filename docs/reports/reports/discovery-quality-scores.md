@@ -3,7 +3,8 @@ title: "Discovery Scores"
 sidebar_position: 8
 ---
 
-## Discovery Scores
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
 The Discovery Scores page provides users with the ability to view the success of their discovery jobs on a granular level. Via the quality scores page, users can see each device that was discovered, the target IP it was discovered from _(which is also a link to that job's page)_, the job name, time stamps, and status of port check and auth.
 
@@ -11,7 +12,13 @@ The discovery scores have been refactored to reflect what Device42 does during d
 
 To view the Discovery Scores page, select  **Analytics > Discovery Status > Discovery Scores** from the main menu.
 
-![](/assets/images/Discovery-scores-pie-charts-2.png)
+<ThemedImage
+  alt="Discovery Scores pie charts"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-dark.png'),
+  }}
+/>
 
 The Discovery Scores page now includes Score Summary pie charts at the top of the page – **Success**, **Scores**, and **Queue** – for a quick visual summary of your discovery score status. You can hover over the charts, click on a **Discovery Success** chart section or the chart legend, and quickly filter the scores list for additional context.
 
@@ -21,11 +28,15 @@ By default, discovered devices are sorted from newest to oldest, most recently d
 
 Clicking on any of the items in the **Discovery Targets** column will bring you to a View Discovery Score details page for that particular item:
 
-![](/assets/images/WEB-372_Discovery-Score-Detail.png)
+<ThemedImage
+  alt="Detailed Discovery View"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-dark.png'),
+  }}
+/>
 
-![](/assets/images/Discovery-scores-page-1.png)
-
-**Partial Failure**: If any of the discovery aspects fail, this will result in a "partial failure" on the main Discovery Score page.  A partial failure indicates that a portion of the discovery was successful, but not all components were. This is where the detailed view (above) is helpful, as it allows you to narrow in on what could not succeed. In future iterations, we will provide more detail on how to remediate these failures.
+**Partial Failure**: If any of the discovery aspects fail, this will result in a "partial failure" on the main Discovery Score page. A partial failure indicates that a portion of the discovery was successful, but not all components were. This is where the detailed view (above) is helpful, as it allows you to narrow in on what could not succeed. In future iterations, we will provide more detail on how to remediate these failures.
 
 ### Discovery Score Column Details
 
@@ -35,7 +46,13 @@ Device pages now display the five latest discovery scores, with the ability to s
 
 The following is a short explanation of the fields present on the Discovery Score page:
 
-![](/assets/images/Discovery-scores-pie-charts-2-1.png)
+<ThemedImage
+  alt="Discovery Scores pie charts"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-dark.png'),
+  }}
+/>
 
 **Discovery Quality Scores Page Column List**: 
 
@@ -64,10 +81,22 @@ The progress section of each supported discovery has been centralized and redone
 
 Click an item in the **Job Name** column of the Select Discovery Score page to see the View Discovery Job page for that job.
 
-![](/assets/images/16.15.00_Discovery-Scores-2.png)
+<ThemedImage
+  alt="Job Status"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/job-status-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/job-status-dark.png'),
+  }}
+/>
 
 ## Discovery Score Permissions
 
 If you use [Role-Based Access Control](/administration/role-based-access-control/role-based-permissions-and-access.mdx) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select **Allow non-superusers to see other orphaned objects**, non-superusers can see all discovery scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
 
-![](/assets/images/D42-28195_RBACdisc-scores.png)
+<ThemedImage
+  alt="Global Permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/global-settings-rbac-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/global-settings-rbac-dark.png'),
+  }}
+/>
