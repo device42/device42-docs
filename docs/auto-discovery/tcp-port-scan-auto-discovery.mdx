@@ -28,7 +28,7 @@ First, configure the TCP port scan. The result of a TCP port scan is itself a ne
 
 Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the settings you want the \*nix or Windows autodiscovery job to be created with. This will create the appropriate autodiscovery job for you, with the provided naming template and specified settings, and maintain the list of servers based on the results of each TCP port scan run.
 
-- Define the naming template pattern that will be used to generate unique names for the created discovery jobs. Include any credentials under **Username / Password(s)** that are needed to access the target servers.
+- Define the naming template pattern that will be used to generate unique names for the created discovery jobs. Include any credentials required for accessing the target servers under the **Username / Password(s)** field.
 
     <ThemedImage
     alt="Auto-create job settings"
@@ -48,7 +48,7 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
     }}
     />
 
-- The **Device name format** settings deal with naming preferences for discovered devices and the scope of data that should be collected. 
+- Use the **Device name format** settings to set your naming preferences for discovered devices and specify the scope of the data to be collected. 
 
   <ThemedImage
   alt="Device name format options"
@@ -58,7 +58,7 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
   }}
   />
 
-- The next set of settings relate to the discovery of software and services with two cloud services options (**Discover ProviderID/Cloud ID** and **Use provider token**:).
+- Choose from the two cloud service options in the settings for the discovery of software and services (**Discover ProviderID/Cloud ID** or **Use provider token**:).
 
   <ThemedImage
   alt="Discover software and app comp settings"
@@ -68,9 +68,9 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
   }}
   />
 
-  - **Store Application Components Config Files**: Visit the [Application Components](/docs/auto-discovery/application-components) page for more details on application components.
+  - **Store Application Components Config Files**: Visit the [Application Components](/docs/auto-discovery/application-components) page for more information on application components.
 
-- Apply naming conventions to the discovered devices. Select **Strip domain suffix** to drop everything after the first period (`server.domain.com` becomes `server`) and optionally elect to **Use the server as the device name**.
+- Apply naming conventions to the discovered devices. Select **Strip domain suffix** to drop everything after the first period (`server.domain.com` becomes `server`), and optionally, elect to **Use the server as the device name**.
 
   <ThemedImage
   alt="Naming options"
@@ -80,7 +80,7 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
   }}
   />
 
-- Change the service level to the specified level when no VM is detected, assign the discovered devices to a VRF group, and associate specific customers to the discovered devices. 
+- Change the service level to the specified level when no VM is detected, assign the discovered devices to a VRF group, and associate specific customers with the discovered devices. 
 
     <ThemedImage
     alt="Service level and VRF group options"
@@ -90,7 +90,7 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
     }}
     />
     
-- Elect for the generated discovery jobs to collect database information.
+- Allow the generated discovery jobs to **Collect database server information**.
 
     <ThemedImage
     alt="DB settings"
@@ -100,7 +100,7 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
     }}
     />
 
-- Configure metadata settings by selecting an **Object Category for discovered devices** and entering **Tags** to apply to the devices. Tags are particularly useful to use with the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/) feature of Device42.
+- Configure the metadata settings by selecting an **Object Category for discovered devices** and entering **Tags for discovered devices**. Tags are particularly useful to use with the Device42 [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/) feature.
 
     <ThemedImage
     alt="Object settings"
@@ -111,14 +111,14 @@ Under **Settings for auto-created Hypervisors/\*nix/win AD Task**, provide the s
     />
 
 :::note
-New secrets added to TCP port scans will not be added to their corresponding hypervisors, \*nix, or win discovery jobs.
+New secrets added to TCP port scans will not be added to their corresponding hypervisors, \*nix, or Windows discovery jobs.
 :::
 
 ## Run Now or Schedule
 
 You can schedule TCP port scans similarly to all other autodiscovery jobs.
 
-Select **Add another Autodiscovery Schedule** when editing the job to create a run schedule for the job.
+Select **+ Add another Autodiscovery Schedule** when editing a job to create a run schedule for that job.
 
 <ThemedImage
     alt="Schedule TCP scan"
@@ -129,7 +129,7 @@ Select **Add another Autodiscovery Schedule** when editing the job to create a r
 />
 
 :::note
-Setting the schedule on a TCP port scan job will schedule the TCP port scan job itself, but not the autodiscovery jobs created as a **result** of that TCP port scan.
+Setting the schedule on a TCP port scan job will schedule the TCP port scan job itself but not the autodiscovery jobs created as a **result** of that TCP port scan.
 :::
 
 Upon saving the job, click **Run Now** to run the job immediately. You can also run the job from the list page.
