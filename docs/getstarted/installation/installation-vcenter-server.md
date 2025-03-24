@@ -42,11 +42,11 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 
 6. From the console, configure the IP address. Use a **static IP** for all production Device42 VMs to avoid connectivity issues.
    
-    ![Device42 appliance console menu - config IP, v15](/assets/images/d42-console-menu-config-IP-v15.png)
+    ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
     Enter your settings on the Device42 IP address configuration screen: 
 
-    ![](/assets/images/wpid6189-media_1326257599676.png)
+    ![IP config options](/assets/images/vm-ip-settings.png)
 
 7. _Optional:_ Create a DNS entry for the new IP address for the new virtual appliance
 8.  Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address`.
