@@ -10,10 +10,6 @@ Device42 offers users the ability to define their own fields.
 
 You can add custom fields to buildings, rooms, racks, customers, devices, assets, application components, circuits, and passwords as discussed below. This feature enables you to store any custom attributes you need to store in Device42. You can also display custom fields and filter on custom fields in Reports.
 
-:::note
-In DOQL views, custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 
-:::
-
 ## Adding Custom Fields
 
 <ThemedImage
@@ -87,3 +83,7 @@ Please note that mandatory only applies when editing or adding an object via the
 You can find the documentation for adding Custom Fields to various objects using the API in the [API Documentation](https://api.device42.com). 
 
 For example, to see the API documentation for adding custom fields to Devices, navigate to **Devices > Custom fields**.
+
+## Exago Reports Note
+
+For Exago reports (which are not enabled by default), we've made changes to a couple of custom field data types that may affect existing queries. Custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 
