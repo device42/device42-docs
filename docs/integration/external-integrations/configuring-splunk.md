@@ -1,8 +1,0 @@
----
-title: "Configuring Splunk (DEPRECATED)"
-sidebar_position: 10
----
-
-Please see our main [External Logging](external-logging-config.md) page for currently supported external logging options.
-
-Thank you!

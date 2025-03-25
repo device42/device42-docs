@@ -1,0 +1,102 @@
+---
+title: "Discovery Scores"
+sidebar_position: 8
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+The Discovery Scores page provides users with the ability to view the success of their discovery jobs on a granular level. Via the quality scores page, users can see each device that was discovered, the target IP it was discovered from _(which is also a link to that job's page)_, the job name, time stamps, and status of port check and auth.
+
+The discovery scores have been refactored to reflect what Device42 does during discovery more accurately. When Device42 communicates with an API rather than an individual endpoint (for example, a virtual machine), Device42 now creates an **API Manager** discovery score record to report successes or failures against the API endpoint directly. Devices returned by the API will then generate individual discovery score records.
+
+To view the Discovery Scores page, select  **Analytics > Discovery Status > Discovery Scores** from the main menu.
+
+<ThemedImage
+  alt="Discovery Scores pie charts"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-dark.png'),
+  }}
+/>
+
+The Discovery Scores page now includes Score Summary pie charts at the top of the page – **Success**, **Scores**, and **Queue** – for a quick visual summary of your discovery score status. You can hover over the charts, click on a **Discovery Success** chart section or the chart legend, and quickly filter the scores list for additional context.
+
+The Discovery Scores page now also includes a column for **Other** to rate the success of discovery functions that don’t fall into the four existing categories (basic, software, services, applications). This may account for API calls, for example. This number typically represents how many actions we took and how many of them were successful or returned data. This number has no correlation to how many devices or records were created, but rather a generic measure of all the steps Device42 took to gather information. The page also contains two additional columns – **Queue** and **Cumulative Score** – that reflect ingestion status and the cumulative success score for the actions attempted by the job.
+
+By default, discovered devices are sorted from newest to oldest, most recently discovered listed first. Each device is shown on its own line, which offers information about how it was discovered, including the target discovery IP _(which also links back to each job’s View Discovery Score detail page)_ of the job that discovered it, the job name _(which links to the job’s the View Discovery Job page)_, the job’s timestamps, and a red/green ‘at-a-glance’ view of the discovery status. Green indicates discovery success, while red indicates there might have been an issue with that particular stat.
+
+Clicking on any of the items in the **Discovery Targets** column will bring you to a View Discovery Score details page for that particular item:
+
+<ThemedImage
+  alt="Detailed Discovery View"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-dark.png'),
+  }}
+/>
+
+**Partial Failure**: If any of the discovery aspects fail, this will result in a "partial failure" on the main Discovery Score page. A partial failure indicates that a portion of the discovery was successful, but not all components were. This is where the detailed view (above) is helpful, as it allows you to narrow in on what could not succeed. In future iterations, we will provide more detail on how to remediate these failures.
+
+### Discovery Score Column Details
+
+Each discovered device in the list on the Discovery Score view page includes helpful statistics that offer insight into what was discovered from each device.
+
+Device pages now display the five latest discovery scores, with the ability to scroll down to see more.
+
+The following is a short explanation of the fields present on the Discovery Score page:
+
+<ThemedImage
+  alt="Discovery Scores pie charts"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/discovery-scores-pie-charts-dark.png'),
+  }}
+/>
+
+**Discovery Quality Scores Page Column List**: 
+
+- **Discovery Target**: The IP or FQDN that was targeted by the discovery job that found this device. 
+- **Job Name**: The name of the discovery job that discovered the device.
+- **Job Start Time**: The time the discovery job started.
+- **Sub Type**: The chosen subtype for the job.
+- **Port Check**: The port check references the first step of each discovery job, in which an attempt is made to connect to the target discovery port, for example, a connection is attempted port 22 for a Linux SSH-based discovery - Green Check (success) / Red-X (failure). 
+- **Auth**: This field reports the status of authentication to a given endpoint using the credentials supplied in the discovery job's settings - Green Check (success) / Red-X (failure). 
+- **Discovery Successful**: Success (green check mark) will be shown when both Port check and Auth succeed. If either of those two fails, the success column shows Red-X. _Note that it will only be marked as a failure if the device is not added - otherwise, based on scores, it will be marked as PARTIAL or OK._ 
+- **Sudo Access**: This field indicates whether sudo access is allowed for the discovery job. The icon will be a green check mark if sudo access is allowed, a red cross if it is not, and a dash if not applicable (for non-nix scores).
+- **Ignored**: This field indicates a successful connection to a device to which a [Device Ignore Rule](../../infrastructure-management/devices/device-ignore-rules.mdx) was applied, and that the device was ruled out and ignored. 
+- **Ignore Rule**: This is the text entered in the **Ignored text contains** field when the [Device Ignore Rule](../../infrastructure-management/devices/device-ignore-rules.mdx) was created. 
+- **Success**: This field indicates whether the device was successfully discovered (and ignored if applicable). 
+- **Object**: The discovered device. 
+- **Unprocessed Device**: This field indicates whether there is an unprocessed device requiring further attention. 
+- **Inventory**: A count of basic inventory items discovered. 
+- **Software**: A count of discovered software. 
+- **Services**: A count of discovered services. 
+- **Applications**: A count of discovered applications. 
+- **Other**: A rating of the success of discovery functions that don’t fall into the four existing categories (basic, software, services, applications). 
+- **Queue**: The queue-processing success for the job. 
+- **Cumulative Score**: The cumulative success score for the actions attempted by the job. Click into the job for a list of attempted actions.
+
+The progress section of each supported discovery has been centralized and redone to show more consistent progress, and the objects-added count has been converted to a hyperlink to show the discovery scores for newly added objects more quickly.
+
+Click an item in the **Job Name** column of the Select Discovery Score page to see the View Discovery Job page for that job.
+
+<ThemedImage
+  alt="Job Status"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/job-status-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/job-status-dark.png'),
+  }}
+/>
+
+## Discovery Score Permissions
+
+If you use [Role-Based Access Control](/administration/role-based-access-control/role-based-permissions-and-access.mdx) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select **Allow non-superusers to see other orphaned objects**, non-superusers can see all discovery scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
+
+<ThemedImage
+  alt="Global Permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/global-settings-rbac-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/global-settings-rbac-dark.png'),
+  }}
+/>
