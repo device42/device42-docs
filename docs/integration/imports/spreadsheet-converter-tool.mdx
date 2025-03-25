@@ -1,0 +1,56 @@
+---
+title: "Generic Spreadsheet Import Tool"
+sidebar_position: 3
+---
+
+The Device42 Generic Spreadsheet Import Tool enables users to take data in existing spreadsheets or CSV files and easily load them into Device42. The tool supports XLS, XLSX, and CSV formats and enables users to quickly and easily map columns from the spreadsheets to the appropriate fields in Device42.
+
+Here is a [video how-to on this Generic CSV import tool.](how-to-videos/generic-csv-import-tool-how-to.mdx)
+
+The spreadsheet converter is a standalone executable and is available for download [here](https://www.device42.com/bulk-data-management/) .
+
+### Open an Existing Spreadsheet
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-1.png)
+
+To get started, open the tool, browse for your existing xls, xlsx, or csv file, and select the file.
+
+### Run the File Prep Wizard
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-2.png)
+
+You now see a preview of the first several rows of your spreadsheet. If you have any extraneous header rows that you wish to delete, you can delete them here by clicking “Remove first N rows”.
+
+After you do this, click “Next”.
+
+### Mapping Columns to Device42 Fields
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-3.png)
+
+Now select a column from your existing spreadsheet and then select the field you want to map to in Device42.
+
+In the example above we have the “Device Name” field in the spreadsheet and we are mapping it to the “Device: name” in Device42. Once the correct field for Device42 is selected you can click on “Map to” and this will map the field.
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-4.png)
+
+Each time you map a field, you will see a green check box indicating that “Device” has already mapped this field. Now click “Next” to continue to map other fields.
+
+### Custom Device Fields
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-5.png)
+
+If you have a field that doesn't have an appropriate Device42 field to map to, you can create a custom Device42 field. When you do this, the spreadsheet converter will automatically create the custom field for you and associate it to the Device you are importing.
+
+Note: Custom fields are only available for Devices.
+
+### Save Mappings as Template
+
+If you click “Save current mapping as template”, you will save a template that you can use for future spreadsheets that are similar in format. This will save you time spent on mapping fields.
+
+Once you are done mapping the fields as well as saving your template click Finish.
+
+### Running the Script
+
+![Spreadsheet Converter Tool](/assets/images/2015-10-10-ss-convert-7.png)
+
+To run the script, select the file name and enter the Device42 IP address and the authentication information. Click on “Run” and your data from the spreadsheet will be imported into Device42!
