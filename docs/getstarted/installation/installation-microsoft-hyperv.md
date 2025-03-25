@@ -48,9 +48,9 @@ Please change the credentials with option **10** below.
 
 Configure an IP address for the Device42 appliance. Use a static IP or a DHCP address reservation. Ensure that DNS entries are created for every appliance to be used in a production setting. DNS server configuration is a necessary step.
 
-![Option 1 - Configure IP and Networking](/assets/images/wpid6181-media_1338939233735.png)
+![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
-![Configure eth0](/assets/images/wpid6178-media_1338939254095.png)
+![IP config options v19.05](/assets/images/vm-ip-settings.png)
 
 The default password for user `device42` can now be changed from the console menu using option **10**. Please be sure to change it after you log in.
 
@@ -68,10 +68,10 @@ Log in to the **web interface** using the default credentials:
 You are now ready to start discovering your IT infrastructure! 
 
 <ThemedImage
-  alt="Device42 Web Interface Login Screen v19"
+  alt="Device42 Web Interface Login Screen v19.05"
   sources={{
-    light: useBaseUrl('/assets/images/login-light.png'),
-    dark: useBaseUrl('/assets/images/login-dark.png'),
+    light: useBaseUrl('/assets/images/login-19.05-light.png'),
+    dark: useBaseUrl('/assets/images/login-19.05-dark.png'),
   }}
   style={{ width: '70%' }} 
 />
