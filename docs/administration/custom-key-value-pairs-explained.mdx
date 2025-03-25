@@ -18,9 +18,10 @@ You can add custom fields to buildings, rooms, racks, customers, devices, assets
     light: useBaseUrl('/assets/images/custom-fields/custom-fields-01-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-fields-01-dark.png'),
   }}
+  style={{ width: '70%' }} 
 />
 
-You create a custom field by navigating to **Tools > Custom Fields** and choosing the object type (e.g. Assets, Buildings, ...) from the list page to see or create a custom field for that category.
+You create a custom field by navigating to **Tools > Custom Fields** and choosing the object type (for example, Assets, Buildings, and so on) from the list page to see or create a custom field for that category.
 
 When you select an object, you will see a List View of the existing custom fields for that object category:
 
@@ -40,6 +41,7 @@ You can either edit an existing custom field or click the "Add ... Custom Field"
     light: useBaseUrl('/assets/images/custom-fields/custom-fields-03-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-fields-03-dark.png'),
   }}
+  style={{ width: '70%' }} 
 />
 
 Add a name for the custom field and choose a type. Available types are:
@@ -81,3 +83,7 @@ Please note that mandatory only applies when editing or adding an object via the
 You can find the documentation for adding Custom Fields to various objects using the API in the [API Documentation](https://api.device42.com). 
 
 For example, to see the API documentation for adding custom fields to Devices, navigate to **Devices > Custom fields**.
+
+## Exago Reports Note
+
+For Exago reports (which are not enabled by default), we've made changes to a couple of custom field data types that may affect existing queries. Custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 

@@ -234,11 +234,16 @@ We understand that some fields within Device42 may not easily translate to field
 
 ## Custom Data Mapping
 
-[From the **Settings** tab of the **Configuration** page](#find-the-settings-tab), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the custom mapping buttons.
+### Download the `mapping.xml` File
+
+- [From the **Settings** tab of the **Configuration** page](#find-the-settings-tab), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the custom mapping buttons.
+
+- Click the **Download Default Mapping** button to download the `mapping.xml` file. Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. 
 
     ![Data-mapping buttons](/assets/images/freshservice-integration/data-mapping-buttons-2.png)
 
-- Click the **Download Default Mapping** button to download the `mapping.xml` file. Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. 
+### View the Current Mapping
+
 - Explore the mapped fields and their data types by selecting an asset type (for example, **Devices**) from the **Data Mapping Chart**. Scroll to the bottom of the page to view the mapping table.
 
     ![View current mapping](/assets/images/freshservice-integration/view-mappings-2.png)
@@ -251,7 +256,7 @@ Open the `mapping.xml` file in a text or code editor to view and edit the data m
 
  You can customize the data mapping between Device42 and Freshservice by modifying and adding to these tasks. Refer to [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) table below for descriptions of the default mapping tasks, types, and their version requirements. 
 
-For example, The following `<task>` element copies product information from Device42 to Freshservice:
+For example, the following `<task>` element copies product information from Device42 to Freshservice:
 
 ```xml
     <tasks>
@@ -440,11 +445,42 @@ For a quick look at all the valid Freshservice `types`, see the [The `<task>` El
 | Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
 | Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
 
+### Syncing to Custom Field Names in Freshservice
+
+When creating a custom field in Freshservice that corresponds with a Device42 field, you need to set the target field in the XML file to match Freshservice naming conventions. Verify the correct field names via the Freshservice API endpoint before running the sync. 
+
+Field names in Freshservice are automatically generated according to the following conventions:
+
+- Using lowercase characters
+- Replacing spaces with underscores 
+- Appending the asset type ID to the end of the field name (this suffix provides a means of verifying the field name, and is visible in the Freshservice interface but not required in the XML file)
+
+For example, the custom field with the `Used By` label in Freshservice is represented internally as `used_by_12345467`, but you'll use `used_by` in the `mapping.xml` file.
+
+Use the following steps to verify that the field name is correct:
+
+1. Navigate to the edit page for the asset type under the Freshservice **Settings** (if you need help locating the asset type's edit page, consult the [Freshservice Assets page](https://support.freshservice.com/support/solutions/articles/164410-different-types-of-assets-configuration-items-in-freshservice)). Copy the asset type ID, which appears in the URL of the edit page.
+2. Open your browser to access the API endpoint. Replace `<Freshservice-Instance>` with your Freshservice instance and `<Asset-Type-ID>` with the asset type ID from the URL.
+   
+```
+<Freshservice-Instance>/api/v2/asset_types/<Asset-Type-ID>/fields
+```
+
+3. Search the returned JSON for the field label you are interested in to verify the field name. 
+
+    <ThemedImage
+    alt="Business Application in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-dark.png'),
+    }}
+    />
+
 ## Data Mapping FAQs
 
 This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
 
-### How Do I Add a Custom Device42 Field to Freshdesk?
+### Syncing a Custom Device42 Field to Freshdesk (Overview)
 
 To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify the `<task>` that's most closely related to the custom field you want to create.
 
@@ -453,6 +489,82 @@ To add a custom field to Freshservice, modify the `mapping.xml` file and reuploa
 Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. If needed, use the InsightsAI chat under **Analytics > InsightsAI** to help you find the tables and fields you need to query.
 
 If you can't find a task related to your custom field, you can create a new `<task>` element in the `mapping.xml` file.
+
+### How Do I Sync a Device42 Custom Field to Freshservice? (Detailed Steps)
+
+1. First, create and add the new custom field in Device42. You can create a custom field for any CI type using either the UI or the API. In this example, we'll use the UI to create a custom field called `Name` in the **Devices** section of **Custom Fields** in the Main Appliance.
+
+   ![Custom fields organized by CI type](/assets/images/freshservice-integration/ci-custom-field-types.png)
+
+   ![Create a Device custom field](/assets/images/freshservice-integration/create-custom-field.png)
+
+2. You should now see the custom field available for all device types. Navigate to the details page for one of your devices and set a value for the custom field. The example below shows the new **Name** field in the **Custom Fields** section for a Server device named `centos-884163.device42.testing`.
+
+   ![Device custom field](/assets/images/freshservice-integration/server-custom-fields.png)
+
+3. Next, add the new custom field to the `mapping.xml` file. Change the DOQL query in the `Copy Servers from Device42 to Freshservice using DOQL v2` task to map the new custom field to Freshservice. (There are normally three types of task with different `d42_min_version` parameters; update the DOQL for each task type, in case you’re using older or different versions.)
+   
+   ![DOQL changes to map a custom field](/assets/images/freshservice-integration/doql-custom-field-mapping.png)
+
+    ```sql
+    -- The DOQL snippet pictured above:
+    SELECT
+        -- ... existing fields ...
+        view_device_v2.details->>'used by' AS used_by,
+        cf.&quot;Name&quot; as cf_name
+    FROM 
+        view_device_v2
+    LEFT JOIN 
+        view hardware v2 
+        ON view_device_v2.hardware_fk = view_hardware_v2.hardware_pk
+    LEFT JOIN 
+        view_device_custom_fields_flat_v2 cf 
+        ON view_device_v2.device_pk = cf.device_fk
+    LEFT JOIN 
+        network_ip
+        ON view_device_v2.device_pk = network_ip.device_fk
+    LEFT JOIN 
+        network_hw
+        ON view_device_v2.device_pk = network_hw.device_fk
+    ```
+
+    **Explanation of the DOQL changes**:
+
+   - The custom field `Name` is added to the `SELECT` statement.
+    **Syntax notes**: You need to escape the double quotes (`”`) by using the `&quote;` HTML entity. The greater-than (`>`) and less-than (`<`) symbols also need to be escaped. The equality operator works without special quotes. Please check existing DOQL for examples. 
+   - A `LEFT JOIN` is added because all custom fields in Device42 are stored in the `{CI name}_custom_fields` views. For example, the Devices CI is stored in `view_device_custom_fields_flat_v2`.
+
+4. Now it's time to map the custom field to Freshservice. Add a new `<field>` element in the `<mapping>` tag section of the XML file. You'll need to keep Freshservice open and follow the next step to get the exact Freshservice values to use in the new `<field>` element below.
+
+   ![Add a new field element](/assets/images/freshservice-integration/custom-field-map-code.png)
+
+    ```xml
+        <!-- Custom Fields -->
+        <field resource="cf_name" source-type="string" target="cf_name" target-type="string"
+        target-header="Server" not-null="true" set-space="true" min-length="1" max-length="255"/>
+        <!-- Custom Fields -->
+    ```
+
+   **Explanation of the XML changes**:
+
+   - The `resource=` argument is set to the name of the custom field in Freshservice. The custom field name in this example is `cf_name`, which follows the Freshservice convention of using the display name (label) in snake case for the field name, occasionally with the ID of the asset type as a suffix. (See [Syncing to Custom Field Names in Freshservice](#syncing-to-custom-field-names-in-freshservice) for more details).
+   - The `target-header=` argument is set to the name of the CI properties section of the heading name under which the custom field will appear in Freshservice. In this case, `target-header=“Server”` refers to the “Server Properties” heading — there's no need to use "Properties", as it’s automatically added to every asset type.
+
+5. In the Freshservice **Asset Types & Fields** section, find the asset field to which you are mapping the Device42 custom field. In this case, our example device is of the **Server** type, so we find it under **Hardware > Computer > Server**.
+   
+    ![Custom field in Freshservice](/assets/images/freshservice-integration/server-freshservice.png)
+
+6. Now, edit the asset type by clicking on the **pencil icon** all the way on the right, as highlighted below in the screenshot of the **Server** asset type. 
+
+    ![Edit the Server asset type](/assets/images/freshservice-integration/fs-pencil-icon.png)
+
+    Set [the 'target' directive](#the-task-element-elements) to the Device42 field you are mapping to Freshservice. 
+
+    ![Label the custom field in the FS UI](/assets/images/freshservice-integration/fs-label-custom-field.png)
+
+7. Finally, run the sync in Freshservice’s Device42 integration app. You should end up with the custom field you created and set in Device42:
+
+    ![Custom field in Freshservice](/assets/images/freshservice-integration/device-custom-field-fs-final.png)
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
@@ -521,7 +633,7 @@ The line estimates in the examples are based on the default version 1.0 of the `
 
 ### Example 1: How Can I Stop the Sync From Importing Contracts From Device42 to Freshservice?
 
-In the `mapping.xml` file, do a text search for tasks containing the word `contract` in their `description` attribute. You can also search for contract-related tasks in [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table.
+[In the `mapping.xml` file](#download-the-mappingxml-file), do a text search for tasks containing the word `contract` in their `description` attribute. You can also search for contract-related tasks in [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table.
 
 Set the `enable` attribute to `false` on those `<task>` elements:
 
@@ -563,7 +675,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
 ### Example 2: How Do I Prevent Software Imports From Syncing to Freshservice?
 
-In the `mapping.xml` file, do a text search for tasks that contain the word `software` in their `description` attribute. You can also search for contract-related tasks in the [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table. 
+[In the `mapping.xml` file](#download-the-mappingxml-file), do a text search for tasks that contain the word `software` in their `description` attribute. You can also search for contract-related tasks in the [**The `mapping.xml` File Tasks**](#the-mappingxml-file-tasks) table. 
 
 Set the `enable` attribute to `false` on those `<task>` elements:
 
@@ -618,9 +730,9 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
     - After you've disabled software imports, the page will be empty:
   
-    ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png) 
+    ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png)  
 
-## Data Types Transferred from Device42 to Freshservice
+## Data Types Transferred From Device42 to Freshservice
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|
