@@ -15,10 +15,10 @@ Click the **Platform** dropdown to view and select the available storage array
 If you want to see the discovered storage arrays on the Devices list page, then discover storage arrays by SNMP.
 
 <ThemedImage
-  alt="Storage array platforms v19.01"
+  alt="Storage array platforms v19.05"
   sources={{
-    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/platforms-light.png'),
-    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/platforms-dark.png'),
+    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/storage-arrays-platforms-light.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/storage-arrays-platforms-dark.png'),
   }}
 />
 
@@ -89,7 +89,7 @@ See the [All Other Storage Autodiscovery](auto-discovery/storage-arrays-autodisc
 
 ## Add a Storage Array Autodiscovery Job
 
-Select **Discovery > Storage Arrays** in the Device42 menu to display the **Storage Arrays** discovery list page, and then click **Add Storage Arrays for Autodiscovery** to create a new discovery job.  
+Select **Discovery > Storage Arrays** in the Device42 menu to display the **Storage Arrays** discovery list page, and then click **Create** to create a new discovery job.  
 
 <ThemedImage
   alt="Storage array list page"
@@ -112,18 +112,20 @@ Enter or select the following information to create the autodiscovery job:
 * **Action for Storage Array not found**: Choose how to handle unfound Storage Arrays in subsequent discovery — **Keep Array Resource** or **Delete Array Resource**.
 * **Discovery Target(s) Credential(s)**: Enter or select the username and password for the discovery job.
 
+When you are done, click **Save** and you'll see the **Run Now** button to run the job immediately. You can also run the job immediately from the Storage Array list page. 
+
 ### Schedule the Job
 
-Use the **Autodiscovery Schedule** section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and the time to run the job.  When you are done, click **Save** to save the discovery job. Device42 adds the job to the **Storage Arrays** discovery list page. You can run the job immediately from this page. 
+Use the **Autodiscovery Schedule** section of the page to schedule when your job runs. You can create multiple schedules for each job. Select the days of the week and the time to run the job.  
 
 :::note
-Autodiscovery scheduling behavior: Newly created jobs will not run on the first day they are created, to prevent an excessive number of jobs from running simultaneously. If you would like to run a job after its initial creation, click the **Run Now** button next to the job after creation.
+Autodiscovery scheduling behavior: Newly created jobs will not run on the first day they are created, to prevent an excessive number of jobs from running simultaneously. If you would like to run a job after its initial creation, click the **Run Now** button.
 :::
 
 <ThemedImage
   alt="Schedule job"
   sources={{
-    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-light.png'),
-    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-dark.png'),
+    light: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-light-2.png'),
+    dark: useBaseUrl('/assets/images/storage-arrays-autodiscovery/autodiscovery-schedule-dark-2.png'),
   }}
 />
