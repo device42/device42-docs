@@ -3,6 +3,9 @@ title: "NetFlow Collector"
 sidebar_position: 19
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 # NetFlow Collector - Device42
 
 The Device42 NetFlow Collector is a powerful tool that adds continuously discovered network communications details to autodiscovered information from your environment.
@@ -26,21 +29,39 @@ If you already have one or more Device42 remote collectors running, simply enabl
 ### Install the Device42 RC for NetFlow Collection
 
 1. To install the Device42 Remote Collector for NetFlow collection, follow the [RC Installation and Configuration](remote-collector-rc.mdx#rc-installation-and-configuration/) instructions on the [Remote Collector (RC) page](remote-collector-rc.mdx). After installation, return to this page to complete NetFlow Configuration for your RC.
-2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu under **Discovery > Remote Collectors**. Click the name of the RC you want to use for NetFlow collection. 
+2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu under **Discovery > Remote Collectors**. Click the name of the RC you want to use for NetFlow collection.
 
-![](/assets/images/WEB-808_1.png)
+    <ThemedImage
+    alt="Select RC"
+    sources={{
+        light: useBaseUrl('/assets/images/netflow-collector/rc-name-light.png'),
+        dark: useBaseUrl('/assets/images/netflow-collector/rc-name-dark.png'),
+    }}
+    />
 
-3. From the **View remote collector** screen, click the **Edit** button on the upper right-hand corner. Scroll to the **NetFlow options** and click **Show**.
+3. From the **View remote collector** screen, click the **Edit** button on the upper right-hand corner. Scroll down to the **NetFlow options**.
 
-![](/assets/images/WEB-808_2.png)
+    <ThemedImage
+    alt="Edit RC"
+    sources={{
+        light: useBaseUrl('/assets/images/netflow-collector/edit-rc-light.png'),
+        dark: useBaseUrl('/assets/images/netflow-collector/edit-rc-dark.png'),
+    }}
+    />
 
 4. Configure the NetFlow options:
     - Check the **Enable NetFlow** checkbox.
     - **Default Protocol:** Choose TCP or UDP if you'll be using one or the other, otherwise traffic without a protocol will be ignored. 
-    - You may optionally configure IPs to ignore, ports to ignore, or a NetFlow Forwarding IP address, but this will not be necessary for many setups. 
+    - You may optionally configure **IPs to ignore**, **Ports to ignore**, or a NetFlow Forwarding IP address, but this will not be necessary for many setups. 
     - Click **Save** in the lower right-hand corner and your RC is now configured for NetFlow collection.
 
-![](/assets/images/WEB-808_3.png)
+    <ThemedImage
+    alt="Configure NetFlow options"
+    sources={{
+        light: useBaseUrl('/assets/images/netflow-collector/netflow-config-light.png'),
+        dark: useBaseUrl('/assets/images/netflow-collector/netflow-config-dark.png'),
+    }}
+    />
 
 5. Finally, ensure all your NetFlow generating devices are sending their NetFlows to the Device42 RC you just configured. If you haven't configured that already, do that now. This procedure will differ depending on the hardware you are using. Consult the manufacturer's directions for help should you need it.
 
