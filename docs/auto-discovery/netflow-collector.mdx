@@ -29,7 +29,7 @@ If you already have one or more Device42 remote collectors running, simply enabl
 ### Install the Device42 RC for NetFlow Collection
 
 1. To install the Device42 Remote Collector for NetFlow collection, follow the [RC Installation and Configuration](remote-collector-rc.mdx#rc-installation-and-configuration/) instructions on the [Remote Collector (RC) page](remote-collector-rc.mdx). After installation, return to this page to complete NetFlow Configuration for your RC.
-2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu under **Discovery > Remote Collectors**. Click the name of the RC you want to use for NetFlow collection.
+2. Enable NetFlow collection on your newly installed Device42 RC from the Device42 main menu, under **Discovery > Remote Collectors**. Click the name of the RC you want to use for NetFlow collection.
 
     <ThemedImage
     alt="Select RC"
@@ -39,7 +39,7 @@ If you already have one or more Device42 remote collectors running, simply enabl
     }}
     />
 
-3. From the **View remote collector** screen, click the **Edit** button on the upper right-hand corner. Scroll down to the **NetFlow options**.
+3. From the **View remote collector** screen, click the **Edit** button in the upper right-hand corner. Scroll down to the **NetFlow options**.
 
     <ThemedImage
     alt="Edit RC"
@@ -51,9 +51,9 @@ If you already have one or more Device42 remote collectors running, simply enabl
 
 4. Configure the NetFlow options:
     - Check the **Enable NetFlow** checkbox.
-    - **Default Protocol:** Choose TCP or UDP if you'll be using one or the other, otherwise traffic without a protocol will be ignored. 
-    - You may optionally configure **IPs to ignore**, **Ports to ignore**, or a NetFlow Forwarding IP address, but this will not be necessary for many setups. 
-    - Click **Save** in the lower right-hand corner and your RC is now configured for NetFlow collection.
+    - **Default Protocol:** Choose TCP or UDP if you'll be using one or the other; otherwise, traffic without a protocol will be ignored. 
+    - You can optionally configure **IPs to ignore**, **Ports to ignore**, and an IP address to **Forward netFlow traffic to**, although these settings aren't necessary for many setups. 
+    - Click **Save** in the lower right-hand corner; your RC is now configured for NetFlow collection.
 
     <ThemedImage
     alt="Configure NetFlow options"
