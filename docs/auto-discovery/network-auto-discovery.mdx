@@ -83,7 +83,7 @@ Job configuration fields:
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
 - **Use Alias/Name for port description**: Choose if you prefer the Alias/Name for the port description.
 - **Delete older MAC association after**: Specify the number of days after which unfound MAC addresses are deleted.
-- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, uncheck this option:
+- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, uncheck this option, as depicted below.
 
 <ThemedImage
   alt="ICMP/TCP Port Check option"
@@ -123,7 +123,7 @@ Switches with older IOS releases (that don't support "match prefix wildcard"):
 
 You can enter preferred community string credentials when you create an SNMP discovery job. When the job runs, it will use the credentials in the order in which you enter them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list. 
 
-Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking the **+ (plus)** icon.
+Click on the **+ Add another community string** button at the bottom of the **Credentials** section. Then select the secret for the community string by clicking **+** (the plus icon).
 
 :::note
 For successful SNMP v3 discovery, please only use one set of SNMP v3 credentials per username. Currently, entering multiple credentials with shared passwords results in only one of the credential sets being used. 
@@ -245,9 +245,9 @@ When you have saved the network switch for autodiscovery, you will need to run t
   }}
 />
 
-Select **Add another Autodiscovery Schedule** from when editing the job to create a run schedule for the job.
+Select **Add another Autodiscovery Schedule** when editing the job to create a run schedule for the job.
 
-A note on autodiscovery scheduling behavior: newly created jobs will not run on the first day they are created, to prevent an unintended large amount of jobs from running initially. If you would like to run a job after its initial creation, simply select the **Run Now** button next to the job after creation.
+A note on autodiscovery scheduling behavior: Newly created jobs will not run on the first day they are created to prevent an unintentionally large number of jobs from running initially. If you would like to run a job after its initial creation, simply select the **Run Now** button next to the job after creation.
 
 ## Status
 
@@ -261,7 +261,7 @@ You can view the status and results of a discovery job during or after the job h
   }}
 />
 
-You can also see a real-time report of all running jobs and their statuses under **Analytics > Jobs Dashboard**, and all completed jobs under **Completed Jobs**:
+You can also see a real-time report of all running jobs and their statuses under **Analytics > Jobs Dashboard**, and of all completed jobs under **Completed Jobs**:
 
 <ThemedImage
   alt="SNMP job status"
