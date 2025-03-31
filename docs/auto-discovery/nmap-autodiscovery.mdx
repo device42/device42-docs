@@ -12,7 +12,7 @@ Nmap (network mapper) is a tool primarily used for security scanning. However, i
 
 ## Add a Nmap Autodiscovery Job
 
-Navigate to the  **Discovery > Nmap** list page and click **Add Nmap autodiscovery spec** to create a new Nmap autodiscovery job. 
+Navigate to the  **Discovery > Nmap** list page and click **Create** to add a new Nmap autodiscovery job. 
 
 Enter the following required fields for the Nmap job:
 
@@ -60,11 +60,18 @@ Select **Add another Auto Discovery Schedule** when creating or editing the job 
 />
 <br/><br/>
 
-Save the job to add it to the jobs list. Click **Run Now** from the list page to run the job right away.
+To prevent an unintentionally large number of jobs from running initially, newly created jobs will not run on the first day they are created. If you would like to run a job after its initial creation, click the **Run Now** button on the job summary page that is displayed after you save a new job.
 
-![](/assets/images/D42-22946_nmap-ad-list-page.jpg)
+The **Run Now** button is also available on the list page (**Discovery > Nmap**).
 
-Note that newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from initially running. If you would like to run a job after its initial creation, click the **Run Now** button next to the job after creation.
+<ThemedImage
+  alt="Add Nmap job schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/nmap-autodiscovery/nmap-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/nmap-autodiscovery/nmap-list-page-dark.png'),
+  }}
+/>
+
 
 ## Nmap and NetFlow Autodiscovery Notes
 

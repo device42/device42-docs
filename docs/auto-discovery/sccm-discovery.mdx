@@ -16,13 +16,13 @@ SCCM Discovery can be configured using either WinRM, WMI (Requires a WDS and rea
 
 ### View, Run, and Add Jobs
 
-Navigate to the list page to view existing jobs, run a job, or create a new SCCM job by clicking the **+ Add Hypervisors/\*nix/win for Autodiscovery** button on the top right.
+Navigate to the list page under **Discovery > HyperVisors / \*nix / Windows** to view existing jobs, run a job, or create a new SCCM job by clicking the **Create** button on the top right.
 
 <ThemedImage
   alt="List page"
   sources={{
-    light: useBaseUrl('/assets/images/sccm/list-page-light.png'),
-    dark: useBaseUrl('/assets/images/sccm/list-page-dark.png'),
+    light: useBaseUrl('/assets/images/sccm/sccm-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/sccm/sccm-list-page-dark.png'),
   }}
 />
 
@@ -38,7 +38,7 @@ Click on a job to view its details. Modify the job using the **Edit** button on 
 
 ### Discovery Using WDS Credentials
 
-Select the **Use Service Account Credentials (only Applies to WDS)** checkbox to reveal the **WDS** dropdown.
+Select the **Use Service Account Credentials (only Applies to WDS)** checkbox.
 
 <ThemedImage
   alt="Change Hypervisor WDS"
@@ -88,7 +88,7 @@ For discovery to return detailed information, you will require read permissions 
   </tbody>
 </table>
 
-When creating or editing a job, check the **Collect with database server** option and provide the necessary discovery target credentials.
+When creating or editing a job, check the **Collect with database server** option and provide the **MSSQL SCCM Instance**.
 
 <ThemedImage
   alt="SSCM BD discovery"
