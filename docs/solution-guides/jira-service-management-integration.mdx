@@ -3,6 +3,9 @@ title: Jira Service Management Integration
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
 
 :::warning
@@ -36,11 +39,23 @@ We'll start by preparing Device42 for cloud service integrations. Navigate to **
 * **Company Name:** Your company name.
 * **Email:** Your email address.
 
-![Device42 Cloud Services](/assets/images/jsm-solution-guide/image67.png)
+<ThemedImage
+    alt="Device42 Cloud Services"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-solution-guide/cloud-services-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-solution-guide/cloud-services-dark.png'),
+    }}
+/>
 
 Next, we'll set up a Jira integration. Navigate to **Tools > Integrations > External Integrations** and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
 
-![Device42 external integrations](/assets/images/jsm-solution-guide/image66.png)
+<ThemedImage
+    alt="Device42 External Integration"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-solution-guide/external-integration-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-solution-guide/external-integration-dark.png'),
+    }}
+/>
 
 ### Installing the Device42 JSM App
 
