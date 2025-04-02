@@ -63,7 +63,9 @@ Please contact our [support team](mailto:support@device42.com) for technical ass
 
 ## Managing ServiceNow Data Sources
 
-Each ServiceNow data source points to one data source endpoint. From ServiceNow, the URI endpoints look something like this:
+Each ServiceNow data source points to one data source endpoint. You need to create a separate data source for each endpoint. If you want to add multiple endpoints, you must create a separate data source for each one.
+
+From ServiceNow, the URI endpoints look something like this:
 
 **Version 3.0.0+**
 
@@ -154,23 +156,18 @@ Please note that all records will appear to be ignored in versions 3+, because w
         ```
         sn/route_doql_csv/${x_192652_device42.instance_key}/SAVEDDOLQNAME
         ```
- 
+
 To add a custom DOQL data source, head to **System Import Sets -> Administration -> Data sources** in ServiceNow:
 
-[ServiceNow add external datasource DOQL](/assets/images/ServiceNow_add_external_datasource.png)
+![ServiceNow add external datasource DOQL](/assets/images/ServiceNow_add_external_datasource.png)
 
 Then go ahead and add your new data source: 
 
 ![](/assets/images/SN_Dashboard_3.png)
 
-:::note
-You need to create a separate data source for each endpoint. If you want to add multiple endpoints, you must create a separate data source for each one.
-:::
-
-That's all there is to it. ServiceNow should now have access to your new data source. Should you run into any issues, email [support@device42.com](mailto:support@device42.com).
-
-| Name             | The name of your data source, this can be any value you choose                                                                         |
+| Field | Description                                                                 |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Name             | The name of your data source, this can be any value you choose          
 | Import set table | The table that you would like the data to be imported into                                                                             |
 | Type             | Default: File                                                                                                                          |
 | Format           | Default: CSV                                                                                                                           |
@@ -180,6 +177,11 @@ That's all there is to it. ServiceNow should now have access to your new data so
 | Username         | A username is required to send credentials with requests, use any value, for example, `servicenow_data_source`                                     |
 | Password         | The password is the verification token of the integration you set up in Device42                                                   |
 
+:::note
+The `is_default` option to flag Windows and *nix interfaces (most netports) as default has been added to `view_netport_v1` view.
+:::
+
+That's all there is to it. ServiceNow should now have access to your new data source. Should you run into any issues, email [support@device42.com](mailto:support@device42.com).
 
 ### The Cloud Connector
 
