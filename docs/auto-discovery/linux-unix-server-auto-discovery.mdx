@@ -26,7 +26,7 @@ Within the **Parts** section of device details, the CPU, RAM, and storage entrie
 
 Before configuring an SSH-based discovery job, please be sure the SSH port (standard TCP port 22 or a custom port) is open between the Device42 Main Appliance or Remote Collector and the targeted Unix or Linux servers. 
 
-Select **Discovery > Hypervisors / \*nix / Windows** from the main menu and click the **+ Add Hypervisors/\*nix/win for Autodiscovery** button to add a discovery job to connect and gather host and VM details. 
+Select **Discovery > Hypervisors / \*nix / Windows** from the main menu and click the **Create** button to add a discovery job to connect and gather host and VM details. 
 
 <ThemedImage
     alt="nix autodiscovery page"
@@ -74,45 +74,84 @@ You can ignore IP and MAC addresses from being included in our database during a
 
 Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
 
-<img src={ignoreIpImage} width="80%"/>
+- **Exclude Server(s):** List of server IPs to exclude from discovery. This is useful for ignoring individual IPs when the discovery target is specified as a range or CIDR block. 
+- **Service Port Client IPs**: Do not discover client connections on specified listening ports.  
+
+    <ThemedImage
+        alt="Linux Unix job exclusions"
+        sources={{
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-light.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-dark.png'),
+        }}
+    />
+
+- **Remote IP Exclusion**: Do not discover connections to or from any of these remote IPs.
+- **Ignore Interfaces:** List of network interfaces to ignore during discovery.
+  
+    <ThemedImage
+        alt="Linux Unix job exclusions"
+        sources={{
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-light.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-dark.png'),
+        }}
+    />
+
+- **Ignore IP(s):** Do not discover connections to or from any of these remote IPs.
+- **Ignore MAC(s):** Do not discover connections to or from any of these remote MAC addresses.
+
+    <ThemedImage
+        alt="Linux Unix job exclusions"
+        sources={{
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-light.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-dark.png'),
+        }}
+    />
+
+### Global Exclusions
 
 Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance. 
 
-* * *
-
-### Exclusions
-
 <ThemedImage
-    alt="Linux Unix exclusions"
+    alt="Global Ignore options"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/job-exclusions-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/job-exclusions-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-light.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-dark.png'),
     }}
 />
-
-- **Exclude Server(s):** List of server IPs to exclude from discovery. This is useful for ignoring individual IPs when the discovery target is specified as a range or CIDR block. 
-- **Exclude Service Port Client IPs:** Do not discover client connections on specified listening ports.  
-- **Ignore Interfaces:** List of network interfaces to ignore during discovery.
-- **Ignore IP(s):** Do not discover connections to or from any of these remote IPs.
-- **Ignore MAC(s):** Do not discover connections to or from any of these remote MAC addresses.
 
 ### Naming Options
 
 <ThemedImage
-    alt="Naming Options"
+    alt="Naming options"
     sources={{
         light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-light.png'),
         dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-dark.png'),
     }}
 />
 
-- **Strip domain suffix:** Strips the domain suffix from discovered servers. See the [next section](#host-discovery) for hostname config details.
+- **Strip domain suffix:** Strips the domain suffix from discovered servers.
 - **Domains to strip:** Ordered list of domains to strip from hostname, one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
 - **Set the device name as the name given in the server field of the autodiscovery job:** If checked and discovering via hostname or FQDN, the device will be named using the discovery target name provided.  
 - **Overwrite existing device hostname with discovered hostname:** Check this option to give precedence to the discovered hostname.  
-- **Device Name Format:** Select the desired device naming format. See the [configuring hostname discovery details](/auto-discovery/linux-unix-server-auto-discovery.mdx#section-7) below for explanations.
+- **Device Name Format:** Select the desired device naming format.
 
+    <ThemedImage
+        alt="Device Name Format options"
+        sources={{
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark.png'),
+        }}
+        style={{ width: '45%' }} 
+    />
+
+    - **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to "name".
+    - **Hostname plus Domain Name:** The device name becomes "name.domain".
+    - **Hostname and add Hostname plus Domain Name as Alias:** Names stay the same, and an alias is set as "name.domain".
+    - **Hostname Plus Domain Name and Add Host name as Alias:** The alias is set to "name" and the device name becomes "name.domain".
+  
 ### Host Discovery
+
+Enabling the **Discover ProviderID/CloudID** option reveals the **Provider Token** option, which might be needed for authentication with the cloud service provider.
 
 <ThemedImage
     alt="Host Discovery options"
@@ -121,10 +160,6 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
         dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-dark.png'),
     }}
 />
-
-Enabling the **Discover ProviderID/CloudID** option reveals the **Provider Token** option, which might be needed for authentication with the cloud service provider.
-
-* * *
 
 ### Miscellaneous Options
 
@@ -139,8 +174,6 @@ Specify the timeout range between 10 to 600 seconds in the **Timeout** field to
         dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/misc-options-dark.png'),
     }}
 />
-
-* * *
 
 ## Configure SSH Key Auth for Discovery
 
@@ -237,7 +270,7 @@ Add your private SSH RSA or DSA Private key created in [Step 1](#step-1-configur
 
 - Set up a new discovery job. Go to **Discovery > HyperVisors / \*nix / Windows** and click **+ Add Hypervisors/\*nix/win for Autodiscovery**.
 - Select a credential for the **Discovery Target(s) Credential(s)** field that includes the SSH key file instead of a password. 
-- You can also add the file via the discovery job page, or by going to **Resources > All Secrets** and clicking **+ Add Password**.
+- You can also add the file via the discovery job page, or by going to **Resources > All Secrets** and clicking **Create**.
 
 <ThemedImage
     alt="Add Secret"
@@ -261,10 +294,7 @@ You can download the key file when needed. Navigate to **Resources > All Secrets
         light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-light.png'),
         dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-dark.png'),
     }}
-    style={{ width: '70%' }} 
 />
-
-* * *
 
 ## Configure Linux Hostname Discovery Details
 
@@ -285,41 +315,9 @@ nisdomainname
 
 If you don't get a domain name with any of those commands, try running `cat /etc/resolv.conf`. In this case, split the text on the white space in the file and look for a `domain` token. When you see one, assign the domain as the second token after `domain`.
 
-### Strip Domain Suffix
-
-When the **Strip domain suffix** option is checked under **Naming Options**, Device42 will drop everything after the first "." in the device name. 
-
-<ThemedImage
-    alt="Naming Options panel"
-    sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/naming-options-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/naming-options-dark.png'),
-    }}
-/>
-
-The option you choose under the **Device Name Format** dropdown occurs before assigning the device.
-
-<ThemedImage
-    alt="Device Name Format options"
-    sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark.png'),
-    }}
-    style={{ width: '60%' }} 
-/>
-
-The naming options are as follows:
-
-1. **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to "name".
-2. **Hostname plus Domain Name:** The device name becomes "name.domain".
-3. **Hostname and add Hostname plus Domain Name as Alias:** Names stay the same, and an alias is set as "name.domain".
-4. **Hostname Plus Domain Name and Add Host name as Alias:** The alias is set to "name" and the device name becomes "name.domain".
-
 ## Run *nix SSH Discovery Job
 
-After saving a discovery job, you can run it immediately from the list using the **Run Now** button, view and edit pages, or schedule the discovery job.
-
-To run the job right away, go to the list page under **Discovery > HyperVisors / \*nix / Windows** and click the **Run Now** button for a discovery job.
+After saving a discovery job, you can run it immediately using the **Run Now** button on the view and edit pages of the specific job, or from the list page grid under **Discovery > HyperVisors / \*nix / Windows**.
 
 <ThemedImage
     alt="Run job from the list page"
@@ -329,7 +327,7 @@ To run the job right away, go to the list page under **Discovery > HyperVisors /
     }}
 />
 
-Select **Add another Auto Discovery Schedule** when editing a job to create a run schedule for the job.
+Select **Add another Autodiscovery Schedule** when editing a job to create a run schedule for the job.
 
 <ThemedImage
     alt="Schedule the discovery job"
@@ -342,8 +340,6 @@ Select **Add another Auto Discovery Schedule** when editing a job to create a ru
 :::note
 Newly created jobs will not run on the day they are created to prevent an excessive number of jobs running simultaneously. To run a job after creating it, select the **Run Now** button next to the job.
 :::
-
-* * *
 
 ## Linux Considerations
 
