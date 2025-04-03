@@ -15,9 +15,10 @@ The Device42 warranty autodiscovery and management tools find and help you track
 <ThemedImage
   alt="Warranty sync menu"
   sources={{
-    light: useBaseUrl('/assets/images/discover-warranty-menu-light.png'),
-    dark: useBaseUrl('/assets/images/discover-warranty-menu-dark.png'),
+    light: useBaseUrl('/assets/images/warranty-autodiscovery/discovery-warranty-menu-light.png'),
+    dark: useBaseUrl('/assets/images/warranty-autodiscovery/discovery-warranty-menu-dark.png'),
   }}
+  style={{ width: '85%' }}
 />
 
 To configure automatic warranty discovery, you need to request API keys from the vendors that require them (currently Dell and Meraki). Once you've provided Device42 with the API access keys, machine IDs, and CI model and serial numbers, the warranty autodiscovery automatically discovers and populates your hardware's service contract information.
@@ -37,35 +38,26 @@ Device42 supports warranty autodiscovery for the following vendors:**
 
 1. For the script to successfully retrieve warranty information for a given device, the device model and serial number fields must be correctly filled out (entered or discovered). If you have more than one vendor entry for a given vendor, the best option is to merge them prior to discovery.
 
-    For example, to merge all lexical variations of "Dell" into a single vendor, head to **Infrastructure -> Vendors** and check the boxes next to all the relevant variations:
+    For example, to merge lexical variations of "Amazon Web Services" into a single vendor, head to **Infrastructure > Vendors** and check the boxes next to all the relevant variations:
 
     <ThemedImage
       alt="Merge lexically similar vendors"
       sources={{
-        light: useBaseUrl('/assets/images/discover-warranty-merge-light.png'),
-        dark: useBaseUrl('/assets/images/discover-warranty-merge-dark.png'),
+        light: useBaseUrl('/assets/images/warranty-autodiscovery/merge-selected-vendors-light.png'),
+        dark: useBaseUrl('/assets/images/warranty-autodiscovery/merge-selected-vendors-dark.png'),
       }}
     />
     <br/><br/>
 
-2. The Device42 **Model** field must be set to  **Dell**, **IBM**, **Lenovo**, or **Meraki**. Hardware with different vendor name variations will not return a warranty. You can easily add the proper **Vendor Aliases** to the vendors if your vendors are named differently. On the vendor edit screen, update the vendor entries. Simply enter `dell` for  Dell `ibm` for IBM, `meraki` for Meraki, and `lenovo` for Lenovo:
-
-    <ThemedImage
-      alt="Edit vendor"
-      sources={{
-        light: useBaseUrl('/assets/images/discover-warranty-vendor-light.png'),
-        dark: useBaseUrl('/assets/images/discover-warranty-vendor-dark.png'),
-      }}
-    />
+2. The Device42 **Model** field must be set to  **Dell**, **IBM**, **Lenovo**, or **Meraki**. Hardware with different vendor name variations will not return a warranty. You can easily add the proper **Vendor Aliases** to the vendors if your vendors are named differently. On the vendor edit screen, update the vendor entries. Enter `dell` for  Dell, `ibm` for IBM, `meraki` for Meraki, and `lenovo` for Lenovo:
 
     <ThemedImage
       alt="Add vendor aliases"
       sources={{
-        light: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-light.png'),
-        dark: useBaseUrl('/assets/images/discover-warranty-vendor-aliases-dark.png'),
+        light: useBaseUrl('/assets/images/warranty-autodiscovery/vendor-aliases-light.png'),
+        dark: useBaseUrl('/assets/images/warranty-autodiscovery/vendor-aliases-dark.png'),
       }}
     />
-    <br/><br/>
 
 3. Get your API keys:
 
@@ -99,7 +91,7 @@ Meraki - api.meraki.com https port 443
 
 ## Configuring a Job With an API Key
 
-1. Select **Discovery > Warranty Sync** from the main menu, click **Add Warranty Check**, and **Name** your job.
+1. Select **Discovery > Warranty Sync** from the main menu, click **Create**, and **Name** your job.
 2. Select a **Vendor**:
     
     For Dell or Meraki, be sure to enter your matching API key (see the **API Keys** section above for details on obtaining a Dell or Meraki API key). If you select Dell, ensure you choose the API version from the dropdown.
@@ -114,14 +106,22 @@ Meraki - api.meraki.com https port 443
 <ThemedImage
   alt="Add API key"
   sources={{
-    light: useBaseUrl('/assets/images/discover-warranty-api-key-light.png'),
-    dark: useBaseUrl('/assets/images/discover-warranty-api-key-dark.png'),
+    light: useBaseUrl('/assets/images/warranty-autodiscovery/warranty-api-key-light.png'),
+    dark: useBaseUrl('/assets/images/warranty-autodiscovery/warranty-api-key-dark.png'),
   }}
 />
 
 As long as your API key is active, and devices have a valid model, vendor, and serial number, the sync will gather warranty information. On each device in the **Life Cycle** tab or under **Infrastructure > Purchases**, you will find past and present warranty information. This includes order details, contract and service types, and dates.
 
-![](/assets/images/WEB-598_warranty-ad-purchase-support-tab.png)
+
+<ThemedImage
+  alt="Warranty details"
+  sources={{
+    light: useBaseUrl('/assets/images/warranty-autodiscovery/warranty-line-items-light.png'),
+    dark: useBaseUrl('/assets/images/warranty-autodiscovery/warranty-line-items-dark.png'),
+  }}
+/>
+
 
 ### Configuring the STANDALONE Warranty Script
 
