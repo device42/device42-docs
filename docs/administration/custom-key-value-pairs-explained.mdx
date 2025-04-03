@@ -12,6 +12,8 @@ You can add custom fields to buildings, rooms, racks, customers, devices, assets
 
 ## Adding Custom Fields
 
+Navigate to the custom fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
+
 <ThemedImage
   alt="Custom fields menu"
   sources={{
@@ -21,26 +23,15 @@ You can add custom fields to buildings, rooms, racks, customers, devices, assets
   style={{ width: '80%' }} 
 />
 
-Navigate to the custom fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
+- From the list page for the selected custom field type, you can either edit an existing custom field or click the **Create** button to add a new one.
 
-<ThemedImage
-  alt="Custom fields device list view"
-  sources={{
-    light: useBaseUrl('/assets/images/custom-fields/custom-fields-02-light.png'),
-    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-02-dark.png'),
-  }}
-/>
-
-From the list page for the selected custom field type, you can either edit an existing custom field or click the **Create** button to add a new one.
-
-<ThemedImage
-  alt="Create a new custom field"
-  sources={{
-    light: useBaseUrl('/assets/images/custom-fields/custom-fields-03-light.png'),
-    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-03-dark.png'),
-  }}
-  style={{ width: '70%' }} 
-/>
+  <ThemedImage
+    alt="Custom fields device list view"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-02-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-02-dark.png'),
+    }}
+  />
 
 - Input the name for the custom field and choose its data **Type**. Certain custom field types, when selected, will present more options specific to that field type. The available types are:
 
@@ -49,9 +40,19 @@ From the list page for the selected custom field type, you can either edit an ex
   - **Date:** Custom field values are dates.
   - **Related Field:** Custom field values are values of another field (e.g. If rack is chosen, then rack names are possible values).
   - **Yes/No:** Custom field values are either yes or no.
-  - **URL:** Custom field values are URLs.-. **Picklist:** Custom field value choices as a picklist.
+  - **URL:** Custom field values are URLs. 
+  - **Picklist:** Custom field value choices as a picklist.
   - **JSON:** Custom field values are JSON.
   - **Markup:** Custom field values are markup.
+
+<ThemedImage
+  alt="Create a new custom field"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/custom-fields-03-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-03-dark.png'),
+  }}
+  style={{ width: '90%' }}
+/>
 
 - If you check the **Filterable** box, the list view page for the object type (for example, Devices) will contain the custom field as a filter option. This allows you to filter the list view by the custom field value. The filterable custom field will be available in the **More Filters** dropdown.
 
