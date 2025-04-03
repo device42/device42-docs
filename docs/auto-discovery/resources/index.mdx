@@ -102,7 +102,7 @@ sources={{
 
 ## Select Resources Across Multiple Pages
 
-Select resources across multiple list pages to run bulk actions on them. Actions include deleting, archiving, or adding the resources to a Business Application.
+Select resources across multiple list pages to run bulk actions on them. Actions include deleting, archiving, or adding the resources to a Business Service.
 
 - Select the **Resources** list page to view and select resources. The page shows you how many items are selected.
 - Use the numbers and arrows to scroll to different list pages and select more resources on that page. The page updates the selected-items count.
@@ -118,7 +118,15 @@ sources={{
 
 ## Bulk Resource Actions
 
-To delete resources, select one or more resources from the list and choose **Fast Background Delete** or **Delete with Detailed Confirmation**. Alternatively, you can run the **Fast Background Archive** action to archive the resources.
+To perform the following bulk actions, the user account you are using needs ['Resources | Can change Resource' permission](/administration/role-based-access-control/role-based-permissions-and-access) to edit resources.
+
+- Export the selection as a CSV file
+- Add tags to the selected items
+- Set the Service Level
+- Mark the selected resources as **In Service** or **Not in Service**
+- Set a custom field value
+
+You can delete the selected resources from list and landing pages using the **Fast Background Delete** or **Delete with Detailed Confirmation**. Alternatively, there's a bulk action to archive root resources.
 
 <ThemedImage
 alt="Resources bulk actions"
@@ -137,3 +145,4 @@ sources={{
     dark: useBaseUrl('/assets/images/autodiscovery-resources/delete-with-confirmation-dark.png'),
 }}
 />
+
