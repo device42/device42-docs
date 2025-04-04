@@ -3,72 +3,106 @@ title: "Racks"
 sidebar_position: 4
 ---
 
-To get a list of racks, go to Data Center>>Racks. This takes you to the Racks List View page...
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![List of Racks](/assets/images/select_rack_view.PNG)
+To get a list of your racks, go to **Infrastructure > DataCenter > Racks** to display the Racks list page. 
 
-Like the list view pages for other objects, you see the list of your racks on the left and a number of columns of information, all of which are sortable.
+<ThemedImage
+  alt="Racks list page with Actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/racks-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/racks/racks-list-page-dark.png'),
+  }}
+/>
 
-You also see an availability heatmap to the far right so that you can see at a glance where there is space availability in the racks.
+Like the list view pages for other objects, you'll see your racks and several sortable columns of information. Use the available filters and search box to narrow down the list of racks displayed.
 
-There are a number of available filters (not shown above) and a search box, both of which can be used to narrow the list of racks displayed.
+Get a quick look of where space is available in the racks with the **Available Us** column that displays the availability heatmap of each rack.
 
-Last, you can select one or more racks and apply any of the actions shown above in the Actions dropdown. For example, you could select multiple racks and ask to see a view showing the layouts of each selected racks. From that layout view, you can drag and drop devices from one rack to another (more on this below).
+You can select one or more racks and to activate the **Actions** dropdown. For example, use the **Show Front Layout of selected racks** action to see a view showing the layouts of each selected rack. From that layout view, you drag and drop devices from one rack to another (more on this below).
 
-If you click on one of the rack names, you will see the Rack View Page which shows all the details about the rack. From there if you click the Edit button, you can makes changes to the rack. The screen shot below shows the Rack Edit Page.
+## Rack Details Edit Overview
 
-### Rack View/Edit Overview
+Click on one of the rack names to see all the details about the rack. From this details view, you can make changes to the rack by clicking **Edit**.
 
-![Rack View/Edit Overview](/assets/images/change_rack_2018v15.png)
+<ThemedImage
+  alt="Rack edit mode"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/edit-rack-1-light.png'),
+    dark: useBaseUrl('/assets/images/racks/edit-rack-1-dark.png'),
+  }}
+/>
 
-The parameters on the rack edit page are:
+The **Details** section includes the following fields:
 
-Name: Name of the rack.
+- **Size**: Size of rack in U's. The standard and default is **42**.
+- **Numbering start from bottom**: By default, slot **1** is at the bottom of the rack in the visual layout. Turn off this option if you prefer numbering from the top in the visual layout of the rack.
+- **First number**: By default, rack numbering starts at one but you can change it here to customize the rack numbering (for example, you might want the first number to be **0**).
+- **Number between U's**: By default, the visual rack layout will display U numbers between Us. Turn off this option to display U numbers at the Us.
 
-Size: Size of rack in U's. 42 is standard and is default value.
+    <ThemedImage
+    alt="Rack edit mode"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/edit-rack-2-light.png'),
+        dark: useBaseUrl('/assets/images/racks/edit-rack-2-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-Numbering start from bottom: This is the default (i.e. the 1 slot is at the bottom of the rack in the visual layout) but you can unselect if you prefer numbering from the top in the visual layout of the rack.
+- **Row**: If you have a name for the row, put it here. Please note that the row name is for information only and will not affect the layout of the room. In the visual room layout, rows are initially created automatically and will not use this setting. You can then drag and drop racks to create rows. If all racks in a given row in the visual layout have the same Row value, the value will appear to the left of the row. The same applies to columns in the visual layout – if all the racks in a given column have the same Row value, the value will appear at the top of the column.
+- **Room**: Choose the room for the rack. You can click the **+** (plus sign icon) to create a new room from this page.
+- **Manufacturer**: Select the rack manufacturer.
 
-First number: Rack numbering will start at one by default, but change it here to customize (e.g. you might want the first number to be 0).
+    <ThemedImage
+    alt="Rack edit mode"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/edit-rack-3-light.png'),
+        dark: useBaseUrl('/assets/images/racks/edit-rack-3-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-Number between U's: By default, the visual rack layout will display U numbers between U's. Uncheck to display U numbers at the U's.
-
-Row: If you have a name for the Row, put it here. Please note that this is information only and will not affect the layout of the room. In the visual room layout, rows will initially be created automatically and will not use this setting. You can then drag and drop racks to create rows. If all racks in a given row in the visual layout have the same Row value, the value will appear to the left of the row. The same will be true for columns in the visual layout. If all the racks in a given column have the same Row value, the value will appear at the top of the column.
-
-Room: Choose the room for the rack. You can use the plus sign ( + ) to create a new room from this page.
-
-Manufacturer: Rack manufacturer.
-
-Notes: Any additional notes.
+- **Tags**: Tags are used to categorize racks for convenient searching.
+- **Notes**: Store any additional notes here.
+- **QR Code**: If you have a QR code for rack for asset tracking, you can add it here. 
 
 ![](/assets/images/wpid6455-rack-unit-num-display-start-vs-end.png)
 
-### Visualize Rack Availability
+### Add Devices to the Rack
 
-![Visualize Rack Availability](/assets/images/wpid6442-media_1424465614349.png)
-
-You can get a quick analysis of rack availability by looking at the color-coded Available Us column.
-
-### Adding Devices to the Rack
-
-![Adding Devices to the Rack](/assets/images/wpid6454-wpid-rack-add-devices-find-next1.png)
-
-You can easily add devices, assets, and PDUs to the rack right from the rack edit page. You will see a lookup indicator (the highlighted magnifying glass above) which will display a listing of all "physical" devices, where you can search, filter and choose a device from a list of existing devices as shown below in the next screen image.
+You can easily add devices, assets, and PDUs to the rack right from the rack edit page. Click **+ Add More** and next to the empty Device field, click the **+** (plus sign) lookup indicator and search and filter the listing of physical devices to find the device you want to add.
 
 There are three other ways to add devices, assets, and PDUs to racks:
 
-1. From the device (or asset or PDU) edit page
-2. From Tools >> Import, using an excel sheet (there are spreadsheets for adding devices, assets, and PDUs to racks)
-3. Using APIs
-4. From the rack layout (see next section)
+1. From the device, asset, or PDU edit pages
+2. Under [**Tools > Import/Export (xls)**](/integration/imports/spreadsheet-imports-and-exports), using Excel spreadsheets to add devices, assets, and PDUs to racks.
+3. [Using APIs](https://api.device42.com)
+4. From the rack layout screen. See the [Visually adding assets to the layout screen section](#visually-adding-assets-to-the-rack-from-the-rack-layout-screen) below.
 
-Devices must have hardware models with a defined size before adding them to a rack as "rack-mounted". You can add them to the left, right, top, or bottom without a hardware model. You can also add a new device from the lookup page.
+<ThemedImage
+  alt="Rack devices fields"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/rack-devices-1-light.png'),
+    dark: useBaseUrl('/assets/images/racks/rack-devices-1-dark.png'),
+  }}
+/>
 
-Start at: Starting U location for the device. Orientation: Choose the orientation of the mounted device here. Device depth is determined by the hardware model properties.
+Devices must have a [Hardware Model](/infrastructure-management/devices/hardware-models-templates/) with a defined size to give them the **Rack Mounted** designation under the **Where** field. You can add devices to the Left, Right, Top, or Bottom without a hardware model.
 
-The "Find next slot" option pictured above automatically finds an available space in the rack based on the device U size.
+- **Start at**: Starting U location for the device. 
+- **Orientation**: Choose the orientation of the mounted device here. Device depth is determined by the hardware model properties.
+  
+The **Find next slot** option pictured below automatically finds an available space in the rack based on the device U size.
 
-![](/assets/images/wpid6439-media_1414229537336.png)
+    <ThemedImage
+    alt="Rack devices fields"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/rack-devices-2-light.png'),
+        dark: useBaseUrl('/assets/images/racks/rack-devices-2-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
 ### Visually adding devices to the rack from the rack layout screen
 
