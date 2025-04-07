@@ -387,7 +387,7 @@ If we can't find any child database instance resources, we match the resource to
 
 We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
 
-If a candidate database instance is detected to be a child of a CDB we skip the matching process
+If a candidate database instance is detected to be a child of a CDB, we skip the matching process.
 
 ### Oracle User Discovery Updates
 
@@ -396,7 +396,7 @@ We've made the following changes to the UI:
 1. Added **Database Instance Name** under the identifier (generally the service name).
 2. Renamed **Database** to **Database/Schema** and only show ones with attached objects for Oracle.
 
-We previously gathered all Oracle users and collected them as "Device42 Databases", then we only retrieved Oracle users that have at least one associated database object, and from there we implemented a changes to ignore user schemas. As a result, some Oracle database connections may no longer show under specific user schemas. These 'orphaned' database connections are now listed under the main database instance instead of to a specific **Database/Schema** resource. While they’re not linked to individual schemas anymore, key details like the user login and schema name are still preserved in the database instance details.
+We previously gathered all Oracle users and collected them as "Device42 Databases." Then, we only retrieved Oracle users that had at least one associated database object, and from there, we implemented changes to ignore user schemas. As a result, some Oracle database connections may no longer show under specific user schemas. These 'orphaned' database connections now map to the main database instance, instead of mapping to a specific **Database/Schema** resource. While they’re not linked to individual schemas anymore, key details like the user login and schema names are still preserved in the database instance details.
 
 ## Postgres SQL Database Discovery (on \*nix targets)
 
