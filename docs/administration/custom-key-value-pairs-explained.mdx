@@ -12,7 +12,7 @@ You can add custom fields to buildings, rooms, racks, customers, devices, assets
 
 ## Adding Custom Fields
 
-Navigate to the custom fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
+Navigate to the Custom Fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
 
 <ThemedImage
   alt="Custom fields menu"
@@ -33,17 +33,17 @@ Navigate to the custom fields list page under **Tools > Custom Fields** and clic
     }}
   />
 
-- Input the name for the custom field and choose its data **Type**. Certain custom field types, when selected, will present more options specific to that field type. The available types are:
+- Input the name for the custom field and choose its data **Type**. Certain custom field types, when selected, will present more options specific to that field type. The available types are listed below.
 
-  - **Text:** Custom field values are character-based.
-  - **Number:** Custom field values are numeric.
-  - **Date:** Custom field values are dates.
-  - **Related Field:** Custom field values are values of another field (e.g. If rack is chosen, then rack names are possible values).
-  - **Yes/No:** Custom field values are either yes or no.
-  - **URL:** Custom field values are URLs. 
-  - **Picklist:** Custom field value choices as a picklist.
-  - **JSON:** Custom field values are JSON.
-  - **Markup:** Custom field values are markup.
+  - **Text:** These fields use character-based values.
+  - **Number:** These fields use numeric values.
+  - **Date:** These fields use calendar date formatting.
+  - **Related Field:** These fields use the values of other fields (for example, if **Rack** is chosen, then rack names are possible values).
+  - **Yes/No:** These fields use yes or no values.
+  - **URL:** These fields use URL values.
+  - **Picklist:** These fields use values chosen from a picklist.
+  - **JSON:** These fields use JSON formatting.
+  - **Markup:** These fields use markup formatting.
 
 <ThemedImage
   alt="Create a new custom field"
@@ -54,7 +54,7 @@ Navigate to the custom fields list page under **Tools > Custom Fields** and clic
   style={{ width: '90%' }}
 />
 
-- If you check the **Filterable** box, the list view page for the object type (for example, Devices) will contain the custom field as a filter option. This allows you to filter the list view by the custom field value. The filterable custom field will be available in the **More Filters** dropdown.
+- If you check the **Filterable** box, the list view page for the object type (for example, Devices) will contain the custom field as a filter option, which allows you to filter the list view by the custom field value. You can find the filterable custom field in the **More Filters** dropdown.
 
   <ThemedImage
     alt="Filterable custom fields"
@@ -64,7 +64,7 @@ Navigate to the custom fields list page under **Tools > Custom Fields** and clic
     }}
   />
 
-- A custom field marked as **Mandatory** must have a value in order to save the device (or other object) record as shown below. Please note that mandatory only applies when editing or adding an object via the UI. This is not enforced via the API or when adding a new device (or other object).
+- If a custom field is marked as **Mandatory**, the device (or other object) record can only be saved once a custom field value has been entered, as shown below. Please note that the field is only enforced as mandatory when objects are edited or added via the UI. The field is not mandatory when objects are edited or added via the API.
 
   <ThemedImage
     alt="Custom field with mandatory field"
@@ -76,7 +76,7 @@ Navigate to the custom fields list page under **Tools > Custom Fields** and clic
 
 ## Custom Field Bulk Actions
 
-- Set custom field values in bulk using the **Set Custom Field Value** action available on most list pages from the **Actions** dropdown.
+- Set custom field values in bulk using the **Set Custom Field Value** action, which is available on most list pages from the **Actions** dropdown.
 
   <ThemedImage
     alt="Custom field bulk actions"
@@ -86,7 +86,7 @@ Navigate to the custom fields list page under **Tools > Custom Fields** and clic
     }}
   />
 
-- Search for the custom field you want to set values for, input the necessary value(s) and, optionally, add a note.   
+- Search for the custom field you want to set values for and input the necessary value(s). You can also add a note if desired.   
 
   <ThemedImage
     alt="Custom field bulk actions"
