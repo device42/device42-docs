@@ -70,11 +70,11 @@ Account lock-out could result in an otherwise completely avoidable outage depend
 
 ### Option To Ignore IPs and MAC Addresses
 
-You can ignore IP and MAC addresses from being included in our database during autodiscovery. Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
+You can prevent IP and MAC addresses from being included in our database during autodiscovery. Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
 
 Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
 
-- **Exclude Server(s):** List of server IPs to exclude from discovery. This is useful for ignoring individual IPs when the discovery target is specified as a range or CIDR block. 
+- **Exclude Server(s):** List the server IPs to exclude from discovery. This is useful for ignoring individual IPs when the discovery target is specified as a range or CIDR block. 
 - **Service Port Client IPs**: Do not discover client connections on specified listening ports.  
 
     <ThemedImage
@@ -86,7 +86,7 @@ Configure rules to ignore IP and MAC addresses for a specific job when creating 
     />
 
 - **Remote IP Exclusion**: Do not discover connections to or from any of these remote IPs.
-- **Ignore Interfaces:** List of network interfaces to ignore during discovery.
+- **Ignore Interfaces:** List the network interfaces to ignore during discovery.
   
     <ThemedImage
         alt="Linux Unix job exclusions"
@@ -129,8 +129,8 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
     }}
 />
 
-- **Strip domain suffix:** Strips the domain suffix from discovered servers.
-- **Domains to strip:** Ordered list of domains to strip from hostname, one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
+- **Strip domain suffix:** Check this option to strip the domain suffix from discovered servers.
+- **Domains to strip:** Enter an ordered list of domains to strip from hostname, listing one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
 - **Set the device name as the name given in the server field of the autodiscovery job:** If checked and discovering via hostname or FQDN, the device will be named using the discovery target name provided.  
 - **Overwrite existing device hostname with discovered hostname:** Check this option to give precedence to the discovered hostname.  
 - **Device Name Format:** Select the desired device naming format.
@@ -144,10 +144,10 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
         style={{ width: '45%' }} 
     />
 
-    - **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to "name".
-    - **Hostname plus Domain Name:** The device name becomes "name.domain".
-    - **Hostname and add Hostname plus Domain Name as Alias:** Names stay the same, and an alias is set as "name.domain".
-    - **Hostname Plus Domain Name and Add Host name as Alias:** The alias is set to "name" and the device name becomes "name.domain".
+    - **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to `name`.
+    - **Hostname plus Domain Name:** The device name becomes `name.domain`.
+    - **Hostname and add Hostname plus Domain Name as Alias:** Names stay the same, and an alias is set as `name.domain`.
+    - **Hostname Plus Domain Name and Add Host name as Alias:** The alias is set to `name` and the device name becomes `name.domain`.
   
 ### Host Discovery
 
@@ -317,7 +317,7 @@ If you don't get a domain name with any of those commands, try running `cat /etc
 
 ## Run *nix SSH Discovery Job
 
-After saving a discovery job, you can run it immediately using the **Run Now** button on the view and edit pages of the specific job, or from the list page grid under **Discovery > HyperVisors / \*nix / Windows**.
+After saving a discovery job, you can run it immediately using the **Run Now** button on the view and edit pages of the specific job, or you can run it from the list page grid under **Discovery > HyperVisors / \*nix / Windows**.
 
 <ThemedImage
     alt="Run job from the list page"
