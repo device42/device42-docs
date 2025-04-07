@@ -12,71 +12,89 @@ You can add custom fields to buildings, rooms, racks, customers, devices, assets
 
 ## Adding Custom Fields
 
+Navigate to the Custom Fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
+
 <ThemedImage
   alt="Custom fields menu"
   sources={{
     light: useBaseUrl('/assets/images/custom-fields/custom-fields-01-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-fields-01-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '80%' }} 
 />
 
-You create a custom field by navigating to **Tools > Custom Fields** and choosing the object type (for example, Assets, Buildings, and so on) from the list page to see or create a custom field for that category.
+- From the list page for the selected custom field type, you can either edit an existing custom field or click the **Create** button to add a new one.
 
-When you select an object, you will see a List View of the existing custom fields for that object category:
+  <ThemedImage
+    alt="Custom fields device list view"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-02-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-02-dark.png'),
+    }}
+  />
+
+- Input the name for the custom field and choose its data **Type**. Certain custom field types, when selected, will present more options specific to that field type. The available types are listed below.
+
+  - **Text:** These fields use character-based values.
+  - **Number:** These fields use numeric values.
+  - **Date:** These fields use calendar date formatting.
+  - **Related Field:** These fields use the values of other fields (for example, if **Rack** is chosen, then rack names are possible values).
+  - **Yes/No:** These fields use yes or no values.
+  - **URL:** These fields use URL values.
+  - **Picklist:** These fields use values chosen from a picklist.
+  - **JSON:** These fields use JSON formatting.
+  - **Markup:** These fields use markup formatting.
 
 <ThemedImage
-  alt="Custom fields menu"
-  sources={{
-    light: useBaseUrl('/assets/images/custom-fields/custom-fields-02-light.png'),
-    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-02-dark.png'),
-  }}
-/>
-
-You can either edit an existing custom field or click the "Add ... Custom Field" button to add a new one.
-
-<ThemedImage
-  alt="Custom fields menu"
+  alt="Create a new custom field"
   sources={{
     light: useBaseUrl('/assets/images/custom-fields/custom-fields-03-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-fields-03-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '90%' }}
 />
 
-Add a name for the custom field and choose a type. Available types are:
+- If you check the **Filterable** box, the list view page for the object type (for example, Devices) will contain the custom field as a filter option, which allows you to filter the list view by the custom field value. You can find the filterable custom field in the **More Filters** dropdown.
 
-1. **Text:** Custom field values are character-based.
-2. **Number:** Custom field values are numeric.
-3. **Date:** Custom field values are dates.
-4. **Related Field:** Custom field values are values of another field (e.g. If rack is chosen, then rack names are possible values).
-5. **Yes/No:** Custom field values are either yes or no.
-6. **URL:** Custom field values are URLs.
-7. **Picklist:** Custom field value choices as a picklist.
-8. **JSON:** Custom field values are JSON.
-9. **Markup:** Custom field values are markup.
+  <ThemedImage
+    alt="Filterable custom fields"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-04-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-04-dark.png'),
+    }}
+  />
 
-Certain custom field types, when selected, will present more options specific to that field type. If you check the Filterable box, the List View page for the object will contain a filter(s) for that custom field. For example, ...
+- If a custom field is marked as **Mandatory**, the device (or other object) record can only be saved once a custom field value has been entered, as shown below. Please note that the field is only enforced as mandatory when objects are edited or added via the UI. The field is not mandatory when objects are edited or added via the API.
 
-<ThemedImage
-  alt="Custom fields menu"
-  sources={{
-    light: useBaseUrl('/assets/images/custom-fields/custom-fields-04-light.png'),
-    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-04-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Custom field with mandatory field"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-05-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-05-dark.png'),
+    }}
+  />
 
-A mandatory custom field is one that must have a value in order to save the device (or other object) record as shown below.
+## Custom Field Bulk Actions
 
-<ThemedImage
-  alt="Custom fields menu"
-  sources={{
-    light: useBaseUrl('/assets/images/custom-fields/custom-fields-05-light.png'),
-    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-05-dark.png'),
-  }}
-/>
+- Set custom field values in bulk using the **Set Custom Field Value** action, which is available on most list pages from the **Actions** dropdown.
 
-Please note that mandatory only applies when editing or adding an object via the UI. This is not enforced via the API or when adding a new device (or other object).
+  <ThemedImage
+    alt="Custom field bulk actions"
+    sources={{ 
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-06-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-06-dark.png'),
+    }}
+  />
+
+- Search for the custom field you want to set values for and input the necessary value(s). You can also add a note if desired.   
+
+  <ThemedImage
+    alt="Custom field bulk actions"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/custom-fields-07-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-07-dark.png'),
+    }}
+  />
 
 ## REST APIs for custom values
 
