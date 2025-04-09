@@ -6,15 +6,15 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From the main menu, navigate to **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
+From the main menu, navigate to the buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
 
-To view, create, and edit rooms directly, navigate to **Infrastructure > DataCenter > Rooms**.
+## Buildings List Page
 
-### Building List View
+View, edit, **Create** new buildings from the Buildings list page, as well as perform bulk and individual **[Actions](#buildings-and-rooms-actions)** on selected buildings. 
 
-View, edit, create, and perform bulk actions on selected buildings from the **Buildings** list page.
+Filter the list by **Tags**, **Groups**, or add **More Filters** using the dropdown menus above the grid to narrow down the list.
 
-You can also add an image, like a floor plan, to the building and view the image from the list page by clicking on the link.
+You can add an image, like a floor plan or photo, to the building and view the image from the list page.
 
 <ThemedImage
   alt="Building List View"
@@ -24,7 +24,7 @@ You can also add an image, like a floor plan, to the building and view the image
   }}
 />
 
-## Building View
+### View Building Details
 
 You can add rooms to an existing building by opening the building view from the list page and clicking the **Edit** button. When a room is added, click on the room name from the building view to see that room's details.
 
@@ -36,7 +36,7 @@ You can add rooms to an existing building by opening the building view from the 
   }}
 />
 
-View the **Impact Chart** of the building using the button on the top right of the building view.
+Click the **Impact Chart** button on the view page to open the chart in a new tab.
 
 <ThemedImage
   alt="Building View"
@@ -46,15 +46,13 @@ View the **Impact Chart** of the building using the button on the top right of t
   }}
 />
 
-## Rooms List View
+## Rooms List Page
 
-Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details.
+Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details. You can filter the list by **Building** and **Tags** using the dropdown menus above the table. 
 
-You can filter the view by **Building** and **Tags** using the dropdown menus above the table. 
+Click the **Show** link next to a room name to enter the [Room Layout View](#room-layout-view); this is a visual layout view of the room.
 
-Click the **Show** link next to a room name to view the room's layout.
-
-Perform bulk actions on selected rooms from the **Select an action** dropdown menu. Execute the action by clicking the **hammer icon**.
+Perform bulk or individual operations on the selected rooms from the **[Actions](#buildings-and-rooms-actions)** dropdown menu.
 
 <ThemedImage
   alt="Rooms List View"
@@ -68,12 +66,14 @@ Perform bulk actions on selected rooms from the **Select an action** dropdown me
 
 Click on the name of a room from the list view to view or change its details. Basic room information is at the top of the page: **Name**, **Building**, **Units of measure**, **Group Permissions**, **Tags**, and **Notes**.
 
-Use the buttons located at the top right of the page to do the following:
+You'll see the following buttons:
 
 - **Edit**: Edit the room's details.
 - **History (Audit Logs):** See a log of the changes made to the room's information.
 - **Impact Chart:** View a chart of devices, assets, and applications that rely on this room.
 - **Room Layout:** View a logical representation of the room. The [Room Layout View](#room-layout-view) section below provides more information.
+
+The right **Object List** panel displays the rooms that were included in the list page view – the previous screen you were on when you clicked the room name, with whatever filters were applied. If your user account does not have permission to view buildings, you will not see "@ - Building" next to the room name.
 
 <ThemedImage
   alt="Rooms List View"
@@ -83,12 +83,11 @@ Use the buttons located at the top right of the page to do the following:
   }}
 />
 
-The detailed room information also includes:
+Navigate between sections, including the following, using the left **Breakdown** panel:
 
 - **Racks:** View basic rack info, click a rack name to access the rack details, assign a row number to a rack, or add a new rack.
 - **Devices:** View basic info about devices (like CRAC and UPS), click a device name to access the device details, or add a new device.
 - **Assets:** View basic info about assets (like breaker panels and DMARC locations), click an asset name to access the asset details, or add a new asset.
-
 
 ### Associate Assets to a Room
 
@@ -359,4 +358,28 @@ If you have the Power Monitoring option, you will see a rectangular bar for each
 
 ![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
 
+
+## Buildings and Rooms Actions
+
+The following operations are available from the **Actions** dropdown menu on the Buildings and Rooms list pages:
+
+- **Delete with Detailed Confirmation**: View a list of all the objects that will be removed when you delete the selected buildings or rooms, like assets, devices, and racks.
+- **Fast Background Delete**: Delete the building or room without first viewing the list of affected objects.
+- **Export selected items**: Open a window with the following export options:
+  - **Re-importable Export**: Export the selected buildings in a `.xlsx` spreadsheet to be re-imported into Device42.
+  - **Buildings/Rooms Export (CSV)**: Export all data for the selected items in a CSV file.
+  - **Selected Columns (CSV)**: Export data for a reduced set of important columns for buildings (`ID`, `Address`, `Image`, `Contact_Name`, `Contact_Phone`, and `Notes`) or rooms (`ID`, `Layout`, `Building`, `Available_Us`, and `Notes`) for the selected items in a CSV file.
+
+    <ThemedImage
+      alt="Export options"
+      sources={{
+        light: useBaseUrl('/assets/images/buildings-and-rooms/buildings-export-options-light.png'),
+        dark: useBaseUrl('/assets/images/buildings-and-rooms/buildings-export-options-dark.png'),
+      }}
+      style={{ width: '45%' }}
+    />
+
+- **Add Groups**: Select and add a permission group to the selected buildings or rooms.
+- **Delete Groups**: Select and remove a permission group from the selected buildings or rooms.
+- **Set Custom Field Value**: Add a populated custom field parameter to the selected buildings or rooms.
 
