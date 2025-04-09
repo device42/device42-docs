@@ -13,11 +13,11 @@ To access the functionality described in this section, you need a **Power and En
 
 The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](auto-discovery/network-auto-discovery.mdx) Begin by navigating to the Device42 main menu, _Discovery -> SNMP_. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: ![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
 
-If you haven't yet set up a [Remote Collector Installation](https://www.device42.com/autodiscovery/) docs page.
+Install and set up a [Remote Collector](https://www.device42.com/autodiscovery/) if you have not already done so. See the [Remote Collector page](/auto-discovery/remote-collector-rc/#installation-and-configuration) for information.
 
 **NOTE** that the Power (SNMP) discovery options will not be visible if the power module is not licensed, or if no Remote Collector is available to collect data. Once these are registered in Device42, these option will be visible: ![Enable power monitoring for discovered PDU devices](/assets/images/power_options_enable_monitoring-HL.png)
 
-You'll see these options towards the bottom of the SNMP discovery job setup screen. **Be sure check enable monitoring for discovered PDUs**, and you may also set the polling interval for any PDUs discovered by this job by choosing the appropriate value from the Polling Interval drop-down. This value controls the frequency at which monitoring will poll each PDU.
+You'll see these options towards the bottom of the SNMP discovery job setup screen. **Be sure to check enable monitoring for discovered PDUs**, and you may also set the polling interval for any PDUs discovered by this job by choosing the appropriate value from the Polling Interval drop-down. This value controls the frequency at which monitoring will poll each PDU.
 
 * * *
 
@@ -27,13 +27,13 @@ When sensors are discovered, they are created with Asset records in Device42. If
 
 * * *
 
-**Note that information below this line only applies to Legacy Power Appliances, which were superceded by RCs (remote collectors) in late 2017**.
+**Note that information below this line only applies to Legacy Power Appliances, which were superseded by RCs (remote collectors) in late 2017**.
 
 * * *
 
 ## Legacy documentation - Standalone Power Appliance, Depreciated 2017
 
-**Note to Power Monitoring Users: The Standalone Power Appliance is being depreciated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring going forward. See the [Remote Collector page](auto-discovery/remote-collector-rc.mdx) for setup details and for information on obtaining a Remote Collector going forward!**
+**Note to Power Monitoring Users: The Standalone Power Appliance is being deprecated, and all related functionality is now available in Remote Collectors (RC's). Please utilize RC's for power / environmental monitoring going forward. See the [Remote Collector page](auto-discovery/remote-collector-rc.mdx) for setup details and for information on obtaining a Remote Collector going forward!**
 
 The actual monitoring occurs in a separate virtual appliance from the main Device42 appliance. Please note that you can optionally monitor power using Device42 Remote Collectors as well as the dedicated power appliance. This is done for three reasons:
 
