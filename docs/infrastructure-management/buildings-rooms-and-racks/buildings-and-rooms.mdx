@@ -6,17 +6,17 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From the main menu, navigate to the buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
+From the main menu, navigate to the Buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
 
-Users with the [necessary permissions](/administration/role-based-access-control/) can access the [Room Layout View](#room-layout-view), to see how the room layout represents a room and its objects.
+Users with the [necessary permissions](/administration/role-based-access-control/) can access the [Room Layout View](#room-layout-view) to see how the room layout represents a room and its objects.
 
 ## Buildings List Page
 
-View, edit, **Create** new buildings from the Buildings list page, as well as perform bulk and individual **[Actions](#buildings-and-rooms-actions)** on selected buildings. 
+You can view, edit, and **Create** new buildings from the Buildings list page, as well as perform bulk and individual **[Actions](#buildings-and-rooms-actions)** on selected buildings. 
 
-Filter the list by **Tags**, **Groups**, or add **More Filters** using the dropdown menus above the grid to narrow down the list.
+To narrow down the list of buildings, filter it using the **Tags**, **Groups**, and **More Filters** dropdown menus above the grid.
 
-You can add an image, like a floor plan or photo, to the building and view the image from the list page.
+You can add an image, like a floor plan or photo, to a building and view the image from the list page.
 
 <ThemedImage
   alt="Building List View"
@@ -50,9 +50,9 @@ Click the **Impact Chart** button on the view page to open the chart in a new ta
 
 ## Rooms List Page
 
-Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details. You can filter the list by **Building** and **Tags** using the dropdown menus above the table. 
+Find the Rooms list view under **Infrastructure > DataCenter > Rooms**. The table shows the **Available Us** along with other room details. You can filter the list by **Building** and **Tags** using the dropdown menus above the table. 
 
-Click the **Show** link next to a room name to enter the [Room Layout View](#room-layout-view); this is a visual layout view of the room.
+Click the **Show** link next to a room name to enter the [Room Layout View](#room-layout-view), which provides a visual layout of the room.
 
 Perform bulk or individual operations on the selected rooms from the **[Actions](#buildings-and-rooms-actions)** dropdown menu.
 
@@ -75,7 +75,7 @@ You'll see the following buttons:
 - **Impact Chart:** View a chart of devices, assets, and applications that rely on this room.
 - **Room Layout:** View a logical representation of the room. The [Room Layout View](#room-layout-view) section below provides more information.
 
-The right **Object List** panel displays the rooms that were included in the list page view – the previous screen you were on when you clicked the room name, with whatever filters were applied. If your user account does not have permission to view buildings, you will not see "@ - Building" next to the room name.
+The right **Object List** panel displays the rooms that were included in the Rooms list view – the previous screen you were on when you clicked the room name - with whichever filters were applied. If your user account does not have permission to view buildings, you won't see "@ - Building" next to the room name.
 
 <ThemedImage
   alt="Rooms List View"
@@ -103,7 +103,7 @@ You can associate assets with server rooms from the Main Appliance or via the AP
   }}
 />
 
-- The association is bi-directional; the asset is visible in the room details and the room is visible in the asset details. 
+- The association is bi-directional; the asset is visible in the room details, and the room is visible in the asset details. 
 
   <ThemedImage
     alt="Asset with room association"
@@ -140,7 +140,7 @@ Use the zoom slider to increase or decrease the display size of the layout. Swit
 
 ### Room Layout Editing
 
-You can change the shape and size of the room layout. Add or remove rows and columns using the **plus** and **minus** buttons located on the left panel.
+You can change the shape and size of the room layout. Add or remove rows and columns using the **+** (plus) and **-** (minus) buttons located on the left panel.
 
 <ThemedImage
   alt="Change room size controls"
@@ -204,7 +204,7 @@ You can add racks and objects to the layout, move them around, resize and rotate
 
 Ensure that editing mode is enabled. Navigate to **Infrastructure > DataCenter > Rooms**, click the **Show** link under the **Layout** column, and select **Turn ON** from the layout view.
 
-You can add any asset type to the room and are not confined to the template objects available in the left panel as shown above. You can even create your own asset types.
+You can add any asset type to the room and are not confined to the template objects available in the left panel, as shown above. You can even create your own asset types.
 
 Racks and other objects can be added via the API or from the **Tools > Imports/Exports** menu.
 
@@ -321,7 +321,7 @@ Each rack is color-coded to show the availability of U slots in the rack. Five c
 
 **Temperature Heatmap Legend**
 
-In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room’s environment.
+In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room's environment.
 
 <ThemedImage
   alt="Temperature Heatmap legend"
@@ -338,7 +338,7 @@ The default color value is based on the maximum temperature of the rack and corr
 - **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
 - **Red:** > 90°F (32.22°C)
 
-You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view will update accordingly.
+You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view updates accordingly.
 
 <ThemedImage
   alt="Global settings for temperature"
@@ -364,7 +364,7 @@ The following operations are available from the **Actions** dropdown menu on the
 - **Export selected items**: Open a window with the following export options:
   - **Re-importable Export**: Export the selected buildings in a `.xlsx` spreadsheet to be re-imported into Device42.
   - **Buildings/Rooms Export (CSV)**: Export all data for the selected items in a CSV file.
-  - **Selected Columns (CSV)**: Export data for a reduced set of important columns for buildings (`ID`, `Address`, `Image`, `Contact_Name`, `Contact_Phone`, and `Notes`) or rooms (`ID`, `Layout`, `Building`, `Available_Us`, and `Notes`) for the selected items in a CSV file.
+  - **Selected Columns (CSV)**: Export only the data from a reduced set of important columns (`ID`, `Address`, `Image`, `Contact_Name`, `Contact_Phone`, and `Notes` for buildings and `ID`, `Layout`, `Building`, `Available_Us`, and `Notes` for rooms) for the selected items in a CSV file.
 
     <ThemedImage
       alt="Export options"
