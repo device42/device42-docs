@@ -38,7 +38,7 @@ The **Latest Life Cycle Event** is a useful column to add to the default view fo
   }}
 />
 
-### View Device Details
+### View Device Info
 
 Click on a device's name to enter the device details view.
 
@@ -57,23 +57,9 @@ There are two new panels that you can hide and expand as needed:
   }}
 />
 
-- Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
-  
-  - Info (basic device details)
-  - Application Group Calculation
-  - Layout
-  - Impact Chart
-  - Topology
-  - Impact List
-  - Audit Logs
+**UI Notes**
 
-  <ThemedImage
-    alt="Subpage buttons"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-dark.png'),
-    }}
-  />
+- In v19.05, the Object Category field will be hidden if [Role-Based Access Control](/administration/role-based-access-control/#object-category-field) (RBAC) is off. Enable RBAC under **Tools > Settings > Global Settings** to see the field again. Alternatively, you can use the **Legacy View** to see the Object Category field.
   
 - Columns under the **Asset Lifecycle** subview can now be sorted in ascending or descending order.
 
@@ -92,6 +78,26 @@ There are two new panels that you can hide and expand as needed:
     sources={{
       light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
       dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
+    }}
+  />
+
+### Subpage Options
+
+Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
+  
+  - Info (basic device details)
+  - Application Group Calculation
+  - Layout
+  - Impact Chart
+  - Topology
+  - Impact List
+  - Audit Logs
+
+  <ThemedImage
+    alt="Subpage buttons"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-dark.png'),
     }}
   />
 
