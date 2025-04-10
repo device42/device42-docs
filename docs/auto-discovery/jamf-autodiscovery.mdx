@@ -42,27 +42,42 @@ Your username and password are used to request a bearer token. Bearer token auth
 
 ## Create a Jamf Autodiscovery Job
 
-Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Select **Jamf** from the **Type** dropdown menu.
+Navigate to **Discovery > Cloud**, click **Create**, and select **Jamf** from the **Type** dropdown menu.
+- Select a **Remote Controller** from the dropdown menu. 
+- Enter the **URL** to use, including the port if necessary.
 
 <ThemedImage
   alt="Add a new Jamf job"
   sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-dark.png'),
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-1-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-1-dark.png'),
   }}
 />
 
-Optionally, add a **Customer for discovered devices:**
+- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and a select and Object Category for the discovered devices to be assigned to.
+- You can **Add device vendor metadata** as Tags, Custom Fields, or keep the default option to Do Nothing.
 
-<ThemedImage
-  alt="Add customer"
-  sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Add a new Jamf job"
+    sources={{
+      light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-2-light.png'),
+      dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-2-dark.png'),
+    }}
+  />
 
-### Run Now or Schedule the Job
+- Optionally, include **Tags for discovered devices**. Tags are useful metadata to categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
+- Select a **Customer for discovered devices**.
+- You choose No Debug or Extended Debug from the **Debug level** dropdown menu to change the default logging level.
+
+  <ThemedImage
+    alt="Add a new Jamf job"
+    sources={{
+      light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-3-light.png'),
+      dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-3-dark.png'),
+    }}
+  />
+
+### Schedule the Job
 
 Scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
 
@@ -74,12 +89,24 @@ Scroll down to create a run schedule for the job. Create multiple schedules for 
   }}
 />
 
-To run the job immediately, click **Save** to add it to the list of Cloud autodiscovery jobs and then click **Run Now**.
+### Run the Job Now
+
+After saving the job, you have the option to run the job immediately from the details view page that is displayed using the **Run Now** button.
 
 <ThemedImage
-  alt="Create a discovery schedule"
+  alt="Run Now butto non job view"
   sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-1-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-1-dark.png'),
+  }}
+/>
+
+You can also run the job from the list view. 
+
+<ThemedImage
+  alt="Run Now button on list view"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-2-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-2-dark.png'),
   }}
 />
