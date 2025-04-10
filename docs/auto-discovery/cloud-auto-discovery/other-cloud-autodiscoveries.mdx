@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 import openstackLogin from '/assets/images/2015-10-18-openstack-2.png'
 import openstackProj from '/assets/images/2015-10-18-openstack-3.png'
 
-For all cloud discovery jobs, navigate to **Discovery > Cloud** and click the **+ Add Cloud Autodiscovery** button. 
+For all cloud discovery jobs, navigate to **Discovery > Cloud** and click the **Create** button. 
 
-Device42 discovery supports the following cloud types, as listed in the dropdown menu of the **Add Cloud Autodiscovery** form:
+Device42 discovery supports the following cloud types, as listed in the **Type** dropdown menu of the **Add Cloud Autodiscovery** form:
 
 - Alibaba Cloud
 - Amazon AWS
@@ -71,6 +71,46 @@ Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jo
 Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, you can click **Run Now** to run the job immediately.
 
 * * *
+
+## Arista CloudVision Autodiscovery
+
+| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                  | **Information Generated**                                |
+|-------------------------------|----------------------------|----------------------------------|---------------------------------------------------------| 
+| VMs                          | Devices --> All Devices    | [https://www.arista.io/api/resources/](https://www.arista.io/api/resources/), [https://\<IP-address\>/api/resources/](https://www.arista.io/api/resources/) | Device ID, device status, software EOL, dashboard configs, etc. |
+
+Name the autodiscovery job and select **Arista CloudVision (Preview)** from the **Type** dropdown menu. Select a **Remote Collector** and add the server IP address or FQDN in the **Node(s)** textbox. 
+
+<ThemedImage
+  alt="Add Arista CloudVision discovery details"
+  sources={{
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-1-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-1-dark.png'),
+  }}
+/>
+
+- Select **Bearer Token** from the **Authentication type** dropdown menu to add your API token, or select **Basic Authentication** to add your username and password.
+
+Optionally, add a **Service Level**, select an [Object Category](/administration/role-based-access-control/#object-category-field), and add tags to apply to the discovered items. Tags are useful metadata to categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
+
+- Select or add a **Customer for discovered devices** and configure your error logging preferences from the **Debug level** dropdown menu. 
+
+<ThemedImage
+  alt="Add Arista CloudVision discovery details"
+  sources={{
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-2-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-2-dark.png'),
+  }}
+/>
+
+Save the job and click **Run Now** on the job details view or the Cloud Autodiscovery list page to run the job immediately.
+
+<ThemedImage
+  alt="Add Arista CloudVision discovery details"
+  sources={{
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-3-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/arista-discovery-form-3-dark.png'),
+  }}
+/>
 
 ## DigitalOcean Autodiscovery
 
