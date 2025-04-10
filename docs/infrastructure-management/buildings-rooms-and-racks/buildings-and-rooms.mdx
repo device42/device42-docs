@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 From the main menu, navigate to the buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
 
+Users with the [necessary permissions](/administration/role-based-access-control/) can access the [Room Layout View](#room-layout-view), to see how the room layout represents a room and its objects.
+
 ## Buildings List Page
 
 View, edit, **Create** new buildings from the Buildings list page, as well as perform bulk and individual **[Actions](#buildings-and-rooms-actions)** on selected buildings. 
@@ -91,15 +93,15 @@ Navigate between sections, including the following, using the left **Breakdown**
 
 ### Associate Assets to a Room
 
-- You can associate assets with server rooms from the Main Appliance or via the API (see the [Rooms API doc](https://api.device42.com/#Rooms_postAssetsRoom)). 
+You can associate assets with server rooms from the Main Appliance or via the API (see the [Rooms API doc](https://api.device42.com/#Rooms_postAssetsRoom)). 
 
-  <ThemedImage
-    alt="Room with assets"
-    sources={{
-      light: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-light.png'),
-      dark: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Room with assets"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-dark.png'),
+  }}
+/>
 
 - The association is bi-directional; the asset is visible in the room details and the room is visible in the asset details. 
 
@@ -126,7 +128,7 @@ Navigate between sections, including the following, using the left **Breakdown**
 
 Access a **Room Layout** view from a room's detailed view or using the **Show** link next to the room name on the **Rooms** list page. 
 
-Use the zoom slider to increase or decrease the display size of the layout. Switch editing mode to on by clicking **Turn ON** in the sidebar. Only users with the necessary permissions can edit a room layout.
+Use the zoom slider to increase or decrease the display size of the layout. Switch editing mode to on by clicking **Turn ON** in the sidebar. Only users with the [necessary permissions](/administration/role-based-access-control) can edit a room layout.
 
 <ThemedImage
   alt="Room layout view"
@@ -138,11 +140,7 @@ Use the zoom slider to increase or decrease the display size of the layout. Swit
 
 ### Room Layout Editing
 
-The room layout represents a room and its objects.
-
-You can change the shape and size of the room layout.
-
-Add or remove rows and columns using the **plus** and **minus** buttons located on the left panel.
+You can change the shape and size of the room layout. Add or remove rows and columns using the **plus** and **minus** buttons located on the left panel.
 
 <ThemedImage
   alt="Change room size controls"
@@ -150,7 +148,7 @@ Add or remove rows and columns using the **plus** and **minus** buttons located 
     light: useBaseUrl('/assets/images/buildings-and-rooms/change-room-size-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/change-room-size-dark.png'),
   }}
-  style={{ width: '30%' }}
+  style={{ width: '35%' }}
 />
 
 You can change the default row and column labeling sequence. Choose between numerical or alphabetical labeling and set the value to start with.
@@ -161,7 +159,7 @@ You can change the default row and column labeling sequence. Choose between nume
     light: useBaseUrl('/assets/images/buildings-and-rooms/grid-numbering-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/grid-numbering-dark.png'),
   }}
-  style={{ width: '40%' }}
+  style={{ width: '30%' }}
 />
 
 ### Object Layout Editing
@@ -176,7 +174,6 @@ You can add racks and objects to the layout, move them around, resize and rotate
     light: useBaseUrl('/assets/images/buildings-and-rooms/room-object-templates-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/room-object-templates-dark.png'),
   }}
-  style={{ width: '80%' }}
 />
 
 - Increase the size of an object by dragging its vertical or horizontal edge. Objects can occupy multiple grid spaces or as little as 1/10 of a grid cell.
@@ -191,15 +188,15 @@ You can add racks and objects to the layout, move them around, resize and rotate
   }}
 />
 
-- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the popup panel.
+- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the popup panel. Edit mode must be enabled to see the rotate buttons.
 
-<ThemedImage
-  alt="Rotating objects"
-  sources={{
-    light: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-light.png'),
-    dark: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Rotating objects"
+    sources={{
+      light: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-light.png'),
+      dark: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-dark.png'),
+    }}
+  />
 
 - You can reposition and rotate multiple objects at once. Select multiple objects by dragging your cursor over them. Reposition multiple selected objects by dragging them. Rotate multiple selected objects using the rotate buttons in the popup.
 
@@ -221,7 +218,6 @@ If you hover over an object, you will see a popup with detailed information abou
     light: useBaseUrl('/assets/images/buildings-and-rooms/detail-panel-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/detail-panel-dark.png'),
   }}
-  style={{ width: '80%' }}
 />
 
 For racks, you'll see the following information:
@@ -235,6 +231,9 @@ For racks, you'll see the following information:
 - **Open Power Ports** The number of available power ports by connector type.
 - **Tags** Any tags added to the rack for labeling and classification purposes.
 - **Notes**
+
+If you have [Power and Environmental Monitoring](/infrastructure-management/power-and-environmental-monitoring/) enabled, you will also see the following information:
+
 - **Temperature** The minimum to maximum temperature range from all sensors in the rack.
 - **Relative Humidity** The minimum to maximum relative humidity range from all sensors in the rack.
 
@@ -294,8 +293,6 @@ You can set the object colors to denote usage or temperature information. Choose
     dark: useBaseUrl('/assets/images/buildings-and-rooms/rack-color-options-dark.png'),
   }}
 />
-
-
 
 In addition, you can choose to **Show temperature bubbles** or turn it off.
 
