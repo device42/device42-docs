@@ -42,9 +42,11 @@ Your username and password are used to request a bearer token. Bearer token auth
 
 ## Create a Jamf Autodiscovery Job
 
-Navigate to **Discovery > Cloud**, click **Create**, and select **Jamf** from the **Type** dropdown menu.
-- Select a **Remote Controller** from the dropdown menu. 
-- Enter the **URL** to use, including the port if necessary.
+Navigate to **Discovery > Cloud** and click **Create**.
+
+- Select **Jamf** from the **Type** dropdown menu.
+- Choose a  **Remote Collector** from the dropdown menu. 
+- Enter the **URL** the job will use, including the port if necessary.
 
 <ThemedImage
   alt="Add a new Jamf job"
@@ -54,8 +56,8 @@ Navigate to **Discovery > Cloud**, click **Create**, and select **Jamf** from th
   }}
 />
 
-- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and select an Object Category for the discovered devices to be assigned to.
-- You can **Add device vendor metadata** as Tags, Custom Fields, or keep the default option to Do Nothing.
+- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and select an **Object Category for the discovered devices** to be assigned to.
+- **Add device vendor metadata as** either **Tags** or **Custom Fields**, or leave it set as the default option, **Do Nothing**.
 
   <ThemedImage
     alt="Add a new Jamf job"
@@ -65,9 +67,9 @@ Navigate to **Discovery > Cloud**, click **Create**, and select **Jamf** from th
     }}
   />
 
-- Optionally, include **Tags for discovered devices**. Tags are useful metadata to categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
+- Optionally, include **Tags for discovered devices**. Tags are useful metadata that categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
 - Select a **Customer for discovered devices**.
-- You choose No Debug or Extended Debug from the **Debug level** dropdown menu to change the default logging level.
+- Choose **No Debug** or **Extended Debug** from the **Debug level** dropdown menu to change the default logging level, **Normal Debug**.
 
   <ThemedImage
     alt="Add a new Jamf job"
@@ -91,7 +93,7 @@ Scroll down to create a run schedule for the job. Create multiple schedules for 
 
 ### Run the Job Now
 
-After saving the job, you have the option to run the job immediately from the details view page that is displayed using the **Run Now** button.
+After saving the job, the details view page is displayed. Here, you have the option to run the job immediately using the **Run Now** button.
 
 <ThemedImage
   alt="Run Now button on job view"
