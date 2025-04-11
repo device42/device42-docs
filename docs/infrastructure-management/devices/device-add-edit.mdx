@@ -38,7 +38,7 @@ The **Latest Life Cycle Event** is a useful column to add to the default view fo
   }}
 />
 
-### View Device Details
+### View Device Information
 
 Click on a device's name to enter the device details view.
 
@@ -46,7 +46,7 @@ Version 19.05 introduces an improved device details page. If you prefer the prev
 
 There are two new panels that you can hide and expand as needed:
 
-- **Object List** (left): Navigate to the detail view of different devices without going back to the list page. This panel displays the same items shown in the list page grid from the previous screen. Any filters or searches made on the Devices list page are applied to this panel to easily navigate between the devices.
+- **Object List** (left): Navigate to the detail view of different devices without going back to the list page. This panel displays the same items shown in the list page grid from the previous screen. Any filters or searches made on the Devices list page are applied to this panel to navigate easily between the devices.
 - **Breakdown** (right): Navigate between sections of the selected device's details. This panel is similar to the tabs of the previous layout but includes a more granular list of sections.
 
 <ThemedImage 
@@ -57,23 +57,9 @@ There are two new panels that you can hide and expand as needed:
   }}
 />
 
-- Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
-  
-  - Info (basic device details)
-  - Application Group Calculation
-  - Layout
-  - Impact Chart
-  - Topology
-  - Impact List
-  - Audit Logs
+**UI Notes**
 
-  <ThemedImage
-    alt="Subpage buttons"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-dark.png'),
-    }}
-  />
+- In v19.05, the Object Category field will be hidden if [Role-Based Access Control](/administration/role-based-access-control/#object-category-field) (RBAC) is turned off. Enable RBAC under **Tools > Settings > Global Settings** to see the field again. Alternatively, you can use the **Legacy View** to see the Object Category field.
   
 - Columns under the **Asset Lifecycle** subview can now be sorted in ascending or descending order.
 
@@ -92,6 +78,26 @@ There are two new panels that you can hide and expand as needed:
     sources={{
       light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
       dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
+    }}
+  />
+
+### Subpage Options
+
+Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
+  
+  - Info (basic device details)
+  - Application Group Calculation
+  - Layout
+  - Impact Chart
+  - Topology
+  - Impact List
+  - Audit Logs
+
+  <ThemedImage
+    alt="Subpage buttons"
+    sources={{
+      light: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-light.png'),
+      dark: useBaseUrl('/assets/images/device-add-edit/subpage-buttons-dark.png'),
     }}
   />
 
@@ -152,7 +158,7 @@ The available options and fields on the Add Device page differ according to the 
   />
 
 :::note
-For dropdown menus that include related lookups — for example, when you select **Physical** and the **Physical Subtype** dropdown appears — you'll see the **+** (plus sign) button. However, if your account lacks the necessary permissions, you won’t be able to create new records.
+For dropdown menus that include related lookups – for example, when you select **Physical** and the **Physical Subtype** dropdown appears – you'll see the **+** (plus sign) button. However, if your account lacks the necessary permissions, you won’t be able to create new records.
 :::
 
 ## Basic Device Addition and Editing
