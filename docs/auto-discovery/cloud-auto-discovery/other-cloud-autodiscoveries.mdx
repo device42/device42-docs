@@ -34,11 +34,12 @@ Device42 discovery supports the following cloud types, as listed in the **Type**
 />
 
 ## Alibaba Cloud Autodiscovery
-What does Alibaba Cloud Discovery gather? In addition to standard discovery methods, the discovery monitors network traffic to see all routes during discovery execution for Application Dependency Mapping. A read-only Alibaba role can be provided as the discovery performs no changes to the cloud infrastructure during execution. 
+
+What information does Alibaba Cloud Discovery gather? In addition to standard discovery methods, the discovery monitors network traffic to see all routes during discovery execution for Application Dependency Mapping. A read-only Alibaba role can be provided, as the discovery performs no changes to the cloud infrastructure during execution. 
 
 **Alibaba Discovery Items**
 
-| **Cloud Service/Object Name** | **Where to locate in Device42**     | **Accessed API**                           | **Information Generated**                            |
+| **Cloud Service/Object Name** | **Where To Locate in Device42**     | **Accessed API**                           | **Information Generated**                            |
 |-------------------------------|-------------------------------|--------------------------------------------|------------------------------------------------------|
 | VMs                            | Devices -> All Devices         | http://ecs-cn-hangzhou.aliyuncs.com         | Type, name, OS, notes, RAM, CPU, serial number       |
 
@@ -53,9 +54,11 @@ Select **Alibaba Cloud** from the **Type:** dropdown menu, name your autodiscove
   }}
 />
 
-- Select one or more zones from the **Available Zones** for the discovery (3).
-- Select an option for **Action for Instance not found:** (4).
-- Select a **Device Name Format** (5).
+Select one or more zones from the **Available Zones** for the discovery (3).
+
+Select an option for **Action for Instance not found:** (4).
+
+Select a **Device Name Format** (5).
 
 <ThemedImage
   alt="Add Alibaba details"
@@ -66,7 +69,7 @@ Select **Alibaba Cloud** from the **Type:** dropdown menu, name your autodiscove
 />
 
 
-Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production". You also have the option to create a regular schedule, determining when the job will run.
+Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**. You also have the option to create a regular schedule, determining when the job will run.
 
 Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, you can click **Run Now** to run the job immediately.
 
@@ -74,7 +77,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 ## Arista CloudVision Autodiscovery
 
-| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                  | **Information Generated**                                |
+| **Cloud Service/Object Name** | **Where To Locate in Device42** | **Accessed API**                  | **Information Generated**                                |
 |-------------------------------|----------------------------|----------------------------------|---------------------------------------------------------| 
 | VMs                          | Devices --> All Devices    | [https://www.arista.io/api/resources/](https://www.arista.io/api/resources/), [https://\<IP-address\>/api/resources/](https://www.arista.io/api/resources/) | Device ID, device status, software EOL, dashboard configs, etc. |
 
@@ -88,11 +91,11 @@ Name the autodiscovery job and select **Arista CloudVision (Preview)** from the 
   }}
 />
 
-- Select **Bearer Token** from the **Authentication type** dropdown menu to add your API token, or select **Basic Authentication** to add your username and password.
+Select **Bearer Token** from the **Authentication type** dropdown menu to add your API token, or select **Basic Authentication** to add your username and password.
 
-Optionally, add a **Service Level**, select an [Object Category](/administration/role-based-access-control/#object-category-field), and add tags to apply to the discovered items. Tags are useful metadata to categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
+Optionally, add a **Service Level**, select an [**Object Category**](/administration/role-based-access-control/#object-category-field), and add **Tags for discovered devices**. Tags are useful metadata that categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
 
-- Select or add a **Customer for discovered devices** and configure your error logging preferences from the **Debug level** dropdown menu. 
+Select or add a **Customer for discovered devices** and configure your error logging preferences from the **Debug level** dropdown menu. 
 
 <ThemedImage
   alt="Add Arista CloudVision discovery details"
@@ -116,7 +119,7 @@ Save the job and click **Run Now** on the job details view or the Cloud Autodisc
 
 **DigitalOcean Discovery Items**
 
-| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                  | **Information Generated**                                |
+| **Cloud Service/Object Name** | **Where To Locate in Device42** | **Accessed API**                  | **Information Generated**                                |
 |-------------------------------|----------------------------|----------------------------------|---------------------------------------------------------|
 | Droplets (VMs)                | Devices --> All Devices    | [https://api.digitalocean.com](https://api.digitalocean.com) | Type, name, RAM size, CPU count, HDD Size, Tags, OS, etc. |
 
@@ -131,7 +134,7 @@ Name the job, select **DigitalOcean** from the **Type:** dropdown menu, and ente
   }}
 />
 
-Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production". You also have the option to create a regular schedule, determining when the job will run.
+Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**. You also have the option to create a regular schedule, determining when the job will run.
 
 Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
 
@@ -141,13 +144,13 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 **Linode Discovery Items**
 
-| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                                                                                                                                                             | **Information Generated**                                    |
+| **Cloud Service/Object Name** | **Where To Locate in Device42** | **Accessed API**                                                                                                                                                             | **Information Generated**                                    |
 |-------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | VMs                           | Devices --> All Devices    | [https://api.linode.com/v4/linode/instances](https://api.linode.com/v4/linode/instances) [https://api.linode.com/v4/linode/instances/[linodeId]/disks](https://api.linode.com/v4/linode/instances/[linodeId]/disks) [https://api.linode.com/v4/linode/instances/[linodeId]/ips](https://api.linode.com/v4/linode/instances/[linodeId]/ips) [https://api.linode.com/?api_action=api.spec](https://api.linode.com/?api_action=api.spec) | Name, type, RAM, OS, HDD serial number and size, IP, etc. |
 
-You will need your API key to access Linode. 
+You will need your API key to access Linode:
 
-- To create a Linode API Key, go to your Linode console:
+- To create a Linode API Key, go to your Linode console.
 
     ![Linode](/assets/images/2015-10-18-linode-2.png)
 
@@ -170,7 +173,7 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery (1).
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network (2).
 - Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance** (3), then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items (4). For example, "Development", "Deployment", or "Production".
+- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items (4). For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
 Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
@@ -181,7 +184,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 ### OpenStack Discovery Items
 
-| **Cloud Service/Object Name** | **Where to locate in Device42**      | **Accessed API**                                                                                                                              | **Information Generated**                          |
+| **Cloud Service/Object Name** | **Where To Locate in Device42**      | **Accessed API**                                                                                                                              | **Information Generated**                          |
 |-------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
 | Hosts                         | Devices --> Unknown Devices   | v2: `/v2.0/tokens`, `/v2.0/tenants`, `/v2.1/<tenant_id>/os-hypervisors/detail`, `/v2.1/<tenant_id>/flavors/detail`, `/v2.1/<tenant_id>/servers/detail`, v3: `/v3/auth/tokens`, `/v3/projects` | Name, memory, CPU count, IP, MAC, etc. |
 | VMs                           | Devices --> All Devices       | Same as above                                                                                                                                | Type, name, RAM, UUID, IP, MAC, etc.            |
@@ -189,6 +192,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 ### Minimum Permission Requirements for OpenStack Discovery
 
 The user or user group should be attached to the project and have the following permissions described in `policy.json`:
+
     - `"os_compute_api:os-hypervisors"`
     - `"os_compute_api:os-extended-server-attributes"`
 
@@ -223,7 +227,7 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
 - Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
+- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
 Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
@@ -234,7 +238,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 **Oracle Cloud Discovery Items**
 
-| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                                                                                  | **Information Generated**         |
+| **Cloud Service/Object Name** | **Where To Locate in Device42** | **Accessed API**                                                                                  | **Information Generated**         |
 |-------------------------------|---------------------------|--------------------------------------------------------------------------------------------------|----------------------------------|
 | VMs                           | Devices --> All Devices   | `https://iaas.<<zone>>.oraclecloud.com`, `https://identity.<<zone>>.oraclecloud.com` | Service name, instance ID, status, location, etc. |
 | Subnets                       | Network --> Subnets       | `https://iaas.<<zone>>.oraclecloud.com`, `https://identity.<<zone>>.oraclecloud.com`| Network, mask, name              |
@@ -261,7 +265,7 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
 - Select a **Remote Collector**.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, "Development", "Deployment", or "Production".
+- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
 You may need to scroll down the page to see some of the additional options.
