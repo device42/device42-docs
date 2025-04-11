@@ -12,17 +12,18 @@ For all cloud discovery jobs, navigate to **Discovery > Cloud** and click the **
 
 Device42 discovery supports the following cloud types, as listed in the **Type** dropdown menu of the **Add Cloud Autodiscovery** form:
 
-- Alibaba Cloud
+-
+- [Alibaba Cloud](#alibaba-cloud-discovery)
 - Amazon AWS
-- Arista CloudVision (Preview)
-- DigitalOcean
+- [Arista CloudVision (Preview)](#arista-cloudvision-discovery)
+- [DigitalOcean](#digitalocean-discovery)
 - Google Cloud
 - Intune
 - Jamf
-- Linode
+- [Linode](#linode-discovery)
 - Microsoft Azure
-- OpenStack
-- Oracle Cloud
+- [OpenStack](#openstack-discovery)
+- [Oracle Cloud](#oracle-cloud-discovery)
 - Standalone Kubernetes
 
 <ThemedImage
@@ -33,9 +34,9 @@ Device42 discovery supports the following cloud types, as listed in the **Type**
   }}
 />
 
-## Alibaba Cloud Autodiscovery
+## Alibaba Cloud Discovery
 
-What information does Alibaba Cloud Discovery gather? In addition to standard discovery methods, the discovery monitors network traffic to see all routes during discovery execution for Application Dependency Mapping. A read-only Alibaba role can be provided, as the discovery performs no changes to the cloud infrastructure during execution. 
+What information does Alibaba Cloud discovery gather? In addition to standard discovery methods, the discovery monitors network traffic to see all routes during discovery execution for Application Dependency Mapping. A read-only Alibaba role can be provided, as the discovery performs no changes to the cloud infrastructure during execution. 
 
 **Alibaba Discovery Items**
 
@@ -44,7 +45,7 @@ What information does Alibaba Cloud Discovery gather? In addition to standard di
 | VMs                            | Devices -> All Devices         | http://ecs-cn-hangzhou.aliyuncs.com         | Type, name, OS, notes, RAM, CPU, serial number       |
 
 
-Select **Alibaba Cloud** from the **Type:** dropdown menu, name your autodiscovery job, and then add your Alibaba credentials, including both your **Access Key Id** (1) and **Access Key Secret** (2).
+Select **Alibaba Cloud** from the **Type:** dropdown menu, name your discovery job, and then add your Alibaba credentials, including both your **Access Key Id** (1) and **Access Key Secret** (2).
 
 <ThemedImage
   alt="Add Alibaba cloud credentials"
@@ -75,9 +76,9 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 * * *
 
-## Arista CloudVision Autodiscovery
+## Arista CloudVision Discovery
 
-Name the autodiscovery job and select **Arista CloudVision (Preview)** from the **Type** dropdown menu. Select a **Remote Collector** and add the server IP address or FQDN in the **Node(s)** textbox. 
+Name the discovery job and select **Arista CloudVision (Preview)** from the **Type** dropdown menu. Select a **Remote Collector** and add the server IP address or FQDN in the **Node(s)** textbox. 
 
 <ThemedImage
   alt="Add Arista CloudVision discovery details"
@@ -111,7 +112,7 @@ Save the job and click **Run Now** on the job details view or the Cloud Autodisc
   }}
 />
 
-## DigitalOcean Autodiscovery
+## DigitalOcean Discovery
 
 **DigitalOcean Discovery Items**
 
@@ -136,7 +137,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 * * *
 
-## Linode Autodiscovery
+## Linode Discovery
 
 **Linode Discovery Items**
 
@@ -176,7 +177,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 * * *
 
-## OpenStack Autodiscovery
+## OpenStack Discovery
 
 ### OpenStack Discovery Items
 
@@ -222,7 +223,7 @@ Optionally, you can:
 
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
-- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
+- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this discovery job is run, any devices previously created for this account that aren't found by the latest discovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
 - Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
@@ -230,7 +231,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 
 * * *
 
-## Oracle Cloud Autodiscovery
+## Oracle Cloud Discovery
 
 **Oracle Cloud Discovery Items**
 
@@ -240,7 +241,7 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 | Subnets                       | Network --> Subnets       | `https://iaas.<<zone>>.oraclecloud.com`, `https://identity.<<zone>>.oraclecloud.com`| Network, mask, name              |
 
 
-Name the autodiscovery job and select **Oracle Cloud** from the **Type:** dropdown menu. Enter details for the following fields:
+Name the discovery job and select **Oracle Cloud** from the **Type:** dropdown menu. Enter details for the following fields:
 
 - **User Id** (1)
 - **Fingerprint** (if applicable) (2)
