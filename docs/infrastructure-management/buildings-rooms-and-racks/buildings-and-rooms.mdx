@@ -6,15 +6,17 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From the main menu, navigate to **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
+From the main menu, navigate to the Buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
 
-To view, create, and edit rooms directly, navigate to **Infrastructure > DataCenter > Rooms**.
+Users with the [necessary permissions](/administration/role-based-access-control/) can access the [Room Layout View](#room-layout-view) to see how the room layout represents a room and its objects.
 
-### Building List View
+## Buildings List Page
 
-View, edit, create, and perform bulk actions on selected buildings from the **Buildings** list page.
+You can view, edit, and **Create** new buildings from the Buildings list page, as well as perform bulk and individual **[Actions](#buildings-and-rooms-actions)** on selected buildings. 
 
-You can also add an image, like a floor plan, to the building and view the image from the list page by clicking on the link.
+To narrow down the list of buildings, filter it using the **Tags**, **Groups**, and **More Filters** dropdown menus above the grid.
+
+You can add an image, like a floor plan or photo, to a building and view the image from the list page.
 
 <ThemedImage
   alt="Building List View"
@@ -24,7 +26,7 @@ You can also add an image, like a floor plan, to the building and view the image
   }}
 />
 
-## Building View
+### View Building Details
 
 You can add rooms to an existing building by opening the building view from the list page and clicking the **Edit** button. When a room is added, click on the room name from the building view to see that room's details.
 
@@ -36,7 +38,7 @@ You can add rooms to an existing building by opening the building view from the 
   }}
 />
 
-View the **Impact Chart** of the building using the button on the top right of the building view.
+Click the **Impact Chart** button on the view page to open the chart in a new tab.
 
 <ThemedImage
   alt="Building View"
@@ -46,15 +48,13 @@ View the **Impact Chart** of the building using the button on the top right of t
   }}
 />
 
-## Rooms List View
+## Rooms List Page
 
-Find the **Rooms** list view under **Infrastructure > DataCenter > Rooms**. The table shows **Available Us** along with other details.
+Find the Rooms list view under **Infrastructure > DataCenter > Rooms**. The table shows the **Available Us** along with other room details. You can filter the list by **Building** and **Tags** using the dropdown menus above the table. 
 
-You can filter the view by **Building** and **Tags** using the dropdown menus above the table. 
+Click the **Show** link next to a room name to enter the [Room Layout View](#room-layout-view), which provides a visual layout of the room.
 
-Click the **Show** link next to a room name to view the room's layout.
-
-Perform bulk actions on selected rooms from the **Select an action** dropdown menu. Execute the action by clicking the **hammer icon**.
+Perform bulk or individual operations on the selected rooms from the **[Actions](#buildings-and-rooms-actions)** dropdown menu.
 
 <ThemedImage
   alt="Rooms List View"
@@ -68,12 +68,14 @@ Perform bulk actions on selected rooms from the **Select an action** dropdown me
 
 Click on the name of a room from the list view to view or change its details. Basic room information is at the top of the page: **Name**, **Building**, **Units of measure**, **Group Permissions**, **Tags**, and **Notes**.
 
-Use the buttons located at the top right of the page to do the following:
+You'll see the following buttons:
 
 - **Edit**: Edit the room's details.
 - **History (Audit Logs):** See a log of the changes made to the room's information.
 - **Impact Chart:** View a chart of devices, assets, and applications that rely on this room.
 - **Room Layout:** View a logical representation of the room. The [Room Layout View](#room-layout-view) section below provides more information.
+
+The right **Object List** panel displays the rooms that were included in the Rooms list view – the previous screen you were on when you clicked the room name - with whichever filters were applied. If your user account does not have permission to view buildings, you won't see "@ - Building" next to the room name.
 
 <ThemedImage
   alt="Rooms List View"
@@ -83,26 +85,25 @@ Use the buttons located at the top right of the page to do the following:
   }}
 />
 
-The detailed room information also includes:
+Navigate between sections, including the following, using the left **Breakdown** panel:
 
 - **Racks:** View basic rack info, click a rack name to access the rack details, assign a row number to a rack, or add a new rack.
 - **Devices:** View basic info about devices (like CRAC and UPS), click a device name to access the device details, or add a new device.
 - **Assets:** View basic info about assets (like breaker panels and DMARC locations), click an asset name to access the asset details, or add a new asset.
 
-
 ### Associate Assets to a Room
 
-- You can associate assets with server rooms from the Main Appliance or via the API (see the [Rooms API doc](https://api.device42.com/#Rooms_postAssetsRoom)). 
+You can associate assets with server rooms from the Main Appliance or via the API (see the [Rooms API doc](https://api.device42.com/#Rooms_postAssetsRoom)). 
 
-  <ThemedImage
-    alt="Room with assets"
-    sources={{
-      light: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-light.png'),
-      dark: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Room with assets"
+  sources={{
+    light: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-light.png'),
+    dark: useBaseUrl('/assets/images/buildings-and-rooms/room-with-assets-dark.png'),
+  }}
+/>
 
-- The association is bi-directional; the asset is visible in the room details and the room is visible in the asset details. 
+- The association is bi-directional; the asset is visible in the room details, and the room is visible in the asset details. 
 
   <ThemedImage
     alt="Asset with room association"
@@ -127,7 +128,7 @@ The detailed room information also includes:
 
 Access a **Room Layout** view from a room's detailed view or using the **Show** link next to the room name on the **Rooms** list page. 
 
-Use the zoom slider to increase or decrease the display size of the layout. Switch editing mode to on by clicking **Turn ON** in the sidebar. Only users with the necessary permissions can edit a room layout.
+Use the zoom slider to increase or decrease the display size of the layout. Switch editing mode to on by clicking **Turn ON** in the sidebar. Only users with the [necessary permissions](/administration/role-based-access-control) can edit a room layout.
 
 <ThemedImage
   alt="Room layout view"
@@ -139,11 +140,7 @@ Use the zoom slider to increase or decrease the display size of the layout. Swit
 
 ### Room Layout Editing
 
-The room layout represents a room and its objects.
-
-You can change the shape and size of the room layout.
-
-Add or remove rows and columns using the **plus** and **minus** buttons located on the left panel.
+You can change the shape and size of the room layout. Add or remove rows and columns using the **+** (plus) and **-** (minus) buttons located on the left panel.
 
 <ThemedImage
   alt="Change room size controls"
@@ -151,7 +148,7 @@ Add or remove rows and columns using the **plus** and **minus** buttons located 
     light: useBaseUrl('/assets/images/buildings-and-rooms/change-room-size-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/change-room-size-dark.png'),
   }}
-  style={{ width: '30%' }}
+  style={{ width: '35%' }}
 />
 
 You can change the default row and column labeling sequence. Choose between numerical or alphabetical labeling and set the value to start with.
@@ -162,7 +159,7 @@ You can change the default row and column labeling sequence. Choose between nume
     light: useBaseUrl('/assets/images/buildings-and-rooms/grid-numbering-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/grid-numbering-dark.png'),
   }}
-  style={{ width: '40%' }}
+  style={{ width: '30%' }}
 />
 
 ### Object Layout Editing
@@ -177,7 +174,6 @@ You can add racks and objects to the layout, move them around, resize and rotate
     light: useBaseUrl('/assets/images/buildings-and-rooms/room-object-templates-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/room-object-templates-dark.png'),
   }}
-  style={{ width: '80%' }}
 />
 
 - Increase the size of an object by dragging its vertical or horizontal edge. Objects can occupy multiple grid spaces or as little as 1/10 of a grid cell.
@@ -192,15 +188,15 @@ You can add racks and objects to the layout, move them around, resize and rotate
   }}
 />
 
-- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the popup panel.
+- Rotate objects by 90 or 180 degrees by hovering over the object and clicking the rotate buttons located on the popup panel. Edit mode must be enabled to see the rotate buttons.
 
-<ThemedImage
-  alt="Rotating objects"
-  sources={{
-    light: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-light.png'),
-    dark: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Rotating objects"
+    sources={{
+      light: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-light.png'),
+      dark: useBaseUrl('/assets/images/buildings-and-rooms/rotate-buttons-dark.png'),
+    }}
+  />
 
 - You can reposition and rotate multiple objects at once. Select multiple objects by dragging your cursor over them. Reposition multiple selected objects by dragging them. Rotate multiple selected objects using the rotate buttons in the popup.
 
@@ -208,7 +204,7 @@ You can add racks and objects to the layout, move them around, resize and rotate
 
 Ensure that editing mode is enabled. Navigate to **Infrastructure > DataCenter > Rooms**, click the **Show** link under the **Layout** column, and select **Turn ON** from the layout view.
 
-You can add any asset type to the room and are not confined to the template objects available in the left panel as shown above. You can even create your own asset types.
+You can add any asset type to the room and are not confined to the template objects available in the left panel, as shown above. You can even create your own asset types.
 
 Racks and other objects can be added via the API or from the **Tools > Imports/Exports** menu.
 
@@ -222,7 +218,6 @@ If you hover over an object, you will see a popup with detailed information abou
     light: useBaseUrl('/assets/images/buildings-and-rooms/detail-panel-light.png'),
     dark: useBaseUrl('/assets/images/buildings-and-rooms/detail-panel-dark.png'),
   }}
-  style={{ width: '80%' }}
 />
 
 For racks, you'll see the following information:
@@ -236,6 +231,9 @@ For racks, you'll see the following information:
 - **Open Power Ports** The number of available power ports by connector type.
 - **Tags** Any tags added to the rack for labeling and classification purposes.
 - **Notes**
+
+If you have [Power and Environmental Monitoring](/infrastructure-management/power-and-environmental-monitoring/) enabled, you will also see the following information:
+
 - **Temperature** The minimum to maximum temperature range from all sensors in the rack.
 - **Relative Humidity** The minimum to maximum relative humidity range from all sensors in the rack.
 
@@ -281,7 +279,6 @@ The popup also has links to several additional views.
         light: useBaseUrl('/assets/images/buildings-and-rooms/view-connections-option-light.png'),
         dark: useBaseUrl('/assets/images/buildings-and-rooms/view-connections-option-dark.png'),
     }}
-    style={{ width: '80%' }}
     />
 
 ### Heatmaps and Temperature Shading
@@ -295,8 +292,6 @@ You can set the object colors to denote usage or temperature information. Choose
     dark: useBaseUrl('/assets/images/buildings-and-rooms/rack-color-options-dark.png'),
   }}
 />
-
-
 
 In addition, you can choose to **Show temperature bubbles** or turn it off.
 
@@ -326,7 +321,7 @@ Each rack is color-coded to show the availability of U slots in the rack. Five c
 
 **Temperature Heatmap Legend**
 
-In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room’s environment.
+In rooms that have temperature information, halo temperature shading around racks provides a quick view of the room's environment.
 
 <ThemedImage
   alt="Temperature Heatmap legend"
@@ -343,7 +338,7 @@ The default color value is based on the maximum temperature of the rack and corr
 - **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
 - **Red:** > 90°F (32.22°C)
 
-You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view will update accordingly.
+You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view updates accordingly.
 
 <ThemedImage
   alt="Global settings for temperature"
@@ -359,4 +354,28 @@ If you have the Power Monitoring option, you will see a rectangular bar for each
 
 ![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
 
+
+## Buildings and Rooms Actions
+
+The following operations are available from the **Actions** dropdown menu on the Buildings and Rooms list pages:
+
+- **Delete with Detailed Confirmation**: View a list of all the objects that will be removed when you delete the selected buildings or rooms, like assets, devices, and racks.
+- **Fast Background Delete**: Delete the building or room without first viewing the list of affected objects.
+- **Export selected items**: Open a window with the following export options:
+  - **Re-importable Export**: Export the selected buildings in a `.xlsx` spreadsheet to be re-imported into Device42.
+  - **Buildings/Rooms Export (CSV)**: Export all data for the selected items in a CSV file.
+  - **Selected Columns (CSV)**: Export only the data from a reduced set of important columns (`ID`, `Address`, `Image`, `Contact_Name`, `Contact_Phone`, and `Notes` for buildings and `ID`, `Layout`, `Building`, `Available_Us`, and `Notes` for rooms) for the selected items in a CSV file.
+
+    <ThemedImage
+      alt="Export options"
+      sources={{
+        light: useBaseUrl('/assets/images/buildings-and-rooms/buildings-export-options-light.png'),
+        dark: useBaseUrl('/assets/images/buildings-and-rooms/buildings-export-options-dark.png'),
+      }}
+      style={{ width: '45%' }}
+    />
+
+- **Add Groups**: Select and add a permission group to the selected buildings or rooms.
+- **Delete Groups**: Select and remove a permission group from the selected buildings or rooms.
+- **Set Custom Field Value**: Add a populated custom field parameter to the selected buildings or rooms.
 
