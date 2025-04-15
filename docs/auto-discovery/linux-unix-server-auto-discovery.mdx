@@ -131,6 +131,10 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 
 - **Strip domain suffix:** Check this option to strip the domain suffix from discovered servers.
 - **Domains to strip:** Enter an ordered list of domains to strip from hostname, listing one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
+- **Prioritize DNS domain name:** When checked, discovered devices will be named using the host name plus FQDN. If unchecked (default), discovered devices will use the host name plus the YP/NIS domain name. 
+  :::note
+  After upgrading to v19.06, existing jobs will have the **Prioritize DNS domain name** option disabled by default (devices will be named using the host name plus the YP/NIS domain name).
+  :::
 - **Set the device name as the name given in the server field of the autodiscovery job:** If checked and discovering via hostname or FQDN, the device will be named using the discovery target name provided.  
 - **Overwrite existing device hostname with discovered hostname:** Check this option to give precedence to the discovered hostname.  
 - **Device Name Format:** Select the desired device naming format.
