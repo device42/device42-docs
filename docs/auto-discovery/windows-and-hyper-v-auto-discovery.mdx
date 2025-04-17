@@ -6,7 +6,7 @@ sidebar_position: 38
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 discovery uses multiple protocols to communicate with the target devices. Either WinRM or WMI can be used for Windows discovery. As of 18.10.00, WMI is the default protocol, 
+Device42 discovery uses multiple protocols to communicate with the target devices. Either WinRM or WMI can be used for Windows discovery. As of 18.10.00, WMI is the default protocol. 
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ sources={{
 2. For Windows or Hyper-V discovery, select **Windows** as the **Platform**.
     - You can select **Discover Using WinRM** to use the WinRM protocol for discovery, which is fast and Microsoft's preferred protocol. The **URL prefix** and **Port** fields will default accordingly. 
     :::note 
-    We don't deem it necessary to update existing jobs to use WinRM, as currently we use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+    We don't deem it necessary to update existing jobs to use WinRM, as we currently use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
     :::
     - If you're using WinRM, we recommend selecting the **WinRM through WDS** option to run the discovery using the local WDS. Ensure that your WDS service account operates under a domain account and is not set to "Local System", as it doesn't support remote authentication.
 
