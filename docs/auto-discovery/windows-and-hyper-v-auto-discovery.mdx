@@ -6,7 +6,7 @@ sidebar_position: 38
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 discovery uses multiple protocols to communicate with the target devices. Either WinRM or WMI can be used for Windows discovery. As of 18.10.00, WMI is the default protocol.
+Device42 discovery uses multiple protocols to communicate with the target devices. Either WinRM or WMI can be used for Windows discovery. As of 18.10.00, WMI is the default protocol. 
 
 ## Prerequisites
 
@@ -63,9 +63,13 @@ sources={{
 }}
 />
 
-1. Click the **+ Add Hypervisors/\*nix/Win for Autodiscovery** button to set up a new Windows or Hyper-V autodiscovery job.
+1. Click the **Create** button to set up a new Windows or Hyper-V autodiscovery job.
 2. For Windows or Hyper-V discovery, select **Windows** as the **Platform**.
-    - Select **Discover Using WinRM (Preview)** as the default method in the Windows discovery job (pictured below) and the **URL prefix** and **Port** will default accordingly.
+    - You can select **Discover Using WinRM** to use the WinRM protocol for discovery, which is fast and Microsoft's preferred protocol. The **URL prefix** and **Port** fields will default accordingly. 
+    :::note 
+    We don't deem it necessary to update existing jobs to use WinRM, as we currently use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+    :::
+    - If you're using WinRM, we recommend selecting the **WinRM through WDS** option to run the discovery using the local WDS. Ensure that your WDS service account operates under a domain account and is not set to "Local System", as it doesn't support remote authentication.
 
     <ThemedImage
     alt="Windows and Hyper-V Job"
@@ -117,7 +121,13 @@ You can ignore IP and MAC addresses to exclude them from our database during aut
 
 When creating or editing a job, you can configure rules to ignore IP and MAC addresses for that specific job.
 
-![Ignore IPs and MACs](/assets/images/ip-mac-ignore.png)
+<ThemedImage
+    alt="Ignore IPs and MACs"
+    sources={{
+        light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/ip-mac-ignore-light.png'),
+        dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/ip-mac-ignore-dark.png'),
+    }}
+/>
 
 Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jobs by navigating to **Tools > Settings > Global Settings** on the Main Appliance (MA).
 
@@ -125,7 +135,13 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 
 Selecting the **Query domain controller to obtain list of discovery devices** option hides the **Server(s):** field. Target(s) discovered in this mode are instead defined by the result of the chosen **LDAP Criteria**, as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server.
 
-![](/assets/images/WEB-728_windows-hyper-v-ad-query-domain-ldap-custom-filter.png)
+<ThemedImage
+    alt="Query domain LDAP filter"
+    sources={{
+        light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/query-domain-filter-light.png'),
+        dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/query-domain-filter-dark.png'),
+    }}
+/>
 
 The relevant fields when using this discovery mode are as follows:
 
@@ -164,7 +180,14 @@ Device42 supports pulling credentials from LAPS when discovering AD domain membe
 
 Check the **Use LAPS (only Applies to WDS)** checkbox to enable it: 
 
-![](/assets/images/WEB-728_windows-hyper-v-ad-query-domain-ldap-custom-filter-1.png)
+
+<ThemedImage
+    alt="Use LAPS option"
+    sources={{
+        light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/use-laps-light.png'),
+        dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/use-laps-dark.png'),
+    }}
+/>
 
 Fields and requirements for using LAPS discovery mode:
 
@@ -200,8 +223,8 @@ In the **Autodiscovery Schedule** section, you can set as many different autodis
 <ThemedImage
 alt="Autodiscovery schedule"
 sources={{
-    light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/autodiscovery-schedule-light.png'),
-    dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/autodiscovery-schedule-dark.png'),
+    light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/autodiscovery-schedule-light-2.png'),
+    dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/autodiscovery-schedule-dark-2.png'),
 }}
 />
 
@@ -241,8 +264,8 @@ Under the **Device Name Format** dropdown, you can add or update the **Device Na
 <ThemedImage
 alt="Hostname options"
 sources={{
-    light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/naming-options-light.png'),
-    dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/naming-options-dark.png'),
+    light: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/naming-options-light-2.png'),
+    dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/naming-options-dark-2.png'),
 }}
 />
 
