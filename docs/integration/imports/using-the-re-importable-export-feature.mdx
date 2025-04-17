@@ -10,9 +10,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 The re-importable export option can be used to make bulk changes to devices. In this example, we will use this feature to rename multiple devices.
 
-Select the devices you want to rename from any device list view, like the one located under **Resources > All Devices**.
+Select the devices you want to rename from any device list view, like the one located under **Resources > Compute > All Devices**.
 
-From the **Select an action** dropdown menu, choose the **Export selected items** option and then click on the **hammer icon**.
+From the **Actions** dropdown menu, choose the **Export selected items** option.
 
 <ThemedImage
   alt="Device actions menu"
@@ -22,7 +22,7 @@ From the **Select an action** dropdown menu, choose the **Export selected items*
   }}
 />
 
-Choose the **Re-importable Export** option and click **Export**.
+Choose the **Re-importable Export** option and click **Export**. Note that as of Device42 19.06, the re-importable export feature will generate a spreadsheet in a new browser tab for each 1,000,000 records generated.
 
 <ThemedImage
   alt="Export type options"
@@ -32,7 +32,7 @@ Choose the **Re-importable Export** option and click **Export**.
   }}
 />
 
-Download and open the spreadsheet. Using the **new\_name** parameter, I created new device names by typing in the first name and dragging the name down allowing Excel to auto-fill the remaining fields. 
+Download the spreadsheet and change the device names. If you're using a naming convention that includes numbers, you can allow Excel to auto-fill the device names by typing in the first two names, selecting the cells, and dragging the selection down the column. 
 
 ![Add new name column](/assets/images/re-importable-export-feature/excel-new-name.png)
 

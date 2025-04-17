@@ -3,10 +3,15 @@ title: Jira Service Management Integration
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 Jira Service Management Cloud (or JSM Cloud) is a comprehensive service desk solution designed to optimize and elevate IT service management processes in enterprises. It offers a wide range of powerful features and tools aimed at expediting incident resolution, managing changes, and handling service requests, resulting in enhanced customer satisfaction and operational efficiency.
 
 :::warning
-Please note that the JSM Assets integration will no longer be supported after December 30, 2024.
+Please note that [the JSM Assets app](https://marketplace.atlassian.com/apps/1229672/device42-for-jira-service-management-assets) is the currently supported Device42-Jira integration app. It is available on the Atlassian Marketplace.
+
+Support for the 'external' JSM Assets integration app [ended on December 30, 2024](https://community.developer.atlassian.com/t/shutdown-notice-update-on-deprecation-of-the-external-assets-platform/81193), as Atlassian has implemented asset capabilities that are 'internal' (native) to its premium Jira platform. 
 :::
 
 ## Device42 for Jira Service Management
@@ -36,11 +41,23 @@ We'll start by preparing Device42 for cloud service integrations. Navigate to **
 * **Company Name:** Your company name.
 * **Email:** Your email address.
 
-![Device42 Cloud Services](/assets/images/jsm-solution-guide/image67.png)
+<ThemedImage
+    alt="Device42 Cloud Services"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-solution-guide/cloud-services-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-solution-guide/cloud-services-dark.png'),
+    }}
+/>
 
 Next, we'll set up a Jira integration. Navigate to **Tools > Integrations > External Integrations** and add a new external integration. Set the URL as the hostname for your Jira Cloud instance, like this:
 
-![Device42 external integrations](/assets/images/jsm-solution-guide/image66.png)
+<ThemedImage
+    alt="Device42 External Integration"
+    sources={{
+        light: useBaseUrl('/assets/images/jsm-solution-guide/external-integration-light.png'),
+        dark: useBaseUrl('/assets/images/jsm-solution-guide/external-integration-dark.png'),
+    }}
+/>
 
 ### Installing the Device42 JSM App
 

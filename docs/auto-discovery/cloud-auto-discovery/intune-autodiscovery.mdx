@@ -6,11 +6,13 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Intune Autodiscovery
-
 [Microsoft Intune](https://learn.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune) is a cloud-based service that focuses on mobile device management (MDM) and mobile application management (MAM). An organization can control how its devices (including mobile phones, tablets, and laptops) are used and configure specific policies to control applications.
 
 Intune autodiscovery identifies mobile devices and mobile application software managed by Intune.
+
+:::note
+In Device42 19.05, Intune discovery has been adjusted to import devices individually instead of in one large block that could time out for very large installations.
+:::
 
 ## Intune Discovery Job Configuration
 
@@ -26,17 +28,18 @@ Do **not** use delegated credentials for Intune autodiscovery jobs.
 
 ### Create a New Intune Discovery Job
 
+Navigate to **Discovery > Cloud** and click **Create**.
+
+- Select **Intune** from the cloud autodiscovery **Type:** dropdown menu.
+- Enter a **Name** and **URL** (for example: `https://login.microsoftonline.com/[tenant domain or ID]`) for the discovery job.
+
 <ThemedImage
   alt="Add new Intune discovery job"
   sources={{
-    light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-light.png'),
-    dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-dark.png'),
+    light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-1-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-1-dark.png'),
   }}
 />
-
-Select **Intune** from the cloud autodiscovery **Type:** dropdown menu.
-
-Enter a **Name** and **URL** (for example: `https://login.microsoftonline.com/[tenant domain or ID]`) for the discovery job.
 
 Open the [Azure portal](https://portal.azure.com) and register an application on the same tenant as Intune. 
 - Navigate to **Azure Active Directory > Enterprise Applications > New Application > Create Your Own Application**. 
@@ -51,45 +54,81 @@ Once your application has been created:
 
 Go back to the Device42 discovery job page:
 
-- Paste the Azure **Client ID** in the discovery job **Client ID** field.
-- Paste the Azure **Secret** value in the discovery job **Client Credential** field.
+- Add the Azure **Client ID** to the discovery job **Client Id** field.
+- Add the Azure **Secret** value to the discovery job **Client Credential** field.
+
+  <ThemedImage
+    alt="Add new Intune discovery job - Credentials"
+    sources={{
+      light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-2-light.png'),
+      dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-2-dark.png'),
+    }}
+  />
 
 ### Configuration Options
 
 Optionally, you can also:
 
-- Select or add a **VRF Group** for the discovered items.
-- Select a **Remote Collector** to use for the job.
+  <ThemedImage
+    alt="Add new Intune discovery job"
+    sources={{
+      light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-3-light.png'),
+      dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-3-dark.png'),
+    }}
+  />
+
 - Choose to **Overwrite existing device hostname with discovered hostname**.
 - Select **Strip Domain Name** to remove the domain name (everything after the first period) from the discovered name.
 - Set an **Object category for discovered devices** to assign a specific category to discovered devices.
 - Set a job **Service Level** (for example, "Development", "Deployment", or "Production") to apply to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
 - Enter comma-separated **Tags for discovered devices**.
+  
+  <ThemedImage
+    alt="Add new Intune discovery job"
+    sources={{
+      light: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-4-light.png'),
+      dark: useBaseUrl('/assets/images/intune-autodiscovery/add-intune-job-4-dark.png'),
+    }}
+  />
+
 - Select or add a specific **Customer for discovered devices**.
 - Set the **Debug level** for the job.
-- Choose to **Discover Software** to detect managed software applications.
+- Choose to **Discover Software** to detect managed software applications. From 19.06, discovery will only bring in software with an 'installed' status. All other provisioned software records will be ignored as we cannot guarantee whether they are installed or not.
 - Set the **Initial Software Type** for discovered software.
 - Set the category of **Intune Device Ownership** to discover "All", "Corporate", or "Personal" devices.
-- Enter **Notes** for the job.
-- Set the Intune discovery job to run on a regular schedule.
+- Enter any **Notes** for the job.
+
+### Schedule the Intune Discovery Job
+
+Schedule the Intune discovery job to run automatically.
 
 <ThemedImage
-  alt="schedule Intune discovery job"
+  alt="Schedule the job"
   sources={{
     light: useBaseUrl('/assets/images/intune-autodiscovery/schedule-job-light.png'),
     dark: useBaseUrl('/assets/images/intune-autodiscovery/schedule-job-dark.png'),
   }}
 />
 
-Click **Save** to save the Intune discovery job.
+### Run the Intune Discovery Job
+
+After clicking **Save**, the job details page will be displayed. Click **Run Now** to start the job at any time. You can also run the job from the Cloud Autodiscovery list page using the **Run Now** button.
+
+<ThemedImage
+  alt="Run Now button on list page"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/cloud-autodiscovery-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/cloud-autodiscovery-list-page-dark.png'),
+  }}
+/>
 
 ### Intune OS Names
 
 Intune OS data has lower precedence than data from more authoritative sources, like OS-level discovery. For example, the Device42 agent will pick up "Microsoft Windows 10 Enterprise" more quickly than the generic Intune name "Windows". The lower precedence ensures more detailed OS names are collected, enhancing the data-filtering capability of the agent.
 
-### Renaming Intune Devices
+## Renaming Intune Devices
 
-Devices within Intune are renamed during the build process. If a device name is not updated as expected following Device42 autodiscovery, or after being renamed and updated in Intune, select the **Overwrite existing device hostname with discovered hostname** option.
+Devices within Intune are renamed during the build process. If a device name is not updated as expected following Device42 autodiscovery, or after being renamed and updated in Intune, ensure the **Overwrite existing device hostname with discovered hostname** option is enabled.
 
 <ThemedImage
   alt="Overwrite device name"
