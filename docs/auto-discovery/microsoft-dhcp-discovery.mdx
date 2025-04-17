@@ -24,9 +24,9 @@ If you already use Microsoft DHCP Servers in your environment, Microsoft DHCP Di
 
 ## Discovery
 
-Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be optionally enabled in the job configuration. The **URL prefix** and **Port** fields will default accordingly upon selecting **Discover Using WinRM**. 
+Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be enabled in the job configuration. The **URL prefix** and **Port** fields will default accordingly upon selecting **Discover Using WinRM**. 
 
-Although WinRM is fast and Microsoft's preferred protocol, we don't necessarily recommend existing jobs update to use WinRM, as currently (v19.06) we use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+Although WinRM is fast and Microsoft's preferred protocol, we don't necessarily recommend updating existing jobs to use WinRM, as we currently (v19.06) use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
 
 :::note
 If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI. 
