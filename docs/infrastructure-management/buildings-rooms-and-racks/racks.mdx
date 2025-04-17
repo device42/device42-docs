@@ -3,230 +3,390 @@ title: "Racks"
 sidebar_position: 4
 ---
 
-To get a list of racks, go to Data Center>>Racks. This takes you to the Racks List View page...
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![List of Racks](/assets/images/select_rack_view.PNG)
+To get a list of your racks, go to **Infrastructure > DataCenter > Racks** to display the Racks list page. 
 
-Like the list view pages for other objects, you see the list of your racks on the left and a number of columns of information, all of which are sortable.
+<ThemedImage
+  alt="Racks list page with Actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/racks-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/racks/racks-list-page-dark.png'),
+  }}
+/>
 
-You also see an availability heatmap to the far right so that you can see at a glance where there is space availability in the racks.
+Like the list view pages for other objects, you'll see your racks and several sortable columns of information. Use the available filters and search box to narrow down the list of racks displayed.
 
-There are a number of available filters (not shown above) and a search box, both of which can be used to narrow the list of racks displayed.
+Get a quick look at where there is available space in the racks with the **Available Us** column that displays the availability heatmap of each rack.
 
-Last, you can select one or more racks and apply any of the actions shown above in the Actions dropdown. For example, you could select multiple racks and ask to see a view showing the layouts of each selected racks. From that layout view, you can drag and drop devices from one rack to another (more on this below).
+Select one or more racks to activate the **Actions** dropdown. For example, you can use the **Show Front Layout of selected racks** action to open a view that shows the layouts of the selected racks. From this layout view, you can drag and drop devices from one rack to another (see the [Visually Move Devices Between Racks](#visually-move-devices-between-racks) section below).
 
-If you click on one of the rack names, you will see the Rack View Page which shows all the details about the rack. From there if you click the Edit button, you can makes changes to the rack. The screen shot below shows the Rack Edit Page.
+Add a new rack by clicking the **Create** button from the Racks list page and fill in the details outlined below. 
 
-### Rack View/Edit Overview
+## Rack Details
 
-![Rack View/Edit Overview](/assets/images/change_rack_2018v15.png)
+Provide the details for the new rack or edit an existing rack (by selecting the rack from the list page and clicking **Edit**).
 
-The parameters on the rack edit page are:
+<ThemedImage
+  alt="Rack edit mode"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/edit-rack-1-light.png'),
+    dark: useBaseUrl('/assets/images/racks/edit-rack-1-dark.png'),
+  }}
+/>
 
-Name: Name of the rack.
+The **Details** section includes the following fields:
 
-Size: Size of rack in U's. 42 is standard and is default value.
+- **Size**: The size of rack in Us. The default is `42`, which is the standard rack size.
+- **Numbering start from bottom**: By default, slot **1** is at the bottom of the rack in the visual layout. Toggle this option off if you prefer the numbering to start from the top of the rack in the visual layout.
+- **First number**: By default, rack numbering starts at `1`, but you can change it here to customize the rack numbering (for example, you might want the first number to be `0`).
+- **Number between U's**: By default, the visual rack layout will display U numbers between Us. Toggle this option off to display U numbers at the Us.
 
-Numbering start from bottom: This is the default (i.e. the 1 slot is at the bottom of the rack in the visual layout) but you can unselect if you prefer numbering from the top in the visual layout of the rack.
+    <ThemedImage
+    alt="Rack edit mode"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/edit-rack-2-light.png'),
+        dark: useBaseUrl('/assets/images/racks/edit-rack-2-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-First number: Rack numbering will start at one by default, but change it here to customize (e.g. you might want the first number to be 0).
+- **Row**: If you have a name for the row, put it here. Please note that the row name is for information only and won't affect the layout of the room. In the visual room layout, rows are initially created automatically and won't use this setting. You can then drag and drop racks to create rows. If all racks in a given row in the visual layout have the same **Row** value, the value will appear to the left of the row. The same applies to columns in the visual layout – if all the racks in a given column have the same **Row** value, the value will appear at the top of the column.
+- **Room**: Choose the room for the rack. You can click **+** (the plus sign icon) to create a new room from this page.
+- **Manufacturer**: Select the rack manufacturer.
 
-Number between U's: By default, the visual rack layout will display U numbers between U's. Uncheck to display U numbers at the U's.
+    <ThemedImage
+    alt="Rack edit mode"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/edit-rack-3-light.png'),
+        dark: useBaseUrl('/assets/images/racks/edit-rack-3-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-Row: If you have a name for the Row, put it here. Please note that this is information only and will not affect the layout of the room. In the visual room layout, rows will initially be created automatically and will not use this setting. You can then drag and drop racks to create rows. If all racks in a given row in the visual layout have the same Row value, the value will appear to the left of the row. The same will be true for columns in the visual layout. If all the racks in a given column have the same Row value, the value will appear at the top of the column.
+- **Tags**: Tags are used to categorize racks for convenient searching.
+- **Notes**: Store any additional notes here.
+- **QR Code**: If you have a QR code for the rack (for asset tracking), you can add it here. 
 
-Room: Choose the room for the rack. You can use the plus sign ( + ) to create a new room from this page.
+### Add Devices to the Rack
 
-Manufacturer: Rack manufacturer.
-
-Notes: Any additional notes.
-
-![](/assets/images/wpid6455-rack-unit-num-display-start-vs-end.png)
-
-### Visualize Rack Availability
-
-![Visualize Rack Availability](/assets/images/wpid6442-media_1424465614349.png)
-
-You can get a quick analysis of rack availability by looking at the color-coded Available Us column.
-
-### Adding Devices to the Rack
-
-![Adding Devices to the Rack](/assets/images/wpid6454-wpid-rack-add-devices-find-next1.png)
-
-You can easily add devices, assets, and PDUs to the rack right from the rack edit page. You will see a lookup indicator (the highlighted magnifying glass above) which will display a listing of all "physical" devices, where you can search, filter and choose a device from a list of existing devices as shown below in the next screen image.
+You can easily add devices, assets, and PDUs to the rack directly from the rack edit page. Click **+ Add More**, and next to the empty **Device** field, click **+** (the plus-sign lookup indicator) and search and filter the list of physical devices to find the device you want to add.
 
 There are three other ways to add devices, assets, and PDUs to racks:
 
-1. From the device (or asset or PDU) edit page
-2. From Tools >> Import, using an excel sheet (there are spreadsheets for adding devices, assets, and PDUs to racks)
-3. Using APIs
-4. From the rack layout (see next section)
+1. From the device, asset, or PDU edit pages
+2. By uploading Excel spreadsheets under [**Tools > Import/Export (xls)**](/integration/imports/spreadsheet-imports-and-exports)
+3. [Via the Device42 API](https://api.device42.com)
+4. [From the Rack Layout screen](#visually-add-assets-to-the-rack).
 
-Devices must have hardware models with a defined size before adding them to a rack as "rack-mounted". You can add them to the left, right, top, or bottom without a hardware model. You can also add a new device from the lookup page.
+<ThemedImage
+  alt="Rack devices fields"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/rack-devices-1-light.png'),
+    dark: useBaseUrl('/assets/images/racks/rack-devices-1-dark.png'),
+  }}
+/>
 
-Start at: Starting U location for the device. Orientation: Choose the orientation of the mounted device here. Device depth is determined by the hardware model properties.
+- **Where**: Indicate where the device is.
 
-The "Find next slot" option pictured above automatically finds an available space in the rack based on the device U size.
+  Devices must have a [Hardware Model](/infrastructure-management/devices/hardware-models-templates/) with a defined size to give them the **Rack Mounted** designation. You can add devices to the **Left**, **Right**, **Top**, or **Bottom** without a Hardware Model.
 
-![](/assets/images/wpid6439-media_1414229537336.png)
+- **Start at**: Enter a starting U location for the device. 
+- **Orientation**: Choose the orientation of the mounted device. Device depth is determined by the Hardware Model properties.
+  
+Use the **Find next slot** option pictured below to find an available space in the rack automatically, based on the device U size.
 
-### Visually adding devices to the rack from the rack layout screen
+    <ThemedImage
+    alt="Rack devices fields"
+    sources={{
+        light: useBaseUrl('/assets/images/racks/rack-devices-2-light.png'),
+        dark: useBaseUrl('/assets/images/racks/rack-devices-2-dark.png'),
+    }}
+    style={{ width: '80%' }} 
+    />
 
-From the rack layout screen, you will see the option to add a device:
+### Visually Add Devices to the Rack
 
-![Visually adding devices to the rack from the rack layout screen](/assets/images/2015-10-10-add-device-to-rack.png)
+Click **Rack Layout** from the rack details page and turn on edit mode using the button at the top of the left sidebar. From the **Add Device** dropdown, you can search for devices by name. Click **+** (the plus-sign lookup indicator) to add a new device.
 
-Choose a hardware model and a template object will appear. Drag the template object to a rack slot and the popup shown above will appear. Fill in at least the rack name and the move is complete.
+<ThemedImage
+  alt="Add device to rack from the layout screen"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/layout-add-device-light.png'),
+    dark: useBaseUrl('/assets/images/racks/layout-add-device-dark.png'),
+  }}
+/>
+
+Drag and drop the device from the sidebar onto the rack layout.
 
 ### Rack Unit Numbering Layout Options
 
-![Rack Unit Numbering Layout Options](/assets/images/wpid6456-rack-unit-options.png)
+By default, the option to display rack unit **Numbers between the U's** is toggled on when creating a new rack. To rather display the rack unit numbers at the Us, turn this option off.
 
-Displaying rack unit numbers between the U's is the default setting - pictured above (top) - unselecting "Number between U's" will display the rack unit numbers at the U's.
+<ThemedImage
+  alt="Number between U's option in Rack view"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/number-between-us-light.png'),
+    dark: useBaseUrl('/assets/images/racks/number-between-us-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
 
-When displaying between the U's, there are two options. Pictured above (bottom) - the "Rack Number Between U's Option" is located in the Global Settings Menu (Tools >> Settings >> Global Settings).
+You can set whether the starting or ending number is displayed between the Us. Navigate to **Tools > Settings > Global Settings** and select one of the following options in the **Racks** section:
 
-The options:
+- **End at**: Display the slot number of the ending U between the Us.
+- **Start at**: Display the slot number of the starting U between the Us.
 
-- Start At - pictured below (left) displays the starting U number between the U's.
-- End At - pictured below (right) displays the ending U number between the U's.
+![](/assets/images/wpid6455-rack-unit-num-display-start-vs-end.png)
+  
+<ThemedImage
+  alt="Rack number between U's option in Global Settings"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/global-settings-racks-light.png'),
+    dark: useBaseUrl('/assets/images/racks/global-settings-racks-dark.png'),
+  }}
+/>
 
-### Adding assets to the rack from the rack edit screen
+### Add Assets to the Rack
 
-![Adding assets to the rack from the rack edit screen](/assets/images/wpid6433-Adding_assets_to_the_rack.png)
+Assets include items, such as patch panels, filler panels, and fans, that take U space or power in the rack. You can add assets to racks from the rack edit page or associate assets with racks via the Assets list page under **Resources > Assets**.
 
-Assets could be your patch panels, filler panels, fans etc. that take U space and/or power in the rack. These can be added from the rack edit page or from the Assets menu.
+Asset sizes are measured in U units and rounded to one decimal place.
 
-You can add a new asset (or choose an existing asset) using the lookup button, add the size and starting location. (along with depth and orientation)
+<ThemedImage
+  alt="Adding assets to the rack from the rack edit screen"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/add-rack-assets-light.png'),
+    dark: useBaseUrl('/assets/images/racks/add-rack-assets-dark.png'),
+  }}
+/>
 
-Unlike devices, assets can have the same names and even blank names are allowed (but not recommended). The following is a quick video showing how to easily add assets to the rack.
+You can choose an existing asset or add a new asset using the lookup button. Provide the size and starting location of the asset, along with its depth and orientation.
 
-### Visually adding assets to the rack from the rack layout screen
+Unlike devices, multiple assets can have the same name. Even blank names are allowed (but not recommended). 
 
-![Visually adding assets to the rack from the rack layout screen](/assets/images/wpid6434-AssetTemplates.png)
+### Visually Add Assets to the Rack
 
-Asset templates can be dragged and dropped into racks as illustrated above. However, first you must create asset templates. You can do this in Devices > Assets > Racked Asset Templates. Once you add the racked asset template, you can just drag and drop the template from the sidebar to the rack position where you need it to be.
+Click **Rack Layout** from the view screen of the rack and turn on edit mode in the left sidebar. Under **Add New Asset**, choose the asset type and provide the size, depth, and location of the asset. If needed, you can add new asset types when creating a new asset under **Resources > All Assets**.
 
-### Add new asset template from the rack layout
+<ThemedImage
+  alt="Adding assets to the rack from the rack layout screen"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/layout-add-asset-light.png'),
+    dark: useBaseUrl('/assets/images/racks/layout-add-asset-dark.png'),
+  }}
+/>
 
-![Add new asset template from the rack layout](/assets/images/wpid6445-media_1424466227206.png)
+Once you have added the asset details in the sidebar, you can drag and drop the template from the sidebar to the rack position where you need it to be. A modal window will prompt you to enter the asset details.  
 
-### Rack elevations physical connections with drag and drop
+<ThemedImage
+  alt="Enter rack details form"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/enter-asset-info-light.png'),
+    dark: useBaseUrl('/assets/images/racks/enter-asset-info-dark.png'),
+  }}
+/>
+
+### Add a New Asset Template
+
+Click **Rack Layout** from the view screen of the rack and turn on edit mode in the left sidebar. Drag and drop the predefined asset template blocks from the sidebar (under **Templates**) to the rack layout screen. 
+
+Click the **Add New Asset Template** button or navigate to **Resources > Racked Asset Templates** to create a new template.
+
+<ThemedImage
+  alt="Add new asset template from the rack layout"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/layout-templates-light.png'),
+    dark: useBaseUrl('/assets/images/racks/layout-templates-dark.png'),
+  }}
+/>
+
+### Rack Elevations: Physical Connections With Drag-and-Drop
 
 ![Rack elevations physical connections with drag and drop](/assets/images/wpid6444-media_1424466162974.png)
 
-From the rack layout page, you can go to Physical connections and visualize power and network connectivity from this page. You can optionally turn off either of the connections to see only power or only network cables. Also, in the edit mode, drag and drop is now available for PDU ports and network ports (from/to patch panel ports or switch ports).
+From the Rack Layout page, you can go to **Physical Connections** and visualize power and network connectivity from this page. You can optionally turn off either of the connections to see only the power cables or only the network cables. In edit mode, drag-and-drop is also available for PDU ports and network ports (between patch panel ports or switch ports).
 
 ![](/assets/images/wpid6447-media_1424515989100.png)
 
-When you view the physical connections, you will see outlets that resemble the outlet receptacle type. Examples of the receptacle types are show below.
+When you view the physical connections, you will see outlets that resemble the outlet receptacle type. Examples of the receptacle types are shown below:
 
 ![](/assets/images/wpid6448-media_1424516011534.png)
 
-### Selected/highlighted paths and port label display in physical connectivity layouts
+### Highlighted Paths and Port Label Display
 
 ![Selected/highlighted paths and port label display in physical connectivity layouts](/assets/images/wpid6452-media_1424517266968.png)
 
-In the physical connection layout, you can select a port for a device and the display will highlight the path.
+In the physical connection layout, you can select a port for a device, and the display will highlight the path.
 
-### Adding PDUs to the rack
+### Add PDUs to the Rack
 
-- You can add PDUs in and around the rack, details for adding and displaying PDUs is discussed in detailed in the PDU section at: [PDU Rack Display](infrastructure-management/power-units/pdu-rack-display.mdx)
+You can add PDUs in and around the rack. The steps for adding and displaying PDUs are discussed in detail on the [PDU Rack Display](/infrastructure-management/power-units/pdu-rack-display) page.
 
-### Bulk operations
+## Rack Actions
 
-![Bulk operations](/assets/images/wpid6435-media_1362134989530.png)
+From the Racks list page, you can select one, several, or all racks and apply a number of operations from the **Actions** dropdown menu. The same options are available from the ellipsis menu located at the end of each rack row.
 
-From the Racks view, you can select one, several, or all racks and apply a number of bulk operations:
+<ThemedImage
+  alt="Rack Actions dropdown menu"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/rack-actions-light.png'),
+    dark: useBaseUrl('/assets/images/racks/rack-actions-dark.png'),
+  }}
+/>
 
-Delete: Delete the selected racks
+The following **Actions** are available:
 
-Show Front Layout: Show the visual layout (front view) of all the selected racks
+- **Delete with Detailed Confirmation**: View all items related to the rack before determining whether you want to delete the rack.
+- **Fast Background Delete**: Quickly delete the selected racks without viewing the detailed breakdown first.
+- **Export Selected Items**: Export the selected racks as a re-importable export, as a racks export, as a selected columns export, as a re-importable export of the devices or PDUs in the selected racks, or as export audit data.
+- **Show Front Layout of selected racks**: Show the visual layout (front view) of all the selected racks on one screen.
+- **Show Back Layout of selected racks**: Show the visual layout (back view) of all the selected racks on one screen.
+- **Multiple rack connections**: Show the layout of the multiple connections in the selected racks.
+- **Change orientation to left**: Change the orientation of the selected racks so that they are left-pointing in the visual layout.
+- **Change orientation to right**: Change the orientation of the selected racks so that they are right-pointing in the visual layout.
+- **Display U numbers between U's**: Place the U numbers between the Us in the visual layout of the selected racks.
+- **Display U numbers at U's**: In the visual layout of the selected racks, place the U numbers at the Us.
+- **Generate QR/Barcodes for selected Items**
+- **Clone selected Racks**: Clone the selected racks and all their devices, PDUs, and connections. This is a useful feature for quickly creating multiple racks with largely the same configuration.
+- **Display power trending data**: View the power data for the selected racks over time.
+- **Set Custom Field Value**: Add a specific value from a user-defined field to the selected racks.
 
-Show Back Layout: Show the visual layout (back view) of all the selected racks
+### Visualize Multiple Racks Together
 
-Change orientation to left: Change the orientation of the selected racks in the visual layout to left-pointing racks
+To see multiple racks in the same view, select the relevant racks from the Racks list page and choose **Show Front Layout of selected racks** or **Show Back Layout of selected racks** from the **Actions** dropdown.
 
-Change orientation to right: Change the orientation of the selected racks in the visual layout to right-pointing racks
+<ThemedImage
+  alt="Layout view with multiple rack fronts"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/multi-rack-layout-view-light.png'),
+    dark: useBaseUrl('/assets/images/racks/multi-rack-layout-view-dark.png'),
+  }}
+/>
 
-Put U numbers between U's: In the visual layout of the selected racks, place the U numbers between the U's
+### Visually Move Devices Between Racks
 
-Put U numbers at U's: In the visual layout of the selected racks, place the U numbers at the U's
+From the multi-rack layout view [described above](#visualize-multiple-racks-together), you can drag and drop devices between racks. On a tablet, you can do this with a swipe of your finger.
 
-### Visualize multiple racks together
+When you drag a device from one rack to another, the power and network connections to the device are removed.
 
-![Visualize multiple racks together](/assets/images/wpid6437-media_1414075593772.png)
+<ThemedImage
+  alt="Moving devices between racks"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/move-device-light.png'),
+    dark: useBaseUrl('/assets/images/racks/move-device-dark.png'),
+  }}
+/>
 
-As mentioned in the bulk operations in the step above, you can select multiple racks, choose "show front (or back) layout of selected racks" and see multiple racks together.
+### Clone Selected Racks
 
-### Moving devices between racks
+Choose the **Clone selected Racks** action to clone the selected racks as well as the PDUs and devices in those racks and the device-to-PDU outlet connections.
 
-![Moving devices between racks](/assets/images/wpid6438-media_1414075696026.png)
+<ThemedImage
+  alt="Clone option in Actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/clone-action-light.png'),
+    dark: useBaseUrl('/assets/images/racks/clone-action-dark.png'),
+  }}
+  style={{ width: '60%' }} 
+/>
 
-You can also drag and drop devices between racks. On a tablet, this can be done with a swipe of the finger.
+You can choose which room the cloned racks go to, select a device naming profile, specify a prefix for rack and PDU names, and fill in some other optional fields, as shown below.
 
-When you drag a device from one rack to another, the power and network connections to the device be removed and you will be prompted to select what PDU ports you want to connect the device to.
+Note: The **Rack name prefix** will be prepended to each rack name, whereas the **Rack name prefix to ignore** will be removed from the rack name.
 
-![Transfer PDU Connections](/assets/images/2015-10-10-rack-drag.png)
+<ThemedImage
+  alt="Clone selection field options"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/clone-fields-light.png'),
+    dark: useBaseUrl('/assets/images/racks/clone-fields-dark.png'),
+  }}
+/>
 
-You can choose 1 or more ports per PDU.
+### Export Rack Audit Data
 
-### Clone select racks
+Looking to audit your racks in a jiffy? Download the ready-to-go Audit Excel file for selected racks to inventory or audit all assets, like PDUs, devices, and assets in the rack.
 
-![Clone select racks](/assets/images/wpid6450-media_1424517172751.png)
+Choose the **Export Selected Items** action and select **Audit Export for Selected Racks**
 
-Using the action drop down on the rack page, you can choose the “Clone selected racks” action and it will clone the selected racks as well as the PDUs and the devices in those racks. Device to PDU outlet connections are also cloned. You can choose the room where the cloned racks go, choose a device naming profile, a prefix for rack and PDU names and some other optional fields as shown below.
+<ThemedImage
+  alt="Audit export options modal window"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/export-options-light.png'),
+    dark: useBaseUrl('/assets/images/racks/export-options-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid6451-media_1424517217056.png)
+The export sheet is sorted by rack name, includes PDUs on the side, and then lists the devices, PDUs, and assets from top to bottom in the rack. With this sheet, you can use a handheld wireless scanner to read the asset number (from barcode labels) to the sheet and quickly verify the correctness of your inventory.
 
-Note: The Rack name prefix will be prepended to each rack name. The Rack name prefix to ignore will be removed from the rack name.
-
-### Audit reports from racks
-
-![Audit reports from racks](/assets/images/wpid6440-media_1414445113486.png)
-
-Looking to audit your racks in a jiffy? Download the ready to go Audit excel file for selected racks and inventory/audit all assets like PDUs, devices and assets in the rack.
-
-The export sheet is sorted by rack name and includes PDUs on the side and then devices, PDUs and assets from top to bottom in the rack. With this sheet, you can use a handheld wireless scanner to read the asset #s(from barcode labels) to the sheet and quickly verify the correctness of your inventory.
-
-**Note:** The start\_col=1, start\_row=1 refers to the upper left cell regarding of the row numbering scheme. 2, 2 refers to the 2nd row, 2nd column. 3.5, 3.5 refers to a rack that is position between the 3rd and 4th cells both vertically and horizontally. Effectively this means that the start\_row, start\_col will correspond with the room "Grid and Numbering" scheme only if numbers are used and vertical and horizontal are both set to 1.
-
- 
-
-### Visualizing PDU Connections
+## Visualize PDU Connections
 
 ![Visualizing PDU Connections](/assets/images/wpid6441-media_1414490904015.png)
 
-You can now visualize PDU connections by clicking the PDU Map button. Quickly see what is connected where with respect to power and visualize dual or single connected servers from the rack level. You can zoom-in and zoom-out using the mouse wheel and drag the layout around.
+You can visualize PDU connections by clicking the PDU Map button. Quickly see what is connected where with respect to power and visualize dual or single connected servers from the rack level. You can zoom in and out using the mouse wheel and drag the layout around.
 
-### What-If Simulation
+## What-If Simulation
 
-To do what-if simulations, navigate to Tools >> Templates and Bulk Operations >> What If...
+To do what-if simulations, navigate to **Tools > Templates & Bulk Operations > What if**. Here, you can enter device and power information for devices that need to be racked and choose a simulation based on racks in a building, in a room, or chosen from a list. 
 
-![Visualizing PDU Connections](/assets/images/2015-10-10-what-if-1.png)
+<ThemedImage
+  alt="What-if simulation options"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/what-if-1-light.png'),
+    dark: useBaseUrl('/assets/images/racks/what-if-1-dark.png'),
+  }}
+/>
 
-Here you can enter device and power information for devices that need to be racked and choose a simulation based on racks in a building, room, or chosen from a list. When you click What If, you will see a list of simulated results...
+<ThemedImage
+  alt="What-if simulation options"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/what-if-2-light.png'),
+    dark: useBaseUrl('/assets/images/racks/what-if-2-dark.png'),
+  }}
+/>
 
-![Visualizing PDU Connections](/assets/images/2015-10-10-what-if-2.png)
+Click **What if** and scroll down to see a list of simulated results.
 
-### Bulk Rack Adds / Updates
+<ThemedImage
+  alt="What-if results"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/what-if-results-light.png'),
+    dark: useBaseUrl('/assets/images/racks/what-if-results-dark.png'),
+  }}
+/>
 
-![Bulk Rack Adds / Updates](/assets/images/wpid6457-racks-api-creation.png)
+## Bulk Add and Update Racks
 
-Adding and/or updating racks in bulk can be done via API and/or API Imports. Tools | Imports (.xls)
+Add and update racks in bulk [using the Device42 API](https://api.device42.com/) or using spreadsheets via the import and export feature under **Tools > Import/Export (xls)**.
 
-Additional information can be found here: [Create / Update Racks via API / API Imports](https://api.device42.com/#create-/-update-racks) [Getting started - importing data from existing spreadsheets](getstarted/importing-data-from-existing-spreadsheets.mdx)
+<ThemedImage
+  alt="Import/Export options for racks"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/generic-imports-light.png'),
+    dark: useBaseUrl('/assets/images/racks/generic-imports-dark.png'),
+  }}
+/>
 
-### Bulk add - device, assets, PDUs
+<ThemedImage
+  alt="Import/Export options for racks"
+  sources={{
+    light: useBaseUrl('/assets/images/racks/generic-imports-racks-light.png'),
+    dark: useBaseUrl('/assets/images/racks/generic-imports-racks-dark.png'),
+  }}
+/>
 
-![Bulk add - device, assets, PDUs](/assets/images/wpid6453-rack-add-device-asset-pdu.png)
+Additional information can be found here: 
+- [The Device42 API reference website](https://api.device42.com) 
+- [The Device42 guide to importing data from existing spreadsheets](getstarted/importing-data-from-existing-spreadsheets.mdx)
 
-Devices, assets, and PDUs can be added / updated to racks in bulk via API and/or API Imports.
+### Bulk Add Devices, Assets, and PDUs to Racks
 
-Devices: How to video: [adding devices to racks via API Import](how-to-videos/api-imports-adding-devices-to-racks.mdx)
+Devices, assets, and PDUs in racks can be added and updated in bulk [via the Device42 API](https://api.device42.com/) or using spreadsheets via the import and export feature under **Tools > Import/Export (xls)**.
 
-Assets: Documentation: bulk add update assets to racks
+Do a text search (`Ctrl + F` or `Cmd + F`) on the Import/Export page to download spreadsheets for the following options:
 
-PDUs: Documentation: bulk add / update PDUs to racks
+- **Devices - Add Devices to Racks**
+- **Power Units - Add Power Units to Racks**
 
-[Getting started - importing data from existing spreadsheets](getstarted/importing-data-from-existing-spreadsheets.mdx)
+Watch [API Imports](how-to-videos/api-imports-adding-devices-to-racks.mdx), the how-to video for adding devices to racks via the Device42 API.

@@ -18,7 +18,7 @@ Currently, Jamf autodiscovery retrieves data on the following:
 - Installed software and applications
 - Extension attributes (Custom Fields)
 
-You can view the discovered mobile devices under the **Software In Use** tab on the details page of any of the discovered mobile devices.
+You can view the discovered software under the **Software In Use** tab on the details page of any of the discovered mobile devices.
 
 ![Jamf mobile autodiscovery items](/assets/images/jamf-autodiscovery/jamf-mobile-discovery-sw.png)
 
@@ -42,27 +42,44 @@ Your username and password are used to request a bearer token. Bearer token auth
 
 ## Create a Jamf Autodiscovery Job
 
-Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Select **Jamf** from the **Type** dropdown menu.
+Navigate to **Discovery > Cloud** and click **Create**.
+
+- Select **Jamf** from the **Type** dropdown menu.
+- Choose a **Remote Collector** from the dropdown menu. 
+- Enter the **URL** the job will use, including the port if necessary.
 
 <ThemedImage
   alt="Add a new Jamf job"
   sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-dark.png'),
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-1-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-1-dark.png'),
   }}
 />
 
-Optionally, add a **Customer for discovered devices:**
+- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and select an **Object Category for the discovered devices** to be assigned to.
+- **Add device vendor metadata as** either **Tags** or **Custom Fields**, or leave it set as the default option, **Do Nothing**.
 
-<ThemedImage
-  alt="Add customer"
-  sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/customer-option-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Add a new Jamf job"
+    sources={{
+      light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-2-light.png'),
+      dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-2-dark.png'),
+    }}
+  />
 
-### Run Now or Schedule the Job
+- Optionally, include **Tags for discovered devices**. Tags are useful metadata that categorize the discovered items for searching, filtering, and [ADM Calculation Rule](/apps/application-groups/calculation-rules/#what-are-calculation-rules) purposes.
+- Select a **Customer for discovered devices**.
+- Choose **No Debug** or **Extended Debug** from the **Debug level** dropdown menu to change the default logging level, **Normal Debug**.
+
+  <ThemedImage
+    alt="Add a new Jamf job"
+    sources={{
+      light: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-3-light.png'),
+      dark: useBaseUrl('/assets/images/jamf-autodiscovery/new-job-3-dark.png'),
+    }}
+  />
+
+### Schedule the Job
 
 Scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
 
@@ -74,12 +91,24 @@ Scroll down to create a run schedule for the job. Create multiple schedules for 
   }}
 />
 
-To run the job immediately, click **Save** to add it to the list of Cloud autodiscovery jobs and then click **Run Now**.
+### Run the Job Now
+
+After saving the job, the details view page is displayed. Here, you have the option to run the job immediately using the **Run Now** button.
 
 <ThemedImage
-  alt="Create a discovery schedule"
+  alt="Run Now button on job view"
   sources={{
-    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-1-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-1-dark.png'),
+  }}
+/>
+
+You can also run the job from the list view. 
+
+<ThemedImage
+  alt="Run Now button on list view"
+  sources={{
+    light: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-2-light.png'),
+    dark: useBaseUrl('/assets/images/jamf-autodiscovery/jamf-run-now-2-dark.png'),
   }}
 />

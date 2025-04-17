@@ -5,29 +5,27 @@ sidebar_position: 2
 
 ## Adding a PDU
 
-Add a new PDU by heading to the Device42 main menu: **DataCenter > Power Units > Power Units**. Relevant PDU-related fields are listed & defined below. _Note that PDUs (like almost all D42 CI) can also be added and/or manipulated [via the API](https://api.device42.com/#pdu)._
+Add a new PDU by heading to **DataCenter > Power Units > Power Units**. Relevant PDU-related fields are listed and defined below. 
+
+Note that PDUs (like almost all D42 CI) can also be added and manipulated [via the API](https://api.device42.com/#pdu).
 
 ![Add new PDU](/assets/images/add_new_PDU-p1.png)
 
-### PDU Field descriptions
+### PDU Field Descriptions
 
-**PDU field**: description - _required \[yes/no\]_
+- **Name**: Name your PDU (required).
+- **Type**: Choose between PDU, UPS, ATS, and Environmental Monitor (required).
+- **Power Unit Model**: Choose the PDU model (required if the PDU is rack-mounted or used to track individual ports on the PDU).
+- **Is Device42 PDU monitoring enabled**: Flag this PDU as being monitored by Device42.
+- **Storage Room**: If the Power Unit is not stored in a Rack or Server Room, provide the Storage Room where the PDU is located. Note that selecting a Storage Room will remove existing Rack and Server Room information.
+- **Object Category**: Select an Object Category to which this PDU belongs. This field is visible if **Role-Based Access Control** (RBAC) is enabled under **Tools > Settings > Global Settings**. 
+  :::note
+  The **Set Object Category** option on the **Actions** menu of the Power Units list page is only visible if RBAC is enabled.
+  :::
+- **Tags**: Include a comma-separated list of tags to categorize this Power Unit.
+- **Notes**: Optionally add notes regarding this Power Unit.
 
-- **Name**: Name your PDU _\- required_ 
-- **Type**: PDU, UPS, or ATS _\- required_ 
-- **Power Unit Model**: Choose the PDU model - _Must be defined if the PDU is rack mounted and/or to track individual ports on the PDU_ 
-- **Serial #**: Name your PDU _\- required_ 
-- **Is monitoring enabled**: Name your PDU _\- required_ 
-- **Storage Room**: Name your PDU _\- required_ 
-- **Bootstrap Power**: Name your PDU _\- required_ 
-- **Rated Power**: Name your PDU _\- required_ 
-- **First Added**: Name your PDU _\- required_ 
-- **Last updated**: Name your PDU _\- required_ 
-- **Object Category**: Name your PDU _\- required_ 
-- **Tags**: Name your PDU _\- required_ 
-- **Notes**: Name your PDU _\- required_
-
-### Device Mapping section
+### Device Mapping Section
 
 ![Add new PDU Rack info & Infeeds](/assets/images/add_new_PDU_p2.png)
 
@@ -48,13 +46,13 @@ Upon saving your new PDU, Device42 will automatically add ports based on the sel
 
 * * *
 
-## Automatically created Ports
+## Automatically Created Ports
 
 When a new PDU is created via the click of the "Save" button, PDU ports are created automatically based on the port layout defined on the chosen PDU model. For information on defining your PDU model(s), see the [Defining PDU Models](infrastructure-management/power-units/defining-pdu-models.mdx) section of the Device42 Docs.
 
 ![Automatically Created PDU Ports](/assets/images/auto_created_ports-pdu.png)
 
-## Mapping PDU's to a Device
+## Mapping PDUs to a Device
 
 ![Add device type other to associate with PDU](/assets/images/create_associated_device_for_PDU-hl.png)
 
@@ -69,8 +67,7 @@ To track details about a PDU, e.g.: The PDU serial #, asset #, PUD IP address, p
     
     ![PDU mapped to Device](/assets/images/mapped_device_PDU-HL.png)
     
-
-### Viewing & navigating between a mapped PDU and Device
+### Viewing and Navigating Between a Mapped PDU and Device
 
 Jumping from a device to the PDU it's plugged in to, or from a PDU to the device page of a device that's plugged into it is simple: Above image - PDU mapping page, with a link to the device's details page.  
 Below image- Device mapping page, links back to the PDU detail page.
