@@ -56,7 +56,7 @@ Upon initial installation, configure your network settings to proceed with setup
 
 On the **Main Menu**, choose **Network Interfaces** and press `enter` on the name of your interface to edit it. Use the `space bar` to unselect DHCP and assign a static IP address using the following screen:
 
-![](/assets/images/D42-23170_RC-edit-network-interface.png)
+![](/assets/images/remote-collector-rc/console-edit-network-interface.png)
 
 The **PREFIX** field above asks for an integer that represents the subnet mask in slash notation. For example, for the subnet mask `255.255.255.0`, which is `/24` in slash notation, you would enter `24`.
 
@@ -96,17 +96,23 @@ Open the Device42 website in your browser. Click the RC **Name** on the **Remote
 
 Note that the view and edit pages now include a **MAC Address** field showing the address of the RC. Be careful editing this address; an incorrect address will cause the RC to disconnect.
 
-![](/assets/images/D42-23170_RC-edit-page.png)
+<ThemedImage
+  alt="RC edit page"
+  sources={{
+    light: useBaseUrl('/assets/images/remote-collector-rc/rc-edit-light.png'),
+    dark: useBaseUrl('/assets/images/remote-collector-rc/rc-edit-dark.png'),
+  }}
+/>
 
 ### Remote Collector List Page Actions
 
-Navigate to the **Remote Collectors** list page under **Discovery > Remote Collectors** and click **Select an action** to access the dropdown menu.
+Navigate to the **Remote Collectors** list page under **Discovery > Remote Collectors** and click **Actions**.
 
 <ThemedImage
   alt="Remote Collector list page actions"
   sources={{
-    light: useBaseUrl('/assets/images/remote-collector-rc/actions-menu-light.png'),
-    dark: useBaseUrl('/assets/images/remote-collector-rc/actions-menu-dark.png'),
+    light: useBaseUrl('/assets/images/remote-collector-rc/rc-actions-menu-light.png'),
+    dark: useBaseUrl('/assets/images/remote-collector-rc/rc-actions-menu-dark.png'),
   }}
 />
 
@@ -118,13 +124,6 @@ Select the relevant RC(s) from the table, choose one of the following actions, a
 - **Reboot Collectors**: Reboot the selected connected RC(s). Note that if your RC is exhibiting unusual behavior, rebooting the RC is a good first step to resolving the problem.
 - **Set Logging Level**: Set the RC logging level. Select **Information** to reduce the log file size. You can also set a Global Logging Level via the RC console.
 
-<ThemedImage
-  alt="Set logging level"
-  sources={{
-    light: useBaseUrl('/assets/images/remote-collector-rc/logging-level-light.png'),
-    dark: useBaseUrl('/assets/images/remote-collector-rc/logging-level-dark.png'),
-  }}
-/>
 
 - **Set Proxy Settings**: Edit the RC(s) inherited proxy settings.
 
@@ -142,6 +141,7 @@ RCs are extremely flexible and make discovery with Device42 easier than ever. Yo
 
 ![main menu](/assets/images/D42_RC_deploy_example.png)
 
+
 In the deployment example pictured above, an RC is deployed within each isolated DMZ network segment that, per firewall rules typical of a DMZ, the Device42 MA is normally unable to reach or discover directly. Deploying an RC to these segments bolsters security by saving the network administrator from making multiple temporary (or permanent and insecure) firewall rules (aka 'holes') to allow discovery traffic to pass from the MA over the wide range of ports used by various vendor APIs.
 
 Please note that the diagram doesn't show the majority of network connectivity that would be present, and instead focuses on what is discovered by the MA and the RC, and the communication between them.
@@ -152,8 +152,13 @@ As mentioned briefly in the introduction, all communication and discovery inform
 
 Once registered, you can schedule any autodiscovery job from the MA and instruct it to run on the RC of your choosing. Each autodiscovery screen shows a **Remote Collector** dropdown menu. Click this dropdown to display all registered RCs and choose the RC you would like to run the discovery job:
 
-![Add SNMP autodiscovery and select Remote Collector](/assets/images/Add-SNMP-autodisc-RC-v15.PNG)
-
+<ThemedImage
+  alt="Select RC example"
+  sources={{
+    light: useBaseUrl('/assets/images/remote-collector-rc/select-rc-light.png'),
+    dark: useBaseUrl('/assets/images/remote-collector-rc/select-rc-dark.png'),
+  }}
+/>
 ## Updating Your Remote Collector
 
 Device42 RCs are updated automatically as long as they are connected to a Device42 MA. Updates to the MA instance include updates to your RC(s), which are pushed out automatically as part of the regular Device42 update process. By keeping your main Device42 instance up to date, you ensure that your RCs are also up to date.
