@@ -110,6 +110,7 @@ Note that some Discovery items require enabling the feature and cannot be discov
 | Cloud Service/Object Name | Where in Device42                      | Accessed API                             | Information Generated                                   | Permission(s) Required                                   |
 | ------------------------- | --------------------------------- | ---------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
 | API Gateway                | Resources --> All Resources            | `apigateway._region_.amazonaws.com`      | Cloud vendor, cloud account, etc.      | `apigateway:GET`                                       |
+| AWS Account Name (fallback)    | Infrastructure --> Cloud Accounts    | `iam.amazonaws.com` | Cloud account alias             | `iam:ListAccountAliases` |
 | CloudFront                 | Resources --> All Resources            | `cloudfront.amazonaws.com`               | Cloud vendor, cloud account, status, tags, etc                      | `cloudfront:ListDistributions`, `cloudfront:ListTagsForResource` | Dynamo DB                 | Resources --> All Resources       | dynamodb._region_.amazonaws.com         | Backup details, contributor insights, tables, limits, etc. | `dynamodb:DescribeGlobalTable`, `dynamodb:DescribeLimits`, `dynamodb:DescribeTable`, `dynamodb:ListGlobalTables`, `dynamodb:ListTables` |
 | EC2 Instances             | Resources --> All Devices       | ec2._region_.amazonaws.com              | Service name, instance id, status, location, etc.      | `ec2:Describe*`                                        |
 | Elastic Block Storage (EBS) | Resources --> All Resources      | ec2._region_.amazonaws.com              | Lists, rules, tags, etc.                                | `ec2:Describe*` (EBS is part of EC2)                  |
@@ -186,6 +187,7 @@ Note that some Discovery items require enabling the feature and cannot be discov
         "elasticfilesystem:DescribeFileSystems",
         "elasticfilesystem:DescribeMountTargets",
         "elasticloadbalancing:Describe*",
+        "iam:ListAccountAliases",
         "kms:DescribeKey",
         "kms:ListKeys",
         "kms:ListResourceTags",

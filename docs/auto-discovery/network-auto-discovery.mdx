@@ -83,16 +83,22 @@ Job configuration fields:
 - **Delete Switch Ports Not Found**: Delete any switch ports in Device42 that were not found in this discovery.
 - **Use Alias/Name for port description**: Choose if you prefer the Alias/Name for the port description.
 - **Delete older MAC association after**: Specify the number of days after which unfound MAC addresses are deleted.
-- **ICMP/TCP Port Check**: If you experience any issues with multicast IPs, uncheck this option, as depicted below.
+- **ICMP/TCP Port Check**: Leave this option enabled to improve the efficiency and  reduce the execution time of the job. If you experience any issues with multicast IPs, uncheck this option. 
 
-<ThemedImage
-  alt="ICMP/TCP Port Check option"
-  sources={{
-    light: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-light.png'),
-    dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-dark.png'),
-  }}
-/>
-
+  - **Scan All Protocols**: When checked, this option expands the scan to include IGMP (Protocol 2) along with ICMP and IPv4. In most cases, you can leave this option unselected.
+  
+  <ThemedImage
+    alt="ICMP/TCP Port Check option"
+    sources={{
+      light: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-light.png'),
+      dark: useBaseUrl('/assets/images/network-auto-discovery/snmp-icmp-port-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+  />
+  
+  :::note
+  Jobs created prior to Device42 v19.06 will continue to run using the full protocol set by default.
+  :::
 
 ### Vendor-Specific SNMP v3 Information
 
