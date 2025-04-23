@@ -12,18 +12,16 @@ For all cloud discovery jobs, navigate to **Discovery > Cloud** and click the **
 
 Device42 discovery supports the following cloud types, as listed in the **Type** dropdown menu of the **Add Cloud Autodiscovery** form:
 
-- [Alibaba Cloud](#alibaba-cloud-discovery)
-- Amazon AWS
-- [Arista CloudVision (Preview)](#arista-cloudvision-discovery)
-- [DigitalOcean](#digitalocean-discovery)
-- Google Cloud
-- Intune
-- Jamf
-- [Linode](#linode-discovery)
-- Microsoft Azure
-- [OpenStack](#openstack-discovery)
-- [Oracle Cloud](#oracle-cloud-discovery)
-- Standalone Kubernetes
+- [Alibaba Cloud Discovery](#alibaba-cloud-discovery)
+- [Arista CloudVision Discovery](#arista-cloudvision-discovery)
+- [DigitalOcean Discovery](#digitalocean-discovery)
+- [Linode Discovery](#linode-discovery)
+- [OpenStack Discovery](#openstack-discovery)
+  - [OpenStack Discovery Items](#openstack-discovery-items)
+  - [Minimum Permission Requirements for OpenStack Discovery](#minimum-permission-requirements-for-openstack-discovery)
+  - [Get Details for OpenStack Discovery](#get-details-for-openstack-discovery)
+  - [Create an OpenStack Discovery Job](#create-an-openstack-discovery-job)
+- [Oracle Cloud Discovery](#oracle-cloud-discovery)
 
 <ThemedImage
   alt="Cloud autodiscovery types"
@@ -76,6 +74,10 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 * * *
 
 ## Arista CloudVision Discovery
+
+| **Cloud Service/Object Name** | **Where to locate in Device42** | **Accessed API**                  | **Information Generated**                                |
+|-------------------------------|----------------------------|----------------------------------|---------------------------------------------------------| 
+| Network infrastructure               | Devices --> All Devices    | `https://\<IP-address\>/api/resources/` | Device ID, device status, dashboard configs, etc. |
 
 Name the discovery job and select **Arista CloudVision (Preview)** from the **Type** dropdown menu. Select a **Remote Collector** and add the server IP address or FQDN in the **Node(s)** textbox. 
 
