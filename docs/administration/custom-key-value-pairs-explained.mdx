@@ -105,6 +105,32 @@ You can find the documentation for adding Custom Fields to various objects using
 
 For example, to see the API documentation for adding custom fields to Devices, navigate to **Devices > Custom fields**.
 
+### Assigning related field values by object ID
+
+You can populate a **related** custom field by sending the *object ID* instead of its name.
+
+Add two form parts to your `POST` or `PUT` request:
+
+| Field | Required | Value |
+| ----- | -------- | ----- |
+| `value` | ✔ | Numeric ID of the related object (for example, an end user ID). |
+| `related_field_value_by_id` | ✔ | `yes` — tells Device42 that `value` contains an ID, not the object name. |
+
+```bash
+curl -k -X PUT -u 'admin:adm!nd42' \
+  -F "name=Customer 101" \
+  -F "key=end_user_details" \
+  -F "type=related_field" \
+  -F "related_field_name=endusers" \
+  -F "value=6" \
+  -F "related_field_value_by_id=yes" \
+  https://<device42>/api/1.0/custom_fields/customer/
+```
+
+The call above sets **End User Details** to the end user whose object ID is **6**.
+
+For full parameter details, read the documentation for the [Customers](https://api.device42.com/#!/Customers) endpoint.
+
 ## Exago Reports Note
 
 For Exago reports (which are not enabled by default), we've made changes to a couple of custom field data types that may affect existing queries. Custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 
