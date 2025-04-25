@@ -175,6 +175,20 @@ Specify the timeout range between 10 to 600 seconds in the **Timeout** field to
     }}
 />
 
+When discovery switches between *nix users, the triggered banner text messages may disrupt the database discovery and Application Component creation process and result in a discovery error or incomplete data collection. 
+
+To ensure full data collection when switching users, check the **Check for Banner** option for discovery to detect and remove banner messages.
+
+The **Check for Banner** option is also available via API.
+
+<ThemedImage
+    alt="Check for Banner option"
+    sources={{
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/check-for-banner-light.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/check-for-banner-dark.png'),
+    }}
+/>
+
 ## Configure SSH Key Auth for Discovery
 
 SSH keys can be used for Linux discovery instead of a password. Setting up discovery to use an SSH key is a simple two-step process, and even easier if your servers are already configured for SSH key access. 
