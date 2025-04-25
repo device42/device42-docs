@@ -42,8 +42,8 @@ Navigate to the Custom Fields list page under **Tools > Custom Fields** and clic
   - **Yes/No:** These fields use yes or no values.
   - **URL:** These fields use URL values.
   - **Picklist:** These fields use values chosen from a picklist.
-    - You can create either single-select or multi-select picklists
-    - After creation, you can adjust pick list parameters without needing to re-create and reassign custom fields
+    - You can create either single-select or multi-select picklists.
+    - After creation, you can adjust pick list parameters without needing to recreate and reassign custom fields.
     
   - **JSON:** These fields use JSON formatting.
   - **Markup:** These fields use markup formatting.
@@ -105,7 +105,7 @@ You can find the documentation for adding Custom Fields to various objects using
 
 For example, to see the API documentation for adding custom fields to Devices, navigate to **Devices > Custom fields**.
 
-### Assigning related field values by object ID
+### Assigning Related Field Values by Object ID
 
 You can populate a **related** custom field by sending the *object ID* instead of its name.
 
@@ -114,7 +114,7 @@ Add two form parts to your `POST` or `PUT` request:
 | Field | Required | Value |
 | ----- | -------- | ----- |
 | `value` | ✔ | Numeric ID of the related object (for example, an end user ID). |
-| `related_field_value_by_id` | ✔ | `yes` — tells Device42 that `value` contains an ID, not the object name. |
+| `related_field_value_by_id` | ✔ | `yes` tells Device42 that `value` contains an ID, not the object name. |
 
 ```bash
 curl -k -X PUT -u 'admin:adm!nd42' \
