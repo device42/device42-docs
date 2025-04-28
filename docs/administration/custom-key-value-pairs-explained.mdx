@@ -75,7 +75,7 @@ Navigate to the Custom Fields list page under **Tools > Custom Fields** and clic
       light: useBaseUrl('/assets/images/custom-fields/custom-fields-05-light.png'),
       dark: useBaseUrl('/assets/images/custom-fields/custom-fields-05-dark.png'),
     }}
-  />
+  />  
 
 ## Bulk Set Custom Field Values
 
@@ -96,6 +96,40 @@ Set custom field values in bulk using the **Set Custom Field Value** action, whi
     sources={{
       light: useBaseUrl('/assets/images/custom-fields/custom-fields-07-light.png'),
       dark: useBaseUrl('/assets/images/custom-fields/custom-fields-07-dark.png'),
+    }}
+  />
+
+## Create a Custom Field for Secrets
+
+You can add a Custom Field to the Secrets form to store additional values.
+
+- Navigate to **Tools > Custom Fields** and click on the **Secrets** link.
+
+  <ThemedImage
+    alt="Secrets link on Custom Fields page"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/secrets-link-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/secrets-link-dark.png'),
+    }}
+  />
+
+- Name the custom field, choose its data **Type**, whether it is **Filterable**, and whether it is **Mandatory**. By default, the custom field is set to **Log for API**, which means any changes made to this custom field via the Device42 API will be recorded in the history log.
+
+  <ThemedImage
+    alt="Add a new Secret custom field"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-dark.png'),
+    }}
+  />
+
+- You can now assign a value to the newly created custom field when creating a new Secret, and add a note if desired.
+
+  <ThemedImage
+    alt="Custom field on Secret form"
+    sources={{
+      light: useBaseUrl('/assets/images/custom-fields/secret-custom-field-light.png'),
+      dark: useBaseUrl('/assets/images/custom-fields/secret-custom-field-dark.png'),
     }}
   />
 
