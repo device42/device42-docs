@@ -11,7 +11,7 @@ Configuration data from Device42 is often presented to external applications in 
 
 ## Configuring the Cloud Connector
 
-To leverage the Cloud connector with external integrations that support it, it must be configured. Cloud Connector configuration settings can be found on the _Cloud Services_ page. Select _Tools > Integrations > Cloud Services_ to open the page.
+To leverage the Cloud Connector with external integrations that support it, it must be configured. Cloud Connector configuration settings can be found on the _Cloud Services_ page. Select _Tools > Integrations > Cloud Services_ to open the page.
 
 Click _Edit_ at the bottom right of the page, and enter your Device42 instance’s URL or IP address in this field, e.g., `https://myd42url.com`. You can also choose the Cloud Connector to use (USA or Europe).
 
@@ -22,13 +22,12 @@ Click _Save_ to save your changes.
 ## List of external integrations that utilize the Cloud Connector:
 
 - [Atlassian JIRA (cloud)](integration/external-integrations/jira-integrations/device42-jira-cloud-integration.mdx)
-- [ServiceNow](device42-servicenow-connector.mdx)
 - [Freshservice](integration/external-integrations/freshservice-integration.mdx)
 - Insight in JSM Cloud
 - [Opsgenie](integration/external-integrations/opsgenie-integration.mdx)
 - [PagerDuty](integration/external-integrations/pagerduty-integration.mdx)
 - [ServiceNow](integration/external-integrations/device42-servicenow-connector.mdx)
-- [ZenDesk](device42-zendesk-connector.mdx)
+- [Zendesk](device42-zendesk-connector.mdx)
 
 Note that the [Cloud Recommendation Engine](reports/reports/cloud-recommendation-engine.mdx) also uses the Cloud Connector.
 
@@ -42,7 +41,7 @@ This presents a challenge in that Device42 installations often exist in local, i
 
 The Cloud Connector is utilized to route traffic from a given external integration directly to the customers’ normally unreachable Device42 appliances via a secure, internally (from the Device42 appliance) initiated WebSocket connection.
 
-The D42 Cloud Connector was built as a secure alternative to asking Device42 users to open their firewalls to allow this communication, which would have the side effect of needlessly exposing Device42 instances to the internet. The Cloud connector thus facilitates secure communication with the 3rd party software hosted in any cloud platform, while maintaining a minimum attack surface area and avoiding any need to expose customer’s Device42 appliances to the internet at large.
+The D42 Cloud Connector was built as a secure alternative to asking Device42 users to open their firewalls to allow this communication, which would have the side effect of needlessly exposing Device42 instances to the internet. The Cloud Connector thus facilitates secure communication with the 3rd party software hosted in any cloud platform, while maintaining a minimum attack surface area and avoiding any need to expose customer’s Device42 appliances to the internet at large.
 
 ## Cloud Connector / WebSocket Security Architecture
 
@@ -56,9 +55,9 @@ The verification token is used to search a database on the cloud connector for a
 
 ### Example / Diagram: ServiceNow DOQL Query Executed by Cloud Connector
 
-![Cloud connector communication example using ServiceNow integration](/assets/images/cloud-connector-diagram.png)
+![Cloud Connector communication example using ServiceNow integration](/assets/images/cloud-connector-diagram.png)
 
-The above graphic details communication between Device42, the Cloud connector, and the ServiceNow integration, with ServiceNow being used as the example. The general flow applies to any integration that uses the CC.
+The above graphic details communication between Device42, the Cloud Connector, and the ServiceNow integration, with ServiceNow being used as the example. The general flow applies to any integration that uses the CC.
 
 Note that the Device42 cloud connector is hosted by AWS, and takes advantage of their [industry-leading security features](https://aws.amazon.com/security/), as well as general best practices.
 
