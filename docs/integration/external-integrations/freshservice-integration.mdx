@@ -525,7 +525,7 @@ If you can't find a task related to your custom field, you can create a new `<ta
     FROM 
         view_device_v2
     LEFT JOIN 
-        view hardware v2 
+        view_hardware_v2 
         ON view_device_v2.hardware_fk = view_hardware_v2.hardware_pk
     LEFT JOIN 
         view_device_custom_fields_flat_v2 cf 
