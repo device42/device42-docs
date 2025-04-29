@@ -10,23 +10,23 @@ Due to the scope of Device42 discovery, duplicate items may occur. To help avoid
 
 When a new full discovery is performed, the algorithm will use various device attributes to determine potential matches with previously discovered devices.
 
-### Device Matching Levels
+### Device Matching Level
 
-Under **Tools > Global Settings**, you can set the device matching level. 
+Under **Tools > Global Settings**, you can set the device matching level under the **Miscellaneous** section. 
 
 Device42 supports three different matching models: **Classic**, **Moderate**, and **Conservative**. 
 
 <ThemedImage
-  alt="Unprocessed device records"
+  alt="Device matching levels"
   sources={{
-    light: useBaseUrl('/assets/images/unprocessed-device-records/device-matching-light.png'),
-    dark: useBaseUrl('/assets/images/unprocessed-device-records/device-matching-dark.png'),
+    light: useBaseUrl('/assets/images/unprocessed-device-records/device-matching-light-2.png'),
+    dark: useBaseUrl('/assets/images/unprocessed-device-records/device-matching-dark-2.png'),
   }}
 />
 
 With **Classic** matching, Device42 will check the serial number, UUID, and name (in that order) of discovered devices against existing records to verify whether an existing device should be updated or a new device should be created.
 
-**Moderate** and **Conservative** device matching both use various device attributes, weighted by significance, to calculate a score that determines potential matches with devices already in Device42.  
+**Moderate** and **Conservative** device matching both use various device attributes, weighted by significance, to calculate a score that determines potential matches with devices already in Device42.
 
 These attributes include the device name, serial number, UUID, IP, and MAC addresses. See [Device Attributes Used in Matching](#device-attributes-used-in-matching) below.
 
@@ -36,6 +36,22 @@ A device is identified as a match when the calculated match score is equal to or
 - **Conservative**: 30 points
 
 You can change the matching aggressiveness to ensure the best performance in a given environment, no matter the present state of the organization or the naming and deployment conventions in use.
+
+### Enhanced Device Matching
+
+We recommend enabling the **Enhanced Device Matching** option (under **Tools > Global Settings > Miscellaneous**) for improved accuracy when dealing with separate devices with the same name.
+
+To access this setting, which is turned off by default, select the **Moderate** or **Conservative** matching level under **Device Matching Level**.
+
+<ThemedImage
+  alt="Enhanced device matching"
+  sources={{
+    light: useBaseUrl('/assets/images/unprocessed-device-records/enhanced-device-matching-light.png'),
+    dark: useBaseUrl('/assets/images/unprocessed-device-records/enhanced-device-matching-dark.png'),
+  }}
+/>
+
+Enhanced matching also uses heuristics to determine if a potential match from [Application Dependency Mapping (ADM)](/apps/enterprise-application-dependency-mapping) is correct or incorrect. 
 
 ### Device Attributes Used in Matching
 
