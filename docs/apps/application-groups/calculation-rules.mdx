@@ -189,6 +189,10 @@ Fill in the fields:
 - **End at**: Specify where the calculation will ‘end’. 
   - Select **Database** to end the calculation at the database level. If you started with a database, this option won't apply as a calculation end.
   - Select **Load Balancer Virtual IP** if that's where your application stops.
+  :::note
+  In 19.06, we fixed the issue where Application Group connections to database services were missing in the visualization when the calculation started at the database level and the **End at** option was enabled.
+  :::
+- **Start at**: Specify where the calculation will start.
 - **Include**: Include the selected items *to the exclusion* of everything else. You can generally leave this option blank unless you have a specific reason to limit the calculation to specific items. For example, you can choose to include only devices that are in production. 
 - **Exclude**: Select categories that it doesn't make sense to include in the calculation. You can exclude resources, devices, services, or Application Components. For example, you can exclude IPv6 traffic or port 22.
 
