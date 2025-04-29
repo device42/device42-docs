@@ -6,11 +6,17 @@ sidebar_position: 20
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This section discusses the management of hardware models for physical, blade, and other device types. In Device42, a hardware model is a template that hardware CIs are deployed from. Each hardware model template specifies the rack display size, depth, image, part slots, and connectivity, and power calculations for a given device model.
+This section discusses the management of hardware models for physical, blade, and other device types. In Device42, a hardware model is a template that hardware CIs are deployed from. Each hardware model template specifies the rack display size, depth, image, part slots, connectivity, and power calculations for a given device model.
 
 ### Hardware Model List Page
 
 Locate the hardware model list page under **Infrastructure > Hardware Models**. You can filter and search through existing models from this page. Click the name of a hardware model to view and edit its properties. Make changes to an existing hardware model using the **Edit** button on the top right of its view page.
+
+
+### Hardware Model Properties
+
+Open a new hardware model form by clicking **Create** at the top right of the list page. 
+
 
 <ThemedImage
   alt="Hardware Model list page"
@@ -19,10 +25,6 @@ Locate the hardware model list page under **Infrastructure > Hardware Models**. 
     dark: useBaseUrl('/assets/images/hardware-model-templates/hardware-models-list-page-dark.png'),
   }}
 />
-
-### Hardware Model Properties
-
-Open a new hardware model form by clicking **+ Add Device Hardware Model** at the top right of the list page. 
 
 In the **Name** field, enter the model name. The manufacturer name will be automatically added to the model name whenever this hardware model is displayed. For example, if you have specified the manufacturer as Dell, you can enter "PE2950" for a Dell PE2950 and the model will be displayed as "Dell PE2950".
 
@@ -168,6 +170,48 @@ Image files can be in PNG, JPG, or GIF formats.
   style={{ width: '85%' }}
 />
 
+### Adding and Viewing Images for Hardware
+
+You can upload images (like front and back pictures of devices) into Device42. These uploaded images can then be associated with various items, such as Hardware Model templates, to provide visual context.
+
+**Uploading Images:**
+
+1.  Go to **Tools > Templates & Bulk Operations > Image files**.
+2.  Click the **Create** button on the top right.
+3.  Browse to select the image file from your computer. Accepted formats are PNG, JPG, or GIF.
+4.  Click **Save**. To upload more images, click the **Save and add another** button.
+
+<ThemedImage
+  alt="Adding images via the Image Files upload page"
+  sources={{
+    light: useBaseUrl('/assets/images/hardware-model-templates/add-image-file-light.png'),
+    dark: useBaseUrl('/assets/images/hardware-model-templates/add-image-file-dark.png'),
+  }}
+  style={{ width: '85%' }}
+/>
+
+#### Adding Images to Hardware Models
+
+You can then add these images to hardware models by going to the hardware model edit page and selecting the image from the dropdown. You can add images for the front and back of the device. 
+
+<ThemedImage
+  alt="Adding images to hardware models"
+  sources={{
+    light: useBaseUrl('/assets/images/hardware-model-templates/add-image-to-hardware-model-light.png'),
+    dark: useBaseUrl('/assets/images/hardware-model-templates/add-image-to-hardware-model-dark.png'),
+  }}
+/>
+
+These images will then be displayed on the hardware model list page.
+
+<ThemedImage
+  alt="Hardware model list page with images"
+  sources={{
+    light: useBaseUrl('/assets/images/hardware-model-templates/hardware-model-list-page-with-images-light.png'),
+    dark: useBaseUrl('/assets/images/hardware-model-templates/hardware-model-list-page-with-images-dark.png'),
+  }}
+/>
+
 ### Hardware Merge Function
 
 When you use auto-discovery, imports, or the APIs, you may find multiple hardware models describing the same hardware have been created with devices assigned to each.
@@ -190,7 +234,7 @@ Navigate to the **Hardware Model** list page under **Infrastructure > Hardware M
 
 Select the hardware model that should be the master model. The selected hardware models will be merged into this hardware model.
 
-You can optionally choose to add the merged hardware model names as aliases in the master hardware model, but this is strictly for reference and all existing devices will associated with the new master hardware model.
+You can optionally choose to add the merged hardware model names as aliases in the master hardware model, but this is strictly for reference and all existing devices will be associated with the new master hardware model.
 
 Click **Merge hardware models** to complete the merge.
 
