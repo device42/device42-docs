@@ -18,7 +18,7 @@ After discovery has been run within your environment (we recommend a 30-day mini
 
 The collected information includes service names and communication details. Application Groups are then calculated based on client communication to a particular service listening on a TCP or UDP port and server process. 
 
-You define the services critical to your use case, before Application Groups are processed. The result is a visualized grouping of communication patterns.
+You define the services critical to your use case before Application Groups are processed. The result is a visualized grouping of communication patterns.
 
 ## Using Application Groups
 
@@ -47,7 +47,7 @@ Navigate to the list page under **Applications > Application Groups**.
   />  
 
 
-- For each suggestion you can click **Accept** or **Ignore** on the suggested Application Group, and if you hit **Ignore** an **Undo** button pops up so you can flip the action back.
+- For each suggestion, you can click **Accept** or **Ignore** on the suggested Application Group. If you select **Ignore**, an **Undo** button pops up so you can revert the action.
 
   <ThemedImage
     alt="Accept, Ignore, and Undo buttons on the Application Group view page"
@@ -66,7 +66,8 @@ Navigate to the list page under **Applications > Application Groups**.
       dark: useBaseUrl('/assets/images/application-groups/ag-edit-suggestion-actions-dark.png'),
     }}
   />
-- Under the **My Application Groups** (3) tab, you can then bulk manage Application Groups using options from the **Actions** menu, view the [Impart Charts](#impact-charts) of your Application Groups, and search and filter the records. You can also pin Application Groups to keep important items at the top of the list.
+
+- Under the **My Application Groups** (3) tab, you can bulk manage Application Groups using options from the **Actions** menu, view the [Impact Charts](#impact-charts) of your Application Groups, and search and filter the records. You can also pin Application Groups to keep important items at the top of the list.
 
   <ThemedImage
     alt="Application Group pinning"
@@ -152,7 +153,7 @@ Application Groups won't run unless they are associated with a Calculation Rule.
 
 ![Unmanaged Application Group Notification](/assets/images/application-groups/unmapped-ag-notice.png)
 
-Edit or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points) and add the orphaned resource to the rule. 
+Edit a rule or create a new rule and [select **Fixed** as the **Starting Point**](calculation-rules#starting-points). Add the orphaned resource to the rule. 
 
 **Invalidated Application Groups**
 
@@ -302,7 +303,7 @@ has_affinity_calculation_data="true"
 
 You can quickly and easily add multiple Application Groups to an existing or new Business Service. 
 
-- Simply select Application Groups on the list page and choose **Add Application Groups to Business Applications** from the **Actions** dropdown.
+- Select Application Groups on the list page and choose **Add Application Groups to Business Applications** from the **Actions** dropdown.
 
   <ThemedImage
     alt="Add to Business Service action"
@@ -322,7 +323,7 @@ You can quickly and easily add multiple Application Groups to an existing or new
     }}
   />
 
-- The Application Groups added will be visible on the Business Application canvas. The added devices are given colors based on their Application Groups. There are up to five different colors used to indicate which devices are from which Application Groups.
+- The Application Groups added will be visible on the Business Application canvas. The added devices are given colors based on their Application Groups. Up to five different colors can be used to indicate which devices are from which Application Groups.
 
   <ThemedImage
     alt="Business Service map"
@@ -334,7 +335,7 @@ You can quickly and easily add multiple Application Groups to an existing or new
 
 ### Business Service Dependency Alerts
 
-Business Services that were created from Application Groups can be configured to send alerts when dependencies are added or removed. There is a metadata linking Business Services to the Application Groups they were created from. 
+Business Services created from Application Groups can be configured to send alerts when dependencies are added or removed. There is a metadata linking Business Services to the Application Groups they were created from. 
 
 :::note
 Alerts on Business Applications (now Business Services) prior to v19.05 will no longer work. Please re-add the Application Group to the Business Service to enable alerts. Business Application alerts have been improved to be less noisy, more accurate, and more targeted.
@@ -359,7 +360,7 @@ Navigate to **Analytics > Setup Alerts** and then click **Create**:
 
 ## Application Components
 
-Any Application Component Categories associated with a device that is used to create an Application Group will also be associated with that Application Group. 
+Any Application Component Categories associated with a device used to create an Application Group will also be associated with that Application Group. 
 
 <ThemedImage
   alt="Application Components categories filter"
