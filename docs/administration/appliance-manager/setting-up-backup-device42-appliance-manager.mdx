@@ -1,5 +1,5 @@
 ---
-title: "Setting up backup via Device42 Appliance Manager"
+title: "Backup and Restore from the Appliance Manager"
 sidebar_position: 18
 ---
 
@@ -7,6 +7,8 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Follow the steps below to set up one-time and scheduled backups in the Device42 Appliance Manager.
+
+For login instructions, see [Device42 Appliance Manager login](/administration/appliance-manager/device42-appliance-manager-login).
 
 ## Set the Passphrase
 
@@ -37,9 +39,7 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 - **Backup Audit Data**: Back up the audit logs table. If disabled, Device42 backs up the DB without that table.
 - **Backup System Configuration Files**: Back up the `/data/pgsql/data/postgresql.override.conf` and `/etc/systemctl.conf` system configuration files to preserve any manual config optimizations.
 
-Ignore the **Tenant ID** field; it's a leftover from the old multi-tenancy project and is not used anymore.
-
-![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/run-backup-now.png)
+![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/backup-now-form.png)
 
 ### Remote Collector Options
 
@@ -172,3 +172,14 @@ $CurrentDate = Get-Date
 $DatetoDelete = $CurrentDate.AddDays($Daysback)
 Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
 ```
+
+## Restore the Backup
+
+In the Appliance Manager, navigate to **Backup/Restore > Restore** and select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the Main Appliance and Remote Collector.
+
+![Restore](/assets/images/setting-up-backup-device42-appliance-manager/restore-ma.png)
+
+You'll see a success message at the bottom of the screen. Contact our [support team]([/contact-support](https://support.device42.com/)) team if you have any issues with restoring a backup.
+
+![Restore success](/assets/images/setting-up-backup-device42-appliance-manager/ma-restore-success.png)
+
