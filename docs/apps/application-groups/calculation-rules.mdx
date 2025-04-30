@@ -201,7 +201,7 @@ Fill in the fields:
 - **Levels of Depth**: Set the maximum number of connections a node can have. To avoid including the dependencies of dependencies, we recommend `5` for regular environments, but you can increase the value for very complex environments.
 - **Limit of connections**: Limit the number of connections to avoid getting into any infrastructure services, like an Active Directory or backup server. You can increase the value for applications that are very noisy.
 - **End at**: Specify where the calculation will ‘end’. 
-  - Select **Database** to end the calculation at the database level. If you started with a database, this option won't apply as a calculation end.
+  - Select **Database** to end the calculation at the database level. If you select this option, and your selected starting point is a database, the Application Group will continue mapping based on the rest of the rules.
   - Select **Load Balancer Virtual IP** if that's where your application stops.
   :::note
   In 19.06, we fixed the issue where Application Group connections to database services were missing in the visualization when the calculation started at the database level and the **End at** option was enabled.
