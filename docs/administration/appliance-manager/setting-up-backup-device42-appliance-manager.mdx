@@ -1,5 +1,5 @@
 ---
-title: "Backup and Restore from the Appliance Manager"
+title: "Set up backup via the Appliance Manager"
 sidebar_position: 18
 ---
 
@@ -175,11 +175,4 @@ Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remo
 
 ## Restore the Backup
 
-In the Appliance Manager, navigate to **Backup/Restore > Restore** and select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the Main Appliance and Remote Collector.
-
-![Restore](/assets/images/setting-up-backup-device42-appliance-manager/restore-ma.png)
-
-You'll see a success message at the bottom of the screen. Contact our [support team]([/contact-support](https://support.device42.com/)) team if you have any issues with restoring a backup.
-
-![Restore success](/assets/images/setting-up-backup-device42-appliance-manager/ma-restore-success.png)
-
+See [Restore the Backup](/administration/appliance-manager/device42-restore).
