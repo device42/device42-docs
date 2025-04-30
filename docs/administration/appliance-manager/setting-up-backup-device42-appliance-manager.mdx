@@ -1,5 +1,5 @@
 ---
-title: "Setting up backup via Device42 Appliance Manager"
+title: "Set up backup via the Appliance Manager"
 sidebar_position: 18
 ---
 
@@ -7,6 +7,8 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Follow the steps below to set up one-time and scheduled backups in the Device42 Appliance Manager.
+
+For login instructions, see [Device42 Appliance Manager login](/administration/appliance-manager/device42-appliance-manager-login).
 
 ## Set the Passphrase
 
@@ -23,7 +25,7 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 
 ### Main Appliance Options
 
-- **Backup Meta Data**: Include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well.
+- **Backup Meta Data**: Include the password passphrase, backup passphrase, Active Directory settings, and the following settings in the backup as well. We recommend backing up the Meta Data, so you don't have to manually re-enter data for the following settings and options:
 
   - Passphrases for backups and password encryption
   - Language
@@ -37,9 +39,7 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 - **Backup Audit Data**: Back up the audit logs table. If disabled, Device42 backs up the DB without that table.
 - **Backup System Configuration Files**: Back up the `/data/pgsql/data/postgresql.override.conf` and `/etc/systemctl.conf` system configuration files to preserve any manual config optimizations.
 
-Ignore the **Tenant ID** field; it's a leftover from the old multi-tenancy project and is not used anymore.
-
-![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/run-backup-now.png)
+![Run the backup](/assets/images/setting-up-backup-device42-appliance-manager/backup-now-form.png)
 
 ### Remote Collector Options
 
@@ -172,3 +172,7 @@ $CurrentDate = Get-Date
 $DatetoDelete = $CurrentDate.AddDays($Daysback)
 Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
 ```
+
+## Restore the Backup
+
+See [Restore the Backup](/administration/appliance-manager/device42-restore).
