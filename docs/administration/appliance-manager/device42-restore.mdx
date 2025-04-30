@@ -3,48 +3,48 @@ title: "Device42 Restore"
 sidebar_position: 7
 ---
 
-Steps to do a restore from a backup file. **Note that backup and restore versions must match EXACTLY for a backup / restore scenario to be supported!**
+:::caution
+Please take note of the following before you proceed with the restore process:
 
-### Important Steps before a Restore
+- The Device42 versions of the backup and restore must be identical for the backup-restore scenario to be supported.
+- The restore process will delete all current data in the appliance. You can do a [test restore](#test-restore-options) first to verify that the restore works as you expect.
+:::
 
-When restoring from a Back-up file it is important to note if the back-up was created with the "Backup Meta Data" option selected.
+### Active Directory Settings 
 
-Choosing the "Backup Metadata" option will include the password passphrase, Active Directory settings, backup passphrase, and any appliance manager settings in the backup as well.
+Active Directory settings are crucial for logging back in. Otherwise, you can use local accounts to log back in after the restore and add active directory settings later.
 
-If Meta Data was not included in the back-up these settings and options will need to be re-entered into the recently restored appliance.
+If you are doing a restore and have only Active Directory users (no Device42-only users), you will need to manually add the Active Directory Settings prior to the restore.
 
-Bullet list of settings included in Metadata:
+## Restoring the MA and RC Backup Files
 
-- Passphrases for Back-Up's and Password Encryption
-- Language
-- Time
-- SSL/HTTPS
-- host/hostname info
-- All appliance manager settings (Including back-up schedules)
-- All certificates
+From the [Appliance Manager](/administration/appliance-manager/device42-appliance-manager-login), navigate to **Backup/Restore > Restore**. 
+- Select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the Main Appliance and Remote Collector.
+- To do the restore, enter the passphrase you used for the backup. If you have forgotten the password encryption phrase, you can create a new backup by clicking **Set Passphrase** on left menu panel, click **Clear Passphrase**, create the new passphrase, and create a new backup.
+- Select the **Restore Meta Data** option. If you did not select the **Backup Meta Data** option [when creating the backup](/administration/appliance-manager/setting-up-backup-device42-appliance-manager#run-backup-now), re-enter the following settings and options after restoring the appliance:
 
-If you have forgotten the password encryption phrase, you can create a new backup by clicking Set Passphrase, then clicking Clear Passphrase, creating a new passphrase, and creating a new backup.
+  - Passphrases for backups and Password Encryption
+  - Language
+  - Time
+  - SSL/HTTPS
+  - Host/hostname information
+  - All appliance manager settings (Including back-up schedules)
+  - All certificates
+- **Browse** to the backup `.enc` file you want to restore.
 
-Active directory settings are crucial for logging back in. Otherwise, you can use local accounts to log back in after the restore and add active directory settings later.
+    ![Restore](/assets/images/device42-restore/restore-ma.png)
 
-**If you are doing a restore and have only active directory users (no device42-only users), you will need to manually add the Active Directory Settings prior to the restore.**
+- You'll see a success message at the bottom of the screen. Contact our [support team]([/contact-support](https://support.device42.com/)) team if you have any issues with restoring a backup.
 
-### Restore
+    ![Restore success](/assets/images/device42-restore/ma-restore-success.png)    
 
-![Restore](/assets/images/restore-15.png)
+- Restart the application once the restore is finished by going to **Application > Restart Application**.
 
-Restore will delete all current data in the appliance. If you are doing a test restore, we recommend the following two options:
+    ![Restore](/assets/images/device42-restore/restart-application.png)
 
-1. Spin up a new device42 virtual appliance and restore there. Note: A second instance can also be used for disaster recovery / business continuity purposes. As described in our ["Warm HA Configuration."](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx)
+## Test Restore Options
 
-(Your license allows one production and one backup instance.)
+If you are doing a test restore, we recommend the following two options:
 
-1. Take a VM snapshot first and then do a test restore.
-
-To do the restore, you will need to enter the passphrase you used for the backup as shown above.
-
-Then, browse to the backup file you want to restore from.
-
-You will need to restart the application once the restore is finished.
-
-![](/assets/images/restart-application.png)
+1. Spin up a new Device42 virtual appliance and restore there. A second instance is useful to have for disaster recovery or business continuity purposes, as described on the [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) page. Your license allows one production and one backup instance.
+2. Take a VM snapshot first and then do a test restore.
