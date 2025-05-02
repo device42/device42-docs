@@ -1,60 +1,82 @@
 ---
-title: "Save and Schedule Classic Reports"
+title: "Save and Schedule Standard Reports"
 sidebar_position: 15
 ---
 
-You can Save, Schedule, or Export (to Excel or CSV) reports as discussed below.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Mail server settings for scheduling reports
+You can save, schedule, and export reports to Excel or tab-delimited (`.tsv`) files.
 
- 
+### Mail Server Settings for Scheduling Reports
 
-![](/assets/images/Screen-Shot-2022-04-24-at-3.37.15-PM.png)
+Go to **Tools > Settings > Mail Server Settings** to add the mail server settings. Please note that passwords are not saved on the page. If you change any field and a password is required, you will need to re-enter the password.
 
- 
+<ThemedImage
+  alt="Mail Server Settings"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/mail-server-settings-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/mail-server-settings-dark.png'),
+  }}
+/>
 
-Use Tools > Settings > Mail server Settings to add the mail server settings. Please note that password are not saved on the page. If you are changing any field and a password is required, you will need to re-enter the password.
+### Understanding Scheduling
 
-### Understanding scheduling
+On the Standard Report add page, toggle the **Report Schedule** option on to reveal the email address field and schedule options. 
 
- 
+You can add multiple email addresses separated by commas.
 
-![](/assets/images/Screen-Shot-2022-04-24-at-3.38.15-PM.png)
+All scheduling definitions are recurring. If you select specific weekdays, the report will run every week on those days at the specified time. If you select specific weeks, then the report will run every month in the specified week(s) on the specified day(s) at the specified time. 
 
-All scheduling definitions are recurring. If you select specific weekdays, the report will run every week on those weekdays at the time specified.
+Add a unique name for the report to save it. When you click **Save**, Device42 saves the report and schedules it. Each time the report runs, it sends a copy of the report to all specified email addresses.
 
-If you select specific weeks, then the report will run every month in the specified week(s) on the specified day(s) at the specified time. For example, if you select week1 and Tuesday, it will send you a report every first Tuesday of the month at the specified time.
+<ThemedImage
+  alt="Mail Server Settings"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/scheduling-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/scheduling-dark.png'),
+  }}
+/>
 
-Also, please go to Tools > Settings > Time Settings to verify that your time settings are correct. If you need to change the time settings (other than the time zone), you will need to do this from your vm console menu options.
+Also, please go to **Tools > Settings > Time Settings** to verify that your time zone settings are correct. If you need to change the time settings (other than the time zone), you will need to do this from your VM console menu options.
 
-### Adding report name and email addresses
+<ThemedImage
+  alt="Time Settings"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/time-settings-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/time-settings-dark.png'),
+  }}
+/>
 
- 
-
-![](/assets/images/Screen-Shot-2022-04-24-at-3.39.07-PM.png)
-
-Add a unique name for the report to save it. You can add multiple email addresses separated by comma.
-
-Once you click Save & Schedule, it will save the report and schedule it. Each time it runs, it will send a copy of the report to all specified email addressees.
 
 ### Export Report to Excel
 
-Many reports have the option to "Export To Excel":
+On the Standard Report add page, enter a unique name for the Standard Report, click **Export**, and select **Excel**. Selecting this option delivers the report in the form of an Excel Spreadsheet.
 
- 
+<ThemedImage
+  alt="Export Report to Excel option"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/export-excel-option-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/export-excel-option-dark.png'),
+  }}
+/>
 
-![](/assets/images/Screen-Shot-2022-04-24-at-3.39.46-PM.png)
+You can close the Report Progress modal window at any time, and the report will continue to run. To view the report's progress or download the completed report, head to **Analytics > Excel Reports Status**.
 
-Selecting this option delivers the report in the form of an Excel Spreadsheet.
+<ThemedImage
+  alt="Report Progress"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/report-progress-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/report-progress-dark.png'),
+  }}
+/>
 
- 
+When you see that the report has been completed, you can download the finished report by clicking the report hyperlink. If the report has not yet been completed, you can cancel it from the Excel Report Status page as well.
 
-![](/assets/images/Screen-Shot-2022-04-24-at-3.40.30-PM.png)
-
-You can close this tab at any time and the report will continue to run. To view the report's progress or download the completed report, simply head to the 'Analytics' Menu --> 'Excel Reports Status':
-
- 
-
-![](/assets/images/Screen-Shot-2022-04-24-at-3.41.39-PM.png)
-
-When you see that the report has completed, you can download the finished report by clicking the report hyperlink. If the report has not yet completed, you can cancel it from the Excel Report Status page as well.
+<ThemedImage
+  alt="Excel Reports Status"
+  sources={{
+    light: useBaseUrl('/assets/images/save-and-schedule-reports/reports-status-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/save-and-schedule-reports/reports-status-list-page-dark.png'),
+  }}
+/>
