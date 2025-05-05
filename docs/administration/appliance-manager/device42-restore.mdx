@@ -19,8 +19,12 @@ If you are doing a restore and have only Active Directory users (no Device42-onl
 ## Restoring the MA and RC Backup Files
 
 From the [Appliance Manager](/administration/appliance-manager/device42-appliance-manager-login), navigate to **Backup/Restore > Restore**. 
-- Select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the Main Appliance and Remote Collector.
-- To do the restore, enter the passphrase you used for the backup. If you have forgotten the password encryption phrase, you can create a new backup: Click **Set Passphrase** on the left menu panel, click **Clear Passphrase**, enter a new passphrase, and create a new backup.
+
+- Select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the MA and RC.
+- To restore the MA or RC, enter the passphrase you used for the backup. If you have forgotten the password encryption phrase, you can create a new backup: 
+
+  - Click **Set Passphrase** on the left menu panel, click **Clear Passphrase**, enter a new passphrase, and create a new backup.
+
 - Select the **Restore Meta Data** option. If you did not select the **Backup Meta Data** option [when creating the backup](/administration/appliance-manager/setting-up-backup-device42-appliance-manager#run-backup-now), re-enter the following settings and options after restoring the appliance:
 
   - Passphrases for backups and Password Encryption
@@ -28,8 +32,9 @@ From the [Appliance Manager](/administration/appliance-manager/device42-applianc
   - Time
   - SSL/HTTPS
   - Host/hostname information
-  - All appliance manager settings (Including back-up schedules)
+  - All appliance manager settings (including backup schedules)
   - All certificates
+
 - **Browse** to the backup `.enc` file you want to restore.
 
     ![Restore](/assets/images/device42-restore/restore-ma.png)
@@ -38,7 +43,7 @@ From the [Appliance Manager](/administration/appliance-manager/device42-applianc
 
     ![Restore success](/assets/images/device42-restore/ma-restore-success.png)    
 
-- Restart the application once the restore is finished by going to **Application > Restart Application**.
+- Restart the application once it has been restored by going to **Application > Restart Application**.
 
     ![Restore](/assets/images/device42-restore/restart-application.png)
 
@@ -46,5 +51,5 @@ From the [Appliance Manager](/administration/appliance-manager/device42-applianc
 
 If you are doing a test restore, we recommend the following two options:
 
-1. Spin up a new Device42 virtual appliance and restore there. A second instance is useful to have for disaster recovery or business continuity purposes, as described on the [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) page. Your license allows one production and one backup instance.
-2. Take a VM snapshot first and then do a test restore.
+1. Spin up a new Device42 virtual appliance and restore your backup there. It is useful to have a second instance for disaster recovery or business continuity purposes, as described on the [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) page. Your license allows one production and one backup instance.
+2. Take a VM snapshot first, and then do a test restore.
