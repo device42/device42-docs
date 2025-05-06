@@ -392,6 +392,10 @@ const config = {
             from: ['/password-management/password-reporting/'],
           },
           {
+            to: '/administration/passwords/secrets-reporting/',
+            from: ['/administration/passwords/password-reporting/'],
+          },
+          {
             to: '/administration/role-based-access-control/',
             from: ['/role-based-access-control/'],
           },
