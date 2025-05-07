@@ -31,8 +31,8 @@ Select **Discovery > Hypervisors / \*nix / Windows** from the main menu and clic
 <ThemedImage
     alt="nix autodiscovery page"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-autodiscovery-page-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-autodiscovery-page-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-autodiscovery-page-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-autodiscovery-page-dark-1.png'),
     }}
 />
 
@@ -41,8 +41,8 @@ Choose **\*nix** as the platform, and enter your discovery target (hostnames, IP
 <ThemedImage
     alt="nix autodiscovery page"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-nix-job-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-nix-job-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-nix-job-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-nix-job-dark-1.png'),
     }}
 />
 
@@ -80,8 +80,8 @@ Configure rules to ignore IP and MAC addresses for a specific job when creating 
     <ThemedImage
         alt="Linux Unix job exclusions"
         sources={{
-            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-light.png'),
-            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-dark.png'),
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-light-1.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-server-port-dark-1.png'),
         }}
     />
 
@@ -91,8 +91,8 @@ Configure rules to ignore IP and MAC addresses for a specific job when creating 
     <ThemedImage
         alt="Linux Unix job exclusions"
         sources={{
-            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-light.png'),
-            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-dark.png'),
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-light-1.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/exclude-remote-ips-interfaces-dark-1.png'),
         }}
     />
 
@@ -102,8 +102,8 @@ Configure rules to ignore IP and MAC addresses for a specific job when creating 
     <ThemedImage
         alt="Linux Unix job exclusions"
         sources={{
-            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-light.png'),
-            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-dark.png'),
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-light-1.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/ignore-ips-macs-dark-1.png'),
         }}
     />
 
@@ -114,8 +114,8 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 <ThemedImage
     alt="Global Ignore options"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/global-ignore-dark-1.png'),
     }}
 />
 
@@ -124,13 +124,17 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 <ThemedImage
     alt="Naming options"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-naming-options-dark-1.png'),
     }}
 />
 
 - **Strip domain suffix:** Check this option to strip the domain suffix from discovered servers.
 - **Domains to strip:** Enter an ordered list of domains to strip from hostname, listing one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
+- **Prioritize DNS domain name:** When checked, discovered devices will be named using the hostname plus FQDN. If unchecked (default), discovered devices will use the hostname plus the YP/NIS domain name. 
+  :::note
+  After upgrading to v19.06, existing jobs will have the **Prioritize DNS domain name** option disabled by default (devices will be named using the hostname plus the YP/NIS domain name).
+  :::
 - **Set the device name as the name given in the server field of the autodiscovery job:** If checked and discovering via hostname or FQDN, the device will be named using the discovery target name provided.  
 - **Overwrite existing device hostname with discovered hostname:** Check this option to give precedence to the discovered hostname.  
 - **Device Name Format:** Select the desired device naming format.
@@ -138,8 +142,8 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
     <ThemedImage
         alt="Device Name Format options"
         sources={{
-            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light.png'),
-            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark.png'),
+            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light-1.png'),
+            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark-1.png'),
         }}
         style={{ width: '45%' }} 
     />
@@ -147,7 +151,7 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
     - **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to `name`.
     - **Hostname plus Domain Name:** The device name becomes `name.domain`.
     - **Hostname and add Hostname plus Domain Name as Alias:** Names stay the same, and an alias is set as `name.domain`.
-    - **Hostname Plus Domain Name and Add Host name as Alias:** The alias is set to `name` and the device name becomes `name.domain`.
+    - **Hostname Plus Domain Name and Add Hostname as Alias:** The alias is set to `name` and the device name becomes `name.domain`.
   
 ### Host Discovery
 
@@ -156,8 +160,8 @@ Enabling the **Discover ProviderID/CloudID** option reveals the **Provider Token
 <ThemedImage
     alt="Host Discovery options"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/nix-host-discovery-dark-1.png'),
     }}
 />
 
@@ -170,8 +174,22 @@ Specify the timeout range between 10 to 600 seconds in the **Timeout** field to
 <ThemedImage
     alt="Miscellaneous tab"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/misc-options-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/misc-options-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/misc-options-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/misc-options-dark-1.png'),
+    }}
+/>
+
+When discovery switches between *nix users, the triggered banner text messages may disrupt database discovery and Application Component creation, resulting in discovery errors or incomplete data collection. 
+
+To ensure full data collection when switching users, enable the **Check for Banner** option for discovery to detect and remove banner messages.
+
+The **Check for Banner** option is also available via API.
+
+<ThemedImage
+    alt="Check for Banner option"
+    sources={{
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/check-for-banner-light.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/check-for-banner-dark.png'),
     }}
 />
 
@@ -275,8 +293,8 @@ Add your private SSH RSA or DSA Private key created in [Step 1](#step-1-configur
 <ThemedImage
     alt="Add Secret"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-secret-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-secret-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-secret-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/add-secret-dark-1.png'),
     }}
 />
 
@@ -291,8 +309,8 @@ You can download the key file when needed. Navigate to **Resources > All Secrets
 <ThemedImage
     alt="Download key file from Secret"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/download-key-dark-1.png'),
     }}
 />
 
@@ -322,8 +340,8 @@ After saving a discovery job, you can run it immediately using the **Run Now** b
 <ThemedImage
     alt="Run job from the list page"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/run-now-button-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/run-now-button-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/run-now-button-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/run-now-button-dark-1.png'),
     }}
 />
 
@@ -332,8 +350,8 @@ Select **Add another Autodiscovery Schedule** when editing a job to create a run
 <ThemedImage
     alt="Schedule the discovery job"
     sources={{
-        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/autodiscovery-schedule-light.png'),
-        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/autodiscovery-schedule-dark.png'),
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/autodiscovery-schedule-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/autodiscovery-schedule-dark-1.png'),
     }}
 />
 

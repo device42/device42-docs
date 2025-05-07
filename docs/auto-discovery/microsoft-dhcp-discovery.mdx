@@ -24,7 +24,13 @@ If you already use Microsoft DHCP Servers in your environment, Microsoft DHCP Di
 
 ## Discovery
 
-Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be optionally enabled in the job configuration. 
+Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be enabled in the job configuration. The **URL prefix** and **Port** fields will default accordingly upon selecting **Discover Using WinRM**. 
+
+Although WinRM is fast and Microsoft's preferred protocol, we don't necessarily recommend updating existing jobs to use WinRM, as we currently (v19.06) use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+
+:::note
+If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI. 
+:::
 
 <ThemedImage
   alt="DHCP WinRM option"
@@ -34,18 +40,25 @@ Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and ca
   }}
 />
 
-:::note
-If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI. 
-:::
 
-## Miscellaneous
+## Additional Options
 
-The following miscellaneous discovery options are also available:
+You can set a schedule to run the job automatically, turn off the default **Create Device from DHCP lease information** option, and set a **Service Level**.
 
 <ThemedImage
   alt="DHCP WinRM option"
   sources={{
-    light: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-light.png'),
-    dark: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-dark.png'),
+    light: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-1-light.png'),
+    dark: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-1-dark.png'),
+  }}
+/>
+
+You can also link a **Customer** to the discovered items, select a **VRF Group for subnets**, and set a **Subnet Category for discovered subnets**.
+
+<ThemedImage
+  alt="DHCP WinRM option"
+  sources={{
+    light: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-2-light.png'),
+    dark: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-2-dark.png'),
   }}
 />

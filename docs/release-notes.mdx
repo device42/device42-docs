@@ -1,0 +1,203 @@
+---
+title: "Release Notes"
+sidebar_position: 0.6
+---
+
+**Disclaimer:** Please consider the [Device42 blog](https://www.device42.com/blog/) the authoritative source of release notes. The information below is taken from the blog and may not always be current.
+
+If you need additional information about a release or have questions about upgrading, please [contact our support team](https://support.device42.com/).
+
+## Latest Release Details
+
+Device42 19.06.00 was released on May 6, 2025. In addition to bugs and minor UI enhancements, the following items were added or enhanced in version 19.06: 
+
+### Application Groups
+
+Added Application Group Calculation visualizations to Resources.
+
+![App Group for Resources](/assets/images/release-notes/resources-app-group-viz.png)
+
+Added accept and ignore buttons when viewing Application Group Suggestion details. 
+
+![Accept Ignore buttons on App Group Suggestion](/assets/images/release-notes/accept-ignore.png)
+
+### Business Services
+
+Application layouts are now visible as a tab on Business Services, meaning you can easily switch between layouts via the object explorer.
+
+![Business Services Layout](/assets/images/release-notes/business-services-layout.png)
+
+Improved the user experience around using Business Services by including the ability to add attachments and create custom types, and by improving tooltips and other minor items.
+
+### Freshservice Integration
+
+Via the Cloud Connector, additional relationship types will be mapped into default Freshservice fields:
+
+- VMware vCenter
+- Kubernetes Cloud
+- Google Cloud
+- Azure Cloud
+- Amazon Web Services
+
+![Updated Freshservice field mappings](/assets/images/release-notes/freshservice-integration-update.png)
+
+![Freshservices relationships diagram](/assets/images/release-notes/freshservice-relationships.png)
+
+### Discovery enhancements
+- D42-38413: Added job option to \*nix discovery to prioritize DNS domain name over YP/NIS domain name.
+- D42-38268: Added option to SNMP discovery to enable/disable additional protocols during ICMP/TCP port check.
+- D42-38026: Removed preview from WinRM and enhanced device matching.
+- D42-38320: Added the output and timing for every command to debug logs of Windows discovery.
+- D42-36015: **Don’t change via API** setting changed to **Don’t change via API/Discovery/EnrichAI**
+
+### API enhancements
+
+Guidelines for connecting and using Device42 APIs have been updated. The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).  
+
+- D42-36013: Related custom fields can be referenced by ID in API calls.
+- D42-35911: Added **Ignore Interfaces** V-Server discovery via API.
+- D42-36086: Added the ability to clear out individual credentials from a scan via API.
+- D42-38536: Added the new SNMP Discovery Job Option **Scan All Protocols** to API and Imports.
+- D42-35916: Updated API calls for Cloud Jobs to match what is possible in the UI.
+- D42-38292: Added the ability to add attachments to Business Services via the API.
+- D42-32777: Added the ability to create device certificates via the API.
+- D42-30742: Fixed a bug with Power circuits `breakerpanel_id` not updating via API.
+- D42-23111: Fixed an error with the `Cables` API call.
+- D42-23685: Updated `clear_ip` `GET` API documentation.
+- D42-23494: Updated `device/cpu` `POST` API documentation.
+- D42-23260: Updated `patch_panel_port` API documentation.
+- D42-22726: Fixed a bug in the `hardware/port` API documentation.
+- D42-23279: Fixed a bug in the `purchase_by_object_id` API call.
+- D42-23262: Fixed a bug in the `power_unit_models` API call.
+- D42-23142: Fixed a bug in the `dns/records` `GET` API Call.
+
+### Reports
+
+Updated various dashboards to include Business Services.
+
+![Dashboard view with Business Services](/assets/images/release-notes/dashboards-business-services.png)
+
+Within Standard Reports: Created Guided Report templates for Resources/Cloud Resources/Business Applications.
+
+![Guided report templates](/assets/images/release-notes/guided-report-templates.png)
+
+### Miscellaneous
+
+- D42-37740: Hid unpopulated Custom Fields in view pages.
+- D42-38493: Added columns to the 'Stored Assets' on the Rooms view page.
+- D42-35912: Added 'Stored Assets' to the Rooms page.
+- D42-31317: Hardware images in list and edit pages are easier to view.
+- D42-30296: Updated sample file for 'Hardware Models' import.
+- D42-28943: Updated sample file for 'Create Assets' import.
+- D42-20292: Removed older nginx ciphers suites.
+- D42-21948: Changed references from 'Passwords' to 'Secrets' on various pages and in the API.
+
+### Known Issues
+
+- D42-32348: Legacy custom reports using custom fields may fail to open in 19.05.00.
+- D42-38593: Audit logs (History) details do not allow users to scroll to see the change history details.
+- D42-38215: Service dependency dashboard returning duplicate rows.
+- D42-38298: **This Application Group is unmanaged** banner vanishes quickly on several records.
+- D42-38305: Some reports display memory incorrectly.
+- D42-38258: Spacing/alignment issues with Error message in Zendesk dialog box.
+- D42-38249: Users are not notified if they lack view permissions.
+- D42-38212: Standard Report: Warning Banner Length and Search Criteria Alignment Issues.
+- D42-38196: Parts -> Columns failing on list page.
+- D42-38192: Software In Use -> Column "Software -> # Of Devices" is throwing an error.
+- D42-38186: BizApp: Pop-up Window Too Large.
+- D42-38162: 'Application restart failed' error message in App Manager.
+- D42-38150: [Zendesk Integration] On adding different CI linked to the ticket, error is thrown.
+- D42-38069: Dropdown icons are incorrectly positioned in the custom fields inline (Django).
+- D42-38020: Connections Page: Moving Overview makes screen unusable.
+- D42-37963: SVG Image in AG Page Is Not Downloadable.
+- D42-37951: 'Reboot Collectors' action popup on RC page does not show RC details.
+
+### Customer Requested Issues
+
+- D42-27902: SNMP Discovery Bug when using multiple SNMPv3 credentials with the same name.
+- D42-38432: Fixed an issue with Fortinet Firewall discovery no longer capturing interfaces, IPs, and subnets after upgrade to FortiNet OS 7.2.x.
+- D42-38016: Fixed an error with discovery of Orolia SecureSync devices.
+- D42-37932: Netscaler SNMP discovery now correctly populates serial number and UUID.
+- D42-37923: Added SNMP support for Overland Neo80XL Tape Library.
+- D42-37804: Added SNMP support for Raritan PDUs.
+- D42-38483: Fixed an error with discovery of Solace Messenger devices.
+- D42-38411: Enhanced discovery of Trend Micro DDI devices.
+- D42-38185: Fixed an issue where SNMP discovery gathered the wrong OS for some Dell devices.
+- D42-37947: Added SNMP support for Lancom 883 VoIP gateway.
+- D42-37937: Fixed an issue with SNMP discovery for Ruckus 7650 devices.
+- D42-37776: Improved cluster detection for Aruba devices.
+- D42-37773: Fixed an issue with CiscoASA cluster detection.
+- D42-37591: Fixed an error with discovery of Avigilon Cameras.
+- D42-37564: Added SNMP support for "Schneider Electric Buildings-automationServer".
+- D42-37543: Improved SNMP discovery of Super Micro servers.
+- D42-37398: Improved SNMP OS detection on Palo Alto devices.
+- D42-36701: Fixed an issue with SNMP discovery of virtual F5 devices.
+- D42-36636: Fixed an issue with Windows discovery gathering local admin accounts.
+- D42-36565: Updated Docker discovery set static IPs correctly.
+- D42-36526: Fixed an issue with Last Login gathering a partial name on Linux scans.
+- D42-38438: Fixed an SNMP error when scanning RSA Appliances.
+- D42-39058: Power Unit Models now correctly show only the first 10 ports.
+- D42-38607: Added tooltip to 'Power unit PDU type' field indicating it cannot be changed when set by discovery.
+- D42-39056: Power Unit Models now show the correct count in view mode.
+- D42-38954: Fixed the borders around list views.
+- D42-38614: Fixed visual bugs on the discovery scores page.
+- D42-38319: Object Category is now properly hidden on Power Units, Assets, and Devices when RBAC is disabled.
+- D42-38598: Clearing part models on the device page no longer generates an error.
+- D42-38595: Fixed an error when saving a disabled scheduled report.
+- D42-38593: Fixed an issue with Audit logs scroll bar not showing in the Devices view.
+- D42-38586: In the Devices view, sorting by the location column now sorts by size, rack, and then room.
+- D42-38560: Removed a duplicate 'switch port' tab from the Device details page.
+- D42-38538: Added the new \*nix Discovery Job Option 'Prioritize DNS Domain Name' to API and Imports.
+- D42-38474: Fixed an issue with comments causing system packages to not show as ready for upgrade.
+- D42-38305: Fixed a reporting issue with RAM calculations being incorrect.
+- D42-38422: Fixed a reporting issue with RAM calculations being incorrect across non-virtualization datasets.
+- D42-38397: Fixed an issue when trying to sort business services by name on the device table.
+- D42-38298: Fixed a banner popup issue when an application group had no rules associated.
+- D42-38212: Fixed visual issues with banners and text in standard reports.
+- D42-38203: Fixed a `500` error when attempting to run an appliance backup.
+- D42-38196: Fixed a bug sorting and filtering on the 'Port -> Remote Port' parts column.
+- D42-38192: Fixed an error when adding "# of devices" to the Software In Use list view.
+- D42-38186: Fixed popup window size when creating an Azure migration from a Business Service.
+- D42-38069: Fixed an issue with dropdown icons' positions on custom fields.
+- D42-38030: Added port speed and MTU to Linux discovery.
+- D42-37982: Changed 'Discard' to 'Cancel' in custom list forms.
+- D42-37963: Unable to download SVG Images from Application Groups.
+- D42-37953: You can now see more than 20 calculation logic templates in the dropdown for an application group.
+- D42-37951: Rebooting an RC will now show better detail in grid view and popup.
+- D42-37670: Fixed an error when trying to filter API Clients by client key.
+- D42-37636: Custom dropdowns with many items now resize dynamically.
+- D42-36808: Fixed an error when cloning a rack with no hardware attached to it.
+- D42-35272: Fixed an error when adding both a device and an asset to a lifecycle event.
+- D42-32774: Fixed a bug when merging vendors.
+- D42-32122: Subscription ID now only shows for Azure cloud discovery jobs.
+- D42-31941: Display business app details on all devices if a cluster is associated.
+- D42-29482: Updated InTune discovery to only bring in 'installed' software.
+- D42-38715: Fixed a timeout in NFS autorestore functionality.
+- D42-38820: Fixed a GCP discovery failure introduced in 19.04.30.
+- D42-21716: Added additional options to SNMP import/export templates and API.
+- D42-30293: Fixed a bug with resetting vlan switches via the API.
+- D42-36550: Improved import error messages.
+- D42-36547: Export to Excel now generates multiple tabs when there are more than a million rows.
+- D42-35840: The 'Client Process Display Name' field is now case sensitive.
+- D42-35716: You can now change custom picklists to multi-select picklists.
+- D42-35350: Fixed a performance-related error when generating a Run Book.
+
+## Upgrading Details
+
+Upgrading to 19.06 is only possible from an existing version 19.05 system. Depending on the version you are upgrading from, you may have to install an incremental update first: [18.14](https://www.device42.com/blog/2024/03/28/integrations-with-ms-dhcp-for-ipam-hashicorp-and-delinea-for-password-vault-and-new-certificate-dashboard-in-v18-14-00/) > [19.00](https://www.device42.com/blog/2024/04/29/foundation-release-to-migrate-and-up-version-the-underlying-ma-operating-system-to-provide-greater-security-performance-support-and-reliability-in-v19-00-00/) > [19.05](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/) > 19.06.
+
+To download the latest release, visit [https://www.device42.com/update/](https://www.device42.com/update/).
+
+### Trial Deployments
+
+If you haven’t tried Device42 yet, [download a 30-day free trial](https://www.device42.com/download/).
+
+For upgrades to trial deployments, please [contact our support team](https://support.device42.com/).
+
+## Previous Releases
+
+Please visit our [blog](https://www.device42.com/blog/) for information on previous releases of Device42:
+
+- [19.05.10](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/)
+- [19.04 MA](https://www.device42.com/blog/2024/12/05/freshservice-and-endpoint-discovery-integrations-v19-04-ma)
+- [19.03.10](https://www.device42.com/blog/2024/10/04/advancing-discovery-capabilities-enrichment-of-software-automox-enhanced-jamf-pure-storage-winrm-v19-03-ma)

@@ -234,11 +234,13 @@ We understand that some fields within Device42 may not easily translate to field
 
 ### Notes on Updates and Improvements
 
-We're actively working to expand and improve the Device42-Freshservice integration for specific assets. Recently, we've worked on mapping the following cloud-infrastructure relationships:
+We're actively working to expand and improve the Device42-Freshservice integration for specific assets. In 19.06, we added the following additional relationship types to map to the default Freshservice fields via the Cloud Connector:
 
-- Kubernetes: Device42 can discover the relationships between the Kubernetes assets and make that data available in Freshservice, so you can see which assets are impacted when an incident or change-management request occurs.
-
+- Kubernetes Cloud: Device42 can discover the relationships between Kubernetes assets and make that data available in Freshservice, so you can see which assets are impacted when an incident or change-management request occurs.
 - Google Cloud Platform (GCP): The relationship between Google Cloud virtual machines and their security groups has been added to the Device42-Freshservice integration.
+- VMware vCenter
+- Azure Cloud
+- Amazon Web Services
 
 ## Custom Data Mapping
 
@@ -523,7 +525,7 @@ If you can't find a task related to your custom field, you can create a new `<ta
     FROM 
         view_device_v2
     LEFT JOIN 
-        view hardware v2 
+        view_hardware_v2 
         ON view_device_v2.hardware_fk = view_hardware_v2.hardware_pk
     LEFT JOIN 
         view_device_custom_fields_flat_v2 cf 

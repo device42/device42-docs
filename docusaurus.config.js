@@ -388,8 +388,11 @@ const config = {
             from: ['/password-management/password-policy/'],
           },
           {
-            to: '/administration/passwords/password-reporting/',
-            from: ['/password-management/password-reporting/'],
+            to: '/administration/passwords/secrets-reporting/',
+            from: [
+              '/password-management/password-reporting/',
+              '/administration/passwords/password-reporting/'
+            ],
           },
           {
             to: '/administration/role-based-access-control/',
