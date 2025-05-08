@@ -1087,7 +1087,7 @@ const config = {
             from: ['/how-to-videos/agentless-auto-discovery-tool-how-to/'],
           },
           {
-            to: '/how-to-videos/add-a-new-route-to-device42/',
+            to: '/how-to-videos/',
             from: ['/how-to-videos/add-a-route-to-device42/'],
           },
           {
@@ -1097,6 +1097,16 @@ const config = {
           {
             to: '/how-to-videos/',
             from: ['/how-to-videos/index/'],
+          },
+          {
+            to: '/how-to-videos/',
+            from: [
+              '/how-to-videos/add-a-new-route-to-device42/',
+              '/how-to-videos/building-hierarchy-view-how-to',
+              '/how-to-videos/device42-object-query-language',
+              '/how-to-videos/jira-integration-how-to',
+              '/how-to-videos/packet-capture'
+            ],
           },
           {
             to: '/how-to-videos/update-device42-appliance-how-to/',
