@@ -8,21 +8,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## The Device42 Cloud Connector Overview
 
-The Device42 Cloud Connector is a cloud-based solution sends data from your Device42 appliance to external applications.
+The Device42 Cloud Connector is a cloud-based solution that sends data from your Device42 appliance to external applications.
 
-Many Device42 appliances are kept behind tight firewalls, which means external applications can’t communicate with them directly. The Cloud Connector solves this problem by securely routing requests from external integrations directly to your normally unreachable Device42 appliance. 
+Many Device42 appliances are kept behind tight firewalls, which means external applications can’t communicate with them directly. The Cloud Connector solves this problem by securely routing requests from external integrations directly to your Device42 appliance (which would otherwise be unreachable). 
 
-The Cloud Connector uses a secure WebSocket connection that's initiated internally by the Device42 appliance. This way, your appliances stay protected, and you don’t have to possibly expose your Device42 instance to the internet in order to allow requests from external applications.
+The Cloud Connector uses a secure WebSocket connection that's initiated internally by the Device42 appliance. This way, your appliances stay protected, and you don’t have to risk exposing your Device42 instance to the internet in order to allow requests from external applications.
 
 ![Cloud Connector chart](/assets/images/device42-cloud-connector-overview/Cloud-Connector.png)
 
 The chart above shows the flow of communication between Device42, the Cloud Connector, and external integrations.
 
-Device42 shares configuration data with external applications in the form of one or more _data sources_. The specific CI details from these defined data sources are mapped to the target application using _transformation maps_.
+Device42 shares configuration data with external applications in the form of one or more **data sources**. The specific CI details from these defined data sources are mapped to the target application using **transformation maps**.
 
-The Device42 Cloud Connector is hosted by AWS, and takes advantage of their [industry-leading security features](https://aws.amazon.com/security/) and best practices. 
+The Device42 Cloud Connector is hosted by AWS, and takes advantage of its industry-leading [security features](https://aws.amazon.com/security/) and best practices. 
 
-## List of external integrations that use the Cloud Connector:
+## External Integrations List
+
+The following external integrations use the Cloud Connector:
 
 - [Freshworks (Freshservice)](integration/external-integrations/freshservice-integration.mdx)
 - [ServiceNow](integration/external-integrations/device42-servicenow-connector.mdx)
@@ -37,11 +39,11 @@ The Device42 Cloud Connector is hosted by AWS, and takes advantage of their [ind
 
 Go to **Tools > Integrations > Cloud Services** to configure the Cloud Connector. 
 
-- Click **Edit** and enter your Device42 instance’s URL or IP address in this field, for example, `https://myd42url.com`. 
+- Click **Edit** and enter your Device42 instance's URL or IP address in this field. For example, `https://myd42url.com`. 
 
-- Choose the **Cloud Connector** location to use: **USA**, **Europe**, **Australia**, **India**, or **Middle East**. Note that only the **USA** supports the Jira Cloud, Zendesk, and Slack integrations.
+- Choose which **Cloud Connector** location to use: **USA**, **Europe**, **Australia**, **India**, or **Middle East**. Note that only the **USA** location supports the Jira Cloud, Zendesk, and Slack integrations.
 
-- By default, the **EnrichAI** option is **Enabled**. EnrichAI is a Device42 feature that uses reliable sources to populate additional device – such as Vendor, OS, and key support dates attributes. See the [EnrichAI Data page](auto-discovery/enrichai-data/index.mdx) for details. If you do not want to use EnrichAI, you can disable it form this Cloud Services page.
+- The **EnrichAI** option is **Enabled** by default. EnrichAI is a Device42 feature that uses reliable sources to populate additional device attributes, such as the vendor, OS, and key support dates. See the [EnrichAI Data page](auto-discovery/enrichai-data/index.mdx) for more details. If you do not want to use EnrichAI, you can disable it from this Cloud Services page.
 
 - **Save** your changes.
 
@@ -53,7 +55,7 @@ Go to **Tools > Integrations > Cloud Services** to configure the Cloud Connector
   }}
 />
 
-If you need a new GUID, exit edit mode to go to view mode, and click the **Regenerate Instance GUID** button at the upper right.
+If you need a new GUID, exit edit mode to go to view mode, and click the **Regenerate Instance GUID** button at the top right of the page.
 
 ## Cloud Connector / WebSocket Security Architecture
 
@@ -63,10 +65,10 @@ The Cloud Connector handles routing requests from each external integration inst
 - The “verification token GUID”
 - The “am_guid”
 
-The verification token is used to search a database on the cloud connector for an account that matches the given verification token. Once it finds a verification token that matches, the request is forwarded to that appliance by the WebSocket Server as identified by the appliance GUID.
+The verification token is used to search a Cloud Connector database for the account that matches the given verification token. Once the matching verification token has been found, the request is forwarded to that appliance by the WebSocket Server, as identified by the appliance GUID.
 
 ### Cloud Connector IPs
 
-Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the [Cloudflare IP Ranges](https://www.cloudflare.com/en-in/ips/) documentation.
+Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the Cloudflare [IP Ranges](https://www.cloudflare.com/en-in/ips/) documentation.
 
-If you have a question that isn't answered here, please email [support@device42.com](mailto:support@device42). We'll gladly answer your question and include the solution here.
+If you have a question that isn't answered above, please email [support@device42.com](mailto:support@device42). We'll gladly answer your queries and include the solutions here.
