@@ -1,68 +1,74 @@
 ---
-title: "Cloud Connector FAQ"
+title: "Cloud Connector"
 sidebar_position: 5
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## The Device42 Cloud Connector Overview
 
-Certain Device42 integrations allow users to fetch data from their Device42 appliance to populate another application with CIs (Configuration Items) from Device42. Use cases range from powering a 3rd party CMDB with Device42 discovery, integrating with ticketing aka IT Service Management systems (ITSM), etc.
+The Device42 Cloud Connector is a cloud-based solution that sends data from your Device42 appliance to external applications.
 
-Configuration data from Device42 is often presented to external applications in the form of one or more _data sources_, and the specific CI details from these defined data sources are mapped to the target application via _transformation maps_.
+Many Device42 appliances are kept behind tight firewalls, which means external applications can't communicate with them directly. The Cloud Connector solves this problem by securely routing requests from external integrations directly to your Device42 appliance (which would otherwise be unreachable). 
 
-## Configuring the Cloud Connector
+The Cloud Connector uses a secure WebSocket connection that's initiated internally by the Device42 appliance. This way, your appliances stay protected, and you don’t have to risk exposing your Device42 instance to the internet in order to allow requests from external applications.
 
-To leverage the Cloud Connector with external integrations that support it, it must be configured. Cloud Connector configuration settings can be found on the _Cloud Services_ page. Select _Tools > Integrations > Cloud Services_ to open the page.
+![Cloud Connector chart](/assets/images/device42-cloud-connector-overview/Cloud-Connector.png)
 
-Click _Edit_ at the bottom right of the page, and enter your Device42 instance’s URL or IP address in this field, e.g., `https://myd42url.com`. You can also choose the Cloud Connector to use (USA or Europe).
+The chart above shows the flow of communication between Device42, the Cloud Connector, and external integrations.
 
-Click _Save_ to save your changes.
+Device42 shares configuration data with external applications in the form of one or more **data sources**. The specific CI details from these defined data sources are mapped to the target application using **transformation maps**.
 
-![](/assets/images/D42-28184_cloud-services-page.png)
+The Device42 Cloud Connector is hosted by AWS, and takes advantage of its industry-leading [security features](https://aws.amazon.com/security/) and best practices. 
 
-## List of external integrations that utilize the Cloud Connector:
+## External Integrations List
 
-- [Atlassian JIRA (cloud)](integration/external-integrations/jira-integrations/device42-jira-cloud-integration.mdx)
-- [Freshservice](integration/external-integrations/freshservice-integration.mdx)
-- Insight in JSM Cloud
+The following external integrations use the Cloud Connector:
+
+- [Freshworks (Freshservice)](integration/external-integrations/freshservice-integration.mdx)
+- [ServiceNow](integration/external-integrations/device42-servicenow-connector.mdx)
+- [Atlassian (Jira Cloud)](integration/external-integrations/jira-integrations/device42-jira-cloud-integration.mdx)
+- [Zendesk](integration/external-integrations/device42-zendesk-connector.mdx)
+- [Cloud Recommendation Engine](reports/reports/cloud-recommendation-engine.mdx)
+- Slack
 - [Opsgenie](integration/external-integrations/opsgenie-integration.mdx)
 - [PagerDuty](integration/external-integrations/pagerduty-integration.mdx)
-- [ServiceNow](integration/external-integrations/device42-servicenow-connector.mdx)
-- [Zendesk](device42-zendesk-connector.mdx)
 
-Note that the [Cloud Recommendation Engine](reports/reports/cloud-recommendation-engine.mdx) also uses the Cloud Connector.
+## Configure the Cloud Connector
 
-## Why was the Cloud Connector built?
+Go to **Tools > Integrations > Cloud Services** to configure the Cloud Connector. 
 
-To accomplish the transfer of data from customers’ Device42 instances to an external integration, requests originating from the external integration must be routed to a customers’ Device42 appliance.
+- Click **Edit** and enter your Device42 instance's URL or IP address in this field. For example, `https://myd42url.com`. 
 
-This presents a challenge in that Device42 installations often exist in local, isolated environments, behind firewalls, and without any externally-reachable IP address. In many cases, Device42 instances are unreachable from the internet at large, and are therefore also unreachable by cloud applications that we want to integrate with, as well.
+- Choose which **Cloud Connector** location to use: **USA**, **Europe**, **Australia**, **India**, or **Middle East**. Note that only the **USA** location supports the Jira Cloud, Zendesk, and Slack integrations.
 
-### Facilitating communication without opening the firewall
+- The **EnrichAI** option is **Enabled** by default. EnrichAI is a Device42 feature that uses reliable sources to populate additional device attributes, such as the vendor, OS, and key support dates. See the [EnrichAI Data page](auto-discovery/enrichai-data/index.mdx) for more details. If you do not want to use EnrichAI, you can disable it from this Cloud Services page.
 
-The Cloud Connector is utilized to route traffic from a given external integration directly to the customers’ normally unreachable Device42 appliances via a secure, internally (from the Device42 appliance) initiated WebSocket connection.
+- **Save** your changes.
 
-The D42 Cloud Connector was built as a secure alternative to asking Device42 users to open their firewalls to allow this communication, which would have the side effect of needlessly exposing Device42 instances to the internet. The Cloud Connector thus facilitates secure communication with the 3rd party software hosted in any cloud platform, while maintaining a minimum attack surface area and avoiding any need to expose customer’s Device42 appliances to the internet at large.
+<ThemedImage
+  alt="Cloud Services page"
+  sources={{
+    light: useBaseUrl('/assets/images/device42-cloud-connector-overview/cloud-services-form-light.png'),
+    dark: useBaseUrl('/assets/images/device42-cloud-connector-overview/cloud-services-form-dark.png'),
+  }}
+/>
+
+If you need a new GUID, exit edit mode to go to view mode, and click the **Regenerate Instance GUID** button at the top right of the page.
 
 ## Cloud Connector / WebSocket Security Architecture
 
-The Cloud Connector handles routing requests from each external integration instance to the proper D42 appliance endpoint via 3 GUID keys:
+The Cloud Connector handles routing requests from each external integration instance to the proper Device42 appliance endpoint via three GUID keys. These three GUIDs act as unique digital markers for identifying, authenticating, and routing requests.
 
 - The “appliance GUID”
 - The “verification token GUID”
 - The “am_guid”
 
-The verification token is used to search a database on the cloud connector for an account that matches the given verification token. Once it finds a verification token that matches, the request is forwarded to that appliance by the WebSocket Server as identified by the appliance GUID.
-
-### Example / Diagram: ServiceNow DOQL Query Executed by Cloud Connector
-
-![Cloud Connector communication example using ServiceNow integration](/assets/images/cloud-connector-diagram.png)
-
-The above graphic details communication between Device42, the Cloud Connector, and the ServiceNow integration, with ServiceNow being used as the example. The general flow applies to any integration that uses the CC.
-
-Note that the Device42 cloud connector is hosted by AWS, and takes advantage of their [industry-leading security features](https://aws.amazon.com/security/), as well as general best practices.
+The verification token is used to search a Cloud Connector database for the account that matches the given verification token. Once the matching verification token has been found, the request is forwarded to that appliance by the WebSocket Server, as identified by the appliance GUID.
 
 ### Cloud Connector IPs
 
-Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the [Cloudflare IP Ranges](https://www.cloudflare.com/en-in/ips/) documentation.
+Device42 uses Cloudflare for the Cloud Connector. If you need specific IPv4 and IPv6 addresses, please refer to the Cloudflare [IP Ranges](https://www.cloudflare.com/en-in/ips/) documentation.
 
-If you have a question that isn't answered here, please email [support@device42.com](mailto:support@device42). We'll gladly answer your question and include the solution here.
+If you have a question that isn't answered above, please email [support@device42.com](mailto:support@device42). We'll gladly answer your queries and include the solutions here.
