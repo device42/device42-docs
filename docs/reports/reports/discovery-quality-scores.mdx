@@ -26,17 +26,25 @@ The Discovery Scores page now also includes a column for **Other** to rate the 
 
 By default, discovered devices are sorted from newest to oldest, most recently discovered listed first. Each device is shown on its own line, which offers information about how it was discovered, including the target discovery IP _(which also links back to each job’s View Discovery Score detail page)_ of the job that discovered it, the job name _(which links to the job’s the View Discovery Job page)_, the job’s timestamps, and a red/green ‘at-a-glance’ view of the discovery status. Green indicates discovery success, while red indicates there might have been an issue with that particular stat.
 
-Clicking on any of the items in the **Discovery Targets** column will bring you to a View Discovery Score details page for that particular item:
+Clicking on any of the items in the **Discovery Targets** column will bring you to a View Discovery Score details page for that particular item.
 
 <ThemedImage
   alt="Detailed Discovery View"
   sources={{
-    light: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-light.png'),
-    dark: useBaseUrl('/assets/images/discovery-quality-scores/detailed-discovery-view-dark.png'),
+    light: useBaseUrl('/assets/images/discovery-quality-scores/partial-status-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/partial-status-dark.png'),
   }}
 />
 
 **Partial Failure**: If any of the discovery aspects fail, this will result in a "partial failure" on the main Discovery Score page. A partial failure indicates that a portion of the discovery was successful, but not all components were. This is where the detailed view (above) is helpful, as it allows you to narrow in on what could not succeed. In future iterations, we will provide more detail on how to remediate these failures.
+
+<ThemedImage
+  alt="Detailed Discovery View"
+  sources={{
+    light: useBaseUrl('/assets/images/discovery-quality-scores/detailed-scores-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-quality-scores/detailed-scores-dark.png'),
+  }}
+/>
 
 ### Discovery Score Column Details
 

@@ -232,16 +232,6 @@ We understand that some fields within Device42 may not easily translate to field
     }}
     />
 
-### Notes on Updates and Improvements
-
-We're actively working to expand and improve the Device42-Freshservice integration for specific assets. In 19.06, we added the following additional relationship types to map to the default Freshservice fields via the Cloud Connector:
-
-- Kubernetes Cloud: Device42 can discover the relationships between Kubernetes assets and make that data available in Freshservice, so you can see which assets are impacted when an incident or change-management request occurs.
-- Google Cloud Platform (GCP): The relationship between Google Cloud virtual machines and their security groups has been added to the Device42-Freshservice integration.
-- VMware vCenter
-- Azure Cloud
-- Amazon Web Services
-
 ## Custom Data Mapping
 
 ### Download the `mapping.xml` File
@@ -383,77 +373,137 @@ For a quick look at all the valid Freshservice `types`, see the [The `<task>` El
 
 | `description=`                                                        | `type=`                  | `d42_min_version=` | `d42_max_version=` |
 |--------------------------------------------------------------------|-----------------------|-----------------|-----------------|
-| Copy Product info from Device42 to Freshservice                    | product              | 16.19.00       | 16.18.02       |
-| Copy Servers from Device42 to Freshservice using DOQL v2          | asset                | 19.04.00       | 19.03.99       |
-| Copy Servers from Device42 to Freshservice using DOQL v1          | asset                |                 | 16.18.02       |
-| Copy Softwares from Device42 to Freshservice using DOQL            | software             |                 |                 |
-| Create Software Install from Software In Use                       | software_installation| 16.19.00       | 16.18.02       |
-| Create Relationship from Service Communication                     | asset_relationship   |                 |                 |
-| Create Relationship from Business Apps                             | asset_relationship   |                 |                 |
-| Copy Business Application from Device42 to Freshservice            | asset                | 16.19.00       | 16.18.02       |
-| Create Relationship from Devices to Business Apps                  | asset_relationship   |                 |                 |
-| Copy contract info from Device42 to Freshservice                   | contract             |                 |                 |
-| Create association between asset and contract                      | contract_asset       |                 |                 |
-| Copy Software Licensing info from Device42 to Freshservice         | contract             |                 |                 |
-| Create relationship between Host and Virtual Machine               | asset_relationship   |                 |                 |
-| Create relationship between cluster and device                     | asset_relationship   |                 |                 |
-| Copy AWS ALB from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
-| Copy AWS Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
-| Copy AWS Security Group from Device42 to Freshservice              | asset                | 19.04.00       |                 |
-| Copy AWS VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
-| Copy AWS RDS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
-| Copy AZURE Subnet from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
-| Copy Azure Disk from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
-| Copy Azure Security Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
-| Copy Azure Subscription from Device42 to Freshservice              | asset                | 19.04.00       |                 |
-| Copy Azure Application Gateway from Device42 to Freshservice       | asset                | 19.04.00       |                 |
-| Copy AWS EBS from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
-| Copy AWS Key Pair from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
-| Copy AWS S3 from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
-| Copy AWS Public IP from Device42 to FreshService                   | asset                | 19.04.10       |                 |
-| Copy Azure VPC from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
-| Copy GCP Subnet from Device42 to Freshservice                      | asset                | 19.04.00       |                 |
-| Copy GCP VPC from Device42 to Freshservice                         | asset                | 19.04.00       |                 |
-| Copy GCP Disk from Device42 to Freshservice                        | asset                | 19.04.00       |                 |
-| Copy GCP Firewall Rules from Device42 to Freshservice              | asset                | 19.04.00       |                 |
-| Copy CPU Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
-| Copy RAM Parts from Device42 to Freshservice using DOQL            | component            |                 |                 |
-| Copy Network Adapter from Device42 to Freshservice using DOQL      | component            |                 |                 |
-| Copy Hard Disk Parts from Device42 to Freshservice using DOQL      | component            |                 |                 |
-| Copy Mount Point(Logical Drive) from Device42 to Freshservice      | component            |                 |                 |
-| Copy Mount Point(Datastore) from Device42 to Freshservice          | component            |                 |                 |
-| Copy Printer Input Parts from Device42 to Freshservice using DOQL  | component            |                 |                 |
-| Copy Printer Output Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
-| Copy Printer Marker Parts from Device42 to Freshservice using DOQL | component            |                 |                 |
-| Copy Interface Component from Device42 to Freshservice using DOQL  | component            | 19.04.00       |                 |
-| Copy GCP LB from Device42 to Freshservice                          | asset                | 19.04.00       |                 |
-| Copy Azure Images from Device42 to Freshservice                    | asset                | 19.04.00       |                 |
-| Copy Azure Network Interface from Device42 to Freshservice         | asset                | 19.04.00       |                 |
-| Copy AWS Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
-| Copy GCP Network Interface from Device42 to Freshservice           | asset                | 19.04.00       |                 |
-| Copy Azure Resource Group from Device42 to Freshservice            | asset                | 19.04.00       |                 |
-| Copy AWS Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
-| Copy Azure Public IP from Device42 to FreshService                 | asset                | 19.04.10       |                 |
-| Copy GCP Image from Device42 to Freshservice                       | asset                | 19.04.00       |                 |
-| Copy GCP BigQuery Table from Device42 to FreshService              | asset                | 19.04.10       |                 |
-| Copy Azure Key Vault from Device42 to Freshservice                 | asset                | 19.04.00       |                 |
-| Copy VMware VCenter Resource Pool from Device42 to Freshservice    | asset                | 19.04.10       |                 |
-| Copy VMware VCenter Network from Device42 to Freshservice          | asset                | 19.04.10       |                 |
-| Copy VMware VCenter Disk from Device42 to Freshservice             | asset                | 19.04.10       |                 |
-| Copy VMware VCenter Datastore from Device42 to Freshservice        | asset                | 19.04.10       |                 |
-| Copy VMware VCenter Datacenter from Device42 to Freshservice       | asset                | 19.04.10       |                 |
-| Copy AWS K8 Pod from Device42 to FreshService                      | asset                | 19.04.10       |                 |
-| Copy AWS K8s Namespace from Device42 to Freshservice               | asset                | 19.04.10       |                 |
-| Copy AWS K8s Deployment from Device42 to Deployment                | asset                | 19.04.10       |                 |
-| Copy AWS K8s Service from Device42 to Service                      | asset                | 19.04.10       |                 |
-| Copy AWS K8s Daemon Set from Device42 to Daemon Set                | asset                | 19.04.10       |                 |
-| Copy AWS K8s Replica Set from Device42 to FreshService             | asset                | 19.04.10       |                 |
-| Copy AWS K8s Cron Job from Device42 to FreshService                | asset                | 19.04.10       |                 |
-| Copy GCP Public IP from Device42 to Freshservice                   | asset                | 19.04.10       |                 |
-| Copy AWS K8s Config Map from Device42 to Config Map                | asset                | 19.04.10       |                 |
-| Copy AWS K8s Stateful Set from Device42 to Stateful Set            | asset                | 19.04.10       |                 |
-| Delete assets from Freshservice that do not exist in Device42      | asset                |                 |                 |
-| Delete asset relationships from Freshservice that do not exist     | asset_relationship   |                 |                 |
+| Copy Product info from Device42 to Freshservice | product | 16.19.00 |  |
+| Copy Product info from Device42 to Freshservice | product |  | 16.18.02 |
+| Copy Servers from Device42 to Freshservice using DOQL v2 | asset | 19.04.00 |  |
+| Copy Servers from Device42 to Freshservice using DOQL v2 | asset | 16.19.00 | 19.03.99 |
+| Copy Servers from Device42 to Freshservice using DOQL v1 | asset |  | 16.18.02 |
+| Copy Softwares from Device42 to Freshservice using DOQL | software |  |  |
+| Create Software Install from Software In Use | software_installation | 16.19.00 |  |
+| Create Software Install from Software In Use | software_installation |  | 16.18.02 |
+| Create Relationship from Service Communication | asset_relationship |  |  |
+| Create Relationship from Business Apps | asset_relationship |  |  |
+| Copy Business Application from Device42 to Freshservice | asset | 16.19.00 |  |
+| Copy Business Application from Device42 to Freshservice | asset |  | 16.18.02 |
+| Create Relationship from Devices to Business Apps | asset_relationship |  |  |
+| Copy contract info from Device42 to Freshservice | contract |  |  |
+| Create association between asset and contract | contract_asset |  |  |
+| Copy Software Licensing info from Device42 to Freshservice | contract |  |  |
+| Create relationship between Host and Virtual Machine | asset_relationship |  |  |
+| Create relationship between cluster and device | asset_relationship |  |  |
+| Copy AWS ALB from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Subnet from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Security Group from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS VPC from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS RDS from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AZURE Subnet from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Disk from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Security Group from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Subscription from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Application Gateway from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS EBS from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Key Pair from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS S3 from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Public IP from Device42 to FreshService | asset | 19.04.10 |  |
+| Copy Azure VPC from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP Subnet from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP VPC from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP Disk from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP Firewall Rules from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy CPU Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy RAM Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Network Adapter from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Hard Disk Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Mount Point(Logical Drive) from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Mount Point(Datastore) from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Printer Input Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Printer Output Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Printer Marker Parts from Device42 to Freshservice using DOQL | component |  |  |
+| Copy Interface Component from Device42 to Freshservice using DOQL | component | 19.04.00 |  |
+| Copy GCP LB from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Images from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Network Interface from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Network Interface from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP Network Interface from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Resource Group from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy AWS Image from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy Azure Public IP from Device42 to FreshService | asset | 19.04.10 | 19.04.99 |
+| Copy Azure Public IP from Device42 to FreshService | asset | 19.05.00 |  |
+| Copy GCP Image from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy GCP BigQuery Table from Device42 to FreshService | asset | 19.04.10 |  |
+| Copy Azure Key Vault from Device42 to Freshservice | asset | 19.04.00 |  |
+| Copy VMware VCenter Resource Pool from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy VMware VCenter Network from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy VMware VCenter Disk from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy VMware VCenter Datastore from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy VMware VCenter Datacenter from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy AWS K8 Pod from Device42 to FreshService | asset | 19.04.10 |  |
+| Copy AWS K8s Namespace from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy AWS K8s Deployment from Device42 to Deployment | asset | 19.04.10 |  |
+| Copy AWS K8s Service from Device42 to Service | asset | 19.04.10 |  |
+| Copy AWS K8s Daemon Set from Device42 to Daemon Set | asset | 19.04.10 |  |
+| Copy AWS K8s Replica Set from Device42 to FreshService | asset | 19.04.10 |  |
+| Copy AWS K8s Cron Job from Device42 to FreshService | asset | 19.04.10 |  |
+| Copy GCP Public IP from Device42 to Freshservice | asset | 19.04.10 |  |
+| Copy AWS K8s Config Map from Device42 to Config Map | asset | 19.04.10 |  |
+| Copy AWS K8s Stateful Set from Device42 to Stateful Set | asset | 19.04.10 |  |
+| Create Relationship from Azure Public IP to Azure Subscription | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Network Interface to Azure Subscription | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Subnet to Azure Subscription | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Public IP to Azure Resource Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Network Interface to Azure Resource Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Subnet to Azure Resource Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Resources to Azure Subscription | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Resources to Azure Resource Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Image to Azure VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Disk to Azure VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Network Interface to Azure VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Public IP to Azure VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure VM to Azure Subnet | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure VM to Azure Subscription | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure VM to Azure Resource Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure VM ( netport ) to Azure Security Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure VM ( subnet ) to Azure Security Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Network Interface to Azure Subnet | asset_relationship | 19.05.00 |  |
+| Create Relationship from Azure Public IP to Azure Network Interface | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Disk | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Network | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS Network Interface to AWS Public IP | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS Public IP to AWS VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Application LB | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Key Pair | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Subnet | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS VM to AWS Security Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS Subnet to AWS Network | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS RDS to AWS Subnet | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS Image to AWS VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS K8s Namespace To AWS K8s Pods | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS K8s Node To AWS K8s Pods | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS K8s Daemon Set To AWS K8s Config Map | asset_relationship | 19.05.00 |  |
+| Create Relationship from AWS K8s Deployment To AWS K8s Replica Set | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Network Interface to GCP Public IP | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Network Interface to GCP VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Public IP to GCP VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Disk to GCP VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Image to GCP VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP VM to GCP Security Group | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Subnet to GCP VM | asset_relationship | 19.05.00 |  |
+| Create Relationship from GCP Subnet to GCP Network Interface | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datacenter to Datastore relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datacenter to Virtual Machine relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datacenter to Host relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datacenter to Network relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datastore to Host relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Datastore to Virtual Machine relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Host to Virtual Machine relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Network to Host relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Network to Virtual Machine relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Resource Pool to Virtual Machine relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Resource Pool to Resource Pool relationship | asset_relationship | 19.05.00 |  |
+| Sync Device42 VMWare Virtual Machine to Disk relationship | asset_relationship | 19.05.00 |  |
+| Delete assets from Freshservice that do not exist in Device42 | asset |  |  |
+| Delete asset relationships from Freshservice that do not exist in Device42 | asset_relationship |  | 19.04.99 |
+| Delete asset relationships from Freshservice that do not exist in Device42 | asset_relationship | 19.05.00 |  |
 
 ### Syncing to Custom Field Names in Freshservice
 
