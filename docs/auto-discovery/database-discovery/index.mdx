@@ -72,27 +72,32 @@ Enable database discovery by checking the **Collect database server information*
 <ThemedImage
 alt="MS SQL discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-19.06-dark.png'),
 }}
 />
 
-Be sure to fill out both sets of credentials:
+Be sure to fill out both sets of credentials. Two sets of credentials must also be filled out for [regular Windows-based discovery targets](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
 
 - **Database Username / Password(s):** Credentials for authenticating to the Microsoft SQL database itself.
-- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server.
 
-Two sets of credentials must also be filled out for [regular Windows-based discovery targets](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssql-db-credentials-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssql-db-credentials-dark.png'),
+    }}
+    />
 
-You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server. You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
-<ThemedImage
-alt="Discovery Credentials order"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/discovery-targets-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/discovery-targets-credentials-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssq-target-credentials-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssq-target-credentials-dark.png'),
+    }}
+    />
 
 Run the autodiscovery job to test it by clicking **Run Now** from the autodiscovery jobs list.
 
@@ -100,7 +105,13 @@ As MSSQL databases are detected, discovery will import a list of all the instanc
 
 You can see the status of the discovery job on the job setup page. Scroll down to the **Job Status** section and look for the bar graphs.
 
-![Example job status](/assets/images/discovery-job-status-trimmed.png)
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssq-job-status-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssq-job-status-dark.png'),
+    }}
+    />
 
 ### View Your MSSQL Discovery Job Results
 
@@ -117,26 +128,18 @@ You can see the newly discovered SQL Server instances in the example below. Clic
 <ThemedImage
 alt="Application Components list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/application-components-search-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/application-components-search-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/app-comp-databases-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/app-comp-databases-dark.png'),
 }}
 />
 
 Scroll to the **Application Components** section at the bottom of the page and click the database instance name to view database details.
 
 <ThemedImage
-alt="MSSQL example"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/mssql-example-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/mssql-example-dark.png'),
-}}
-/>
-
-<ThemedImage
 alt="MSSQL example of database instances"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-19.06-dark.png'),
 }}
 />
 
