@@ -12,33 +12,44 @@ Device42 can discover a device via its IPMI/BMC (iDrac, iLo, etc.) board. From a
 
 ## Add a New IPMI Autodiscovery Job
 
-Navigate to **Discovery > IPMI / Redfish** and click **+  Add IPMI/Redfish Autodiscovery Job** to create the IPMI autodiscovery job. 
+Navigate to **Discovery > IPMI / Redfish** and click **Create** to create the IPMI autodiscovery job. 
 
 <ThemedImage
   alt="Add IPMI/Redfish job"
   sources={{
-    light: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-light.png'),
-    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-dark.png'),
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-job-19.06-dark.png'),
   }}
 />
 
-Fill in the basic job details:
+Fill in the job details:
 
 - **Job Name:** Enter a unique name for the job. 
 - **Server(s):** Input the IP address range against which you want to run the job. 
 - **Exclude Server(s):** Add any servers for which you want to exclude fetching information.
+- **Discovery Type:** Choose between **IPMI** and **Redfish**.
+  
+  <ThemedImage
+  alt="Select Discovery Type"
+  sources={{
+      light: useBaseUrl('/assets/images/ipmi-auto-discovery/discovery-type-light.png'),
+      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/discovery-type-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+  />
+  
 - **Discovery Target(s) Credential(s):** Add credentials to connect to the IPMI board.
   
-    <ThemedImage
-    alt="Add credentials"
-    sources={{
-        light: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-light.png'),
-        dark: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-dark.png'),
-    }}
-    />
+  <ThemedImage
+  alt="Add credentials"
+  sources={{
+      light: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-19.06-dark.png'),
+  }}
+  />
 
 
-## Hostname To Use Option
+### Hostname To Use and Other Options
 
 Under the **Hostname to use** option, select a naming order to apply to newly discovered devices. When an IPMI discovery job is the first to discover a device, or there is no match against an existing device, a new device record is created with the hostname order you select. 
 
@@ -49,16 +60,36 @@ Select one of the **Hostname to use** options:
 - **Discovered Name / Serial # / Reverse DNS / IP**: If the discovered name from IPMI is found, it is used to name the device. If no discovered name is found, the naming order is the same as above.
 - **Reverse DNS / Discovered Name / Serial # / IP**: If the reverse DNS name is found, it is used as the device name. Otherwise, the discovered name is used. If neither the reverse DNS name nor the discovered name is found, the serial number is used to name the device. If neither those names nor the serial number is found, the IP address is  used as the device name.
   
-<ThemedImage
-  alt="Hostname to use option"
-  sources={{
-    light: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-light.png'),
-    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Hostname to use options"
+    sources={{
+      light: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-dark.png'),
+    }}
+  />
 
 - **Add hardware model, if found:** Select this option to add the hardware model discovered via the naming method. Note that the naming method is ignored for existing devices with hardware models.
 - **Debug Level:** Select **Debug On** to generate a debug log that can be sent to the support via log bundle.
+- Deselect **Run as Operator** to allow autodiscovery to run as an administrator on the IPMI device. By default, IPMI autodiscovery is run as an operator rather than an administrator, which may result in some details not being autodiscovered. 
+
+  <ThemedImage
+    alt="Run as operator option"
+    sources={{
+      light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-dark.png'),
+    }}
+    style={{ width: '70%' }} 
+  />
+
+- **Serial to use:** Choose between **Product Serial**, **Board Serial**, and **Service Tag**.
+
+  <ThemedImage
+    alt="serial to use option"
+    sources={{
+      light: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-light.png'),
+      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-dark.png'),
+    }}
+  />
 
 ## Ensure IPMI Over LAN Is Enabled
 
@@ -66,39 +97,36 @@ The following image is an example from the Dell iDrac web portal that shows why 
 
 ![Make sure IPMI over LAN is enabled](/assets/images/ipmi-settings.png)
 
-## Disabling Run as Operator
-
-Deselect **Run as Operator** to allow autodiscovery to run as an administrator on the IPMI device. By default, IPMI autodiscovery is run as an operator rather than an administrator, which may result in some details not being autodiscovered. 
-
-<ThemedImage
-  alt="Run as operator option"
-  sources={{
-    light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-light.png'),
-    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-dark.png'),
-  }}
-/>
 
 ## Run Now or Schedule
 
-When creating or editing the job, select **Add another Autodiscovery Schedule** to run the job according to a schedule.
+When creating or editing the job, select **Add another Autodiscovery Schedule** to run the job on a schedule.
 
 <ThemedImage
   alt="Schedule job"
   sources={{
-    light: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule-light.png'),
-    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule-dark.png'),
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule-ipmi-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/schedule--ipmi-dark.png'),
   }}
 />
 
-From the list page under **Discovery > IPMI / Redfish**, click **Run Now**  to run the job immediately.
+
+Newly created jobs will not run on the first day they are created, to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select the **Run Now** button on the job details page that is displayed after a job is saved.
 
 <ThemedImage
-  alt="Run now"
+  alt="Run Now from the job details page"
   sources={{
-    light: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/ipmi-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-now-ipmi-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-now-ipmi-dark.png'),
   }}
 />
 
-Newly created jobs will not run on the first day they are created, to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select the **Run Now** button next to the job after creation.
+You can also run the job from the list page under **Discovery > IPMI / Redfish**, click **Run Now** to run the job immediately.
 
+<ThemedImage
+  alt="Run Now from the list page"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-now-ipmi-list-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-now-ipmi-list-dark.png'),
+  }}
+/>
