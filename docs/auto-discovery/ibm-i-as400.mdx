@@ -14,7 +14,13 @@ Are you looking to discover an IBM z/OS-powered mainframe? [Click here to go the
 
 Device42 has enhanced IBM i/AS400 discovery with additional capabilities and device results:
 
+- Choose to **Discover Using FTPS** for secure, encrypted communication with AS/400 systems during discovery.
 - **Discover Using FTP** allows Device42 to pull in additional discovery details and no longer relies on the Telnet method of discovery.
+
+  :::note
+  Device42 discovery does not support SFTP for discovery – only FTP and FTPS are supported. 
+  :::
+
 - **Discover Software** supports all licensed software that IBM registers as installed. If you use FTP-based discovery, it includes software versions as well. Support encompasses the different programming languages installed, datastore information, and the additional dependencies or tools installed.
 - Disk Space discovery gets the ASPs (Auxiliary Storage Pools) of the machine capacity and space used, and stores the disk information as mount points attached to the device.
 - Tape Drives discovery now brings tape drives in as mount points with tape drive names and model numbers.
@@ -23,13 +29,15 @@ Device42 has enhanced IBM i/AS400 discovery with additional capabilities and dev
 
 ## Create an IBM i/AS400 (Mid-Range) Discovery Job
 
-To add a new IBM i/AS400 discovery job, head to the main menu and select **Discovery > HyperVisors / \*nix / Windows**. Create a new discovery job, and select "IBM i/AS400" as the **Platform**.
+To add a new IBM i/AS400 discovery job, head to the main menu and select **Discovery > HyperVisors / \*nix / Windows**. 
+
+Create a new discovery job, and select **IBM i/AS400** as the **Platform**.
 
 <ThemedImage
   alt="Add new IBM i/AS400 job"
   sources={{
-    light: useBaseUrl('/assets/images/ibm-i-as400/as400-discovery-light.png'),
-    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-discovery-dark.png'),
+    light: useBaseUrl('/assets/images/ibm-i-as400/as400-discovery-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-discovery-19.06-dark.png'),
   }}
 />
 
@@ -45,20 +53,30 @@ The following fields are available for configuration when creating a new i/AS400
 
 - **Job Name:** Enter a name of your choosing to identify the IBM i/AS400 autodiscovery job.
 - **Remote Collector:** Optionally, specify a remote collector from which to run discovery instead of the main appliance.
-- **Platform:** Select "IBM i/AS400". 
+- **Platform:** Select **IBM i/AS400**. 
 - **Discovery Target(s):** Specify the FQDN or IP address of the IBM i/AS400 to discover. If using FQDN, ensure Device42 is set up to resolve DNS. Note that you can configure the DNS in your VM console under option **1**. 
 - **Port:** Only change this if you have a custom listening port configuration. IBM i/AS400 discovery uses port 23 by default.
 - **Discovery Target(s) Credential(s):** Specify a username with permissions on your IBM i/AS400 machine.
 - **Debug Level:** Turn debug on for extra troubleshooting output. This is useful for support tickets. 
 - **ADM Sampling Interval:** Leave off or choose an interval in minutes or hours. 
-- **Discover Using FTP:** Run the discovery through FTP instead of Telnet. 
+- **Discover Using FTP:** Run the discovery through FTP instead of Telnet. Selecting this option reveals the FTPS option:
+  - **Discover Using FTPS:** Use FTPS (FTP Secure) to enable secure communication with AS/400 systems.
+
+  <ThemedImage
+  alt="FTPS option"
+  sources={{
+      light: useBaseUrl('/assets/images/ibm-i-as400/ftps-option-light.png'),
+      dark: useBaseUrl('/assets/images/ibm-i-as400/ftps-option-dark.png'),
+  }}
+  />   
+
 - **Timeout:** Specify the maximum time in seconds per command for performing a Telnet discovery. If there are connection issues or slow loading time, increasing the timeout may yield better results. 
 
     <ThemedImage
     alt="Timeout"
     sources={{
-        light: useBaseUrl('/assets/images/ibm-i-as400/timeout-light.png'),
-        dark: useBaseUrl('/assets/images/ibm-i-as400/timeout-dark.png'),
+        light: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-dark.png'),
     }}
     />    
 
@@ -70,14 +88,12 @@ The following fields are available for configuration when creating a new i/AS400
     <ThemedImage
     alt="Discover lines of code option"
     sources={{
-        light: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-light.png'),
-        dark: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-dark.png'),
+        light: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-dark.png'),
     }}
     />        
 
-### FTP Discovery
-
-**How it works:**
+### How FTP Discovery Works
 
 Using FTP, Device42 creates a directory on the targeted server named **D42TEST**.
 - Device42 then uploads our CL/RPG programs to the server, transfers them to the QTEMP folder, and runs them.
@@ -130,33 +146,42 @@ AS400 support does _not_ currently include:
 - Individual application discovery
 - Parts support
 
-:::info
 AS400 discovery has been verified and functionality tested with IBM i/AS400 operating system deployments configured with the Spanish language setting. AS400 discovery should also work with other non-English locale configurations. 
 
 Please let us know about your experiences with other foreign language configurations or any issues you encounter; we love hearing from our users. Email [support@device42.com](mailto:support@device42.com).
-:::
 
-## Run Now or Schedule
+## Run Now
 
-Select **Run Now** from the list page under **Discovery > HyperVisors / \*nix / Windows** to run the job immediately.
+To run the job immediately, you can click **Run Now** after saving or editing the job from the job details page that's displayed. 
 
 <ThemedImage
-  alt="Run now"
+  alt="Run Now button on details page"
   sources={{
-    light: useBaseUrl('/assets/images/ibm-i-as400/as400-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/ibm-i-as400/run-now-ibm-job-light.png'),
+    dark: useBaseUrl('/assets/images/ibm-i-as400/run-now-ibm-job-dark.png'),
   }}
 /> 
 
+You can also click **Run Now** from the list page under **Discovery > HyperVisors / \*nix / Windows**.
 
-When creating or editing the job, select **Add another Auto Discovery Schedule** to run the job according to a schedule.
+<ThemedImage
+  alt="Run Now button on list page"
+  sources={{
+    light: useBaseUrl('/assets/images/ibm-i-as400/as400-run-now-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-run-now-19.06-dark.png'),
+  }}
+/> 
+
+## Schedule the Job
+
+When creating or editing the job, select **Add another Auto Discovery Schedule** to run the job on a schedule.
 
 <ThemedImage
   alt="Schedule IBM i/AS400 job"
   sources={{
-    light: useBaseUrl('/assets/images/ibm-i-as400/as400-schedule-light.png'),
-    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-schedule-dark.png'),
+    light: useBaseUrl('/assets/images/ibm-i-as400/as400-schedule-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ibm-i-as400/as400-schedule-19.06-dark.png'),
   }}
 /> 
 
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from running initially. If you would like to run a job after its initial creation, select the **Run Now** from the autodiscovery list page.
+Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from running initially. If you would like to run a job after its initial creation, select the **Run Now** button.
