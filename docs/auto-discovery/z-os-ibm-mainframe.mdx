@@ -46,10 +46,10 @@ Device42 has enhanced IBM z/OS discovery with additional capabilities and device
 
 ## Create an IBM z/OS Mainframe Discovery Job
 
-Navigate to **Discovery > HyperVisors / \*nix / Windows** and click **Create** to create a new discovery job. 
+Navigate to **Discovery > HyperVisors / \*nix / Windows**, and click **Create** to create a new discovery job. 
 
 - **Job Name:** Enter a unique name to identify the IBM z/OS autodiscovery job.  
-- **Remote Collector:** Optionally, specify a remote collector from which to run discovery, instead of from the main appliance.  
+- **Remote Collector:** Optionally, specify a Remote Collector from which to run discovery, instead of from the Main Appliance.  
 - **Job Debug level**: Turn debug on or off.  
 - **Platform:** Select **BM z/OS** for mainframe discovery.  
 - **Discovery Target(s):** Specify the FQDN or IP address of the IBM z/OS target you want to discover. If using FQDN, ensure Device42 is set up to resolve DNS. Configure the DNS settings in your Device42 virtual machine (VM) console.
@@ -75,7 +75,7 @@ Navigate to **Discovery > HyperVisors / \*nix / Windows** and click **Create** t
   /> 
 
 - **Discover Using FTPS**: Use FTPS for the discovery job.  
-- **Job Card:** Input the job card specific to this discovery job. You may need to contact your administrator to get this information. One job card is required per job and a new z/OS discovery job must be created for each additional job card.  
+- **Job Card:** Input the job card specific to this discovery job. You may need to contact your administrator to get this information. One job card is required per job, and a new z/OS discovery job must be created for each additional job card.  
 - **Alternate zOS TCP Command:** Enter a parameter you can use to specify the TCP command used in discovery.  
 
   <ThemedImage
@@ -96,8 +96,8 @@ Navigate to **Discovery > HyperVisors / \*nix / Windows** and click **Create** t
     }}
   /> 
 
-- **Job Status:** View or enter the status of the last discovery or task run.  
-- **Exclusions:** Input any IP addresses or FQDNs to exclude from this discovery job.  
+- **Job Status:** View or enter the status of the last discovery job or task run.  
+- **Exclusions:** Input any IP addresses or FQDNs to exclude from the associated discovery job.  
 - **Naming Options**: Set a device name, as given in the server field of the job, and add non-authoritative aliases.  
 
   <ThemedImage
@@ -108,7 +108,7 @@ Navigate to **Discovery > HyperVisors / \*nix / Windows** and click **Create** t
     }}
   /> 
 
-- **Host Discovery**: Select options for the host OS name, serial number, and UUID; specify the action to take if no VM is found; and select an object category for discovered devices. 
+- **Host Discovery**: Select options for the host OS name, serial number, and UUID, then specify the action to take if no VM is found, and select an object category for discovered devices. 
   
   <ThemedImage
     alt="Host Discovery options"
@@ -142,7 +142,7 @@ For information on other jobs that can be run via this screen, see the dedicated
 
 ## Run Now 
 
-Newly created jobs will not run on the first day they are created, to prevent an unintentionally large amount of jobs from running initially. If you would like to run a job after its initial creation, select **Run Now** on the job details page.
+Newly created jobs will not run on the first day they are created, to prevent an unintentionally large number of jobs from running initially. If you would like to run a job after its initial creation, select **Run Now** on the job details page.
 
 <ThemedImage
   alt="Run Now"
