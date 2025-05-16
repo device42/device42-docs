@@ -30,7 +30,7 @@ You can enable zone transfers to your Device42 appliance's IP at your discretion
 
 Next, go back to your Device42 web console and navigate to the DNS Zones for Autodiscovery list page under **Discovery > DNS Zone Sync (One way)**. 
 
-Click **+Add DNS Zone for Autodiscovery** to create a new autodiscovery job and fill out the following: 
+Click **Create** to create a new autodiscovery job and fill out the following: 
 - **Name:** Enter the name of the zone to be transferred - this will likely be the zone you just enabled.
 - **Nameserver:** Enter the FQDN or IP address for the DNS server. The FQDN will work only if the DNS is configured correctly from the console. 
 - **Auto Delete Enabled:** Check this box to delete records in Device42 that were not found in new transfers of the zone but were found in older transfers. Selecting this option also deletes any entries manually added in Device42 that have not yet been added to your DNS server.
@@ -38,8 +38,8 @@ Click **+Add DNS Zone for Autodiscovery** to create a new autodiscovery job and 
 <ThemedImage
   alt="Add DNS zone discovery"
   sources={{
-    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/add-new-job-light.png'),
-    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/add-new-job-dark.png'),
+    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-add-new-job-light.png'),
+    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-add-new-job-dark.png'),
   }}
 />
 
@@ -47,26 +47,32 @@ Save the autodiscovery job and click **Run Now** to test it. If you see "Success
 
 ### Run Now or Schedule Discovery
 
-Select **Run Now** from the autodiscovery list page to run the job immediately.
-
-<ThemedImage
-  alt="Run now button"
-  sources={{
-    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/run-now-light.png'),
-    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/run-now-dark.png'),
-  }}
-/>
-
 When creating or editing the job, select **Add another Auto Discovery Schedule** to schedule the job.
 
 <ThemedImage
   alt="Schedule autodiscovery job"
   sources={{
-    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/add-new-job-light.png'),
-    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/add-new-job-dark.png'),
+    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-schedule-job-light.png'),
+    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-schedule-job-dark.png'),
   }}
 />
 
-:::note
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large number of jobs from running initially. If you would like to run a job after its initial creation, click the **Run Now** button.
-:::
+Newly created jobs will not run on the first day they are created to prevent an unintentionally large number of jobs from running initially. If you would like to run a job after its initial creation, click the **Run Now** button on the job details page.
+
+<ThemedImage
+  alt="Run Now job details page"
+  sources={{
+    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-run-row-light.png'),
+    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-run-row-dark.png'),
+  }}
+/>
+
+You can also select **Run Now** from the autodiscovery list page.
+
+<ThemedImage
+  alt="Run Now list page"
+  sources={{
+    light: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/setup-dns-autodiscovery/dns-list-page-dark.png'),
+  }}
+/>
