@@ -56,7 +56,7 @@ Under the **Hostname to use** option, select a naming order to apply to newly di
 Note that this option does not affect devices that have already been discovered; in this case, the existing record is updated with the discovered MAC address and IP address from the BMC interface, with an interface label of "mgmt". 
 
 Select one of the **Hostname to use** options:
-- **Serial # / Reverse DNS / IP**: If the serial number is found, it is used as the device name. Otherwise, the reverse DNS name is used. If neither the serial number nor reverse DNS name is found, the IP address is used to name the device.
+- **Serial # / Reverse DNS / IP**: If the serial number is found, it is used as the device name. Otherwise, the reverse DNS name is used. If neither the serial number nor the reverse DNS name is found, the IP address is used to name the device.
 - **Discovered Name / Serial # / Reverse DNS / IP**: If the discovered name from IPMI is found, it is used to name the device. If no discovered name is found, the naming order is the same as above.
 - **Reverse DNS / Discovered Name / Serial # / IP**: If the reverse DNS name is found, it is used as the device name. Otherwise, the discovered name is used. If neither the reverse DNS name nor the discovered name is found, the serial number is used to name the device. If neither those names nor the serial number is found, the IP address is  used as the device name.
   
@@ -111,7 +111,7 @@ When creating or editing the job, select **Add another Autodiscovery Schedule** 
 />
 
 
-Newly created jobs will not run on the first day they are created, to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select the **Run Now** button on the job details page that is displayed after a job is saved.
+Newly created jobs will not run on the first day they are created, to prevent an unintentionally large number of jobs from running initially. If you want to run a job after its initial creation, select the **Run Now** button on the job details page that is displayed after a job is saved.
 
 <ThemedImage
   alt="Run Now from the job details page"
