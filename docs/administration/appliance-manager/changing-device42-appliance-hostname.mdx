@@ -3,12 +3,32 @@ title: "Changing Device42 Appliance Hostname"
 sidebar_position: 3
 ---
 
-# Changing Hostname of Device42 Appliance
+You can change the Device42 Appliance hostname from the Appliance Manager or the VM console.
 
-You can now change the hostname of your Device42 appliance through the Appliance manager. To do so, simply log into the appliance manager and choose "Appliance Hostname" under the System settings on the left menu. From there just enter the new name you would like for the host and click save.
+### Change Hostname in the Appliance Manager
 
-![Change appliance name](/assets/images/2016-04-07-Device42-appliance-hostname-01.png)
+[Log in to the Appliance Manager](device42-appliance-manager-login.mdx). 
 
-Upon doing so, you will see a success message at the bottom, and will need to restart the appliance by logging into the console and selecting option 4.
+From the left panel, go to **System > Appliance Hostname**, enter the new hostname you would like to use, and click **Save**. You should see a success message.
 
-![Reboot appliance](/assets/images/2015-12-17-Appliance-Manager-SSL-01.png)
+![Change appliance name](/assets/images/changing-device42-appliance-hostname/appliance-hostname-change.png)
+
+You need to restart the Device42 application. Go to **Application > Restart Application** in the Appliance Manager. 
+
+![Change appliance name](/assets/images/changing-device42-appliance-hostname/restart-application.png)
+
+### Change Hostname in the VM Console
+
+Log in to the VM console. 
+
+- Select **Server Settings** from the main menu. 
+
+    ![Change appliance name](/assets/images/changing-device42-appliance-hostname/console-server-settings.png)
+
+- Enter the new hostname and select **Save**.
+
+    ![Change appliance name](/assets/images/changing-device42-appliance-hostname/console-hostname.png)
+
+- Select **Reboot Server** from the main menu and select **Reboot** to restart the server.
+  
+    ![Change appliance name](/assets/images/changing-device42-appliance-hostname/console-reboot-server.png)
