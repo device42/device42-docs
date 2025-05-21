@@ -17,34 +17,32 @@ Select **Resources > Cloud Databases** from the Device42 menu to display the c
 <ThemedImage
   alt="Cloud Databases menu"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-menu-19.06-dark.png'),
   }}
 />
 
-Device42 displays the cloud databases list page. On this page, you can **Search by resource name** (1), or filter the list by **Cloud Provider** (2) and **Vendor Resource Subtype** (3).
+Device42 displays the cloud databases list page. On this page, you can **Search by resource name** (1), or filter the list by **Cloud Account -> Cloud Vendor** (2) and **Vendor Resource Subtype** (4).
+
+Click **More Filters** (3) to add additional filters to the search.
+
+The cloud databases list page also includes an **Advanced Search** option for constructing more specific searches. Instructions for this option are available on the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page.
 
 <ThemedImage
   alt="Cloud databases list page"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/cloud-databases-list-page-19.06-dark.png'),
   }}
 />
 
-You can also click **+ More** (4) to filter by **Vendor Resource Type**, **Role**, **Instance Size**, **In Service**, **Service Level**, and **Tags**.
-
-:::note
-The cloud databases list page also includes an **Advanced Search** option for constructing more specific searches. Instructions for this option are available on the [Advanced Search Feature](/getstarted/advanced-search-feature.mdx) documentation page.
-:::
-
-Click on the name of a cloud database to see details about that database. You can use the links in the **Database/Schema** panel on the right to view further information about the database and its related resources.
+Click on the name of a cloud database to see details about that database. You can use the links under **Database/Schema** to view further information about the database and its related resources.
 
 <ThemedImage
   alt="View database details"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/view-database-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/view-database-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/view-database-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/view-database-19.06-dark.png'),
   }}
 />
 
@@ -55,20 +53,32 @@ Click **Resource Map** on the top left of the page to see the topography map f
 <ThemedImage
   alt="Resource map"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/resource-map-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/resource-map-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/resource-map-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/resource-map-19.06-dark.png'),
+  }}
+/>
+
+### Application Group Calculation
+
+You can view a visualization of the [Application Group](apps/application-groups/index.mdx) calculation for the cloud database by clicking on the **Application Group Calculation** tab at the top of the page.
+
+<ThemedImage
+  alt="Resource map"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-databases/cloud-calculation-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/cloud-calculation-19.06-dark.png'),
   }}
 />
 
 ## Edit Cloud Databases
 
-Click the **Edit** button at the bottom of the cloud database view page to edit the database information. You can add or edit **Notes** (1) and **Tags** (2) for the database, toggle **Yes** or **No** for **In Service** (3), and select or add a **Service Level** (4) value. You can also add and edit **Custom Field** values.
+Click the **Edit** button on the **Info** page of a cloud database to add or change **Notes** and **Tags** for the database, toggle **Yes** or **No** for **In Service**, and select or add a **Service Level** value. You can also add and edit **Custom Field** values.
 
 <ThemedImage
   alt="Edit cloud database"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/edit-database-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/edit-database-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/edit-database-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/edit-database-19.06-dark.png'),
   }}
 />
 
@@ -76,13 +86,13 @@ Click **Save** to save your changes or **Cancel** to discard them.
 
 ## Delete Cloud Databases
 
-Select one or more databases from the list, select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation** from the **Select an action** dropdown menu, and click the hammer icon to execute the action.
+Select one or more databases on the Cloud Databases list page and from the **Actions** dropdown, select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation**.
 
 <ThemedImage
   alt="Action menu"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/action-menu-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/action-menu-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/action-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/action-menu-19.06-dark.png'),
   }}
 />
 
@@ -91,11 +101,11 @@ Confirm or cancel the deletion when prompted.
 <ThemedImage
   alt="Confirm action"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-databases/delete-confirmation-19.06-dark.png'),
   }}
 />
 
-:::note
+## DOQL Views and API
+
 Additional functionality and enhancements are available directly through our DOQL views and API for quick data extraction and will not initially have UI fields. More information can be found on the [API reference website](https://api.device42.com/#resource_Auto-Discovery).
-:::
