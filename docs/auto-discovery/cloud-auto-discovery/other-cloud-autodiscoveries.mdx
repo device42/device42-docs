@@ -12,7 +12,7 @@ For all cloud discovery jobs, navigate to **Discovery > Cloud** and click the **
 
 Device42 discovery supports the following cloud types, as listed in the **Type** dropdown menu of the **Add Cloud Autodiscovery** form:
 
-* [Alibaba Cloud](#alibaba-cloud-discovery)
+- [Alibaba Cloud](#alibaba-cloud-discovery)
 - Amazon AWS
 - [Arista CloudVision (Preview)](#arista-cloudvision-discovery)
 - [DigitalOcean](#digitalocean-discovery)
@@ -28,8 +28,8 @@ Device42 discovery supports the following cloud types, as listed in the **Type**
 <ThemedImage
   alt="Cloud autodiscovery types"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/cloud-discovery-type-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/cloud-discovery-type-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/cloud-discovery-type-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/cloud-discovery-type-19.06-dark.png'),
   }}
 />
 
@@ -44,34 +44,32 @@ What information does Alibaba Cloud discovery gather? In addition to standard di
 | VMs                            | Devices -> All Devices         | http://ecs-cn-hangzhou.aliyuncs.com         | Type, name, OS, notes, RAM, CPU, serial number       |
 
 
-Select **Alibaba Cloud** from the **Type:** dropdown menu, name your discovery job, and then add your Alibaba credentials, including both your **Access Key Id** (1) and **Access Key Secret** (2).
+Select **Alibaba Cloud** from the **Type** dropdown menu, name your discovery job, and include both your **Access Key Id** and **Access Key Secret**.
+
+Select one or more zones from the **Available Zones** for the discovery.
 
 <ThemedImage
   alt="Add Alibaba cloud credentials"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-1-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-1-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-19.06-dark.png'),
   }}
 />
 
-Select one or more zones from the **Available Zones** for the discovery (3).
-
-Select an option for **Action for Instance not found:** (4).
-
-Select a **Device Name Format** (5).
+Select an option for **Action for Instance not found** and select a **Device Name Format**.
 
 <ThemedImage
   alt="Add Alibaba details"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-2-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-2-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/alibaba-cloud-options-19.06-dark.png'),
   }}
 />
 
 
 Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**. You also have the option to create a regular schedule, determining when the job will run.
 
-Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, you can click **Run Now** to run the job immediately.
+Click **Save** and click **Run Now** to run the job immediately. You can also run the job from the Cloud Autodiscovery list page.
 
 * * *
 
@@ -127,16 +125,16 @@ Save the job and click **Run Now** on the job details view or the Cloud Autodisc
 Name the job, select **DigitalOcean** from the **Type:** dropdown menu, and enter a **Token Key**. Then select any other options you want for the discovery job.
 
 <ThemedImage
-  alt="Add DigitalOcean details"
+  alt="Add Digital Ocean details"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-19.06-dark.png'),
   }}
 />
 
-Optionally, you can set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**. You also have the option to create a regular schedule, determining when the job will run.
+Optionally, you can set the **Service Level** of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**. You also have the option to create a regular schedule, determining when the job will run.
 
-Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
+Click **Save** and then **Run Now** to run the job immediately. Or run the job using the **Run Now** button on the Cloud Autodiscovery list page.
 
 * * *
 
@@ -158,25 +156,25 @@ You will need your API key to access Linode:
 
     ![Linode](/assets/images/2015-10-18-linode-1.png)
 
-From Device42, click **Create** on the Cloud Autodiscovery list page and then select **Linode** from the **Type:** dropdown menu. Enter your Linode API key by clicking the **magnifying glass** icon to create a Device42 secret to add to the field.
+From Device42, click **Create** on the Cloud Autodiscovery list page and then select **Linode** from the **Type** dropdown menu. Enter your Linode API key by clicking the **+** (plus sign) icon to create a new Device42 [Secret](administration/passwords/index.mdx).
 
 <ThemedImage
   alt="Add Linode details"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/linode-autodiscovery-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/linode-autodiscovery-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/linode-autodiscovery-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/linode-autodiscovery-19.06-dark.png'),
   }}
 />
 
 Optionally, you can:
 
-- Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery (1).
-- Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network (2).
-- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance** (3), then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items (4). For example, **Development**, **Deployment**, or **Production**.
+- Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
+- Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
+- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
+- Set the **Service Level** of the job to be applied to the discovered items (4). For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
-Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
+Click **Save** and **Run Now** to run the job immediately. You can also run the job manually at any time by clicking the **Run Now** button on the Cloud Autodiscovery list page.
 
 * * *
 
@@ -212,13 +210,13 @@ Device42 needs your OpenStack **User Name** (`username@UserDomainID:ProjectDomai
 
 ### Create an OpenStack Discovery Job
 
-Select **OpenStack** from the **Type:** dropdown menu, and fill in the **User** name (1), **Password** (2), and **Project name** (3) fields.
+Select **OpenStack** from the **Type** dropdown menu, and fill in the **User** name, **Password**, and **Project name** fields.
 
 <ThemedImage
   alt="Add OpenStack details"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/openstack-job-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/openstack-job-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/openstack-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/openstack-job-19.06-dark.png'),
   }}
 />
 
@@ -227,10 +225,10 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
 - Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this discovery job is run, any devices previously created for this account that aren't found by the latest discovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
+- Set the **Service Level** of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
-Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the job immediately.
+Click **Save** and **Run Now** to run the job immediately. You can also run the job manually at any time by clicking the **Run Now** button on the Cloud Autodiscovery list page.
 
 * * *
 
@@ -244,19 +242,19 @@ Click **Save** to add the job to the list of cloud autodiscovery jobs. From the 
 | Subnets                       | Network --> Subnets       | `https://iaas.<<zone>>.oraclecloud.com`, `https://identity.<<zone>>.oraclecloud.com`| Network, mask, name              |
 
 
-Name the discovery job and select **Oracle Cloud** from the **Type:** dropdown menu. Enter details for the following fields:
+Name the discovery job and select **Oracle Cloud** from the **Type** dropdown menu. Enter details for the following fields:
 
-- **User Id** (1)
-- **Fingerprint** (if applicable) (2)
-- **Key File** (3)
-- **Tenant ID** (4)
-- **Zones** (5)
+- **User Id** 
+- **Fingerprint** (if applicable)
+- **Key File**
+- **Tenant ID**
+- **Zones**
 
 <ThemedImage
   alt="Add Oracle details"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-cloud-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-cloud-19.06-dark.png'),
   }}
 />
 
@@ -265,17 +263,17 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
 - Select a **Remote Collector**.
-- Set the [**Service Level**](index.mdx#cloud-autodiscovery-jobs) of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
+- Set the **Service Level**of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
-You may need to scroll down the page to see some of the additional options.
+Scroll down the page to see some of the additional options.
 
 <ThemedImage
   alt="Oracle additional options"
   sources={{
-    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-2-light.png'),
-    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-2-dark.png'),
+    light: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-cloud-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/oracle-cloud-options-19.06-dark.png'),
   }}
 />
 
-Click **Save** to add the job to the list of cloud autodiscovery jobs. From the Cloud Autodiscovery list page, click **Run Now** to run the Oracle discovery job immediately.
+Click **Save** and **Run Now** to run the Oracle discovery job immediately. You can also run the job manually at any time by clicking the **Run Now** button on the Cloud Autodiscovery list page.
