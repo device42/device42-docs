@@ -17,22 +17,22 @@ For example, click the **Vendor Resource Type** dropdown menu and start typing a
 <ThemedImage
   alt="Cloud Resources list page"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-search-options-19.06-dark.png'),
   }}
 />
 
-You can save your search to apply it later without repeating the search steps. Click the gear icon on the left, name your search (1), and click the green **+ Save As New** button. 
+You can save your search to apply it later without repeating the search steps. Click the **gear icon** on the right, name your search (1), and click the **Save As New** button. 
 
 To change which columns are displayed, click **Table Columns** (2) and select and deselect the columns from the list. 
 
-If you want to keep this list page setup as the default view, select the **User Default** box.
+If you want to keep this list page setup as the default view, select the **System Default** box.
 
 <ThemedImage
-  alt="List page filters"
+  alt="Save list page view"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-filter-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-filter-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-filter-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-resources-filter-19.06-dark.png'),
   }}
 />
 
@@ -51,22 +51,22 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
 
 ### Initiating an AWS Discovery
 
-- Select **Discovery > Cloud** from the main menu and then click **Add Cloud Autodiscovery** at the top right of the Cloud Autodiscovery list page.
+- Select **Discovery > Cloud** from the main menu and then click **Create** at the top right of the Cloud Autodiscovery list page.
 - Enter a **Name** for the job.
-- Select **Cloud Type > Amazon AWS** from the dropdown menu.
+- Select **Type > Amazon AWS** from the dropdown menu.
 
 <ThemedImage
   alt="Create AWS cloud discovery job"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-1-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-1-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-19.06-dark.png'),
   }}
 />
 
 - Select the **Remote Collector** for the job.
-- Add your Amazon **Access Key ID** and **Secret Key** for the account(s) to be discovered:
+- Select **Use Environment Credentials** (see [Setting Up Environment Credentials](#setting-up-environment-credentials-using-ec2-instance-profiles) below), or add your Amazon **Access Key ID** and **Secret Key** for the account(s) to be discovered:
 
- Click the **magnifying glass icon** and **Add Password** in the upper-right corner. Enter your Access Key ID or Secret Key in the field labeled **Password**.  Device42 uses encryption to store the keys.
+ Click the **magnifying glass icon** and **Add Password** in the upper-right corner. Enter your Access Key ID or Secret Key in the field labeled **Password**. Device42 uses encryption to store the keys.
 - Select **Discover Main Account** to discover the main AWS account in addition to any AWS Roles accounts you select.
 - Select the **Available AWS Roles** for the account(s) you want to discover using the arrow to add them to the **Chosen AWS Roles** list.
 
@@ -77,24 +77,23 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
 <ThemedImage
   alt="Choose AWS Regions"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-2-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-2-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-regions-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-regions-19.06-dark.png'),
   }}
 />
-
 
 - You can also select options for adding vendor metadata, choose how to handle instances not found in subsequent discovery vendor, select device name format options, and add tags for discovered devices.
 - Check **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
 - Check **Extended Summary Discovery** to discover the full breadth of resources within your AWS Environment. These resources will be displayed in the Cloud Resources section with a limited dataset. 
-- Optionally, you can set the [_Service Level_](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items.
+- Optionally, you can set the [Service Level](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items.
 - Add object categories, tags, and a customer for discovered devices.
 - Scroll down the page to the **Advanced Features (Show)** tab and select the types of resources you want the job to discover (for example, Route53, S3, EBS, and Databases).
 
 <ThemedImage
   alt="Advanced features to choose AWS resources"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-3-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-3-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/advanced-features-aws-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/advanced-features-aws-19.06-dark.png'),
   }}
 />
 
@@ -237,7 +236,21 @@ Note that some Discovery items require enabling the feature and cannot be discov
 Organizations that use AWS tags can retrieve tags associated
 with each cloud account within AWS. Discovered tags are located under the **Vendor Custom Fields** field. 
 
-![Vendor Custom Fields with AWS tag](/assets/images/cloud-discovery-aws/vendor-custom-fields.png)
+<ThemedImage
+  alt="AWS Lambda settings"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-lambda-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-lambda-19.06-dark.png'),
+  }}
+/>
+
+<ThemedImage
+  alt="AWS tags"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-tags-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-tags-19.06-dark.png'),
+  }}
+/>
 
 * * *
 
@@ -266,8 +279,8 @@ Device42 includes an editor to define or edit the AWS Roles displayed for Amazon
 <ThemedImage
   alt="Choose AWS Roles menu item"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-4-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-4-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-dark.png'),
   }}
 />
 
@@ -277,28 +290,35 @@ Device42 includes an editor to define or edit the AWS Roles displayed for Amazon
 <ThemedImage
   alt="View AWS roles"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-5-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-5-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-dark.png'),
   }}
 />
 
 
-- Click **Add** at the top right to add a new role and click a role **Name** to view or edit that role.
+- Click **Create** at the top right to add a new role.
 
 <ThemedImage
   alt="Add a new AWS role"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-6-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/cloud-discovery-aws-6-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-dark.png'),
   }}
 />
 
-
 - Enter a **Name** for the role.
 - Enter the **AWS Role** label and an optional **AWS Role Description**.
-- In the **Account ID and External ID** section, click **+ Add More**.
-- Add the **Account ID** and **External ID**. Click the eye icon to show or hide the field. - Click the trash can icon to remove the entries.
-- Click **Save** at the top right of the page to save the role.
+- In the **Account ID and External ID** section, click **+ Add New**.
+- Add the **Account ID** and **External ID**. Click the eye icon to show or hide the field. Click the trash can icon to remove the entries.
+- Click **Save** to save the role.
+
+<ThemedImage
+  alt="Add AWS IDs to roles"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-dark.png'),
+  }}
+/>
 
 Device42 adds the new AWS Role to the roles list; it will also appear in the Available AWS Roles list when you create or edit an Amazon AWS cloud autodiscovery job.
 
@@ -357,7 +377,13 @@ You can perform AWS discovery without supplying any form of long-term, programma
 
 When **Use Environment Credentials** is enabled, the discovery job can be saved without selecting an Access Key ID or Secret Key in the job configuration. This is only possible when using an AWS-hosted Main Appliance or Remote Collector for discovery as it relies on internal AWS mechanisms.
 
-![](/assets/images/cloud-discovery-aws/aws-1.png)
+<ThemedImage
+  alt="Use Environment Credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/use-env-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/use-env-credentials-dark.png'),
+  }}
+/>
 
 ### Configuration
 
