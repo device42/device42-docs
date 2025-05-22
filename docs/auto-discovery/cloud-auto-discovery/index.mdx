@@ -13,35 +13,37 @@ Device42 supports autodiscovery of cloud instances, known as virtual devices, on
 
 Device42 discovers cloud virtual machines, databases, and storage as devices. These cloud assets have the same features as any other device in Device42. You can work with the cloud assets to define application components, store passwords, and create custom keys – just as you would for any other physical or virtual device.
 
+Go to the cloud discovery list page under **Discovery > Autodiscovery > Cloud** to create a new cloud autodiscovery job and see your existing jobs. You’ll typically create one job per cloud account. Like other autodiscovery jobs, cloud discovery jobs can be run immediately, or scheduled. 
+
+### Create Cloud Platform Discovery Job
+
 <ThemedImage
   alt="Cloud Discovery menu"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-type-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-type-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-menu-19.06-dark.png'),
   }}
 />
 
-Go to the cloud discovery list page under **Discovery > Cloud** to create a new cloud autodiscovery job and see your existing jobs. You’ll typically create one job per cloud account. Like other autodiscovery jobs, cloud discovery jobs can be run immediately, or scheduled. 
-
-Click the **+ Add Cloud Autodiscovery** button in the top right to create a new job, then select your cloud type:
+Click the **Create** button in the top right to create a new job, then select the platform **Type**:
 
 <ThemedImage
   alt="Choose Cloud Type"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-02-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-02-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-type-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-discovery-type-19.06-dark.png'),
   }}
 />
 
 ## View Cloud Instance Information
 
-Select **Resources > All Devices**, then select **Virtual** from the **Type** filter to display virtual devices.
+Go to **Resources > Compute > All Devices**, then select **Virtual** from the **Type** filter to display the list of virtual devices.
 
 <ThemedImage
-  alt="Filter virtual devices"
+  alt="Filter Virtual devices"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-03-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-03-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/devices-type-filter-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/devices-type-filter-dark.png'),
   }}
 />
 
@@ -50,8 +52,8 @@ Click on a device name to enter the view or edit mode. The **Cloud Instance Info
 <ThemedImage
   alt="View instance info"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-04-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-auto-04-dark.png'),
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-instance-information-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-instance-information-dark.png'),
   }}
 />
 
@@ -66,9 +68,9 @@ Select an option from the dropdown menu, or add a new service-level category usi
 You can also create a new **Object Category for discovered devices** to add another specialized classification. The **Overwrite existing object categories** option gives preference to the discovered object category (if available) over the manually defined object category.
 
 <ThemedImage
-  alt="Service Level option"
+  alt="Additional cloud options"
   sources={{
-    light: useBaseUrl('/assets/images/cloud-auto-discovery/service-level-option-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-auto-discovery/service-level-option-light.png'),
+    light: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-more-options-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-auto-discovery/cloud-more-options-dark.png'),
   }}
 />
