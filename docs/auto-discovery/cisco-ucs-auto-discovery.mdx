@@ -45,7 +45,7 @@ Add your Cisco UCS Manager or ACI Fabric discovery job by entering one or more I
 Schedule your autodiscovery job to run regularly on certain days and at specific times.
 
 <ThemedImage
-  alt="schedule an UCS or ACI discovery job"
+  alt="Schedule a UCS or ACI discovery job"
   sources={{
     light: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-light.png'),
     dark: useBaseUrl('/assets/images/cisco-ucs-auto-discovery/autodiscovery-schedule-dark.png'),
@@ -58,7 +58,7 @@ Schedule your autodiscovery job to run regularly on certain days and at specific
 The following options only exist for UCS and ACI devices.
 :::
 
-- **Hostname to use:** Choose the discovered Name or Serial # hostname format to use for newly discovered devices.  
+- **Hostname to use:** Choose the **Discovered Name** or **Serial #** hostname format to use for newly discovered devices.  
 - **Give precedence to hostname:** Select to force overwrite the existing hostname for devices that already exist using the hostname option.  
 - **VRF Group for discovered devices:** Place discovered devices into the following VRF group.  
 - **Object Category for discovered devices:** Place discovered objects into the chosen category in Device42.  
@@ -66,7 +66,7 @@ The following options only exist for UCS and ACI devices.
 
 ### Device and Chassis Names
 
-If an existing device is not found for the Chassis or the Blade based on the serial number, Device42 will add a new device. The **Name** will be derived from the DN and the serial # of the device.
+If an existing device is not found for the Chassis or the Blade based on the serial number, Device42 will add a new device. The **Name** will be derived from the DN and the serial number of the device.
 
 Check the **Give precedence to hostname** option to use the discovered name for the device instead of its given name.
 
@@ -82,7 +82,7 @@ Check the **Give precedence to hostname** option to use the discovered name for 
 
 Navigate to **Infrastructure > Organization > UCS Service Profiles** to see a list of discovered service profiles. You can view the **Name**, **DN**, **UCSManager**, and **Device** information for each job. 
 
-Search for specific profiles using the search bar on the **Service Profile** page or the main dashboard.
+Search for specific profiles using the search bar on the Service Profile list page or the main dashboard.
 
 <ThemedImage
   alt="Service profile list"
@@ -94,7 +94,7 @@ Search for specific profiles using the search bar on the **Service Profile** pag
 
 ## Run Now or Schedule
 
-Newly created jobs will not run on the first day of their creation to prevent a large number of unintended jobs from running. To run a job after its initial creation, click on the **Run Now** button on the job details page. You can also run the job from the USC/ACI/Load Balancers for Autodiscovery list page/
+Newly created jobs will not run on the first day of their creation to prevent a large number of unintended jobs from running. To run a job after its initial creation, click on the **Run Now** button on the job details page. You can also run the job from the USC/ACI/Load Balancers for Autodiscovery list page.
 
 <ThemedImage
   alt="Run now button"
