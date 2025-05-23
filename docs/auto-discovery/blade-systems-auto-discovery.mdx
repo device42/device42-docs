@@ -17,13 +17,13 @@ Blade server discovery gets the following information:
 
 ## Add a Blade System Autodiscovery Job
 
-Navigate to **Discovery > SNMP > Add SNMP Autodiscovery Job** and click **+ Add Jobs**.
+Navigate to **Discovery > SNMP** and click the **Create** button.
 
 <ThemedImage
   alt="Blade system discovery job example"
   sources={{
-    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/add-snmp-job-light.png'),
-    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/add-snmp-job-dark.png'),
+    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/add-snmp-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/add-snmp-job-19.06-dark.png'),
   }}
 />
 
@@ -33,7 +33,15 @@ Fill in the basic job details:
 2. **Port:** The default is "161".
 3. **Give Precedence to hostname:** to overwrite the existing name, if one exists.
 4. **Strip domain name:** Strip domain suffix from discovered device name.
-5. Scroll down to **Credentials** and select the **SNMP version** (v1, v2c, v3 ) and add the authentication to use.
+5. Scroll down to **Credential(s)**, select the **SNMP version** (v1, v2c, v3 ), and add the authentication details.
+
+<ThemedImage
+  alt="Blade system discovery job example"
+  sources={{
+    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-credentials-light.png'),
+    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-credentials-dark.png'),
+  }}
+/>
 
 ### Blade System Options
 
@@ -42,8 +50,8 @@ Scroll down to the **Enclosure/blade system options** section and click **Show**
 <ThemedImage
   alt="Enclosure/blade system options section"
   sources={{
-    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/blade-system-options-light.png'),
-    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/blade-system-options-dark.png'),
+    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/blade-system-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/blade-system-options-19.06-dark.png'),
   }}
 />
 
@@ -61,30 +69,24 @@ Scroll down to the **Enclosure/blade system options** section and click **Show**
 
 **Save** the blade autodiscovery job.
 
-:::note
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from initially running. If you would like to run a job after its initial creation, select the **Run Now** button next to the job after creation.
-:::
-
-### Schedule the Job
-
-Scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
-
-<ThemedImage
-  alt="Schedule the blade system job"
-  sources={{
-    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/schedule-job-light.png'),
-    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/schedule-job-dark.png'),
-  }}
-/>
-
-### Run Now 
-
-**Save** the blade autodiscovery job to return to the SNMP autodiscovery list page, and click **Run Now**.
+Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from initially running. If you would like to run a job after its initial creation, click the **Run Now** button next on the job details page or SNMP Autodiscovery list page.
 
 <ThemedImage
   alt="Run the blade system job from the list page"
   sources={{
-    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/run-now-button-light.png'),
-    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/run-now-button-dark.png'),
+    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-list-page-run-now-light.png'),
+    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-list-page-run-now-dark.png'),
+  }}
+/>
+
+### Schedule the Job
+
+On the add or edit modes of the SNMP discovery job page, scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
+
+<ThemedImage
+  alt="Schedule the blade system job"
+  sources={{
+    light: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-schedule-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/blade-systems-auto-discovery/snmp-schedule-job-19.06-dark.png'),
   }}
 />
