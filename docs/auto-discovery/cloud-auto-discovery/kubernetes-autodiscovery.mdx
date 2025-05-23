@@ -21,56 +21,48 @@ The following table outlines the components of a Kubernetes environment, the typ
 
 Kubernetes Discovery is available as an option for [Amazon Web Services (AWS)](auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [Google Cloud Platform (GCP)](auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Microsoft Azure (Azure)](auto-discovery/cloud-auto-discovery/azure-autodiscovery.mdx) cloud autodiscovery jobs. 
 
-Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery** to create a new discovery job.
+Navigate to **Discovery > Cloud** and click **Create** to configure a new discovery job.
 
 Scroll down the **Add Cloud Discovery** form and check the **Kubernetes Discovery** option.
+
+Select an option under **Action for Kubernetes Resources not found:** to choose which action Device42 should take when Kubernetes cluster children resources aren't found during the discovery.
+
+Your cloud discovery job will now also include the discovery of Kubernetes resources on the target cloud platform.
 
 <ThemedImage
   alt="Kubernetes discovery option"
   sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-dark.png'),
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/kubernetes-discovery-option-19.06-dark.png'),
   }}
 />
-
-Select an option under **Action for Kubernetes Resources not found:** to choose which action Device42 should take when Kubernetes cluster children resources aren't found during the discovery.
-
-<ThemedImage
-  alt="Kubernetes not found options"
-  sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/not-found-actions-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/not-found-actions-dark.png'),
-  }}
-  style={{ width: '70%' }} 
-/>
-
-Your cloud discovery job will now also include the discovery of Kubernetes resources on the target cloud platform.
 
 ### Standalone Kubernetes Discovery
 
 Select **Standalone Kubernetes** for the cloud autodiscovery **Type**, and fill in the fields that become available:
 
-- Enter a **URL** (1).
-- For **Authentication type**, choose between **Bearer Token** and **Basic Credentials** (2). 
-- Select an option under **Action for Kubernetes Resources not found:** (3).
+- Enter a **URL**.
+- For **Authentication type**, choose between **Bearer Token** and **Basic Credentials**. 
+- Select an option under **Action for Kubernetes Resources not found**.
 
-Optionally, you can choose a **Vendor** and a **VRF Group**. Please note that all vendors and VRF groups are user-defined.
 
 <ThemedImage
   alt="Standalone Kubernetes"
   sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-dark.png'),
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-19.06-dark.png'),
   }}
 />
+
+Optionally, you can choose a **Vendor** and a **VRF Group**. Please note that all vendors and VRF groups are user-defined.
 
 You also have the option to set the **Service Level** for all discovered objects, such as "Development", "Deployment", or "Production". See [Service Level and Object Category Options in the Cloud Platform Autodiscovery documentation](index.mdx#service-level-and-object-category-options) for more information.
 
 <ThemedImage
   alt="Select service level"
   sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/service-level-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/service-level-dark.png'),
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/standalone-kubernetes-options-19.06-dark.png'),
   }}
 />
 
@@ -81,8 +73,8 @@ Discovered Kubernetes resources appear on the **Resources** list page. Navigate 
 <ThemedImage
   alt="Resources list page"
   sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-list-page-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-list-page-dark.png'),
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-kubernetes-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resources-kubernetes-19.06-dark.png'),
   }}
 />
 
@@ -91,8 +83,8 @@ Discovered Kubernetes resources appear on the **Resources** list page. Navigate 
     <ThemedImage
     alt="View resource"
     sources={{
-        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-properties-light.png'),
-        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-properties-dark.png'),
+        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-pods-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-pods-19.06-dark.png'),
     }}
     />
 
@@ -101,20 +93,20 @@ Discovered Kubernetes resources appear on the **Resources** list page. Navigate 
     <ThemedImage
     alt="Resource links"
     sources={{
-        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-links-light.png'),
-        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/resource-links-dark.png'),
+        light: useBaseUrl('/assets/images/kubernetes-autodiscovery/cluster-info-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/cluster-info-19.06-dark.png'),
     }}
     />
 
 
 ### Edit Discovered Kubernetes Resources
 
-Click the **Edit** button on the bottom right to edit resource information. Editing is generally limited to adding or editing **Notes** or **Tags**, or changing the **In Service** status or level.
+Click the **Edit** button on the bottom right to edit resource information. Editing is generally limited to adding or editing **Notes**, **Tags**, the **In Service** status or level, and **Custom Fields** values.
 
 <ThemedImage
   alt="Edit properties"
   sources={{
-    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-light.png'),
-    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-dark.png'),
+    light: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/kubernetes-autodiscovery/edit-resource-fields-19.06-light.png'),
   }}
 />

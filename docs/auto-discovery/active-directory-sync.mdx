@@ -22,33 +22,44 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
 
 1. From the main menu, head to **Tools > Settings > Active Directory Settings**:
    
-    <ThemedImage
-    alt="Active Directory Settings menu location"
-    sources={{
-        light: useBaseUrl('/assets/images/active-directory-sync/config-menu-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-sync/config-menu-dark.png'),
-    }}
-    />
+  <ThemedImage
+  alt="Active Directory Settings menu"
+  sources={{
+      light: useBaseUrl('/assets/images/active-directory-sync/active-directory-menu-light.png'),
+      dark: useBaseUrl('/assets/images/active-directory-sync/active-directory-menu-dark.png'),
+  }}
+  />
 
-2. Click the **+ Add Active Directory / LDAP Settings** button and enter values specific to your Active Directory (or LDAP) domain. Refer to the explanation of the fields below the image. 
-
-    <ThemedImage
-    alt="Active Directory Settings example values"
-    sources={{
-        light: useBaseUrl('/assets/images/active-directory-sync/settings-form-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-sync/settings-form-dark.png'),
-    }}
-    />
+2. Click the **Create** button and enter values specific to your Active Directory (or LDAP) domain. 
 
 **Explanation of the fields**
+
 - **LDAP Type**: Choose either **Active Directory** or **Open LDAP** for Lightweight directory access protocol for non-Microsoft directory servers.
 - **Server**: Enter the AD or LDAP server IP address. Only use FQDN if your DNS can resolve it. Rather enter an IP address if your Device42 server doesn't use AD-Aware DNS servers, as it may not be able to resolve your domain name if it hasn't been configured across all your DNS servers
 - **Backup Server**: Add a secondary AD or LDAP server to use if the primary one isn't available.
+
+  <ThemedImage
+  alt="Active Directory Settings example values"
+  sources={{
+      light: useBaseUrl('/assets/images/active-directory-sync/active-directory-name-light.png'),
+      dark: useBaseUrl('/assets/images/active-directory-sync/active-directory-name-dark.png'),
+  }}
+  />  
+
 - **Port**: Port for auth requests to your LDAP or Active Directory server. Note that **389** is the non-SSL default and **636** is the default SSL port. Ensure you change the port if you decide to enable SSL or run a non-standard port.
 - **Base**: Enter the Base DN that points to your users.
+
+  <ThemedImage
+  alt="Active Directory Settings example values"
+  sources={{
+      light: useBaseUrl('/assets/images/active-directory-sync/active-directory-port-light.png'),
+      dark: useBaseUrl('/assets/images/active-directory-sync/active-directory-port-dark.png'),
+  }}
+  />
+
 - **SSL**: Check this box if you want to query AD or LDAP using SSL. Please change the port to **636** or your configured SSL port if you check this box.
 - **Username/Password**: This is the username a password that will be used for authentication against AD.
-- **Username login Style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. 
+- **Username login style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. 
 
     :::caution
     Changes to this setting only affects users imported after the change. To change the account and login format for all users, delete the existing Device42 accounts, change the login style setting, and then re-sync the accounts from AD.
@@ -56,9 +67,16 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
 
 - **Netbios name**: NetBIOS name is an up-to-15-character representation of your domain name, and may actually be entirely different from the domain name. Visit the [Microsoft Disjoint namespace scenarios](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help) article for help locating domain NetBIOS names.
 
+  <ThemedImage
+  alt="Active Directory Settings example values"
+  sources={{
+      light: useBaseUrl('/assets/images/active-directory-sync/active-directory-username-light.png'),
+      dark: useBaseUrl('/assets/images/active-directory-sync/active-directory-username-dark.png'),
+  }}
+  />
 ## Configure an AD/LDAP User Discovery Job
 
-When you've configured the AD/LDAP settings, create an AD/LDAP sync job. From the main menu, go to **Discovery > AD/LDAP Users** and click **Add AD/LDAP Sync**.
+When you've configured the AD/LDAP settings, create an AD/LDAP sync job. From the main menu, go to **Discovery > AD/LDAP Users** and click **Create**.
 
 ### Choose User Type
 
@@ -67,8 +85,8 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
 <ThemedImage
   alt="User type dropdown"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/user-type-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/user-type-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/user-type-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/user-type-19.06-dark.png'),
   }}
 />
 
@@ -77,8 +95,8 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
     <ThemedImage
     alt="User type attribute options"
     sources={{
-        light: useBaseUrl('/assets/images/active-directory-sync/end-user-attributes-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-sync/end-user-attributes-dark.png'),
+        light: useBaseUrl('/assets/images/active-directory-sync/end-user-attributes-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-sync/end-user-attributes-19.06-dark.png'),
     }}
     />
 
@@ -91,8 +109,8 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
     <ThemedImage
     alt="Administrator options"
     sources={{
-        light: useBaseUrl('/assets/images/active-directory-sync/administrator-options-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-sync/administrator-options-dark.png'),
+        light: useBaseUrl('/assets/images/active-directory-sync/administrator-options-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-sync/administrator-options-19.06-dark.png'),
     }}
     />
   
@@ -103,8 +121,8 @@ Specify a Custom LDAP Filter in the **Custom Filter** field to define which obje
 <ThemedImage
   alt="Custom Filter field"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/custom-filter-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/custom-filter-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/custom-filter-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/custom-filter-19.06-dark.png'),
   }}
 />
 
@@ -133,8 +151,8 @@ Next, choose the settings configuration you created in the [Prerequisites sectio
 <ThemedImage
   alt="Settings and credential fields"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/settings-and-auth-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/settings-and-auth-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/settings-and-auth-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/settings-and-auth-19.06-dark.png'),
   }}
 />
 
@@ -147,8 +165,8 @@ Select from the available **Permission Groups** on the left and use the arrow bu
 <ThemedImage
   alt="Permission Groups for Administrators"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/permission-groups-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/permission-groups-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/permission-groups-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/permission-groups-19.06-dark.png'),
   }}
 />
 
@@ -157,8 +175,8 @@ To create a new Admin group, click the **plus icon**, and in the popup that open
 <ThemedImage
   alt="Create new Admin Groups"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/add-new-admin-group-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/add-new-admin-group-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/add-new-admin-group-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/add-new-admin-group-19.06-dark.png'),
   }}
 />
 
@@ -169,8 +187,8 @@ If you chose **End Users** as the **Type**, you'll have the option to add your D
 <ThemedImage
   alt="Departments for End Users"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/departments-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/departments-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/departments-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/departments-19.06-dark.png'),
   }}
 />
 
@@ -179,8 +197,8 @@ Click the **plus icon** to add a new customer, department, or end user that's no
 <ThemedImage
   alt="Departments for End Users"
   sources={{
-    light: useBaseUrl('/assets/images/active-directory-sync/new-customer-form-light.png'),
-    dark: useBaseUrl('/assets/images/active-directory-sync/new-customer-form-dark.png'),
+    light: useBaseUrl('/assets/images/active-directory-sync/new-customer-form-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-sync/new-customer-form-19.06-dark.png'),
   }}
 />
 

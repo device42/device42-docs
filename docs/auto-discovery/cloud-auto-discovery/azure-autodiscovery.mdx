@@ -5,6 +5,7 @@ sidebar_position: 3
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import azureTagsImg from '/assets/images/azure-autodiscovery/azure-tags.png'
 
 Device42 provides insights into your Azure resources and services by using an application service principal in accordance with [Microsoft’s security recommendations](https://learn.microsoft.com/en-us/azure/active-directory/develop/secure-least-privileged-access).
 
@@ -166,8 +167,8 @@ You can set the **Service Level** of the job to be applied to the discovered ite
 <ThemedImage
   alt="Add Azure credentials"
   sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/add-azure-secret-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/add-azure-secret-dark.png'),
+    light: useBaseUrl('/assets/images/azure-autodiscovery/add-azure-secret-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/add-azure-secret-19.06-dark.png'),
   }}
 />
 
@@ -184,42 +185,24 @@ You can set the **Service Level** of the job to be applied to the discovered ite
 <ThemedImage
   alt="Device Name Format"
   sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/device-name-format-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/device-name-format-dark.png'),
-  }}
-/>
-
-- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
-
-<ThemedImage
-  alt="Kubernetes Discovery"
-  sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/k8s-discovery-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/k8s-discovery-dark.png'),
+    light: useBaseUrl('/assets/images/azure-autodiscovery/device-name-format-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/device-name-format-19.06-dark.png'),
   }}
   style={{ width: '90%' }} 
 />
 
-<ThemedImage
-  alt="Kubernetes Discovery not found"
-  sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/k8s-not-found-action-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/k8s-not-found-action-dark.png'),
-  }}
-  style={{ width: '70%' }} 
-/>
-
-- Check **Extended Summary Discovery** to discover all resources within your Azure environments. Summary Discovery will bring in all resources, with abbreviated detail.
+- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform. Choose an **Action for Kubernetes Resources not found**.
 
 <ThemedImage
-  alt="Extended Summary Discovery"
+  alt="Kubernetes Discovery"
   sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/extended-summary-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/extended-summary-dark.png'),
+    light: useBaseUrl('/assets/images/azure-autodiscovery/k8s-discovery-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/k8s-discovery-19.06-dark.png'),
   }}
-  style={{ width: '60%' }} 
+  style={{ width: '90%' }} 
 />
 
+- Check **Extended Summary Discovery (Preview)** to discover all resources within your Azure environments. Summary discovery will bring in all resources, with abbreviated detail.
 - Check **Add tags as custom fields** to add discovered tags to Device42 custom fields.
 - Check **Strip domain name** to have Device42 strip the discovered domain suffix (everything after the first period) from the device instance name.
 - Choose a category for discovered devices (note that categories are user-defined).
@@ -229,12 +212,12 @@ The **Advanced Features** section enables the discovery of database and function
 <ThemedImage
   alt="Advanced Features section"
   sources={{
-    light: useBaseUrl('/assets/images/azure-autodiscovery/advanced-features-light.png'),
-    dark: useBaseUrl('/assets/images/azure-autodiscovery/advanced-features-dark.png'),
+    light: useBaseUrl('/assets/images/azure-autodiscovery/advanced-features-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/advanced-features-19.06-dark.png'),
   }}
 />
 
-Next, click **Save and Continue**. Then, you can **Run** the job immediately, or you can save it and have it run on a regular schedule.
+Next, click **Save**. You can click **Run Now** to run the job immediately, and have it run on a regular schedule.
 
 * * *
 
@@ -242,7 +225,13 @@ Next, click **Save and Continue**. Then, you can **Run** the job immediately, or
 
 Instances of Azure Database for PostgreSQL flexible servers are discoverable.
 
-![Azure ProsgresSQL chart](/assets/images/azure-autodiscovery/postgresql-flex-server.png)
+<ThemedImage
+  alt="Azure Postgresql flex server"
+  sources={{
+    light: useBaseUrl('/assets/images/azure-autodiscovery/azure-postgresql-flex-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/azure-postgresql-flex-19.06-dark.png'),
+  }}
+/>
 
 ### Detailed Discovery Items
 
@@ -279,7 +268,15 @@ In the Device42 Appliance Manager, go to **Global Settings > SAML 2.0 Settings**
 
 ## Virtual Device with Azure Discovery
 
-![](/assets/images/image_19_Cloud_Disc_Azure_ViewVirtualDevice.png)
+To locate virtual devices, navigate to **Resources > All Devices** and use the **Type** dropdown to filter the list by **virtual**. You can view **Cloud Instance Information** on the virtual device details view. 
+
+<ThemedImage
+  alt="cloud i"
+  sources={{
+    light: useBaseUrl('/assets/images/azure-autodiscovery/virtual-device-azure-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/virtual-device-azure-dark.png'),
+  }}
+/>
 
 ## Azure Cloud Account Tags
 
@@ -287,4 +284,12 @@ Select your Azure cloud account from the list page under **Infrastructure > Clou
 
 If available, the discovered account-level tags will be listed under the **Vendor Custom Fields** section.
 
-![Azure cloud account tags](/assets/images/azure-cloud-account-tags.png)
+<ThemedImage
+  alt="Vendor Custom Fields"
+  sources={{
+    light: useBaseUrl('/assets/images/azure-autodiscovery/azure-vendor-custom-fields-light.png'),
+    dark: useBaseUrl('/assets/images/azure-autodiscovery/azure-vendor-custom-fields-dark.png'),
+  }}
+/>
+
+<img src={azureTagsImg} style={{ width: "70%" }}/>

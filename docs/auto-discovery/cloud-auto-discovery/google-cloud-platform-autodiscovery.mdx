@@ -76,8 +76,8 @@ To discover all accessible projects, leave the **Project ID** field blank.
 <ThemedImage
 alt="Add Google Cloud discovery form"
 sources={{
-    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-cloud-autodiscovery-light.png"),
-    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-cloud-autodiscovery-dark.png"),
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-gcp-discovery-19.06-light.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-gcp-discovery-19.06-dark.png"),
   }}
 />
 
@@ -86,15 +86,15 @@ sources={{
 1. Locate and save your [Google Cloud Engine JSON key](https://cloud.google.com/iam/docs/keys-create-delete) to your local machine.
 2. Open the key in a text editor and copy its contents:
   ![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
-3. Paste the copied JSON in its entirety into the **Credentials JSON** field:
+3. Paste the copied JSON in its entirety into the **Password** field:
   
-    <ThemedImage
-    alt="Add JSON as new Secret"
-    sources={{
-        light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-light.png"),
-        dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-dark.png"),
-      }}
-    />
+  <ThemedImage
+  alt="Add JSON as new Secret"
+  sources={{
+      light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-19.06-light.png"),
+      dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/add-json-key-19.06-dark.png"),
+    }}
+  />
 
 ### Determine Configuration Options
 
@@ -105,10 +105,9 @@ The following configuration options are available for GCP:
 <ThemedImage
 alt="Kubernetes Discovery option"
 sources={{
-    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-light.png"),
-    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-dark.png"),
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-19.06-light-2.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/kubernetes-discovery-option-19.06-dark-2.png"),
   }}
-  style={{ width: '70%' }}
 />
 
 - Select **Strip Domain Name** to remove the domain name (everything after the first period) from the discovered name.
@@ -122,4 +121,10 @@ Navigate to **Infrastructure > Cloud Infrastructure > Cloud Accounts** and selec
 
 The available discovered account-level tags will be listed under the **Vendor Custom Fields** section.
 
-![GCP cloud account tags](/assets/images/GCP-tags.png)
+<ThemedImage
+alt="GCP vendor custom fields"
+sources={{
+    light: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/gcp-tags-19.06-light.png"),
+    dark: useBaseUrl("/assets/images/google-cloud-platform-autodiscovery/gcp-tags-19.06-dark.png"),
+  }}
+/>

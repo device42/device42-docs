@@ -30,25 +30,25 @@ Your Automox username and password are required for Device42 to request a bearer
 
 ## Create an Automox Discovery Job
 
-Navigate to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. 
+Navigate to **Discovery > Cloud** and click **Create**. 
 
 Name the autodiscovery job and under the **Type** dropdown, select **Automox**. 
 
 <ThemedImage
   alt="Add a new Automax job"
   sources={{
-    light: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-light.png'),
-    dark: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-dark.png'),
+    light: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/type-dropdown-19.06-dark.png'),
   }}
 />
 
-Next to **Bearer Token**, click on the **magnifying glass icon** and select or create a Secret with your Automox username and password. 
+Select the **Bearer Token** or click on the **+** (plus sign) icon to create a Secret with your client credentials (bearer token). 
 
 <ThemedImage
   alt="Provide your Automox credentials"
   sources={{
-    light: useBaseUrl('/assets/images/automox-autodiscovery/add-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/automox-autodiscovery/add-credentials-dark.png'),
+    light: useBaseUrl('/assets/images/automox-autodiscovery/automox-bearer-token-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/automox-bearer-token-dark.png'),
   }}
 />
 
@@ -56,15 +56,15 @@ Next to **Bearer Token**, click on the **magnifying glass icon** and select or c
 
 You can optionally select or add a **Service Level** to associate with the discovered Automox Configuration Items. 
 
-Choose an **Object Category for discovered devices**. If you'd like for the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
+Choose an **Object Category for discovered devices**. If you'd like for the Object Category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
 
 Add **Tags for discovered devices** to categorize and later help you filter the discovered devices by your chosen tags.  
 
 <ThemedImage
   alt="Optional autodiscovery job fields"
   sources={{
-    light: useBaseUrl('/assets/images/automox-autodiscovery/options-light.png'),
-    dark: useBaseUrl('/assets/images/automox-autodiscovery/options-dark.png'),
+    light: useBaseUrl('/assets/images/automox-autodiscovery/automox-options-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/automox-options-dark.png'),
   }}
 />
 
@@ -77,19 +77,21 @@ Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
 <ThemedImage
   alt="Schedule the job"
   sources={{
-    light: useBaseUrl('/assets/images/automox-autodiscovery/schedule-light.png'),
-    dark: useBaseUrl('/assets/images/automox-autodiscovery/schedule-dark.png'),
+    light: useBaseUrl('/assets/images/automox-autodiscovery/automox-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/automox-schedule-dark.png'),
   }}
 />
 
 ### Run Now
 
-Run the job immediately by navigating back to the **Cloud Autodiscovery** list page and clicking **Run Now** next to the job. 
+After saving, you can click the **Run Now** button on the job details page that is displayed. 
+
+You can also find the job on the **Cloud Autodiscovery** list page and click **Run Now** under the **Quick Actions** column to run the job at any time. 
 
 <ThemedImage
   alt="Run the Automox job immediately"
   sources={{
-    light: useBaseUrl('/assets/images/automox-autodiscovery/run-now-light.png'),
-    dark: useBaseUrl('/assets/images/automox-autodiscovery/run-now-dark.png'),
+    light: useBaseUrl('/assets/images/automox-autodiscovery/automox-run-now-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/automox-autodiscovery/automox-run-now-19.06-dark.png'),
   }}
 />
