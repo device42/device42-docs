@@ -122,10 +122,10 @@ Save the job and click **Run Now** on the job details view or the Cloud Autodisc
 | Droplets (VMs)                | Devices --> All Devices    | [https://api.digitalocean.com](https://api.digitalocean.com) | Type, name, RAM size, CPU count, HDD Size, Tags, OS, etc. |
 
 
-Name the job, select **DigitalOcean** from the **Type:** dropdown menu, and enter a **Token Key**. Then select any other options you want for the discovery job.
+Name the job, select **DigitalOcean** from the **Type** dropdown menu, and enter a **Token Key**. Then select any other options you want for the discovery job.
 
 <ThemedImage
-  alt="Add Digital Ocean details"
+  alt="Add DigitalOcean details"
   sources={{
     light: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-19.06-light.png'),
     dark: useBaseUrl('/assets/images/other-cloud-autodiscovery/digital-ocean-job-19.06-dark.png'),
@@ -170,8 +170,8 @@ Optionally, you can:
 
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
-- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
-- Set the **Service Level** of the job to be applied to the discovered items (4). For example, **Development**, **Deployment**, or **Production**.
+- Select which **Action for Instance not found** you'd like Device42 to take. If you select **Delete Instance**, then each time this autodiscovery job is run, any devices previously created for this account that aren't found by the latest autodiscovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
+- Set the **Service Level** of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
 Click **Save** and **Run Now** to run the job immediately. You can also run the job manually at any time by clicking the **Run Now** button on the Cloud Autodiscovery list page.
@@ -224,7 +224,7 @@ Optionally, you can:
 
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
-- Select which **Action for Instance not found:** you'd like Device42 to take. If you select **Delete Instance**, then each time this discovery job is run, any devices previously created for this account that aren't found by the latest discovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
+- Select which **Action for Instance not found** you'd like Device42 to take. If you select **Delete Instance**, then each time this discovery job is run, any devices previously created for this account that aren't found by the latest discovery job will be deleted. This ensures that Device42 remains in sync with Linode. Otherwise, you could have Device42 Cloud Instances (cloud devices) that no longer exist in Linode.
 - Set the **Service Level** of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
@@ -263,7 +263,7 @@ Optionally, you can:
 - Add a **Vendor**. Vendors can be user-defined or populated by the EnrichAI feature as part of discovery.
 - Choose a **VRF Group**. All IPs found will be placed in subnets in the chosen VRF group. This is useful if you have duplicate IPs in your internal network.
 - Select a **Remote Collector**.
-- Set the **Service Level**of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
+- Set the **Service Level** of the job to be applied to the discovered items. For example, **Development**, **Deployment**, or **Production**.
 - Create a regular schedule to determine when the job will run.
 
 Scroll down the page to see some of the additional options.
