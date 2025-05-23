@@ -41,7 +41,7 @@ If you want to keep this list page setup as the default view, select the **Syste
 **To create an AWS Autodiscovery job, you will need to:**
 
 1. Prepare your AWS Account. You can use the policy example [shown below](#additional-endpoint-information).
-2. Device42 uses your AWS Access Key and Secret Key to perform discovery, please have these handy.
+2. Device42 uses your AWS Access Key and Secret Key to perform discovery, so please have these handy.
 
 :::note
 Device42 encourages you to follow AWS best practices for managing your IAM credentials, including using strong passwords, regular password rotation, applying the principle of least privilege to users and their passwords, and so on.
@@ -82,7 +82,7 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
   }}
 />
 
-- You can also select options for adding vendor metadata, choose how to handle instances not found in subsequent discovery vendor, select device name format options, and add tags for discovered devices.
+- You can also use **Add vendor metadata as** to specify the format for vendor metadata, choose an **Action for Instance not found** in subsequent discoveries, select **Device Name Format** options, and add **Tags for discovered devices**.
 - Check **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
 - Check **Extended Summary Discovery** to discover the full breadth of resources within your AWS Environment. These resources will be displayed in the Cloud Resources section with a limited dataset. 
 - Optionally, you can set the [Service Level](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items.
@@ -481,10 +481,10 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
 
     If you're configuring Single Account Discovery, then there are no remaining steps to be done. If you've opted instead for Role Assumption using static or dynamic account discovery, then continue following the steps below:
    
-    - Create the discovery policy in each member account to be discovered. Follow Step 2 again but this time use the example discovery policy above.
+    - Create the discovery policy in each member account to be discovered. Follow Step 2 again, but this time, use the example discovery policy above.
     - Create the discovery role in each member account to be discovered.
    
-        Follow Step 3 again but this time select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below. At the add permissions screen, search for and select the discovery policy created in the previous step.
+        Follow Step 3 again, but this time, select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below. At the add permissions screen, search for and select the discovery policy created in the previous step.
 
         *Example Trust Policy*
         ```
@@ -504,5 +504,5 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
        
         Replace `ROOT_ACCOUNT_ID` and `EC2_D42_RC_ROLE` with your own values.
 
-        - `ROOT_ACCOUNT_ID`: This is the root account ID where the role configured in Step 3 resides.
+        - `ROOT_ACCOUNT_ID`: This is the root account ID where the role, which was configured in Step 3, resides.
         - `EC2_D42_RC_ROLE`: This is the name of the role in the root account to establish trust with.
