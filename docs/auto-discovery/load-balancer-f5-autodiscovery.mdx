@@ -20,7 +20,9 @@ To discover load balancer virtual server and pool member devices, add a job unde
 
 ### Prerequisites
 
-For F5 discovery, ensure you have a **local username** with access to the F5 API. The API calls currently appear to require administrative access, and F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
+For F5 discovery, ensure you have a **local username** with access to the F5 API. The API calls work with read-only access and does not require administrative privileges. 
+
+Note that F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
 
 ### Create a Load Balancer Discovery Job
 
