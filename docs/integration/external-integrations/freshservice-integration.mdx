@@ -792,6 +792,47 @@ Set the `enable` attribute to `false` on those `<task>` elements:
   
     ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png)  
 
+### Example 3: How To Ensure Device42 Correctly Updates the Hardware `asset_state`
+
+By default, Device42 does not update the `asset_state` values in Freshservice. The `mapping.xml` file includes a `skip-update="true"` attribute targeting the `asset_state` field to prevent overwriting values that may trigger Freshservice workflow automations.
+
+If you want Device42 to update `asset_state` values (in Device42, the field is called `in_service`), set the `skip-update="true"` attribute to `skip-update="false"`. 
+
+There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
+
+1. On line 493 (for DOQL v2):
+
+    ```xml
+    <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+       target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field> 
+    ```       
+
+2. On line 1302 (also for DOQL v2):
+
+    ```xml
+   <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+       target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field>
+    ```       
+
+3. On line 1878 (for DOQL v1):
+
+    ```xml
+    <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+        target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field>
+    ```
+
 ## Data Types Transferred From Device42 to Freshservice
 
 | D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
