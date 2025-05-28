@@ -794,13 +794,17 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
 ### Example 3: How To Ensure Device42 Correctly Updates the Hardware `asset_state`
 
-By default, Device42 does not update the `asset_state` values in Freshservice. The `mapping.xml` file includes a `skip-update="true"` attribute targeting the `asset_state` field to prevent overwriting values that may trigger Freshservice workflow automations.
+By default, Device42 does not update `asset_state` values in Freshservice (in Device42, the field is called `in_service`).
 
-If you want Device42 to update `asset_state` values (in Device42, the field is called `in_service`), set the `skip-update="true"` attribute to `skip-update="false"`. 
+The mapping file includes `<field>` elements with `asset_state` as the target. The `skip-update` attribute is set to `"true"` to prevent overwriting values that may trigger Freshservice workflow automations. 
 
-There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
+If you want Device42 to update `asset_state` values, set `skip-update` to `"false"`. There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
 
-1. On line 493 (for DOQL v2):
+1. Find the attribute on line 493 (for DOQL v2).
+
+    ![Line 493 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-493.png)
+
+    Change `skip-update` to `"false"`:
 
     ```xml
     <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
@@ -811,7 +815,11 @@ There are three `<field>` elements to update in version 2.0 of the default `mapp
     </field> 
     ```       
 
-2. On line 1302 (also for DOQL v2):
+2. Find the attribute on line 1302 (also for DOQL v2).
+
+    ![Line 1302 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-1302.png)
+
+    Change `skip-update` to `"false"`:
 
     ```xml
    <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
@@ -822,7 +830,11 @@ There are three `<field>` elements to update in version 2.0 of the default `mapp
     </field>
     ```       
 
-3. On line 1878 (for DOQL v1):
+3. Find the attribute on line 1878 (for DOQL v1).
+
+    ![Line 1878 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-1878.png)
+
+    Change `skip-update` to `"false"`:
 
     ```xml
     <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
