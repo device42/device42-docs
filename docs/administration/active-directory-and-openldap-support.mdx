@@ -1,12 +1,10 @@
 ---
-title: "Active Directory and OpenLDAP Support"
+title: "Multi-domain Active Directory and OpenLDAP Support"
 sidebar_position: 1
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-
-## Multi-domain Active Directory and OpenLDAP Support
 
 Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory based logins, as well as AD synchronization.
 
@@ -97,28 +95,6 @@ Test a user account for permission to query the AD.
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-auth-prompt-dark.png'),
     }}
     />
-
-## Manually a Add Single User from Active Directory
-
-To add a single new administrator user manually from Active Directory, navigate to **Tools > Admins & Permissions > Administrators** and click **Create Active Directory Admin**. 
-
-<ThemedImage
-    alt="Create AD Admin option"
-    sources={{
-        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/add-ad-admin-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/add-ad-admin-dark.png'),
-    }}
-/>
-
-You can review the domain found for the user found prior to adding them. The new user will be added according to the currently configured **Username login Style** option you selected when adding the LDAP settings. 
-
-<ThemedImage
-    alt="Add Active Directory user as admin"
-    sources={{
-        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/add-ad-admin-user-light.png'),
-        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/add-ad-admin-user-dark.png'),
-    }}
-/>
 
 ## Configuring an Active Directory User Sync / Discovery Job
 
