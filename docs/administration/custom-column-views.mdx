@@ -3,24 +3,84 @@ title: "Custom Column Views"
 sidebar_position: 6
 ---
 
-### Customs Column Views in Device42
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can set custom column views in Device42, allowing you to chooose which columns you see in most list views. The objects with customizable list view pages include: Application Components, Assets, Blade Devices, Buildings, Certificates, Cluster Devices, Customers, DNS Records, DNS Zones, Departments, Devices, Device Hardware Models, Other Devices, End Users, IP Addresses, IP Nat/Maps, MAC Addresses, Operating Systems, PDUs, Purchases, QR/Barcodes, Racks, Rooms, Services, Service Instances, Service Ports, Service Schedules, Software Components, Software In Use, Software Licensing Models, Subnets, Switch Ports, Telco Circuits, Transfers, Unknown Devices, VLANs, VRF Groups, Vendors, and Virtual Devices.
+## Customs Column Views in Device42
 
-To add a custom column view, click the drop down on the right above the column headers on a list view page and select "Add column list..." ![List view drop down](/assets/images/custom-columns-001.png)
+You can customize the column views of all list pages in Device42 and set the views as defaults for particular users or a global default. You can create and save multiple custom column views for each list page.
 
-In the pop up screen, name the column list, select the object category that you are viewing (ie, choose Device for the Device list page), and then click the "Add another Selected Column" link and choose your columns.
+To add a custom column view, navigate to a list page, for example **Resources > Compute > All Devices**.
 
-![List view drop down](/assets/images/custom-columns-002.png)
+Click the **gear icon** on the far right of the screen - to right of the current view name. The default view is **System Column List**. 
 
-You can reorder the columns as well or delete them. If you would like to make this new list view the default, select the "Make this list the default column list" option.
 
-To choose between column lists, simply use the same drop down from the list view page that you used to create the list view, and choose the column view you would like to see.
+<ThemedImage
+  alt="Gear icon on Devices list page"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-column-views/gear-icon-light.png'),
+    dark: useBaseUrl('/assets/images/custom-column-views/gear-icon-dark.png'),
+  }}
+/>
 
-### Important Custom Column Layout Information
+- In the pop up screen, name the new view (1) and click the **Table Columns** dropdown and select (2) and deselect the columns you want.
 
-Always ensure, when creating custom column layouts that the first column is a text column. By design, the first column on a given pages view contains the hyperlink to the Device or Asset (CI's) details. If, for example, 'Status' or 'In Service' is set as the first column, the small green CheckMarks or Red 'minus' signs become the hyperlink, which can prove very confusing.
+    <ThemedImage
+    alt="Table Columns dropdown"
+    sources={{
+        light: useBaseUrl('/assets/images/custom-column-views/table-columns-light.png'),
+        dark: useBaseUrl('/assets/images/custom-column-views/table-columns-dark.png'),
+    }}
+    />
 
-Always ensure the first column contains text. See this example:
+- You can reorder the columns by clicking and dragging column headings and moving them to a new position. Adjust column widths by dragging the column edges and save the desired column widths to the view by checking the **Custom Column Sizes** checkbox.
 
-![Ensure 1st Column Contains Text](/assets/images/ensure_1st_col_text.png)
+    <ThemedImage
+    alt="Reorder columns"
+    sources={{
+        light: useBaseUrl('/assets/images/custom-column-views/reorder-columns-light.png'),
+        dark: useBaseUrl('/assets/images/custom-column-views/reorder-columns-dark.png'),
+    }}
+    />
+
+- Check the **Custom Filters** checkbox to save the currently configured filters. You can filter the records for this view using the basic dropdown filters and the **Advanced** search feature for more fine-grained control. 
+
+    <ThemedImage
+    alt="Type filter dropdown"
+    sources={{
+        light: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-light.png'),
+        dark: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-dark.png'),
+    }}
+    />
+
+- Clicking the **Advanced** button reveals a text box where you can query for specific field values using conditionals and equality selectors. See the [Advanced Search Feature page](getstarted/advanced-search-feature.mdx) for details.
+
+    <ThemedImage
+    alt="Advanced filter text box"
+    sources={{
+        light: useBaseUrl('/assets/images/custom-column-views/advanced-filter-light.png'),
+        dark: useBaseUrl('/assets/images/custom-column-views/advanced-filter-dark.png'),
+    }}
+    />
+
+- Click the **Save As New** button to return to the list page with the new view applied.
+
+## Customizable List Pages
+
+Customizable column views are available on all list pages, including:
+
+|        |             |       |
+|-------------------------|-------------------------|---------------------------|
+| Application Components  | IP Addresses            | Software In Use           |
+| Assets                  | IP Nat/Maps             | Software Licensing Models |
+| Blade Devices           | MAC Addresses           | Subnets                   |
+| Buildings               | Operating Systems       | Switch Ports              |
+| Certificates            | Other Devices           | Telco Circuits            |
+| Cluster Devices         | PDUs                    | Transfers                 |
+| Customers               | Purchases               | Unknown Devices           |
+| Departments             | QR/Barcodes             | VLANs                     |
+| Device Hardware Models  | Racks                   | VRF Groups                |
+| Devices                 | Rooms                   | Vendors                   |
+| DNS Records             | Service Instances       | Virtual Devices           |
+| DNS Zones               | Service Ports           |                           |
+| End Users               | Service Schedules       |                           |
