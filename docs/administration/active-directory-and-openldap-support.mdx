@@ -6,13 +6,13 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory based logins, as well as AD synchronization.
+Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory-based logins and AD synchronization.
 
-AD settings can be found and configured under **Tools > Settings > Active Directory Settings** and is only accessible to Device42 superusers. Multiple Active Directory settings and up to one OpenLDAP server setting can be configured at a time to properly describe your environment. Each Active Directory setting can also specify multiple domains.
+AD settings can be found and configured under **Tools > Settings > Active Directory Settings** and are only accessible to Device42 superusers. Multiple Active Directory settings and up to one OpenLDAP server setting can be configured at a time to properly describe your environment. Each Active Directory setting can also specify multiple domains.
 
 ## Add New Active Directory or OpenLDAP Settings
 
-From the **Active Directory/LDAP Settings** list page, click **Create**.
+From the Active Directory/LDAP Settings list page, click **Create**.
 
 <ThemedImage
   alt="Active Directory/LDAP Settings list page"
@@ -32,7 +32,7 @@ Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
     }}
 />
 
-- For the **Active Directory** type, choosing the **Domain\Username** username login style reveals the **Get Referral NetBIOS** options, which returns usernames in the format `ReferralNetbios/Username`.
+For the **Active Directory** type, choosing **Domain\Username** as your **Username login Style** reveals the **Get Referral NetBIOS** option, which returns usernames in the format `ReferralNetbios/Username`.
 
     <ThemedImage
     alt="Active Directory/LDAP Settings list page"
@@ -42,7 +42,7 @@ Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
     }}
     />
 
-- If you have selected the **Domain\Username** username login style, then users will be required to enter both the domain and username to log in into Device42
+If you select **Domain\Username** as your **Username login Style**, users will be required to enter both their domain and username to log in to Device42.
 
     <ThemedImage
     alt="AD credentials in login form"
@@ -52,7 +52,7 @@ Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
     }}
     />
 
-For the **Open LDAP** type, you can choose an **OpenLDAP group attribute** to identify group members. The available options are: `memberUid`, `uniqueMember`, `members`, and `member`.
+For the **Open LDAP** type, you can choose an **OpenLDAP group attribute** to identify group members. The available options are **memberUid**, **uniqueMember**, **members**, and **member**.
 
     <ThemedImage
     alt="Active Directory/LDAP Settings list page"
@@ -74,9 +74,9 @@ You can add multiple **AD/LDAP Domains** and mark them as **Default**.
 
 ### Test Connections
 
-Test a user account for permission to query the AD.
+Test a user account for permission to query AD:
 
-- Save your settings to display the settings details page, and under the **ellipsis** (...) menu select **Test Connection**. 
+- Save your settings to display the settings details page, then open the **ellipsis** (...) menu and select **Test Connection**. 
 
     <ThemedImage
     alt="Active Directory/LDAP Settings list page"
@@ -86,7 +86,7 @@ Test a user account for permission to query the AD.
     }}
     />
 
-- You will be prompted for credentials to initiate the test. Leave the credentials blank to use the currently selected username and password.
+- You will be prompted to provide credentials for initiating the test. Leave the credentials blank to use the currently selected username and password.
 
     <ThemedImage
     alt="Test Connections settings prompt"
