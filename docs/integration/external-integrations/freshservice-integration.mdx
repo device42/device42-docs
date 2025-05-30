@@ -796,7 +796,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
 By default, Device42 does not update `asset_state` values in Freshservice (in Device42, the field is called `in_service`).
 
-The mapping file includes `<field>` elements with `asset_state` as the target. The `skip-update` attribute is set to `"true"` to prevent overwriting values that may trigger Freshservice workflow automations. 
+The mapping file includes `<field>` elements with `asset_state` as the target. The `skip-update` attribute is set to `"true"` to prevent the overwriting of values that may trigger Freshservice workflow automations. 
 
 If you want Device42 to update `asset_state` values, set `skip-update` to `"false"`. There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
 
