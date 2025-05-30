@@ -37,11 +37,11 @@ Fill out the settings accordingly for your AD or LDAP server. See the [Active Di
 
 ## Add a User or Group Member List via AD
 
-After you have created Active Directory Settings in Device42, you can use the DN for the group (and a valid login) to get the list of all the members in that group.
+After you have created Active Directory Settings in Device42, you can use the distinguishedName (DN) for the group (and a valid login) to get the list of all the members in that group.
 
 Navigate to **Tools > Admins & Permissions > Administrators**. From this screen, click the **Create Active Directory Admin** button. 
 
-Currently, the sync only works for members in the AD group itself. Group members that require recursive traversal of sub-groups are not synced.
+Currently, the sync only works for members in the AD group itself. Group members that require recursive traversal of subgroups are not synced.
 
 <ThemedImage
   alt="Add AD/LDAP settings"
@@ -51,27 +51,28 @@ Currently, the sync only works for members in the AD group itself. Group members
   }}
 />
 
-You can save group DN properties - it makes it easier to add new users that you add to that AD group. Just choose the saved DN group as described below and add new users.
+You can save group DN properties - it makes it easier to add new users to that AD group. Just choose the saved DN group as described below and add new users.
 
-## Choose Members and Groups (For Permission)
+## Choose Members and Groups (for Permission)
 
 ![Choose members and groups(for permission)](/assets/images/wpid4771-AD-save-dn.png)
 
 The **Users** listed are AD users that were displayed as a result of the choices on the prior screen. Note the **Groups** are not AD groups - they are Device42 Groups.
 
-1. In the **Users** box, select the Users that you want to add as Device42 administrators, and move them to the right side of the Users dialog. 
+1. In the **Users** box, select the users that you want to add as Device42 administrators and move them to the right side of the Users dialog. 
 
 2. Next, in the **Groups** box, select one or more Device42 groups for these users and move them to the right dialog box.
     
-2. Click the **Add above users** button. The selected users will become Device42 administrators and will receive the permissions of the selected groups.
+2. Click the **Add above users** button. The selected users will become Device42 administrators and receive the permissions of the selected groups.
 
 ## Example - Finding your Group DN in Active Directory
 
-The following example demonstrates finding a group in Active directory. The group DN is: 
+The following example demonstrates finding a group in Active Directory. The group DN is: 
 
 ```
 cn=D42ReadOnly,cn=Users,dc=device42,dc=pvt
 ```
+
 In this example, the group name `D42ReadOnly` is in the container named "Users".
 
 ![An example - how to get Group DN in Active Directory](/assets/images/wpid4770-AD-group-DN.png)
