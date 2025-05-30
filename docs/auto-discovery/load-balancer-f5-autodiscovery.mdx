@@ -10,15 +10,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Device42’s load balancer discovery maps out virtual servers, pools, and their relationships to backend devices.
 
-To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer or other cluster devices. Next, run a [Windows/*nix job](auto-discovery/index.mdx#hypervisor--nix--windows-autodiscovery) for Device42 to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
+To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer and other cluster devices. Next, run a [Windows/*nix job](auto-discovery/index.mdx#hypervisor--nix--windows-autodiscovery) to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
 
-Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and Cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
+Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
 
 ## Load Balancer Discovery
 
 ### Prerequisites
 
-For F5 discovery, ensure you have a **local username** with access to the F5 API. The API calls work with read-only access and does not require administrative privileges. 
+For F5 discovery, ensure you have the **username for a local account** with access to the F5 API. The API calls work with read-only access and do not require administrative privileges. 
 
 Note that F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
 
