@@ -16,7 +16,7 @@ Device42 includes several system-defined disabled Auto Clean rules (related to A
 
 Auto Clean rules can target a wide variety of Configuration Items (CIs), from Assets to Users to VLANs, and everything in between. 
 
-The following object types are available to select as Auto Clean rule targets:
+You can select the following object types as Auto Clean rule targets:
 
 - Administrators
 - Assets
@@ -46,7 +46,7 @@ The following object types are available to select as Auto Clean rule targets:
 
 Navigate to the Auto Clean Rules list page under **Tools > Templates & Bulk Operations > Auto Clean Rules**.
 
-Note that the system rule **Shared IPs maintenance** uses a **Number of Days** option instead of the **Modify Search** option
+Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days** option instead of the **Modify Search** option
 
 <ThemedImage
   alt="Auto Clean Rules menu location"
@@ -60,7 +60,7 @@ Note that the system rule **Shared IPs maintenance** uses a **Number of Days**
 
 Navigate to **Tools > Templates & Bulk Operations > Auto Clean Rules** and then click **Create**.
 
-The combination of object types and the search criteria you select for each of the object types define the Auto Clean rule. As you build your search criteria, the **Preview** list shows the objects to which the Auto Clean rule will be applied to.
+The combination of object types and the search criteria you select for those object types defines the Auto Clean rule. As you build your search criteria, the **Preview** list shows the objects that the Auto Clean rule will be applied to.
 
 - Name the rule and click the **pencil icon**. 
 
@@ -82,7 +82,7 @@ The combination of object types and the search criteria you select for each of t
     }}
     />
 
-Build a search criteria for the selected object type using the basic dropdown filters and the advanced search option. 
+Build search criteria for the selected object type using the basic dropdown filters and the advanced search option. 
 
 - For the Devices object type, for example, you could select **physical** under the **Type** dropdown. Click **More Filters** to display more basic dropdown filters to select values from.
 
@@ -94,7 +94,7 @@ Build a search criteria for the selected object type using the basic dropdown fi
     }}
     />
 
-- You can also use the [Advanced Search](getstarted/advanced-search-feature.mdx) feature include search criteria.
+- You can also use the [Advanced Search](getstarted/advanced-search-feature.mdx) feature to include search criteria.
 
     <ThemedImage
     alt="Advanced Search option"
@@ -143,7 +143,7 @@ Select the actions to perform on CIs matching added object types and its criteri
   }}
 />
 
-- **Change device service level to:** Choose a service level to set for the device when the rule is triggered. 
+- **Change device service level to:** Choose a service level that the device will be set to when the rule is triggered. 
 - **Send email to:** Send notification when the rule is triggered. 
 
 <ThemedImage
@@ -154,7 +154,7 @@ Select the actions to perform on CIs matching added object types and its criteri
   }}
 />
 
-- **Webhook AutoClean Endpoints:** Add or delete webhooks to send when the rule is triggered.
+- **Webhook AutoClean Endpoints:** Add or delete webhooks that will be sent when the rule is triggered.
 
 :::info 
 The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
