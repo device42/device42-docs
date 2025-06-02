@@ -150,87 +150,91 @@ Note that some Discovery items require enabling the feature and cannot be discov
 
 **Example IAM Policy** (except for the K8s cluster endpoints, since it is controlled by K8s RBAC)
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "acm:DescribeCertificate",
-        "acm:List*",
-        "apigateway:GET",
-        "autoscaling:Describe*",
-        "cloudfront:ListDistributions",
-        "cloudfront:ListTagsForResource",
-        "cloudsearch:DescribeDomains",
-        "cloudwatch:Describe*",
-        "cloudwatch:GetMetricData",
-        "cloudwatch:GetMetricStatistics",
-        "cloudwatch:ListMetrics",
-        "config:SelectResourceConfig",
-        "dynamodb:DescribeGlobalTable",
-        "dynamodb:DescribeLimits",
-        "dynamodb:DescribeTable",
-        "dynamodb:ListGlobalTables",
-        "dynamodb:ListTables",
-        "ec2:Describe*",
-        "eks:DescribeCluster",
-        "eks:DescribeNodegroup",
-        "eks:DescribeUpdate",
-        "eks:ListClusters",
-        "eks:ListNodegroups",
-        "eks:ListUpdates",
-        "elasticache:Describe*",
-        "elasticfilesystem:DescribeAccessPoints",
-        "elasticfilesystem:DescribeAccountPreferences",
-        "elasticfilesystem:DescribeFileSystems",
-        "elasticfilesystem:DescribeMountTargets",
-        "elasticloadbalancing:Describe*",
-        "iam:ListAccountAliases",
-        "kms:DescribeKey",
-        "kms:ListKeys",
-        "kms:ListResourceTags",
-        "lambda:GetAccountSettings",
-        "lambda:GetFunction",
-        "lambda:GetPolicy",
-        "lambda:List*",
-        "logs:DescribeLogStreams",
-        "logs:GetLogEvents",
-        "organizations:DescribeAccount",
-        "organizations:ListAccountsForParent",
-        "organizations:ListOrganizationalUnitsForParent",
-        "organizations:ListRoots",
-        "organizations:ListTagsForResource",
-        "rds:Describe*",
-        "rds:ListTagsForResource",
-        "redshift:DescribeClusters",
-        "redshift:DescribeReservedNodes",
-        "route53:ListHostedZones",
-        "route53:ListResourceRecordSets",
-        "route53:ListTagsForResource",
-        "route53domains:ListDomains",
-        "s3:GetAccessPointPolicyStatus",
-        "s3:GetBucketAcl",
-        "s3:GetBucketLocation",
-        "s3:GetBucketPolicyStatus",
-        "s3:GetBucketPublicAccessBlock",
-        "s3:GetBucketTagging",
-        "s3:GetEncryptionConfiguration",
-        "s3:ListAccessPoints",
-        "s3:ListAllMyBuckets",
-        "sns:GetTopicAttributes",
-        "sns:ListTagsForResource",
-        "sns:ListTopics",
-        "sqs:GetQueueAttributes",
-        "sqs:ListQueues",
-        "sqs:ListQueueTags"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
+<details>
+  <summary>Click to expand code example</summary>
+
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "acm:DescribeCertificate",
+          "acm:List*",
+          "apigateway:GET",
+          "autoscaling:Describe*",
+          "cloudfront:ListDistributions",
+          "cloudfront:ListTagsForResource",
+          "cloudsearch:DescribeDomains",
+          "cloudwatch:Describe*",
+          "cloudwatch:GetMetricData",
+          "cloudwatch:GetMetricStatistics",
+          "cloudwatch:ListMetrics",
+          "config:SelectResourceConfig",
+          "dynamodb:DescribeGlobalTable",
+          "dynamodb:DescribeLimits",
+          "dynamodb:DescribeTable",
+          "dynamodb:ListGlobalTables",
+          "dynamodb:ListTables",
+          "ec2:Describe*",
+          "eks:DescribeCluster",
+          "eks:DescribeNodegroup",
+          "eks:DescribeUpdate",
+          "eks:ListClusters",
+          "eks:ListNodegroups",
+          "eks:ListUpdates",
+          "elasticache:Describe*",
+          "elasticfilesystem:DescribeAccessPoints",
+          "elasticfilesystem:DescribeAccountPreferences",
+          "elasticfilesystem:DescribeFileSystems",
+          "elasticfilesystem:DescribeMountTargets",
+          "elasticloadbalancing:Describe*",
+          "iam:ListAccountAliases",
+          "kms:DescribeKey",
+          "kms:ListKeys",
+          "kms:ListResourceTags",
+          "lambda:GetAccountSettings",
+          "lambda:GetFunction",
+          "lambda:GetPolicy",
+          "lambda:List*",
+          "logs:DescribeLogStreams",
+          "logs:GetLogEvents",
+          "organizations:DescribeAccount",
+          "organizations:ListAccountsForParent",
+          "organizations:ListOrganizationalUnitsForParent",
+          "organizations:ListRoots",
+          "organizations:ListTagsForResource",
+          "rds:Describe*",
+          "rds:ListTagsForResource",
+          "redshift:DescribeClusters",
+          "redshift:DescribeReservedNodes",
+          "route53:ListHostedZones",
+          "route53:ListResourceRecordSets",
+          "route53:ListTagsForResource",
+          "route53domains:ListDomains",
+          "s3:GetAccessPointPolicyStatus",
+          "s3:GetBucketAcl",
+          "s3:GetBucketLocation",
+          "s3:GetBucketPolicyStatus",
+          "s3:GetBucketPublicAccessBlock",
+          "s3:GetBucketTagging",
+          "s3:GetEncryptionConfiguration",
+          "s3:ListAccessPoints",
+          "s3:ListAllMyBuckets",
+          "sns:GetTopicAttributes",
+          "sns:ListTagsForResource",
+          "sns:ListTopics",
+          "sqs:GetQueueAttributes",
+          "sqs:ListQueues",
+          "sqs:ListQueueTags"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  ```
+</details>
 
 ### AWS Tags
 
@@ -373,22 +377,26 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
 
         *Example IAM Policy*
 
-        ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "sts:assumerole"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
-                }
-            ]
-        }
-        ```
+        <details>
+          <summary>Click to expand code example</summary>
+
+          ```
+          {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Action": [
+                          "sts:assumerole"
+                      ],
+                      "Resource": [
+                          "*"
+                      ]
+                  }
+              ]
+          }
+          ```
+        </details>
 
       - Option 3: Role Assumption Using Dynamic Account Discovery
           
@@ -400,23 +408,27 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
 
           *Example IAM Policy*
 
-          ```
-          {
-              "Version": "2012-10-17",
-              "Statement": [
-                  {
-                      "Effect": "Allow",
-                      "Action": [
-                          "sts:assumerole",
-                          "organizations:listaccounts"
-                      ],
-                      "Resource": [
-                          "*"
-                      ]
-                  }
-              ]
-          }
-          ```
+          <details>
+            <summary>Click to expand code example</summary>
+
+            ```
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Action": [
+                            "sts:assumerole",
+                            "organizations:listaccounts"
+                        ],
+                        "Resource": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+            ```
+          </details>
 
     When you've confirmed you have the appropriate permission set selected, click **Next**, give the policy a name and description, and click **Create Policy**.
 
@@ -428,24 +440,28 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
         If you want to do the role preparation via the AWS CLI and not within the AWS Management Console, you can reference the trust policy below:
 
         *Example Trust Policy*
-        ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "sts:AssumeRole"
-                    ],
-                    "Principal": {
-                        "Service": [
-                            "ec2.amazonaws.com"
-                        ]
-                    }
-                }
-            ]
-        }
-        ```
+        <details>
+          <summary>Click to expand code example</summary>
+
+          ```
+          {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Action": [
+                          "sts:AssumeRole"
+                      ],
+                      "Principal": {
+                          "Service": [
+                              "ec2.amazonaws.com"
+                          ]
+                      }
+                  }
+              ]
+          }
+          ```
+        </details>
 
 4. **Attach the role:**
     - From the EC2 Instances list page, select the EC2 instance created in Step 1. Then click **Actions > Security > Modify IAM role**.
@@ -461,20 +477,24 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
         Follow Step 3 again but this time select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below. At the add permissions screen, search for and select the discovery policy created in the previous step.
 
         *Example Trust Policy*
-        ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "arn:aws:iam::ROOT_ACCOUNT_ID:role/EC2_D42_RC_ROLE"
-                    },
-                    "Action": "sts:AssumeRole"
-                }
-            ]
-        }
-        ```
+        <details>
+          <summary>Click to expand code example</summary>
+
+          ```
+          {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Principal": {
+                          "AWS": "arn:aws:iam::ROOT_ACCOUNT_ID:role/EC2_D42_RC_ROLE"
+                      },
+                      "Action": "sts:AssumeRole"
+                  }
+              ]
+          }
+          ```
+        </details>
        
         Replace `ROOT_ACCOUNT_ID` and `EC2_D42_RC_ROLE` with your own values.
 
