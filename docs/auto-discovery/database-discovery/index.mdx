@@ -72,27 +72,32 @@ Enable database discovery by checking the **Collect database server information*
 <ThemedImage
 alt="MS SQL discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/new-sql-discovery-job-19.06-dark.png'),
 }}
 />
 
-Be sure to fill out both sets of credentials:
+Be sure to fill out both sets of credentials. Two sets of credentials must also be filled out for [regular Windows-based discovery targets](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
 
 - **Database Username / Password(s):** Credentials for authenticating to the Microsoft SQL database itself.
-- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server.
 
-Two sets of credentials must also be filled out for [regular Windows-based discovery targets](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssql-db-credentials-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssql-db-credentials-dark.png'),
+    }}
+    />
 
-You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server. You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
 
-<ThemedImage
-alt="Discovery Credentials order"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/discovery-targets-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/discovery-targets-credentials-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssq-target-credentials-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssq-target-credentials-dark.png'),
+    }}
+    />
 
 Run the autodiscovery job to test it by clicking **Run Now** from the autodiscovery jobs list.
 
@@ -100,7 +105,13 @@ As MSSQL databases are detected, discovery will import a list of all the instanc
 
 You can see the status of the discovery job on the job setup page. Scroll down to the **Job Status** section and look for the bar graphs.
 
-![Example job status](/assets/images/discovery-job-status-trimmed.png)
+    <ThemedImage
+    alt="MS SQL discovery job"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/mssq-job-status-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/mssq-job-status-dark.png'),
+    }}
+    />
 
 ### View Your MSSQL Discovery Job Results
 
@@ -117,26 +128,18 @@ You can see the newly discovered SQL Server instances in the example below. Clic
 <ThemedImage
 alt="Application Components list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/application-components-search-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/application-components-search-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/app-comp-databases-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/app-comp-databases-dark.png'),
 }}
 />
 
 Scroll to the **Application Components** section at the bottom of the page and click the database instance name to view database details.
 
 <ThemedImage
-alt="MSSQL example"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/mssql-example-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/mssql-example-dark.png'),
-}}
-/>
-
-<ThemedImage
 alt="MSSQL example of database instances"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/mssql-db-instances-19.06-dark.png'),
 }}
 />
 
@@ -144,43 +147,49 @@ For a rundown of the database details that discovery provides, jump to the [**Av
 
 ### Another Way To View SQL Database Details
 
-Results are also available by browsing to the discovered Windows server instance's CI; either search for the device from the dashboard, via **Devices > All Devices**, or view your discovery job's results page and jump to the servers from there. You can also go to **Analytics > Discovery Scores** and search for the discovery job. 
+Results are also available by browsing to the discovered Windows server instance's CI; either search for the device from the dashboard, via **Devices > All Devices**, go to **Analytics > Discovery Scores** and search for your discovery job, or navigate to your discovery job results page and access the servers from there. 
 
-Either search for the device from the dashboard, via **Devices > All Devices**, navigate to your discovery job results page and access the servers from there, or go to **Analytics > Discovery Scores** and search for your discovery job. 
+- Click the success number to go to the Discovery Scores page and quickly see the newly discovered items. 
 
-![](/assets/images/click-success-for-discovery-scores.png)
+    <ThemedImage
+    alt="Job status view"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/job-success-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/job-success-dark.png'),
+    }}
+    />
 
-Click any of the **Object** names to view the details of the discovered machine. 
+- Click the links under the **Object** column to view the server details. 
 
-<ThemedImage
-alt="Discovery Scores view"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/discovery-scores-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Discovery Scores view"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-19.06-dark.png'),
+    }}
+    />
 
-From the details view, open the **Services** tab to view a list of services, and click on the MSSQL Server instance in the **Service Detail** list. 
+- From the details view, you can see **Service Instances**, **Software**, **Database Instances**, and other information.
 
-<ThemedImage
-alt="Services tab"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/services-tab-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/services-tab-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Services tab"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/services-tab-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/services-tab-dark.png'),
+    }}
+    />
 
 ### Available SQL Database Instance Information
 
-The page displaying the database details includes lists that contain the following:
+You can click the name of a Database Instance from the Application Component view, or from the Resources list page, to view the following:
 
 - The **Resource Details** of the MSSQL database, including the **SQL Server Start Time** and memory stats.
 
     <ThemedImage
     alt="Resource Details"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/resource-details-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/resource-details-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/resource-details-19.06-light-2.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/resource-details-19.06-dark-2.png'),
     }}
     />
 
@@ -189,18 +198,18 @@ The page displaying the database details includes lists that contain the followi
     <ThemedImage
     alt="Database/Schema"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/database-schema-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/database-schema-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/database-schema-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/database-schema-19.06-dark.png'),
     }}
     />
 
-- The **Database Instance Files**, including the **Creation Date** and **Path** for each resource.
+- The **Database Instance Files**, including the **Size** and **Path** for each resource.
   
     <ThemedImage
     alt="Database Instance Files"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/db-instance-files-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/db-instance-files-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/db-instance-files-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/db-instance-files-19.06-dark.png'),
     }}
     />    
 
@@ -209,8 +218,8 @@ The page displaying the database details includes lists that contain the followi
     <ThemedImage
     alt="Endpoints and Network Details"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/endpoints-network-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/endpoints-network-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/endpoints-network-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/endpoints-network-19.06-dark.png'),
     }}
     />
 
@@ -255,7 +264,7 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 - Windows 64 bit
 - CentOS 7 64 bit
 
-Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all The IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
+Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all the IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
 
 ### Minimum Permissions Requirements for Oracle Discovery
 
@@ -282,8 +291,8 @@ To begin discovering your Oracle databases, navigate to **Discovery > HyperVisor
 <ThemedImage
 alt="Add Oracle DB Discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-job-basics-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-job-basics-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-job-basics-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-job-basics-19.06-dark.png'),
 }}
 />
 
@@ -297,32 +306,32 @@ You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**
 <ThemedImage
 alt="Discovery Target(s) Credential(s) order"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-target-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-target-credentials-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-target-credentials-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-target-credentials-19.06-dark.png'),
 }}
 />
 
-Run your new discovery job to test it. Click **Run Now** for the job on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Oracle databases are detected, discovery will import a list of all the instances, databases, and connection details it finds.
+Run your new discovery job to test it. Click **Run Now** on the job details page or on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Oracle databases are detected, discovery will import a list of all the instances, databases, and connection details it finds.
 
 <ThemedImage
 alt="Run Oracle job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-run-now-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-run-now-19.06-dark.png'),
 }}
 />
 
 ### View Oracle Database Discovery Job Results
 
-When the job finishes, the most direct way to view the results of your database discovery is via the discovered Oracle application components.
+When the job finishes, the most direct way to view the results of your database discovery is via the discovered Oracle Application Components.
 
 On the Device42 main menu, select **Applications > Application Components**. If you don't see your Oracle database instances at the top of the list, you can search for "Oracle" to narrow down the list.
 
 <ThemedImage
 alt="Oracle Application Components"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-app-components-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-app-components-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-app-components-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-app-components-19.06-dark.png'),
 }}
 />
 
@@ -331,8 +340,8 @@ Click on a database name on the **Application Components** list page to view the
 <ThemedImage
 alt="Oracle chart menu"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-chart-options-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-chart-options-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-chart-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-chart-options-19.06-dark.png'),
 }}
 />
 
@@ -341,19 +350,18 @@ Example Oracle database dependency chart:
 <ThemedImage
 alt="Oracle dependency chart example"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-dependency-chart-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-dependency-chart-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-dependency-chart-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-dependency-chart-19.06-dark.png'),
 }}
 />
-
 
 You can scroll down the **View Application Component** page to see a list of the Oracle database **Service Instances**.
 
 <ThemedImage
 alt="Oracle Service Instances"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-service-instances-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-service-instances-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-service-instances-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-service-instances-19.06-dark.png'),
 }}
 />
 
@@ -362,8 +370,8 @@ Scroll further down to see **Software** and **Database Instances** associated wi
 <ThemedImage
 alt="Oracle Software and DB Instances"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-software-and-instances-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-software-and-instances-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-software-and-instances-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-software-and-instances-19.06-dark.png'),
 }}
 />
 
@@ -372,8 +380,8 @@ You can click on a database instance to view more details, including **Container
 <ThemedImage
 alt="Oracle Instance details"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/oracle-db-instance-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/oracle-db-instance-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/oracle-db-instance-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/oracle-db-instance-19.06-dark.png'),
 }}
 />
 
@@ -409,7 +417,7 @@ For discovery to return detailed information about your database instance, you w
 * `pg_database`
 * `pg_tablespace`
 * `pg_stat_activity`
-* `inet_server_addr` (function)
+* `init_server_addr` (function)
 
 ### Set Up Your Postgres SQL Discovery Job
 
@@ -423,8 +431,8 @@ Fill out both sets of credentials:
 <ThemedImage
 alt="New Postgres discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/postgres-job-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/postgres-job-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/postgres-job-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-job-19.06-dark.png'),
 }}
 />
 
@@ -433,18 +441,18 @@ You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**
 <ThemedImage
 alt="Discovery Target(s) Credential(s)"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-discovery-credentials-19.06-dark.png'),
 }}
 />
 
-Run your new discovery job to test it. Click **Run Now** for the job on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Postgres databases are detected, discovery will import a list of all the instances, databases, and connection details it finds.
+Run your new discovery job to test it. Click **Run Now** on the job's details page or on the list page under **Discovery > HyperVisors /\*nix /Windows**. As Postgres databases are detected, discovery will import a list of all the instances, databases, and connection details it finds.
 
 <ThemedImage
 alt="Run Postgres DB discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/postgres-run-now-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/postgres-run-now-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/postgres-run-now-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-run-now-19.06-dark.png'),
 }}
 />
 
@@ -455,18 +463,18 @@ When the job finishes, the most direct way to view the results of your database 
 <ThemedImage
 alt="Postgres DB in Application Components"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/postgres-app-components-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/postgres-app-components-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/postgres-app-components-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-app-components-19.06-dark.png'),
 }}
 />
 
-You can also select **Resources > Databases > On-Prem Databases** to display a list of databases.
+You can also select **Resources > Databases > On-Prem Databases** and search for Postgres databases.
 
 <ThemedImage
 alt="Postgres DB in Application Components"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/postgres-on-prem-19.06-dark.png'),
 }}
 />
 
@@ -542,8 +550,8 @@ You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**
 <ThemedImage
 alt="Nix discovery job"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/nix-job-with-db-19.06-dark.png'),
 }}
 />
 
@@ -551,15 +559,15 @@ sources={{
 
 When the job finishes, you can view the results of your database discovery. Discovered DB2 databases are added to the **On-Prem Databases** list page.
 
-On the Device42 main menu, select **Resources > Databases > On-Prem Databases** to display the page. If you don’t see your DB2 instances, you can search for "DB2" to narrow down the list.
+On the Device42 main menu, select **Resources > Databases > On-Prem Databases** to display the page. You can use the search bar and filters to narrow down the list.
 
 Click on your DB2 instance name under the **Resource Name** column to view more information about the database.
 
 <ThemedImage
 alt="On-prem list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db2-on-prem-list-19.06-dark.png'),
 }}
 />
 
@@ -573,33 +581,33 @@ This database discovery job type is useful when the main detailed database disco
 If you have already discovered cloud databases using cloud autodiscovery jobs when you perform a database connection discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
 :::
 
-- Select **Discovery > Database** from the main menu to display the **Database Discoveries** list page.
+- Select **Discovery > Autodiscovery >Database** from the main menu to display the **Database Discoveries** list page.
 
 <ThemedImage
 alt="Database Discoveries menu"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-dark.png'),
 }}
 />
 
-- Click on a database discovery name to view that job. Click **+ Add** on the top right of the page to add a new database discovery job.
+- Click on a database discovery name to view that job and **Edit** to make changes to it. Click **Create** on the top right of the page to add a new database discovery job.
 
 <ThemedImage
 alt="Database Discoveries list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-dark.png'),
 }}
 />
 
-- Click **Edit** on the bottom right of the page to edit an existing job. Click **+ Add More** to add additional database connection information for the job.
+-  Click **+ Add New** to add Database Connections.
 
 <ThemedImage
 alt="Add DB connection details"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-dark.png'),
 }}
 />
 
@@ -630,19 +638,19 @@ You can view **Discovery Scores** for the database jobs that have been run.
     <ThemedImage
     alt="Database Discovery menu navigation"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-19.06-dark.png'),
     }}
     />
     <br/><br/>
 
-- Click on the job you want to view in the **Discovery Target** column. You can use the search bar or the **Select an action** dropdown menu options to find a specific database or narrow down your results.
+- Click on the job you want to view in the **Discovery Target** column. You can use the search bar and filters to find a specific database or narrow down your results.
 
     <ThemedImage
     alt="Discovery Scores page"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-19.06-dark.png'),
     }}
     />
     <br/><br/>
@@ -652,8 +660,8 @@ You can view **Discovery Scores** for the database jobs that have been run.
     <ThemedImage
     alt="Database discovery scores"
     sources={{
-        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-light.png'),
-        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-dark.png'),
+        light: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-19.06-dark.png'),
     }}
     />
     <br/><br/>
@@ -667,8 +675,8 @@ Discovered databases are added to the **On-Prem Databases** list page.
 <ThemedImage
 alt="On-Prem Databases menu location"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/db-on-prem-menu-19.06-dark.png'),
 }}
 />
 
@@ -677,7 +685,7 @@ sources={{
 <ThemedImage
 alt="On-Prem Databases list page"
 sources={{
-    light: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-dark.png'),
+    light: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/database-discovery/on-prem-db-list-pg-19.06-dark.png'),
 }}
 />

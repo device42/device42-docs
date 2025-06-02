@@ -14,13 +14,13 @@ This page is about creating a certificate discovery job. See [Certificates](/inf
 
 ## Add SSL Certificate Discovery Job
 
-Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking the **+ Add Certificate autodiscovery spec** button.
+Create a new certificate autodiscovery job by navigating to **Discovery > Certificates** and clicking the **Create** button.
 
 <ThemedImage
   alt="Certificate autodiscovery specs"
   sources={{
-    light: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-dark.png'),
+    light: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/certificate-discovery-list-19.06-dark.png'),
   }}
 />
 <br/><br/>
@@ -30,23 +30,11 @@ When creating a certificate autodiscovery job, enter an IP address or range of I
 <ThemedImage
   alt="Add new certificate autodiscovery job"
   sources={{
-    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-top-dark.png'),
+    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-servers-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-servers-dark.png'),
   }}
 />
 <br/><br/>
-
-Schedule the certificate autodiscovery job to run at a specific time on selected days by clicking on the **+ Add another Autodiscovery Schedule** button.
-
-<ThemedImage
-  alt="Add new certificate autodiscovery job schedule"
-  sources={{
-    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-bottom-dark.png'),
-  }}
-/>
-
-Newly created jobs will not run on the day they are created to prevent the unintended running of many jobs simultaneously. To run a job after its initial creation, click **Run Now** next to the job.
 
 ### SSL Certificate Cipher Suite Discovery
 
@@ -55,17 +43,30 @@ Device42 can discover SSL cipher suites as part of certificate autodiscovery. If
 <ThemedImage
   alt="Cipher suites option"
   sources={{
-    light: useBaseUrl('/assets/images/certificate-management/cipher-suites-option-light.png'),
-    dark: useBaseUrl('/assets/images/certificate-management/cipher-suites-option-dark.png'),
+    light: useBaseUrl('/assets/images/certificate-management/cipher-suites-option-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/cipher-suites-option-19.06-dark.png'),
   }}
-  style={{ width: '80%' }}
 />
 
 Choosing to discover cipher suites can significantly slow down SSL certificate discovery. To resolve any issues caused by a slow discovery job or speed up your regular scheduled SSL certificate discovery job, uncheck **Find cipher suites supported by server**.
 
+### Schedule or Run Now Options
+
+Schedule the certificate autodiscovery job to run at specific times on selected days by clicking on the **+ Add another Autodiscovery Schedule** button.
+
+<ThemedImage
+  alt="Add new certificate autodiscovery job schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/certificate-management/add-discovery-job-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/certificate-management/add-discovery-job-schedule-light.png'),
+  }}
+/>
+
+Newly created jobs will not run on the day they are created to prevent the unintended running of many jobs simultaneously. To run a job after its initial creation, click **Run Now** on the job details page or on the Certificate autodiscovery specs list page.
+
 Navigate to the certificates list pages under **Applications > Certificates** to inspect the discovered certificates. 
 
-### Multitenancy Warning
+## Multitenancy Warning
 
 Certificate discovery can fail if [multitenancy](/administration/role-based-access-control/role-based-permissions-and-access.mdx) is enabled and the discovery job targets a VRF group whose subnet doesn't exist in Device42.
 
