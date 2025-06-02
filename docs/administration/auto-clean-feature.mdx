@@ -3,87 +3,160 @@ title: "Auto Clean Feature"
 sidebar_position: 4
 ---
 
-## About the AutoClean Feature
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Auto Clean rules help you manage old and possibly stale data in Device42, automatically. Should an object _(e.g. a device or an IP address)_ not be found by a subsequent autodiscovery job, or modified by a manual effort, it may be out of service. This is especially true of servers and other objects in public clouds, but can also apply to objects that are behind the corporate firewall.
+Auto Clean rules help you manage old and possibly stale data in Device42, automatically. Should an object (like a device or an IP address) not be found by a subsequent autodiscovery job, or modified by a manual effort, it may be out of service. This is especially true of servers and other objects in public clouds, but can also apply to objects that are behind the corporate firewall.
 
 The rules for when a particular type of object should be considered and the rules for what to do about such objects vary from organization to organization. This feature enables you to define your own rules and tell Device42 what actions should be taken.
 
 Device42 includes several system-defined disabled Auto Clean rules (related to ADM data) as suggested examples you can use to base your own rules on. You can also enable these example rules to keep your ADM data cleaner.
 
-Select **Tools > Auto Clean Rules** and then click **Add Auto Clean Rule** on the rules list page.
-
-![](/assets/images/AutoClean-menu-item.png)
-
 ## Auto Clean Supported CIs
 
-Auto Clean rules can target a wide variety of CIs _(Configuration Items)_ in Device42, including everything from Assets to users to VLANs, and everything in between. The following images list the objects supported as Auto Clean rule targets. 
+Auto Clean rules can target a wide variety of Configuration Items (CIs), from Assets to Users to VLANs, and everything in between. 
 
-![](/assets/images/AutoClean-object-type-drop-down.png)
+You can select the following object types as Auto Clean rule targets:
 
-The available object types are:
-
-- Administrator
-- Asset
-- Certificate
-- Device
-- Device Certificate
+- Administrators
+- Assets
+- Certificate Instances
+- Certificates
 - Device Hardware Model
-- End User
-- IP Address
+- Devices
+- End Users
+- IP Addresses
 - IP NAT/Map
-- Listener Service Port
-- Operating System
-- Part
-- Port
-- Power Unit
-- Resource
-- Scheduled Task
-- Service Communication
-- Service Instance
-- Software Component
+- Operating Systems
+- Parts
+- Ports
+- Power Units
+- Resources
+- Scheduled Tasks
+- Service Communications
+- Service Instances
+- Service Listener Ports
+- Software Components
 - Software In Use
-- Subnet
-- VLAN
+- Subnets
+- VLANs
 
-## Creating Auto Clean Rules
 
-Each rule specifies a type of object and provides a Modify Search function you use to define the specific objects you want to apply the rule to. The combination of object type and search criteria define the rule. The examples below show building a search for Device objects to apply a rule to.
+## View Auto Clean Rules
 
-![](/assets/images/18.06.00_auto-clean-add-device-search.png)
+Navigate to the Auto Clean Rules list page under **Tools > Templates & Bulk Operations > Auto Clean Rules**.
 
-You can use the basic filters (+ button) to add or remove filters for the search criteria.
+Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days** option instead of the **Modify Search** option
 
-![](/assets/images/18.06.00_auto-clean-add-device-search-2-filters.png)
+<ThemedImage
+  alt="Auto Clean Rules menu location"
+  sources={{
+    light: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-rules-menu-light.png'),
+    dark: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-rules-menu-dark.png'),
+  }}
+/>
 
-You can also use the [Advanced Search](/getstarted/advanced-search-feature.mdx) feature (binocular button) to build a search criteria.
+## Create New Auto Clean Rules
 
-![](/assets/images/18.06.00_auto-clean-add-device-search-3-advanced-search.png)
+Navigate to **Tools > Templates & Bulk Operations > Auto Clean Rules** and then click **Create**.
 
-As you build your search criteria, the Preview list in the search panel shows the objects to which the Auto Clean rule will be applied to. Click _OK_ to apply the search.
+The combination of object types and the search criteria you select for those object types defines the Auto Clean rule. As you build your search criteria, the **Preview** list shows the objects that the Auto Clean rule will be applied to.
 
-![](/assets/images/18.06.00_auto-clean-add-device-search-4-filter-applied.png)
+- Name the rule and click the **pencil icon**. 
 
-(Note that the system rule _Shared IPs maintenance_ uses a Number of Days option instead of the Modify Search option.)
+    <ThemedImage
+    alt="Add Search Criteria icon"
+    sources={{
+        light: useBaseUrl('/assets/images/auto-clean-feature/criteria-icon-light.png'),
+        dark: useBaseUrl('/assets/images/auto-clean-feature/criteria-icon-dark.png'),
+    }}
+    />
 
-## Auto Clean Rule Action Options
+- Select an **Object Type** for the rule to target – for example, **Devices**. 
 
-The available Auto Clean Rule Action options vary depending on which _Object type_ you select for the rule. The example below shows the action options for device objects.
+    <ThemedImage
+    alt="Object Type dropdown"
+    sources={{
+        light: useBaseUrl('/assets/images/auto-clean-feature/object-type-dropdown-light.png'),
+        dark: useBaseUrl('/assets/images/auto-clean-feature/object-type-dropdown-dark.png'),
+    }}
+    />
+
+Build search criteria for the selected object type using the basic dropdown filters and the advanced search option. 
+
+- For the Devices object type, for example, you could select **physical** under the **Type** dropdown. Click **More Filters** to display more basic dropdown filters to select values from.
+
+    <ThemedImage
+    alt="Basic filter options"
+    sources={{
+        light: useBaseUrl('/assets/images/auto-clean-feature/type-filter-light.png'),
+        dark: useBaseUrl('/assets/images/auto-clean-feature/type-filter-dark.png'),
+    }}
+    />
+
+- You can also use the [Advanced Search](getstarted/advanced-search-feature.mdx) feature to include search criteria.
+
+    <ThemedImage
+    alt="Advanced Search option"
+    sources={{
+        light: useBaseUrl('/assets/images/auto-clean-feature/advanced-search-criteria-light.png'),
+        dark: useBaseUrl('/assets/images/auto-clean-feature/advanced-search-criteria-dark.png'),
+    }}
+    />
+
+- Click **Add** to apply the search for the object type. You can click the **pencil icon** again to add another device and define search criteria for it.
+
+    <ThemedImage
+    alt="Added Devices object with Advanced criteria"
+    sources={{
+        light: useBaseUrl('/assets/images/auto-clean-feature/added-devices-criteria-light.png'),
+        dark: useBaseUrl('/assets/images/auto-clean-feature/added-devices-criteria-dark.png'),
+    }}
+    />
+
+### Auto Clean Rule Options
+
+Select the actions to perform on CIs matching added object types and its criteria. The available Auto Clean Rule **Action** options vary depending on which **Object type** you select for the rule. The example below shows the action options for Device objects.
 
 ![](/assets/images/AutoClean-device-action-options.png)
 
-- **Delete the data**: delete the object. 
-- **Archive and delete the data**: create an archive record for the object (_Analytics > Archived Objects_) and delete the object. 
-- **Clear all IPs**: remove IPs from the Device. 
-- **Clear all IPs for this subnet**: clear all device IPs from the entered or selected subnet. 
-- **Clear all Connectivity**: clear all connectivity to the device. 
-- **Change to not in service**: set the device status as not in service. 
-- **Change device service level to**: choose a service level to set for the device when the rule is triggered. 
-- **Send email to**: send notification when the rule is triggered. 
-- **Webhook AutoClean Endpoints**: add or delete webhooks to send when the rule is triggered.
+<ThemedImage
+  alt="Auto Clean Rules Action options for Devices"
+  sources={{
+    light: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-actions-light.png'),
+    dark: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-actions-dark.png'),
+  }}
+/>
+
+- **Delete the data:** Delete the object. 
+- **Archive and delete the data:** Create an archive record for the object and delete the object. You can find archived records under **Analytics > Archived Objects**.
+- **Clear all IPs:** Remove IPs from the Device. 
+- **Clear all IPs for this subnet:** Clear all device IPs from the entered or selected subnet. 
+- **Clear all Connectivity:** Clear all connectivity to the device. 
+- **Change to not in service:** Set the device status as not in service. 
+
+<ThemedImage
+  alt="Auto Clean Rules Action options for Devices"
+  sources={{
+    light: useBaseUrl('/assets/images/auto-clean-feature/service-level-emails-light.png'),
+    dark: useBaseUrl('/assets/images/auto-clean-feature/service-level-emails-dark.png'),
+  }}
+/>
+
+- **Change device service level to:** Choose a service level that the device will be set to when the rule is triggered. 
+- **Send email to:** Send notification when the rule is triggered. 
+
+<ThemedImage
+  alt="Webhook Auto Clean Endpoints box"
+  sources={{
+    light: useBaseUrl('/assets/images/auto-clean-feature/webhook-autoclean-endpoints-light.png'),
+    dark: useBaseUrl('/assets/images/auto-clean-feature/webhook-autoclean-endpoints-dark.png'),
+  }}
+/>
+
+- **Webhook AutoClean Endpoints:** Add or delete webhooks that will be sent when the rule is triggered.
 
 :::info 
 The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
 :::
 
-![](/assets/images/AutoClean-device-webhook-section.png)
