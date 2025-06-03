@@ -28,28 +28,27 @@ Watch the quick [How To Update the Device42 Main Appliance](how-to-videos/update
 
 To update the Main Appliance, you need to download the update file. In some cases, technical support may have emailed you an update URL to use instead of the update file. If you've received an email with an update URL, proceed to the next step: [Back Up Your Data](#back-up-your-data).
 
--  From the Main Appliance, navigate to **Tools > Update** and click the [**Check for latest version** link](https://www.device42.com/update/). 
+-  From the Main Appliance, navigate to **Tools > Settings > Update** and click the [**Check for latest version** link](https://www.device42.com/update/). 
 
     You can visit [https://www.device42.com/update/](https://www.device42.com/update/) directly, but navigating to the link on the **Update Software** page allows you to take note of your current version, which is useful for verifying a successful update later.
 
     <ThemedImage
     alt="Update Software page"
     sources={{
-        light: useBaseUrl('/assets/images/updating-device42/update-software-older-version-light.png'),
-        dark: useBaseUrl('/assets/images/updating-device42/update-software-older-version-dark.png'),
+        light: useBaseUrl('/assets/images/updating-device42/update-software-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/updating-device42/update-software-19.06-dark.png'),
     }}
-    style={{ width: '80%' }}
     />
 
 - Fill in the form on the website and click **Download update**. 
 
-    ![Website form](/assets/images/updating-device42/website-form.png)
+    ![Website form](/assets/images/updating-device42/website-form-19.06.png)
 
 - You'll receive an automated email with several links to download the `.zip.enc` file. If your Main Appliance has already been updated to the latest [major](https://semver.org/) version and you're applying a minor or patch-release update, or if your MA's latest update was to a major version, choose the first link (in bold).
 
-    If your Main Appliance is one or several releases behind the current major version, choose the second or third link, depending on your version, to first update it to the major version. When you've updated to the latest major version, you may need to perform a second update to the current minor or patch-release version afterward.
+    If your Main Appliance is one or several releases behind the current major version, choose the second or third link, depending on your version, to first update it to the major version. When you've updated to the latest major version, you may need to perform a second update to the current minor or patch-release version afterward. 
 
-    ![Email with links](/assets/images/updating-device42/email.png)
+    ![Email with links](/assets/images/updating-device42/email-19.06.png)
 
 ### 2. Back Up Your Data
 
@@ -61,17 +60,19 @@ The default credentials for the Appliance Manager are `d42admin / default`, or f
 
 Navigate to **Backup/Restore > Backup Now** and select the **Main Appliance** checkbox. If you want to include users and settings, select the **Backup Meta Data** option. **Run** the backup.
 
-![Backup settings on the Appliance Manager](/assets/images/updating-device42/backup-appliance.png)
+For an explanation of the backup options, see the [Backup via the Appliance Manager](appliance-manager/setting-up-backup-device42-appliance-manager.mdx) page.
+
+![Backup settings on the Appliance Manager](/assets/images/updating-device42/backup-appliance-19.06.png)
 
 ### 3. Upload the Update File
 
 From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the [`.zip.enc` file](#obtain-the-update-file-or-url) **or** enter the update URL.
 
-![Upload file or enter URL in the Appliance Manager](/assets/images/updating-device42/upload-file.png)
+![Upload file or enter URL in the Appliance Manager](/assets/images/updating-device42/upload-file-19.06.png)
 
 A green status bar indicates the upload progress. 
 
-![Green upload status bar](/assets/images/updating-device42/status-bar.png)
+![Green upload status bar](/assets/images/updating-device42/status-bar-19.06.png)
 
 When the file has been uploaded, log in to the VM console.
 
@@ -98,15 +99,14 @@ Select option **a** in the console to apply the update. It usually takes 15 to 3
 
 ### 6. Verify the Update 
 
-Return to the **Update Software** page of the Main Appliance to confirm that the new version has been applied.
+Return to the **Update Software** page (**Tools > Settings > Update**) of the Main Appliance to confirm that the new version has been applied.
 
 <ThemedImage
 alt="Update settings page"
 sources={{
-    light: useBaseUrl('/assets/images/updating-device42/settings-update-light.png'),
-    dark: useBaseUrl('/assets/images/updating-device42/settings-update-dark.png'),
+    light: useBaseUrl('/assets/images/updating-device42/settings-update-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/updating-device42/settings-update-19.06-dark.png'),
 }}
-style={{ width: '80%' }}
 />
 
 ## Updating the Remote Collectors

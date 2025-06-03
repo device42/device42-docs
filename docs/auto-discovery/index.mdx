@@ -28,6 +28,14 @@ Note that starting with the network is not a requirement, but if IPs are discove
 
 Prevent discovery from attempting communication with specific devices by adding them to the global exclusion list under **Tools > Global Settings**.
 
+<ThemedImage
+  alt="Exclude server(s) box in Global Settings"
+  sources={{
+    light: useBaseUrl('/assets/images/autodiscovery/global-settings-excluded-servers-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/global-settings-excluded-servers-dark.png'),
+  }}
+/>
+
 The exclusion list is automatically copied and displayed on all new jobs to prevent newly created jobs from attempting any discovery action on these IP addresses.  
 
 The list of excluded IPs copied to the job can be seen in the newly created job's **Excluded Server(s)** section.
@@ -35,8 +43,8 @@ The list of excluded IPs copied to the job can be seen in the newly created job'
 <ThemedImage
   alt="Exclude server(s) box in discovery job"
   sources={{
-    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-light.png'),
-    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-dark.png'),
+    light: useBaseUrl('/assets/images/autodiscovery/exclude-servers-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/autodiscovery/exclude-servers-19.06-dark.png'),
   }}
 />
 
@@ -46,15 +54,13 @@ Note that previously created jobs will not be affected or updated with changes t
 
 Clone an autodiscovery job to create a copy of the job with all its settings without manually re-entering all the job details. You can then modify the cloned job for your specific purposes.   
 
-![](/assets/images/WEB-729_ad-page-clone-job-1.png)
-
 1. From a discovery list page, click on a discovery **job name** of the job you want to clone and then click **Edit**.
 
   <ThemedImage
     alt="Edit existing job"
     sources={{
-      light: useBaseUrl('/assets/images/autodiscovery/edit-job-light.png'),
-      dark: useBaseUrl('/assets/images/autodiscovery/edit-job-dark.png'),
+      light: useBaseUrl('/assets/images/autodiscovery/edit-job-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/edit-job-19.06-dark.png'),
     }}
   />
 
@@ -63,8 +69,8 @@ Clone an autodiscovery job to create a copy of the job with all its settings wit
   <ThemedImage
     alt="Clone existing job"
     sources={{
-      light: useBaseUrl('/assets/images/autodiscovery/clone-job-light.png'),
-      dark: useBaseUrl('/assets/images/autodiscovery/clone-job-dark.png'),
+      light: useBaseUrl('/assets/images/autodiscovery/clone-job-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/clone-job-19.06-dark.png'),
     }}
   />
 
@@ -73,8 +79,8 @@ Clone an autodiscovery job to create a copy of the job with all its settings wit
   <ThemedImage
     alt="Name new cloned job"
     sources={{
-      light: useBaseUrl('/assets/images/autodiscovery/name-clone-light.png'),
-      dark: useBaseUrl('/assets/images/autodiscovery/name-clone-dark.png'),
+      light: useBaseUrl('/assets/images/autodiscovery/name-clone-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/name-clone-19.06-dark.png'),
     }}
   />
 
@@ -82,15 +88,41 @@ Clone an autodiscovery job to create a copy of the job with all its settings wit
 
 You can run multiple discovery jobs concurrently. From the autodiscovery job list page, select the jobs you want to run concurrently and then select **Run Selected Jobs** from the **Actions** dropdown. 
 
-![Bulk run confirmation dialog](/assets/images/autodiscovery/bulk-run-confirmation.png)
+  <ThemedImage
+    alt="Run Selected Jobs"
+    sources={{
+      light: useBaseUrl('/assets/images/autodiscovery/run-selected-jobs-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/run-selected-jobs-dark.png'),
+    }}
+  />
 
-- When all the selected jobs are able to run, a success message appears. 
+  <ThemedImage
+    alt="Confirm multiple job run"
+    sources={{
+      light: useBaseUrl('/assets/images/autodiscovery/run-selected-jobs-confirmation-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/run-selected-jobs-confirmation-dark.png'),
+    }}
+  />
 
-  ![Bulk run success toast](/assets/images/autodiscovery/bulk-run-success-toast.png)
+- When all the selected jobs are able to run, a success message appears.
+
+  <ThemedImage
+    alt="Bulk run success message toast"
+    sources={{
+      light: useBaseUrl('/assets/images/autodiscovery/multi-run-success-message-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/multi-run-success-message-dark.png'),
+    }}
+  />
 
 - If the job(s) fail, the error messages are shown in the dialog box. 
 
-  ![Bulk run error toast](/assets/images/autodiscovery/bulk-run-error-toast.png)
+  <ThemedImage
+    alt="Error message toast"
+    sources={{
+      light: useBaseUrl('/assets/images/autodiscovery/multi-run-error-message-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/multi-run-error-message-dark.png'),
+    }}
+  />
 
 ## Agent-Based Discovery
 
@@ -139,8 +171,8 @@ For \*nix scans (via SSH), you can set the scanning timeout when configuring the
   <ThemedImage
     alt="Set *nix timeout"
     sources={{
-      light: useBaseUrl('/assets/images/autodiscovery/timeout-option-light.png'),
-      dark: useBaseUrl('/assets/images/autodiscovery/timeout-option-dark.png'),
+      light: useBaseUrl('/assets/images/autodiscovery/timeout-option-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/autodiscovery/timeout-option-19.06-dark.png'),
     }}
   />
 
