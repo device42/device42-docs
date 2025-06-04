@@ -3,15 +3,15 @@ title: "Business App Operating System EOL / EOS"
 sidebar_position: 5
 ---
 
-Business App Operating System EOL / EOS Impact
+This query also utilizes the Compute DBB to gather information on all BusinessApp Impacting Devices that are using an OS that is going to hit EOL/EOS within the next 90 days.
 
+Use this if you need to analyze many of the changes needed when that EOL/EOS date approaches.
+
+You can easily shift the window or focus on either EOL/EOS by editing the included `WHERE` filter clause.
+
+<details>
+  <summary>Click to expand the code block</summary>
 ```sql
-/*
-* BusinessApp OS EOL/EOS Impacts
-* This query also utilizes the Compute DBB to gather information on all BusinessApp Impacting Devices that are using an OS that is going to hit EOL/EOS within the next 90 days.
-* Use this if you need to analyze mny of the changes needed when that EOL/EOS date approaches.
-* You can easily shift the window or focus on either EOL/EOS by editing the included WHERE filter clause.
-*/
 SELECT
 ba_comp.device_fk               AS eol_device_fk
 ,compute.device_serial          AS eol_device_serial
@@ -39,6 +39,7 @@ compute.os_end_of_life
 ,compute.os_end_of_support
 ,ba_comp.impacted_object;
 ```
+</details>
 
 **NOTES**
 

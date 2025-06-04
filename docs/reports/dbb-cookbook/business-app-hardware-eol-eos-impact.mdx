@@ -3,9 +3,6 @@ title: "Business App Hardware EOL / EOS Impact"
 sidebar_position: 4
 ---
 
-Business App Hardware EOL / EOS Impact
-
-```sql
 /*
 * Business App Hardware EOL/EOS Impacts
 * This query also utilizes the Compute DBB to gather information on all BusinessApp Impacting Devices that are going to hit hardware EOL/EOS. 
@@ -13,6 +10,9 @@ Business App Hardware EOL / EOS Impact
 * You can easily shift the window or focus on either EOL/EOS by editing the included WHERE filter clause. 
 * TIP: Additional information can easily be pulled in from the compute dbb as well. Please review the data dictionary with Device42 to see what information is available.
 */
+
+
+```sql
 SELECT
     ba_comp.device_fk               AS eol_device_fk
     ,compute.device_serial          AS eol_device_serial
