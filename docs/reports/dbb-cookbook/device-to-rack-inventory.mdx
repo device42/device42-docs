@@ -3,8 +3,10 @@ title: "Device to Rack Inventory"
 sidebar_position: 12
 ---
 
-Inventory of Devices arranged by Rack
+Run this query to get an inventory of Devices arranged by Rack and see if you have any missing data.
 
+<details>
+  <summary>Click to expand the code block</summary>
 ```sql
 select
      dc.device_type
@@ -32,7 +34,4 @@ where lower(dc.device_type) = 'physical' and  dc.rack_name is not null
 order by dc.server_location, dc.building_name, dc.room_name,
 dc.storage_room, dc.row_name, dc.rack_name, dc.u_position
 ```
-
-**NOTES**
-
-Gives the ability to manage your assets to see if you have any missing data.
+</details>
