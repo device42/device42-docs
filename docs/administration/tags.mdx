@@ -15,24 +15,25 @@ Navigate to the Tags list page under **Infrastructure > Organization > Tags** to
 <ThemedImage
   alt="Tags list page"
   sources={{
-    light: useBaseUrl('/assets/images/tags/list-page-light.png'),
-    dark: useBaseUrl('/assets/images/tags/list-page-dark.png'),
+    light: useBaseUrl('/assets/images/tags/tags-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/tags/tags-list-page-dark.png'),
   }}
 />
 
 ### Create Tags
 
-Click the **+ Add Tags** button to create a new tag. Tag names can contain spaces. The **Slug** is a unique resource identifier for each tag and is automatically filled in.
+Click the **Create** button on the Tags list page. You can also create tags using the **Tags** field on discovery job configuration pages. 
+
+Tag names can contain spaces. The **Slug** is a unique resource identifier for each tag and is automatically filled in.
 
 You can also create new tags directly from an object or autodiscovery job configuration page, under the **Tags** field.
 
 <ThemedImage
   alt="Add a new tag"
   sources={{
-    light: useBaseUrl('/assets/images/tags/add-tag-light.png'),
-    dark: useBaseUrl('/assets/images/tags/add-tag-dark.png'),
+    light: useBaseUrl('/assets/images/tags/add-tag-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/tags/add-tag-19.06-dark.png'),
   }}
-  style={{ width: '50' }} 
 />
 
 ### View and Edit Tags
@@ -42,21 +43,20 @@ On the Tags list page, you can click on a tag name to view the objects with that
 <ThemedImage
   alt="Add a new tag"
   sources={{
-    light: useBaseUrl('/assets/images/tags/tagged-items-light.png'),
-    dark: useBaseUrl('/assets/images/tags/tagged-items-dark.png'),
+    light: useBaseUrl('/assets/images/tags/tagged-items-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/tags/tagged-items-19.06-dark.png'),
   }}
-  style={{ width: '50' }} 
 />
 
-### Tagging Objects
+## Tagging Objects
 
 Add a tag to a device by filling in the **Tag** field when creating or editing a device. You also specify tags for discovered objects when configuring an autodiscovery job. 
 
 <ThemedImage
   alt="Tagging a device"
   sources={{
-    light: useBaseUrl('/assets/images/tags/tagged-device-light.png'),
-    dark: useBaseUrl('/assets/images/tags/tagged-device-dark.png'),
+    light: useBaseUrl('/assets/images/tags/tagged-device-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/tags/tagged-device-19.06-dark.png'),
   }}
 />
 
@@ -64,28 +64,58 @@ Add a tag to a device by filling in the **Tag** field when creating or editing a
 
 Due to misspellings or duplication, you may end up with multiple similar tags. You can merge them as follows:
 
-From the Tags list page, select two or more tags, choose **Merge selected tags** from the **Select an action** dropdown, and click the **hammer icon** to execute the merge. 
+From the Tags list page, select two or more tags, choose **Merge selected tags** from the **Actions** dropdown.
 
 <ThemedImage
   alt="Merge action"
   sources={{
-    light: useBaseUrl('/assets/images/tags/merge-tags-light.png'),
-    dark: useBaseUrl('/assets/images/tags/merge-tags-dark.png'),
+    light: useBaseUrl('/assets/images/tags/merge-tags-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/tags/merge-tags-19.06-dark.png'),
   }}
 />
 
 ### Remove Unused Tags
 
-You can find and remove tags that are not associated with any objects using the **Tag Object Count** field and filtering for tags with a count of `0`. 
+You can find and remove tags that are not associated with any objects.
 
-![Tag count](/assets/images/tags/tagged-object-count.png)
+There are serveral ways to find tags that aren't associated with any objects: 
 
-The **Tagged Object Count** column is added by default and can be removed from the view by clicking the **gear icon** to customize the default view. 
+- The quickest option is to click the **Tagged Object Count** column heading to sort the list and display tags with a zero count at the top.
 
-You can add a basic **Tagged Object Count** filter to show only tags with a count greater than `0`. Select the tags with a count of `0` and choose **Delete selected tags** from the **Select an action** dropdown.
+  <ThemedImage
+    alt="Tagged object count"
+    sources={{
+      light: useBaseUrl('/assets/images/tags/object-count-light.png'),
+      dark: useBaseUrl('/assets/images/tags/object-count-dark.png'),
+    }}
+  />
 
-  ![Tag count filter](/assets/images/tags/tag-count-filter.png)
-
-You can also use the advanced **Tagged Object Count** filter to find specific filter counts.
+- You can also use the basic **Tagged Object Count #** filter to find tags that are **Equal to** `0`.
   
-  ![Tags query](/assets/images/tags/tags-query.png)
+  <ThemedImage
+    alt="Tagged object count"
+    sources={{
+      light: useBaseUrl('/assets/images/tags/basic-object-count-light.png'),
+      dark: useBaseUrl('/assets/images/tags/basic-object-count-dark.png'),
+    }}
+  />
+
+- Another option is to use the **Advanced** query filter to find tags with a `tagged_object_count` of `0`.
+  
+  <ThemedImage
+    alt="Tagged object count"
+    sources={{
+      light: useBaseUrl('/assets/images/tags/advanced-object-count-light.png'),
+      dark: useBaseUrl('/assets/images/tags/advanced-object-count-dark.png'),
+    }}
+  />
+
+Then, select the tags with a count of `0` and choose **Delete with Detailed Confirmation** or **Fast Background Delete** from the **Action** dropdown.
+
+<ThemedImage
+  alt="Delete tags"
+  sources={{
+    light: useBaseUrl('/assets/images/tags/delete-tags-light.png'),
+    dark: useBaseUrl('/assets/images/tags/delete-tags-dark.png'),
+  }}
+/>
