@@ -3,24 +3,24 @@ title: "Collecting SNMP WALK Output"
 sidebar_position: 4
 ---
 
-You can collect SNMP Walk output for a network device or a PDU right from the GUI, and can send the output to us for further troubleshooting or for adding a specific device into discovery.
+You can collect SNMP walk output for a network device or PDU right from the GUI. Then, you can send the output to us for further troubleshooting or to add a specific device to discovery.
 
-### Collect SNMPWALK output
+### Collect SNMP Walk Output
 
 From the Appliance Manager, go to **Application > Generate SNMP Output**.
 
-Add your target switch or other SNMP target device info, click **Submit**, and please be patient as it might take few minutes. Please send us the file that is generated.
+Add your target switch or other SNMP target device info, click **Submit**, and please be patient as it might take a few minutes. Please send us the file that is generated.
 
 ![Collect SNMP walk Appliance Manager](/assets/images/collecting-snmpwalk-output-for-troubleshooting/generate-snmp-output-options.png)
 
-If there is an issue, the network is not reachable, or if you simply prefer using the terminal, you can alternatively run the following from any machine which has 'snmpwalk' installed:
+If there is an issue, the network is not reachable, or you simply prefer using the terminal, you can alternatively run the following from any machine that has 'snmpwalk' installed:
 
 ```
 snmpbulkwalk -Cc -ObentU -v2c -c COMMUNITY DEVICE > output_file_name
 snmpbulkwalk -ObentU -v 2c -c COMMUNITY DEVICE .1.3.6.1.4.1 >> output_file_name
 ```
 
-Also, the current setup has a bug for v3, so please use following for any system using SNMP v3:
+Also, the current setup has a bug for v3, so please use the following for any system using SNMP v3:
 
 ```
 snmpbulkwalk -Cc -ObentU -v 3 -u user_name -l authNoPriv -a MD5 -A auth_pass DEVICE > output_file_name
