@@ -5,6 +5,8 @@ sidebar_position: 19
 
 Inventory of Virtual Devices.
 
+<details>
+  <summary>Click to expand the code block</summary>
 ```sql
 select
      dc.device_fk
@@ -33,6 +35,7 @@ where lower(dc.device_type) = 'virtual'
      and dc.is_container = 'No'
 order by dc.device_name
 ```
+</details>
 
 **NOTES**
 

@@ -41,31 +41,24 @@ There will also be other blank columns for _iamRole_, _placementGroup_, and othe
 Once the CSV file is prepped, you can then run the Mass Blueprint Setter script.
 
 
-```
 Use `python CE_Update_Blueprints.py -h` to list all available options:
 
-usage: CE_Update_Blueprints.py [-h] -u USER -p PASSWORD -i INPUTFILE
-
-                               [-o OUTPUTFILE]
+<details>
+  <summary>Click to expand the code block</summary>
+```py
+CE_Update_Blueprints.py [-h] -u USER -p PASSWORD -i INPUTFILE [-o OUTPUTFILE]
 
 optional arguments:
-
   -h, --help            show this help message and exit
-
   -u USER, --user USER  User name
-
   -p PASSWORD, --password PASSWORD
-
                         Password
-
   -i INPUTFILE, --inputfile INPUTFILE
-
                         Input CSV file
-
   -o OUTPUTFILE, --outputfile OUTPUTFILE
-
                         Output CSV file for backup before change
 ```
+</details>
 
 When ready to run, supply all of the above parameters. If there are any issues when running the script a .log file will be created in the same directory.
 
@@ -75,4 +68,4 @@ Once completed, all machines in the CSV file that match machines in CloudEndure 
 
 CE API Docs available with Sample Scripts - [https://docs.cloudendure.com/Content/Getting\_Started\_with\_CloudEndure/API/API.htm](https://docs.cloudendure.com/Content/Getting_Started_with_CloudEndure/API/API.htm)
 
-Must download the Mass Blueprint Setter - [https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip](https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip)
+Download the Mass Blueprint Setter - [https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip](https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip)
