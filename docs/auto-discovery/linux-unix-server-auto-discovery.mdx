@@ -232,6 +232,8 @@ You will also be prompted to supply a passphrase (password) for your new private
 
 For example:
 
+<details>
+  <summary>Click to expand the code block</summary>
 ```
 Generating public/private RSA key pair.
 Enter file in which to save the key (/Users/vivek/.ssh/id_rsa): 
@@ -254,6 +256,7 @@ The key's randomart image is:
 |                 |
 +-----------------+
 ```
+</details>
 
 The following two files will be created by the command you just ran:
 
@@ -267,6 +270,7 @@ Use `$ssh-copy-id` to copy the newly generated certificate to your target host(s
 ```bash
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub discovery_user@discoverytarget.device42.com
 ```
+
 This sets up your target hosts for remote SSH-key-based authentication using the same user account you used to run the command. Verify that your SSH key-based login works from a remote terminal and proceed to [Step 2](#step-2-create-a-discovery-job-that-uses-ssh-key-auth) to set up your Linux discovery job.   
 
 **Manual Set Up Option**

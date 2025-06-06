@@ -3,17 +3,14 @@ title: "Business App Dependencies"
 sidebar_position: 2
 ---
 
-Infrastructure that may impact Business Apps.
+This is a simple query to quickly see what infrastructure impacts one or more Business Services.
 
-
-```
-/*
-* Business App Dependencies
-* This is a simple query to quickly see what infrastructure impacts one or more Business Apps.
-*/
+<details>
+  <summary>Click to expand the code block</summary>
+```sql
 SELECT
-    businessapplication_fk
-    ,business_app_name
+    businessservice_fk
+    ,business_service_name
     ,object_name           AS dependent_object_name
     ,related_object_url    AS dependent_object_url
     ,component_type
@@ -28,13 +25,8 @@ SELECT
     ,trends_url
 FROM view_dbb_adm_businessapp_composition_v2
 WHERE 
-    business_app_name IN ('<your-business-app-name-here>')
+    business_service_name IN ('<your-business-service-name-here>')
 ORDER BY
     impacted_object;
 ```
-
-* * *
-
-**NOTES**
-
-This is a simple query to quickly see what infrastructure impacts one or more Business Apps.
+</details>

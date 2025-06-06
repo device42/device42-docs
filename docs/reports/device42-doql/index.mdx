@@ -24,23 +24,31 @@ https://localhost/services/data/v1.0/query/?query=SELECT name, os_name, os_versi
 ```
 
 **Curl example:** 
-```bash
-curl -X POST \
-  -d "query=select name from view_appcomp_v1 where lower(name) like 'microsoft sql%' or lower(name) like 'postgresql%' or lower(name) like 'mongodb%' or lower(name) like 'mysql%' or lower(name) like 'oracle database%' or lower(name) like 'sap%' or lower(name) like 'sybase%' or lower(name) like 'mariadb%'" \
-  -u $(cat apipw) \
-  'https://yourdevice42/services/data/v1.0/query/'
-```
+<details>
+  <summary>Click to expand the code block</summary>
+
+  ```bash
+  curl -X POST \
+    -d "query=select name from view_appcomp_v1 where lower(name) like 'microsoft sql%' or lower(name) like 'postgresql%' or lower(name) like 'mongodb%' or lower(name) like 'mysql%' or lower(name) like 'oracle database%' or lower(name) like 'sap%' or lower(name) like 'sybase%' or lower(name) like 'mariadb%'" \
+    -u $(cat apipw) \
+    'https://yourdevice42/services/data/v1.0/query/'
+  ```
+</details>
 
 ### Query Results in JSON Format
 
 If you'd like your DOQL query results in JSON format, set the `output_type` query parameter to `json`. For example:
 
-```bash
-curl -k -s -X POST \
-  -d 'output_type=json&query=select * from view_device_v1' \
-  -u 'admin:adm!nd42' \
-  'http://server/services/data/v1.0/query/'
-```
+<details>
+  <summary>Click to expand the code block</summary>
+
+  ```bash
+  curl -k -s -X POST \
+    -d 'output_type=json&query=select * from view_device_v1' \
+    -u 'admin:adm!nd42' \
+    'http://server/services/data/v1.0/query/'
+  ```
+</details>
 
 ### DOQL API Query Parameters
 
@@ -170,90 +178,94 @@ The query URL links to the DOQL query API endpoint and returns the results of th
 
 Below is a sample database schema in JSON format:
 
-```json
-[
-  {
-    "columns": [
-      {
-        "column": "appcomp_fk",
-        "description": "Foreign Key to ID for Application Component",
-        "data_type": "integer"
-      },
-      {
-        "column": "Test End User",
-        "description": "Related Field for end users - Log for API - for Application Component",
-        "data_type": "text"
-      }
-    ],
-    "view": "view_appcomp_custom_fields_flat_v1"
-  },
-  {
-    "columns": [
-      {
-        "column": "asset_fk",
-        "description": "Foreign Key to ID for Asset",
-        "data_type": "integer"
-      }
-    ],
-    "view": "view_asset_custom_fields_flat_v1"
-  },
-  {
-    "columns": [
-      {
-        "column": "asset_fk",
-        "description": "Foreign Key to ID for Asset",
-        "data_type": "integer"
-      },
-      {
-        "column": "asset_name",
-        "description": "Name for Asset",
-        "data_type": "character varying"
-      },
-      {
-        "column": "type_id",
-        "description": "Identifier Key for Type for Asset Custom Field",
-        "data_type": "smallint"
-      },
-      {
-        "column": "type",
-        "description": "Type for Asset Custom Field",
-        "data_type": "text"
-      },
-      {
-        "column": "related_model_name",
-        "description": "Name of Related Field for Asset Custom Field",
-        "data_type": "character varying"
-      },
-      {
-        "column": "filterable",
-        "description": "Filterable for Asset Custom Field",
-        "data_type": "boolean"
-      },
-      {
-        "column": "mandatory",
-        "description": "Mandatory for Asset Custom Field",
-        "data_type": "boolean"
-      },
-      {
-        "column": "log_for_api",
-        "description": "Log for API for Asset Custom Field",
-        "data_type": "boolean"
-      },
-      {
-        "column": "key",
-        "description": "Field for Asset Custom Field",
-        "data_type": "character varying"
-      },
-      {
-        "column": "value",
-        "description": "VLAN Custom Field for VLAN",
-        "data_type": "text"
-      }
-    ],
-    "view": "view_asset_custom_fields_v1"
-  }
-]
-```
+<details>
+  <summary>Click to expand the code block</summary>
+
+  ```js
+  [
+    {
+      "columns": [
+        {
+          "column": "appcomp_fk",
+          "description": "Foreign Key to ID for Application Component",
+          "data_type": "integer"
+        },
+        {
+          "column": "Test End User",
+          "description": "Related Field for end users - Log for API - for Application Component",
+          "data_type": "text"
+        }
+      ],
+      "view": "view_appcomp_custom_fields_flat_v1"
+    },
+    {
+      "columns": [
+        {
+          "column": "asset_fk",
+          "description": "Foreign Key to ID for Asset",
+          "data_type": "integer"
+        }
+      ],
+      "view": "view_asset_custom_fields_flat_v1"
+    },
+    {
+      "columns": [
+        {
+          "column": "asset_fk",
+          "description": "Foreign Key to ID for Asset",
+          "data_type": "integer"
+        },
+        {
+          "column": "asset_name",
+          "description": "Name for Asset",
+          "data_type": "character varying"
+        },
+        {
+          "column": "type_id",
+          "description": "Identifier Key for Type for Asset Custom Field",
+          "data_type": "smallint"
+        },
+        {
+          "column": "type",
+          "description": "Type for Asset Custom Field",
+          "data_type": "text"
+        },
+        {
+          "column": "related_model_name",
+          "description": "Name of Related Field for Asset Custom Field",
+          "data_type": "character varying"
+        },
+        {
+          "column": "filterable",
+          "description": "Filterable for Asset Custom Field",
+          "data_type": "boolean"
+        },
+        {
+          "column": "mandatory",
+          "description": "Mandatory for Asset Custom Field",
+          "data_type": "boolean"
+        },
+        {
+          "column": "log_for_api",
+          "description": "Log for API for Asset Custom Field",
+          "data_type": "boolean"
+        },
+        {
+          "column": "key",
+          "description": "Field for Asset Custom Field",
+          "data_type": "character varying"
+        },
+        {
+          "column": "value",
+          "description": "VLAN Custom Field for VLAN",
+          "data_type": "text"
+        }
+      ],
+      "view": "view_asset_custom_fields_v1"
+    }
+  ]
+  ```
+</details>
 
 ## Obtaining DOQL Support
 

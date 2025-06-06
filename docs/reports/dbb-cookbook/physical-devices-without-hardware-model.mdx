@@ -3,8 +3,10 @@ title: "Physical Devices Without Hardware Model"
 sidebar_position: 16
 ---
 
-Lists physical devices missing hardware information.
+Lists physical devices missing hardware information to see if you have any missing data.
 
+<details>
+  <summary>Click to expand the code block</summary>
 ```sql
 select
     dc.device_fk
@@ -28,7 +30,4 @@ from view_dbb_compute_v2 dc
 where lower(dc.device_type)= 'physical' and dc.hardware_model is null
 order by 2
 ```
-
-**NOTES**
-
-Gives the ability to manage your assets to see if you have any missing data.
+</details>
