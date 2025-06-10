@@ -5,68 +5,103 @@ sidebar_position: 18
 
 Density of the Virtualization Farms.
 
+<details>
+  <summary>Click to expand code example</summary>
+
 ```sql
-with
-a as (
-     select
-          h.last_discovered             host_last_discovered
-          ,dcm.device_name              vm_manager_name  
-          ,h.device_name                host_device_name
-          ,h.os_name                    host_os_name
-          ,h.total_cores                host_total_cores
-          ,h.ram_mb                     host_ram_mb
-          ,dcm.cloud_instance_name
-          ,count(1)                     vm_count_allocated
-          ,sum(dc.total_cores)          total_vcores_allocated
-          ,sum(dc.ram_mb)               total_ram_mb_allocated
-          ,sum(case when dc.in_service = true
-                    then 1 else 0
-               end)                     vm_count_in_service
-          ,sum(case when dc.in_service = true
-                    then dc.total_cpus * coalesce(dc.core_per_cpu,1)
-                    else 0
-               end)                     total_vcores_in_service
-          ,sum(case when dc.in_service = true
-                   then dc.ram_mb else 0
-              end)                     total_ram_mb_in_service
-          ,string_agg(dc.device_name,' | ') vms_allocated
-          ,string_agg(case when dc.in_service = true
-                   then dc.device_name else null
-             end, ' | ')    vms_in_service
-from view_dbb_compute_v2 dc
-     inner join view_dbb_compute_v2 h  
-on h.device_fk = dc.virtual_host_device_fk
-     left join view_dbb_compute_v2 dcm      
-on dcm.device_fk = dc.vm_manager_device_fk
-     where dc.device_type = 'virtual'  and dc.network_device  = 'f'
-     group by h.device_name ,h.os_name ,dcm.device_name ,h.total_cores
-               ,h.ram_mb ,h.last_discovered ,dcm.cloud_instance_name
-     )
-select
-     a.*
-     ,round(case when a.host_total_cores =  0
-               then null else 100.0000 * a.total_vcores_allocated
-                     /a.host_total_cores
-               end, 2)                  cores_percent_allocated
-    ,round(case when a.host_ram_mb = 0
-               then null else 100.0000 * a.total_ram_mb_allocated::decimal
-                    /a.host_ram_mb::decimal
-               end, 2)                  ram_percent_allocated
-    ,round(case when a.host_total_cores =  0
-               then null else 100.0000 *  a.total_vcores_in_service
-                    /a.host_total_cores
-              end, 2)                  cores_percent_in_service
-    ,round(case when a.host_ram_mb = 0
-               then null
-               else  100.0000 * a.total_ram_mb_in_service::decimal
-              /a.host_ram_mb::decimal
-              end, 2)                       ram_percent_in_service
-from a
-order by host_device_name,host_os_name,vm_manager_name, vm_count_in_service,  host_last_discovered
+WITH a AS (
+  SELECT
+    h.last_discovered AS host_last_discovered,
+    dcm.device_name AS vm_manager_name,
+    h.device_name AS host_device_name,
+    h.os_name AS host_os_name,
+    h.total_cores AS host_total_cores,
+    h.ram_mb AS host_ram_mb,
+    dcm.cloud_instance_name,
+    COUNT(1) AS vm_count_allocated,
+    SUM(dc.total_cores) AS total_vcores_allocated,
+    SUM(dc.ram_mb) AS total_ram_mb_allocated,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN 1
+        ELSE 0
+      END
+    ) AS vm_count_in_service,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.total_cpus * COALESCE(dc.core_per_cpu, 1)
+        ELSE 0
+      END
+    ) AS total_vcores_in_service,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.ram_mb
+        ELSE 0
+      END
+    ) AS total_ram_mb_in_service,
+    STRING_AGG(dc.device_name, ' | ') AS vms_allocated,
+    STRING_AGG(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.device_name
+        ELSE NULL
+      END,
+      ' | '
+    ) AS vms_in_service
+  FROM view_dbb_compute_v2 dc
+  INNER JOIN view_dbb_compute_v2 h
+    ON h.device_fk = dc.virtual_host_device_fk
+  LEFT JOIN view_dbb_compute_v2 dcm
+    ON dcm.device_fk = dc.vm_manager_device_fk
+  WHERE dc.device_type = 'virtual'
+    AND dc.network_device = 'f'
+  GROUP BY
+    h.device_name,
+    h.os_name,
+    dcm.device_name,
+    h.total_cores,
+    h.ram_mb,
+    h.last_discovered,
+    dcm.cloud_instance_name
+)
+SELECT
+  a.*,
+  ROUND(
+    CASE
+      WHEN a.host_total_cores = 0 THEN NULL
+      ELSE 100.0000 * a.total_vcores_allocated / a.host_total_cores
+    END,
+    2
+  ) AS cores_percent_allocated,
+  ROUND(
+    CASE
+      WHEN a.host_ram_mb = 0 THEN NULL
+      ELSE 100.0000 * a.total_ram_mb_allocated::DECIMAL / a.host_ram_mb::DECIMAL
+    END,
+    2
+  ) AS ram_percent_allocated,
+  ROUND(
+    CASE
+      WHEN a.host_total_cores = 0 THEN NULL
+      ELSE 100.0000 * a.total_vcores_in_service / a.host_total_cores
+    END,
+    2
+  ) AS cores_percent_in_service,
+  ROUND(
+    CASE
+      WHEN a.host_ram_mb = 0 THEN NULL
+      ELSE 100.0000 * a.total_ram_mb_in_service::DECIMAL / a.host_ram_mb::DECIMAL
+    END,
+    2
+  ) AS ram_percent_in_service
+FROM a
+ORDER BY
+  host_device_name,
+  host_os_name,
+  vm_manager_name,
+  vm_count_in_service,
+  host_last_discovered
 ```
-
- 
-
+</details>
 
 **NOTES**
 

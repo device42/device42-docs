@@ -58,7 +58,10 @@ When EnrichAI Data is enabled, the device data collected during discovery jobs i
 
 When presented with a new or unique data entry, the EnrichAI Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the EnrichAI Data service to ensure the discovered values are correct and up to date. All data sent to EnrichAI Data is anonymous and untraceable; it will never contain identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
 
-```json
+<details>
+  <summary>Click to expand the code block</summary>
+
+```js
 [
   {
     "client_id": "D42",
@@ -116,6 +119,8 @@ When presented with a new or unique data entry, the EnrichAI Data service may ne
   }
 ]
 ```
+
+</details>
 
 ## EnrichAI Data Connectivity
 
