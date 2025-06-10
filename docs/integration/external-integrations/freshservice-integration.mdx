@@ -540,7 +540,7 @@ Use the following steps to verify that the field name is correct:
 
 This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
 
-### Syncing a Custom Device42 Field to Freshdesk (Overview)
+### Syncing a Custom Device42 Field to Freshservice (Overview)
 
 To add a custom field to Freshservice, modify the `mapping.xml` file and reupload it. You'll need to modify the `<task>` that's most closely related to the custom field you want to create.
 
@@ -791,6 +791,59 @@ Set the `enable` attribute to `false` on those `<task>` elements:
     - After you've disabled software imports, the page will be empty:
   
     ![Software after](/assets/images/freshservice-integration/software-freshservice-after.png)  
+
+### Example 3: How To Ensure Device42 Correctly Updates the Hardware `asset_state`
+
+By default, Device42 does not update `asset_state` values in Freshservice (in Device42, the field is called `in_service`).
+
+The mapping file includes `<field>` elements with `asset_state` as the target. The `skip-update` attribute is set to `"true"` to prevent the overwriting of values that may trigger Freshservice workflow automations. 
+
+If you want Device42 to update `asset_state` values, set `skip-update` to `"false"`. There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
+
+1. Find the attribute on line 493 (for DOQL v2).
+
+    ![Line 493 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-493.png)
+
+    Change `skip-update` to `"false"`:
+
+    ```xml
+    <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+       target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field> 
+    ```       
+
+2. Find the attribute on line 1302 (also for DOQL v2).
+
+    ![Line 1302 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-1302.png)
+
+    Change `skip-update` to `"false"`:
+
+    ```xml
+   <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+       target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field>
+    ```       
+
+3. Find the attribute on line 1878 (for DOQL v1).
+
+    ![Line 1878 of mapping.xml](/assets/images/freshservice-integration/code-skip-update-1878.png)
+
+    Change `skip-update` to `"false"`:
+
+    ```xml
+    <field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+        target-header="Hardware" skip-update="false">
+        <value-mapping default="Retired">
+            <item key="true" value="In Use"/>
+        </value-mapping>
+    </field>
+    ```
 
 ## Data Types Transferred From Device42 to Freshservice
 

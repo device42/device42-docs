@@ -1,29 +1,100 @@
 ---
-title: "Active Directory and OpenLDAP Support"
+title: "Multi-domain Active Directory and OpenLDAP Support"
 sidebar_position: 1
 ---
 
-## Multi-domain Active Directory and OpenLDAP Support
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory based logins, as well as AD synchronization.
+Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory-based logins and AD synchronization.
 
-AD settings can be found and configured in *Tools > Settings > Active Directory Settings*, but are only accessible to D42 **super users**. Multiple Active Directory settings and/or up to one OpenLDAP server setting can be configured at a time to properly describe your environment. Each Active Directory setting can also specify multiple domains.
+AD settings can be found and configured under **Tools > Settings > Active Directory Settings** and are only accessible to Device42 superusers. Multiple Active Directory settings and up to one OpenLDAP server setting can be configured at a time to properly describe your environment. Each Active Directory setting can also specify multiple domains.
 
-![Select Active Directory/LDAP Settings to view](/assets/images/Active_directory_settings_menu_button.png) ![Change Active Directory Settings](/assets/images/Change_Active_directory_settings-HL.png)
+## Add New Active Directory or OpenLDAP Settings
 
-After entering Active Directory or LDAP settings, you can test your configuration with the *'Test Connection'* button on the view page. You will be prompted for credentials to initiate the test.
+From the Active Directory/LDAP Settings list page, click **Create**.
 
-![Test Active Directory Credentials](/assets/images/Test_AD_Connection_button.png)
+<ThemedImage
+  alt="Active Directory/LDAP Settings list page"
+  sources={{
+    light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-list-page-dark.png'),
+  }}
+/>
 
-If you have selected to utilize “DomainUsername” Username Login Style, then users are required to enter both the domain and username to login into Device42
+Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
 
-![D42 Login Using active directory Domain example](/assets/images/Login_Screen_DomainName-Backslash_username.png)
+<ThemedImage
+    alt="Active Directory/LDAP Settings list page"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-name-server-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-name-server-dark.png'),
+    }}
+/>
 
-## Manually Add Single user from Active Directory
+For the **Active Directory** type, choosing **Domain\Username** as your **Username login Style** reveals the **Get Referral NetBIOS** option, which returns usernames in the format `ReferralNetbios/Username`.
 
-To add a single new Administrator user manually from Active Directory, simply visit the main menu, *"Tools -> Admins & Permissions -> Administrators"*. ![Add Admin User Active Directory](/assets/images/manually_add_d42_admin_user_from_AD-1.png)
+    <ThemedImage
+    alt="Active Directory/LDAP Settings list page"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-style-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-style-dark.png'),
+    }}
+    />
 
-You are able to review the domain found for the user found prior to adding them, and **the new user will be added according to the currently configured "Username Login Style option"**: (previous section). ![Add Active Directory user as Admin](/assets/images/Add_AD_user_as_Admin.png)
+If you select **Domain\Username** as your **Username login Style**, users will be required to enter both their domain and username to log in to Device42.
+
+    <ThemedImage
+    alt="AD credentials in login form"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-dark.png'),
+    }}
+    />
+
+For the **Open LDAP** type, you can choose an **OpenLDAP group attribute** to identify group members. The available options are **memberUid**, **uniqueMember**, **members**, and **member**.
+
+    <ThemedImage
+    alt="Active Directory/LDAP Settings list page"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/openldap-attributes-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/openldap-attributes-dark.png'),
+    }}
+    />
+
+You can add multiple **AD/LDAP Domains** and mark them as **Default**.
+
+    <ThemedImage
+    alt="Active Directory/LDAP Settings list page"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-domains-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-domains-dark.png'),
+    }}
+    />
+
+### Test Connections
+
+Test a user account for permission to query AD:
+
+- Save your settings to display the settings details page, then open the **ellipsis** (...) menu and select **Test Connection**. 
+
+    <ThemedImage
+    alt="Active Directory/LDAP Settings list page"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-connection-button-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-connection-button-dark.png'),
+    }}
+    />
+
+- You will be prompted to provide credentials for initiating the test. Leave the credentials blank to use the currently selected username and password.
+
+    <ThemedImage
+    alt="Test Connections settings prompt"
+    sources={{
+        light: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-auth-prompt-light.png'),
+        dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-auth-prompt-dark.png'),
+    }}
+    />
 
 ## Configuring an Active Directory User Sync / Discovery Job
 

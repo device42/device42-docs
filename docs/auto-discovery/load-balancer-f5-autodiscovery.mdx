@@ -8,19 +8,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Discovering F5, NetScaler, and Other Load Balancers or Cluster Devices
 
-The Device42 load balancer discovery will discover virtual servers, pools, and devices with dependencies. Basic inventory information includes hardware model, serial number, hostname(s), OS details, and more. 
+Device42’s load balancer discovery maps out virtual servers, pools, and their relationships to backend devices.
 
-Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and Cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
+To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer and other cluster devices. Next, run a [Windows/*nix job](auto-discovery/index.mdx#hypervisor--nix--windows-autodiscovery) to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
 
-Note that [SNMP discovery](network-auto-discovery.mdx) is needed to identify the actual chassis and virtual appliances. 
-
-To discover load balancer virtual server and pool member devices, add a job under **Discovery > UCS/ACI/Load Balancers**.
+Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
 
 ## Load Balancer Discovery
 
 ### Prerequisites
 
-For F5 discovery, ensure you have a **local username** with access to the F5 API. The API calls currently appear to require administrative access, and F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
+For F5 discovery, ensure you have the **username for a local account** with access to the F5 API. The API calls work with read-only access and do not require administrative privileges. 
+
+Note that F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
 
 ### Create a Load Balancer Discovery Job
 
