@@ -1,28 +1,28 @@
 ---
-title: "Generate log bundle"
+title: "Generate Log Bundle"
 sidebar_position: 10
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-To generate log bundle for a support call:
+If you are experiencing issues with discovery, you can generate log bundle and send it to support for further analysis.
 
-1. If you are experiencing autodiscovery issues, enable debug in the discovery job settings. For issues unrelated to autodiscovery, keep debug mode off and proceed to step three.
+1. Edit the discovery job set the debug mode to **Debug On**. For issues unrelated to autodiscovery, you can keep debug mode off and proceed to step three.
 
     <ThemedImage
     alt="Enable debug by editing discovery job settings"
     sources={{
-        light: useBaseUrl('/assets/images/generate-log-bundle/discovery-job-enable-debug-light.png'),
-        dark: useBaseUrl('/assets/images/generate-log-bundle/discovery-job-enable-debug-dark.png'),
+        light: useBaseUrl('/assets/images/generate-log-bundle/edit-debug-level-light.png'),
+        dark: useBaseUrl('/assets/images/generate-log-bundle/edit-debug-level-dark.png'),
     }}
     />    
 
-2. If your issue is autoDiscovery related, re-run the failing autodiscovery job now that you've enabled the debug flag.
-3. Login to the appliance manager via the main menu, **Tools > Appliance Manager** or follow the [Device42 Appliance Manager login](device42-appliance-manager-login.mdx) directions.
+2. If the issue is discovery related, re-run the failing discovery job now that you've enabled the debug flag.
+3. Log in to the Appliance Manager via the main menu, **Tools > Appliance Manager** or follow the [Device42 Appliance Manager login](device42-appliance-manager-login.mdx) directions.
 4. Generate the log bundle via the Appliance Manager. Navigate to **Application > Generate Log Bundle** and click **Run**.
     
-    ![Generate Log Bundle via Appliance Manager](/assets/images/generate-log-bundle/am-generate-log-bundle.png)
+    ![Generate Log Bundle via Appliance Manager](/assets/images/generate-log-bundle/generate-log-bundle-19.06.png)
 
 5. Upload the generated log file at [upload.device42.com](https://upload.device42.com/).
 
@@ -35,7 +35,7 @@ Navigate to **Discovery > Remote Collectors** and click on the **Logs** link for
 <ThemedImage
   alt="Download RC log button"
   sources={{
-    light: useBaseUrl('/assets/images/generate-log-bundle/rc-log-download-light.png'),
-    dark: useBaseUrl('/assets/images/generate-log-bundle/rc-log-download-dark.png'),
+    light: useBaseUrl('/assets/images/generate-log-bundle/rc-log-download-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/generate-log-bundle/rc-log-download-19.06-dark.png'),
   }}
 />
