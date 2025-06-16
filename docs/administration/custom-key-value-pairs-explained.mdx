@@ -150,16 +150,19 @@ Add two form parts to your `POST` or `PUT` request:
 | `value` | ✔ | Numeric ID of the related object (for example, an end user ID). |
 | `related_field_value_by_id` | ✔ | `yes` tells Device42 that `value` contains an ID, not the object name. |
 
-```bash
-curl -k -X PUT -u 'admin:adm!nd42' \
-  -F "name=Customer 101" \
-  -F "key=end_user_details" \
-  -F "type=related_field" \
-  -F "related_field_name=endusers" \
-  -F "value=6" \
-  -F "related_field_value_by_id=yes" \
-  https://<device42>/api/1.0/custom_fields/customer/
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```bash
+  curl -k -X PUT -u 'admin:adm!nd42' \
+    -F "name=Customer 101" \
+    -F "key=end_user_details" \
+    -F "type=related_field" \
+    -F "related_field_name=endusers" \
+    -F "value=6" \
+    -F "related_field_value_by_id=yes" \
+    https://<device42>/api/1.0/custom_fields/customer/
+  ```
+</details>
 
 The call above sets **End User Details** to the end user whose object ID is **6**.
 

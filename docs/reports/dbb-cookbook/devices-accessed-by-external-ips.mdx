@@ -5,22 +5,25 @@ sidebar_position: 22
 
 Compute devices accessed by external IPs.
 
-```sql
-select distinct
-     ds.device_name
-     ,ds.device_type
-     ,ds.physicalsubtype_name
-     ,ds.device_service_level
-     ,ds.serial_number
-     ,ds.uuid
-     ,ds.tags
-     ,ds.client_external_ips
-     ,ds.listener_external_ips
-from view_dbb_security_v2 ds
-where ds.client_external_ips != 'No Client Ext IPs'   
-  or ds.listener_external_ips != 'No Listener Ext IPs'
-order by ds.device_name
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```sql
+  select distinct
+       ds.device_name
+       ,ds.device_type
+       ,ds.physicalsubtype_name
+       ,ds.device_service_level
+       ,ds.serial_number
+       ,ds.uuid
+       ,ds.tags
+       ,ds.client_external_ips
+       ,ds.listener_external_ips
+  from view_dbb_security_v2 ds
+  where ds.client_external_ips != 'No Client Ext IPs'   
+    or ds.listener_external_ips != 'No Listener Ext IPs'
+  order by ds.device_name
+  ```
+</details>
 
 **NOTES**
 

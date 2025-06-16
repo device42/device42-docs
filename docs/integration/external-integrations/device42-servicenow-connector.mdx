@@ -32,7 +32,9 @@ The plugin supports the Xanadu, Washington DC, and Vancouver versions of Service
 
 2. Add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global.
 
-    ```javascript
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
     var discoverySource = 'Device42';
     var gr = new GlideRecord('sys_choice');
     gr.addQuery('element', 'discovery_source');
@@ -51,6 +53,7 @@ The plugin supports the Xanadu, Washington DC, and Vancouver versions of Service
         }
     }
     ```
+    </details>
     ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script.png)
 
 ## Technical Overview
@@ -217,25 +220,28 @@ Add Device42 as the data source choice list record (New York and Orlando+).
 
 ### Run the Script
 
-```javascript
-var discoverySource = 'Device42';
-var gr = new GlideRecord('sys_choice');
-gr.addQuery('element', 'discovery_source');
-gr.addQuery('name', 'cmdb_ci');
-gr.addQuery('value', discoverySource);
-gr.query();
-if (!gr.hasNext()) {
-    var grNew = new GlideRecord('sys_choice');
-    grNew.initialize();
-    grNew.setValue('element', 'discovery_source');
-    grNew.setValue('name', 'cmdb_ci');
-    grNew.setValue('value', discoverySource);
-    grNew.setValue('label', discoverySource);
-    if (!grNew.insert()) {
-        gs.info('Adding discovery source failed for: ' + discoverySource);
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
+    var discoverySource = 'Device42';
+    var gr = new GlideRecord('sys_choice');
+    gr.addQuery('element', 'discovery_source');
+    gr.addQuery('name', 'cmdb_ci');
+    gr.addQuery('value', discoverySource);
+    gr.query();
+    if (!gr.hasNext()) {
+        var grNew = new GlideRecord('sys_choice');
+        grNew.initialize();
+        grNew.setValue('element', 'discovery_source');
+        grNew.setValue('name', 'cmdb_ci');
+        grNew.setValue('value', discoverySource);
+        grNew.setValue('label', discoverySource);
+        if (!grNew.insert()) {
+            gs.info('Adding discovery source failed for: ' + discoverySource);
+        }
     }
-}
-```
+    ```
+</details>
 
 If you are not on version 3.0.0+ or have completed these steps, continue with the rest of the configuration.
 
