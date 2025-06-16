@@ -266,12 +266,12 @@ For example, the following `<task>` element copies product information from Devi
             <api>
                 <target asset-type="Hardware"/>
                 <resource
-                          doql="
-                            select distinct
-                                view_vendor_v1.name as manufacturer,
-                            <!-- ... -->
-                            "
-                        />
+                    doql="
+                    select distinct
+                        view_vendor_v1.name as manufacturer,
+                    <!-- ... -->
+                    "
+                />
             </api>
             <mapping key="name" doql-suffix=" where GREATEST(view_hardware_v2.last_changed, view_vendor_v1.last_changed, view_device_v2.last_changed) >'%s'">
                 <field resource="name" source-type="string" target="name" target-type="string" max-length="255" escape="true"/>
@@ -665,24 +665,24 @@ You need to modify two `<task>` elements within the `mapping.xml` file.
                     <target
                             delete="true"/>
                     <resource
-                            doql="
-                                    <!-- ... other queries -->
+                        doql="
+                                <!-- ... other queries -->
 
-                                    <!-- remove or comment out this cluster and device relationship query -->
+                                <!-- remove or comment out this cluster and device relationship query -->
 
-                                    select 
-                        dc.name as dependent_device_name,
-                        format('Device-%s', dc.device_pk) as dependent_device_device42_id,
-                                    'Member of' as downstream_relationship,
-                        dp.name as dependency_device_name,
-                        format('Device-%s', dp.device_pk) as dependency_device_device42_id,
-                                    'Includes' as upstream_relationship
-                                    from view_devices_in_cluster_v1 dic
-                                    inner join view_device_v2 dp on dic.parent_device_fk = dp.device_pk
-                                    inner join view_device_v2 dc on dic.child_device_fk = dc.device_pk
-                                    where lower(dp.type) = 'cluster'
-                                "
-                            />
+                                select 
+                    dc.name as dependent_device_name,
+                    format('Device-%s', dc.device_pk) as dependent_device_device42_id,
+                                'Member of' as downstream_relationship,
+                    dp.name as dependency_device_name,
+                    format('Device-%s', dp.device_pk) as dependency_device_device42_id,
+                                'Includes' as upstream_relationship
+                                from view_devices_in_cluster_v1 dic
+                                inner join view_device_v2 dp on dic.parent_device_fk = dp.device_pk
+                                inner join view_device_v2 dc on dic.child_device_fk = dc.device_pk
+                                where lower(dp.type) = 'cluster'
+                            "
+                    />
                 </api>
     ```
 </details>
@@ -1009,32 +1009,32 @@ For reference, the DOQL query in the `mapping.xml` file for Software Licensing i
     <api>
         <target/>
         <resource
-                    doql="
-                    select 	case when p.order_no is null then s.name else s.name || '-' || p.order_no || '-' || pli.line_no end as name,
-                            'Software License' as contract_type_name,
-                            case when v.name is not null then v.name else sv.name end vendor_name,
-                            pli.cost unit_cost, pli.start_date, pli.end_date,
-                            s.name software_name,
-                            case when pli.quantity is not null then pli.quantity else s.licensed_count end licensed_count,
-                            case when pli.quantity is not null then pli.quantity else s.licensed_count end * pli.cost as cost,
-                            pli.contract_id,
-                            case when slm.is_free = true then 'Free' else 'Volume' end license_type,
-                            pli.frequency,
-                            'per_unit' as pricing_model,
-                            case when pli.notes is not null and pli.notes &lt;&gt; '' then pli.notes else s.notes end as notes
-                    from view_software_v1 s
-                    left outer join view_softwarelicensemodel_v1 slm on s.softwarelicensemodel_fk = slm.softwarelicensemodel_pk
-                    left outer join view_purchaselineitems_to_softwares_v1 plis on s.software_pk = plis.software_fk
-                    left outer join view_purchaselineitem_v1 pli on plis.purchaselineitem_fk = pli.purchaselineitem_pk
-                    left outer join view_purchase_v1 p on pli.purchase_fk = p.purchase_pk
-                    left outer join view_vendor_v1 v on p.vendor_fk = v.vendor_pk
-                    left outer join view_vendor_v1 sv on s.vendor_fk = sv.vendor_pk
-                    WHERE
-                        lower(s.software_type) = 'managed' and
-                        (pli.purchaselineitem_pk is not null or s.licensed_count is not null) and
-                        (v.name is not null or sv.name is not null)
-                    "
-                />
+            doql="
+            select 	case when p.order_no is null then s.name else s.name || '-' || p.order_no || '-' || pli.line_no end as name,
+                    'Software License' as contract_type_name,
+                    case when v.name is not null then v.name else sv.name end vendor_name,
+                    pli.cost unit_cost, pli.start_date, pli.end_date,
+                    s.name software_name,
+                    case when pli.quantity is not null then pli.quantity else s.licensed_count end licensed_count,
+                    case when pli.quantity is not null then pli.quantity else s.licensed_count end * pli.cost as cost,
+                    pli.contract_id,
+                    case when slm.is_free = true then 'Free' else 'Volume' end license_type,
+                    pli.frequency,
+                    'per_unit' as pricing_model,
+                    case when pli.notes is not null and pli.notes &lt;&gt; '' then pli.notes else s.notes end as notes
+            from view_software_v1 s
+            left outer join view_softwarelicensemodel_v1 slm on s.softwarelicensemodel_fk = slm.softwarelicensemodel_pk
+            left outer join view_purchaselineitems_to_softwares_v1 plis on s.software_pk = plis.software_fk
+            left outer join view_purchaselineitem_v1 pli on plis.purchaselineitem_fk = pli.purchaselineitem_pk
+            left outer join view_purchase_v1 p on pli.purchase_fk = p.purchase_pk
+            left outer join view_vendor_v1 v on p.vendor_fk = v.vendor_pk
+            left outer join view_vendor_v1 sv on s.vendor_fk = sv.vendor_pk
+            WHERE
+                lower(s.software_type) = 'managed' and
+                (pli.purchaselineitem_pk is not null or s.licensed_count is not null) and
+                (v.name is not null or sv.name is not null)
+            "
+        />
     </api>
 ```
 </details>
