@@ -59,15 +59,15 @@ Each line in the script has a curl statement like the one below.
   <summary>Click to expand the code block</summary>
   ```bash
   #Add a Building
-  curl -i -H "Accept: application/json" 
-      -X POST 
-      -d "name=New Haven DC" 
-      -d "address=123 main st" 
-      -d "contact_name=roger" 
-      -d "contact_phone=1234567890" 
-      -d "notes=super critical" 
-      -u $USER:$PASS 
-      $URL/api/1.0/buildings/ 
+  curl -i -H "Accept: application/json" \
+      -X POST \
+      -d "name=New Haven DC" \
+      -d "address=123 main st" \
+      -d "contact_name=roger" \
+      -d "contact_phone=1234567890" \
+      -d "notes=super critical" \
+      -u $USER:$PASS \
+      $URL/api/1.0/buildings/ \
       --insecure
   ```
 </details>
