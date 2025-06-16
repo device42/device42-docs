@@ -176,22 +176,25 @@ WHERE DATE(first_added) = CURRENT_DATE AND tags IS NULL
 
 **Device discovered over 80% local storage:**
 
-```
-WITH
-device_capacity AS (
-Select
-    a.device_pk Device_ID,
-    ROUND(sum(c.capacity - c.free_capacity) / sum(c.capacity) * 100,2) used_percentage
-From
-    view_device_v2 a
-    Left Join view_mountpoint_v1 c on c.device_fk = a.device_pk
-   Where c.capacity>0
-               and a.network_device = 'f'
-GROUP BY 1
-)
-SELECT COUNT(*) FROM device_capacity
-WHERE used_percentage > 80
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```sql
+  WITH
+  device_capacity AS (
+  Select
+      a.device_pk Device_ID,
+      ROUND(sum(c.capacity - c.free_capacity) / sum(c.capacity) * 100,2) used_percentage
+  From
+      view_device_v2 a
+      Left Join view_mountpoint_v1 c on c.device_fk = a.device_pk
+     Where c.capacity>0
+                 and a.network_device = 'f'
+  GROUP BY 1
+  )
+  SELECT COUNT(*) FROM device_capacity
+  WHERE used_percentage > 80
+  ```
+</details>
 
 - Use the _Report schedule_ drop-downs to set the schedule or enter a _CRON schedule_.
 - You can select or enter _Schedule settings_ for Log Retention, Working Timeout, and Grace Period.
@@ -253,25 +256,28 @@ An Alert, while still a scheduled execution, will only send the email if a certa
 
 ![](/assets/images/Insights_alert-setup-NM.png)
 
-```
-WITH rack_ports AS (
-SELECT d.rack_fk
-           ,count(*) total_network_port_count
-           ,(SELECT COUNT(*) FROM view_netport_v1 np WHERE d.device_pk = np.device_fk AND np.remote_netport_fk IS NOT NULL OR d.device_pk = np.second_device_fk AND np.remote_netport_fk IS NOT NULL) used_network_port_count
-FROM view_device_v2 d
-JOIN view_netport_v1 np ON d.device_pk = np.device_fk OR d.device_pk = np.second_device_fk
-JOIN view_rack_v1 r ON r.rack_pk = d.rack_fk
-WHERE
-            d.network_device IS TRUE
-            AND d.rack_fk IS NOT NULL
-GROUP BY
-            d.rack_fk,d.device_pk)
-SELECT
-count(DISTINCT rack_fk)
-FROM rack_ports
-WHERE
-           total_network_port_count = used_network_port_count
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```sql
+  WITH rack_ports AS (
+  SELECT d.rack_fk
+             ,count(*) total_network_port_count
+             ,(SELECT COUNT(*) FROM view_netport_v1 np WHERE d.device_pk = np.device_fk AND np.remote_netport_fk IS NOT NULL OR d.device_pk = np.second_device_fk AND np.remote_netport_fk IS NOT NULL) used_network_port_count
+  FROM view_device_v2 d
+  JOIN view_netport_v1 np ON d.device_pk = np.device_fk OR d.device_pk = np.second_device_fk
+  JOIN view_rack_v1 r ON r.rack_pk = d.rack_fk
+  WHERE
+              d.network_device IS TRUE
+              AND d.rack_fk IS NOT NULL
+  GROUP BY
+              d.rack_fk,d.device_pk)
+  SELECT
+  count(DISTINCT rack_fk)
+  FROM rack_ports
+  WHERE
+             total_network_port_count = used_network_port_count
+  ```
+</details>
 
 ### How To Delete a Custom Dataset
 
