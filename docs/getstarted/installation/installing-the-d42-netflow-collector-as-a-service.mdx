@@ -71,23 +71,26 @@ After executing the above command, you'll see your new service in the services c
 
 Create a file `/etc/systemd/system/netflow.service` containing the following:
 
-```
-## systemd
+<details>
+    <summary>Click to expand the code block</summary>
+    ```
+    ## systemd
 
-[Unit]
-Description=NetFlow Service
+    [Unit]
+    Description=NetFlow Service
 
-[Service]
-PIDFile=/tmp/netflow.pid
-User=root
-Group=root
-WorkingDirectory=/opt/rc/services
-ExecStart=/opt/rc/services/netflow -h https://ma.host.domain -u username    -p password -i 30
-Restart=always
+    [Service]
+    PIDFile=/tmp/netflow.pid
+    User=root
+    Group=root
+    WorkingDirectory=/opt/rc/services
+    ExecStart=/opt/rc/services/netflow -h https://ma.host.domain -u username    -p password -i 30
+    Restart=always
 
-[Install]
-WantedBy=multi-user.target
-```
+    [Install]
+    WantedBy=multi-user.target
+    ```
+</details>
 
 ### Start the Service
 

@@ -105,23 +105,26 @@ Use the `ping.cfg.sample` file to select your settings. Make a copy of this fi
 
 Below is a sample of the `ping.cfg` file:
 
-```ini
-[settings]
-# base_url points to your Device42 server
-# For example: base_url = https://192.168.1.50
-base_url = https://192.168.1.100
-# Device42 username and password
-username = username
-secret = password
+<details>
+  <summary>Click to expand the code block</summary>
+  ```ini
+  [settings]
+  # base_url points to your Device42 server
+  # For example: base_url = https://192.168.1.50
+  base_url = https://192.168.1.100
+  # Device42 username and password
+  username = username
+  secret = password
 
-[targets]
-# targets can be specified as:
-# single: 192.168.1.125
-# range: 192.168.1.101-192.168.1.150
-# cidr block: 192.168.1.0/24
-# any combination of above: 192.168.3.0/24,192.168.4.1-192.168.4.10,192.168.55.22,10.0.0.0/24
-targets = 192.168.1.1/24
-```
+  [targets]
+  # targets can be specified as:
+  # single: 192.168.1.125
+  # range: 192.168.1.101-192.168.1.150
+  # cidr block: 192.168.1.0/24
+  # any combination of above: 192.168.3.0/24,192.168.4.1-192.168.4.10,192.168.55.22,10.0.0.0/24
+  targets = 192.168.1.1/24
+  ```
+</details>
 
 1. In the **`[settings]`** section, enter the base URL (FQDN or IP) for the Device42 appliance on your network, including credentials. Make sure the credentials have the required access permissions. The minimum required for the user are:
     - Ping Sweep | Can add Ping Sweep

@@ -5,19 +5,22 @@ sidebar_position: 17
 
 Physical Inventory Count – includes model and EOL/EOS.
 
-```sql
-select  
-     dc.manufacturer  
-     ,dc.hardware_model  
-     ,count(1)                     "count"  
-     ,min(dc.hdw_end_of_life)      hdw_end_of_life  
-     ,min(dc.hdw_end_of_support)   hdw_end_of_support  
-from view_dbb_compute_v2 dc  
-where lower(dc.device_type)  = 'physical'  
-and dc.hardware_model is not null  
-group by 1,2  
-order by 1 nulls first,2
-```
+<details>
+    <summary>Click to expand the code block</summary>
+    ```sql
+    select  
+         dc.manufacturer  
+        ,dc.hardware_model  
+         ,count(1)                     "count"  
+         ,min(dc.hdw_end_of_life)      hdw_end_of_life  
+         ,min(dc.hdw_end_of_support)   hdw_end_of_support  
+    from view_dbb_compute_v2 dc  
+    where lower(dc.device_type)  = 'physical'  
+    and dc.hardware_model is not null  
+    group by 1,2  
+    order by 1 nulls first,2
+    ```
+</details>
 
 **NOTES**
 

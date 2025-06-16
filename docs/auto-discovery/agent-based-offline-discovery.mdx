@@ -92,24 +92,31 @@ It’s important to have a unique file name as you might want to run the discove
 Variables are used to define the file name. We use the computer name and the date-time stamp to generate the unique file names for the discovered data.
 
 **Windows example:**
-```
-C:\>set var=%computername%-%date%-%time::=%
-C:\>set var=%var:.=%
-C:\>set var=%var:/=-%
-C:\>set var=%var: =%
-C:\>echo %var%.log
-ASUS-GL553V-Thu03-14-2019-16265819.log
-C:\>d42_winagent_x64.exe -offline > %var%.log
-```
+<details>
+    <summary>Click to expand the code block</summary>
+    ```
+    C:\>set var=%computername%-%date%-%time::=%
+    C:\>set var=%var:.=%
+    C:\>set var=%var:/=-%
+    C:\>set var=%var: =%
+    C:\>echo %var%.log
+    ASUS-GL553V-Thu03-14-2019-16265819.log
+    C:\>d42_winagent_x64.exe -offline > %var%.log
+    ```
+</details>
 
 **Linux example:**
-```
-$ VAR1=`hostname`-`date +%Y%m%d-%k%M%S`
-$ 
-$ echo $VAR1
-> CentOS7-20190306-133710.log
-$ ./linuxagent.sh -offline > $VAR1.log
-```
+
+<details>
+    <summary>Click to expand the code block</summary>
+    ```
+    $ VAR1=`hostname`-`date +%Y%m%d-%k%M%S`
+    $ 
+    $ echo $VAR1
+    > CentOS7-20190306-133710.log
+    $ ./linuxagent.sh -offline > $VAR1.log
+    ```
+</details>
 
 ### Linux Prerequisite: Sudo Permissions
 

@@ -583,33 +583,43 @@ If you have already discovered cloud databases using cloud autodiscovery jobs wh
 
 - Select **Discovery > Autodiscovery >Database** from the main menu to display the **Database Discoveries** list page.
 
-<ThemedImage
-alt="Database Discoveries menu"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Database Discoveries menu"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/db-discovery-menu-19.06-dark.png'),
+    }}
+    />
 
 - Click on a database discovery name to view that job and **Edit** to make changes to it. Click **Create** on the top right of the page to add a new database discovery job.
 
-<ThemedImage
-alt="Database Discoveries list page"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Database Discoveries list page"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/db-discoveries-list-pg-19.06-dark.png'),
+    }}
+    />
+
+- The **Collect DB Users** option applies to Oracle discovery. In Oracle, both databases and users are treated as schemas, and user schemas can exist without any database objects. By default, Device42 only discovers Oracle users that own objects, treating them as databases. Enable the **Collect DB Users** option to also include user schemas that don’t contain any objects.
+
+    <ThemedImage
+    alt="Collect DB Users option"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/collect-db-users-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/collect-db-users-dark.png'),
+    }}
+    />
 
 -  Click **+ Add New** to add Database Connections.
 
-<ThemedImage
-alt="Add DB connection details"
-sources={{
-    light: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Add DB connection details"
+    sources={{
+        light: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-light.png'),
+        dark: useBaseUrl('/assets/images/database-discovery/add-db-connections-19.06-dark.png'),
+    }}
+    />
 
 - Enter or select the **Database Connections** information:
 

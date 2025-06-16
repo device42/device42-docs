@@ -163,15 +163,18 @@ find /device42/backup/directory -type f -mtime +7 -delete
 
 For Windows Servers, the following PowerShell script can be used to delete files older than seven days from the targeted directory:
 
-```
-# Delete all Files in C:temp older than 7 day(s)
+<details>
+  <summary>Click to expand the code block</summary>
+  ```
+  # Delete all Files in C:temp older than 7 day(s)
 
-$Path = "C:device42backups"
-$Daysback = "-7"
-$CurrentDate = Get-Date
-$DatetoDelete = $CurrentDate.AddDays($Daysback)
-Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
-```
+  $Path = "C:device42backups"
+  $Daysback = "-7"
+  $CurrentDate = Get-Date
+  $DatetoDelete = $CurrentDate.AddDays($Daysback)
+  Get-ChildItem $Path | Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
+  ```
+</details>
 
 ## Restore the Backup
 

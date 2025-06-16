@@ -3,9 +3,9 @@ title: "Updating Device42"
 sidebar_position: 18.5
 ---
 
-When you log in to the Appliance Manager you'll see two methods for updating your Device42 Main Appliance. You only need to complete one of the options.
+When you [log in to the Appliance Manager](device42-appliance-manager-login.mdx) and go to **Application > Update Software**, you'll see two methods for updating your Device42 Main Appliance. You only need to complete one of the options:
 
-![](/assets/images/update-device42/updgrade-options-AM.png)
+![](/assets/images/update-device42/updgrade-options-AM-19.06.png)
 
 - **Enter URL:** Enter the provided URL from the update notification and click **Download**.
 - **Upload D42 upgrade package:** 
@@ -14,12 +14,16 @@ When you log in to the Appliance Manager you'll see two methods for updating you
   - Head back to the Appliance Manager and **Browse** your machine for the downloaded package file.
   - Click **Upload** and wait for the progress bar to complete.
 
-The URL option automates the process of downloading and uploading the upgrade package. The manual upload option is available for when you've already downloaded the package file or are using an instance without internet access.
+The URL option automates the process of downloading and uploading the upgrade package. The manual upload option is available for when you have already downloaded the package file or when you are using an instance without internet access.
 
 In both cases, a green status message will appear instructing you to complete the upgrade from the VM console.
 
 ### Apply the Update
 
-From the VM console, enter option **3**.
+From the VM console, enter option **(a) Apply Update**:
 
-![](/assets/images/update-device42/vm-console-options.png)
+- Click **Yes** to confirm the upgrade process.
+- Wait for the process to complete.
+- Once the update is applied, you can log in to the Device42 Main Appliance and go to **Tools > Settings > Update** to verify the new version number. 
+
+![](/assets/images/update-device42/vm-console-options-19.06.png)

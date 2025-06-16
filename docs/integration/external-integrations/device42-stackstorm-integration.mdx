@@ -89,14 +89,18 @@ StackStorm is open-source, so you can look at the [StackStorm-Device42 plugin co
 
 Configure the Device42 plugin using either the command line or web UI. You'll need your Device42 server IP address, Device42 username, password, API path, and DOQL path details. 
 
-```
-d42_server: 'https://mydevice42ip/api/1.0/'
-d42_username: 'Device42 username'
-d42_password: 'Device42 password'
-verify_certificate: true
-d42_api_path: '/api/1.0/'
-d42_doql_api_path: '/services/data/v1.0/query/'
-```
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
+    st2 pack config device42 set d
+    d42_server: 'https://mydevice42ip/api/1.0/'
+    d42_username: 'Device42 username'
+    d42_password: 'Device42 password'
+    verify_certificate: true
+    d42_api_path: '/api/1.0/'
+    d42_doql_api_path: '/services/data/v1.0/query/'
+    ```
+</details>
 
 #### Using the StackStorm web UI
 
@@ -357,11 +361,14 @@ Test the automation by updating the asset lifecycle of a device to "mounting". G
 
 From StackStorm, you can look out for a POST request in the API logs:
 
-```
-2024-01-17 13:27:07,763 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - POST /v1/webhooks/d42_lifecycle with query={} (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',query={},request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
+    2024-01-17 13:27:07,763 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - POST /v1/webhooks/d42_lifecycle with query={} (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',query={},request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
 
-2024-01-17 13:27:07,788 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - 202 295 24.343ms (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',status=202,runtime=24.343,content_length=295,request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
-```
+    2024-01-17 13:27:07,788 INFO [-] 594a5f59-c6bb-41d9-9cd2-77b680d040bc - 202 295 24.343ms (method='POST',path='/v1/webhooks/d42_lifecycle',remote_addr='172.18.0.17',status=202,runtime=24.343,content_length=295,request_id='594a5f59-c6bb-41d9-9cd2-77b680d040bc')
+    ```
+</details>
 
 These logs are located in the `/var/log/st2/st2api.log` file. If you're using Docker, run the following command to see the logs in the terminal:
 

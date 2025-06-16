@@ -33,16 +33,19 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
 
 1a. Populate the `node_classes` field (with a placeholder) in Device42 on your target Puppet Node's CI (puppet.device42.pvt, in our case) by setting one of your device’s `node_classes` field to the following:
 
-```
-{
-  "classes": {
-    "example": { 
-      "param": "example_param" 
-    } 
-  }, 
-  "environment": "production" 
-}
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```js
+  {
+    "classes": {
+      "example": { 
+        "param": "example_param" 
+      } 
+    }, 
+    "environment": "production" 
+  }
+  ```
+</details>
 
 ![Device42 Custom Field JSON](/assets/images/Puppet_ENC_custom_field_JSON.png)
 
