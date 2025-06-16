@@ -53,21 +53,24 @@ You can view data added for an object category by navigating to the relevant lis
 
 Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section.
 
-Each line in the script has a curl statement like the one below. Note that the backslashes (`\`) aren't in the original script; they are used here to continue the command on a new line for readability.
+Each line in the script has a curl statement like the one below.
 
-```bash
-#Add a Building
-curl -i -H "Accept: application/json" \
-     -X POST \
-     -d "name=New Haven DC" \
-     -d "address=123 main st" \
-     -d "contact_name=roger" \
-     -d "contact_phone=1234567890" \
-     -d "notes=super critical" \
-     -u $USER:$PASS \
-     $URL/api/1.0/buildings/ \
-     --insecure
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```bash
+  #Add a Building
+  curl -i -H "Accept: application/json" 
+      -X POST 
+      -d "name=New Haven DC" 
+      -d "address=123 main st" 
+      -d "contact_name=roger" 
+      -d "contact_phone=1234567890" 
+      -d "notes=super critical" 
+      -u $USER:$PASS 
+      $URL/api/1.0/buildings/ 
+      --insecure
+  ```
+</details>
 
 The `-i`, `-H`, and `--insecure` parameters should be in all Device42 API calls:
 
