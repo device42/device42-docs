@@ -10,15 +10,23 @@ Role-based access can be defined at either the group or user level. If you have 
 
 ### Creating a New Admin Group
 
-To create a new Admin Group, navigate to **Tools > Admin Groups** and click the **+ Add Admin Group** button on the right of the screen.
+To create a new Admin Group, navigate to **Tools > Admin Groups** and click the **Create** button on the right of the screen.
+
+<ThemedImage
+  alt="Search for available permissions"
+  sources={{
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/admin-groups-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/admin-groups-list-page-dark.png'),
+  }}
+/>
 
 First, enter a name for the group.
 
 <ThemedImage
   alt="Search for available permissions"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/search-available-permissions-19.06-dark.png'),
   }}
 />
 
@@ -31,8 +39,8 @@ In the screenshot below, we have added several IP-related permissions and are ab
 <ThemedImage
   alt="Add IP and DNS-related permissions"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-ip-dns-permissions-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-ip-dns-permissions-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/add-dns-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/add-dns-permissions-dark.png'),
   }}
 />
 
@@ -41,8 +49,8 @@ And now we'll add some VLAN permissions.
 <ThemedImage
   alt="Select VLAN-related permissions"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-vlan-permissions-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/adding-vlan-permissions-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/add-vlan-permissions-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/add-vlan-permissions-dark.png'),
   }}
 />
 
@@ -57,8 +65,8 @@ Please make sure the **Superuser Status** checkbox is unchecked before saving.
 <ThemedImage
   alt="Assign user to Admin Group"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/assign-admin-group-19.06-light.png'),
   }}
 />
 
@@ -67,32 +75,21 @@ When the user logs in, the menu they see will be limited to the permissions that
 <ThemedImage
   alt="Reduced menu items"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/reduced-menu-options-19.06-dark.png'),
   }}
 />
 
-This user will not be able to add subnets in the IP address edit form because they do not have the necessary permissions.
+This user will not be able to add subnets in to IP addresses because they do not have the necessary permissions.
 
 <ThemedImage
   alt="Not authorized notice"
   sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-dark.png'),
+    light: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/not-authorized-notification-19.06-dark.png'),
   }}
 />
 
-Note that you can create a new user by clicking the **+ Add Local Admin** button on the Administrators page.
+Note that you can create a new user by clicking the **Create** button on the Administrators list page.
 
-### Cloning Permission Groups
-
-You can clone groups using the **Save as new** option. This makes it easier to create new groups by adding permissions to existing groups.
-
-<ThemedImage
-  alt="Save as new admin group"
-  sources={{
-    light: useBaseUrl('/assets/images/role-based-permissions-and-access/save-as-new-admin-group-light.png'),
-    dark: useBaseUrl('/assets/images/role-based-permissions-and-access/save-as-new-admin-group-dark.png'),
-  }}
-/>
 
