@@ -35,7 +35,7 @@ Click **Save** at the bottom of the Global Settings page to save your selectio
 
 ## Viewing Role-Based Access Permissions
 
-When role-based access is enabled, you'll see the view-only **Group Permissions** field on the details page of objects:
+When role-based access is enabled, you'll see the view-only **Group Permissions** field on the details page for each object:
 
 <ThemedImage
   alt="View Group Permissions"
@@ -45,21 +45,21 @@ When role-based access is enabled, you'll see the view-only **Group Permissions*
   }}
 />
 
-The **Group Permissions** field tells you what groups are assigned to this device based on:
-- groups assigned via device categories
-- groups assigned via buildings, rooms, or racks containing the device
+The **Group Permissions** field tells you which groups are assigned to this device based on:
+- Groups assigned via device categories
+- Groups assigned via buildings, rooms, or racks containing the device
 - VMs and blade chassis containing the device
 
 ### Defining Admin Groups
 
-Navigate to the Admin Groups list page under **Tools > Admins & Permissions > Admin Groups** to view, edit, and create new Admin Groups.
+Navigate to the Admin Groups list page under **Tools > Admins & Permissions > Admin Groups** to view, edit, and create new admin groups.
 
 The list pages for permissioned objects have two useful filters:
-- filter by an admin group to see all the objects that the group can view
-- filter by an object or subnet category to see all objects that can be seen by groups with view permissions for the category.
+- Filter by an admin group to see all the objects that the group can view.
+- Filter by an object or subnet category to see all objects that can be seen by groups with view permissions for the category.
 
 
-You can view the objects that a group is associated with by clicking the ellipsis icon and selecting **Direct PErmissions**, **Inherited Permissions**, or **All Permissions**.
+You can view the objects that a group is associated with by clicking the ellipsis icon and selecting **Direct Permissions**, **Inherited Permissions**, or **All Permissions**.
 
 <ThemedImage
   alt="Permission buttons"
@@ -69,7 +69,7 @@ You can view the objects that a group is associated with by clicking the ellipsi
   }}
 />
 
-The **Direct Permissions** option shows a list of all objects that have been directly assigned to the group. If the group has been assigned to a specific device, the device will appear in the report. If the group has been assigned a building, devices in the building that do not have a direct group assignment, will not be shown even though these devices inherit permissions from the building. 
+The **Direct Permissions** option shows a list of all the objects that have been directly assigned to the group. If the group has been assigned to a specific device, the device will appear in the report. If the group has been assigned a building, devices in the building that do not have a direct group assignment will not be shown, even though these devices inherit permissions from the building. 
 
 <ThemedImage
   alt="View Direct Permissions"
@@ -79,7 +79,7 @@ The **Direct Permissions** option shows a list of all objects that have been dir
   }}
 />
 
-The **Inherited Permissions** are those that are inherited from the parent group - such as a room that inherits permissions from a building. 
+The **Inherited Permissions** are inherited from the parent group. For example, a room inherits permissions from a building. 
 
 The **All Permissions** button shows both the direct and inherited permissions for objects for this group. 
 
@@ -95,7 +95,7 @@ The **Do Not Propagate** option can be set on buildings, rooms, and racks to sto
   }}
 />
 
-In the above example, devices, assets, and PDU in rack NH-CT-88 will be visible to anyone with permission to see the rack. This is useful for a co-location operator who wants to split a rack among different customers. In the rack layout view, a customer with permission to see specific racks and their devices, but not others, will see a grayed-out rack with no information about the devices, assets, and PDUs they are not authorized to view.
+In the above example, devices, assets, and PDUs in rack NH-CT-88 will be visible to anyone with permission to see the rack. This is useful for a co-location operator who wants to split a rack among different customers. In the rack layout view, a customer with permission to see specific racks and their devices, but not others, will see a grayed-out rack with no information about the devices, assets, and PDUs they are not authorized to view.
 
 ## Functional vs. Object Permissions
 
@@ -170,9 +170,9 @@ Object permissions apply to the following objects:
 - Customers 
 - Auto Discovery jobs
 
-You can assign Admin Groups to objects from the list view of the object or the edit page of a specific object. You can also assign Admin Groups to discovered objects.
+You can assign Admin Groups to objects from the list view of the object type or the edit page of a specific object. You can also assign admin groups to discovered objects.
 
-From the list view of the object, you can bulk select the objects you want to assign permissions to. From the **Actions** dropdown, select the **Assign Permissions** action.
+From the list view of the object type, you can bulk select the objects you want to assign permissions to. From the **Actions** dropdown, select the **Assign Permissions** action.
 
 <ThemedImage
   alt="Add Groups action"
@@ -182,7 +182,7 @@ From the list view of the object, you can bulk select the objects you want to as
   }}
 />
 
-Here we are about to assign permission to the three racks listed above the "Prod" admin group. If you click **Add group for selected objects**, you will give the "Prod" group the right to view and edit the selected racks. Leaving the **Change Permissions?** box unchecked means only granting view permission.
+Here, we are about to assign the **Prod** admin group permissions to the three racks listed above. If you click **Add group for selected objects**, you will give the **Prod** group the right to view and edit the selected racks. Leaving the **Change Permissions?** box unchecked means only granting view permission.
 
 <ThemedImage
   alt="Select admin group"
@@ -192,9 +192,9 @@ Here we are about to assign permission to the three racks listed above the "Prod
   }}
 />
 
-Remove previously assigned permissions with the **Delete Groups** action. If you want to delete the "Prod" group's permissions for these racks, select that option. You can change the **Change Permissions?** flag through this dialog as well.
+Remove previously assigned permissions with the **Delete Groups** action. If you want to delete the **Prod** group's permissions for these racks, select that option. You can change the **Change Permissions?** flag through this dialog as well.
 
-You can also assign permissions from object edit pages as shown above.
+You can also assign permissions from object edit pages, as shown above.
 
 The **Add Groups** and **Delete Groups** actions are available for the following objects: 
 - Buildings 
