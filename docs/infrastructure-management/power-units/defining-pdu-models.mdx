@@ -3,13 +3,23 @@ title: "Defining PDU Models"
 sidebar_position: 3
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 The PDU data entry form has an optional field for PDU models. However, defining a PDU model is required if the PDU is rack mounted and/or you want to track the ports of the PDU.
 
 Menu : **DataCenter > Power Units > Power Unit Models**
 
 ## Adding a PDU Model
 
-![Add a PDU model](/assets/images/add_PDU_model.png)
+<ThemedImage
+  alt="Add a PDU model"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/add_PDU_model-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/add_PDU_model-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 **
 
@@ -40,7 +50,14 @@ Ports should be added during the creation of a new "PDU model", which is in esse
 
 Ports can be added either in Bulk, or one at a time:
 
-![Add ports to PDU model](/assets/images/pdu_model_bulk_port_add.png)
+<ThemedImage
+  alt="Add ports to PDU model"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/pdu_model_bulk_port_add-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/pdu_model_bulk_port_add-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 This step is critical if you want to define ports for your PDUs!
 
@@ -51,5 +68,5 @@ It is important to emphasize that the PDU model acts as a template for the ports
 A PDU model is primarily a set of output connection types and a port count. Take for example an APC PDU with (16) NEMA 5-20R ports: To create this PDU:
 
 1. Add 16 for the port count and NEMA 5-20R for the Port type.
-2. If necessary, add your own port types (multiple types of ports with varying numbers of port counts are allowed.
+2. If necessary, add your own port types (multiple types of ports with varying numbers of port counts are allowed).
 Finally, ensure you double check your port layouts - Making changes to the port layout of an existing PDU model will not change any existing PDUs defined based on this model. Only new PDUs will be affected!
