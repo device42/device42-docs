@@ -3,9 +3,19 @@ title: "PDU ports"
 sidebar_position: 4
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 In this section, we will discuss details regarding the PDU (Power Distribution Unit) ports. To edit PDU ports, open any PDU CI & invoke "Edit" mode via the main menu: _Infrastructure -> Power Units -> Power Units_
 
-![](/assets/images/D42-22673_pdus-menu.png)
+<ThemedImage
+  alt="Edit PDU page"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/D42-22673_pdus-menu-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/D42-22673_pdus-menu-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 ## Power Unit/PDU Port Connectivity
 
@@ -13,7 +23,14 @@ PDU ports can be connected to a device, an asset (such as a modem), or another P
 
 The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) object. Set the ID, click on the lookup icon. You will then see a list of existing object of the selected content type and you should select the device, asset or pdu that connects to this port.
 
-![PDU Port connectivity](/assets/images/port_connectivity_PDUs.png)
+<ThemedImage
+  alt="PDU Port connectivity"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/port_connectivity_PDUs-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/port_connectivity_PDUs-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 **Field Definitions:**
 
@@ -30,15 +47,29 @@ The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) obj
 
 ### PDU/Power Unit Ports viewed from the device perspective
 
-![PDU Ports on Device View ](/assets/images/pdu_ports_device_perspective-hl.png)
+<ThemedImage
+  alt="PDU Ports on Device View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/pdu_ports_device_perspective-hl-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/pdu_ports_device_perspective-hl-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-When viewing a PDU-connected device, the _Other_ tab shows the PDU port connections and power information (with Power Monitoring license for that device.
+When viewing a PDU-connected device, the _Info_ tab shows the PDU port connections and power information (with Power Monitoring license for that device.
 
 Only the _PSU object label_ is editable from a Physical Device's edit screen. All other PDU-related edits must be made on the PDU's edit page.
 
 ### PDU list view
 
-![PDU List View](/assets/images/PDU_list_view.png)
+<ThemedImage
+  alt="PDU List View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/PDU_list_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/PDU_list_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 The PDU List view _**\[Main Menu, Infrastructure > Power Units > Power Units\]**_ shows a high-level overview of the PDUs you have discovered in Device42.
 
@@ -46,19 +77,49 @@ The PDU List view _**\[Main Menu, Infrastructure > Power Units > Power Units\]**
 
 The "Infeeds" Section will show the Power Draw Per Phase, both Rated Power & Actual Power Draw as measured. In addition, if your particular PDU supports it, Apparent Power, Power Factor, Voltage, and Active Power will also be displayed:
 
-![PDU Infeed Power Details](/assets/images/Infeeds_PDU_power_view.png)
+<ThemedImage
+  alt="PDU Infeed Power Details"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/Infeeds_PDU_power_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/Infeeds_PDU_power_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 ## PDUs & Available ports visible on the Rack View
 
-Power units will also be found in the Rack View, which can be found in the main menu: _(Infrastructure-> Racks)_: ![PDUs on the Rack View](/assets/images/PDU_rack_view.png)
+Power units will also be found in the Rack View, which can be found in the main menu: _(Infrastructure-> Racks)_: 
+
+<ThemedImage
+  alt="PDUs on the Rack View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/PDU_rack_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/PDU_rack_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 The PDU watts sum will also be visible on the rack layout page as shown below. Click _Power Details_ in the left pane to see PDU power details.
 
-![](/assets/images/D42-22673_pdus-power-details-1.png)
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/D42-22673_pdus-power-details-1-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/D42-22673_pdus-power-details-1-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 ### Understanding Power per PDU port & Override values
 
-![Override PDU Watts](/assets/images/Override_watts-PDU.png)
+<ThemedImage
+  alt="Override PDU Watts"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/Override_watts-PDU-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/Override_watts-PDU-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 The "Override Watts" field can be used for PDU port power estimations. By default, the watts value will be the device hardware value as measured _(if a device is connected to that port)_ - however, you can enter any value to override the default.
 
