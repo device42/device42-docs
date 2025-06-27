@@ -3,53 +3,62 @@ title: "Defining PDU Models"
 sidebar_position: 3
 ---
 
-The PDU data entry form has an optional field for PDU models. However, defining a PDU model is required if the PDU is rack mounted and/or you want to track the ports of the PDU.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Menu : **DataCenter > Power Units > Power Unit Models**
+The PDU data entry form has an optional field for PDU models. However, defining a PDU model is required if the PDU is rack-mounted or if you want to track the ports of the PDU.
+
+From the main menu, navigate to **Data Center > Power Units > Power Unit Models**.
 
 ## Adding a PDU Model
 
-![Add a PDU model](/assets/images/add_PDU_model.png)
+<ThemedImage
+  alt="Add a PDU model"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/add_PDU_model-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/add_PDU_model-dark.png'),
+  }}
+  style={{ width: '80%' }}
+/>
 
-**
+### PDU Model Field Definitions
 
-### PDU Model Field definitions
-
-**
-
-- **Name**: Define the model name. Choose a descriptive, yet understandable name so it's easy for you to differentiate between the different PDU models you have when defining your PDUs.
+- **Name:** Define the model name. Choose a descriptive but understandable name, so it's easy for you to differentiate between the different PDU models when defining your PDUs.
     
-- **Size**: Size (in rack Units). Define your PDUs size if it is going to be rack mounted OR define the size of your left- or right-mounted PDUs (e.g. 10U or 20U). If not specified, PDU will be assumed to be a rack displayed PDU, either left-side or right-side mounted of the default size 20U.
+- **Size:** Define your PDU's size (in rack Units) if it is going to be rack-mounted, or define the size of your left- or right-mounted PDUs (for example, 10U or 20U). If not specified, the PDU will be assumed to be a rack-displayed PDU, either left-side or right-side mounted, of the default size, 20U.
     
-- **Depth**: half depth or full depth; default is half-depth PDU
+- **Depth:** Define whether the PDU is half-depth or full-depth. The default is half-depth.
     
-- **Front / Back Image**: Use the front/back image fields to specify your own custom images to represent the front & back of your PDU on the rack display screen.
+- **Front / Back Image:** Use the front and back image fields to specify your own custom images to represent the front and back of your PDU on the rack display screen.
     
-- **Manufacturer:** Specify PDU manufacturer
+- **Manufacturer:** Specify the PDU manufacturer.
     
 
 ## Adding Ports to a PDU Model
 
-Ports should be added during the creation of a new "PDU model", which is in essence, a template; all PDUs that are assigned a given model will inherit their configuration from these PDU models. Ports (power outlets) are added to a model once to match their physical layout, and individual PDUs inherit this configuration based on the PDU model each is assigned.
-
-**
+Ports should be added during the creation of a new **PDU model**, which is essentially a template. All PDUs that are assigned a given model will inherit their configuration from that PDU model. Ports (power outlets) are added to a model to match their physical layout, and individual PDUs inherit this configuration based on the PDU model that each is assigned.
 
 ### Adding Ports to a PDU Model
 
-**
+Ports can be added either in bulk or one at a time:
 
-Ports can be added either in Bulk, or one at a time:
-
-![Add ports to PDU model](/assets/images/pdu_model_bulk_port_add.png)
+<ThemedImage
+  alt="Add ports to PDU model"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/pdu_model_bulk_port_add-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/pdu_model_bulk_port_add-dark.png'),
+  }}
+  style={{ width: '80%' }}
+/>
 
 This step is critical if you want to define ports for your PDUs!
 
 It is important to emphasize that the PDU model acts as a template for the ports in the PDU. You cannot directly add ports to the PDU. **PDU ports for a PDU can only be created based on PDU models.**
 
-### Note: PDU models are templates!
+### Note: PDU Models Are Templates!
 
-A PDU model is primarily a set of output connection types and a port count. Take for example an APC PDU with (16) NEMA 5-20R ports: To create this PDU:
+A PDU model is primarily a set of output connection types and a port count. Take, for example, an APC PDU with (16) NEMA 5-20R ports. To create this PDU:
 
-1. Add 16 for the port count and NEMA 5-20R for the Port type.
-2. If necessary, add your own port types (multiple types of ports with varying numbers of port counts are allowed.
-Finally, ensure you double check your port layouts - Making changes to the port layout of an existing PDU model will not change any existing PDUs defined based on this model. Only new PDUs will be affected!
+1. Add 16 for the port count and NEMA 5-20R for the port type.
+2. If necessary, add your own port types (multiple types of ports with varying numbers of port counts are allowed).
+3. Finally, ensure you double-check your port layouts. Making changes to the port layout of an existing PDU model will not change any existing PDUs defined based on this model. Only new PDUs will be affected!

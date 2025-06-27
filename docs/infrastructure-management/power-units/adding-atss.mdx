@@ -3,41 +3,70 @@ title: "Adding ATSs"
 sidebar_position: 1
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ### Adding an ATS
 
-Intelligent ATSs will be autodiscovered through power autodiscovery in Device42. You will now be able to see incoming PDU connections to ATSs and visualize your whole power chain from UPS to PDU to ATS to device.
+Intelligent ATSs will be automatically discovered through power autodiscovery in Device42. You will now be able to see incoming PDU connections to ATSs and visualize your whole power chain, from UPS to PDU to ATS to device.
 
 ### Creating an ATS
 
-You can create an ATS in Device42 by going to _Infrastructure > Power Units > Power Units_. Click _Add Power Unit_ at the top right of the Power Units list page. On the new screen, name your ATS and select ATS as power unit type.
+You can create an ATS in Device42 by going to **Infrastructure > Power Units > Power Units**. Click **Create** at the top right of the Power Units list page. On the new screen, name your ATS and select ATS as the power unit type.
 
 ### Connecting ATSs to PDUs
 
-To connect an ATS to a PDU, you do so from the PDU page. Browse to the PDU you would like to connect to the ATS and in Edit mode change the _Content Type_ of the port you are connecting to _Power Unit,_ and then using the Object ID magnifying glass, select the ATS you would like to connect to the PDU.
+To connect an ATS to a PDU, browse to the PDU you would like to connect to the ATS and, in Edit mode, change the **Content Type** of the port to which you are connecting to **Power Unit**. Then, using the Object ID **plus icon**, select the ATS you would like to connect to the PDU.
 
-![](/assets/images/WEB-599_ats-1.png)
+<ThemedImage
+  alt="Edit PDU page"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/edit-pdu-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/edit-pdu-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-Once you click _Save_, the connection will be displayed as seen below.
+Once you click **Save**, the connection will be displayed as seen below.
 
-![](/assets/images/WEB-599_ats-2.png)
+<ThemedImage
+  alt="PDU information page 1"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/saved-pdu-light-1.png'),
+    dark: useBaseUrl('/assets/images/power-units/saved-pdu-dark-1.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-![](/assets/images/WEB-599_ats-3.png)
+<ThemedImage
+  alt="PDU information page 2"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/saved-pdu-light-2.png'),
+    dark: useBaseUrl('/assets/images/power-units/saved-pdu-dark-2.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 ### Viewing Power Connections
 
-After the connections have been made from devices to the ATS and from the PDUs to the ATS you will now be able to see power connectivity maps allowing you to visualize these connections.
+After the connections have been made from devices to the ATS, and from the PDUs to the ATS, you will be able to see power connectivity maps that visualize these connections.
 
-1. Navigate to _Infrastructure > Power Units_.
+1. Navigate to **Infrastructure > Power Units**.
 2. Select the PDU that you would like to see connections for.
-3. Click the _Connections_ link in the ellipsis menu at the top right.
+3. Click the **Connections** link in the ellipsis menu in the top-right corner.
 
-![](/assets/images/WEB-599_ats-4-700x395.png)
+<ThemedImage
+  alt="PDU connections page"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/connections-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/connections-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-### Mapping ATS's to a Device
+### Mapping ATSs to a Device
 
-If you want to track more details about an ATS (e.g., serial number, asset number, IP address, purchase information, life cycle management) – an ATS can be mapped to a device.
-
-How-to:
+If you want to track more details about an ATS (for example, serial number, asset number, IP address, purchase information, life cycle management), an ATS can be mapped to a device as follows:
 
 1. Create a Device with Type = Physical – it is recommended (but not required) to give the device the same name as the ATS it will be mapped to.
 2. Select Physical Subtype = ATS – hardware is not needed. All other fields are optional.
