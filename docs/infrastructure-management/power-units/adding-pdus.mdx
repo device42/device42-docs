@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Add a new PDU by heading to **DataCenter > Power Units > Power Units**. Relevant PDU-related fields are listed and defined below. 
 
-Note that PDUs (like almost all D42 CI) can also be added and manipulated [via the API](https://api.device42.com/#pdu).
+Note that PDUs (like almost all Device42 CIs) can also be added and manipulated [via the API](https://api.device42.com/#pdu).
 
 <ThemedImage
   alt="Add new PDU"
@@ -23,17 +23,17 @@ Note that PDUs (like almost all D42 CI) can also be added and manipulated [via t
 
 ### PDU Field Descriptions
 
-- **Name**: Name your PDU (required).
-- **Type**: Choose between PDU, UPS, ATS, and Environmental Monitor (required).
-- **Power Unit Model**: Choose the PDU model (required if the PDU is rack-mounted or used to track individual ports on the PDU).
-- **Is Device42 PDU monitoring enabled**: Flag this PDU as being monitored by Device42.
-- **Storage Room**: If the Power Unit is not stored in a Rack or Server Room, provide the Storage Room where the PDU is located. Note that selecting a Storage Room will remove existing Rack and Server Room information.
-- **Object Category**: Select an Object Category to which this PDU belongs. This field is visible if **Role-Based Access Control** (RBAC) is enabled under **Tools > Settings > Global Settings**. 
+- **Name:** Name your PDU (required).
+- **Type:** Choose between **PDU**, **UPS**, **ATS**, and **Environmental Monitor** (required).
+- **Power Unit Model:** Choose the PDU model (required if the PDU is rack-mounted or used to track individual ports on the PDU).
+- **Is Device42 PDU monitoring enabled:** Flag this PDU as being monitored by Device42.
+- **Storage Room:** If the power unit is not stored in a rack or server room, provide the storage room where the PDU is located. Note that selecting a storage room will remove existing rack and server room information.
+- **Object Category:** Select an object category to which this PDU belongs. This field is visible if **Role-Based Access Control** (RBAC) is enabled under **Tools > Settings > Global Settings**.
   :::note
   The **Set Object Category** option on the **Actions** menu of the Power Units list page is only visible if RBAC is enabled.
   :::
-- **Tags**: Include a comma-separated list of tags to categorize this Power Unit.
-- **Notes**: Optionally add notes regarding this Power Unit.
+- **Tags:** Include a comma-separated list of tags to categorize this power unit.
+- **Notes:** Optionally add notes regarding this power unit.
 
 ### Device Mapping Section
 
@@ -46,18 +46,20 @@ Note that PDUs (like almost all D42 CI) can also be added and manipulated [via t
   style={{ width: '110%' }}
 />
 
-### Device Mapping Section - PDU:
+### Device Mapping Section - PDU
 
-**Device**: Associating your PDU with a device is required only if you want to track IP address, life cycle, or other asset information for the PDU; IP and asset info is tracked via the chosen device - _optional_.
+**Device:** Associating your PDU with a device is required only if you want to track IP address, life cycle, or other asset information for the PDU; IP and asset info is tracked via the chosen device (optional).
 
-- **Serial #**: If PDU is mapped to a device, the serial number of the mapped device is shown here.
-- **Asset #**: If PDU is mapped to a device, the asset number of the mapped device is shown here.
+- **Serial #:** If PDU is mapped to a device, the serial number of the mapped device is shown here.
+- **Asset #:** If PDU is mapped to a device, the asset number of the mapped device is shown here.
 
-### Gateway PDU Mapping Section:
+### Gateway PDU Mapping Section
 
-**Gateway PDU**: If this PDU is plugged into another PDU \[aka daisy chained\], identify the "Gateway PDU" it is plugged in to, if any. - _optional_.
+**Gateway PDU:** If this PDU is plugged into another PDU \[aka daisy chained\], identify the "Gateway PDU" it is plugged in to, if any (optional).
 
-**Infeeds**: Power infeed information will display here - _n/a; auto-discovered_. **Custom Fields**: any custom fields you have created for PDUs will display here. Custom fields are _optional_.
+**Infeeds:** Power infeed information will display here (n/a; auto-discovered).
+
+**Custom Fields:** Any custom fields you have created for PDUs will display here (optional).
 
 Upon saving your new PDU, Device42 will automatically add ports based on the selected PDU model. **Note that ports can only be added at the time of PDU creation and cannot be altered later!**
 
@@ -65,7 +67,7 @@ Upon saving your new PDU, Device42 will automatically add ports based on the sel
 
 ## Automatically Created Ports
 
-When a new PDU is created via the click of the "Save" button, PDU ports are created automatically based on the port layout defined on the chosen PDU model. For information on defining your PDU model(s), see the [Defining PDU Models](infrastructure-management/power-units/defining-pdu-models.mdx) section of the Device42 Docs.
+When you click **Save**, the new PDU is created and PDU ports are automatically generated based on the port layout defined by the chosen PDU model. For information on defining your PDU model(s), see the [Defining PDU Models](infrastructure-management/power-units/defining-pdu-models.mdx) section of the Device42 Docs.
 
 <ThemedImage
   alt="Automatically Created PDU Ports"
@@ -88,14 +90,13 @@ When a new PDU is created via the click of the "Save" button, PDU ports are crea
 />
 
 
-To track details about a PDU, e.g.: The PDU serial #, asset #, PUD IP address, purchase information, life-cycle management, etc., the PDU can be mapped to a device. To create a device for the purpose of PDU mapping, simply do the following:
+To track details about a PDU (for example, its serial number, asset number, IP address, purchase information, and life-cycle management), map the PDU to a device. Create a device for the purpose of PDU mapping as follows:
 
-1. Create a new Device, setting its _Device Type = Unknown_ (see image above). It is recommended (but not required) that the device be named the same as the PDU that you will be mapping it to better organize.
-2. Set the new device's _Device Subtype_ to PDU (see the above image). There is no need to define hardware, and all other fields are optional.
-3. Save the new device.
-
-5. Head back to the PDU ci that will be linked to the device you just created. Edit the PDU by clicking the "edit" button, and click the magnifying glass on the Device Mapping option (see the image below). Choose the device you created in steps 1-3 by clicking on its name in the "Select Device" popup.
-6. Save the changes to the PDU
+1. Create a new device, setting its **Type** to **unknown** (see image above). For better organization, we recommend (but do not require) that you give the device the same name as the PDU that you will be mapping it to.
+2. Set the new device's subtype to **PDU** (see the above image). There is no need to define hardware, and all other fields are optional.
+3. **Save** the new device.
+4. Head back to the PDU CI that will be linked to the device you just created. Edit the PDU by clicking the edit button, and click the magnifying glass on the Device Mapping option (see the image below). Choose the device you created in Steps 1-3 by clicking on its name in the **Select Device** popup.
+5. **Save** the changes to the PDU.
 
 <ThemedImage
   alt="PDU mapped to Device"
@@ -108,8 +109,7 @@ To track details about a PDU, e.g.: The PDU serial #, asset #, PUD IP address, p
     
 ### Viewing and Navigating Between a Mapped PDU and Device
 
-Jumping from a device to the PDU it's plugged in to, or from a PDU to the device page of a device that's plugged into it is simple: Above image - PDU mapping page, with a link to the device's details page.  
-Below image- Device mapping page, links back to the PDU detail page.
+You can easily navigate from a device to the PDU it's plugged into or from a PDU to the device page of the device that's plugged into it. The PDU mapping page links to the device details page (see the above image) and the device mapping page links back to the PDU details page (see the image below).
 
 <ThemedImage
   alt="Device w mapped PDU"
