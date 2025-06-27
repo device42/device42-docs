@@ -1,65 +1,126 @@
 ---
-title: "PDU ports"
+title: "PDU Ports"
 sidebar_position: 4
 ---
 
-In this section, we will discuss details regarding the PDU (Power Distribution Unit) ports. To edit PDU ports, open any PDU CI & invoke "Edit" mode via the main menu: _Infrastructure -> Power Units -> Power Units_
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![](/assets/images/D42-22673_pdus-menu.png)
+In this section, we will discuss Power Distribution Unit (PDU) ports. To edit PDU ports, open any PDU CI and enter **Edit** mode via the main menu: **Infrastructure > Power Units > Power Units**.
 
-## Power Unit/PDU Port Connectivity
+<ThemedImage
+  alt="Edit PDU page"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/D42-22673_pdus-menu-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/D42-22673_pdus-menu-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-PDU ports can be connected to a device, an asset (such as a modem), or another PDU. Set the **connection type** via the _Content Type_ pulldown.
+## Power Unit and PDU Port Connectivity
 
-The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) object. Set the ID, click on the lookup icon. You will then see a list of existing object of the selected content type and you should select the device, asset or pdu that connects to this port.
+PDU ports can be connected to a device, an asset (such as a modem), or another PDU. Set the **Connection Type** via the **Content Type** pulldown.
 
-![PDU Port connectivity](/assets/images/port_connectivity_PDUs.png)
+The **Object ID** is the ID of the **Content Type** (the device, asset, or PDU) object. Set the ID, and click on the lookup icon. You will then see a list of existing objects that have the selected content type, and you should select the device, asset, or PDU that connects to this port.
+
+<ThemedImage
+  alt="PDU Port connectivity"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/port_connectivity_PDUs-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/port_connectivity_PDUs-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
 **Field Definitions:**
 
-- **Outlet Name:** The outlet name or # on the PDU.
-- **Port Number:** The outlet or port # as labeled on the PDU.
-- **Object Name:** object name is auto-generated (after saving) based on the selected _Content Type_ and _Object ID_, and provides a link to the device, asset, or PDU that is connected to the port.
+- **Outlet Name:** The outlet name or number on the PDU.
+- **Port Number:** The outlet or port number, as labeled on the PDU.
+- **Object Name:** The object name is auto-generated (after saving) based on the selected **Content Type** and **Object ID**, and provides a link to the device, asset, or PDU that is connected to the port.
 - **Object PSU label:** The label of the power supply on the device/asset side.
-- **Override Watts:** _Optional_ - Enter a value, in Watts, to override the wattage detected from hardware.
+- **Override Watts:** Enter a value, in Watts, to override the wattage detected from hardware (optional).
 - **Bootstrap Power:** This field shows the peak power draw from this outlet at device boot time; empty if no device is connected.
-- **Power Draw:** This field shows the _actual \[aka true\] power_ draw as measured from this outlet the last time it was polled; empty if no device is connected.
-- **Active Power:** This field shows the _Active power_ \[aka reactive power: power absorbed then returned by the load\] draw as measured from this outlet; empty if no device is connected.
-- **Apparent Power:** This field shows _Apparent \[aka true\] power_ draw, a combination of _Active \[reactive\] Power & True Power_ measurements; empty if no device is connected.
-- **Power Factor:** This field shows _Calculated Power Factor_ \[PF = True Power / Apparent Power\]; empty if no device is connected.
+- **Power Draw:** This field shows the _actual power \[aka true power\]_ draw as measured from this outlet the last time it was polled; it is empty if no device is connected.
+- **Active Power:** This field shows the _active power_ \[aka reactive power: power absorbed then returned by the load\] draw as measured from this outlet; it is empty if no device is connected.
+- **Apparent Power:** This field shows _apparent power \[aka true power\]_ draw, a combination of _active \[reactive\] power and true power_ measurements; it is empty if no device is connected.
+- **Power Factor:** This field shows _calculated power factor_ \[PF = true power / apparent power\]; it is empty if no device is connected.
 
-### PDU/Power Unit Ports viewed from the device perspective
+### PDU Ports Viewed From the Device Perspective
 
-![PDU Ports on Device View ](/assets/images/pdu_ports_device_perspective-hl.png)
+<ThemedImage
+  alt="PDU Ports on Device View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/pdu_ports_device_perspective-hl-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/pdu_ports_device_perspective-hl-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-When viewing a PDU-connected device, the _Other_ tab shows the PDU port connections and power information (with Power Monitoring license for that device.
+When viewing a PDU-connected device, the **Info** tab shows the PDU port connections and power information (with the Power Monitoring license for that device).
 
-Only the _PSU object label_ is editable from a Physical Device's edit screen. All other PDU-related edits must be made on the PDU's edit page.
+Only the **PSU object label** is editable from a physical device's edit screen. All other PDU-related edits must be made on the PDU's edit page.
 
-### PDU list view
+### PDU List View
 
-![PDU List View](/assets/images/PDU_list_view.png)
+<ThemedImage
+  alt="PDU List View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/PDU_list_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/PDU_list_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-The PDU List view _**\[Main Menu, Infrastructure > Power Units > Power Units\]**_ shows a high-level overview of the PDUs you have discovered in Device42.
+To see the PDU list view and a high-level overview of the PDUs you have discovered in Device42, navigate to **Infrastructure > Power Units > Power Units** from the main menu.
 
 ### Infeed Power
 
-The "Infeeds" Section will show the Power Draw Per Phase, both Rated Power & Actual Power Draw as measured. In addition, if your particular PDU supports it, Apparent Power, Power Factor, Voltage, and Active Power will also be displayed:
+The **Infeeds** section will show the **Power Draw Per Phase**, including both the **Rated Power** and **Actual Power Draw** as measured. If your particular PDU supports it, **Apparent Power**, **Power Factor**, **Voltage**, and **Active Power** will also be displayed:
 
-![PDU Infeed Power Details](/assets/images/Infeeds_PDU_power_view.png)
+<ThemedImage
+  alt="PDU Infeed Power Details"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/Infeeds_PDU_power_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/Infeeds_PDU_power_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-## PDUs & Available ports visible on the Rack View
+## PDUs and Available Ports Visible on the Rack View
 
-Power units will also be found in the Rack View, which can be found in the main menu: _(Infrastructure-> Racks)_: ![PDUs on the Rack View](/assets/images/PDU_rack_view.png)
+Power units will also be found in the Rack View, which can be found by navigating to **Infrastructure > Racks** from the main menu: 
 
-The PDU watts sum will also be visible on the rack layout page as shown below. Click _Power Details_ in the left pane to see PDU power details.
+<ThemedImage
+  alt="PDUs on the Rack View"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/PDU_rack_view-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/PDU_rack_view-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-![](/assets/images/D42-22673_pdus-power-details-1.png)
+The PDU watts sum will also be visible on the rack layout page as shown below. Click **Power Details** in the left pane to see the PDU power details.
 
-### Understanding Power per PDU port & Override values
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/D42-22673_pdus-power-details-1-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/D42-22673_pdus-power-details-1-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-![Override PDU Watts](/assets/images/Override_watts-PDU.png)
+### Understanding Power per PDU Port and Override Values
 
-The "Override Watts" field can be used for PDU port power estimations. By default, the watts value will be the device hardware value as measured _(if a device is connected to that port)_ - however, you can enter any value to override the default.
+<ThemedImage
+  alt="Override PDU Watts"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/Override_watts-PDU-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/Override_watts-PDU-dark.png'),
+  }}
+  style={{ width: '110%' }}
+/>
 
-If there is no default value (e.g. an asset connected to a PDU port would not have default power value), you may use this field to manually enter the value. Overridden and default values will be used by Device42 to estimate the total power for that PDU. The sum is visible on all the PDU pages _(list, view, and change pages)_.
+The **Override Watts** field can be used for PDU port power estimations. By default, the watts value will be the device hardware value as measured _(if a device is connected to that port)_; however, you can enter any value to override the default.
+
+If there is no default value (for example, an asset connected to a PDU port would not have a default power value), you may use this field to enter the value manually. Overridden and default values will be used by Device42 to estimate the total power for that PDU. The sum is visible on all the PDU pages _(the list, view, and change pages)_.
