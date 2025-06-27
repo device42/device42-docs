@@ -6,7 +6,7 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-In this section, we will discuss Power Distribution Unit (PDU) ports. To edit PDU ports, open any PDU CI and **Edit** mode via the main menu: **Infrastructure > Power Units > Power Units**.
+In this section, we will discuss Power Distribution Unit (PDU) ports. To edit PDU ports, open any PDU CI and enter **Edit** mode via the main menu: **Infrastructure > Power Units > Power Units**.
 
 <ThemedImage
   alt="Edit PDU page"
@@ -38,11 +38,11 @@ The **Object ID** is the ID of the **Content Type** (the device, asset, or PDU) 
 - **Port Number:** The outlet or port number, as labeled on the PDU.
 - **Object Name:** The object name is auto-generated (after saving) based on the selected **Content Type** and **Object ID**, and provides a link to the device, asset, or PDU that is connected to the port.
 - **Object PSU label:** The label of the power supply on the device/asset side.
-- **Override Watts:** Enter a value, in Watts, to override the wattage detected from hardware - _optional_.
+- **Override Watts:** Enter a value, in Watts, to override the wattage detected from hardware (optional).
 - **Bootstrap Power:** This field shows the peak power draw from this outlet at device boot time; empty if no device is connected.
 - **Power Draw:** This field shows the _actual power \[aka true power\]_ draw as measured from this outlet the last time it was polled; it is empty if no device is connected.
 - **Active Power:** This field shows the _active power_ \[aka reactive power: power absorbed then returned by the load\] draw as measured from this outlet; it is empty if no device is connected.
-- **Apparent Power:** This field shows _apparent power \[aka true power\_ draw, a combination of _active \[reactive\] power and true power_ measurements; it isempty if no device is connected.
+- **Apparent Power:** This field shows _apparent power \[aka true power\]_ draw, a combination of _active \[reactive\] power and true power_ measurements; it isempty if no device is connected.
 - **Power Factor:** This field shows _calculated power factor_ \[PF = true power / apparent power\]; it is empty if no device is connected.
 
 ### PDU Ports Viewed From the Device Perspective
@@ -71,7 +71,7 @@ Only the **PSU object label** is editable from a physical device's edit screen. 
   style={{ width: '110%' }}
 />
 
-To see the PDU list view and a high-level overview of the PDUs you have discovered in Device42navigate to **Infrastructure > Power Units > Power Units** from the main menu.
+To see the PDU list view and a high-level overview of the PDUs you have discovered in Device42, navigate to **Infrastructure > Power Units > Power Units** from the main menu.
 
 ### Infeed Power
 
