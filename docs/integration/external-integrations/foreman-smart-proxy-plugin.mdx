@@ -13,36 +13,40 @@ From the point of view of the server making the DHCP request, the smart proxy is
 
 Installing the smart proxy plugin by Device42 is the same as the installation of any smart proxy plugin into the Foreman (there are many). The below instructions were copied from [these instructions in the Foreman user manual](https://theforeman.org/manuals/1.1/index.html#4.3SmartProxies). Please consult the Foreman Manual directly for more details, but installation should be as simple as:
 
-```
-  # Debian Linux (as root)
-  apt-get update
-  apt-get install foreman-proxy
+<details>
+  <summary>Click to expand the code block</summary>
+  ```
+    # Debian Linux (as root)
+    apt-get update
+    apt-get install foreman-proxy
 
-  # Ubuntu Linux (as normal user)
-  sudo aptitude update
-  sudo aptitude install foreman-proxy
-```
-
-
+    # Ubuntu Linux (as normal user)
+    sudo aptitude update
+    sudo aptitude install foreman-proxy
+  ```
+</details>
 
 Once you've installed the Foreman Smart Proxy package as per Foreman, add the following Device42 specific configuration:
 
-```
-Configuration
+-  To enable this DHCP provider, edit `/etc/foreman-proxy/settings.d/dhcp.yml` and set:
 
-To enable this DHCP provider, edit /etc/foreman-proxy/settings.d/dhcp.yml and set:
+  ```
+  :use\_provider: dhcp\_device42
+  :subnets: subnets you want to use (optional unless you set device42_subnets to false)
+  ```
 
-:use\_provider: dhcp\_device42
-:subnets: subnets you want to use (optional unless you set device42\_subnets to false)
+- Configuration options for this plugin are in `/etc/foreman-proxy/settings.d/dhcp_device42.yml` and include:
 
-Configuration options for this plugin are in /etc/foreman-proxy/settings.d/dhcp\_device42.yml and include:
-
-:scheme: server scheme
-:verify: secure verification ( bool )
-:server: IP of device42 server
-:username: API Username
-:password: API Password
-```
+  <details>
+    <summary>Click to expand the code block</summary>
+    ```
+    :scheme: server scheme
+    :verify: secure verification ( bool )
+    :server: IP of device42 server
+    :username: API Username
+    :password: API Password
+    ```
+  </details>
 
 Note that you can find the above configuration details in the README.MD file included with the [Device42-Foreman Smart Proxy plugin download](https://codeload.github.com/theforeman/smart_proxy_dhcp_device42/zip/refs/heads/master) on the [Device42 Github](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
 

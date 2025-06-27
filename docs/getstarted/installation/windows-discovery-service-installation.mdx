@@ -68,15 +68,18 @@ Both the MA and the RC ship with a self-signed certificate, making it necessary 
 
 Install a valid certificate on the MA and the RC. You can then change the default behavior of the WDS to no longer ignore SSL errors by editing the WDS runtime configuration file:
 
-```
-<configuration>
-  <appSettings>
-....
-    <add key="IgnoreSSLErrors" value="false"/>
-....
-  </appSettings>
-...  
-```
+<details>
+  <summary>Click to expand the code block</summary>
+  ```markup
+  <configuration>
+    <appSettings>
+  ....
+      <add key="IgnoreSSLErrors" value="false"/>
+  ....
+    </appSettings>
+  ...  
+  ```
+</details>
 
 ## Create a New WMI Autodiscovery Job
 
