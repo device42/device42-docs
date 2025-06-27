@@ -1,12 +1,12 @@
 ---
-title: "PDU ports"
+title: "PDU Ports"
 sidebar_position: 4
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-In this section, we will discuss details regarding the PDU (Power Distribution Unit) ports. To edit PDU ports, open any PDU CI & invoke "Edit" mode via the main menu: _Infrastructure -> Power Units -> Power Units_
+In this section, we will discuss Power Distribution Unit (PDU) ports. To edit PDU ports, open any PDU CI and **Edit** mode via the main menu: **Infrastructure > Power Units > Power Units**.
 
 <ThemedImage
   alt="Edit PDU page"
@@ -17,11 +17,11 @@ In this section, we will discuss details regarding the PDU (Power Distribution U
   style={{ width: '110%' }}
 />
 
-## Power Unit/PDU Port Connectivity
+## Power Unit and PDU Port Connectivity
 
-PDU ports can be connected to a device, an asset (such as a modem), or another PDU. Set the **connection type** via the _Content Type_ pulldown.
+PDU ports can be connected to a device, an asset (such as a modem), or another PDU. Set the **Connection Type** via the **Content Type** pulldown.
 
-The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) object. Set the ID, click on the lookup icon. You will then see a list of existing object of the selected content type and you should select the device, asset or pdu that connects to this port.
+The **Object ID** is the ID of the **Content Type** (the device, asset, or PDU) object. Set the ID, and click on the lookup icon. You will then see a list of existing objects that have the selected content type, and you should select the device, asset, or PDU that connects to this port.
 
 <ThemedImage
   alt="PDU Port connectivity"
@@ -34,18 +34,18 @@ The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) obj
 
 **Field Definitions:**
 
-- **Outlet Name:** The outlet name or # on the PDU.
-- **Port Number:** The outlet or port # as labeled on the PDU.
-- **Object Name:** object name is auto-generated (after saving) based on the selected _Content Type_ and _Object ID_, and provides a link to the device, asset, or PDU that is connected to the port.
+- **Outlet Name:** The outlet name or number on the PDU.
+- **Port Number:** The outlet or port number, as labeled on the PDU.
+- **Object Name:** The object name is auto-generated (after saving) based on the selected **Content Type** and **Object ID**, and provides a link to the device, asset, or PDU that is connected to the port.
 - **Object PSU label:** The label of the power supply on the device/asset side.
-- **Override Watts:** _Optional_ - Enter a value, in Watts, to override the wattage detected from hardware.
+- **Override Watts:** Enter a value, in Watts, to override the wattage detected from hardware - _optional_.
 - **Bootstrap Power:** This field shows the peak power draw from this outlet at device boot time; empty if no device is connected.
-- **Power Draw:** This field shows the _actual \[aka true\] power_ draw as measured from this outlet the last time it was polled; empty if no device is connected.
-- **Active Power:** This field shows the _Active power_ \[aka reactive power: power absorbed then returned by the load\] draw as measured from this outlet; empty if no device is connected.
-- **Apparent Power:** This field shows _Apparent \[aka true\] power_ draw, a combination of _Active \[reactive\] Power & True Power_ measurements; empty if no device is connected.
-- **Power Factor:** This field shows _Calculated Power Factor_ \[PF = True Power / Apparent Power\]; empty if no device is connected.
+- **Power Draw:** This field shows the _actual power \[aka true power\]_ draw as measured from this outlet the last time it was polled; it is empty if no device is connected.
+- **Active Power:** This field shows the _active power_ \[aka reactive power: power absorbed then returned by the load\] draw as measured from this outlet; it is empty if no device is connected.
+- **Apparent Power:** This field shows _apparent power \[aka true power\_ draw, a combination of _active \[reactive\] power and true power_ measurements; it isempty if no device is connected.
+- **Power Factor:** This field shows _calculated power factor_ \[PF = true power / apparent power\]; it is empty if no device is connected.
 
-### PDU/Power Unit Ports viewed from the device perspective
+### PDU Ports Viewed From the Device Perspective
 
 <ThemedImage
   alt="PDU Ports on Device View"
@@ -56,11 +56,11 @@ The **Object ID** is the ID of the _Content Type_ (the Device, Asset or PDU) obj
   style={{ width: '110%' }}
 />
 
-When viewing a PDU-connected device, the _Info_ tab shows the PDU port connections and power information (with Power Monitoring license for that device.
+When viewing a PDU-connected device, the **Info** tab shows the PDU port connections and power information (with the Power Monitoring license for that device).
 
-Only the _PSU object label_ is editable from a Physical Device's edit screen. All other PDU-related edits must be made on the PDU's edit page.
+Only the **PSU object label** is editable from a physical device's edit screen. All other PDU-related edits must be made on the PDU's edit page.
 
-### PDU list view
+### PDU List View
 
 <ThemedImage
   alt="PDU List View"
@@ -71,11 +71,11 @@ Only the _PSU object label_ is editable from a Physical Device's edit screen. Al
   style={{ width: '110%' }}
 />
 
-The PDU List view _**\[Main Menu, Infrastructure > Power Units > Power Units\]**_ shows a high-level overview of the PDUs you have discovered in Device42.
+To see the PDU list view and a high-level overview of the PDUs you have discovered in Device42navigate to **Infrastructure > Power Units > Power Units** from the main menu.
 
 ### Infeed Power
 
-The "Infeeds" Section will show the Power Draw Per Phase, both Rated Power & Actual Power Draw as measured. In addition, if your particular PDU supports it, Apparent Power, Power Factor, Voltage, and Active Power will also be displayed:
+The **Infeeds** section will show the **Power Draw Per Phase**, including both the **Rated Power** and **Actual Power Draw** as measured. If your particular PDU supports it, **Apparent Power**, **Power Factor**, **Voltage**, and **Active Power** will also be displayed:
 
 <ThemedImage
   alt="PDU Infeed Power Details"
@@ -86,9 +86,9 @@ The "Infeeds" Section will show the Power Draw Per Phase, both Rated Power & Act
   style={{ width: '110%' }}
 />
 
-## PDUs & Available ports visible on the Rack View
+## PDUs and Available Ports Visible on the Rack View
 
-Power units will also be found in the Rack View, which can be found in the main menu: _(Infrastructure-> Racks)_: 
+Power units will also be found in the Rack View, which can be found by navigating to **Infrastructure > Racks** from the main menu: 
 
 <ThemedImage
   alt="PDUs on the Rack View"
@@ -99,7 +99,7 @@ Power units will also be found in the Rack View, which can be found in the main 
   style={{ width: '110%' }}
 />
 
-The PDU watts sum will also be visible on the rack layout page as shown below. Click _Power Details_ in the left pane to see PDU power details.
+The PDU watts sum will also be visible on the rack layout page as shown below. Click **Power Details** in the left pane to see the PDU power details.
 
 <ThemedImage
   alt=""
@@ -110,7 +110,7 @@ The PDU watts sum will also be visible on the rack layout page as shown below. C
   style={{ width: '110%' }}
 />
 
-### Understanding Power per PDU port & Override values
+### Understanding Power per PDU Port and Override Values
 
 <ThemedImage
   alt="Override PDU Watts"
@@ -121,6 +121,6 @@ The PDU watts sum will also be visible on the rack layout page as shown below. C
   style={{ width: '110%' }}
 />
 
-The "Override Watts" field can be used for PDU port power estimations. By default, the watts value will be the device hardware value as measured _(if a device is connected to that port)_ - however, you can enter any value to override the default.
+The **Override Watts** field can be used for PDU port power estimations. By default, the watts value will be the device hardware value as measured _(if a device is connected to that port)_; however, you can enter any value to override the default.
 
-If there is no default value (e.g. an asset connected to a PDU port would not have default power value), you may use this field to manually enter the value. Overridden and default values will be used by Device42 to estimate the total power for that PDU. The sum is visible on all the PDU pages _(list, view, and change pages)_.
+If there is no default value (for example, an asset connected to a PDU port would not have a default power value), you may use this field to enter the value manually. Overridden and default values will be used by Device42 to estimate the total power for that PDU. The sum is visible on all the PDU pages _(the list, view, and change pages)_.
