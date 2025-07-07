@@ -6,13 +6,13 @@ sidebar_position: 5.5
 import ThemedImage from "@theme/ThemedImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-Assets are useful for tracking items that may not be directly discoverable. Like devices in Device42, assets can be racked, support lifecycle events, and assigned parts. However, assets do not consume licenses.
+Assets are useful for tracking items that may not be directly discoverable. Like devices in Device42, assets can support lifecycle events, be racked, and be assigned parts. However, assets do not consume licenses.
 
 You can search, view, add, and edit assets from the list page under **Resources > All Assets**. 
 
 ## Adding Assets
 
-From the assets list page, click the **Create** button to create a new asset.
+From the Assets list page, click the **Create** button to create a new asset.
 
 <ThemedImage
   alt="Assets list page"
@@ -24,7 +24,7 @@ From the assets list page, click the **Create** button to create a new asset.
 
 ### Asset Types
 
-Choose an asset **Type** from the dropdown menu or create a custom asset type by clicking **+** to the right. Different options in the add asset form will be available depending on the asset **Type** you select.
+Choose an asset **Type** from the dropdown menu or create a custom asset type by clicking **+** to the right. Different options in the Add Asset form will be available depending on the asset type you select.
 
 <ThemedImage
   alt="Assets Types menu"
@@ -34,7 +34,7 @@ Choose an asset **Type** from the dropdown menu or create a custom asset type by
   }}
 />
 
-Name your custom asset type. If you want to associate assets of this new type to devices, check the **Asset Device Relation** checkbox. Designate the types of locations that assets of this type will be assigned to (**Storage Room**, **Server Room**, **Building**, and **Rack**).
+Name your custom asset type. If you want to associate assets of this new type with devices, check the **Asset Device Relation** checkbox. Designate the types of locations (**Storage Room**, **Server Room**, **Building**, and **Rack**) that assets of this type will be assigned to.
 
 <ThemedImage
   alt="Create a custom asset type"
@@ -58,7 +58,7 @@ Add the **Date** and choose the lifecycle **Event**. Optionally, add an **End Us
 
 ### Rack Info
 
-Show the **Rack Info** section by choosing **ACL** from the **Type** dropdown (or similarly configured custom asset **Type**).
+Show the **Rack Info** section by choosing **ACL** from the **Type** dropdown (or another similarly configured custom asset type).
 
 <ThemedImage
   alt="Asset Rack Info box"
@@ -70,7 +70,7 @@ Show the **Rack Info** section by choosing **ACL** from the **Type** dropdown (o
 
 ### Object Category Field
 
-In v19.06, the **Object Category** field on the view pages of individual Assets is displayed when **Role-Based Access Control** (RBAC) is enabled globally.
+In v19.06, the **Object Category** field on individual asset view pages is displayed only when **Role-Based Access Control** (RBAC) is enabled globally.
 
 A workaround on view pages is to use the **Legacy View** button to see the **Object Category** field.
 
@@ -78,7 +78,7 @@ Turn on **Role-Based Access Control** under **Tools > Settings > Global Settings
 
 ## Asset Actions
 
-The action menu has options to delete, export, and update assets. You can also **Generate QR/Barcodes for selected Items** for asset management.
+The action menu has options for deleting, exporting, and updating assets. You can also **Generate QR/Barcodes for selected Items** for asset management.
 
 Select one or several assets from the table, and select an action from the menu:
 - Delete with Detailed Confirmation
