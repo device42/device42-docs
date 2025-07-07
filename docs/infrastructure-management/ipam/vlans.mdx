@@ -3,17 +3,32 @@ title: "VLANs"
 sidebar_position: 10
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 All VLANs defined on your switches can be documented here.
 
 ### VLAN list page
 
-![VLAN list page](/assets/images/wpid4655-media_1328985067670.png)
+<ThemedImage
+  alt="VLAN list page"
+  sources={{
+    light: useBaseUrl('/assets/images/vlans/wpid4655-media_1328985067670-light.png'),
+    dark: useBaseUrl('/assets/images/vlans/wpid4655-media_1328985067670-dark.png'),
+  }}
+/>
 
 The list page displays all of the L2 VLANs that have been defined along with all the switches that each VLAN is on. As with any list in the device42 portal, you can sort by multiple fields, you can search by vlan # or name, and clicking on the VLAN takes you to the details and edit page for that VLAN.
 
 ### Adding a new VLAN
 
-![Adding a new VLAN](/assets/images/wpid4653-media_1328979126014.png)
+<ThemedImage
+  alt="Adding a new VLAN"
+  sources={{
+    light: useBaseUrl('/assets/images/vlans/wpid4653-media_1328979126014-light.png'),
+    dark: useBaseUrl('/assets/images/vlans/wpid4653-media_1328979126014-dark.png'),
+  }}
+/>
 
 The VLAN # is the only required field in this form. The Name is automatically calculated as VLANxxxx if not entered. You can associate multiple switches with a VLAN.
 
@@ -25,7 +40,13 @@ While adding/editing a VLAN, you can define subnets that are part of this VLAN. 
 
 ### Merging autodiscovered VLANs
 
-![Merging auto-discovered VLANs](/assets/images/wpid4656-Merging_auto-discovered_VLANs.png)
+<ThemedImage
+  alt="Merging auto-discovered VLANs"
+  sources={{
+    light: useBaseUrl('/assets/images/vlans/wpid4656-Merging_auto-discovered_VLANs-light.png'),
+    dark: useBaseUrl('/assets/images/vlans/wpid4656-Merging_auto-discovered_VLANs-dark.png'),
+  }}
+/>
 
 With VLAN autodiscovery, all VLANs are pulled into Device42 from each switch that is discovered. During the discovery process, the system does not assume matching VLAN #'s from different switches are the same VLAN. It is common to have duplicate VLANs after running autodiscovery. While most duplicate VLANs are actually the same VLAN, it is not always true. The "Merge selected Vlans" bulk action is available to address this, i.e.: merge duplicate VLANs. There are two approaches for merging VLANs:
 
