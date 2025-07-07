@@ -28,7 +28,7 @@ You can search for IPs with full or partial entries right here. Clicking on an I
 
 ### Bulk Actions for IP Addresses
 
-To perform a bulk action, check the IP addresses to affect from the list and select an action from the **Select an action** dropdown menu. Then click on the **hammer** icon to perform the selected bulk action.
+To perform a bulk action, check the IP addresses to affect from the list and select an action from the **Select an action** dropdown menu. Then confirm the action in the dialogue to perform the selected bulk action.
 
 <ThemedImage
   alt="Bulk actions menu"
@@ -42,13 +42,13 @@ To perform a bulk action, check the IP addresses to affect from the list and sel
 The following bulk actions are available for IP addresses:
 
 - **Export selected items to CSV**: create CSV export file. 
+- **Do a re-importable export for selected items**: Create an export file that you can re-import.
 - **Delete with Detailed Confirmation:** Displays prompt before deleting. 
 - **Fast Background Delete**: Delete without prompt. 
 - **Mark selected IP as available:** Will only mark those IPs available that have no device association. 
 - **Mark selected IPs as not available** : Will mark selected IPs as not available. 
 - **Clear ALL fields and Mark selected IPs as available** : This command will clear all device association for the selected IPs and mark those IPs as available. 
 - **Relocate Selected IPs** : This will bring up a matching subnets page based on first selected IPs. You can choose to move IPs to another subnet with this. Only IPs that are within the range will be moved. 
-- **Do a re-importable export for selected items**: Create an export file that you can re-import.
 - **Add tags to selected items**: add a comma-separated list of tags. 
 - **Check/Fix selected IPs Subnet assignment**: Displays a page to check or fix Subnet assignment.
 
@@ -65,9 +65,9 @@ Click on an IP address to view its details.
 />
 <br/><br/>
 
-You can see the history of changes for that IP address from the **History (Audit Logs)** button at the top right of the page (similar to all other view pages in the application). If you have appropriate permissions, the **Edit** button will be available. All DNS records that use this IP are shown in the view page as well.
+You can see the history of changes for that IP address from the **History (Audit Logs)** tab at the top of the page (similar to all other view pages in the application). If you have appropriate permissions, the **Edit** button will be available. All DNS records that use this IP are shown in the view page as well.
 
-In the example above, clicking on the link called _demo_ in the **Resource** field will take you to the K8s cluster that is currently holding that IP.
+Clicking on the link in the **Resource** field will take you to the K8s cluster that is currently holding that IP.
 
 :::note
 Entries in the **Configuration Resource** and **Configuration Resource Item** fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud-auto-discovery/index.mdx)) and are filled in automatically. These field should not be populated for a regular IP address.
@@ -75,7 +75,7 @@ Entries in the **Configuration Resource** and **Configuration Resource Item** fi
 
 ### Add/Edit Page
 
-Click on the **Add IP Address** button on the view page to add an IP address.
+Click on the **Create** button on the view page to add an IP address.
 
 <ThemedImage
   alt="Add IP address button"
@@ -97,7 +97,7 @@ When Adding or editing an IP, the Subnet field is required. Device42 will automa
 />
 <br/><br/>
 
-To enter additional device(s) to associate with an already-created IP address, click on the **Edit** button of the IP address from its view page. Then click on the **Add another device association** button.
+To enter additional device(s) to associate with an already-created IP address, click on the **Edit** button of the IP address from its view page. Then click on the **+ Add New** button.
 
 <ThemedImage
   alt="Add device from editing view"
