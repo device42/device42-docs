@@ -3,15 +3,24 @@ title: "Subnets"
 sidebar_position: 7
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 A subnet can be any L3 network (IPv4 or IPv6) in your organization, and it can be part of a VLAN or not. All IP Addresses in Device42 must belong to a subnet.
 
 You can create nested subnets automatically and can relocate manually created subnets as a nested subnet.
 
 The subnet must be part of a VRF group to create a nested subnet.
 
-### Subnet List page
+### Subnet List Page
 
-![](/assets/images/WEB-833_1.jpg)
+<ThemedImage
+  alt="Subnet List page"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_1-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_1-dark.png'),
+  }}
+/>
 
 This page lists all your defined and discovered subnets. As with any list, you can sort by multiple fields.
 
@@ -22,25 +31,56 @@ Here are a few useful tips:
 
 Clicking on a subnet gives you a detailed view/edit page for that subnet.
 
-![](/assets/images/WEB-833_2.jpg)
+<ThemedImage
+  alt="Subnet detailed view"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_2-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_2-dark.png'),
+  }}
+/>
 
-You can also add IPs to an existing subnet using the new _Background Populate Subnets with IPs_ command from the Subnets Action menu. When deleting a subnet (_Delete with Detailed Confirmation_), you can also choose to add the associated IPs to the parent subnet (if one exists). This feature helps when doing maintenance on subnets where moving from a smaller to larger subnet is desired without removing or recreating the associated IP addresses.
+You can also add IPs to an existing subnet using the new **Background Populate Subnets with IPs** command from the Subnets **Actions** menu. When deleting a subnet (**Delete with Detailed Confirmation**), you can also choose to add the associated IPs to the parent subnet (if one exists). This feature helps when doing maintenance on subnets, where it is desirable to move from a smaller to a larger subnet without removing or recreating the associated IP addresses.
 
-The Action menu also includes an option for creating a ping sweep for a set of selected subnets.
+The **Actions** menu also includes an option for creating a ping sweep for a set of selected subnets.
 
-![](/assets/images/WEB-833_3.jpg)
-
+<ThemedImage
+  alt="Subnet Action menu"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_3-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_3-dark.png'),
+  }}
+/>
  
 
-![](/assets/images/WEB-833_4.jpg) ![](/assets/images/WEB-833_5.jpg)
+<ThemedImage
+  alt="Background Populate Subnets"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_4-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_4-dark.png'),
+  }}
+/>
 
+
+<ThemedImage
+  alt="Delete with Detailed Confirmation"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_5-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_5-dark.png'),
+  }}
+/>
  
 
-### Adding/Editing a subnet
+### Adding/Editing a Subnet
 
-![](/assets/images/WEB-833_6.jpg)
+<ThemedImage
+  alt="Adding/Editing a subnet"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_6-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_6-dark.png'),
+  }}
+/>
 
-Network and mask bits are required fields, all others are optional. Range begin, and end is calculated automatically based on network and mask bits if not entered.
+Network and mask bits are required fields; all others are optional. The range beginning and end are calculated automatically based on the network and mask bits if not entered.
 
 The VRF group is required if you want to further subnet this subnet.
 
@@ -48,13 +88,19 @@ The Subnet Category can be used to categorize your subnets. If using the Multite
 
 If you mark the network and/or broadcast addresses as usable for a subnet, these IPs will be shown as usable IPs in the IP Address list page.
 
-### VRF groups and overlapping subnet ranges
+### VRF Groups and Overlapping Subnet Ranges
 
-When you add an overlapping subnet in a VRF group, the subnet gets automatically positioned with the right parent/child relationship.
+When you add an overlapping subnet in a VRF group, the subnet gets automatically positioned with the right parent-child relationship.
 
 ### Adding Subnetted Subnets
 
-![](/assets/images/WEB-833_7.jpg)
+<ThemedImage
+  alt="Adding Subnetted Subnets"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_7-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_7-dark.png'),
+  }}
+/>
 
 Once you assign a VRF group to a subnet and save and continue, you will see a subnets tab in the lower part of the page.
 
@@ -62,14 +108,26 @@ You can just enter mask bits and click Add, and a subnet underneath the current 
 
 On the edit page, clicking on a nested subnet takes you to the edit page for that subnet.
 
-### Relocating a subnet
+### Relocating a Subnet
 
-![](/assets/images/WEB-833_8.jpg)
+<ThemedImage
+  alt="Relocating a subnet"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_8-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_8-dark.png'),
+  }}
+/>
 
-On the edit page, if you click on relocate subnet, it will calculate if there are any subnets into which this subnet can be moved. If it finds one and there are no IP conflicts, it will relocate the subnet.
+On the edit page, if you click on **Relocate**, it will calculate whether there are any subnets into which this subnet can be moved. If it finds one and there are no IP conflicts, it will relocate the subnet.
 
-### Deleting a subnet upwards/merging into parent
+### Deleting a Subnet Upwards/Merging Into Parent
 
-![](/assets/images/WEB-833_9.jpg)
+<ThemedImage
+  alt="Deleting a subnet upwards/merging into parent"
+  sources={{
+    light: useBaseUrl('/assets/images/subnets/WEB-833_9-light.png'),
+    dark: useBaseUrl('/assets/images/subnets/WEB-833_9-dark.png'),
+  }}
+/>
 
 With the merge-to-parent function, you can associate all child subnets and IPs to a parent and delete that subnet, as shown in the images above.
