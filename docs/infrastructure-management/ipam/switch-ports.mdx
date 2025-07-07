@@ -12,9 +12,9 @@ You can bulk add switch ports via [switch templates](switch-templates.mdx), or u
 
 ### Ports List Page
 
-Navigate to the Ports list page under **Resources > Network Devices > Ports** from the main menu. 
+Navigate to **Resources > Network Devices > Ports** from the main menu to open the Ports list page. 
 
-From the list page you can view and edit existing switch ports by clicking on any port ID. Add one or more new ports by clicking the **+ Create** button on the upper right:
+From the list page, you can view and edit existing switch ports by clicking on any port ID. Add one or more new ports by clicking the **+ Create** button on the upper right:
 
 <ThemedImage
   alt="Ports list page"
@@ -24,7 +24,7 @@ From the list page you can view and edit existing switch ports by clicking on an
   }}
 />
 
-You can also see a list of associaed Ports via the **Ports** section on the device page:
+You can also see a list of associated Ports via the **Ports** section on the device page:
 
 <ThemedImage
   alt="Switch Ports button on device page"
@@ -48,9 +48,9 @@ Discovered ports use the **Is Default** property to indicate whether a port is t
 
 Switch ports include the following properties:
 
-**Port:** Name of the switch port as found during autodiscovery, or user generated.  
-**Name:** As found in autodiscovery or user generated.  
-**Description:** As found in autodiscovery or user generated.  
+**Port:** Name of the switch port as found during autodiscovery, or user-generated.  
+**Name:** As found in autodiscovery or user-generated.  
+**Description:** As found in autodiscovery or user-generated.  
 **Type:** Add the type of port. Use the **+ button** to add a new type.  
 **Network Device:** A device with network switch value as checked.  
 **VLANs:** All the VLANs this port belongs to. 
@@ -58,7 +58,7 @@ Switch ports include the following properties:
 **Asset:** If the port is part of FEX or a similar asset connected to the switch, that association can be made here. You can either assign it to a module or asset.  
 **Network Switch 2nd:** For stacked switches, this is the clustered switch. For paired switches, this is the second switch through which port can be managed.
 
-Module, Asset and the Network switch 2nd association can be done efficiently using [switch templates](switch-templates.mdx).
+The Module, Asset, and the Network Switch 2nd associations can be done efficiently using [switch templates](switch-templates.mdx).
 
 **Up:** Whether the port is up or not.  
 **Up admin:** Whether the port is administratively up or not. 
@@ -131,7 +131,7 @@ Also, from the switch port list page, you can filter by switch and up/down statu
 
 ### Switch Port Visualization
 
-For physical switches, click **Impact Chart** to see all the ports with connectivity, including each MAC-to-device relationship. Virtual devices are shown as 2nd layer devices that are connected to its vHost, or with a '?' character if the vHost is unknown. 
+For physical switches, click **Impact Chart** to see all the ports with connectivity, including each MAC-to-device relationship. Virtual devices are shown as 2nd layer devices that are connected to their vHost or marked with a '?' character if the vHost is unknown. 
 
 <ThemedImage
   alt="Switch port impact chart example"
@@ -145,7 +145,7 @@ For physical switches, click **Impact Chart** to see all the ports with connecti
 
 All switches, stacked or not, are represented according to their underlying hardware model. Stacked switches are represented by configuring their hardware model. To add an instance of a stacked switch, select the underlying hardware model that you created previously.
 
-To add a new stacked switch, head to **Infrastructure > Hardware Models** and click **+ Create **. Create a new device hardware model by supplying a **Name**, **Physical Subtype**, and other basic information, check the **Network Device** checkbox. 
+To add a new stacked switch, head to **Infrastructure > Hardware Models** and click **+ Create **. Create a new device hardware model by supplying a **Name**, **Physical Subtype**, and other basic information, and checking the **Network Device** checkbox. 
 
 <ThemedImage
   alt="Add new hardware model"
@@ -169,7 +169,7 @@ To add a new asset, navigate to **Resources > All Assets** and click **+ Create*
   }}
 />
 
-Scroll down the Add Asset page, click **Add another Asset Device Relation**, and use the dropdown to associate the switch to the new asset.
+Scroll down the Add Asset page, click **Add another Asset Device Relation**, and use the dropdown to associate the switch with the new asset.
 
 <ThemedImage
   alt="Add asset device relation"
