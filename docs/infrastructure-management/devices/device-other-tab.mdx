@@ -3,45 +3,70 @@ title: "Device - Other Tab"
 sidebar_position: 8
 ---
 
-### Other Tab
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![device other tab](/assets/images/other_tab_screenshot_HL.png)
+As of version 19.05 and later of the Device42 UI, the **Other Tab** is only available using the device details page **Legacy** view.
 
-The Other Tab includes:
+In the latest versions of the UI, you can navigate to most of the sections that belonged to the **Other Tab** from the right **Breakdown** panel of the device details page. This includes:
 
-- **Device URLs** - see below
-- **Power Unit (PDU) Ports** - see below
-- **BIOS info** - BIOS version details
-- **Patch Panel Ports** - see below
-- **Device direct connection** - see below
-- **[Custom Key / Values](administration/custom-key-value-pairs-explained.mdx)** - create and store custom attributes
+- **Device URLs**
+- **BIOS Info** (under **Details** in the **Breakdown** panel)
+- **[Custom Fields](administration/custom-key-value-pairs-explained.mdx)** - create and store custom attributes
 - **File Attachments** - attach files associated to this device
-- **Power Monitoring** - see below
+
+Port details for power units can be found under the **Ports** section on the details page of a power unit (located  **Infrastructure > Power Units**).
+
+<ThemedImage
+  alt="The Breakdown panel"
+  sources={{
+    light: useBaseUrl('/assets/images/device-other-tab/device-breakdown-view-other-tab-light.png'),
+    dark: useBaseUrl('/assets/images/device-other-tab/device-breakdown-view-other-tab-dark.png'),
+  }}
+/>
 
 ### Device URLs
-
-![device URLs on other tab](/assets/images/device_URLs.png)
 
 Device URLs enable you to create links associated to the device.
 
 The following variables can be used: 
 
-- `{{device.name}}` = device name 
-- `{{device.serial\_no}}` = serial number associated with this device
-- `{{device.asset\_no}}` = asset number associated with this device
+- `{{device.name}}`: device name 
+- `{{device.serial_no}}`: serial number associated with this device
+- `{{device.asset_no}}`: asset number associated with this device
+
+<ThemedImage
+  alt="Device URLS"
+  sources={{
+    light: useBaseUrl('/assets/images/device-other-tab/device-urls-light.png'),
+    dark: useBaseUrl('/assets/images/device-other-tab/device-urls-dark.png'),
+  }}
+/>
 
 See also - [How to video adding links and other URLs](how-to-videos/adding-links-and-other-urls-to-devices.mdx)
 
 ### Ports in PDU
 
-![ports in PDU](/assets/images/power_unit_ports.png)
+Navigate to **Infrastructure > Power Units** and select a power unit. If this device has associated PDU ports, the ports would be shown here.
 
-If this device has associated PDU ports, the ports would be shown here.
+<ThemedImage
+  alt="Power Unit Ports"
+  sources={{
+    light: useBaseUrl('/assets/images/device-other-tab/power-unit-ports-light.png'),
+    dark: useBaseUrl('/assets/images/device-other-tab/power-unit-ports-dark.png'),
+  }}
+/>
 
-### File Attachements
+### File Attachments
 
-![Uploaded File Attachements](/assets/images/file_attachments_other_tab.png)
+Any files you have uploaded or associated with this device will be shown here.
 
-Any files you have uploaded and/or associated with this device will be shown here.
+<ThemedImage
+  alt="File attachments"
+  sources={{
+    light: useBaseUrl('/assets/images/device-other-tab/file-attachments-light.png'),
+    dark: useBaseUrl('/assets/images/device-other-tab/file-attachments-dark.png'),
+  }}
+/>
 
-See also - managing [patch panels](infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2.mdx) and [switch ports](infrastructure-management/ipam/switch-ports.mdx) in Device42
+See also: managing [patch panels](infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2.mdx) and [switch ports](infrastructure-management/ipam/switch-ports.mdx) in Device42.
