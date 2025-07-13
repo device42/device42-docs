@@ -10,11 +10,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Part slots may be added to both new and existing blade-based and non-blade hardware. Parts slots can optionally receive parts. Define parts slots on hardware templates, or add one directly to an existing hardware device.
 
-For information on blade slots, which work similarly, but accept blades instead of parts, see [Blade Slots documentation](device-blade-slots.mdx)
+For information on blade slots, which work similarly but accept blades instead of parts, see [Blade Slots documentation](device-blade-slots.mdx)
 
-## Add Parts slots to hardware models
+## Add Parts Slots to Hardware Models
 
-Navigate to **Infrastructure > Hardware Models** and select or create a Hardware Model with a **Rackable**, or similar, **Physical Subtype**. 
+Navigate to **Infrastructure > Hardware Models** and select or create a hardware model with a **Rackable**, or similar, **Physical Subtype**. 
 
 To add a parts slot to a hardware model, click the **Model Layout** tab.
 
@@ -36,7 +36,7 @@ You’ll then be at the Hardware Model layout editor screen. You can turn edit m
   }}
 />
 
-Add a parts slot by dragging and dropping a the **New Slot** icon to the front or the back of the chassis. You can specify the part model to put in the parts slot during this process:
+Add a parts slot by dragging and dropping a **New Slot** icon at the front or the back of the chassis. You can specify the part model to put in the parts slot during this process:
 
 <ThemedImage
   alt="New Slot details"
@@ -46,15 +46,15 @@ Add a parts slot by dragging and dropping a the **New Slot** icon to the front o
   }}
 />
 
-### Note about manually moving parts when using the auto-add ports option
+### Note About Manually Moving Parts When Using the Auto-Add Ports Option
 
-Should you manually move one or more parts around the layout _(e.g. from Slot A to Slot B)_, any ports associated with that part that were auto-added **will not automatically regenerate**. It is assumed that if you are manually moving existing parts, you are attempting to correct the location of a part.
+Should you manually move one or more parts around the layout _(for example, from Slot A to Slot B)_, any ports associated with that part that were auto-added **will not automatically regenerate**. It is assumed that if you are manually moving existing parts, you are attempting to correct the location of a part.
 
 Should you be actually **moving the physical part from one slot to another**, to represent this in Device42, you should **first remove the part from the device, save, and then add it back to its new slot**. The system will then delete all associated network ports from the device, and will auto-add new ones back to the new slot ID _(as long as auto-add ports is enabled for that hardware model)_.
 
 ## Using the Visual Model Editor
 
-Click **Turn ON** to enable edit mode, and then drag and drop parts slots as desired. Slots that were created when the part model was defined will appear in the left column **Unmapped Existing Parts** or **Unmapped Existing Blade Slots**:
+Click **Turn ON** to enable edit mode, and then drag and drop parts slots as desired. Slots that were created when the part model was defined will appear in the left column, **Unmapped Existing Parts** or **Unmapped Existing Blade Slots**:
 
 <ThemedImage
   alt="Unmapped slots"
@@ -64,7 +64,7 @@ Click **Turn ON** to enable edit mode, and then drag and drop parts slots as des
   }}
 />
 
-Click any parts or blade slot and click the **pencil** button on the top right to reorient, rename, or to place a part into a parts slot:
+Click any parts or blade slot and click the **pencil** button in the top-right corner to reorient, rename, or place a part in a parts slot:
 
 <ThemedImage
   alt="Edit part slot"
@@ -74,7 +74,7 @@ Click any parts or blade slot and click the **pencil** button on the top right t
   }}
 />
 
-Editing a **Blade Slot** offers different options. When editing a blade slot, similar to a parts slot, you may add a number or change the orientation between horizontal and vertical. However, you can not put a part into a blade slot; you instead have the ability to set the blade height.
+Editing a **Blade Slot** offers different options. When editing a blade slot, similarly to a parts slot, you may add a number or change the orientation between horizontal and vertical. However, you cannot put a part in a blade slot; instead, you have the ability to set the blade height.
 
 <ThemedImage
   alt="Edit blade slot"
