@@ -3,11 +3,20 @@ title: "Impact Charts"
 sidebar_position: 3
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 ## Viewing Impact Charts
 
 Impact charts enable you to see, at a glance, the impacts of an outage scenario, locate potential performance issues, and identify relevant security issues around data center objects. Impact charts are available from the "view" page for any building, room, rack, device, or application component. Simply select the "..." menu button and choose "Impact Chart":
 
-![View impact chart menu button](/assets/images/view_impact_chart_BUTTON-from-room-HL.png)
+<ThemedImage
+  alt="View impact chart menu button"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/view_impact_chart_BUTTON-from-room-HL-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/view_impact_chart_BUTTON-from-room-HL-dark.png'),
+  }}
+/>
 
 Device42's powerful, agentless autodiscovery uses native WMI and SSH in combination with other platform-dependent technologies to identify the details around running services, listening ports, and the relationships between those services and ports or executables and ports. This provides a clear picture of exactly what services/executables are listening on what ports on that machine. Device42 also goes on to capture a point in time snapshot of the IP addresses that are connected to each listening port. Should these communicating IP addresses already exist in Device42 and be mapped to a device, the system automatically shows the device when drawing the dynamic impact charts.
 
@@ -15,25 +24,55 @@ Device42's powerful, agentless autodiscovery uses native WMI and SSH in combinat
 
 Impact charts are a great way to quickly visualize deployments and understand dependency chains. The following is a sample Building Impact Chart:
 
-![Impact Chart Sample, bldg A](/assets/images/building_impact_chart-sample.png)
+<ThemedImage
+  alt="Impact Chart Sample, bldg A"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/building_impact_chart-sample-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/building_impact_chart-sample-dark.png'),
+  }}
+/>
 
 Notice that at the top of the chart is the building or room we selected (the "Building A" in the example above, "Corner Room" below). The Building A impact chart shows there is only one room in the building ("Room A"), which has 3 racks (Racks 'A', 'B', & 'C').
 
 The following is a sample Room Impact Chart for the room called "Corner Room":
 
-![Room impact chart - example](/assets/images/sample_room_impact_chart-201809.png)
+<ThemedImage
+  alt="Room impact chart - example"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/sample_room_impact_chart-201809-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/sample_room_impact_chart-201809-dark.png'),
+  }}
+/>
 
 Looking at the impact chart for the "Corner Room", from left to right we see the orange "Corner Room" itself, the list of racks ("CHI-DC1-13" is selected), and then all servers that live in selected rack "CHI-DC1-13": "USOXIS-P0022" and eight other servers. You can view a legend via the "legend" button above:
 
-![Impact chart legend](/assets/images/room_impact_LEGEND.png)
+<ThemedImage
+  alt="Impact chart legend"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/room_impact_LEGEND-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/room_impact_LEGEND-dark.png'),
+  }}
+/>
 
 Now, let's go ahead and get some more information about one of the servers! We can do this easily by hovering over it, or any item in this chart, as such:
 
-![Hover over server for details demonstration](/assets/images/impact_HOVER_for_details.png)
+<ThemedImage
+  alt="Hover over server for details demonstration"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/impact_HOVER_for_details-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/impact_HOVER_for_details-dark.png'),
+  }}
+/>
 
 Hovering over any object will present a quick overview and relevant options. Hovering over server "USOXIS-P0034", we can view the individual server's "Topology', or by clicking the "Device Page" button, head straight to the Device Details page for "USOXIS-P0034": 
 
-![USOXISP0034 Device Details](/assets/images/view_device_USOXIS-P0034.png)
+<ThemedImage
+  alt="Device Details"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/view_device_USOXIS-P0034-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/view_device_USOXIS-P0034-dark.png'),
+  }}
+/>
 
 We now know that we are looking at an HP Proliant DL560GB, which was added all the way back in Feb 2014! (its useful life might be up were it not a lab machine!) Notice we can also get right to the "Topology" screen (our other option when we hovered) from the details screen, as well!
 
@@ -55,7 +94,13 @@ Topology charts provide a full picture of all the services, executables, and app
 
 Below is the topology chart for a device. (Don't try to read the details. We'll zoom in below.)
 
-![device topology chart](/assets/images/device_toplogy_chart.png)
+<ThemedImage
+  alt="Device topology chart"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/device_toplogy_chart-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/device_toplogy_chart-dark.png'),
+  }}
+/>
 
 ### Topology Element Overview:
 
@@ -71,7 +116,13 @@ Below is the topology chart for a device. (Don't try to read the details. We'll 
 
 The Device topology chart has its own legend:
 
-![device topology legend](/assets/images/device_topology_legend.png)
+<ThemedImage
+  alt="Device topology legend"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/device_topology_legend-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/device_topology_legend-dark.png'),
+  }}
+/>
 
 **Legend Definitions**
 
@@ -92,7 +143,13 @@ The Device topology chart has its own legend:
 
 ### Display options
 
-![display options](/assets/images/display_options.png)
+<ThemedImage
+  alt="Display options"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/display_options-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/display_options-dark.png'),
+  }}
+/>
 
 Display Options are used to manipulate current in-view objects based on the below criteria:
 
@@ -100,11 +157,23 @@ Display Options are used to manipulate current in-view objects based on the belo
 
 **Service Dependencies Report** – Will generate an xls file for all listener services with connections for any devices currently in-view of the current Topology. This will include raw data for listener/client device and service details with port and connection statistic information.
 
-![topology filter](/assets/images/topology_filter.png)
+<ThemedImage
+  alt="Topology filter"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/topology_filter-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/topology_filter-dark.png'),
+  }}
+/>
 
 **Filter** – Provides a list of “Show Top #” of services, to select key services that are desired to show or hide in the currently topology. Selecting any services will calculate any new topology considering any of the services will selected for show/hide. See image above.
 
-![topology pause](/assets/images/topology_pause.png)
+<ThemedImage
+  alt="Topology pause"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/topology_pause-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/topology_pause-dark.png'),
+  }}
+/>
 
 **“Pause” button** – This button will allow you to stop Topology calculation, this can be beneficial if the Topology selected has a large number of relations and will allow you to stop calculation at levels to look at current data and continue calculation if desired.
 
@@ -112,15 +181,33 @@ Display Options are used to manipulate current in-view objects based on the belo
 
 Activated context menus by mousing over and hovering on an in-view object within a topology chart.
 
-![service object context](/assets/images/apache2_nested_context.png)
+<ThemedImage
+  alt="Service object context"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/apache2_nested_context-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/apache2_nested_context-dark.png'),
+  }}
+/>
 
 **Service Object** – Summary details of the related Service. _Star_ – will set the service as “starred” status allowing control with Display Options and a parameter available for queries/reports. _Hide_ – will set the service as “hidden” status allowing control with Display Options and a parameter available for queries/reports. Hidden services will not be in view by default when Topology loads. _Service Page_ – will navigate you to the object details view for the related service.
 
-![device object context menu](/assets/images/webserver.dev_nested_context.png)
+<ThemedImage
+  alt="Device object context menu"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/webserver.dev_nested_context-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/webserver.dev_nested_context-dark.png'),
+  }}
+/>
 
 **Device Object** – Summary details of the related Device. _Expand/Collapse_ – will set open the Device to show all related services to expand the potential impact/dependency in view of the current Topology based on the level of the “Target Device”. _Topology_ – will open a Topology for the related Device setting as the “Target Device” for the Topology to be loaded. _Device Page_ - will navigate you to the object details view for the related device.
 
-![Application componenet context menu](/assets/images/oracle_nested_context.png)
+<ThemedImage
+  alt="Application component context menu"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/oracle_nested_context-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/oracle_nested_context-dark.png'),
+  }}
+/>
 
 **Application Component Object** – Summary details of the related Application Component. _Impact Chart_ – A “downstream” view of any Application Components that rely on the select Application Component. View is simplified to only Application Component Objects. _Dependency Chart_ – A “upstream” view of any Application Components that the selected Application Component is dependent upon. View is simplified to only Application Component Objects. _App Page_ - will navigate you to the object details view for the related Application Component. _Details_ – will open a pop-out window for a blob of the configuration file for the related Application Components added by discovery for any common applications.
 
@@ -128,7 +215,13 @@ Activated context menus by mousing over and hovering on an in-view object within
 
 Most Impact and Topology screens have a "Create Image" button that allows you to download an image in your chosen format of the graph:
 
-![Create imact chart image](/assets/images/Create_image_button-HL.png)
+<ThemedImage
+  alt="Create impact chart image"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/Create_image_button-HL-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/Create_image_button-HL-dark.png'),
+  }}
+/>
 
 The create image button allows you to choose from two layout options; You may choose the Global or the Local view pane, and can also choose either **PNG** format or **SVG** (vector) image format. Simply click the "Download" button to choose your save location, saving the file wherever is convenient for you.
 
@@ -136,7 +229,13 @@ The create image button allows you to choose from two layout options; You may ch
 
 The topology chart view screen offers users a "Service Dependency Report" download as well. Service dependency reports are generated in real-time, as soon as the button is clicked, and delivered as an excel file containing a list of all source machines, listening ports, services, and any remote machines that are connected to those services. Users may also download previously requested service dependency reports by visiting the Reports menu → Excel Reports Status:
 
-![Excel Reports Status and Download page](/assets/images/excel_reports_status_download.png)
+<ThemedImage
+  alt="Excel Reports Status and Download page"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/excel_reports_status_download-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/excel_reports_status_download-dark.png'),
+  }}
+/>
 
 For a sample report & field explanations, _scroll down to the "service dependencies report"_ section on this page below.
 
@@ -146,23 +245,41 @@ Clicking the impact list is navigation button will bring you to a hierarchical a
 
 An Impact List is simply a list version of an Impact Graph. Impact lists are typically available for view on most devices. The following is an example of the entire impact list for the device "webserver.dev":
 
-![view device impact list](/assets/images/view_device_impact_list-HL.png)
+<ThemedImage
+  alt="View device impact list"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/view_device_impact_list-HL-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/view_device_impact_list-HL-dark.png'),
+  }}
+/>
 
 The full impact list for webserver.dev. Sometimes, it is useful to hide services without connections, thus significantly reducing clutter by hiding services you might not be concerned with _(many services that fit this criteria are standard operating-system components)_. See the example following the full list for more details:
 
-![Device Impact List Full](/assets/images/impact_list_webserver.dev_.png)
+<ThemedImage
+  alt="Device Impact List Full"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/impact_list_webserver.dev-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/impact_list_webserver.dev-dark.png'),
+  }}
+/>
 
 ### Impact list display options
 
 Display options allow hiding of services without connections, forcing the display of hidden services, or even showing only services you've starred:
 
-![Impact list example with all services wo connections hidden.](/assets/images/impact_list-display-options-webserver-HL.png)
+<ThemedImage
+  alt="Impact list example with all services wo connections hidden"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/impact_list-display-options-webserver-HL-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/impact_list-display-options-webserver-HL-dark.png'),
+  }}
+/>
 
 ## Service Dependencies Reports
 
 Service dependencies reports can be downloaded via buttons found on Impact lists and Topology charts. Service dependency reports are delivered as Excel files (.XLSX), and contain a list of all source machines, listening ports, services, and any remote machines that are connected to those services.
 
-![service dependencies report sample](/assets/images/service_deps_report.png)
+![service dependencies report sample](/assets/images/impact-charts/service_deps_report.png)
 
 ### Field Definitions:
 
@@ -195,7 +312,13 @@ Service dependencies reports can be downloaded via buttons found on Impact lists
 
 A Dependency Chart _(previously a 'dependency graph')_ can also be generated for any **Application Component**, and will show all the devices, services, executables, and application components that the application component requires to function. A Dependency Chart for the "MySQL" application is shown below:****
 
-![Dependency Chart Sample](/assets/images/dependency_graph.png)
+<ThemedImage
+  alt="Dependency Chart Sample"
+  sources={{
+    light: useBaseUrl('/assets/images/impact-charts/dependency_graph-light.png'),
+    dark: useBaseUrl('/assets/images/impact-charts/dependency_graph-dark.png'),
+  }}
+/>
 
 ## How are dependencies created in Device42?
 
