@@ -6,28 +6,27 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The device **Properties** tab includes sections for **CPU Memory HardDisk**, **Device Operating Systems**, **Connectivity**, **IP Address details**, and **Device Alias**.
+From version 19.05 of Device42 onward, the **Properties Tab** is only available from the device details page **Legacy View**. 
+
+The sections that were within the **Properties Tab** can be accessed from the right-hand **Breakdown** panel of the device details page. This includes:
+
+- **CPU Memory HardDisk** (under **Details**)
+- **Device Operating Systems** (under **Details**)
+- **Connectivity** (called **Ports** from version 19.05)
+- **IP Addresses**
+- **Device Alias**
 
 Most fields are automatically populated by autodiscovery.
 
 <ThemedImage
-  alt="Device Properties tab"
+  alt="Breakdown panel"
   sources={{
-    light: useBaseUrl('/assets/images/device-properties/device-properties-tab-light.png'),
-    dark: useBaseUrl('/assets/images/device-properties/device-properties-tab-dark.png'),
+    light: useBaseUrl('/assets/images/device-properties/device-properties-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/device-properties-dark.png'),
   }}
 />
 
 ### CPU Memory HardDisk
-
-<ThemedImage
-  alt="CPU Memory and HDD for device"
-  sources={{
-    light: useBaseUrl('/assets/images/device-properties/cpu-memory-harddisk-light.png'),
-    dark: useBaseUrl('/assets/images/device-properties/cpu-memory-harddisk-dark.png'),
-  }}
-/>
-<br/><br/>
 
 This section holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM**, and other hard disk drive (HDD) info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
 
@@ -52,20 +51,21 @@ Note that if the Operating System fields are blank, you may need to rerun autodi
 
 Rack information is no longer shown under the device **Properties** tab. To locate the list of physical devices, navigate to **Resources > All Assets**. You can view and edit rack information by clicking on an asset and scrolling to the **Rack Info** section. 
 
-### Connectivity 
+### Ports Connectivity
+
+From the **Ports** section, you can **Add New** and **Add Existing** connections. You can also **Edit** connections or delete them using the **trash can** icon at the far right (not pictured). 
 
 <ThemedImage
-  alt="Device Operating System fields"
+  alt="Ports"
   sources={{
     light: useBaseUrl('/assets/images/device-properties/connectivity-ports-light.png'),
     dark: useBaseUrl('/assets/images/device-properties/connectivity-ports-dark.png'),
   }}
 /> 
-<br/><br/>
 
-For physical devices, you can add an HWAddress (MAC Address) by clicking on the **+ Add New Connectivity** button and then the **+ Add Port** button in the pop-up window. You can edit the HWAddress by clicking on the blue pen icon or delete it by clicking on the red cross icon beneath the **Action** column. 
+### IP Addresses
 
-### IP Address
+Add an IP address to the device by clicking the **Add New** button and selecting an existing IP address from the dropdown menu, or by clicking the **plus icon** button to create a new IP address.
 
 <ThemedImage
   alt="Add IP Addresses"
@@ -76,17 +76,9 @@ For physical devices, you can add an HWAddress (MAC Address) by clicking on the 
 />
 <br/><br/>
 
-Add an IP address to the device by clicking the **+ Add another IP/Device relationship** button (1), followed by the **magnifying glass** icon to the right of the created field (2). Select an IP address from the list or click the **+ Add IP Address** button on the top right of the pop-up window. 
-
-Fill in the **IP Address** (3) and **Subnet** (4) information. You can automatically assign the next available IP in that subnet by leaving the **Subnet** field empty. 
-
-If applicable, add additional device associations to the IP address by clicking on the **+ Add another Device association** button (5).
-
-To assign the IP address to the device and MAC address, click on the **Assign/Clear IP** button (6). If an IP is already assigned, upon configuration, the same button will clear the device and MAC relations for that IP and make it available.
-
 ### Device Alias and Non-Authoritative Alias
 
-You can add multiple aliases to a device using the **+ Add another Device Alias** button. Select the **Is Preferred** checkbox for one of the aliases. Then, you can click **+ Add another Device Non-Authoritative Alias** to associate nicknames with the device.
+You can add multiple aliases to a device using the **+ Add New** button. Toggle on **Is Preferred** for one of the aliases. Then, you can add one or many **Device Non-Authoritative Alias** to associate nicknames with the device.
 
 <ThemedImage
   alt="Add device aliases"
@@ -115,22 +107,22 @@ For example, a device named "0101-DEV01" has the preferred alias "0101-DEV01.gov
 
 - When adding a device to a business application, you can search for that device with the device name, but the preferred alias is the name that will display on the chart.
 
-  Business Application device search:
+  Business Service device search:
 
   <ThemedImage
-    alt="Business Application search"
+    alt="Business Service search"
     sources={{
-      light: useBaseUrl('/assets/images/device-properties/business-application-light.png'),
-      dark: useBaseUrl('/assets/images/device-properties/business-application-dark.png'),
+      light: useBaseUrl('/assets/images/device-properties/business-service-search-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-service-search-dark.png'),
     }}
   />
 
-  Business Application chart:
+  Business Service chart:
 
   <ThemedImage
-    alt="Business Application with device"
+    alt="Business Service with device"
     sources={{
-      light: useBaseUrl('/assets/images/device-properties/business-app-device-light.png'),
-      dark: useBaseUrl('/assets/images/device-properties/business-app-device-dark.png'),
+      light: useBaseUrl('/assets/images/device-properties/business-service-alias-light.png'),
+      dark: useBaseUrl('/assets/images/device-properties/business-service-alias-dark.png'),
     }}
   />

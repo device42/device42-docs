@@ -6,24 +6,27 @@ sidebar_position: 7
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## The LifeCycle Tab
+From version 19.05 of the Device42 UI onward, the **Lifecycle Tab** is only available using the device **Legacy** view. 
 
-Under the **Lifecycle tab** you can record and track asset lifecycle events, assign an asset QR code or barcode, and add purchasing information for a device. **Purchase/Support Info** includes fields to add **Vendor**, **Cost**, **Contract Type**, and **Service Type** details.
+In the device details view, from version 19.05 and later, the following sections have been moved from the **Lifecycle Tab** to the right-hand **Breakdown** panel:
+- **Asset Lifecycle**
+- **Purchase/Support Info**
+
+The **Device QR/Barcode** field is now under the **Details** section of the device details view.
 
 <ThemedImage
-  alt="The LifeCycle tab"
+  alt="The Breakdown panel"
   sources={{
-    light: useBaseUrl('/assets/images/device-lifecycle-tab/lifecycle-tab-light.png'),
-    dark: useBaseUrl('/assets/images/device-lifecycle-tab/lifecycle-tab-dark.png'),
+    light: useBaseUrl('/assets/images/device-lifecycle-tab/device-breakdown-panel-light.png'),
+    dark: useBaseUrl('/assets/images/device-lifecycle-tab/device-breakdown-panel-dark.png'),
   }}
-  style={{ width: '110%' }} 
 />
 
 ### Asset Lifecycle
 
-Provide the required details of **Date**, **Time**, and lifecycle **Event** to associate a new lifecycle event to the device. Optionally add an **End User** and related **Notes** and **Tags** to the event. Tags are useful for adding additional categories to manage your devices.
+Provide the required details of **Date**, **Time**, and lifecycle **Event** to associate a new lifecycle event with the device. Optionally add an **End User** and related **Notes** and **Tags** to the event. Tags are useful for adding additional categories to manage your devices.
 
-Add a new lifecycle event to the device using the **+ Add another Asset lifecycle** button. 
+Add a new lifecycle event to the device using the **+ Add New** button. 
 
 <ThemedImage
   alt="Asset lifecycle"
@@ -31,16 +34,15 @@ Add a new lifecycle event to the device using the **+ Add another Asset lifecycl
     light: useBaseUrl('/assets/images/device-lifecycle-tab/asset-lifecycle-event-light.png'),
     dark: useBaseUrl('/assets/images/device-lifecycle-tab/asset-lifecycle-event-dark.png'),
   }}
-  style={{ width: '110%' }} 
 />
 
-Some of the predefined **Events** have logic built-in. For example, you cannot choose **Checked Out** on a device or asset already checked out. Similarly, you can only select **Checked In** if the device is checked out.
+Some of the predefined **Events** have logic built in. For example, you cannot choose **Checked Out** on a device or asset already checked out. Similarly, you can only select **Checked In** if the device is checked out.
 
 To add logic to asset lifecycle **Events**, go to **Tools > Lifecycle Event Actions**.
 
 ### Add a New LifeCycle Event
 
-Define a custom lifecycle **Event** by clicking the **+** button near the **Events** dropdown menu.
+Define a custom lifecycle **Event** by clicking the **plus sign** button near the **Events** dropdown menu and then **Create** on the pop-up window. 
 
 <ThemedImage
   alt="Add new lifecycle event"
@@ -99,7 +101,7 @@ Enter purchase information related to the device under **Purchase/Support Info**
   }}
 />
 
-Add new **Purchase/Support Info** using the **+ Add New Purchase/Support Info** button.
+Add new **Purchase/Support Info** using the **+ Add New** button.
 
 <ThemedImage
   alt="Add new Purchase/Support Info"
