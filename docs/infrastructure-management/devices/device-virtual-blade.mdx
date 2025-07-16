@@ -3,28 +3,71 @@ title: "Device - Virtual & Blade"
 sidebar_position: 14
 ---
 
-### Brief Description for Virtual and Blade type Devices
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-For virtual devices, you can choose which host it belongs to, and other properties like CPU. Memory, OS, and IP Address can be entered as described previously for physical devices.
+### Brief Description for Virtual and Blade Devices
 
-![](/assets/images/WEB-599_virtual-blade-1.png)
+For virtual devices, you can choose which host it belongs to, and include properties like **CPU Memory HardDisk** and **Device Operating System**.
 
-![](/assets/images/WEB-599_virtual-blade-2.png)
+<ThemedImage
+  alt="Virtual device details"
+  sources={{
+    light: useBaseUrl('/assets/images/device-virtual-blade/virtual-device-light.png'),
+    dark: useBaseUrl('/assets/images/device-virtual-blade/virtual-device-dark.png'),
+  }}
+/>
 
-**VMware Notes vs. Device Notes**
+You can include **IP Addresses** and connectivity **Port** details.
 
-Notes that you add to a VMware virtual device outside of Device42 appear in the _Hypervisor Description_ field on the device view and edit pages. (If the VMware virtual device does not have notes, the field does not appear.)
+<ThemedImage
+  alt="Virtual device details"
+  sources={{
+    light: useBaseUrl('/assets/images/device-virtual-blade/virtual-device-ip-ports-light.png'),
+    dark: useBaseUrl('/assets/images/device-virtual-blade/virtual-device-ip-ports-dark.png'),
+  }}
+/>
 
-![](/assets/images/Device-Beta-view_Hypervisor-Decs-field.png)
+### VMware Notes vs. Device Notes
 
-Note that the _Hypervisor Description_ is separate from the Device _Notes_ field that you use to add or edit notes within Device42.
+Notes added to VMware virtual devices outside of Device42 appear in the **Hypervisor Description** field on the device view and edit pages. If the VMware virtual device does not have notes, the field does not appear.
 
-![](/assets/images/Device-Beta-view_Notes-field.png)
+<ThemedImage
+  alt="Hypervisor description field"
+  sources={{
+    light: useBaseUrl('/assets/images/device-virtual-blade/hypervisor-description-light.png'),
+    dark: useBaseUrl('/assets/images/device-virtual-blade/hypervisor-description-dark.png'),
+  }}
+/>
 
-### Blade Device
+The **Hypervisor Description** is separate from the Device42 **Notes** field that you use to add or edit notes within Device42.
 
-A blade device is subtype of physical devices. You can choose the blade hardware model here, who supports it, etc. You can choose the Host Chassis for this blade and a slot number as well. The other fields are similar to those discussed above in the device tab.
+<ThemedImage
+  alt="Device42 Notes field"
+  sources={{
+    light: useBaseUrl('/assets/images/device-virtual-blade/d42-note-light.png'),
+    dark: useBaseUrl('/assets/images/device-virtual-blade/d42-note-dark.png'),
+  }}
+/>
 
-![](/assets/images/WEB-599_virtual-blade-3.png)
+### Blade Device Subtype
 
-![](/assets/images/WEB-599_virtual-blade-4.png)
+**Blade** is subtype of physical devices. You can choose the blade hardware model here, who supports it, and so on. 
+
+<ThemedImage
+  alt="Blade subtype example"
+  sources={{
+    light: useBaseUrl('/assets/images/device-virtual-blade/blade-subtype-light.png'),
+    dark: useBaseUrl('/assets/images/device-virtual-blade/blade-subtype-dark.png'),
+  }}
+/>
+
+You can choose the **Device Host Chassis** for this blade and a slot **Blade Slot #**. The other fields generally shared with other device subtypes.
+
+    <ThemedImage
+    alt="Blade subtype example"
+    sources={{
+        light: useBaseUrl('/assets/images/device-virtual-blade/blade-details-light.png'),
+        dark: useBaseUrl('/assets/images/device-virtual-blade/blade-details-dark.png'),
+    }}
+    />
