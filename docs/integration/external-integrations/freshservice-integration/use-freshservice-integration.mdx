@@ -1,0 +1,254 @@
+---
+title: "Use the Freshservice Integration"
+sidebar_position: 2
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+:::tip
+This page covers the usage and operations of the Freshservice integration. 
+- For initial setup and installation, see [Set Up the Device42 Freshservice Integration](index.mdx). 
+- For advanced data mapping customization, see [Customize Freshservice Integration](customize-freshservice.mdx).
+:::
+
+## Using the Integration App
+
+Configure the **Device42 for Freshservice** app to sync data from Device42 to Freshservice and view and edit the fields mapped between Device42 and Freshservice.
+
+### Find the Settings Tab
+
+Make your way to the **Settings** tab, located on the configuration page of the Device42 integration app:
+
+1. Click the **ellipsis menu** (located at the bottom of the left panel) and select **Admin** (1). Enter `apps` in the "Search admin" search bar to quickly bring up the **Apps** option.
+2. From the **Apps** page, click **Manage Apps**.
+3. Under the **Installed Apps** tab, find the **Device42 for Freshservice** app and select **Settings > Edit settings** (2).
+    
+    ![Edit settings](/assets/images/freshservice-integration/edit-settings-2.png)
+
+### Run the Data Synchronization
+
+Data synchronization (sync) imports new CIs and updates the existing ones within Freshservice. Locate the synced data under **Assets > Inventory** in Freshservice.
+
+You can schedule a daily sync and run the sync immediately. We recommend that you run a full sync after installing the integration app.
+
+[From the **Settings** tab](#find-the-settings-tab), scroll down to the **Schedule Synchronization** section. 
+
+To automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** at which to perform the sync. 
+
+    ![Schedule synchronization](/assets/images/freshservice-integration/schedule-sync-2.png)
+
+To run the sync immediately, click the **Manual sync** button to reveal the options:
+
+- Select **Run Full Sync** (blue button) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
+- Select **Run Partial Sync** (green button) to sync only the items that have been changed in Device42, either added or updated, since the last successful sync.
+
+### View Sync History Logs
+
+From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**. Find the **Device42 for Freshservice** app, open the **Settings** dropdown, and select **Edit Settings**. 
+
+The synchronization history is useful for debugging issues and seeing the number of devices brought into Freshservice. You can view the previous and currently running syncs.
+
+Select a row from the sync history table to view the logs associated with it (if there are any). The displayed text is limited to 4,000 characters.
+
+    ![View sync history](/assets/images/freshservice-integration/view-sync-history-2.png)
+
+Scroll down to view error messages and other details.
+
+To download the full logs, use the **Download Full Log** button in the lower-left corner of the text area.
+
+    ![View sync history](/assets/images/freshservice-integration/download-full-log-button.png)
+
+:::note
+A full sync will be forced during upgrades to get new data from Device42. The sync history type will listed as a full upgrade instead of an incremental one until a successful sync has been performed.
+:::
+
+## View Mapped and Unmapped Data for Specific Assets
+
+We understand that some fields within Device42 may not easily translate to fields within Freshservice. We've added the ability to view these fields from one location, eliminating the need to navigate between applications. To view the mapped and unmapped data for a device within Freshservice, follow the steps below.
+
+1. Navigate to **Assets > Inventory** from the Freshservice dashboard. On the Inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
+
+    ![Inventory screen](/assets/images/freshservice-integration/unmapped-inventory-1.png)
+
+2. On the right panel of the page, under **Apps**, you will see the Device42 application. Click the box to expand it and click the **View Device42 Data** button.
+
+    ![View Device42 Data button](/assets/images/freshservice-integration/unmapped-apps-2.png)
+
+3. A window will open, and the current device's mapped and unmapped data will be displayed.
+
+    ![Mapped and unmapped data](/assets/images/freshservice-integration/unmapped-data-3.png)
+
+4. Click **View Asset in Device42** to be redirected to the asset in Device42.
+
+    <ThemedImage
+    alt="View Asset in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/unmapped-view-in-d42-dark.png'),
+    }}
+    />
+
+## Data Types Transferred From Device42 to Freshservice
+
+| D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
+|--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|
+| Device with physical type and Laptop subtype                                                                             | Assets/Inventory             | Laptop                             |
+| Device with physical type and WorkStation subtype                                                                        | Assets/Inventory             | Desktop                            |
+| Device with physical type and Network Printer subtype                                                                    | Assets/Inventory             | Printer                            |
+| Device with physical type and Router subtype (this is not a built-in subtype and would need to be created by the user)   | Assets/Inventory             | Router                             |
+| Device with physical type and Firewall subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory             | Firewall                           |
+| Device with OS of F5 or NetScaler                                                                                        | Assets/Inventory             | Load Balancer                      |
+| Device with Network Device flag set                                                                                      | Assets/Inventory             | Switch                             |
+| Device with physical type and Windows Server OS                                                                          | Assets/Inventory             | Windows Server                     |
+| Device with physical type and Unix or Linux OS                                                                           | Assets/Inventory             | Unix Server                        |
+| Device with physical type and AIX OS                                                                                     | Assets/Inventory             | AIX Server                         |
+| Device with physical type and SunOS or Solaris OS                                                                        | Assets/Inventory             | Solaris Server                     |
+| Device with Virtual/Container Host flag set and ESXi OS                                                                  | Assets/Inventory             | VMware VCenter Host                |
+| Device with Virtual/Container Host flag set                                                                              | Assets/Inventory             | Host                               |
+| Device with virtual type and VMWare subtype                                                                              | Assets/Inventory             | VMware VCenter VM                  |
+| Device with virtual type and Amazon EC2 Instance subtype                                                                 | Assets/Inventory             | AWS VM                             |
+| Device with virtual type and Azure Virtual Machine subtype                                                               | Assets/Inventory             | Azure VM                           |
+| Device with physical type and does not match one of the more specific asset types above                                  | Assets/Inventory             | Server                             |
+| Device with virtual type and does not match one of the more specific asset types above                                   | Assets/Inventory             | Virtual Machine                    |
+| Device that doesn't match one of the more specific asset types above                                                      | Assets/Inventory             | Computer                           |
+| Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
+| Software                                                                                                                 | Assets/Software              | Desktop                            |
+| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
+| PO Line Item/Contract Type: BASE (IBM & Lenovo vendors)                                                                  | Assets/Contracts             | Warranty                           |
+| PO Line Item/Contract Type: UPGRADE (IBM & Lenovo vendors)                                                               | Assets/Contracts             | Warranty                           |
+| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
+| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
+| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
+| Business Applications Device to Device relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
+| Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
+| Application Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
+| VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
+
+## Mandatory Attributes Required From Device42 During Sync
+
+The following attributes are required from Device42 during the sync process:
+
+| Entity                   | Mandatory Fields                          |
+|--------------------------|------------------------------------------|
+| Asset                   | `Name`, `Asset_type_id`, `Product_id`   |
+| Software                | `Name`, `Application_type`              |
+| Contract                | `Name`, `Contract_id`, `Contract_type` |
+| Software Installation   | `Application_id`, `Asset_id`           |
+| Relationships           | `Relationship_type_id`, `Primary_id`, `Secondary_id` |
+| Vendors                 | `Name`                                  |
+| Products                | `Name`, `Asset_type_id`                |
+| **Component Entities**      |              |
+| Processor         | `Manufacturer`, `Model`        |
+| Memory            | `Manufacturer`, `Model`        |
+| Network Adapter   | `Manufacturer`, `Model`, `Mac_address` |
+| Hard Disk         | `Capacity`, `Model`           |
+| Logical Drive     | `Drive_name`                  |
+| Datastore         | `Name`, `Capacity`            |
+| Interface         | `Name`, `Type`                |
+| Input Units       | `Name`, `Type`                |
+| Output Units      | `Name`, `Type`                |
+| Marker Supply Units | `Name`, `Type`             |
+
+## Freshservice Contract Types
+
+Navigate to **Assets > Contracts** in Freshservice to view the available contract types.
+
+![Contract location in Freshservice](/assets/images/freshservice-integration/fs-contracts.png)
+
+Freshservice contract types are mapped from Device42 types as follows:
+
+The **Contract Type** dropdown in Freshservice displays the available contract types:
+
+![Contract types in Freshservice](/assets/images/freshservice-integration/fs-contract-types.png)
+
+| Freshservice Contract Type  | Corresponding Device42 Type      |
+|--------------------------|--------------------------------------|
+| Lease                   | Purchase Line Item type: Lease     |
+| Warranty                | Purchase Line Item type: Warranty                            |
+| Maintenance             | Purchase Line Item types: Service, In-Service, Subscription, (none)   |
+| Software License        | Software Licensing                  |
+
+### Sync Purchase Line Items Types to Contracts
+
+In Device42, a Purchase Line Item is an individual entry associated with a larger Purchase (located under **Infrastructure > Purchases**). Contract Purchase Line Item sub-types include **Lease**, **Warranty**, **Subscription**, **Service**, and **In-Service**. The sub-type **(None)** is used for unspecified types:
+
+    <ThemedImage
+    alt="PO Line Item Types in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/po-contract-types-dropdown-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/po-contract-types-dropdown-dark.png'),
+    }}
+    />
+
+The Purchase Line Item **Lease** and **Warranty** contract types map to the Freshservice **Lease** and **Warranty** types. The other Purchase Line Item contract types (**Service**, **In-Service**, **Subscription**, and **(None)**) are assigned to the Freshservice **Maintenance** type. 
+
+![Synced Maintenance Contract Type in Freshservice](/assets/images/freshservice-integration/maintenance-type-contracts.png)
+
+For example, this Purchase Line Item with an unspecified contract type in Device42 is synced to Freshservice as a **Maintenance** contract:
+
+- Purchase Line Item in Device42:
+    <ThemedImage
+    alt="Unspecified Contract Type in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/line-item-example-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/line-item-example-d42-dark.png'),
+    }}
+    />
+
+- Synced Maintenance Contract in Freshservice:
+  
+    ![Maintenance Contract Type in Freshservice](/assets/images/freshservice-integration/line-item-example-fs.png)
+
+### The Warranty Contract Type in Freshservice
+
+Warranty information from Device42 is brought into Freshservice, with **Warranty** as the **Contract Type**. 
+
+- Warranty items in Device42:
+    <ThemedImage
+    alt="Warranty items in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/warranty-items-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/warranty-items-d42-dark.png'),
+    }}
+    />
+
+- Warranty items synced to Freshservice:
+  
+    ![Warranty Contract Type in Freshservice](/assets/images/freshservice-integration/fs-warranty-items.png)
+
+### Software Licensing Syncs to Contracts
+
+**Software Licensing** contracts in Device42 are synced to Freshservice as **Software License** contracts when a Software Component has an associated Purchase Line Item or License Count that is not null (empty).
+
+![Software Licensing in Freshservice](/assets/images/freshservice-integration/fs-software-license.png)
+
+## Syncing Business Applications to Freshservice
+
+Using the default mapping, **Business Applications** in Device42 are synced to Freshservice as the **Business Service** asset type. The Business Application relationships are also synced.
+
+- In Freshservice, navigate to **Assets > Inventory** (1) and select **Business Service** as the **Asset Type** (2) to view the synced Business Applications. Click on an item to view its details.
+
+    ![Business Services in Freshservice](/assets/images/freshservice-integration/fs-business-service.png)
+
+- Click **Relationships** to see a **Mini map** of the selected Business Service. 
+
+    ![Business Service Relationships in Freshservice](/assets/images/freshservice-integration/fs-business-app-mini-map.png)
+
+- When viewing the full map, you can select the **Level of Relationships** to display. 
+
+    ![Business Service Full Map in Freshservice](/assets/images/freshservice-integration/fs-business-app-full-map.png)
+
+The example Business Service in Freshservice above looks like this as a Business Application in Device42:
+
+    <ThemedImage
+    alt="Business Application in Device42"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/business-app-d42-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/business-app-d42-dark.png'),
+    }}
+    />
+
+## Deleting the Freshservice External Integration
+
+Before deleting the Freshservice external integration in Device42 or making changes to your Cloud Services configuration, first uncheck the **Enable Freshworks SSO** option in the Appliance Manager, under **Global Settings > SAML/SSO Settings**.

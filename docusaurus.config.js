@@ -483,7 +483,7 @@ const config = {
             from: ['/external-integrations/foreman-smart-proxy-plugin/'],
           },
           {
-            to: '/integration/external-integrations/freshservice-integration/',
+            to: '/integration/external-integrations/freshservice-integration/index',
             from: ['/external-integrations/freshservice-integration/'],
           },
           {
