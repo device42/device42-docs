@@ -542,6 +542,23 @@ Use the following steps to verify that the field name is correct:
     }}
     />
 
+## Troubleshooting
+
+### Secure Tunnel Connection Error
+
+If you see the following connection error about multiple Device42 instances are using the same GUID:
+
+```
+[ERROR] 2025-06-30T19:06:37Z main.go:327: Connection error, error: websocket: bad handshake, response: Error: secure tunnel already established with same instance ID. Is there another D42 instance running with same settings?
+```
+
+Follow these steps:
+
+1. Check the GUID on your primary Device42 instance at **Tools > Integrations > Cloud Services**.
+2. Check the GUID of your other Device42 instances (hot standby, development, and so on).
+3. If the instances have the same GUID, regenerate GUID on all instances except the primary one.
+4. Restart Device42 services on instances where you changed the GUID.
+
 ## Data Mapping FAQs
 
 This section answers some common questions about data mapping between Device42 and Freshservice. We're actively improving the integration and this documentation. Please [contact support](mailto:support@device42.com) if you have technical questions, and use the **Page Feedback** button at the top of this page to leave feedback about the documentation. 
