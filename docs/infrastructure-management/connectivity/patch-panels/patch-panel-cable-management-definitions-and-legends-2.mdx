@@ -1,14 +1,14 @@
 ---
-title: "Patch panels and cable management"
+title: "Patch Panels and Cable Management"
 sidebar_position: 4
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Patch panels can be added as "assets" from Resources > Assets > All Assets
+Patch panels can be added as assets from **Resources > Assets > All Assets**.
 
-### Adding a patch panel
+### Adding a Patch Panel
 
 <ThemedImage
   alt="Adding a patch panel"
@@ -18,9 +18,9 @@ Patch panels can be added as "assets" from Resources > Assets > All Assets
   }}
 />
 
-The system defined type "Patch Panel" for asset gives you the option to assign a patch panel model.
+The system-defined asset type, **Patch Panel**, gives you the option to assign a patch panel model.
 
-### Ports and properties based on the patch panel model
+### Ports and Properties Based on the Patch Panel Model
 
 <ThemedImage
   alt="Ports and properties based on the patch panel model"
@@ -31,11 +31,18 @@ The system defined type "Patch Panel" for asset gives you the option to assign a
   style={{ width: '70%' }} 
 />
 
-When creating a new patch panel model you can enter the number of ports in the patch panel, where to start numbering and in which direction to number. You can also enter the port type. The first time a patch panel model is assigned to a patch panel, it takes the "Number of ports" entry shown above and creates and associates that number of ports with the patch panel. The image and vendor info from the model are also passed along to the patch panel if it's not already there.
+When creating a new patch panel model, you can enter:
 
-If you have different cable types in the same patch panel, you should use modular as the Type.
+- The **Number of ports** in the patch panel
+- The **Numbering Start Direction**
+- The **Numbering Direction**
+- The **Port Type**
 
-### Modular patch panels
+The first time a patch panel model is assigned to a patch panel, it takes the **Number of ports** entry shown above and creates and associates that number of ports with the patch panel. The image and vendor info from the model are also passed along to the patch panel if they are not already there.
+
+If you have different cable types in the same patch panel, you should use **Modular** as the **Type**.
+
+### Modular Patch Panels
 
 <ThemedImage
   alt="Modular patch panels"
@@ -45,7 +52,7 @@ If you have different cable types in the same patch panel, you should use modula
   }}
 />
 
-You can add modules to your patch panels and configure different port types or just modules. For a modular type patch panel, you will be given an option to add modules. Ports for each module will be created based on "patch panel module models". All the module ports will show up in the original patch panel view.
+You can add modules to your patch panels and configure different port types or just modules. For a modular patch panel, you have the option to add modules. Ports for each module are created based on **patch panel module models**. All the module ports will appear in the original patch panel view.
 
 <ThemedImage
   alt="Patch panel modular configuration"
@@ -55,9 +62,9 @@ You can add modules to your patch panels and configure different port types or j
   }}
 />
 
-Once you choose a modular patch panel, you can add patch panel models as shown above the ports section.
+Once you have chosen a modular patch panel, you can add patch panel models as shown above the ports section.
 
-### Patch panel connectivity
+### Patch Panel Connectivity
 
 <ThemedImage
   alt="Patch panel connectivity"
@@ -67,17 +74,17 @@ Once you choose a modular patch panel, you can add patch panel models as shown a
   }}
 />
 
-Once a model is chosen and the "save and continue editing" button is clicked, you will see all the ports created.
+Once you have chosen a model and clicked the **Save and continue editing** button, you will see all the ports created.
 
-Each port can be connected to either a:
+Each port can be connected to one of the following:
 
-- Switch Port
-- Device
-- or, Patch panel port
+- A switch port
+- A device
+- A patch panel port
 
-If patch panel is racked, by default only the devices in that rack are shown. You can choose other devices as well. If device is connected, you can also choose which mac address on the device is connected using Mac of device lookup button.
+If a patch panel is racked, by default, only the devices in that rack are shown. You can choose other devices as well. If a device is connected, you can also choose which MAC address on the device is connected using the Mac of device lookup button.
 
-### Individual back connectivity per port
+### Individual Back Connectivity Per Port
 
 <ThemedImage
   alt="Individual back connectivity per port"
@@ -88,9 +95,9 @@ If patch panel is racked, by default only the devices in that rack are shown. Yo
   style={{ width: '70%' }} 
 />
 
-You can choose the individual back connectivity option per port and add a cable type for back connectivity with this option. You can add cable speed and other attributes for back connectivity for each port. In addition to the edit screens above, there are RESTful APIs and spreadsheet imports available to do this more easily and there is a bulk operations option to provision back connectivity as discussed below.
+You can choose the individual **Back connection** per port and add a **Back cable** type for back connectivity with this option. You can add cable speed and other attributes for back connectivity for each port. In addition to the edit screens above, there are RESTful APIs and spreadsheet imports available for doing this more easily. There is also a bulk operations option for provisioning back connectivity, as discussed below.
 
-### Bulk back ports connectivity
+### Bulk Back Ports Connectivity
 
 <ThemedImage
   alt="Bulk back ports connectivity"
@@ -100,7 +107,7 @@ You can choose the individual back connectivity option per port and add a cable 
   }}
 />
 
-From Tools > Templates & Bulk Operations > Panel back connectivity, you can choose the patch panel, its modules(if any), starting port #, ending port #, then patch panel and module, starting port # and cable type and provision back connectivity in bulk.
+From **Tools > Templates & Bulk Operations > Panel back connectivity**, you can choose the patch panel, its modules (if any), starting port #, ending port #, patch panel and module, starting port #, and cable type. You can also provision back connectivity in bulk.
 
 ### Full path visualized
 
@@ -115,7 +122,7 @@ From Tools > Templates & Bulk Operations > Panel back connectivity, you can choo
 
 You can get full path details visualized in this table.
 
-### Patch panel layout
+### Patch Panel Layout
 
 <ThemedImage
   alt="Patch panel layout"
@@ -126,10 +133,10 @@ You can get full path details visualized in this table.
   style={{ width: '40%' }} 
 />
 
-View or edit page of that asset (patch panel) adds a new button "View Patch Panel Layout".
+The view or edit page of that asset (the patch panel) adds a new **View Patch Panel Layout** button.
 
 <ThemedImage
-  alt="Patch panel layout view"
+  alt="Patch Panel Layout view"
   sources={{
     light: useBaseUrl('/assets/images/patch-panels/wpid5722-media_1362573692043-light.png'),
     dark: useBaseUrl('/assets/images/patch-panels/wpid5722-media_1362573692043-dark.png'),
@@ -137,9 +144,9 @@ View or edit page of that asset (patch panel) adds a new button "View Patch Pane
   style={{ width: '70%' }} 
 />
 
-If the patch panel is connected to another patch panel, both panels are displayed side by side. Hover over any port(or device) highlights the path and displays the text for port and what is connected. Each port is color coded same as in the port display.
+If the patch panel is connected to another patch panel, both panels are displayed side by side. Hovering over any port (or device) highlights the path and displays the text for that port and its connections. Each port is color-coded in the same way as in the port display.
 
-### Creating connections with drag and drop
+### Creating Connections With Drag-and-Drop
 
 <ThemedImage
   alt="Creating connections with drag and drop"
@@ -149,9 +156,9 @@ If the patch panel is connected to another patch panel, both panels are displaye
   }}
 />
 
-From the patch panel layout page, you can turn on the edit mode and then connect patch panel ports to other devices or switch ports by simply dragging from the port to the device or other port. This makes it very easy to manage your patch panel connectivity and keep information up-to-date.
+From the Patch Panel Layout page, you can turn on the edit mode and connect patch panel ports to other devices or switch ports by dragging a port to a device or another port. This makes it very easy to manage your patch panel connectivity and keep information up to date.
 
-### Drag and drop for switch port
+### Drag-and-Drop for Switch Port
 
 <ThemedImage
   alt="Drag and drop for switch port"
@@ -162,9 +169,9 @@ From the patch panel layout page, you can turn on the edit mode and then connect
   style={{ width: '80%' }} 
 />
 
-From the patch panel layout page, you can also drag and drop from switch ports to devices or to patch panel ports. When you do so, a popup will appear giving you the opportunity to enter a port label.
+From the Patch Panel Layout page, you can also drag-and-drop switch ports to devices or to patch panel ports. When you do so, a popup appears, giving you the opportunity to enter a port label.
 
-### Direct patch panel port to patch panel ports connections
+### Direct Patch Panel Port to Patch Panel Ports Connections
 
 <ThemedImage
   alt="Direct patch panel port to patch panel ports connections"
@@ -174,9 +181,9 @@ From the patch panel layout page, you can also drag and drop from switch ports t
   }}
 />
 
-You can add front patch panel connections to the ports of another patch panel via drag and drop.
+You can add front patch panel connections to the ports of another patch panel via drag-and-drop.
 
-### Devices outside the rack
+### Devices Outside the Rack
 
 <ThemedImage
   alt="Devices outside the rack"
@@ -186,11 +193,11 @@ You can add front patch panel connections to the ports of another patch panel vi
   }}
 />
 
-By default, only the devices in the same rack as asset would show up. You can reset the filter by clicking on total devices as shown above and choose device outside the rack. These are displayed on the left side of the patch panel as shown below.
+By default, only the devices in the same rack as the asset would show up. You can reset the filter by clicking on total devices, as shown above, and choose a device outside the rack. These are displayed on the left side of the patch panel, as shown below.
 
 ![](/assets/images/wpid5717-media_1355834288356.png)
 
-### Half depth devices
+### Half-Depth Devices
 
 <ThemedImage
   alt="Half depth devices"
@@ -200,9 +207,9 @@ By default, only the devices in the same rack as asset would show up. You can re
   }}
 />
 
-Half depth devices are displayed side by side to show the cabling.
+Half-depth devices are displayed side by side to show the cabling.
 
-### Multiple hops or patch panels in between
+### Multiple Hops or Patch Panels
 
 <ThemedImage
   alt="Multiple hops or patch panels in between"
@@ -212,9 +219,9 @@ Half depth devices are displayed side by side to show the cabling.
   }}
 />
 
-If a connection spans multiple patch panels, it is displayed when you mouse over that port (or connected device, switch port etc.). Displayed on the left side of the panel.
+If a connection spans multiple patch panels, it is displayed when you hover your cursor over that port (or connected device, switch port, etc.). It is displayed on the left side of the panel.
 
-### Create connections using drag and drop
+### Create Connections Using Drag-and-Drop
 
 <ThemedImage
   alt="Create connections using drag and drop"
@@ -224,7 +231,7 @@ If a connection spans multiple patch panels, it is displayed when you mouse over
   }}
 />
 
-From the patch panel layout page, you can turn on the edit mode and then connect patch panel ports to other devices or switch ports by simply dragging from the port to the device or other port. This makes it very easy to manage your patch panel connectivity and keep information up-to-date.
+From the Patch Panel Layout page, you can turn on edit mode and then connect patch panel ports to other devices or switch ports by dragging the port to a device or another port. This makes it very easy to manage your patch panel connectivity and keep the information up to date.
 
 <ThemedImage
   alt="Drag and drop connection creation"
