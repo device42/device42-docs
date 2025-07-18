@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Viewing Impact Charts
 
-Impact charts enable you to see, at a glance, the impacts of an outage scenario, locate potential performance issues, and identify relevant security issues around data center objects. Impact charts are available from the view page for any building, room, rack, device, or application component. 
+Impact charts enable you to see, at a glance, the impacts of an outage scenario, to locate potential performance issues, and to identify relevant security issues around data center objects. Impact charts are available from the view page for any building, room, rack, device, or application component. 
 
 Click the **Impact Chart** button at the top of the screen:
 
@@ -20,11 +20,11 @@ Click the **Impact Chart** button at the top of the screen:
   }}
 />
 
-Device42's powerful, agentless autodiscovery uses native WMI and SSH in combination with other platform-dependent technologies to identify the details around running services, listening ports, and the relationships between those services and ports or executables and ports. This provides a clear picture of exactly what services or executables are listening on what ports on that machine. Device42 also goes on to capture a point in time snapshot of the IP addresses that are connected to each listening port. Should these communicating IP addresses already exist in Device42 and be mapped to a device, the system automatically shows the device when drawing the dynamic impact charts.
+Device42's powerful, agentless autodiscovery uses native WMI and SSH in combination with other platform-dependent technologies to identify the details of running services and listening ports, and the relationships between those services and ports or executables and ports. This provides a clear picture of exactly which services or executables are listening on which ports on a machine. Device42 also goes on to capture a point-in-time snapshot of the IP addresses that are connected to each listening port. Should these communicating IP addresses already exist in Device42 and be mapped to a device, the system automatically shows that device when drawing the dynamic impact charts.
 
 ## Impact Charts for Buildings, Rooms, and Racks
 
-Impact charts are a great way to quickly visualize deployments and understand dependency chains. The following is a sample Building Impact Chart:
+Impact charts are a great means of quickly visualizing deployments and understanding dependency chains. The following is a sample building impact chart:
 
 <ThemedImage
   alt="Impact Chart Sample"
@@ -34,9 +34,9 @@ Impact charts are a great way to quickly visualize deployments and understand de
   }}
 />
 
-Notice that at the top of the chart is the building or room you selected. The building impact chart shows the rooms within the building, and the racks within each room.
+Notice that the building or room you selected is at the top of the chart. The building impact chart shows the rooms within the building and the racks within each room.
 
-The following is a sample Room Impact Chart:
+The following is a sample room impact chart:
 
 <ThemedImage
   alt="Room impact chart - example"
@@ -46,9 +46,9 @@ The following is a sample Room Impact Chart:
   }}
 />
 
-Looking at the impact chart for a room, from left to right you see the room itself, the list of racks (with one rack selected), and then all servers that live in the selected rack. You can view a legend via the **Legend** button above.
+Looking at the impact chart for a room, from left to right, you see the room itself, the list of racks (with one rack selected), and all the servers that are located in the selected rack. You can view a legend via the **Legend** button above.
 
-Now, let's go ahead and get some more information about one of the servers. You can do this easily by hovering over it, or any item in this chart, as such:
+Now, let's gather more information about one of the servers. You can do this easily by hovering over it (or any item in the chart) as such:
 
 <ThemedImage
   alt="Hover over server for details demonstration"
@@ -58,7 +58,7 @@ Now, let's go ahead and get some more information about one of the servers. You 
   }}
 />
 
-Hovering over any object will present a quick overview and relevant options. Hovering over a server, you can view the individual server's **Topology**, or by clicking the **Device Page** button, head straight to the device details page for that server: 
+Hovering over any object will display a quick overview and relevant options. Hovering over a server, you can view the individual server's **Topology** or, by clicking the **Device Page** button, head straight to the device details page for that server: 
 
 <ThemedImage
   alt="Device Details"
@@ -68,21 +68,21 @@ Hovering over any object will present a quick overview and relevant options. Hov
   }}
 />
 
-You can now see detailed information about the selected device, including its hardware specifications and when it was added to the system. Notice you can also get right to the **Topology** screen (your other option when you hovered) from the details screen, as well.
+You can now see detailed information about the selected device, including its hardware specifications and when it was added to the system. Notice you can also access the **Topology** screen (your other option when you hovered) from the details screen.
 
 ## Topology Charts for Devices
 
-Topology Charts for Devices have more detail than for other objects like buildings, rooms, and racks. In particular, device topology charts show Services, Executables, and Ports.
+Device topology charts have more detail than the topology charts for other objects like buildings, rooms, and racks. In particular, device topology charts show services, executables, and ports.
 
-A device topology chart displays information in three categories:
+A device topology chart displays information in three categories, allowing you to do the following:
 
-1. See what **Services, Executables, and Application Components** are running on a given device. Both services and their respective executables are detected automatically. Information about Application Components will be entered by you. Application Components are explained in more detail below.
-2. See **what ports are in use,** including details about which services and executables are providing information over those ports. You can also see detailed information about which services and executables on remote devices are accessing data from each in-use port.
-3. Get **a full picture of exactly what would be impacted** were a performance or security issue to exist on a given device, which can help you determine if you need to remove a given device from service, either temporarily or permanently.
+1. See which **services, executables, and application components** are running on a given device. Both services and their respective executables are detected automatically. Information about Application Components will be entered by you. Application Components are explained in more detail below.
+2. See **which ports are in use,** including details about which services and executables are providing information over those ports. You can also see detailed information about which services and executables on remote devices are accessing data from each in-use port.
+3. Get **a full picture of exactly what would be impacted** were a performance or security issue to exist on a given device, which can help you determine whether you need to remove a given device from a service, either temporarily or permanently.
 
-Topology charts provide a full picture of all the services, executables, and applications that could be affected both on the device itself, and more importantly, you will be able to see all services, executables, and application components on _other related devices that depend on this device_. 
+Topology charts provide a full picture of all the services, executables, and applications that could be affected both on the device itself and, more importantly, on _other related devices that depend on the device_. 
 
-As an example, if the device is a blade chassis or a virtual host, all the blades or virtual machines would be dependent on this device, and you would see those dependencies. Similarly, if Device42 discovers that a remote device is connecting to a port on the device, you will also see the remote device (and its services, executables, and application components) in the topology chart. You can also define which Application Components depend on which other Application Component manually (see below), and those custom dependencies will display in the chart as well.
+For example, if the device is a blade chassis or a virtual host, all the blades or virtual machines would be dependent on the device, and you would see those dependencies. Similarly, if Device42 discovers that a remote device is connecting to a port on the device, you would see the remote device (and its services, executables, and application components) in the topology chart. You can also manually define which application components depend on which other application component (see below), and those custom dependencies will display in the chart as well.
 
 Below is the topology chart for a device. (Don't try to read the details. We'll zoom in below.)
 
@@ -96,13 +96,13 @@ Below is the topology chart for a device. (Don't try to read the details. We'll 
 
 ### Topology Element Overview:
 
-**Global View** is a simplified view of Device to Device directionality in relationship, no details of the relationship are viewable here except what hostnames have interactions to each other. Any type of Device can be visible here, if there is any relationship of services, applications, or hypervisor or virtual it will be represented in the **Global View**.
+**Global View** is a simplified view of device-to-device directionality in relationship. No details of the relationship are viewable here, except the hostnames that have interactions with each other. Any type of device can be visible here. If there is any relationship of services, applications, hypervisor, or virtual, it will be represented in the **Global View**.
 
-**Local View** is a complete view of the details for the relationships shown in the **Global View**. Each **Device** will have a grouping that contains the device itself, any nested devices (VMs or Containers), services, and Application Components. The **Local View** will represent the communication directionality of any Services and Application Components that exist to represent the dependency or impact of each configuration item depending on the discovered listener or client service connections.
+**Local View** is a complete view of the details for the relationships shown in the **Global View**. Each **Device** will have a grouping that contains the device itself, any nested devices (VMs or Containers), services, and application components. The **Local View** will represent the communication directionality of any services and application components that exist to represent the dependency or impact of each configuration item, depending on the discovered listener or client service connections.
 
 ### Device Topology Legend
 
-The Device topology chart has its own legend:
+The device topology chart has its own legend:
 
 <ThemedImage
   alt="Device topology legend"
@@ -118,15 +118,15 @@ The Device topology chart has its own legend:
 **Elements:**
 
 - **Device:** Device objects that have been discovered or added with relational service or application data.
-- **Service or Executable:** Discovered or added services, typically all listening services running at point of discovery. Often associated to an Application Component, **Application** in the above legend.
-- **Application:** Discovered common applications or Application Component that has been added manually and related to any in view device or service.
+- **Service or Executable:** Discovered or added services, typically all listening services running at point of discovery. Often associated with an application component, **Application** in the above legend.
+- **Application:** Discovered common applications or an application component that has been added manually and related to any in-view device or service.
 
 **Groups:**
 
 - **Target Device:** The point of origin for the **Topology**, this color highlights the device that the **Topology** button was selected from.
-- **Server Device:** Device object that is running a Service as a Listener with clients connecting to them.
-- **Client Device:** Device object that is running a Service as a Client connecting to a remote listener.
-- **App Device:** A grouping for only device objects that have been related directly to an Application Component, no services in this case and typically defined in an Application Component manually.
+- **Server Device:** Device object that is running a service as a listener with clients connecting to it.
+- **Client Device:** Device object that is running a service as a client connecting to a remote listener.
+- **App Device:** A grouping for only device objects that have been related directly to an application component, no services in this case, and typically defined manually in an application component.
 
 ## Topology Chart Options
 
@@ -141,16 +141,15 @@ The Device topology chart has its own legend:
   style={{ width: '50%' }} 
 />
 
-Display Options are used to manipulate current in-view objects based on the below criteria:
+The **Display Options** are used to manipulate current in-view objects based on the below criteria:
 
-- **Hide services without connections:** (Default value is Checked) Will show any service objects that have been discovered on an in-view and associated Device, but with no connections yet discovered/added. 
-- **Hide client IP addresses with no device:** (Default value is Checked) Will show IP Addresses for any remote connections that were found in the netstat table of the in-view discovered devices, these are not yet 
-- **Device** objects in the database and are Client or Remote Connections part of the Service objects. 
-- **Display hidden services:** Displays any services that have been toggled as "hidden". 
-- **Display only starred services:** Displays any services that have been toggled as "starred". 
-- **Display starred and related services:** Displays any services that have been toggled as "starred", and services that are client or listener of a "starred" service.
+- **Hide services without connections:** This shows any service objects that have been discovered on an in-view and associated device, but with no connections yet discovered or added. (By default, this box is checked.)
+- **Hide client IP addresses with no Device/Managed Resources:** This shows IP addresses for any remote connections that were found in the netstat table of the in-view discovered devices. These are not yet considered **Device** objects in the database and are classified as clients or remote connections of the service objects. (By default, this box is checked).
+- **Display hidden services:** This displays any services that have been toggled as "hidden". 
+- **Display only starred services:** This displays any services that have been toggled as "starred". 
+- **Display starred and related services:** This displays any services that have been toggled as "starred", as well as services that are the client or listener of a "starred" service.
 
-- **Service Dependencies Report:** Will generate an XLS file for all listener services with connections for any devices currently in-view of the current Topology. This will include raw data for listener or client device and service details with port and connection statistic information.
+The **Service Dependencies Report** button generates an XLS file for all listener services with connections to any devices currently in view on the current topology chart. This will include raw data for listener or client devices and service details with port and connection statistic information.
 
 <ThemedImage
   alt="Topology filter"
@@ -161,7 +160,7 @@ Display Options are used to manipulate current in-view objects based on the belo
     style={{ width: '40%' }} 
 />
 
-- **Filter:** Provides a list of **Show Top #** of services, to select key services that are desired to show or hide in the current topology. Selecting any services will calculate any new topology considering any of the services selected for show or hide. See image above.
+The **Filter** provides options to **Show Top #** of services and to select key services that you want shown or hidden in the current topology. Selecting any services will calculate a new topology that takes the selected services into consideration. See the image above.
 
 <ThemedImage
   alt="Topology pause"
@@ -172,11 +171,11 @@ Display Options are used to manipulate current in-view objects based on the belo
   style={{ width: '30%' }} 
 />
 
-- **Pause:** This button will allow you to stop Topology calculation, this can be beneficial if the Topology selected has a large number of relations and will allow you to stop calculation at levels to look at current data and continue calculation if desired.
+The **Pause** button allows you to stop the topology calculation, which can be beneficial if the topology selected has a large number of relations, as it allows you to stop calculation at different levels  so that you can look at current data and continue the calculation if desired.
 
 ### Nested Context Menus
 
-View context menus by mousing over and hovering on an in-view object within a topology chart.
+View context menus by hovering your cursor over an in-view object within a topology chart.
 
 - **Service Object:** Summary details of the related Service.
 - **Star:** Will set the service as "starred" status allowing control with Display Options and a parameter available for queries or reports.
@@ -192,10 +191,10 @@ View context menus by mousing over and hovering on an in-view object within a to
   style={{ width: '70%' }} 
 />
 
-- **Device Object:** Summary details of the related Device. 
-- **Expand/Collapse:** Will open the Device to show all related services to expand the potential impact/dependency in view of the current Topology based on the level of the **Target Device**. 
-- **Topology:** Will open a Topology for the related Device setting as the **Target Device** for the Topology to be loaded. 
-- **Device Page:** Will navigate you to the object details view for the related device.
+- **Device Object:** View summary details of the related device. 
+- **Expand/Collapse:** Open the device to show all related services to expand the potential impact/dependency in view of the current topology, based on the level of the **Target Device**. 
+- **Topology:** Open a topology for the related device, setting it as the **Target Device** for the topology to be loaded. 
+- **Device Page:** Open the object details view for the related device.
 
 <ThemedImage
   alt="Device object context menu"
@@ -206,11 +205,11 @@ View context menus by mousing over and hovering on an in-view object within a to
   style={{ width: '70%' }} 
 />
 
-- **Application Component Object:** Summary details of the related Application Component. 
-- **Impact Chart:** A "downstream" view of any Application Components that rely on the selected Application Component. View is simplified to only Application Component Objects. 
-- **Dependency Chart:** An "upstream" view of any Application Components that the selected Application Component is dependent upon. View is simplified to only Application Component Objects. 
-- **App Page:** Will navigate you to the object details view for the related Application Component. 
-- **Details:** Will open a pop-out window for a blob of the configuration file for the related Application Components added by discovery for any common applications.
+- **Application Component Object:** View summary details of the related application component. 
+- **Impact Chart:** Open a "downstream" view of any application components that rely on the selected application component. The view is simplified to only application component objects. 
+- **Dependency Chart:** Open an "upstream" view of any application components that the selected application component depends on. The view is simplified to only application component objects. 
+- **App Page:** Open the object details view for the related application component. 
+- **Details:** Open a pop-out window for a blob of the configuration file for the related application components added by discovery for any common applications.
 
 <ThemedImage
   alt="Application component context menu"
@@ -223,7 +222,7 @@ View context menus by mousing over and hovering on an in-view object within a to
 
 ### Downloading Images and Service Dependency Reports
 
-Most Impact and Topology screens have a **Create Image** button that allows you to download an image in your chosen format of the graph:
+Most impact and topology screens have a **Create Image** button that allows you to download an image in your chosen graph format:
 
 <ThemedImage
   alt="Create impact chart image"
@@ -233,11 +232,11 @@ Most Impact and Topology screens have a **Create Image** button that allows you 
   }}
 />
 
-The create image button allows you to choose from two layout options; You may choose the Global or the Local view pane, and can also choose either **PNG** format or **SVG** (vector) image format. Simply click the **Download** button to choose your save location, saving the file wherever is convenient for you.
+The **Create Image** button allows you to choose from two layout options: You may choose the Global or the Local view pane, and can also choose either **PNG** format or **SVG** (vector) image format. Simply click the **Download** button to choose your save location, and save the file wherever is convenient for you.
 
 **Service Dependencies Report Download**
 
-The topology chart view screen offers users a **Service Dependency Report** download as well. Service dependency reports are generated in real-time, as soon as the button is clicked, and delivered as an Excel file containing a list of all source machines, listening ports, services, and any remote machines that are connected to those services. Users may also download previously requested service dependency reports by visiting the **Reports > Excel Reports Status**:
+The topology chart view screen offers users a **Service Dependency Report** download as well. Service dependency reports are generated in real-time, as soon as the button is clicked, and delivered as an Excel file containing a list of all source machines, listening ports, services, and any remote machines that are connected to those services. Users may also download previously requested service dependency reports by visiting **Reports > Excel Reports Status**:
 
 <ThemedImage
   alt="Excel Reports Status and Download page"
@@ -247,13 +246,13 @@ The topology chart view screen offers users a **Service Dependency Report** down
   }}
 />
 
-For a sample report and field explanations, see the [**Service Dependencies Report**](#service-dependencies-reports) section on this page below.
+For a sample report and field explanations, see the [**Service Dependencies Report**](#service-dependencies-reports) section below.
 
 ## Impact Lists
 
-Clicking the impact list navigation button will bring you to a hierarchical and contextual text-based option of the Topology. All of the same objects and behavior are included in the Impact List, and allow you to expand a configuration item for a view of any related and nested items.
+Clicking the **Impact List** navigation button will bring you to a hierarchical and contextual text-based voew of the topology. All of the same objects and behavior are included in the impact list, and you can expand a configuration item to view related and nested items.
 
-An Impact List is simply a list version of an Impact Graph. Impact lists are typically available for view on most devices. The following is an example of an impact list for a device:
+An impact list is simply a list version of an impact graph. Impact lists are typically available for most devices. The following is an example of an impact list for a device:
 
 <ThemedImage
   alt="View device impact list"
@@ -263,7 +262,7 @@ An Impact List is simply a list version of an Impact Graph. Impact lists are typ
   }}
 />
 
-The full impact list for a device. Sometimes, it is useful to hide services without connections, thus significantly reducing clutter by hiding services you might not be concerned with (many services that fit this criteria are standard operating-system components). See the example following the full list for more details:
+The full impact list for a device. Sometimes, it is useful to hide services without connections, which significantly reduces clutter by hiding services you may not be concerned with (many services that fit this criteria are standard operating-system components). See the example following the full list for more details:
 
 <ThemedImage
   alt="Device Impact List Full"
@@ -275,7 +274,7 @@ The full impact list for a device. Sometimes, it is useful to hide services with
 
 ### Impact List Display Options
 
-Display options allow hiding of services without connections, forcing the display of hidden services, or even showing only services you've starred:
+The **Display Options** allow you to hide of services without connections, to forcibly display hidden services, or even to show only the services you've starred:
 
 <ThemedImage
   alt="Impact list example with all services wo connections hidden"
@@ -288,7 +287,7 @@ Display options allow hiding of services without connections, forcing the displa
 
 ## Service Dependencies Reports
 
-Service dependencies reports can be downloaded via buttons found on Impact lists and Topology charts. Service dependency reports are delivered as Excel files (.XLSX), and contain a list of all source machines, listening ports, services, and any remote machines that are connected to those services.
+Service dependencies reports can be downloaded via buttons on impact lists and topology charts. Service dependency reports are delivered as Excel files (.XLSX), and each contain a list of all source machines, listening ports, and services, as well as any remote machines that are connected to those services.
 
 ![service dependencies report sample](/assets/images/impact-charts/service_deps_report.png)
 
@@ -300,28 +299,28 @@ Service dependencies reports can be downloaded via buttons found on Impact lists
 - **Listener service:** Listener service found 
 - **Listener port:** Port listener found on 
 - **Listener OS:** Listener operating system 
-- **Listener is Virtual:** Yes or no - is listener a VM 
+- **Listener is Virtual:** Yes or no - Is listener a VM?
 - **Client Listener Hardware:** Listener hardware type 
 - **Client name:** Client hostname 
 - **Client Service:** Service name 
 - **Client OS:** Client operating system 
-- **Client is virtual:** Yes or no - is client a VM 
+- **Client is virtual:** Yes or no - Is client a VM?
 - **Client Hardware:** Client hardware type 
-- **Client Stat Type:** Netstat or netflow - which was discovered 
+- **Client Stat Type:** Netstat or netflow - Which was discovered?
 - **Client Connection First Found:** Date or time 
 - **Client Connection Last Found:** Date or time 
-- **Total Client Connections Detected:** Running total count -- since first found 
+- **Total Client Connections Detected:** Running total count - since first found 
 - **Detected Average Minutes Between Client Connections:** Time, in minutes, since last connection(s) found 
 - **Average # of Connections from the client:** Running average of connections found since first found 
 - **Latest detected # of Connections from the client:** Integer count of # of connections found as of last check 
-- **Latest contiguous stats - Client connection First Found:** Date or time when this stat was first found if the connection is different (different ports connected than connected from last discovery) 
+- **Latest contiguous stats - Client connection First Found:** Date or time when this stat was first found, if the connection is different (different ports connected than connected from last discovery) 
 - **Latest contiguous stats - Client connection Last Found:** Date or time when this stat was last rediscovered (if the connection is different, or different ports connected than were connected when last discovered) 
 - **Latest contiguous stats - Total Client connections Detected:** Count; only includes connections found during latest (different ports connected from last discovery) 
-- **Latest contiguous stats - Detected Average Minutes Between client connections:** Time in minutes; Only goes from latest (different ports connected from last discovery)
+- **Latest contiguous stats - Detected Average Minutes Between client connections:** Time in minutes; only goes from latest (different ports connected from last discovery)
 
 ## Dependency Charts (Graphs)
 
-A Dependency Chart _(previously a 'dependency graph')_ can also be generated for any **Application Component**, and will show all the devices, services, executables, and application components that the application component requires to function. A sample Dependency Chart for a database application is shown below:
+A dependency chart _(previously a 'dependency graph')_ can also be generated for any **Application Component**, and will show all the devices, services, executables, and application components that the application component requires to function. A sample dependency chart for a database application is shown below:
 
 <ThemedImage
   alt="Dependency Chart Sample"
@@ -337,16 +336,16 @@ One question that comes up in almost every demo is, "How are all these dependenc
 
 It should be fairly obvious how all the physical dependencies are created: buildings have rooms, which have racks, which have devices. The blades in a chassis are dependent on their blade host, while virtual machines (VMs) are dependent on their virtual host(s).
 
-Software and Services that are discovered on a virtual or physical machine are dependent on that machine. Many of the service-to-service dependencies or software are autodiscovered.
+Software and services that are discovered on a virtual or physical machine are dependent on that machine. Many of the service-to-service dependencies or software are autodiscovered.
 
-Only some Application Components need to be manually entered. If a service is defined to be an application component, then the application component dependencies are all known.
+Only some application components need to be manually entered. If a service is defined to be an application component, then the application component dependencies are all known.
 
-You may, however, want to define application components that are not tied to a service. Or, you may want to define an application component that is composed of multiple services. These application components and their dependencies can be defined through form, spreadsheets imports, or API calls.
+You may, however, want to define application components that are not tied to a service or that are composed of multiple services. These application components and their dependencies can be defined through forms, spreadsheets imports, or API calls.
 
-The Device42 main appliance in conjunction with the WDS (Windows discovery service) performs autodiscoveries. You can exclude servers, remote IP addresses, and even service ports to reduce the noise by limiting discovery to only things you care to see. Example exclusions might be:
+The Device42 Main Appliance in conjunction with the WDS (Windows discovery service) performs autodiscoveries. You can exclude servers, remote IP addresses, and even service ports to reduce the noise by limiting discovery to only things you care to see. Example exclusions might be:
 
-- Windows listening ports: 3389 is excluded by default
-- Windows remote ports: add any remote ports you want to exclude
-- Linux listening ports: Port 22 (SSH) is excluded by default
-- Linux remote ports: any remote ports you want to exclude
-- Remote IP Addresses: Remote IPs to exclude. Exclude things like your monitoring server IPs
+- Windows listening ports: Port 3389 is excluded by default.
+- Windows remote ports: Add any remote ports you want to exclude.
+- Linux listening ports: Port 22 (SSH) is excluded by default.
+- Linux remote ports: Add any remote ports you want to exclude.
+- Remote IP Addresses: Exclude remote IPs, like your monitoring server IPs.
