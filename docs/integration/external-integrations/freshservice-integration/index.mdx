@@ -1,0 +1,187 @@
+---
+title: "Freshservice Integration: Setup and Usage"
+sidebar_position: 1
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+:::tip
+This page covers the initial setup and installation of the Freshservice integration. 
+- For daily usage and operations, see [Use Freshservice Integration](use-freshservice-integration.mdx). 
+- For advanced data mapping customization, see [Customize Freshservice Integration](customize-freshservice.mdx).
+:::
+
+## About the Device42 Freshservice Integration
+
+*Seamless ITSM and CMDB integration.*
+
+![Device42 Freshservice logos](/assets/images/freshservice-integration/device42-freshservice-logos.png)
+
+Device42 integrates with Freshservice to provide the following capabilities: 
+
+- Enhanced ITSM workflows with detailed device, user, and software information.
+- An understanding of how changes to a particular application or network port could affect your business services. 
+- Flexible CMDB import options that ensure the right data is brought into the right place.
+- A single login page for accessing both Device42 and Freshservice. 
+  
+    <ThemedImage
+    alt="Freshworks login button"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-dark.png'),
+    }}
+    />
+
+## Install the Device42 Integration App on Freshservice
+
+The installation process has three steps, which are discussed in more detail in the sections that follow.
+
+### 1. Enable the Cloud Connector in Device42
+
+Ensure that cloud services are enabled and configured:
+
+1. Navigate to **Tools > Integrations > Cloud Services**.
+2. Enter your externally accessible Device42 IP address or FQDN in the **D42 URL for SaaS apps** field. If you have configured a digital certificate, you can enter the name of the device instead. 
+3. Select your **Cloud Connector** location or environment. It's set to **USA** by default.
+
+    <ThemedImage
+    alt="Configure Cloud Services"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/cloud-services-settings-light-2.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/cloud-services-settings-dark-2.png'),
+    }}
+    />
+
+### 2. Create a Freshservice External Integration in Device42
+
+1. Navigate to **Tools > Integrations > External Integrations** and click **+ Add External Integration**.
+   :::caution
+   Please **do not** use the **Verification Token** generated when configuring the external integration, as this value will change when you save. Copy the token from the list page view after saving.
+   :::
+2. Enter the **URL** of your Freshservice instance.
+3. Under **Type**, choose **Freshservice**.
+4. You can optionally select **Enable Freshworks SSO** to activate single sign-on (SSO). We recommend using this feature for a seamless login experience when working with the integration. 
+
+    <ThemedImage
+    alt="Add external integration"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/add-external-integration-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/add-external-integration-dark.png'),
+    }}
+    />
+
+    To enable the SSO feature, ensure that you have an administrator in your Device42 instance with the same email address as your Freshservice agent:
+
+    - Navigate to **Tools > Admin & Permissions > Administrators**. 
+    - Click **+ Add Local Admin** if you need to create an admin user with the email address associated with your Freshservice agent.
+    
+    <ThemedImage
+    alt="Add admin user"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/admin-email-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/admin-email-dark.png'),
+    }}
+    />
+
+5. Click **Save** and copy the **Verification Token** from the table on the External Integrations list page.    
+   
+    <ThemedImage
+    alt="External integrations list page"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/verification-token-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/verification-token-dark.png'),
+    }}
+    />
+
+### 3. Install the Marketplace Integration App in Freshservice
+
+Enable the Device42 integration in Freshservice using the Discovery Hub setup wizard.
+
+1. Log in to your Freshservice agent account.
+2. Click the **ellipsis menu** (located at the bottom of the left panel) and select **Admin**. Use the "Search admin" search bar to search for `hub`.
+3. From the Discovery Hub view, click **Steps to configure trial**.
+     
+    ![Discovery Hub](/assets/images/freshservice-integration/discovery-hub-start-2.png)
+
+4. Click **Next** three times to get to the **Install the Device42 app** section of the installation wizard.
+5. **Install** the **Device42 for Freshservice** app.
+   
+    ![Install the D42 for Freshservice app](/assets/images/freshservice-integration/install-d42-for-freshservice-2.png)
+
+6. Fill in the fields on the form. Enter your **Freshservice Domain Name**.
+   
+    ![Fill in the config form](/assets/images/freshservice-integration/integration-config-form-install-2.png)
+
+   - From the dropdown, choose the **Cloud Connector** region that matches the option you selected under **Cloud Services** in Device42 (see step 3 of the [Enable the Cloud Connector in Device42](#1-enable-the-cloud-connector-in-device42) section above).
+   - Enter the **Verification Token** generated from the Device42 external integration you added. Make sure you're using the token from the External Integrations view page and **not** the token from the **+ Add External Integrations** form.
+
+7.  Open the **Freshservice Default Approver** dropdown and select your admin user from the list. If the list is populated, then the information you've entered so far should be correct. If you are unable to select a user, check the URL and Cloud Connector.
+
+    ![Set the default approver](/assets/images/freshservice-integration/default-approver-2.png)
+
+8.  Click **Install** to add the app to your Freshservice instance.
+
+## Complete the Single Sign-On Setup
+
+To set up SSO, you need a user account in Device42 that mirrors your Freshservice user account and associated email address. That is, you need to have an admin user in Device42 with the same email address as your Freshservice agent. 
+
+After installing the integration app in Freshservice, set up an External Integration in Device42 and complete the SSO configuration in the Device42 Appliance Manager:
+
+1. Ensure that you have checked the **Enable SSO** option on the Device42 External Integration. See Step 4 of the [Create a Freshservice External Integration in Device42](#2-create-a-freshservice-external-integration-in-device42) section above.
+2. From the Appliance Manager, navigate to **Global Settings > SAML/SSO Settings**.
+3. Check the **Enable Freshworks SSO** and choose between the login options:
+    
+    ![SAML/SSO settings](/assets/images/freshservice-integration/saml-sso-settings.png)
+
+- **Auto Login**: Device42 will try to log you in automatically, without first directing you to the login page. If the automatic login fails, you will be directed to the login page.
+- **Show Login Page**: Device42 will always direct you to the login page (with buttons for normal and SSO login).
+
+4. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
+    
+    ![Restart button](/assets/images/freshservice-integration/restart-application.png)
+
+Test the SSO as follows:
+
+1. Log in to your Freshworks instance with the same email address as your [Device42 admin user](#2-create-a-freshservice-external-integration-in-device42).
+2. Log out of Device42 and refresh the page. Click on the new **Freshworks Login** button. 
+   
+    <ThemedImage
+    alt="Freshworks login button"
+    sources={{
+        light: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-light.png'),
+        dark: useBaseUrl('/assets/images/freshservice-integration/freshworks-login-button-dark.png'),
+    }}
+    />
+
+3. Authorize the Freshworks SSO the first time you use it.
+   
+    ![Authorize the Freshworks login](/assets/images/freshservice-integration/sso-authorization-2.png)   
+
+Now, when you're logged out of both Device42 and Freshservice, clicking the **Freshworks Login** button in Device42 will direct you to the Freshworks sign-in page.
+
+    ![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in-2.png)  
+
+## Troubleshooting
+
+### Secure Tunnel Connection Error
+
+If you see this error:
+
+```
+[ERROR] 2025-06-30T19:06:37Z main.go:327: Connection error, error: websocket: bad handshake, response: Error: secure tunnel already established with same instance ID. Is there another D42 instance running with same settings?
+```
+
+This means multiple Device42 instances are using the same GUID. To fix this:
+
+1. Check the GUID on your primary Device42 instance at **Tools > Integrations > Cloud Services**.
+2. Check the GUID of your other Device42 instances (hot standby, development, and so on).
+3. If the instances have the same GUID, regenerate GUID on all instances except the primary one.
+4. Restart Device42 services on instances where you changed the GUID.
+
+## Next Steps
+
+Once you have completed the setup, you can:
+
+- [Use the Freshservice Integration](use-freshservice-integration.mdx) for data synchronization, and understanding data flows.
+- [Customize the Freshservice Integration](customize-freshservice.mdx) for advanced data mapping and XML configuration.
