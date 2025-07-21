@@ -6,19 +6,19 @@ sidebar_position: 17
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can exclude devices from discovery jobs by applying Device Ignore Rules to them. You may want to apply Device Ignore Rules to devices such as network printers, fax machines, IP phone systems, etc.
+You can exclude devices from discovery jobs by applying Device Ignore Rules to them. You may want to apply Device Ignore Rules to devices such as network printers, fax machines, and IP phone systems.
 
 Note that using Device Ignore Rules does not affect device data that has already been discovered by previous discovery jobs. Any Device Ignore Rules you apply affect only discovery jobs you run _after_ you have applied the rules. Device Ignore Rules work for all discovery jobs, including cloud discovery.
 
 You can see Device Ignore Rule discovery results and details in the [Discovery Scores](reports/reports/discovery-quality-scores.mdx) page (select **Reports > Discovery Scores** to view the page).
 
 :::info
-Ignore rules will **skip** the discovery of devices completely. An alternative option is available if you want to discover devices, but exclude specific IPs, MACSs, or Network Interfaces from the dataset. See **[Windows and Hyper-V Autodiscovery](/auto-discovery/windows-and-hyper-v-auto-discovery/#option-to-ignore-ipsmac-addresses)** for more details. 
+Ignore rules will **skip** the discovery of devices completely. An alternative option is available if you want to discover devices, but exclude specific IPs, MACs, or Network Interfaces from the dataset. See **[Windows and Hyper-V Autodiscovery](/auto-discovery/windows-and-hyper-v-auto-discovery/#option-to-ignore-ipsmac-addresses)** for more details. 
 :::
 
 ### Add a Device Ignore Rule
 
-Select **Tools > Settings > Device Ignore Rules** and then click **Create** to apply an ignore rule to a device.
+Select **Tools > Settings > Device Ignore Rules** and then click **Create** to apply a Device Ignore Rule to a device.
 
 <ThemedImage
   alt=""
@@ -55,7 +55,7 @@ If you select **Device type** for the **Ignore device based on:** option, De
 
 ### Add Device Ignore Rules from a Device List
 
-You can add Device Ignore Rules to one or more devices from one of the Device42 device lists. Select one of the options from the **Devices** menu – this example uses **Devices > Virtual Devices** – and select the devices you want to apply a rule to.
+You can add Device Ignore Rules to one or more devices from one of the Device42 device lists. Select one of the options from the **Devices** menu – this example uses **Devices > Virtual Devices** – and select the devices you want to apply the rule to.
 
 Select **Ignore devices from autodiscovery** from the **Actions** menu.
 
@@ -67,7 +67,7 @@ Select **Ignore devices from autodiscovery** from the **Actions** menu.
   }}
 />
 
-Device42 displays the **Ignore devices from autodiscovery** page listing the devices you selected. Use the **Choose device attribute** drop-down to select the attribute on which to base the rules:
+Device42 displays the **Ignore devices from autodiscovery** page listing the devices you selected. Use the **Choose device attribute** dropdown to select the attribute on which to base the rules:
 
 <ThemedImage
   alt="Configure rule"
@@ -77,7 +77,7 @@ Device42 displays the **Ignore devices from autodiscovery** page listing the dev
   }}
 />
 
-Select the **Choose case match type attribute** drop-down (**Case insensitive** or **Case sensitive**) and the **Choose length match type attribute** drop-down (**Partial match** or **Exact match**) to refine the ignore rule.
+Select the **Choose case match type attribute** dropdown (**Case insensitive** or **Case sensitive**) and the **Choose length match type attribute** dropdown (**Partial match** or **Exact match**) to refine the Device Ignore Rule.
 
 Click **Create new device ignore rules** to add the rules. Device42 adds the new rules to the Device Ignore Rule list.
 
