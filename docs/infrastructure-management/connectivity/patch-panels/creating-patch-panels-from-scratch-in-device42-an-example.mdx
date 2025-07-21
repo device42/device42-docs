@@ -11,11 +11,11 @@ This page presents a step-by-step approach to creating patch panels, from initia
 
 The following example is simple in nature but covers the basics of adding patch panel connections in Device42.
 
-End goal is:
+The end goal is:
 
-1. Patch panel A is connected to Patch panel B.
-2. Patch panel A is patched to switch-01.
-3. Patch panel B is patched to devices in the same rack as Patch panel B.
+1. Patch `Panel A` is connected to Patch `Panel B`.
+2. Patch `Panel A` is patched to `switch-01`.
+3. Patch `Panel B` is patched to devices in the same rack as patch `Panel B`.
 
 This will provide our devices with connectivity to switch ports.
 
@@ -73,7 +73,7 @@ Before we add the patch panel, we need to create the template. In this example, 
 2. **Name** it `Panel A`, select **Patch Panel** as its **Type**, and choose the model created above.
 3. Click **Save**.
 
-Repeat the same steps for Panel B, changing only the name to `Panel B` in Step 2.
+Repeat the same steps for `Panel B`, changing only the name to `Panel B` in Step 2.
 
 You can also specify the building and storage room, and add tags and images of the front and back.
 
@@ -91,7 +91,7 @@ You can also specify the building and storage room, and add tags and images of t
 2. From the dropdown, choose **Patch Panel A**, then enter `1` for the beginning **port # from** and enter `48` for the **port # to**. Then, select **Patch Panel** B, and enter `1` for **port # from**, and optionally, select the **Cable Type**.
 3. Click **Continue**.
 
-Now, Panel A and Panel B are connected to each other.
+Now, `Panel A` and `Panel B` are connected to each other.
 
 <ThemedImage
   alt="Back Connections Confirmation"
@@ -131,7 +131,7 @@ In this example, ports from switch-01 are patched to Panel A. (You can create sw
 The tedious way to do this is to add each switch port to each panel port. Instead, use the recommended API Excel import option as follows:
 
 1. Download the sample Excel file from **Create/update Patch Panel Ports** on that page.
-2. Check that the columns look like this: **number    patch\_panel\_id    switch    switchport**
+2. Check that the columns look like this: **number  |  patch_panel_id  |  switch  |  switchport**
 3. Add the rows for the panel port number, panel ID (retrieved from the Asset list view, from APIs, or from hovering over the status bar), switch name, and switch port name.
 4. Import the XLS sheet.
 
@@ -151,9 +151,9 @@ Upon import, you can see the switch ports' connections on Panel A.
 
 In this step, use the same sample Excel sheet downloaded in the step above.
 
-The column layout is a little different and looks like this: **number    patch\_panel\_id    device    obj\_label1**
+The column layout is a little different and looks like this: **number  |  patch_panel_id  |  device  |  obj_label1**
 
-Once you've added the values to Excel and imported the sheet, Panel B will show the following.
+Once you've added the values to Excel and imported the sheet, `Panel B` will show the following.
 
 <ThemedImage
   alt="Panel B Device Connection"
@@ -173,7 +173,7 @@ Once you've added the values to Excel and imported the sheet, Panel B will show 
   }}
 />
 
-Now, if you go to Panel B's patch panel layout and hover over any port or device, you will see the full visual path for that port.
+Now, if you go to `Panel B`'s patch panel layout and hover over any port or device, you will see the full visual path for that port.
 
 ### Switch Port Level Connectivity
 
