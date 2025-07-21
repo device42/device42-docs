@@ -3,12 +3,27 @@ title: "Device Custom Fields"
 sidebar_position: 16
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 Many customers create custom fields for their devices to organize them and add additional information according to their specific situations. Now custom fields can be even more useful – you can now choose to display those custom fields conveniently in device pop-up panels and on layout pages.
 
-When you add a device custom field, simply check _Include in Context Pop-ups_ to include the custom field in panels and on layout pages.
+When you add a device custom field, check **Include in Context Pop-ups** to include the custom field in panels and on layout pages.
 
-![](/assets/images/17.07.00_device-custom-fields-700x248.png)
+<ThemedImage
+  alt="Include in Context Pop-ups"
+  sources={{
+    light: useBaseUrl('/assets/images/device-custom-fields/context-pop-ups-light.png'),
+    dark: useBaseUrl('/assets/images/device-custom-fields/context-pop-ups-dark.png'),
+  }}
+/>
 
-The custom field is then included in device pop-up panels and pages. The image below shows an example with two custom fields defined for Context Pop-ups: _Console Port_ and _Application_.
+The custom field is then included in device pop-up panels and pages. The image below shows an example with two custom fields defined for Context Pop-ups: `Demo custom field` and `gci-update-strategy`.
 
-![](/assets/images/17.07.00_device-cfconsole-port.png)
+<ThemedImage
+  alt="Pop-up example"
+  sources={{
+    light: useBaseUrl('/assets/images/device-custom-fields/pop-up-example-light.png'),
+    dark: useBaseUrl('/assets/images/device-custom-fields/pop-up-example-dark.png'),
+  }}
+/>

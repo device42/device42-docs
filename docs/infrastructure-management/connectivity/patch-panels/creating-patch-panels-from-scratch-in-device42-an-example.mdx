@@ -2,111 +2,199 @@
 title: "Creating patch panels from scratch in Device42: an example"
 ---
 
-In this chapter, we will take a step by step approach to create patch panels from scratch to end result.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+This page presents a step-by-step approach to creating patch panels, from initial setup to end result.
 
 ### The Goal
 
-The example is simpler in nature, but this will cover the basics of how to add patch panel connections in Device42.
+The following example is simple in nature but covers the basics of adding patch panel connections in Device42.
 
-End goal is:
+The end goal is:
 
-1. Patch Panel A is connected to Patch panel B : Panel A Panel B.
-2. Patch panel A is patched to switch-01.
-3. Patch panel B is patched to devices in the same rack as Panel B.
+1. Patch `Panel A` is connected to Patch `Panel B`.
+2. Patch `Panel A` is patched to `switch-01`.
+3. Patch `Panel B` is patched to devices in the same rack as patch `Panel B`.
 
-This will give us devices connectivity with switch ports.
+This will provide our devices with connectivity to switch ports.
 
 ### Creating Patch Panel Models
 
-![](/assets/images/WEB-599_patch-panel-model-add.png)
+<ThemedImage
+  alt="Creating Patch Panel Models"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-model-add-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-model-add-dark.png'),
+  }}
+/>
 
-Before we add the patch panel, we need to create the template. In this example, this is a singular patch panel with 48 RJ-45 ports. Steps taken:
+Before we add the patch panel, we need to create the template. In this example, this is a single patch panel with 48 RJ-45 ports.
 
-- Go to _Resources > Assets > Patch Panel Models > Add Patch Panel Model_.
-- Add a name, port type, the number of ports etc., for the model.
-- _Save_ the patch panel model.
+- Go to **Resources > Assets > Patch Panel Models > Create**.
+- Enter the details for the model, including a name, port type, and number of ports.
+- **Save** the patch panel model.
 
 ### Creating Patch Panels
 
-![](/assets/images/WEB-599_patch-panels-1.png)
+<ThemedImage
+  alt="Creating Patch Panels - Step 1"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-1-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-1-dark.png'),
+  }}
+/>
 
-![](/assets/images/WEB-599_patch-panels-2.png)
+<ThemedImage
+  alt="Creating Patch Panels - Step 2"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-2-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-2-dark.png'),
+  }}
+/>
 
-![](/assets/images/WEB-599_patch-panels-3.png)
+<ThemedImage
+  alt="Creating Patch Panels - Step 3"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-3-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-3-dark.png'),
+  }}
+/>
 
-1. Go to _Resources > All Assets > Add Asset_.
-2. Give the name Panel A, choose the _Type_ Patch Panel, and choose the model created above.
-3. Click _Save_.
+<ThemedImage
+  alt="Creating Patch Panels - Step 4"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-4-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-4-dark.png'),
+  }}
+/>
 
-Repeat the same steps for Panel B, just change the name to Panel B in step 2.
+1. Go to **Resources > All Assets > Create**.
+2. **Name** it `Panel A`, select **Patch Panel** as its **Type**, and choose the model created above.
+3. Click **Save**.
 
-You can also specify the building, storage room, add tags and images of the front and back.
+Repeat the same steps for `Panel B`, changing only the name to `Panel B` in Step 2.
+
+You can also specify the building and storage room, and add tags and images of the front and back.
 
 ### Adding the Back Connections or Termination
 
-![](/assets/images/WEB-599_patch-panels-4.png)
+<ThemedImage
+  alt="Adding the Back Connections or Termination"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-back-4-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-back-4-dark.png'),
+  }}
+/>
 
-1. Go to _Tools > Templates & Bulk Operations > Panel Back Connectivity_.
-2. From the drop-down, choose _Patch Panel_ A, then select the beginning _port # from:_ 1_;_ next, select _port # to:_ 48, then select _Patch Panel_ B, _port # from:_ 1, and optionally, the _Cable Type_.
-3. Click _Continue_.
+1. Go to **Tools > Templates & Bulk Operations > Panel Back Connectivity**.
+2. From the dropdown, choose **Patch Panel A**, then enter `1` for the beginning **port # from** and enter `48` for the **port # to**. Then, select **Patch Panel** B, and enter `1` for **port # from**, and optionally, select the **Cable Type**.
+3. Click **Continue**.
 
-Now Panel A and Panel B are terminated to each other.
+Now, `Panel A` and `Panel B` are connected to each other.
 
-![](/assets/images/WEB-599_patch-panels-5.png)
+<ThemedImage
+  alt="Back Connections Confirmation"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-5-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panels-5-dark.png'),
+  }}
+/>
 
 ### Patching Switch Ports to Panel A
 
-- Go to _Tools > Templates & Bulk Operations > Import/Export (xls)_.
+- Go to **Tools > Templates & Bulk Operations > Import/Export (xls)**.
 
-![](/assets/images/WEB-599_patch-panel-ports-import-file-download-menu.png)
+<ThemedImage
+  alt="Patching Switch Ports - Download Import File Menu"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-ports-import-file-download-menu-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-ports-import-file-download-menu-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-- Scroll down to _Patch Panel Ports_.
+- Scroll down to **Patch Panel Ports**.
 
-![](/assets/images/WEB-599_patch-panel-ports-import-file-download.png)
+<ThemedImage
+  alt="Patching Switch Ports - Import File Download"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-ports-import-file-download-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/WEB-599_patch-panel-ports-import-file-download-dark.png'),
+  }}
+/>
 
 ![wpid3707-patch_panel_switchport_excel.png](/assets/images/wpid3707-patch_panel_switchport_excel.png)
 
-In this example, ports from switch-01 are patched to Panel A. (You can create switch ports in bulk using switch templates as discussed under [Switch Templates](infrastructure-management/ipam/switch-templates.mdx)).
+In this example, ports from switch-01 are patched to Panel A. (You can create switch ports in bulk using switch templates, as discussed under [Switch Templates](infrastructure-management/ipam/switch-templates.mdx).)
 
-The tedious way to do this will be to add each switch port to each panel port. But we are not going to do that. The recommended way to do the same is to use the API Excel import option. Steps:
+The tedious way to do this is to add each switch port to each panel port. Instead, use the recommended API Excel import option as follows:
 
-1. Download the sample excel file from _Create/update Patch Panel Ports_ in that page.
-2. Our columns will look like this: **number    patch\_panel\_id    switch    switchport**
-3. Add the rows for panel port number, panel ID (available from Asset list view/from APIs/or get using hover over in the status bar), switch name, and switch port name.
+1. Download the sample Excel file from **Create/update Patch Panel Ports** on that page.
+2. Check that the columns look like this: **number  |  patch_panel_id  |  switch  |  switchport**
+3. Add the rows for the panel port number, panel ID (retrieved from the Asset list view, from APIs, or from hovering over the status bar), switch name, and switch port name.
 4. Import the XLS sheet.
 
-![wpid3705-patch_panel_id.png](/assets/images/wpid3705-patch_panel_id.png)![wpid3701-PanelA_Switch_Connection.png](/assets/images/wpid3701-PanelA_Switch_Connection.png)
+<ThemedImage
+  alt="Panel A Switch Connection - Panel ID"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/wpid3705-patch_panel_id-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/wpid3705-patch_panel_id-dark.png'),
+  }}
+/>
 
-Upon import, you can see the switch ports connections on Panel A.
+Upon import, you can see the switch ports' connections on Panel A.
 
 ### Patching Devices to Panel B
 
 ![wpid3704-patch_panel_device_excel.png](/assets/images/wpid3704-patch_panel_device_excel.png)
 
-In this step, we will use the same sample excel sheet downloaded in step above.
+In this step, use the same sample Excel sheet downloaded in the step above.
 
-Column layout will be a little different and will look like this: **number    patch\_panel\_id    device    obj\_label1**
+The column layout is a little different and looks like this: **number  |  patch_panel_id  |  device  |  obj_label1**
 
-Once we add the values to Excel and import it, the panel B will show following.
+Once you've added the values to Excel and imported the sheet, `Panel B` will show the following.
 
-![wpid3702-PanelB_device_Connection.png](/assets/images/wpid3702-PanelB_device_Connection.png)
+<ThemedImage
+  alt="Panel B Device Connection"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/wpid3702-PanelB_device_Connection-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/wpid3702-PanelB_device_Connection-dark.png'),
+  }}
+/>
 
 ### Patch Panel Layout
 
-![wpid3709-patch_panel_visual_layout.png](/assets/images/wpid3709-patch_panel_visual_layout.png)
+<ThemedImage
+  alt="Patch Panel Visual Layout"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/wpid3709-patch_panel_visual_layout-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/wpid3709-patch_panel_visual_layout-dark.png'),
+  }}
+/>
 
-Now if you go to Patch panel layout for Panel B and hover over any port or device, you will see the full visual path for that port.
+Now, if you go to `Panel B`'s patch panel layout and hover over any port or device, you will see the full visual path for that port.
 
 ### Switch Port Level Connectivity
 
-![wpid3710-switch_port_view.png](/assets/images/wpid3710-switch_port_view.png)
+<ThemedImage
+  alt="Switch Port Level Connectivity"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/wpid3710-switch_port_view-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/wpid3710-switch_port_view-dark.png'),
+  }}
+/>
 
 You will see the patch panel connectivity from each switch port view as well.
 
 ### Device Level Connectivity
 
-![wpid3700-device_connectivity_patch_panel.png](/assets/images/wpid3700-device_connectivity_patch_panel.png)
+<ThemedImage
+  alt="Device Level Connectivity"
+  sources={{
+    light: useBaseUrl('/assets/images/patch-from-scratch/wpid3700-device_connectivity_patch_panel-light.png'),
+    dark: useBaseUrl('/assets/images/patch-from-scratch/wpid3700-device_connectivity_patch_panel-dark.png'),
+  }}
+/>
 
-Similarly, in the Device view/edit page, you will see the patch panel connection under the tab "other".
-
-This concludes our chapter on how to create a patch panel layout in Device42.
+Similarly, in the Device view and edit pages, you will see the patch panel connection under the **Other** tab.

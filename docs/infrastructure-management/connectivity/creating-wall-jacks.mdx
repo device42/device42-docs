@@ -3,22 +3,43 @@ title: "Creating Wall Jacks"
 sidebar_position: 3
 ---
 
-A method you can use to document these connections and the patch from patch panel > wall jack > switch > devices will be to create a Patch Panel Model for wall jacks. You can first create this via Devices > Assets > Patch Panel Models, you will want to create a model with the type of port and number of desired ports contained on the panel of the wall jack.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![Wall Jack Patch Panel](/assets/images/wall-jack-01.png)
+One method for documenting the connections and the patch from a patch panel to a wall jack, to a switch, to devices is to create a **patch panel model** for wall jacks. 
 
-Once the model is created you can then create specific assets for the wall jacks via Devices > Assets > Add Assets. When creating the asset select type Patch Panel then select the wall jack model for the Patch Panel Model. Also, select the Back Connection Type, this can either be Patch Panel or Switch and can go to the Patch Panel or the unmanaged switch you are documenting.
+Navigate to **Resources > Assets > Patch Panel Models** and create a model with the appropriate **Port Type** and desired **Number of ports** on the panel of the wall jack.
 
-You will then want to create an unmanaged switch. Do this by going to Tools > Templates & Bulk Operations > Switch Templates then create a template that reflects the switches that are part of this connectivity by selecting switch type and adding a ports switch template with desired ports prefix and a template that includes type/# of ports.
+<ThemedImage
+  alt="Wall Jack Patch Panel"
+  sources={{
+    light: useBaseUrl('/assets/images/wall-jacks/wall-jack-01-light.png'),
+    dark: useBaseUrl('/assets/images/wall-jacks/wall-jack-01-dark.png'),
+  }}
+  style={{ width: '80%' }} 
+/>
 
-Once the Switch Template is created select the template and click Create/Edit switches in the top right from the details page of the template. Here you can add the desired amount of unmanaged switches needed.
+Once you've created the model, make specific assets for the wall jacks via **Resources > All Assets > Create**. When creating the asset, select the type **Patch Panel**, then select the wall jack model for the patch panel model and the **Back connection** type, which can be either **Patch Panel** or **Switch**, and can go to the patch panel or the unmanaged switch you are documenting.
 
-Once you have assets created for the wall jacks and switches created from the template you can start creating the connections.
+You will then want to create an unmanaged switch:
 
-Go to the desired wall jack asset you want to work with and open the edit details page of the asset.
+- Do this by going to **Tools > Templates & Bulk Operations > Switch Templates**, then create a template that reflects the switches that are part of this connectivity by selecting a switch type and adding a ports switch template with the desired ports prefix and a template that includes the type and number of ports.
 
-There will be a section for Patch Panel Ports in this details page and a line for each port contained on the wall jack panel defined by previously created patch panel model. First will be to define the front connection either the Patch Panel or the Switch whichever desired. Define the connection type then enter the object id or search for and select the switch port or patch panel port of this connection, you can also enter a label for this that corresponds with the wall jack label in the room (if they are labeled). Then define the back connection this can also be Patch Panel Port or Switch Port, whichever you did not use for the front connection.
+- Once you've created the switch template, select the template and click the **Create/Edit** option under the **Ellipsis menu** in the top right corner of the template's details page. Here, you can add the desired amount of unmanaged switches needed.
 
-![Wall Jack connection details](/assets/images/wall-jack-02.png)
+Once you've created assets for the wall jacks and created switches from the template, you can start creating the connections:
 
-This should complete the connection path of patch panel > wall jack > switch, you can then locate the unmanaged switch by searching for it by the given name. Select switch port at the top right from the details page of the switch and you can select each switch port and edit add the connections of any relevant devices.
+- Go to the desired wall jack asset you want to work with and open the edit details page of the asset. There will be a section for patch panel ports on this details page, with a line for each port contained on the wall jack panel (defined by the previously created patch panel model).
+- First, define the front connection as either the patch panel or the switch, whichever is desired. 
+- Define the **Connection Type**, then enter the **Object** ID or search for and select the switch port or the patch panel port for the connection. 
+- You can also enter a **Label** for the connection that corresponds with the wall jack label in the room (if it is labeled). Then, define the **Back connection**, which can also be the patch panel port or the switch port (whichever you did not use for the front connection).
+
+<ThemedImage
+  alt="Wall Jack connection details"
+  sources={{
+    light: useBaseUrl('/assets/images/wall-jacks/wall-jack-02-light.png'),
+    dark: useBaseUrl('/assets/images/wall-jacks/wall-jack-02-dark.png'),
+  }}
+/>
+
+This should complete the connection path from the patch panel to the wall jack to the switch. Next, you can locate the unmanaged switch by searching for it by its given name. Select the switch port in the top right corner of the switch's details page. You can select each switch port and edit or add the connections of any relevant devices.

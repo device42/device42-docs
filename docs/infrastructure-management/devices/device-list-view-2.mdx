@@ -6,8 +6,6 @@ sidebar_position: 18
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Device List View
-
 The device list view offers an at-a-glance view of all your devices:
 
 <ThemedImage
@@ -18,16 +16,17 @@ The device list view offers an at-a-glance view of all your devices:
   }}
 />
 
-#### List View Functions
+#### List View Features
 
-1. Search for devices via a text string.
-    
-2. Clone or add a device.
-    
-3. Filter the devices by a number of different criteria.
-    
-4. Sort by any of the column headers.
+From the Devices list page under **Resources > Compute > All Devices**, you can:
 
+1. **Create** a new device, **Clone** an existing device, or configure a **Report**.
+2. Search for partial and exact matches to device names and aliases.
+3. Perform **Actions** that modify, delete, and manage your Device data.
+4. Filter data categorically using the dropdown menus or by adding **More Filters**
+5. Open the **Advanced** search box to search for devices using SQL-like queries.
+6. Modify the default column layout or create a new view by clicking on the **gear icon**.
+7. Order the column data and resize columns by dragging the edge of a column header.
 
 ### Custom Filters
 
@@ -35,17 +34,29 @@ The system default list view has dropdown menus you can use to filter your devic
 
 To save you from repeatedly selecting the same combination of filters each time you visit the page, you can customize the default view with a custom set of dropdown filters. Enter edit mode by clicking on the **gear icon** next to the default **System Column List** dropdown menu. The custom filter will be saved if the **Custom Filters** checkbox is selected when saving.
 
-![Custom filters checkbox](/assets/images/device-list/custom-filters-checkbox.png)
+<ThemedImage
+  alt=""
+  sources={{
+    light: useBaseUrl('/assets/images/device-list/custom-filters-light.png'),
+    dark: useBaseUrl('/assets/images/device-list/custom-filters-dark.png'),
+  }}
+/>
 
 When you apply a saved custom filter, you'll see the "filters have been replaced in order to apply saved filters on the custom view" notification.
 
-If you've made changes to the filter you don't want to keep, click the **Reset** button to revert to the original saved filter.
+If you've made changes to the filter you don't want to keep, click the **Reset** option to revert to the original saved filter.
 
-![Applied filter notification](/assets/images/device-list/filter-reset-and-notification.png)
+<ThemedImage
+  alt="Reset filters option"
+  sources={{
+    light: useBaseUrl('/assets/images/device-list/reset-filters-light.png'),
+    dark: useBaseUrl('/assets/images/device-list/reset-filters-dark.png'),
+  }}
+/>
 
 ## List View Bulk Actions
 
-From the list view, you can also select multiple devices and apply bulk actions against selected devices. The bulk action drop-down shows all available actions, while the hammer (gavel) button executes the selected bulk action:
+From the list view, you can also select multiple devices and apply bulk actions against selected devices. 
 
 <ThemedImage
   alt="Bulk device actions dropdown menu"
