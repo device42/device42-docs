@@ -268,6 +268,10 @@ Device42 database autodiscovery for Windows and \*nix targets supports discovery
 
 ### Minimum Permissions Requirements for Oracle Discovery
 
+Oracle database discovery requires two sets of permissions: database-level permissions for querying Oracle system views and system-level permissions for executing shell commands on the target servers.
+
+#### Database-Level Permissions
+
 For discovery to return detailed info about your database instance, you will require read or view permissions for the following system views and tables:
 
 <table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>V$DATABASE</li><li>V$CONTAINERS</li><li>DBA_SEGMENTS</li></ul></td><td width="288"><ul><li>DBA_OBJECTS</li><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
@@ -283,6 +287,53 @@ To get information about pluggable databases (PDBs) within an Oracle container d
     CONTAINER_DATA = ALL
     CONTAINER = CURRENT;
     ```
+
+#### System-Level Permissions
+
+You need system-level access to execute shell commands on the target servers. Device42 requires sudo access to run various commands related to Oracle configuration and status information, for example:
+
+```bash
+/usr/bin/cat: /dbprog/oracle/product/19.3.0.0.26/network/admin/tnsnames.ora
+```
+
+or 
+
+```bash
+oracle -c 'lsnrctl status'
+```
+
+**Sample Sudoers Configuration:**
+
+Add the following entries to your `/etc/sudoers` file or create a separate sudoers file for Device42 Oracle discovery:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```bash
+# Basic Oracle Discovery Commands
+Cmnd_Alias DEVICE42_ORACLE = \
+    /usr/bin/ps -ef, \
+    /usr/bin/pwdx *, \
+    /usr/bin/su - oracle -c lsnrctl status, \
+    /usr/bin/su - oracle -c echo "select * from product_component_version;" | sqlplus -L -S -M "HTML ON" / as sysdba, \
+    /usr/bin/cat /etc/oratab, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/lsnrctl status, \
+    /usr/bin/su - oracle -c echo "select * from product_component_version;" | /u01/app/19.1.0.0/grid/bin/sqlplus -L -S -M "HTML ON" / as sysdba
+
+# Oracle RAC Additional Commands  
+Cmnd_Alias DEVICE42_ORACLE_RAC = \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/olsnodes -c, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/olsnodes -n -i -s, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/olsnodes -l -n -i -s, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/srvctl config scan_listener, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/srvctl config scan, \
+    /usr/bin/su - oracle -c /u01/app/19.1.0.0/grid/bin/crsctl stat res -t | grep *, \
+    /usr/bin/su - oracle -c srvctl config database -d *
+
+# Grant these permissions to your Device42 discovery user:
+# username ALL=(ALL) NOPASSWD: DEVICE42_ORACLE, DEVICE42_ORACLE_RAC
+```
+</details>
 
 ### Set Up Your Oracle Discovery Job
 
