@@ -69,7 +69,7 @@ The following table summarizes the backup settings for the selected RC(s):
     </tr>
     <tr>
       <td>**Backup TLS Key Pair**</td>
-      <td>Backs up the TLS certificate and key</td>
+      <td>Backs up the TLS certificate and key.</td>
       <td> 
         <ul>
           <li>`/etc/nginx/ssl.crt/server.crt`</li>
@@ -99,25 +99,43 @@ The following table summarizes the backup settings for the selected RC(s):
 </table>
 
 
-## Back up to an SFTP Server
+## Back Up to an SFTP Server
 
-The backup file can be scheduled to be sent to a SFTP server. All fields are required.
+The backup file can be scheduled to be sent to an SFTP server. All fields are required.
 
 ![Backup to an SFTP server](/assets/images/setting-up-backup-device42-appliance-manager/sftp-server-settings.png)
 
-## Back up to an NFS server
+## Back Up to an NFS Server
 
 The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
 
 ![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
-## Back up Using Amazon S3
+## Back Up Using Amazon S3
 
 The backup file can be scheduled to be sent to Amazon S3 as well. All fields are required.
 
 The **Region Endpoint** field **is not** simply the endpoint name, as each region has many endpoints. Unknown endpoint URLs can be looked up in the [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) section of the AWS Documentation. 
 
 ![Backup using Amazon S3](/assets/images/setting-up-backup-device42-appliance-manager/s3-settings.png)
+
+## Back Up Different Instance Types
+
+Choose the appropriate backup configuration based on your use case for the instance:
+
+### For Standby Instances
+
+Select the **Backup Meta Data** option when creating a Device42 instance for recovery or failover purposes. Selecting the metadata option copies all system identifiers, passphrases, certificates, and configuration settings – preparing the standby instance to fully replace your production instance when needed.
+
+The standby instance will have the same system identifiers as the production instance, which means it will connect as the primary instance. For this reason, keep one instance with the identifier data active at a time. See the [Warm HA Setup documentation](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) for failover procedures.
+
+![Backup with meta data](/assets/images/setting-up-backup-device42-appliance-manager/with-meta-data.png)
+
+### For Test Instances
+
+Do not select **Backup Meta Data** option when creating test or development environments. Performing a backup and restore this way is useful when you just want your data and not a replacement for your production instance. The GUIDs will not be copied without the metadata option selected, and without these GUIDs, the machine cannot connect to external services or be used to replace the production instance.
+
+![Backup without meta data](/assets/images/setting-up-backup-device42-appliance-manager/without-meta-data.png)
 
 ## Schedule the Backup
 
@@ -141,7 +159,7 @@ If your **Current System Time** is incorrect, change it in your VM system config
   }}
 />
 
-## Important Note for Scheduled Backups
+### Important Note for Scheduled Backups
 
 If you intend to use a backup schedule for an auto-restore configuration to a stand-by appliance, as described in the Device42 [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) documentation, it's critical that you select the **Backup Meta Data** option for the backup schedule.
 
@@ -149,7 +167,7 @@ Without the metadata for scheduled backups, the restore and passphrase settings 
 
 A backup file without metadata can still be used for an on-demand restore.
 
-### Limit Backup Retention
+## Limit Backup Retention
 
 You may want to limit the duration for which backups will be retained. 
 
