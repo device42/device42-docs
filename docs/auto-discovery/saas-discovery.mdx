@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Device42 SaaS (Software as a Service) discovery finds your organization's SaaS application metadata, application usage, and role-based user assignments by connecting with popular identity providers. 
 
-Gain visibility into your SaaS usage to identify under or overused applications and subscriptions and capture user access details. 
+Gain visibility into your SaaS usage to identify under- or overused applications and subscriptions and to capture user access details. 
 
 Schedule SaaS discovery to maintain an up-to-date inventory of SaaS information.
 
@@ -24,25 +24,25 @@ Device42 currently supports SaaS discovery from the following identity providers
 
 Device42 SaaS discovery collects the following data:
 
-- SaaS subscription metadata: application name, application ID, discovery source, and account status.
-- End users of the SaaS application.
-- The last time the SaaS application was used by the end users.
-- Role-based permissions and access levels.
+- SaaS subscription metadata, such as application name, application ID, discovery source, and account status
+- End users of the SaaS application
+- The last time the SaaS application was used by the end users
+- Role-based permissions and access levels
 
 Software data collected during SaaS discovery is available under the **Resources > Software Components** section. 
 
-- **[Software components](/infrastructure-management/software/software-components.mdx):** Includes details such as Software Type (**Managed**), License Model (such as **Individual - User/Subscription**), and Vendor.
-- **[Software in use](/infrastructure-management/software/software-in-use.mdx):** Includes fields for Version, Install Date, and End User.
+- **[Software Components](/infrastructure-management/software/software-components.mdx):** Includes details such as **Software Type** (**Managed**), **License Model** (such as **Individual - User/Subscription**), and **Vendor**.
+- **[Software in Use](/infrastructure-management/software/software-in-use.mdx):** Includes fields for **Version**, **Install Date**, and **End User**.
 
 Find end user details under **Resources > Organization > End Users**. 
 
-### New and existing End Users
+### New and Existing End Users
 
 Device42 associates a discovered SaaS subscription with its end user.
 
-During discovery, Device42 compares the email ID of the discovered subscription user with the current End User list to check for a match. If a match is found, the subscription is linked to the existing **End User** as a **Software In Use** item.
+During discovery, Device42 compares the email IDs of the discovered subscription user with the current End User list to check for a match. If a match is found, the subscription is linked to the existing **End User** as a **Software In Use** item.
 
-If no match is found, a new End User will be created in Device42 with the software association. 
+If no match is found, a new End User with the software association will be created in Device42. 
 
 ## Create a SaaS Discovery Job
 
@@ -56,10 +56,10 @@ sources={{
 }}
 />
 
-- Name the job and choose the **Remote Collector** to use.
+- Name the job and choose which **Remote Collector** to use.
 - Select your identity provider (**Azure AD**, **Okta**, or **Gsuite**) from the **Type** dropdown menu.
 - Add the authentication credentials for your identity provider account: 
-    - Azure AD: **Credential**, **Cloud Definition**, **Tenant ID**, and **Client ID**.
+    - Azure AD: **Credential**, **Cloud Definition**, **Tenant ID**, and **Client ID**
     - Okta: **Credential** and **URL**
     - G Suite: **Admin Email** and **Credential**
 
