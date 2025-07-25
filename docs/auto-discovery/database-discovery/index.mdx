@@ -290,21 +290,21 @@ To get information about pluggable databases (PDBs) within an Oracle container d
 
 #### System-Level Permissions
 
-You need system-level access to execute shell commands on the target servers. Device42 requires sudo access to run various commands related to Oracle configuration and status information, for example:
+You need system-level access to execute shell commands on the target servers. Device42 requires `sudo` access to run various commands related to Oracle configuration and status information, for example:
 
 ```bash
 /usr/bin/cat: /dbprog/oracle/product/19.3.0.0.26/network/admin/tnsnames.ora
 ```
 
-or 
+or:
 
 ```bash
 oracle -c 'lsnrctl status'
 ```
 
-**Sample Sudoers Configuration:**
+**Sample `sudoers` Configuration:**
 
-Add the following entries to your `/etc/sudoers` file or create a separate sudoers file for Device42 Oracle discovery:
+Add the following entries to your `/etc/sudoers` file or create a separate `sudoers` file for Device42 Oracle discovery:
 
 <details>
   <summary>Click to expand the code block</summary>
