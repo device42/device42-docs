@@ -107,7 +107,7 @@ The backup file can be scheduled to be sent to an SFTP server. All fields are re
 
 ## Back Up to an NFS Server
 
-The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writeable by a user with `uid=1000`.
+The backup file can be scheduled to be sent to an NFS server. All fields are required. The IP address should be the address of the target NFS server, and the folder path should be the path to the directory where the backups will be stored. This folder should be writable by a user with `uid=1000`.
 
 ![Backup to an NFS server](/assets/images/setting-up-backup-device42-appliance-manager/nfs-server-settings.png)
 
@@ -133,7 +133,7 @@ The standby instance will have the same system identifiers as the production ins
 
 ### For Test Instances
 
-Do not select **Backup Meta Data** option when creating test or development environments. Performing a backup and restore this way is useful when you just want your data and not a replacement for your production instance. The GUIDs will not be copied without the metadata option selected, and without these GUIDs, the machine cannot connect to external services or be used to replace the production instance.
+Do not select the **Backup Meta Data** option when creating test or development environments. Backing up and restoring this way is useful when you just want to recover your data, rather than replacing your production instance. The GUIDs will not be copied without the metadata option selected, and without these GUIDs, the machine cannot connect to external services or be used to replace the production instance.
 
 ![Backup without meta data](/assets/images/setting-up-backup-device42-appliance-manager/without-meta-data.png)
 
