@@ -266,11 +266,7 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 
 Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all the IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
 
-### Minimum Permissions Requirements for Oracle Discovery
-
-Oracle database discovery requires two sets of permissions: database-level permissions for querying Oracle system views and system-level permissions for executing shell commands on the target servers.
-
-#### Database-Level Permissions
+### Database-Level Permissions
 
 For discovery to return detailed info about your database instance, you will require read or view permissions for the following system views and tables:
 
@@ -290,21 +286,21 @@ To get information about pluggable databases (PDBs) within an Oracle container d
 
 #### System-Level Permissions
 
-You need system-level access to execute shell commands on the target servers. Device42 requires sudo access to run various commands related to Oracle configuration and status information, for example:
+In addition to the minimum DB-level permissions above, discovery also needs shell access to the target system to run OS-level commands to get information about the Oracle environment. 
+
+For example, shell access is needed to read the `tnsames.ora` file, which contains network connection details:
 
 ```bash
 /usr/bin/cat: /dbprog/oracle/product/19.3.0.0.26/network/admin/tnsnames.ora
 ```
 
-or 
+Another example is the `lsnrctl status` command, which checks the status of the Oracle listener:
 
 ```bash
 oracle -c 'lsnrctl status'
 ```
 
-**Sample Sudoers Configuration:**
-
-Add the following entries to your `/etc/sudoers` file or create a separate sudoers file for Device42 Oracle discovery:
+To allow Device42 to run these commands securely, you can grant limited `sudo` access by adding the following to the `/etc/sudoers` file or creating a separate `sudoers` file for Device42 Oracle discovery:
 
 <details>
   <summary>Click to expand the code block</summary>
