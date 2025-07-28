@@ -266,7 +266,7 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 
 Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all the IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
 
-### Minimum Database-Level Permissions Requirements for Oracle Discovery
+### Minimum Database-Level Permissions
 
 For discovery to return detailed info about your database instance, you will require read or view permissions for the following system views and tables:
 
@@ -284,7 +284,7 @@ To get information about pluggable databases (PDBs) within an Oracle container d
     CONTAINER = CURRENT;
     ```
 
-#### System-Level Permissions
+### System-Level Permissions
 
 In addition to the minimum DB-level permissions above, discovery also needs shell access to the target system to run OS-level commands to get information about the Oracle environment. 
 
