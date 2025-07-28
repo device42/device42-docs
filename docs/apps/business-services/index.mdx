@@ -79,9 +79,33 @@ Select **Applications > Business Services** from the Device42 menu to display 
 - Select or enter the **Migration Group** and **Criticality**, and add any **Notes** or **Tags** you want.
 - Click **Save** at the bottom right of the page to save the Business Service and add it to the applications list page.
 
-You'll be directed to a summary page for the new Business Service. Now it's time to work from the visualization canvas to add Devices, Application Groups, and Application Components to your new Business Service.
+You'll be directed to a summary page for the new Business Service. Now it's time to work from the visualization canvas to add items to your new Business Service.
 
-### Visualizations
+### Adding and Removing Items
+
+There are two methods of adding items to Business Services: inline and via the Application Layout canvas. Currently, Application Groups can only be added using the canvas. See the [Add Application Groups](#add-application-groups) section below.
+
+You can add, edit, and remove Devices, Resources, and Application Components as inline items from a Business Service details view page. 
+
+<ThemedImage
+  alt="Add Resources, Devices, and App Comps"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/add-inline-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-inline-dark.png'),
+  }}
+/>
+
+Remove inline items by clicking the **Tashcan** icon. The item to be removed with be grayed out, giving you the option to restore the item in this session by clicking the **Restore** icon.
+
+<ThemedImage
+  alt="Restore button"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/restore-button-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/restore-button-dark.png'),
+  }}
+/>
+
+## The Application Layout Canvas
 
 Click the **Application Layout** button from the Business Services details page to display the visualization canvas.
 
@@ -104,6 +128,8 @@ Click the **Edit** button on the top right of the canvas to activate the **Edit*
 />
 
 From the left panel, drag the **Device**, **Resource**, **Application Group**, and **Application Component** boxes onto the canvas to open the dialog that allows you to search for specific items to add to the canvas.
+
+You can add multiple items of each item type at a time for efficiency. 
 
 <ThemedImage
   alt="Add Device button"
@@ -322,6 +348,14 @@ As you construct your alert, Device42 displays the alert definition based on the
 
 > When the individual Business Service Jupiter service app has reported New Application Group Dependency Found then send notification to users assigned to Main profile.
 
+### Auto Apply Changes
+
+Make maintaining Business Services easier by automatically adding and removing connections. Check the **Auto Apply changes** box when configuring the alert. Connections to a newly found AG dependency will be automatically made and if an AG dependency is removed the Business Service connection will be automatically removed. You will receive a notification of these events as part of the alert.
+
+The **Auto Apply changes** option is unchecked by default. If left disabled, you'll receive a notification with the Add or Remove connection option to manually make changes to the Business Service.
+
+### Apply To Selected Objects
+
 Depending on which alert Rule Type you select, you may also see an **Apply To:** option, which you will use to select the objects you want to apply the alert to. Use the **Available objects** list on the left to select the objects you want to add to the **Chosen objects** list on the right.
 
 <ThemedImage
@@ -332,7 +366,7 @@ Depending on which alert Rule Type you select, you may also see an **Apply To:**
   }}
 />
 
-**Additional Options**
+### More Alert Options
 
 - **Priority**: Choose between Critical, High Priority, Medium Priority, and Low Priority.
 - **Resend Notification**: Number of seconds to wait before sending an email notification for the alert. Leave this field blank to send the email only once.
