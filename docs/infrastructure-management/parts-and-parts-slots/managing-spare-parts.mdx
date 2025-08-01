@@ -3,11 +3,22 @@ title: "Managing Spare Parts"
 sidebar_position: 3
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 Manage and track spare parts and inventories across your entire IT operation with powerful spare parts management capabilities built in to Device42.
 
 ## Parts Overview
 
 Below is an example of the 'View Parts Model' screen. A parts model is a **template** of sorts; each parts model represents one or more physical, real world parts. Once a Parts Model is created, inventory of that part model can then be tracked & managed: ![View Parts Model Detail Page](/assets/images/View_Parts_model.png)
+
+<ThemedImage
+  alt="View Parts Model detail page"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/view-parts-model-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/view-parts-model-dark.png'),
+  }}
+/>
 
 ### Parts Model vs. Parts (IMPORTANT)
 
@@ -40,6 +51,14 @@ Every part has a specific "count" which tracks the inventory, aka the # of units
 
 ![Parts Menu Item](/assets/images/parts_MENU_highlighted.png)
 
+<ThemedImage
+  alt="Parts menu item in main navigation"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/parts-menu-highlighted-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/parts-menu-highlighted-dark.png'),
+  }}
+/>
+
 Parts management features are located in the Device42 main menu under **DATACENTER --> Parts**, as shown above
 
 ### Adding a Parts Model
@@ -50,7 +69,23 @@ To add a Parts Model, from the main menu navigate to _Datacenter --> Parts --> M
 
 ![Add Parts Model button ](/assets/images/add_parts_model_button.png)
 
+<ThemedImage
+  alt="Add Parts Model button"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/add-parts-model-button-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/add-parts-model-button-dark.png'),
+  }}
+/>
+
 1. Choose a Part Type or create a custom type by clicking the green plus sign \[right of the dropdown\]. Available selections for the "Type" field include CPU, RAM, Hard Disk, Disk drive, Physical Memory, NIC, HBA, SCSI, Serial Bus, Riser Card, FPGA, Cable, psu, and more. Options like CPU, RAM, & Hard Disk have custom attributes (see example below), while NIC, HBA, SCSI, Serial Bus, and custom types have a "Connectivity" attribute: ![Parts model type dropdown](/assets/images/parts_model_type_dropdown.png)
+
+<ThemedImage
+  alt="Parts model type dropdown menu"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/parts-model-type-dropdown-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/parts-model-type-dropdown-dark.png'),
+  }}
+/>
     
 2. Give this Parts Model a Name and fill in any appropriate information you have such as: the Model #, Part #, and the Manufacturer.
 3. Press the "Save" button to finish adding your part. If you would like to add inventory of this part type, see the "Adding Parts to Inventory" section below.
@@ -61,12 +96,37 @@ It is important to note that each part type will contain attributes specific to 
 
 ![CPU, RAM, and Hard Disk Attributes](/assets/images/wpid6822-media_1436381812852.png)
 
+<ThemedImage
+  alt="CPU RAM and hard disk specific attributes"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/cpu-ram-hdd-attributes-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/cpu-ram-hdd-attributes-dark.png'),
+  }}
+/>
+
 ### Adding Part to Inventory
 
 After creating a Parts Model, actual Parts can be added via “Add new Part”.
 
 1. From any Parts Model View screen _(Main menu -> Datacenter -> Parts -> Model List and click on an existing part)_, click the "+ Add New Part" link at the bottom of the screen, in the "Parts" section: ![add new part](/assets/images/add_new_part.png)
+
+<ThemedImage
+  alt="Add New Part link button"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/add-new-part-link-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/add-new-part-link-dark.png'),
+  }}
+/>
+
 2. Fill out the "Add Part" dialog that popped up with a part count (number in inventory), Serial # & Asset # (if available), Firmware Version, Assignment, part Location, and optionally a RAID Type, RAID Group, and a Description: ![add part screen](/assets/images/add_part_window.png)
+
+<ThemedImage
+  alt="Add Part dialog window"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/add-part-window-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/add-part-window-dark.png'),
+  }}
+/>
 
 **A few notes about the Add Part screen (above):**
 
@@ -87,6 +147,14 @@ If you navigate to DATACENTER | Parts | Parts List, this takes you to a list pag
 
 ![Select part to view - Parts list screen](/assets/images/select_Part_to_view.png)
 
+<ThemedImage
+  alt="Parts list screen with select part to view"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/parts-list-screen-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/parts-list-screen-dark.png'),
+  }}
+/>
+
 The Parts List can be thought of as the "master inventory", which shows each part that is being tracked by Device42. The list is similar to other lists in Device42, which includes an Action menu and the ability to search, sort and filter.
 
 Parts can also be added from the Parts List by clicking "Add Part" in the top right.
@@ -95,6 +163,14 @@ Parts can also be added from the Parts List by clicking "Add Part" in the top ri
 
 ![Parts associated with a Device](/assets/images/wpid6827-media_1436382246066.png)
 
+<ThemedImage
+  alt="Parts associated with device tab view"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/parts-associated-device-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/parts-associated-device-dark.png'),
+  }}
+/>
+
 As shown above, parts associated with a device can be viewed from the 'Parts' tab of a device record. Here you have the ability to edit the fields of the Part or Parts associated to the device, as well as "Add another Part". The "Add another Part" link provides an alternate way to add or create a Part assigned to a device.
 
 ### Setting up an Alerts for Low Inventory Levels
@@ -102,5 +178,13 @@ As shown above, parts associated with a device can be viewed from the 'Parts' ta
 To set up an alert, navigate to the main menu, _Reports -> Setup Alerts_, and press the "Add Alert" button in the upper right. You can set up alerting rules for either an individual part model _(as in the example above)_, or against _any_ part model - _(i.e. the rule will trigger if ANY parts model has an inventory level that meets the rule condition)_.
 
 ![Setting up an Alert Level](/assets/images/2016-07-12-parts-4.png)
+
+<ThemedImage
+  alt="Setting up low inventory alert levels"
+  sources={{
+    light: useBaseUrl('/assets/images/managing-spare-parts/setup-alert-levels-light.png'),
+    dark: useBaseUrl('/assets/images/managing-spare-parts/setup-alert-levels-dark.png'),
+  }}
+/>
 
 In the example above, the rule will trigger if the inventory count of "Intel XEON" machines shown above falls below 15. (For rules that apply to parts, leave the 'Seconds Before Action' at the default of 0.) In this case, an email will be sent to hal@device42.com when the rule triggers. You can have multiple emails separated by commas or semicolons. You can also setup it so that an email is sent if enough parts are added to get back over the trigger level. And you can set it up to send escalation emails if no one acknowledges the alert.

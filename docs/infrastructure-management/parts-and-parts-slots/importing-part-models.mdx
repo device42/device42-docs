@@ -3,70 +3,111 @@ title: "Importing Part Models"
 sidebar_position: 1
 ---
 
-This document explains how to import part models using API Imports. For detailed explanation of Part Models and Parts, please see: [infrastructure-management/parts-and-parts-slots/part-model-templates.md](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx)
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Data example
+This document explains how to import part models using API Imports. For a detailed explanation of Part Models and Parts, see [Part Model Templates](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx).
 
-![Data example](/assets/images/wpid4727-media_1400099180867.png)
+## Data Example
 
-The sample data in the spreadsheet (pictured above) is our starting point for this import. This data was exported from a legacy system into .csv format.
+The sample data in the spreadsheet below is our starting point for this import. This data was exported from a legacy system into CSV format.
 
-### Download sample spreadsheet
+![Sample parts data spreadsheet](/assets/images/importing-part-models/sample-parts-data.png)
 
-![Download sample spreadsheet](/assets/images/wpid4728-media_1400099757511.png)
+## Download Sample Spreadsheet
 
-Tools>Imports/Exports (.xls)  
-Create or update spare parts models - Download Sample Excel File  
-Open the sample file
+Navigate to **Tools > Imports/Exports (xls)**, find **Part Models - Create/Update Part Models**, and click **Download Sample Excel File**. Open the sample file to begin the import process.
 
-### Comments
+<ThemedImage
+  alt="Download sample spreadsheet interface"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/download-sample-spreadsheet-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/download-sample-spreadsheet-dark.png'),
+  }}
+/>
 
-![Comments](/assets/images/wpid4729-media_1400100313210.png)
+## Understanding Column Comments
 
-Note: hover-over column heading to reveal comments that specify usage, e.g.: required, optional or details (pictured below)
+Hover over the upper-right corner of the column heading cells to see details about the field. These tooltips indicate whether fields are required, optional, or provide additional context.
 
-![](/assets/images/wpid4730-media_1400104574786.png)
+![Spreadsheet column comments hover tooltip](/assets/images/importing-part-models/column-comments-hover.png)
 
-Note: the additional Part model type parameters for CPU, RAM, and HDD. Note: type is required.
+The spreadsheet includes additional part model type parameters specific to CPU, RAM, and Hard Disk components. The `type` field is required for all part models.
 
-### Populating the sample sheet
+![Part model type parameters for CPU RAM HDD](/assets/images/importing-part-models/part-model-type-parameters.png)
 
-![Populating the sample sheet](/assets/images/wpid4731-media_1400106488167.png)
+## Populating the Sample Sheet
 
-The image above shows the sample spreadsheet that has been updated to include the data from our .csv export. These being new part models, only type is required. The parameters not being used have been deleted from the sheet (alternatively they can be left blank).
+Update the sample spreadsheet with your part model data from the CSV export. Since these are new part models, only the `type` field is required. You can delete unused parameters from the sheet or leave them blank.
 
-Note the additional parameters added for CPU and RAM models
+![Populated sample spreadsheet with part model data](/assets/images/importing-part-models/populated-sample-sheet.png)
 
-Save the file.
+Notice the additional parameters that have been added for CPU and RAM models. 
 
-### Choose file and import
+## Choose File and Import
 
-![Choose file and import](/assets/images/wpid4732-media_1400106840832.png)
+Navigate to **Tools > Imports/Exports (xls)**, browse to you populated file, and select **Import** to begin the import process.
 
-Go to: Tools>Imports/Exports (.xls) - choose the file and select Import.
+<ThemedImage
+  alt="Choose file and import interface"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/choose-file-import-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/choose-file-import-dark.png'),
+  }}
+/>
 
-### Import results
+## Import Results
 
-![Import results](/assets/images/wpid4733-media_1400158112533.png)
+Device42 displays the status of the import. If there are any issues, the results will show "The following were Not added..." with specific error details. Review the results carefully, as any problems are usually clearly stated, such as missing required parameters.
 
-Results of parts model import. If there is a problem with the import the results will show "The following were Not added..." Should there be a problem, be sure to review the body of the results as the cause is usually stated clearly, e.g.: missing parameter
+<ThemedImage
+  alt="Part models import results success message"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/import-results-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/import-results-dark.png'),
+  }}
+/>
 
-### Parts Model List
+## Verifying Imported Parts Models
 
-![Parts Model List](/assets/images/wpid4734-media_1400159234488.png)
+Navigate to **Datacenter > Parts > Model List** to view all the part models that were imported in the previous step.
 
-Datacenter>Parts>Model List - above we see the part models imported in the previous step.
+<ThemedImage
+  alt="Parts Model List showing imported models"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/parts-model-list-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/parts-model-list-dark.png'),
+  }}
+/>
 
-Let's drill into a few of the items to validate the import:
+To validate the import, examine a few of the imported items:
 
-![](/assets/images/wpid4736-media_1400159731437.png)
+**Hard Disk Drive (HDD) Model:**
 
-HDD
+<ThemedImage
+  alt="HDD part model detail view"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/hdd-part-model-detail-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/hdd-part-model-detail-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid4735-media_1400159682081.png)
+**RAM Module Model:**
 
-RAM
+<ThemedImage
+  alt="RAM part model detail view"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/ram-part-model-detail-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/ram-part-model-detail-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid4737-media_1400159784226.png)
+**Patch Cable Model:**
 
-Patch Cable
+<ThemedImage
+  alt="Patch Cable part model detail view"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-part-models/patch-cable-part-model-detail-light.png'),
+    dark: useBaseUrl('/assets/images/importing-part-models/patch-cable-part-model-detail-dark.png'),
+  }}
+/>

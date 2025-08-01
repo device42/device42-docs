@@ -3,11 +3,22 @@ title: "Importing Parts"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 This document explains how to import parts using the Spreadsheets Import tool found in the Tools menu.
 
 ### Importing part models vs. importing parts
 
 ![Importing part models vs. importing parts](/assets/images/wpid4760-media_1400162046800.png)
+
+<ThemedImage
+  alt="Part models vs parts import options"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/part-models-vs-parts-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/part-models-vs-parts-dark.png'),
+  }}
+/>
 
 Please see [Managing Spare Parts](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx) for an explanation of part models vs. parts in Device42.
 
@@ -17,11 +28,27 @@ Part models can be created using the create or update spare parts import. The pa
 
 ![Download current data](/assets/images/wpid4759-media_1400161961340.png)
 
+<ThemedImage
+  alt="Tools menu imports exports option"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/tools-imports-exports-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/tools-imports-exports-dark.png'),
+  }}
+/>
+
 This document will demonstrate adding parts to existing part models - building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
 
 Tools>Imports/Exports (.xls) - download current data for spare parts models as highlighted above
 
 ![](/assets/images/wpid4761-media_1400162386036.png)
+
+<ThemedImage
+  alt="Current data export spreadsheet"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/current-data-export-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/current-data-export-dark.png'),
+  }}
+/>
 
 A current data export sheet is pictured above. Creating parts from existing part models requires the part model ID.
 
@@ -31,9 +58,25 @@ Keep this sheet open.
 
 ![Download sample file](/assets/images/wpid4762-media_1400162600078.png)
 
+<ThemedImage
+  alt="Download sample import file"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/download-sample-file-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/download-sample-file-dark.png'),
+  }}
+/>
+
 Next we will download the Create or update spare parts sample sheet - Tools>Imports/Exports (.xls)
 
 ![](/assets/images/wpid4763-media_1400162885408.png)
+
+<ThemedImage
+  alt="Sample import spreadsheet with help comments"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/sample-spreadsheet-help-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/sample-spreadsheet-help-dark.png'),
+  }}
+/>
 
 Note the help comments for each parameter.
 
@@ -42,6 +85,14 @@ We will use the data from the current data export to help populate the parts imp
 ### Populating the sample sheet
 
 ![Populating the sample sheet](/assets/images/wpid4764-media_1400165367963.png)
+
+<ThemedImage
+  alt="Populated sample import spreadsheet"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/populated-sample-sheet-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/populated-sample-sheet-dark.png'),
+  }}
+/>
 
 Using the current data export, we have copied the partmodel\_id for the new parts we are going to create
 
@@ -62,14 +113,38 @@ Re: handheld laser scanner. We have been using a DBPOWER scanner that we purchas
 
 ![Import results](/assets/images/wpid4765-media_1400166697787.png)
 
+<ThemedImage
+  alt="Import results success message"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/import-results-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/import-results-dark.png'),
+  }}
+/>
+
 Go to: Tools>Imports/Exports (.xls) - choose file and click import. Pictured above are the results of our import.
 
 Let's have a look at these new parts in the UI
 
 ![](/assets/images/wpid4766-media_1400167063591.png)
 
+<ThemedImage
+  alt="Parts list showing imported serial numbered parts"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/parts-list-serial-numbers-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/parts-list-serial-numbers-dark.png'),
+  }}
+/>
+
 The new parts on separate line items - again these are unique line items as we are tracking serial numbers.
 
 ![](/assets/images/wpid4767-media_1400167321688.png)
+
+<ThemedImage
+  alt="Parts list showing imported RAM modules by room"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/parts-list-room-assignments-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/parts-list-room-assignments-dark.png'),
+  }}
+/>
 
 The new parts on two lines - not tracking serial numbers, we only need two lines to track the room assignments for these 40 RAM modules.
