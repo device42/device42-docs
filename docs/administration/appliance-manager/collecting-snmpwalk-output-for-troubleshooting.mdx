@@ -33,14 +33,14 @@ For new devices, select **Yes: MIB browser based walk**.
 
 ## Alternative SNMP Walk Generation
 
-If there is an issue, the network is not reachable, or you simply prefer using the terminal, you can instead run the following from any machine that has 'snmpwalk' installed:
+If there is an issue, the network is not reachable, or you simply prefer using the terminal, you can instead run the following from any machine that has 'snmpwalk' installed for SNMP v2:
 
 ```
 snmpbulkwalk -Cc -ObentU -v2c -c COMMUNITY DEVICE > output_file_name
 snmpbulkwalk -ObentU -v 2c -c COMMUNITY DEVICE .1.3.6.1.4.1 >> output_file_name
 ```
 
-Also, the current setup has a bug for v3, so please use the following for any system using SNMP v3:
+You can use the following for any system using SNMP v3:
 
 ```
 snmpbulkwalk -Cc -ObentU -v 3 -u user_name -l authNoPriv -a MD5 -A auth_pass DEVICE > output_file_name
