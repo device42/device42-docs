@@ -29,12 +29,15 @@ Device42 SaaS discovery collects the following data:
 - The last time the SaaS application was used by the end users
 - Role-based permissions and access levels
 
-Software data collected during SaaS discovery is available under the **Resources > Software Components** section. 
+Software data collected during SaaS discovery is available under the **Resources > Software Components** section. You can also generate an Advanced or Standard report via **Analytics > Reports** to view the discovered items.
 
-- **[Software Components](/infrastructure-management/software/software-components.mdx):** Includes details such as **Software Type** (**Managed**), **License Model** (such as **Individual - User/Subscription**), and **Vendor**.
+- **[Software Components](/infrastructure-management/software/software-components.mdx):** Includes details such as 
+    - **Software Type** (typically **Managed**), 
+    - **License Model** (such as **Individual - User/Subscription**), and 
+    - **Vendor**.
 - **[Software In Use](/infrastructure-management/software/software-in-use.mdx):** Includes fields for **Version**, **Install Date**, and **End User**.
 
-Find end user details under **Resources > Organization > End Users**. 
+You can find the end user discovery data under **Resources > Organization > End Users**. 
 
 ### New and Existing End Users
 
@@ -49,7 +52,7 @@ If no match is found, Device42 creates a new **End User** with the software asso
 Navigate to **Discovery > SaaS** and click **Create**.
 
 <ThemedImage
-alt=""
+alt="SaaS discovery job form"
 sources={{
     light: useBaseUrl('/assets/images/saas-discovery/saas-discovery-light.png'),
     dark: useBaseUrl('/assets/images/saas-discovery/saas-discovery-dark.png'),
@@ -63,19 +66,30 @@ sources={{
     - Okta: **Credential** and **URL**
     - G Suite: **Admin Email** and **Credential**
 
-
 ### Schedule the Job
 
 Create one or more discovery schedules to automatically fetch SaaS data on a regular basis. You can create multiple schedules using the **+ Add New** button.
 
+After saving the job, click the **Run Now** button to start the discovery process right away.
+
 <ThemedImage
-alt=""
+alt="SaaS discovery job schedule"
 sources={{
     light: useBaseUrl('/assets/images/saas-discovery/saas-schedule-light.png'),
     dark: useBaseUrl('/assets/images/saas-discovery/saas-schedule-dark.png'),
 }}
 />
 
-### Run the Job Now
+## Generate a Report of the Discovered SaaS Items
 
-After saving the job, use the **Run Now** button to execute the discovery immediately.
+The discovered items can be listed as a downloadable Standard or Advanced report. 
+
+For example, you can conveniently select a pre-defined report after at least one SaaS discovery job is run to view the discovered items. Under **Analytics > Reports > Advanced Reporting**, search the available reports for "software" and run the **Software License Management** report. 
+
+<ThemedImage
+alt="Software license management report"
+sources={{
+    light: useBaseUrl('/assets/images/saas-discovery/software-license-management-report-light.png'),
+    dark: useBaseUrl('/assets/images/saas-discovery/software-license-management-report-dark.png'),
+}}
+/>
