@@ -3,40 +3,70 @@ title: "Part Model Templates"
 sidebar_position: 4
 ---
 
-Device42 supports parts having ports, parts slots, and more. If you are looking for information about [adding parts slots (and/or blade slots) to devices has its own section.](../devices/device-parts-slots.mdx)
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-### Part Model Templates
+Device42 supports parts having ports, parts slots, and more. For more information about adding parts slots (or blade slots) to devices, read the [Device - Parts Slots](../devices/device-parts-slots.mdx) documentation.
 
-"Part Models" are templates that define parts. You can create parts templates that optionally include ports.
+## Parts Model Templates
 
-Define a new part by visiting DataCenter > Parts > Parts Models, or edit any existing by simply viewing it and choosing the “Ports Layout” button in the upper right hand corner:
+**Parts Models** are templates that define parts. You can create parts templates that optionally include ports.
 
-![Edit ports layout button on a part template](/assets/images/view_PARTS_MODEL_Ports_Layout_BUTTON-HL.PNG)
+Navigate to **DataCenter > Parts > Model list** and click **Create** in the upper right:
 
-Add a parts model from DataCenter > Parts > Model list, and clicking “Add Parts Model” in the upper right:
+<ThemedImage
+alt="Add a parts model button"
+sources={{
+    light: useBaseUrl('/assets/images/part-model-templates/create-parts-model-light.png'),
+    dark: useBaseUrl('/assets/images/part-model-templates/create-parts-model-dark.png'),
+}}
+/>
 
-![Add a parts model button](/assets/images/add_parts_model_button.png)
+From this screen, you can add a new parts model:
 
-From this screen you can add a parts model:
+<ThemedImage
+alt="Add a parts model screen"
+sources={{
+    light: useBaseUrl('/assets/images/part-model-templates/add-parts-model-page-light.png'),
+    dark: useBaseUrl('/assets/images/part-model-templates/add-parts-model-page-dark.png'),
+}}
+/>
 
-![Add a parts model screen](/assets/images/add_parts_model_page.png)
+You can add a new part type classification if the type of part you are adding doesn't already exist. Do this by clicking the **plus sign icon** (+) next to **Type**.
 
-During the creation of a new Parts Model, you can add a new part type classification if the type of part you are adding doesn’t already exist. Do this by clicking the Green (+) next to “Type”.
+<ThemedImage
+alt="Add new part sub-type"
+sources={{
+    light: useBaseUrl('/assets/images/part-model-templates/add-parts-type-light.png'),
+    dark: useBaseUrl('/assets/images/part-model-templates/add-parts-type-dark.png'),
+}}
+/>
 
-You will see the following window:
+**The Supports Ports Checkbox**
 
-![Add new part sub-type](/assets/images/change_part_type_SUPPORTS_PORTS.png)
+While creating a part type, select the **Supports Ports** checkbox if you'd like to define ports and a port layout. You may set the **Supports Ports** flag while creating a new part or modifying a part.
 
-**The 'Supports Ports' CheckBox**
+:::note
+You will not find the **Supports Ports** option on parts designated ‘disk drives’ or ‘physical memory’.
+:::
 
-While creating a part type, you may select the ‘Supports Ports’ checkbox if you’d like to define ports & a port layout. You may set the ‘Supports Ports’ flag while creating a new part, or modifying a part.
+Parts (with or without ports), once defined, may optionally be placed into **parts slots**, or if desired, a parts slot may be left empty.
 
-_Note: Users will not find the supports ports option on parts designated ‘disk drives’ or ‘physical memory’!_
-
-Parts (with or without ports), once defined, may optionally be placed into “parts slots”. Or, if desired, a parts slot also may simply be left empty.
 
 ### Port Templates
 
-A port template may include a name prefix, a name template that configures the port naming scheme, and a port type. Ports may also be added in bulk, automatically named based on information configured in the template.
+A port template may include a name prefix, a name template that configures the port naming scheme, and a port type. Ports may also be added in bulk and automatically named based on information configured in the template.
 
-You may now elect to “auto-create ports” during creation of a new device. If the “Add Ports When Creating Device” checkbox is checked on the chosen hardware model template, the new device will be created with all its model-defined ports. Following a discovery run, Device42 will add discovered connections to these ports automatically.
+You may now elect to **auto-create ports** during the creation of a new device. If the **Add Ports When Creating Device** checkbox is checked on the chosen hardware model template, the new device will be created with all its model-defined ports. Following a discovery run, Device42 automatically adds discovered connections to these ports.
+
+### Edit Parts Model Templates
+
+Edit any existing parts model by viewing it and choosing the **Edit** button in the upper-right corner:
+
+<ThemedImage
+alt="Edit ports layout button on a part template"
+sources={{
+    light: useBaseUrl('/assets/images/part-model-templates/edit-parts-model-light.png'),
+    dark: useBaseUrl('/assets/images/part-model-templates/edit-parts-model-dark.png'),
+}}
+/>
