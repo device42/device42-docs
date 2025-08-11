@@ -6,7 +6,7 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This document explains how to import part models using API Imports. For a detailed explanation of Part Models and Parts, see [Part Model Templates](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx).
+This document explains how to import part models using API Imports. For a detailed explanation of part models and parts, see the [Part Model Templates](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx).
 
 ## Data Example
 
@@ -28,11 +28,11 @@ Navigate to **Tools > Imports/Exports (xls)**, find **Part Models - Create/Updat
 
 ## Understanding Column Comments
 
-Hover over the upper-right corner of the column heading cells to see details about the field. These tooltips indicate whether fields are required, optional, or provide additional context.
+Hover over the upper-right corner of the heading cell in each column to see details about the field. These tooltips indicate whether fields are required, optional, or provide additional context.
 
 ![Spreadsheet column comments hover tooltip](/assets/images/importing-part-models/column-comments-hover.png)
 
-The spreadsheet includes additional part model type parameters specific to CPU, RAM, and Hard Disk components. The `type` field is required for all part models.
+The spreadsheet includes additional part model type parameters specific to CPU, RAM, and hard disk components. The `type` field is required for all part models.
 
 ![Part model type parameters for CPU RAM HDD](/assets/images/importing-part-models/part-model-type-parameters.png)
 
@@ -46,7 +46,7 @@ Notice the additional parameters that have been added for CPU and RAM models.
 
 ## Choose File and Import
 
-Navigate to **Tools > Imports/Exports (xls)**, browse to you populated file, and select **Import** to begin the import process.
+Navigate to **Tools > Imports/Exports (xls)**, browse to your populated file, and select **Import** to begin the import process.
 
 <ThemedImage
   alt="Choose file and import interface"
@@ -58,7 +58,7 @@ Navigate to **Tools > Imports/Exports (xls)**, browse to you populated file, and
 
 ## Import Results
 
-Device42 displays the status of the import. If there are any issues, the results will show "The following were Not added..." with specific error details. Review the results carefully, as any problems are usually clearly stated, such as missing required parameters.
+Device42 displays the status of the import. If there are any issues, the results will show "The following were not added..." with specific error details. Review the results carefully, as any problems (such as missing required parameters) are usually clearly stated.
 
 <ThemedImage
   alt="Part models import results success message"
@@ -70,7 +70,7 @@ Device42 displays the status of the import. If there are any issues, the results
 
 ## Verifying Imported Parts Models
 
-Navigate to **Datacenter > Parts > Model List** to view all the part models that were imported in the previous step.
+Navigate to **Datacenter > Parts > Model List** to view all the parts models that were imported in the previous step.
 
 <ThemedImage
   alt="Parts Model List showing imported models"
