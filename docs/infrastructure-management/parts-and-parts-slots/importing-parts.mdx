@@ -12,7 +12,7 @@ This document explains how to import parts using the Spreadsheets Import tool fo
 
 Please see [Managing Spare Parts](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx) for an explanation of part models vs. parts in Device42.
 
-Part models can be created using the **Parts - Create/Update Parts** import; the parts import can do both models and parts. The **Part Models - Create/Update Part Models** import can only create models.
+Both parts and part models can be created using the **Parts - Create/Update Parts** import, whereas the **Part Models - Create/Update Part Models** import only creates models.
 
 <ThemedImage
   alt="Part models vs parts import options"
@@ -24,9 +24,9 @@ Part models can be created using the **Parts - Create/Update Parts** import; the
 
 ## Download Current Data
 
-This document will demonstrate adding parts to existing part models, building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
+This document demonstrates how to add parts to existing part models, building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
 
-Go to **Tools > Imports/Exports (xls)** and download current data for spare parts models as highlighted below.
+Go to **Tools > Imports/Exports (xls)** and download the current data for spare part models as highlighted below.
 
 <ThemedImage
   alt="Download current parts data"
@@ -58,13 +58,13 @@ Use the data from the current data export to help populate the parts import.
 
 ## Populate the Sample Sheet
 
-Add a column for `partmodel_id` and populate the sample spreadsheet to add new parts to two of the existing part models you created. Add the serial numbers, which can be accomplished manually or via laser handheld scanner (see below).
+Add a column for `partmodel_id` and populate the sample spreadsheet to add new parts to two of the existing part models you created. Add the serial numbers manually or using a laser handheld scanner (see below).
 
-This import will create the following:
+This import creates the following:
 
-- For `partmodel_id` `211` (name `3.5" 2TB Dell Drives`): Four line items with assignments and serial numbers. Unique line items are required to track serial numbers.
+- For `partmodel_id` `211` (name `3.5" 2TB Dell Drives`): Four line items with assignments and serial numbers (unique line items are required to track serial numbers)
 
-- For `partmodel_id` `219` (name `4GB PC3 8500R`): Two line items with assignments. Since you don't need to track serial numbers for these items, you are only tracking room assignment and count.
+- For `partmodel_id` `219` (name `4GB PC3 8500R`): Two line items with assignments (since you don't need to track serial numbers for these items, you are only tracking room assignment and count)
 
 Save the file and import it.
 
@@ -72,7 +72,7 @@ Save the file and import it.
 
 ## Handheld Scanner
 
-You can use a DBPOWER scanner purchased on Amazon, which works great for this purpose. It comes with a USB receiver and can be programmed to automatically go to the next row in Excel, making it very easy and quick to capture serial numbers or other bar codes.
+You can use a DBPOWER scanner purchased on Amazon, which works well for this purpose. It comes with a USB receiver and can be programmed to automatically go to the next row in Excel, making it very quick and easy to capture serial numbers or other bar codes.
 
 ## Import Results
 
@@ -88,7 +88,7 @@ Go to **Tools > Imports/Exports (.xls)**, choose your file, and click **Import**
 
 Let's look at these new parts in the UI.
 
-The new parts appear on separate line items, as these are unique line items for tracking serial numbers.
+The new parts appear on separate line items, as these are the unique line items needed for tracking serial numbers.
 
 <ThemedImage
   alt="Parts list showing imported serial numbered parts"
