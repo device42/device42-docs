@@ -3,73 +3,107 @@ title: "Importing Parts"
 sidebar_position: 2
 ---
 
-This document explains how to import parts using the Spreadsheets Import tool found in the Tools menu.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-### Importing part models vs. importing parts
+This document explains how to import parts using the Spreadsheets Import tool found under **Tools > Imports/Exports (xls)**.
 
-![Importing part models vs. importing parts](/assets/images/wpid4760-media_1400162046800.png)
+## Importing Part Models vs. Importing Parts
 
 Please see [Managing Spare Parts](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx) for an explanation of part models vs. parts in Device42.
 
-Part models can be created using the create or update spare parts import. The parts import can do both models and parts. The create or update spare parts models import can only create models.
+Both parts and part models can be created using the **Parts - Create/Update Parts** import, whereas the **Part Models - Create/Update Part Models** import only creates models.
 
-### Download current data
+<ThemedImage
+  alt="Part models vs parts import options"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/part-models-vs-parts-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/part-models-vs-parts-dark.png'),
+  }}
+/>
 
-![Download current data](/assets/images/wpid4759-media_1400161961340.png)
+## Download Current Data
 
-This document will demonstrate adding parts to existing part models - building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
+This document demonstrates how to add parts to existing part models, building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
 
-Tools>Imports/Exports (.xls) - download current data for spare parts models as highlighted above
+Go to **Tools > Imports/Exports (xls)** and download the current data for spare part models as highlighted below.
 
-![](/assets/images/wpid4761-media_1400162386036.png)
+<ThemedImage
+  alt="Download current parts data"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/part-models-export-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/part-models-export-dark.png'),
+  }}
+/>
 
-A current data export sheet is pictured above. Creating parts from existing part models requires the part model ID.
+A current data export sheet is shown below. Creating parts from existing part models requires the part model ID. Keep this sheet open.
 
-Keep this sheet open.
+![Current data export spreadsheet](/assets/images/importing-parts/current-part-model-data-3.png)
 
-### Download sample file
+## Download Sample File
 
-![Download sample file](/assets/images/wpid4762-media_1400162600078.png)
+Next, download the **Create or update spare parts** sample sheet by going to **Tools > Imports/Exports (xls)**.
 
-Next we will download the Create or update spare parts sample sheet - Tools>Imports/Exports (.xls)
+<ThemedImage
+  alt="Sample download"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/sample-download-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/sample-download-dark.png'),
+  }}
+/>
 
-![](/assets/images/wpid4763-media_1400162885408.png)
+Use the data from the current data export to help populate the parts import.
 
-Note the help comments for each parameter.
+![Parts sample spreadsheet](/assets/images/importing-parts/parts-sample-spreadsheet.png)
 
-We will use the data from the current data export to help populate the parts import.
+## Populate the Sample Sheet
 
-### Populating the sample sheet
+Add a column for `partmodel_id` and populate the sample spreadsheet to add new parts to two of the existing part models you created. Add the serial numbers manually or using a laser handheld scanner (see below).
 
-![Populating the sample sheet](/assets/images/wpid4764-media_1400165367963.png)
+This import creates the following:
 
-Using the current data export, we have copied the partmodel\_id for the new parts we are going to create
+- For `partmodel_id` `211` (name `3.5" 2TB Dell Drives`): Four line items with assignments and serial numbers (unique line items are required to track serial numbers)
 
-- Name or partmodel\_id is required. Type is optional. part\_id is required for updating existing parts
-- Added the serial numbers - this can be accomplish manually or via laser handled scanner (see below)
+- For `partmodel_id` `219` (name `4GB PC3 8500R`): Two line items with assignments (since you don't need to track serial numbers for these items, you are only tracking room assignment and count)
 
-This import will create the following:
+Save the file and import it.
 
-ID 39 (3.5" 2TB Dell Drives) 4 line items with assignments and serial numbers. Unique line items are required to track serial numbers.
+![Populated parts spreadsheet](/assets/images/importing-parts/populated-parts-spreadsheet.png)
 
-ID 47 (4GB PC3 8500R) 2 line items with assignments. Since we don't care about serial numbers for these items, we are only tracking room assignment and count.
+## Handheld Scanner
 
-Save the file and import.
+You can use a DBPOWER scanner purchased on Amazon, which works well for this purpose. It comes with a USB receiver and can be programmed to automatically go to the next row in Excel, making it very quick and easy to capture serial numbers or other bar codes.
 
-Re: handheld laser scanner. We have been using a DBPOWER scanner that we purchased on amazon for $60 (link below) - we think it works great. It comes with USB receiver and can be programmed to automatically go to the next row in Excel, making it very easy and quick to grab serial numbers or other bar codes.
+## Import Results
 
-### Import results
+Go to **Tools > Imports/Exports (.xls)**, choose your file, and click **Import**. The results of the import are shown below.
 
-![Import results](/assets/images/wpid4765-media_1400166697787.png)
+<ThemedImage
+  alt="Import results success message"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/import-results-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/import-results-dark.png'),
+  }}
+/>
 
-Go to: Tools>Imports/Exports (.xls) - choose file and click import. Pictured above are the results of our import.
+Let's look at these new parts in the UI.
 
-Let's have a look at these new parts in the UI
+The new parts appear on separate line items, as these are the unique line items needed for tracking serial numbers.
 
-![](/assets/images/wpid4766-media_1400167063591.png)
+<ThemedImage
+  alt="Parts list showing imported serial numbered parts"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/parts-list-serial-numbers-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/parts-list-serial-numbers-dark.png'),
+  }}
+/>
 
-The new parts on separate line items - again these are unique line items as we are tracking serial numbers.
+The new parts appear on two lines. Since you're not tracking serial numbers, you only need two lines to track the room assignments for these RAM modules.
 
-![](/assets/images/wpid4767-media_1400167321688.png)
-
-The new parts on two lines - not tracking serial numbers, we only need two lines to track the room assignments for these 40 RAM modules.
+<ThemedImage
+  alt="Parts list showing imported RAM modules by room"
+  sources={{
+    light: useBaseUrl('/assets/images/importing-parts/parts-list-room-assignments-light.png'),
+    dark: useBaseUrl('/assets/images/importing-parts/parts-list-room-assignments-dark.png'),
+  }}
+/>
