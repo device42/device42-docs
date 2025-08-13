@@ -12,7 +12,7 @@ You can create nested subnets automatically and can relocate manually created su
 
 The subnet must be part of a VRF group to create a nested subnet.
 
-### Subnet List Page
+## Subnet List Page
 
 <ThemedImage
   alt="Subnet List page"
@@ -26,8 +26,8 @@ This page lists all your defined and discovered subnets. As with any list, you c
 
 Here are a few useful tips:
 
-1. % Used indicates how much of the subnet space is used and gives you an idea if a subnet is being exhausted for available IPs. This only applies to IPv4 subnets.
-2. Show IPs takes you to IP address page and shows you all IP addresses that belong to this subnet.
+1. **% Used** indicates how much of the subnet space is used and gives you an idea of whether a subnet is being exhausted for available IPs. This only applies to IPv4 subnets.
+2. **Show IPs** takes you to the IP address page and shows you all IP addresses that belong to this subnet.
 
 Clicking on a subnet gives you a detailed view/edit page for that subnet.
 
@@ -39,38 +39,71 @@ Clicking on a subnet gives you a detailed view/edit page for that subnet.
   }}
 />
 
-You can also add IPs to an existing subnet using the new **Background Populate Subnets with IPs** command from the Subnets **Actions** menu. When deleting a subnet (**Delete with Detailed Confirmation**), you can also choose to add the associated IPs to the parent subnet (if one exists). This feature helps when doing maintenance on subnets, where it is desirable to move from a smaller to a larger subnet without removing or recreating the associated IP addresses.
+### Actions: Deleting Subnets
 
-The **Actions** menu also includes an option for creating a ping sweep for a set of selected subnets.
+You can add IPs to an existing subnet using the new **Background Populate Subnets with IPs** command from the Subnet's **Actions** menu. 
 
-<ThemedImage
-  alt="Subnet Action menu"
-  sources={{
-    light: useBaseUrl('/assets/images/subnets/WEB-833_3-light.png'),
-    dark: useBaseUrl('/assets/images/subnets/WEB-833_3-dark.png'),
-  }}
-/>
+- When deleting a subnet (**Delete with Detailed Confirmation**), you can also choose to add the associated IPs to the parent subnet (if one exists). This feature helps when doing maintenance on subnets, where it is desirable to move from a smaller to a larger subnet without removing or recreating the associated IP addresses.
+
+  <ThemedImage
+    alt="Subnet Action menu"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/WEB-833_3-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/WEB-833_3-dark.png'),
+    }}
+  />
  
 
-<ThemedImage
-  alt="Background Populate Subnets"
-  sources={{
-    light: useBaseUrl('/assets/images/subnets/WEB-833_4-light.png'),
-    dark: useBaseUrl('/assets/images/subnets/WEB-833_4-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Background Populate Subnets"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/WEB-833_4-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/WEB-833_4-dark.png'),
+    }}
+  />
 
 
-<ThemedImage
-  alt="Delete with Detailed Confirmation"
-  sources={{
-    light: useBaseUrl('/assets/images/subnets/WEB-833_5-light.png'),
-    dark: useBaseUrl('/assets/images/subnets/WEB-833_5-dark.png'),
-  }}
-/>
- 
+  <ThemedImage
+    alt="Delete with Detailed Confirmation"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/WEB-833_5-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/WEB-833_5-dark.png'),
+    }}
+  />
 
-### Adding/Editing a Subnet
+### Actions: Creating a Ping Sweep Job
+
+- The **Actions** menu also includes an option for creating a ping sweep job for a set of selected subnets.
+
+  <ThemedImage
+    alt="Ping sweep action"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/ping-sweep-action-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/ping-sweep-action-dark.png'),
+    }}
+  />
+
+- Click on the **View details** link on the green success message to see the details of the newly created ping sweep job. You can also view the job under **Discovery > Ping Sweep**.
+
+  <ThemedImage
+    alt="View details link"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/ping-sweep-toast-link-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/ping-sweep-toast-link-dark.png'),
+    }}
+  />
+
+- Run the ad hoc ping sweep job immediately using the **Run Now** button on the details page. 
+
+  <ThemedImage
+    alt="View Adhoc ping sweep"
+    sources={{
+      light: useBaseUrl('/assets/images/subnets/adhoc-ping-sweep-light.png'),
+      dark: useBaseUrl('/assets/images/subnets/adhoc-ping-sweep-dark.png'),
+    }}
+  />
+
+## Adding or Editing a Subnet
 
 <ThemedImage
   alt="Adding/Editing a subnet"
@@ -88,11 +121,11 @@ The Subnet Category can be used to categorize your subnets. If using the Multite
 
 If you mark the network and/or broadcast addresses as usable for a subnet, these IPs will be shown as usable IPs in the IP Address list page.
 
-### VRF Groups and Overlapping Subnet Ranges
+## VRF Groups and Overlapping Subnet Ranges
 
 When you add an overlapping subnet in a VRF group, the subnet gets automatically positioned with the right parent-child relationship.
 
-### Adding Subnetted Subnets
+## Adding Subnetted Subnets
 
 <ThemedImage
   alt="Adding Subnetted Subnets"
@@ -108,7 +141,7 @@ You can just enter mask bits and click Add, and a subnet underneath the current 
 
 On the edit page, clicking on a nested subnet takes you to the edit page for that subnet.
 
-### Relocating a Subnet
+## Relocating a Subnet
 
 <ThemedImage
   alt="Relocating a subnet"
@@ -120,7 +153,7 @@ On the edit page, clicking on a nested subnet takes you to the edit page for tha
 
 On the edit page, if you click on **Relocate**, it will calculate whether there are any subnets into which this subnet can be moved. If it finds one and there are no IP conflicts, it will relocate the subnet.
 
-### Deleting a Subnet Upwards/Merging Into Parent
+## Deleting a Subnet Upwards or Merging Into Parent
 
 <ThemedImage
   alt="Deleting a subnet upwards/merging into parent"
@@ -130,4 +163,4 @@ On the edit page, if you click on **Relocate**, it will calculate whether there 
   }}
 />
 
-With the merge-to-parent function, you can associate all child subnets and IPs to a parent and delete that subnet, as shown in the images above.
+With the merge-to-parent function, you can associate all child subnets and IPs to a parent and delete that subnet, as shown in the image above.

@@ -22,9 +22,9 @@ From the Devices list page under **Resources > Compute > All Devices**, you can:
 
 1. **Create** a new device, **Clone** an existing device, or configure a **Report**.
 2. Search for partial and exact matches to device names and aliases.
-3. Perform **Actions** that modify, delete, and manage your Device data.
+3. Perform **Actions** that modify, delete, and manage your device data.
 4. Filter data categorically using the dropdown menus or by adding **More Filters**
-5. Open the **Advanced** search box to search for devices using SQL-like queries.
+5. Open the **Advanced** search box to use SQL-like queries to find devices.
 6. Modify the default column layout or create a new view by clicking on the **gear icon**.
 7. Order the column data and resize columns by dragging the edge of a column header.
 
@@ -35,7 +35,7 @@ The system default list view has dropdown menus you can use to filter your devic
 To save you from repeatedly selecting the same combination of filters each time you visit the page, you can customize the default view with a custom set of dropdown filters. Enter edit mode by clicking on the **gear icon** next to the default **System Column List** dropdown menu. The custom filter will be saved if the **Custom Filters** checkbox is selected when saving.
 
 <ThemedImage
-  alt=""
+  alt="Custom filters"
   sources={{
     light: useBaseUrl('/assets/images/device-list/custom-filters-light.png'),
     dark: useBaseUrl('/assets/images/device-list/custom-filters-dark.png'),
@@ -44,7 +44,7 @@ To save you from repeatedly selecting the same combination of filters each time 
 
 When you apply a saved custom filter, you'll see the "filters have been replaced in order to apply saved filters on the custom view" notification.
 
-If you've made changes to the filter you don't want to keep, click the **Reset** option to revert to the original saved filter.
+If you've made changes to the filter that you don't want to keep, click the **Reset** option to revert to the original saved filter.
 
 <ThemedImage
   alt="Reset filters option"
@@ -58,10 +58,26 @@ If you've made changes to the filter you don't want to keep, click the **Reset**
 
 From the list view, you can also select multiple devices and apply bulk actions against selected devices. 
 
+### Add or Remove Tags
+
+From the Devices list page, you can add or remove multiple tags for one or more devices at a time.
+
+Select one or more devices and choose either **Add tags to selected items** or **Remove tags from selected items** from the **Actions** dropdown menu. 
+
 <ThemedImage
-  alt="Bulk device actions dropdown menu"
+  alt="Add or remove tags Actions"
   sources={{
-    light: useBaseUrl('/assets/images/device-list/device-list-action-menu-light.png'),
-    dark: useBaseUrl('/assets/images/device-list/device-list-action-menu-dark.png'),
+    light: useBaseUrl('/assets/images/add-remove-tags-light.png'),
+    dark: useBaseUrl('/assets/images/add-remove-tags-dark.png'),
+  }}
+/>
+
+Start typing in the textbox to search for specific tags you want to add or remove.
+
+<ThemedImage
+  alt="Search tags"
+  sources={{
+    light: useBaseUrl('/assets/images/bulk-tag-search-light.png'),
+    dark: useBaseUrl('/assets/images/bulk-tag-search-dark.png'),
   }}
 />
