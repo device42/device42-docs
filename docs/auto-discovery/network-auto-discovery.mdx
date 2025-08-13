@@ -214,43 +214,17 @@ If you keep **Get all switch ports** selected, you will see extra form items:
 
 ## Globally Exclude OIDs
 
-You can set certain OIDs to be ignored globally to prevent them from being collected during SNMP discovery. Navigate to **Tools > Global Settings** and scroll down to the **Ignore OID(s):** field. 
+You can set certain OIDs to be ignored globally to prevent them from being collected during SNMP discovery.
 
-Device42 supports two methods of exclusion: Use a trailing dot (`.`) to ignore entire categories of data, or omit it to ignore specific OIDs.
+Navigate to **Tools > Global Settings** and scroll down to the **Ignore OID(s):** field. Add an individual OID or a group of OIDs using dot notation. For documentation purposes, you can optionally include a comment in text notation on the same line as the OID(s).
 
-- For an exact OID match, include the full OID without a dot at the end. For documentation purposes, you can optionally include a comment in text notation on the same line as the OID(s).
-
-  For example:
-
-  ```
-  1.3.6.1.2.1.4.35.1 # ignore this OID
-  ```
-
-  <ThemedImage
-    alt="Global Settings Ignore OID(s) field"
-    sources={{
-      light: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-light.png'),
-      dark: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-dark.png'),
-    }}
-  />
-
-- To exclude an OID category, include a period (`.`) at the end of the OID. 
-
-  For example:
-
-  ```
-  1.3.6.1.2.1.4.35.1. # ignore entire OID tree
-  ```
-
-  This will ignore `1.3.6.1.2.1.4.35.1.2`, `1.3.6.1.2.1.4.35.1.3`, and all other OIDs that start with `1.3.6.1.2.1.4.35.1.`
-
-  <ThemedImage
-    alt="Global Settings Ignore OID(s) field"
-    sources={{
-      light: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-tree-light.png'),
-      dark: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-tree-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Global Settings Ignore OID(s) field"
+  sources={{
+    light: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-light.png'),
+    dark: useBaseUrl('/assets/images/network-auto-discovery/global-ignore-oids-dark.png'),
+  }}
+/>
 
 :::note
 When OIDs are set to be ignored globally, existing discovery jobs will not automatically inherit these ignored OIDs. To apply the ignored OIDs to existing discovery jobs, a new discovery job must be created.
