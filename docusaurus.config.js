@@ -1011,8 +1011,12 @@ const config = {
             from: ['/ipam/ip-nat-map/'],
           },
           {
-            to: '/infrastructure-management/ipam/mac-addresses/',
+            to: '/infrastructure-management/ipam/',
             from: ['/ipam/mac-addresses/'],
+          },
+          {
+            to: '/infrastructure-management/ipam/',
+            from: ['/infrastructure-management/ipam/mac-addresses/'],
           },
           {
             to: '/infrastructure-management/ipam/subnet-tree-view/',
