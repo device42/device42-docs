@@ -2,22 +2,39 @@
 title: "AWS Migration Hub"
 sidebar_position: 4
 ---
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
 You can generate a Device42 AWS Migration Hub report from Device42’s predefined reports and upload the report to the AWS Migration Hub portal. Follow the steps below.
 
-- Select _Analytics > Advanced Reporting > Pre-Defined Reports > Integrations > Workload Portability_.
-- Select _AWS Migration Hub_,  and then click _CSV_. This will generate and download a report — the amount of time required to generate the report depends on how much Device42 data you have.
+- Select **Analytics > Advanced Reporting** and from the left panel go to **Pre-Defined Reports > Integrations > Workload Portability**.
 
-![](/assets/images/WEB-515_D42-Rpts-01.png)
+    <ThemedImage
+    alt="Advanced Reporting AWS Migration Evaluation"
+    sources={{
+        light: useBaseUrl('/assets/images/aws-migration-hub/aws-migration-location-light.png'),
+        dark: useBaseUrl('/assets/images/aws-migration-hub/aws-migration-location-dark.png'),
+    }}
+    />  
 
-![](/assets/images/WEB-515_D42-Rpts-02.png)
+- Select the **AWS Migration Hub** hamburger menu, **Export As**, and then click **CSV**. This will generate and download a report — the amount of time required to generate the report depends on how much Device42 data you have.
 
-- After the Device42 AWS Migration Hub report downloads, go to your AWS Console.
-- Click _Services_, and then search for _Migration Hub_.
+    <ThemedImage
+    alt="Advanced Reporting"
+    sources={{
+        light: useBaseUrl('/assets/images/aws-migration-hub/aws-migration-report-light.png'),
+        dark: useBaseUrl('/assets/images/aws-migration-hub/aws-migration-report-dark.png'),
+    }}
+    />  
+
+
+After the Device42 AWS Migration Hub report downloads, go to your AWS Console.
+
+- Click **Services**, and then search for **Migration Hub**.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-2.png)
 
-- Once you are on the Migration Hub home page, click _Tools_, and then select _Import_ on the Discovery Tools page.
+- Once you are on the Migration Hub home page, click **Tools**, and then select **Import** on the Discovery Tools page.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-3.png)
 
@@ -28,11 +45,11 @@ You can generate a Device42 AWS Migration Hub report from Device42’s predefine
 ![](/assets/images/WEB-515_AWS-MH-Console-5-Import-3.png)
 
 - Navigate to your AWS S3 console and upload your Device42 AWS Migration Hub file to the appropriate S3 bucket.
-- After you have uploaded your Device42 file to the AWS S3 bucket, copy the file's _Object URL_ link.
+- After you have uploaded your Device42 file to the AWS S3 bucket, copy the file's **Object URL** link.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-6-Import-Object-URL-fromS3-5.png)
 
-- Go back to Migration Hub and paste the object URL in the _Amazon S3 Object URL_ field, enter an _Import name_ and click _Import._
+- Go back to Migration Hub and paste the object URL in the **Amazon S3 Object URL** field, enter an **Import name** and click **Import**.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-7-Import-URL-OLD-2.png)
 
@@ -40,14 +57,14 @@ The AWS import process starts and displays a list of imports.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-8-Import-list.png)
 
-- You can click on the import file _Name_ and see details of the imported information.
+- You can click on the import file **Name** and see details of the imported information.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-9-Import-details.png)
 
-Yo can also click on a _Server Info_ name to see details about that particular server with information about that imported item.
+You can also click on a **Server Info** name to see details about that particular server with information about that imported item.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-10-Import-details.png)
 
-- You can click also Applications to view information about the applications crated in Device42 that were imported.
+- You can also click **Applications** to view information about the applications created in Device42 that were imported.
 
 ![](/assets/images/WEB-515_AWS-MH-Console-11-Apps.png)
