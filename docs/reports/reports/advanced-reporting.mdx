@@ -3,17 +3,26 @@ title: "Advanced Reporting"
 sidebar_position: 2
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 :::caution
 We are primarily invested in **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)** and encourage customers to use those first.
 :::
 
 ## Advanced Reporting Engine Overview
 
-Device42's Advanced Reporting engine is a quantum leap forward in functionality. It is a fully incorporated, schedulable BI/reporting platform that lets you create both ad-hoc reports that may include visualizations, and export the output in different formats as desired. A changing selection of pre-defined reports is included with Advanced Reporting, while an unlimited number may be added under "User-Defined" reports, exported, imported, and shared!
+Device42's Advanced Reporting engine is a quantum leap forward in functionality. It is a fully incorporated, schedulable BI or reporting platform that lets you create both ad-hoc reports that may include visualizations, and export the output in different formats as desired. A changing selection of pre-defined reports is included with Advanced Reporting, while an unlimited number may be added under **User-Defined** reports, exported, imported, and shared!
 
-Simply head to the Reports menu → Advanced reporting to get started:
+Head to **Analytics > Reports > Advanced Reporting** to get started:
 
-![Device42 Advanced Reporting Screen](/assets/images/advanced_reporting_example-201905.png)
+<ThemedImage
+  alt="Advanced reporting screen"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/advanced-reporting-screen-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/advanced-reporting-screen-dark.png'),
+  }}
+/>
 
 Device42's Advanced Reporting engine is extremely flexible, and you can use it to take your reporting to the next level, extracting insight and business intelligence from your infrastructure data.
 
@@ -23,26 +32,85 @@ In this section, you'll learn how to select data and build reports in advanced r
 
 Running an existing report in advanced reporting is fast and easy.
 
-Head to _Reports -> Advanced Reporting_ and expand "Pre-defined reports" on the left by clicking the arrow to show the list of existing reports.
+Head to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined reports** on the left by clicking the arrow to show the list of existing reports.
 
-1. Choose a report from the list, highlight it, and click the 'hamburger' menu _(see #1, image below)_. In the menu popup, click "Run Report" _(#2 below)_.
-![Run existing report advanced reporting](/assets/images/run_existing_report.png)
+1. Choose a report from the list, highlight it, and click the **play icon** to run the report.
 
-4. **To have your report results exported in a Microsoft Excel XLS/XLSX format spreadsheet, simply click the "XLS" button and save the file!**
-![Save report output as XLS Microsoft Excel Spreadsheet file](/assets/images/save_as_XLS.png)
+    <ThemedImage
+    alt="Run existing report"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/run-existing-report-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/run-existing-report-dark.png'),
+    }}
+    />
+
+2. De-select columns from the pre-defined report by clicking the **right arrow** to reveal the column selection panel.
+
+    <ThemedImage
+    alt="Toggle columns"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/toggle-columns-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/toggle-columns-dark.png'),
+    }}
+    />
+
+3. To have your report results exported in a Microsoft Excel (xls) format spreadsheet, select the **Export As > Excel** from the hamburger menu. 
+
+    <ThemedImage
+    alt="Save as Excel"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/save-as-excel-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/save-as-excel-dark.png'),
+    }}
+    />
 
 ### Customizing an existing report
 
 Customizing an existing report is easy! Simply make a copy, and edit the copy, or double click any user-created report to edit it directly.
 
-1. If you would like to customize an existing report, either right click or click on the hamburger menu (three horizontal lines) and choose "Duplicate" to make a copy: ![Copy existing report](/assets/images/customize-existing-report.png)
-2. Now, double click the report you just copied, make your desired edits, and run as before!
+1. If you would like to customize an existing report, either right click or click on the hamburger menu (three horizontal lines) and choose **Duplicate** to make a copy: 
+
+<ThemedImage
+  alt="Customize existing report"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/customize-existing-report-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/customize-existing-report-dark.png'),
+  }}
+/>
+
+2. Now, double click the report you just copied, make your desired edits, and run as before.
 
 ### Scheduling Advanced Reports
 
-You can view all scheduled Advanced Reports, and can edit their schedules by clicking the "clock" icon on the left hand panel of advanced reporting (pictured below): ![Schedule & edit schedules for Advanced Reports](/assets/images/scheduled_reports.png)
+Click the hamburger menu, select **Schedule**, and define the report to send out.
 
-To edit the schedule of a report, click the "Pencil" icon on the far right of each row. Upon clicking the pencil, you will see the edit schedule screen: ![Edit advanced report schedule ](/assets/images/edit_report_schedule.png)
+<ThemedImage
+  alt="Create a scheduled report"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/schedule-report-option-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/schedule-report-option-dark.png'),
+  }}
+/>
+
+You can view all scheduled Advanced Reports, and can edit their schedules by clicking the **clock icon** on the left hand panel of advanced reporting: 
+
+<ThemedImage
+  alt="Scheduled reports view"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/scheduled-reports-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/scheduled-reports-dark.png'),
+  }}
+/>
+
+To edit the schedule of a report, click the **pencil icon** on the far right of each row. Upon clicking the pencil, you will see the edit schedule screen:
+
+<ThemedImage
+  alt="Edit report schedule"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/edit-report-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/edit-report-schedule-dark.png'),
+  }}
+/>
 
 * * *
 
@@ -50,21 +118,66 @@ To edit the schedule of a report, click the "Pencil" icon on the far right of ea
 
 The following is the basic flow for building an advanced report.
 
-1. First, click the plus sign in the upper left to begin creating a new report. Choose "Advanced Report" to start.
-2. Give the report a name that meaningfully identifies the report to you.
-3. Move to the "Categories" tab to select the items you'd like to include in the report. You will notice that certain categories are greyed out based on the data points you select; certain categories of data limits other items that can be included into the report to related information.
-4. Next, head to the "Sorts" tab to configure your sorts and to filter your data. Sorting and filtering in advanced reporting is done via SQL joins, and the advanced reporting GUI interface makes it very straightforward. Start by clicking the "Gear icon" in advanced reporting, and then select joins: ![Gear menu edit joins](/assets/images/edit_joins-menu.png) Configure any desired custom filters via the Joins window that popped up: ![Edit Joins](/assets/images/edit_joins_window.png)
-5. Finally, configure your report layout. Select parameters you are interested from the parameter pool on the left, double clicking each to add to the report. Next, add any other fields that are relevant to your report. Now that all or fields are on the report, order them in the report.
+1. First, click the plus sign in the upper left to begin creating a new report. Choose **Advanced Report** to start.
+2. Add data objects to the report. You will notice that certain categories are greyed out based on the data points you select; certain categories of data limits other items that can be included into the report to related information.
+
+    <ThemedImage
+    alt="Add data objects"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/add-data-objects-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/add-data-objects-dark.png'),
+    }}
+    />
+
+3. Next, head to the **Filter and sort** tab to configure your sorts and to filter your data. 
+
+    <ThemedImage
+    alt="Filter and sort data"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/filter-and-sort-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/filter-and-sort-dark.png'),
+    }}
+    />
+
+4. You can also sort and filter in advanced reporting using SQL joins. The advanced reporting GUI interface makes it very straightforward. Click the **Gear** icon under **Advanced** and then select **Joins**: 
+
+    <ThemedImage
+    alt="Edit joins menu"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/edit-joins-menu-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/edit-joins-menu-dark.png'),
+    }}
+    />
+
+5. Configure any desired custom filters via the Joins window: 
+
+    <ThemedImage
+    alt="Edit joins window"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/edit-joins-window-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/edit-joins-window-dark.png'),
+    }}
+    />
+
+6. Finally, configure your report layout. Select parameters you are interested from the parameter pool on the left, double clicking each to add to the report. Next, add any other fields that are relevant to your report. Now that all your fields are on the report, order them in the report.
+
+    <ThemedImage
+    alt="Configure report layout"
+    sources={{
+        light: useBaseUrl('/assets/images/advanced-reporting/configure-report-layout-light.png'),
+        dark: useBaseUrl('/assets/images/advanced-reporting/configure-report-layout-dark.png'),
+    }}
+    />
 
 ### Sorting and ordering report data
 
-Sorting in Advanced Reporting is handled using Joins by matching Primary and Foreign keys. Note that advanced reporting does a pretty good job attempting to set these for you, but for complicated reports, you will have to set/customize the joins yourself. You'll want to create joins that results in the data you care about, consulting the Device42 data dictionary when necessary. Note that Primary Key's should almost always have a matching foreign key, from being a PK matching to a FK. If you are seeing data that you didn't expect, there may still be joins that need to be modified. Access joins by clicking the "Gear" icon, and selecting "Joins": ![Edit Joins](/assets/images/edit_joins_window.png)
+Sorting in Advanced Reporting is handled using Joins by matching Primary and Foreign keys. Note that advanced reporting does a pretty good job attempting to set these for you, but for complicated reports, you will have to set/customize the joins yourself. You'll want to create joins that results in the data you care about, consulting the Device42 data dictionary when necessary. Note that Primary Key's should almost always have a matching foreign key, from being a PK matching to a FK. If you are seeing data that you didn't expect, there may still be joins that need to be modified. Access joins by clicking the **Gear** icon, and selecting **Joins**.
 
-### Use a DOQL query to create a report data-set
+## Use a DOQL query to create a report data-set
 
-With Device42's Advanced Reporting, you can use DOQL (a SQL derivative) to create your data-set for your report.
+With Device42's Advanced Reporting, you can use DOQL (a SQL derivative) to create your data set for your report.
 
-To create a report based on a DOQL query, name the report, and then **simply choose "Add SQL" during the 'Category' selection step of report creation _(instead of choosing any categories)_**_.
+To create a report based on a DOQL query, name the report, and then choose **Add SQL** during the **Category** selection step of report creation instead of choosing any categories.
 
 For a full set of steps in more detail, with pictures, see the dedicated ["Use custom SQL in Advanced Report" page](reports/reports/use-custom-sql-advanced-report.mdx).
 
@@ -74,10 +187,46 @@ For a full set of steps in more detail, with pictures, see the dedicated ["Use c
 
 ### The Data Dictionary
 
-All data categories in Advanced Reporting are inherited directly from Device42's published database views. You can see all of them in the data dictionary, which can always be found by clicking the "Data Dictionary" button at the top right of the reporting window, which will show you all available categories (see the 'data dictionary' button in the screenshot in the next section below): ![data dictionary](/assets/images/data_dictionary.png)
+All data categories in Advanced Reporting are inherited directly from Device42's published database views. You can see all of them in the data dictionary, which can always be found by clicking the **Data Dictionary** button at the top right of the reporting window.
 
-### The Viewer Entity Relationship Diagram \[ERD\]
+<ThemedImage
+  alt="Data Dictionary button"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/data-dictionary-button-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/data-dictionary-button-dark.png'),
+  }}
+/>
 
-The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. Useful for visualizing relationships and writing DOQL queries, you can quickly navigate to the ERD from the Advanced Reporting Screen: ![Entity Relationship Diagram button on Advanced Reporting screen](/assets/images/ERD_button-HL.png)
+You can browse all available categories:
 
-Clicking the "Entity Relationship Diagram" button brings up the ERD. Here is an example screenshot of the ERD. Note that the ERD has it's own page; for more information check out the dedicated [Device42 ERD/Viewer Schema page](reports/device42-doql/db-viewer-schema.mdx). In this example, the "Find" field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out while the items that match the 'affinity' search query are visible: ![Device42 entity relationship diagram](/assets/images/entity_relationship_diagram_example.png)_
+<ThemedImage
+  alt="Data Dictionary view"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/data-dictionary-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/data-dictionary-dark.png'),
+  }}
+/>
+
+### The Viewer Entity Relationship Diagram (ERD)
+
+The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. Useful for visualizing relationships and writing DOQL queries, you can quickly navigate to the ERD from the Advanced Reporting Screen: 
+
+<ThemedImage
+  alt="ERD button highlight"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/erd-button-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/erd-button-dark.png'),
+  }}
+/>
+
+Clicking the **Entity Relationship Diagram** button brings up the ERD. Here is an example screenshot of the ERD. Note that the ERD has its own page; for more information check out the dedicated [Device42 ERD/Viewer Schema page](reports/device42-doql/db-viewer-schema.mdx). 
+
+In this example, the **Find** field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out while the items that match the 'affinity' search query are visible: 
+
+<ThemedImage
+  alt="Entity relationship diagram"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/entity-relationship-diagram-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/entity-relationship-diagram-dark.png'),
+  }}
+/>
