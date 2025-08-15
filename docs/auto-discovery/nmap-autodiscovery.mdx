@@ -10,14 +10,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Nmap (network mapper) is a tool primarily used for security scanning. However, it can be used to “guess” which services are running on which ports. Device42 uses Nmap to discover which services are running on which ports and automatically combines this data with the [NetFlow](auto-discovery/netflow-collector.mdx) data to automatically create a map of services and application dependencies.
 
-## Add a Nmap Autodiscovery Job
+## Add an Nmap Autodiscovery Job
 
 Navigate to the  **Discovery > Nmap** list page and click **Create** to add a new Nmap autodiscovery job. 
 
 Enter the following required fields for the Nmap job:
 
-- **Name:** Unique name for the job
-- **Remote Collector:** The name of the Remote Collector to use, a Local Collector cannot be used.
+- **Name:** A unique name for the job.
+- **Remote Collector:** The name of the Remote Collector to use. A Local Collector cannot be used.
 - **Target Host(s) and Network(s):** A comma-separated list of IP addresses, IP ranges, CIDR block(s), or hostname(s) to use for Nmap discovery.
 
 <ThemedImage
@@ -77,11 +77,11 @@ The **Run Now** button is also available on the list page (**Discovery > Nmap**)
 
 In Device42, NetFlow and Nmap can be used by themselves, together, or in combination with point-in-time discovery. Using NetFlow and Nmap data together but without point-in-time discovery results in a good services dependency mapping capability. However, just using these two sources of data is still limited in the following ways:
 
-1. A map of service inter-dependencies and interrelationships can be created. However, many services often combine applications and associated information to form the entire application. For example, there might be multiple Oracle services plus configuration files that together form the Oracle application. Installed apps on a web server and instances and named pipes on a database cannot be discovered by the NetFlow/Nmap combination.
-2. The services that Nmap finds are guesses and the guessed version number is probably wrong as often as it is right.
-3. Some enterprises have such restrictive firewall rules that Nmap will discover few if any services.
+1. A map of service inter-dependencies and interrelationships can be created. However, many services often combine applications and associated information to form the entire application. For example, there might be multiple Oracle services plus configuration files that together form the Oracle application. Installed apps on a web server, and instances and named pipes on a database, cannot be discovered by the NetFlow/Nmap combination.
+2. The services that Nmap finds are guesses, and the guessed version number is probably wrong as often as it is right.
+3. Some enterprises have such restrictive firewall rules that Nmap will discover few, if any, services.
 4. NetFlow can’t “see” application interactions inside a physical, virtual, or cloud server. NetFlow can only see interactions that go through the router. So, many dependencies will be missed.
-5. While NetFlow works well for physical routers and switches, it's not great for the virtual routers and switches found in hyper-visors because many hyper-visors do not support NetFlow.
+5. While NetFlow works well for physical routers and switches, it's not great for the virtual routers and switches found in hypervisors because many hypervisors do not support NetFlow.
 6. On routers and switches, NetFlow must be set up for every segment. If some segments are not set up, the application interactions will not be found.
 
 To overcome these limitations, it is better to use NetFlow and Nmap in conjunction with point-in-time discovery.
