@@ -54,7 +54,7 @@ Head to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined re
     }}
     />
 
-3. To have your report results exported in a Microsoft Excel (xls) format spreadsheet, select the **Export As > Excel** from the hamburger menu. 
+3. To have your report results exported in a Microsoft Excel (xls) format spreadsheet, select the **Export As > Excel** from the hamburger menu (three horizontal lines). 
 
     <ThemedImage
     alt="Save as Excel"
@@ -66,9 +66,9 @@ Head to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined re
 
 ### Customizing an existing report
 
-Customizing an existing report is easy! Simply make a copy, and edit the copy, or double click any user-created report to edit it directly.
+Customizing an existing report is easy! Simply make a copy and edit the copy, or double-click any user-created report to edit it directly.
 
-1. If you would like to customize an existing report, either right click or click on the hamburger menu (three horizontal lines) and choose **Duplicate** to make a copy: 
+1. To customize an existing report, either right-click or click on the hamburger menu and choose **Duplicate** to make a copy: 
 
 <ThemedImage
   alt="Customize existing report"
@@ -78,7 +78,7 @@ Customizing an existing report is easy! Simply make a copy, and edit the copy, o
   }}
 />
 
-2. Now, double click the report you just copied, make your desired edits, and run as before.
+2. Now, double-click the report you just copied, make your desired edits, and run as before.
 
 ### Scheduling Advanced Reports
 
@@ -92,7 +92,7 @@ Click the hamburger menu, select **Schedule**, and define the report to send out
   }}
 />
 
-You can view all scheduled Advanced Reports, and can edit their schedules by clicking the **clock icon** on the left hand panel of advanced reporting: 
+You can view all scheduled advanced reports, and edit their schedules, by clicking the **clock icon** on the left-hand panel of Advanced Reporting: 
 
 <ThemedImage
   alt="Scheduled reports view"
@@ -118,8 +118,8 @@ To edit the schedule of a report, click the **pencil icon** on the far right of 
 
 The following is the basic flow for building an advanced report.
 
-1. First, click the plus sign in the upper left to begin creating a new report. Choose **Advanced Report** to start.
-2. Add data objects to the report. You will notice that certain categories are greyed out based on the data points you select; certain categories of data limits other items that can be included into the report to related information.
+1. First, click the **plus sign icon** in the upper left to begin creating a new report. Choose **Advanced Report** to start.
+2. Add data objects to the report. You will notice that certain categories are greyed out based on the data points you select; certain categories of data limit the other items that can be included in the report to related information.
 
     <ThemedImage
     alt="Add data objects"
@@ -129,7 +129,7 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-3. Next, head to the **Filter and sort** tab to configure your sorts and to filter your data. 
+3. Next, head to the **Filter and sort** tab to configure your sorting and to filter your data. 
 
     <ThemedImage
     alt="Filter and sort data"
@@ -139,7 +139,7 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-4. You can also sort and filter in advanced reporting using SQL joins. The advanced reporting GUI interface makes it very straightforward. Click the **Gear** icon under **Advanced** and then select **Joins**: 
+4. You can also sort and filter in Advanced Reporting using SQL joins. The Advanced Reporting GUI makes it very straightforward. Click the **gear icon** under **Advanced** and then select **Joins**: 
 
     <ThemedImage
     alt="Edit joins menu"
@@ -159,7 +159,7 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-6. Finally, configure your report layout. Select parameters you are interested from the parameter pool on the left, double clicking each to add to the report. Next, add any other fields that are relevant to your report. Now that all your fields are on the report, order them in the report.
+6. Finally, configure your report layout. Select parameters you are interested in from the parameter pool on the left, double-clicking each to add to the report. Next, add any other fields that are relevant to your report. Now that all your fields are on the report, order them in the report.
 
     <ThemedImage
     alt="Configure report layout"
@@ -169,21 +169,21 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-### Sorting and ordering report data
+### Sorting and Ordering Report Data
 
-Sorting in Advanced Reporting is handled using Joins by matching Primary and Foreign keys. Note that advanced reporting does a pretty good job attempting to set these for you, but for complicated reports, you will have to set/customize the joins yourself. You'll want to create joins that results in the data you care about, consulting the Device42 data dictionary when necessary. Note that Primary Key's should almost always have a matching foreign key, from being a PK matching to a FK. If you are seeing data that you didn't expect, there may still be joins that need to be modified. Access joins by clicking the **Gear** icon, and selecting **Joins**.
+Device42 uses joins to handle sorting in Advanced Reporting by matching primary and foreign keys. Note that Advanced Reporting does a pretty good job attempting to set these for you, but for complicated reports, you will have to set or customize the joins yourself. You'll want to create joins that result in the data you care about, consulting the Device42 data dictionary when necessary. Note that each primary key should almost always have a matching foreign key, from being a primary key matching to a foreign key. If you are seeing data that you didn't expect, there may still be joins that need to be modified. Access joins by clicking the **gear icon** and selecting **Joins**.
 
-## Use a DOQL query to create a report data-set
+## Use a DOQL Query To Create a Report Data Set
 
 With Device42's Advanced Reporting, you can use DOQL (a SQL derivative) to create your data set for your report.
 
 To create a report based on a DOQL query, name the report, and then choose **Add SQL** during the **Category** selection step of report creation instead of choosing any categories.
 
-For a full set of steps in more detail, with pictures, see the dedicated ["Use custom SQL in Advanced Report" page](reports/reports/use-custom-sql-advanced-report.mdx).
+For a full set of steps in more detail, with pictures, see the dedicated [Use Custom SQL in Advanced Report](reports/reports/use-custom-sql-advanced-report.mdx) page.
 
 * * *
 
-## Reporting data categories
+## Reporting Data Categories
 
 ### The Data Dictionary
 
@@ -209,7 +209,7 @@ You can browse all available categories:
 
 ### The Viewer Entity Relationship Diagram (ERD)
 
-The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. Useful for visualizing relationships and writing DOQL queries, you can quickly navigate to the ERD from the Advanced Reporting Screen: 
+The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. It's useful for visualizing relationships and writing DOQL queries. You can quickly navigate to the ERD from the Advanced Reporting page: 
 
 <ThemedImage
   alt="ERD button highlight"
@@ -219,9 +219,9 @@ The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerfu
   }}
 />
 
-Clicking the **Entity Relationship Diagram** button brings up the ERD. Here is an example screenshot of the ERD. Note that the ERD has its own page; for more information check out the dedicated [Device42 ERD/Viewer Schema page](reports/device42-doql/db-viewer-schema.mdx). 
+Clicking the **Entity Relationship Diagram** button brings up the ERD. Here is an example screenshot of the ERD. For more information, check out the dedicated [Device42 ERD/Viewer Schema page](reports/device42-doql/db-viewer-schema.mdx). 
 
-In this example, the **Find** field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out while the items that match the 'affinity' search query are visible: 
+In this example, the **Find** field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out, while the items that match the `affinity` search query are visible: 
 
 <ThemedImage
   alt="Entity relationship diagram"
