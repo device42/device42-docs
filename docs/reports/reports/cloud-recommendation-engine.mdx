@@ -6,17 +6,17 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## What is the Cloud Recommendation Engine?
+## What Is the Cloud Recommendation Engine?
 
-Cloud Recommendation Engine is a powerful feature that can provide you with exactly the details you need to plan your next cloud migration, compare costs between Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS cloud platforms, and right-size your next cloud deployment.
+The Cloud Recommendation Engine is a powerful feature that can provide you with exactly the details you need to plan your next cloud migration, compare costs between Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS cloud platforms, and right-size your next cloud deployment.
 
 Select **Analytics > Reports > Cloud Recommendation Engine** and get clear recommendations for sizing cloud instances to suit your physical or virtual workloads.
 
 **CRE Feature Overview**
 
-- Cloud Recommendation Engine leverages Device42's industry-leading autodiscovery and resource utilization data to understand your workloads.  You can now also select Business Applications you have created as an option when you run a CRE report. This simplifies moving devices in groups, waves, or by logical groupings defined by applications.
+- The Cloud Recommendation Engine leverages Device42's industry-leading autodiscovery and resource utilization data to understand your workloads. You can now also select Business Applications you have created as an option when you run a CRE report. This simplifies moving devices in groups, waves, or by logical groupings defined by applications.
 - Cloud instance recommendations are provided for Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS cloud platforms (including instance sizing recommendations and pricing information).
-- Instance recommendations are calculated based on a combination of your observed workloads (CPU, RAM, HDD, NIC, and so on), and utilizing Resource Utilization data, if available, plus a user-selected **Safety Factor** you can select via the slider (for example, if your current instance peaks at 16GB RAM usage, and you chose 50% safety factor, CRE will size cloud instance at 24GB).
+- Instance recommendations are calculated based on a combination of your observed workloads (CPU, RAM, HDD, NIC, and so on) and Resource Utilization data (if available), plus a user-selected **Safety Factor** that you can set via the slider. For example, if your current instance peaked at 16GB RAM usage and you chose a 50% safety factor, CRE would size the cloud instance at 24GB.
 - CRE reports now include the following monthly and annual cost information for all vendors:
 
     - On-Demand Instance Cost 
@@ -40,12 +40,12 @@ Select **Analytics > Reports > Cloud Recommendation Engine** and get clear recom
   }}
 />
 
-## How does Cloud Recommendation Engine Work?
+## How Does the Cloud Recommendation Engine Work?
 
-1. A summary of CPU, memory, and OS info is created based on autodiscovered inventory data.
+1. It creates a summary of CPU, memory, and OS info based on autodiscovered inventory data.
 2. If you have the resource utilization feature enabled, peak CPU and memory usage over the last month is factored in.
 3. When you click the **Send to Cloud and Analyze Data** button, Device42 anonymizes your data and sends it to our cloud servers, finding matching AWS, Azure, GCP, Oracle, or VMware Cloud on AWS workloads.
-4. Device42’s bots do the hard work, returning workload recommendations that have been best-matched to each particular device in your main appliance. The anonymized data is then re-matched with your actual device names, and an output sheet is generated that contains both your device names and matched workloads for the following scenarios:
+4. Device42’s bots do the hard work, returning workload recommendations that have been best-matched to each particular device in your Main Appliance. The anonymized data is then re-matched with your actual device names, and an output sheet is generated that contains both your device names and matched workloads for the following scenarios:
 
     - AWS based on inventory data
     - AWS based on resource utilization
@@ -62,18 +62,18 @@ Select **Analytics > Reports > Cloud Recommendation Engine** and get clear recom
 
 ![Downloaded Device42 inventory data sample](/assets/images/cloud-recommendation-engine/inventory-data-sample.png )
 
-Google Cloud Platform based on Device42 inventory data sample: 
+Google Cloud Platform based on the Device42 inventory data sample: 
 
 ![Google cloud platform based on inventory CRE sample](/assets/images/cloud-recommendation-engine/google-cloud-inventory.png)
 
-AWS Inventory Sample: 
+AWS inventory sample: 
 
 ![Cloud Recommendation Engine AWS based on inventory recommendations](/assets/images/cloud-recommendation-engine/aws-inventory.png)
 
 
 ### Disk (HDD) and NIC RU Details Considered by CRE
 
-CRE factors NIC and HDD config details as well as new RU information into recommendation calculations (in addition to CPU and Memory (RAM) RU and inventory data as noted above).
+CRE factors NIC and HDD config details, as well as new RU information, into recommendation calculations (in addition to CPU and Memory (RAM) RU and inventory data as noted above).
 
 The following RU data for NICs and HDDs is now available:
 
@@ -83,9 +83,9 @@ The following RU data for NICs and HDDs is now available:
 
 ### CRE Communication Details
 
-Cloud recommendation engine communicates with the Device42 main appliance (MA) over `https/443`, reaching out to either `connect.device42.io` (non-EU) or `connect-eu.device42.io` for EU users. 
+The Cloud Recommendation Engine communicates with the Device42 Main Appliance (MA) over `https/443`, reaching out to either `connect.device42.io` (non-EU) or `connect-eu.device42.io` for EU users. 
 
-IP address details for this communication is as follows:
+The IP address details for this communication are as follows:
 
 ```
 FQDN/IPS: 
@@ -95,10 +95,10 @@ connect-eu.device42.io https/443
 
 ## Global Cloud Recommendation Engine Settings and Scheduling
 
-You can use Global Cloud Recommendation Engine Settings to select settings and options for your CRE  report and schedule the report to run on a daily basis.  Changes you make to the Global CRE Settings are reflected on the **Analytics > Reports > Cloud Recommendation Engine** page.
+You can use Global Cloud Recommendation Engine Settings to select settings and options for your CRE report and schedule the report to run on a daily basis. Changes you make to the Global CRE Settings are reflected on the **Analytics > Reports > Cloud Recommendation Engine** page.
 
 - Select **Tools > Settings > Global Settings** to display the settings page and then click **Edit** at the top right of the page.
-- Scroll down to the bottom of the page click **Show** to expand the CRE settings section.
+- Scroll down to the bottom of the page, click **Show** to expand the CRE settings section.
 
     <ThemedImage
     alt="CRE global settings tab"
