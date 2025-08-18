@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## View Running Discovery Jobs on the Jobs Dashboard 
 
-The Jobs Dashboard provides users actionable insight into running discovery jobs. Whether you're running
+The Jobs Dashboard provides users with actionable insight into running discovery jobs. Whether you're running
 network scans, hypervisor discovery, or cloud assessments, this dashboard gives you real-time visibility into job statuses, with the ability to 'kill' jobs and export job details as a CSV file.
 
 Via the main menu, navigate to **Analytics > Jobs Dashboard**. The dashboard has three other sub-dashboards: **Completed Jobs**, **Queue Processing Stats**, and **Other Jobs Summary**. 
@@ -22,10 +22,10 @@ Via the main menu, navigate to **Analytics > Jobs Dashboard**. The dashboard has
 
 ### Kill and Delete a Running or Hung Discovery Job
 
-Check the box next to the job name(s) you want to kill, then select one of **Kill selected job(s)** options from the dropdown menu:
+Check the box next to the job name(s) you want to kill, then select one of the **Kill selected job(s)** options from the dropdown menu:
 
-* The first **Allow Pending Jobs to Complete** option will terminate the ongoing discovery but will let any payloads in the queue finish processing. 
-* The second **Remove Pending Jobs Immediately** option will terminate the ongoing discovery job and remove any payloads in the queue. If a discovery is half-finished when cancelled, it will be ended and no further devices will be added or updated. However, if timed correctly, there may be an edge case where payloads are dispatched to the MA after emptying the queue.
+* The first **Allow Pending Jobs to Complete** option will terminate the ongoing discovery but let any payloads in the queue finish processing. 
+* The second **Remove Pending Jobs Immediately** option will terminate the ongoing discovery job and remove any payloads in the queue. If a discovery is half-finished when cancelled, it will be ended, and no further devices will be added or updated. However, if timed correctly, there may be an edge case where payloads are dispatched to the MA after emptying the queue.
 
 <ThemedImage
   alt="Jobs kill options"
@@ -41,7 +41,7 @@ There are three other [sub-dashboards](#sub-dashboards) tabs on the Jobs Summary
 
 ### Completed Jobs
 
-The completed jobs page lists jobs that have run in the past and are no longer running. 
+The Completed Jobs page lists jobs that have run in the past and are no longer running. 
 
 <ThemedImage
   alt="Completed Jobs dashboard page"
@@ -51,7 +51,9 @@ The completed jobs page lists jobs that have run in the past and are no longer r
   }}
 />
 
-**Delete or Export from Completed Jobs** Users are also able to delete a completed job from the Completed Jobs page, as well as export one or more items to a CSV. Check the box next to the line(s) you are interested in and choose your desired action from the **Action** dropdown menu. 
+**Delete or Export From Completed Jobs** 
+
+You can also delete a completed job from the Completed Jobs page or export one or more completed jobs to a CSV. Check the box next to the line(s) you are interested in and choose your desired action from the **Actions** dropdown menu. 
 
 <ThemedImage
   alt="Completed Jobs actions"
