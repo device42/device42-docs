@@ -6,13 +6,13 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-After you have performed your HyperVisors / \*nix/ Windows scans and associated your business applications to your devices using the Device42 Business Application functionality, you are ready to prepare for your migration to AWS using CloudEndure.
+After you have performed your HyperVisors / \*nix / Windows scans and associated your business applications with your devices using the Device42 Business Application functionality, you are ready to prepare for your migration to AWS using CloudEndure.
 
 Device42 has streamlined the process of conducting cloud migrations to AWS by integrating with the CloudEndure Blueprint. With a few short clicks, Device42 users can assess which workloads have the CloudEndure agent loaded as well as export blueprints for CloudEndure migrations.
 
 ## Here's How It Works
 
-When performing a migration with CloudEndure, the first step is to ensure the CloudEndure agent is installed on the workloads in scope.  This can be easily viewed from the built-in **CloudEndure Prep** report.
+When performing a migration with CloudEndure, the first step is to ensure the CloudEndure agent is installed on the workloads in scope, which you can easily view from the built-in **CloudEndure Prep** report.
 
 - Select **Analytics > Advanced Reporting**.
 
@@ -44,9 +44,9 @@ After ensuring the workloads in scope have the CloudEndure agent installed, down
 
 Once you have generated the CloudEndure **CSV** file from **Advanced Reporting**, you must make sure to download the [Mass Blueprint Setter](https://docs.cloudendure.com/Content/Scripts/CloudEndure%20mass%20blueprints%20setter.zip) script.
 
-This script requires **Python2.7** to run, and in order to have the blueprint set in CloudEndure, the devices in the **CSV** file must have the CloudEndure agent installed and connected to your chosen project.
+This script requires **Python2.7** to run, and in order to have the blueprint set in CloudEndure, the devices in the **CSV** file must have the CloudEndure agent installed and be connected to your chosen project.
 
-Before running the script, in the CloudEndure CSV file you must add the project name in the first column (**projectName**) for each device. Include the relevant name of the matching project for each listed machine.
+Before running the script, you must open the CloudEndure CSV file and add the project name in the first column (**projectName**) for each device. Include the relevant name of the matching project for each listed machine.
 
 ![](/assets/images/WEB-607_Cloud-Endure-4.png)
 
@@ -73,9 +73,9 @@ optional arguments:
 ```
 </details>
 
-When ready to run, supply all of the above parameters. If there are any issues when running the script a `.log` file will be created in the same directory.
+When ready to run, supply all of the above parameters. If there are any issues when running the script, a `.log` file will be created in the same directory.
 
-Once completed, all machines in the CSV file that match machines in CloudEndure will have their respective blueprints updated.
+Once completed, all the machines in the CSV file that match machines in CloudEndure will have their respective blueprints updated.
 
 ### Reference Links
 
