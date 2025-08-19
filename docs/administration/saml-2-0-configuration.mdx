@@ -53,36 +53,35 @@ Copy metadata url from endpoints
 
 ### Azure AD Configuration
 
-1\. Navigate to Azure AD in the Azure portal _\> Enterprise Applications > New Application > Create your own application_. Give your app a name (the app shown in the screenshots is _Device42SAML_) and select the third option _Integrate any other application..._, then click _Create_.
+1. Navigate to Azure AD in the Azure portal _\> Enterprise Applications > New Application > Create your own application_. Give your app a name (the app shown in the screenshots is _Device42SAML_) and select the third option _Integrate any other application..._, then click _Create_.
 
 ![](/assets/images/image-5.png)
 
-2\. Open your newly created enterprise app _\> Option 2- Set up Single sign on_, or select _Single sign-on_ under Manage in left-hand toolbar.
+2. Open your newly created enterprise app _\> Option 2- Set up Single sign on_, or select _Single sign-on_ under Manage in left-hand toolbar.
 
 ![](/assets/images/image2.png)
 
-3\. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs/` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
+3. Enter `https://<D42-FQDN-or-IP>/saml2_auth/acs/` in Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL) in Section 1 Basic SAML Config.
 
 ![](/assets/images/image3.png)
 
-4\. Navigate to the Device42 Appliance Manager > Global Settings > SAML 2.0 Settings. Copy the App Federation Metadata URL in the SAML Signing Certificate section from the enterprise app you created in Azure AD and paste into Metadata auto conf url in the D42 Appliance Manager.
+4. Navigate to the Device42 Appliance Manager > Global Settings > SAML 2.0 Settings. Copy the App Federation Metadata URL in the SAML Signing Certificate section from the enterprise app you created in Azure AD and paste into Metadata auto conf url in the D42 Appliance Manager.
 
 ![](/assets/images/image4.png)
 
-5\. While still in the SAML 2.0 settings of the Appliance Manager, enter `username` or other appropriate SAML attribute.
+5. While still in the SAML 2.0 settings of the Appliance Manager, enter `username` or other appropriate SAML attribute. Unless you have signed responses configured on your Azure AD provider side, keep **Require signed response** unchecked, otherwise you'll get an unavailable page message. 
 
-Save and restart the appliance from the VM console menu with option 4. You may wish to complete steps 6 and 7 before saving/restarting so that you can still login to D42 and create users with the local admin account you've used so far. The SAML attributes tested successfully are listed below:
+Azure's built-in claims like `emailaddress` may not work with Device42, even though they appear in the Azure interface because the built-in claim uses a namespace URI format. The solution is to create a new claim for `emailaddress` in your Azure AD enterprise app, map the claim to the user attribute and use the custom claim name in the Device42 SAML **Username field**.
 
-- **emailaddress** - Email address associated with user account in Azure AD
-- **name** - User Principal Name (UPN) associated with user account in Azure AD 
+Save and restart the appliance from the VM console menu. You may wish to complete steps 6 and 7 before saving or restarting so that you can still login to Device42 and create users with the local admin account you've used so far. 
 
-![Enter SAML username](/assets/images/saml-username.png)
+![Enter SAML username](/assets/images/enable-saml-2.0.png)
 
-6\. Assign users/groups to the SAML enterprise app you created in Azure AD. These should be users/groups that you want to allow authentication into Device42 via this SAML integration.
+6. Assign users/groups to the SAML enterprise app you created in Azure AD. These should be users/groups that you want to allow authentication into Device42 via this SAML integration.
 
-7\. For any users associated with the enterprise app in Azure AD, create the user in Device42 using the appropriate Azure AD value with a dummy password. The integration does not pull and create users directly from Azure AD, so the users must be created within Device42 prior to any attempt to authenticate via Azure AD.
+7. For any users associated with the enterprise app in Azure AD, create the user in Device42 using the appropriate Azure AD value with a dummy password. The integration does not pull and create users directly from Azure AD, so the users must be created within Device42 prior to any attempt to authenticate via Azure AD.
 
-8\. Once the above has been completed, you should be able to login to your D42 instance with your Azure AD credentials.
+8. Once the above has been completed, you should be able to login to your D42 instance with your Azure AD credentials.
 
 ### Okta Configuration
 
@@ -124,9 +123,9 @@ To configure SAML2 integration between OneLogin and Device42, you have to create
 
 **Creating SAML2 Connector App**
 
-1\. Create and login into your OneLogin account.
+1. Create and login into your OneLogin account.
 
-2\. Create an app connector in OneLogin.
+2. Create an app connector in OneLogin.
 
 - Go to Applications > Applications.
 
@@ -136,11 +135,11 @@ To configure SAML2 integration between OneLogin and Device42, you have to create
 
 ![](/assets/images/D42-26961_saml_config_2.jpg)
 
-3\. Search for `SAML custom connector` and select `SAML Custom Connector (Advanced)`
+3. Search for `SAML custom connector` and select `SAML Custom Connector (Advanced)`
 
 ![](/assets/images/D42-26961_saml_config_3.jpg)
 
-4\. Type a display name and Save.
+4. Type a display name and Save.
 
 5\. Go to the `Configuration` tab
 
