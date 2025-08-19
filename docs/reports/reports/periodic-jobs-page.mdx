@@ -2,12 +2,18 @@
 title: "Periodic Jobs Page"
 sidebar_position: 12
 ---
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Periodic Job View Page
+The Periodic Jobs page also lets you to view and manage periodic sampling performed on objects by discovery jobs. Find the Periodic Jobs list page under **Analytics > Discovery Status > Periodic Jobs**. 
 
-Find the periodic jobs page by navigating to **Analytics > Discovery Status > Periodic Jobs**. 
+You can quickly disable Resource Utilization for PDU items, metrics for Storage Arrays as well as SP and DB sampling using the **Actions** menu options.
 
-The Periodic Jobs page offers a quick view of resource utilization (RU), Service Port (SP), Database Connections(DC) job configurations. This makes it easy to exactly which you have scheduled, and when. The Periodic Jobs page also allows you to manage your RU, SP, and DC periodic discovery jobs. You can easily disable or delete one or more jobs from this page:
-
-![Periodic Jobs view page](/assets/images/periodic_jobs_page.png)
+<ThemedImage
+  alt="Periodic Jobs view page"
+  sources={{
+    light: useBaseUrl('/assets/images/periodic-jobs-page/periodic-jobs-page-light.png'),
+    dark: useBaseUrl('/assets/images/periodic-jobs-page/periodic-jobs-page-dark.png'),
+  }}
+/>
 
