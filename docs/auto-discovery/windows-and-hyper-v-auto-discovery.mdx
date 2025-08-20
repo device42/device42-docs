@@ -374,7 +374,7 @@ If you discover servers that do not belong to a domain, your User Account Contro
 
 ### Windows ADM Minimum Permissions
 
-There are two options for configuring ADM permissions. The first option uses local administrative permissions and the `IPC$` and `ADMIN$` shares. The second option lets users configure their own shares.
+There are two options for configuring ADM permissions for admin users. The first option uses local administrative permissions and the `IPC$` and `ADMIN$` shares. The second option lets users configure their own shares.
 
 For the local administrator method:
 
@@ -397,6 +397,20 @@ sources={{
     dark: useBaseUrl('/assets/images/windows-and-hyper-v-auto-discovery/windows-share-dark.png'),
 }}
 />
+
+While it's best to use an admin account for complete discovery, you can try the following workaround to grant a non-admin user permission for service discovery. 
+
+Use the `sc.exe sdset scmanager` command to grant `SC_MANAGER_CONNECT` permission to the user:
+
+- First, [find the SID](https://www.ninjaone.com/blog/how-to-find-user-security-identifier/) of the non-admin user account you want to grant permission to. 
+
+- Next, as an admin user, add the non-admin user account’s SID to the following command and execute it in PowerShell:
+
+    ```bash
+    sc.exe sdset scmanager "D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CCLCRPRC;;;SID_OF_DISCOVERY_USER)"
+    ```
+
+- Then try running the discovery process again as the non-admin user.
 
 ### Port Matrix
 
