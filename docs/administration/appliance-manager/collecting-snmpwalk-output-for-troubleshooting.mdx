@@ -3,24 +3,44 @@ title: "Collecting SNMP Walk Output"
 sidebar_position: 4
 ---
 
-You can collect SNMP walk output for a network device or PDU right from the GUI. Then, you can send the output to us for further troubleshooting or to add a specific device to discovery.
+You can collect SNMP walk output for a network device or PDU right from the GUI. Then, you can download the output and send it to us for further troubleshooting.
 
-### Collect SNMP Walk Output
+From the Appliance Manager, go to **Application > Generate SNMP Output**. 
 
-From the Appliance Manager, go to **Application > Generate SNMP Output**.
+### Simple SNMP Walk Output
 
-Add your target switch or other SNMP target device info, click **Submit**, and please be patient as it might take a few minutes. Please send us the file that is generated.
+If this is not a new device, select the **No: Simple walk** option.
 
-![Collect SNMP walk Appliance Manager](/assets/images/collecting-snmpwalk-output-for-troubleshooting/generate-snmp-output-options.png)
+Add your target switch or other SNMP target device info, click **Submit**, and please be patient as it might take a few minutes. Download the generated file and send it to support.
 
-If there is an issue, the network is not reachable, or you simply prefer using the terminal, you can instead run the following from any machine that has 'snmpwalk' installed:
+    ![Collect SNMP walk Appliance Manager](/assets/images/collecting-snmpwalk-output-for-troubleshooting/simple-walk.png)
+
+### MIB Browser-Based Walk
+
+For new devices, select **Yes: MIB browser based walk**. 
+
+- Select your **RC** and enter the required fields: **FQDN or IP Address**, **Community String**, and MIB file upload.
+
+    ![MIB file upload](/assets/images/collecting-snmpwalk-output-for-troubleshooting/browser-based-walk.png)
+
+- Select the data to generate for the new device and **Submit**.
+
+    ![Generation options](/assets/images/collecting-snmpwalk-output-for-troubleshooting/generate-snmp.png)
+
+- Click **Download Archive File** and save the file to attach to an existing support ticket. If needed, [create a new ticket](https://support.device42.com/hc/en-us/requests/new) or [email support](mailto:support@device42.com).
+
+    ![Download Archive file](/assets/images/collecting-snmpwalk-output-for-troubleshooting/download-archive-file.png)
+
+## Alternative SNMP Walk Generation
+
+If there is an issue, the network is not reachable, or you simply prefer using the terminal, you can instead run the following from any machine that has 'snmpwalk' installed for SNMP v2:
 
 ```
 snmpbulkwalk -Cc -ObentU -v2c -c COMMUNITY DEVICE > output_file_name
 snmpbulkwalk -ObentU -v 2c -c COMMUNITY DEVICE .1.3.6.1.4.1 >> output_file_name
 ```
 
-Also, the current setup has a bug for v3, so please use the following for any system using SNMP v3:
+You can use the following for any system using SNMP v3:
 
 ```
 snmpbulkwalk -Cc -ObentU -v 3 -u user_name -l authNoPriv -a MD5 -A auth_pass DEVICE > output_file_name

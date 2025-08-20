@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## Overview
 
-This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Applications.
+This is a technical guide that will walk you through a step-by-step process of building Business Services within Device42.  [Once you have successfully performed discovery,](auto-discovery) apply the methods outlined below to create Application Groups and then leverage these groups to facilitate the process of building your Business Services.
 
 ## Viewing Discovery Data
 
@@ -187,7 +187,7 @@ To choose one of these queries to generate your Application Groups, navigate to 
 
 ## Building Business Services
 
-To build a Business Service, navigate to **Applications > Business Applications**, and then click **Create** in the top right of the page.
+To build a Business Service, navigate to **Applications > Business Services**, and then click **Create** in the top right of the page.
 
 <ThemedImage
   alt="Create button"
@@ -195,27 +195,20 @@ To build a Business Service, navigate to **Applications > Business Applications
     light: useBaseUrl('/assets/images/building-business-services-in-device42/create-button-bs-light.png'),
     dark: useBaseUrl('/assets/images/building-business-services-in-device42/create-button-bs-dark.png'),
   }}
-  style={{ width: '60%' }} 
+  style={{ width: '50%' }} 
 />
 
-After naming and saving your new Business Service, click the **View Application** button and toggle on the **Edit** mode.  You'll see a blank canvas. Drag items from the left panel to start building the Business Service. 
+After naming and saving your new Business Service, click the **Application Layout** button and toggle on the **Edit** mode.  You'll see a blank canvas. Drag items from the left panel to start building the Business Service. 
 
-Select **Application Group** and drag it onto the canvas.
-
-You have several options to search for existing Application Groups. In the example, we searched for part of a server name (`server`) that we know is within the AppFocus group of the Application Group we're looking for. The AppFocus group is the focus point for the Application Group and is defined as the group's [Starting Point](/apps/application-groups/calculation-rules).
-
-You'll see that we found two Application Groups that had items containing the word `server` as their focus points.
+Select **Application Group** and drag it onto the canvas and choose the group(s) you want to add and click **Add** to include it on the canvas. 
 
 <ThemedImage
   alt= "Add Application Group modal window"
   sources={{
-    light: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-light.png'),
-    dark: useBaseUrl('/assets/images/building-business-services-in-device42/app-group-search-dark.png'),
+    light: useBaseUrl('/assets/images/building-business-services-in-device42/add-app-group-light.png'),
+    dark: useBaseUrl('/assets/images/building-business-services-in-device42/add-app-group-dark.png'),
   }}
-  style={{ width: '60%'}} 
 />
-
-Select the group you want to add and click **Add** to include it on the canvas. Repeat this process if there are any other Application Groups, Components, Resources, or Devices that you need to add to the Business Service.
 
 Once you have successfully imported everything, use the toolbars at the top right of the screen to label and color-code the objects.
 
@@ -237,20 +230,4 @@ Double-click a line or another area of the canvas to add text. Use this to repre
 Congratulations! You have now built a Business Service by leveraging Device42's discovery and Application Group capabilities.
 
 ![](/assets/images/Web_732_15.png)
- 
 
-## Tips and Tricks: Use Tags    
-
-In the add or edit mode of the **Hypervisors/\*nix/win for Autodiscovery** job pages, you can expand the **Miscellaneous** section to apply **Tags for discovered devices**. 
-
-- If you know which servers are part of your Business Service, you can tag them with the Business Service name, then easily search and filter devices by this tag when you are building your Business Service.
-
-- When creating a Business Service, drag the **Device** icon on the left, and then search for the tag to choose the devices you previously tagged in the discovery job.
-
-    <ThemedImage
-    alt= "Searching Devices using tags"
-    sources={{
-        light: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-light.png'),
-        dark: useBaseUrl('/assets/images/building-business-services-in-device42/tagged-device-search-dark.png'),
-    }}
-    />

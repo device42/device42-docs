@@ -24,11 +24,10 @@ The CyberArk AIMWebService API is needed for the integration. To use the API, pu
 - Log in to CyberArk as an administrator.
 - Select the **Applications** tab, then click **Add Application**.
 - Create an account for Device42.
-
-<img alt="Create an account for Device42 CyberArk" src={account} width="90%"/>
-
 - Click **Add**.
 - Check the box to **Allow extended authentication restrictions**.
+
+<img alt="Create an account for Device42 CyberArk" src={account} width="60%"/>
 
 ![allow extended auth restrictions](/assets/images/cyberark-integration/allow_extended_auth_restrictions.png)
 
@@ -44,25 +43,26 @@ sources={{
 }}
 />
 
-Select the **Enable CyberArk** checkbox and enter your CyberArk RESTful API information.
+- Select the **Enable CyberArk** checkbox and enter your **CyberArk URL** and **App Id** information. 
+- You can use the default endpoint or specify a custom endpoint as needed in the **CyberArk Endpoint** field.
 
-<ThemedImage
-alt="Enable CyberArk"
-sources={{
-    light: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-light.png'),
-    dark: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Enable CyberArk"
+    sources={{
+        light: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-light.png'),
+        dark: useBaseUrl('/assets/images/cyberark-integration/enable-cyberark-dark.png'),
+    }}
+    />
 
-Click **Test** and enter the managed account name to verify connectivity.
+- Click **Test** and enter the managed account name to verify connectivity.
 
-<ThemedImage
-alt="Test CyberArk"
-sources={{
-    light: useBaseUrl('/assets/images/cyberark-integration/test-name-light.png'),
-    dark: useBaseUrl('/assets/images/cyberark-integration/test-name-dark.png'),
-}}
-/>
+    <ThemedImage
+    alt="Test CyberArk"
+    sources={{
+        light: useBaseUrl('/assets/images/cyberark-integration/test-name-light.png'),
+        dark: useBaseUrl('/assets/images/cyberark-integration/test-name-dark.png'),
+    }}
+    />
 
 On confirmation of success, click **Save**.
 
@@ -85,5 +85,5 @@ style={{ width: '70%' }}
 
 The following note in the UI describes how passwords are retrieved and matched between CyberArk and Device42 systems:
 
-> By default passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided then the username will be matched directly.
+> By default, passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided then the username will be matched directly.
 You may also customize the Folder or Safe from which the password is retrieved by utilizing the Password Custom fields named Folder and Safe.
