@@ -6,7 +6,7 @@ sidebar_position: 13
 Device42 integrates with SAML 2.0 in conjunction with AD or LDAP user synchronizations to provide Single Sign On (SSO) support in Device42. Once users are added to Device42 via Active Directory or LDAP, they will automatically be logged into Device42 when they load the site.
 
 :::note
-Since authorization is handled by Device42, the user needs to exist within Device42 before they can log in for the SSO functionality to work.
+Since authorization is handled by Device42, the SSO functionality only works if the user account already exists within Device42 before the user logs in.
 :::
 
 SAML configuration varies between providers, but we'll provide the steps for configuration with Microsoft ADFS, Okta, and Onelogin below as examples. Device42 SSO should also work with **any** SAML 2.0 compatible Identity Provider and has been confirmed to work with IDaaS providers, Centrify, and PingIdentity's PingOne and PingFederate.
@@ -75,7 +75,7 @@ Set-ADFSRelyingPartyTrust -TargetIdentifier "" -NotBeforeSkew 5
 
     ![](/assets/images/image4.png)
 
-5. While still in the **SAML 2.0 Settings** of the Appliance Manager, enter `username` or another appropriate SAML attribute in the **Username field**. Unless you have signed responses configured on your Azure AD provider side, keep **Require signed response** box unchecked; otherwise, you'll get an unavailable page message. 
+5. While still in the **SAML 2.0 Settings** of the Appliance Manager, enter `username` or another appropriate SAML attribute in the **Username field**. Unless you have signed responses configured on your Azure AD provider side, keep the **Require signed response** box unchecked; otherwise, you'll get an unavailable page message. 
 
     Azure's built-in claims like `emailaddress` may not work with Device42, even though they appear in the Azure interface, because the built-in claim uses a namespace URI format. The solution is to create a new claim for `emailaddress` in your Azure AD enterprise app, map the claim to the user attribute, and use the custom claim name in the Device42 SAML **Username field**.
 
