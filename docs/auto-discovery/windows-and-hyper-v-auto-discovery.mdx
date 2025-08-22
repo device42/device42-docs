@@ -10,7 +10,7 @@ Device42 discovery uses multiple protocols to communicate with the target device
 
 ## Prerequisites
 
-When using WMI, you need to install Windows Discovery Service (WDS) and connect to your Remote Collectors (RCs) before setting up your Windows discovery job. For WDS installation instructions and information, visit the [Windows Discovery Service Installation](/getstarted/installation/windows-discovery-service-installation.mdx) documentation.
+When using WMI, you need to install the Windows Discovery Service (WDS) and connect to your Remote Collectors (RCs) before setting up your Windows discovery job. For WDS installation instructions and information, visit the [Windows Discovery Service Installation](/getstarted/installation/windows-discovery-service-installation.mdx) documentation.
 
 ### WinRM Network Requirements
 
@@ -402,9 +402,9 @@ While it's best to use an admin account for complete discovery, you can try the 
 
 Use the `sc.exe sdset scmanager` command to grant `SC_MANAGER_CONNECT` permission to the user:
 
-- First, [find the SID](https://www.ninjaone.com/blog/how-to-find-user-security-identifier/) of the non-admin user account you want to grant permission to. 
+- First, [find the SID](https://www.ninjaone.com/blog/how-to-find-user-security-identifier/) of the non-admin user account that you want to grant permission. 
 
-- Next, as an admin user, add the non-admin user account’s SID to the following command and execute it in PowerShell:
+- Next, as an admin user, add the non-admin user's SID to the following command and execute it in PowerShell:
 
     ```bash
     sc.exe sdset scmanager "D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CCLCRPRC;;;SID_OF_DISCOVERY_USER)"
