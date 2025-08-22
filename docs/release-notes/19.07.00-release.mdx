@@ -1,0 +1,179 @@
+---
+title: "19.07.00 Release"
+sidebar_position: 1
+---
+
+:::info
+The following release notes were take from the [Device42 blog](https://www.device42.com/blog/2025/08/20/saas-discovery-and-business-service-improvements-v19-07-ma/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+:::
+
+*Release Date: August 20th, 2025.*
+
+## Release Overview
+
+Updating Device42 to version 19.07.00
+
+Upgrading to 19.07.00 is possible from 19.05.10 or 19.06.00. If you need to first upgrade to Version 19.05.10, please see those release notes for details. A link will also be provided when requesting an upgrade.
+
+The 19.07 MA release contains the following features:
+
+## SaaS Discovery
+
+With the addition of SaaS discovery to our Software License Module. You are now able to view Software Assets within Device42 regardless of how they were purchased or deployed. 
+
+![SaaS Discovery](/assets/images/release-notes/19.07-saas-discovery.png)
+
+Device42 already discovers installed Software Components, Software In Use and End Users within your environment. SaaS discovery connects to the most popular Identity Providers like Azure Active Directory, Okta and G-Suite to bring in “software in use” records, showing what users are logging into what SaaS applications and when.
+
+Quickly View who has not used specific software in the last 90 days: 
+
+![Unused Software Detection](/assets/images/release-notes/19.07-unused-software.png)
+
+## Business Service Management
+
+Business Services have been enhanced with the following features:
+
+- More easily add devices to business services
+- Automatically add and remove items from business services
+- Clean up business services more easily
+- Application group member list page to more easily see complex groups
+
+![Business Service Add Alert](/assets/images/release-notes/19.07-business-service-add-alert.png)
+
+## Discovery enhancements
+
+- D42-40905 Fixed a bug with Intune discovery not adding IP addresses properly
+- D42-40471 Fixed a bug when discovering Silver Peak devices
+- D42-40406 Fixed a bug when discovering OpenGear frames
+- D42-40347 Fixed a bug with the 'Give Precedence to Hostname' option and SNMP Cluster device naming
+- D42-40325 Improved config file database detection for postgres discovery
+- D42-40281 Fixed a bug with SNMP scans using multiple v3 credentials with the same login
+- D42-40277 Fixed a bug with Azure Discovery and limited data being returned
+- D42-40101 Fixed an issue with SNMP and Fortinet device models
+- D42-39955 Fixed an issue with SNMP and Aruba switches
+- D42-39930 Improved SNMP discovery to gather more detail for Meraki switches
+- D42-39928 Fixed an issue with SNMP and virtual F5 devices
+- D42-39906 Fixed a bug with Arista Cloud discovery
+- D42-39883 Fixed a bug when adding assets to rooms
+- D42-39699 Fixed and issue with Chatsworth PDU's getting flipped and duplicated
+- D42-39670 Fixed PDU discovery issue with MAC addresses and serial numbers
+- D42-39665 Improved SNMP discovery to gather more detail like sim cards for Cradlepoint devices
+- D42-39606 Added projectid to GCP discovery
+- D42-39555 Fix a bug gathering IP addresses on HMC devices
+- D42-39547 Fixed a discovery bug with Cradlepoint AER2200 and E3000 devices
+- D42-39546 Fixed a bug when setting the Blade Host/Chassis option on device hardware models
+- D42-39506 Fixed a bug with openstack discovery
+- D42-39505 Improved Openstack discovery  when discovering all projects
+- D42-39504 Fixed a bug opening a link to an unprocessed object in discovery scores
+- D42-39459 Added port descriptions to OpenGear device ports via SNMP discovery
+- D42-39384 Added SNMP support for polycom video conferencing devices
+- D42-39363 Added SNMP support for Cisco RF Gateways
+- D42-39362 Added SNMP support for Synamedia Digital Content Managers
+- D42-39323 Added SNMP support for Starline busway critical power systems monitors
+- D42-39316 Fixed a bug that prevented certain SNMP OIDs from being globally ignored
+- D42-39250 After generating an SNMP walk in the appliance manager you can download the MIB, review the output and then send it to support. Automated upload has been removed. 
+- D42-39248 Generating and SNMP walk now correctly redirects to the options page after being generated
+- D42-39117 Improved SNMP discovery for fortinet clusters and associated VDOMs
+- D42-38926 Fixed how we discover TPM modules on windows devices
+- D42-38839 Added SNMP support for Ceragon RF IP Links
+- D42-38695 Fixed a bug with Nutanix Prism discovery
+- D42-38591 Fixed a bug with Vmware discovery
+- D42-38585 Added the ability to discover solaris logical domains from the global zone
+- D42-38211 Added better port discovery for Cisco Identity Services Engine devices
+- D42-37849 Fixed a bug with multiple discovery types updating the operating system, now it keeps the OS with the highest accuracy
+- D42-37820 Added support for Intune Discovery running in Azure GovCloud (.us)
+
+## API enhancements
+
+Guidelines for connecting and using Device42 APIs have been updated, The API documentation is available at: https://api.device42.com/.  
+
+- D42-40738 Added Application Group API documentation
+- D42-40494 Added the ability to set serial numbers via API
+- D42-40186 Added Application Group APIs
+- D42-39432 Fixed a bug in the certificate API when setting DNS parameters
+- D42-39370 Corrected Swagger documentation for attachments API calls
+- D42-38640 Fixed a bug removing an attachment from business services and devices via API
+
+## Agent updates
+
+- D42-40461 Added GPU detection to Linux agent scans
+- D42-40282 Fixed TPM detection via the agent
+- D42-39280 Fixed a bug when detecting the last login via agents on mac
+
+## Other Enhancements and Customer requested fixes
+
+- D42-40726 Added the certificate id column to the import sample file
+- D42-40718 Fixed the time selection not working on specific scan jobs
+- D42-40597 Added a new Deployment Type to operating systems
+- D42-40578 Removed insecure cipher suites from SSL configuration
+- D42-40502 Added a scrollbar to the device impact list
+- D42-40492 Fixed a bug with  LDAP Discovery bulk exports
+- D42-40487 Fixed a bug cleaning up orphaned task rows in the ha_jobs table
+- D42-40485 Fixed a bug that may prevent creation of charts in standard reports
+- D42-40483 Fixed a bug with my notifications not properly filtering
+- D42-40440 Fixed a bug preventing a full backup and all options enabled
+- D42-40439 Fixed a bug in EnrichAI that prevented enrichment with multiple vendor aliases
+- D42-40429 Fixed a bug with quick actions and filters with ampersand symbols
+- D42-40404 Fixed and issue manually setting CPU speed
+- D42-40403 Adjusted custom fields to be listed in alphabetical order
+- D42-40390 Fixed a bug when adding a new rack and then trying to delete without first saving
+- D42-40371 Fixed a bug with the consolidated storage report
+- D42-40365 Fixed a bug emailing standard reports to users with apostrophes in their email addresses
+- D42-40351 Scheduled reports will no longer email empty reports
+- D42-40349 Fixed a bug importing custom fields with ':' in the data
+- D42-40327 Added endpoint url to Cyberark configuration
+- D42-40292 Fixed a bug preventing adding custom messages on the login screen
+- D42-40257 Fixed asset template display in a rack where the width is less than 1
+- D42-40250 Fixed a bug with SNMP and HP printers
+- D42-40240 Fixed a bug when deleting and re-uploading an attachment adding extra characters to the file
+- D42-40220 Fixed a bug preventing the archival of records associated with a business service
+- D42-40208 Updated the links on the login page
+- D42-40207 Fixed a bug when bulk adding multi-word tags to devices 
+- D42-40166 Fixed custom fields with URLs in them not linking properly
+- D42-40123 Improved performance of IP device filters for non super users
+- D42-40045 Added a link to the scan created in the notification message when creating a ping sweep job
+- D42-40001 Adjusted business service custom fields to be listed in alphabetical order
+- D42-39951 Fixed a bug with QR code generation 
+- D42-39949 OID exclusions will now ignore OIDs in an entire tree if there is a dot(.) at the end
+- D42-39826 Fixed a bug preventing CyberArk integration from being enabled
+- D42-39805 Fixed a bug preventing some devices from being archived
+- D42-39803 Fixed and issue with the agent gathering the correct SID for last login
+- D42-39754 Improved performance of Location device filters for non super users
+- D42-39658 Added upgrade time to the upgrade log file
+- D42-39602 Fixed a bug preventing QR codes with text from being generated on assets
+- D42-39499 Fixed a bug when adding and removing tags from the action menu
+- D42-39443 Fixed a bug that may cause jobs to stay in a processing state
+- D42-39351 Fixed a bug when trying to enable ADM sampling with no interval set
+- D42-39343 Fixed a permissions bug preventing the "Type" field from being set when creating a new device
+- D42-39247 Fixed a bug causing devices to not automatically be removed from a business service
+- D42-39242 Updated the group permissions UI popups
+- D42-38845 Updated UX of hardware models page
+- D42-38728 Fixed being unable to scroll down on custom lists in the devices page
+- D42-38714 Fixed a bug with dropdowns and page size changes
+- D42-38710 Fixed an error when trying to sort list views by label and type
+- D42-38641 Fixed disk size parsing to display terabyte sized drives correctly
+- D42-38584 Fixed the service level not displaying correctly when adding stored assets to rooms
+- D42-38450 Upgrade scripts now correctly recover from panics
+- D42-38396 Added a new Deployment Type to software components
+- D42-36483 Added the ability to add and remove tags from the device's view. 
+- D42-28243 Fixed imports creating duplicates when importing Software Components
+- D42-26432 Added the ability to automatically add new items to a Business Service
+
+## Known Issues:
+
+- D42-40349 – Generic Import Tool trims custom fields with ':' character
+- D42-39460- Search criteria is not visible on Pre-Defined Reports view page
+- D42-38249 – Users are not notified if they lack view permissions
+- D42-39359 – EnrichAI allows editing button mistakenly
+- D42-39404 – Improve performance when sorting and filtering with the 'Location' column
+- D42-39344 – Object Category field is visible on Power Units detail page when RBAC is disabled
+- D42-38512 – Spacing Issue on Hypervisor Discovery Page
+- D42-40799 – AWS Discovery may fail to collect subnet details for Elastic Load Balancer resources when more than 1 region is defined
+
+## Latest Device42 Update
+
+Download the current update for Device42 [here](https://www.device42.com/update). 
+
+Depending on the version you are upgrading from, you may have to install an incremental update first: 18.14 > 19.00 > 19.05 > 19.07.
+
+If you haven’t tried Device42 yet, [download a 14-day free trial](https://www.device42.com/try-device42/)!
