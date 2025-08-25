@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 :::info
-The following release notes were take from the [Device42 blog](https://www.device42.com/blog/2025/08/20/saas-discovery-and-business-service-improvements-v19-07-ma/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+The following release notes were taken from [this blog post](https://www.device42.com/blog/2025/08/20/saas-discovery-and-business-service-improvements-v19-07-ma/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
 :::
 
 *Release Date: August 20th, 2025.*
@@ -23,9 +23,9 @@ With the addition of SaaS discovery to our Software License Module. You are now 
 
 ![SaaS Discovery](/assets/images/release-notes/19.07-saas-discovery.png)
 
-Device42 already discovers installed Software Components, Software In Use and End Users within your environment. SaaS discovery connects to the most popular Identity Providers like Azure Active Directory, Okta and G-Suite to bring in “software in use” records, showing what users are logging into what SaaS applications and when.
+Device42 already discovers installed Software Components, Software In Use, and End Users within your environment. SaaS discovery connects to the most popular Identity Providers like Azure Active Directory, Okta, and G-Suite to bring in “software in use” records, showing what users are logging into what SaaS applications and when.
 
-Quickly View who has not used specific software in the last 90 days: 
+Quickly view who has not used specific software in the last 90 days: 
 
 ![Unused Software Detection](/assets/images/release-notes/19.07-unused-software.png)
 
@@ -40,7 +40,7 @@ Business Services have been enhanced with the following features:
 
 ![Business Service Add Alert](/assets/images/release-notes/19.07-business-service-add-alert.png)
 
-## Discovery enhancements
+## Discovery Enhancements
 
 - D42-40905 Fixed a bug with Intune discovery not adding IP addresses properly
 - D42-40471 Fixed a bug when discovering Silver Peak devices
@@ -55,37 +55,37 @@ Business Services have been enhanced with the following features:
 - D42-39928 Fixed an issue with SNMP and virtual F5 devices
 - D42-39906 Fixed a bug with Arista Cloud discovery
 - D42-39883 Fixed a bug when adding assets to rooms
-- D42-39699 Fixed and issue with Chatsworth PDU's getting flipped and duplicated
+- D42-39699 Fixed an issue with Chatsworth PDUs getting flipped and duplicated
 - D42-39670 Fixed PDU discovery issue with MAC addresses and serial numbers
-- D42-39665 Improved SNMP discovery to gather more detail like sim cards for Cradlepoint devices
+- D42-39665 Improved SNMP discovery to gather more detail like SIM cards for Cradlepoint devices
 - D42-39606 Added projectid to GCP discovery
 - D42-39555 Fix a bug gathering IP addresses on HMC devices
 - D42-39547 Fixed a discovery bug with Cradlepoint AER2200 and E3000 devices
 - D42-39546 Fixed a bug when setting the Blade Host/Chassis option on device hardware models
-- D42-39506 Fixed a bug with openstack discovery
-- D42-39505 Improved Openstack discovery  when discovering all projects
+- D42-39506 Fixed a bug with OpenStack discovery
+- D42-39505 Improved OpenStack discovery  when discovering all projects
 - D42-39504 Fixed a bug opening a link to an unprocessed object in discovery scores
 - D42-39459 Added port descriptions to OpenGear device ports via SNMP discovery
-- D42-39384 Added SNMP support for polycom video conferencing devices
+- D42-39384 Added SNMP support for Polycom video conferencing devices
 - D42-39363 Added SNMP support for Cisco RF Gateways
 - D42-39362 Added SNMP support for Synamedia Digital Content Managers
 - D42-39323 Added SNMP support for Starline busway critical power systems monitors
 - D42-39316 Fixed a bug that prevented certain SNMP OIDs from being globally ignored
-- D42-39250 After generating an SNMP walk in the appliance manager you can download the MIB, review the output and then send it to support. Automated upload has been removed. 
+- D42-39250 After generating an SNMP walk in the Appliance Manager, you can download the MIB, review the output, and then send it to support. Automated upload has been removed. 
 - D42-39248 Generating and SNMP walk now correctly redirects to the options page after being generated
-- D42-39117 Improved SNMP discovery for fortinet clusters and associated VDOMs
-- D42-38926 Fixed how we discover TPM modules on windows devices
+- D42-39117 Improved SNMP discovery for FortiNet clusters and associated VDOMs
+- D42-38926 Fixed how we discover TPM modules on Windows devices
 - D42-38839 Added SNMP support for Ceragon RF IP Links
 - D42-38695 Fixed a bug with Nutanix Prism discovery
-- D42-38591 Fixed a bug with Vmware discovery
-- D42-38585 Added the ability to discover solaris logical domains from the global zone
+- D42-38591 Fixed a bug with VMware discovery
+- D42-38585 Added the ability to discover Solaris logical domains from the global zone
 - D42-38211 Added better port discovery for Cisco Identity Services Engine devices
 - D42-37849 Fixed a bug with multiple discovery types updating the operating system, now it keeps the OS with the highest accuracy
 - D42-37820 Added support for Intune Discovery running in Azure GovCloud (.us)
 
-## API enhancements
+## API Enhancements
 
-Guidelines for connecting and using Device42 APIs have been updated, The API documentation is available at: https://api.device42.com/.  
+Guidelines for connecting and using Device42 APIs have been updated. The API documentation is available at: https://api.device42.com/.  
 
 - D42-40738 Added Application Group API documentation
 - D42-40494 Added the ability to set serial numbers via API
@@ -94,13 +94,13 @@ Guidelines for connecting and using Device42 APIs have been updated, The API doc
 - D42-39370 Corrected Swagger documentation for attachments API calls
 - D42-38640 Fixed a bug removing an attachment from business services and devices via API
 
-## Agent updates
+## Agent Updates
 
 - D42-40461 Added GPU detection to Linux agent scans
 - D42-40282 Fixed TPM detection via the agent
-- D42-39280 Fixed a bug when detecting the last login via agents on mac
+- D42-39280 Fixed a bug when detecting the last login via agents on Mac
 
-## Other Enhancements and Customer requested fixes
+## Other Enhancements and Customer-Requested Fixes
 
 - D42-40726 Added the certificate id column to the import sample file
 - D42-40718 Fixed the time selection not working on specific scan jobs
@@ -130,15 +130,15 @@ Guidelines for connecting and using Device42 APIs have been updated, The API doc
 - D42-40208 Updated the links on the login page
 - D42-40207 Fixed a bug when bulk adding multi-word tags to devices 
 - D42-40166 Fixed custom fields with URLs in them not linking properly
-- D42-40123 Improved performance of IP device filters for non super users
+- D42-40123 Improved performance of IP device filters for non-super users
 - D42-40045 Added a link to the scan created in the notification message when creating a ping sweep job
 - D42-40001 Adjusted business service custom fields to be listed in alphabetical order
 - D42-39951 Fixed a bug with QR code generation 
 - D42-39949 OID exclusions will now ignore OIDs in an entire tree if there is a dot(.) at the end
 - D42-39826 Fixed a bug preventing CyberArk integration from being enabled
 - D42-39805 Fixed a bug preventing some devices from being archived
-- D42-39803 Fixed and issue with the agent gathering the correct SID for last login
-- D42-39754 Improved performance of Location device filters for non super users
+- D42-39803 Fixed an issue with the agent gathering the correct SID for last login
+- D42-39754 Improved performance of Location device filters for non-super users
 - D42-39658 Added upgrade time to the upgrade log file
 - D42-39602 Fixed a bug preventing QR codes with text from being generated on assets
 - D42-39499 Fixed a bug when adding and removing tags from the action menu
@@ -151,7 +151,7 @@ Guidelines for connecting and using Device42 APIs have been updated, The API doc
 - D42-38728 Fixed being unable to scroll down on custom lists in the devices page
 - D42-38714 Fixed a bug with dropdowns and page size changes
 - D42-38710 Fixed an error when trying to sort list views by label and type
-- D42-38641 Fixed disk size parsing to display terabyte sized drives correctly
+- D42-38641 Fixed disk size parsing to display terabyte-sized drives correctly
 - D42-38584 Fixed the service level not displaying correctly when adding stored assets to rooms
 - D42-38450 Upgrade scripts now correctly recover from panics
 - D42-38396 Added a new Deployment Type to software components
@@ -159,7 +159,7 @@ Guidelines for connecting and using Device42 APIs have been updated, The API doc
 - D42-28243 Fixed imports creating duplicates when importing Software Components
 - D42-26432 Added the ability to automatically add new items to a Business Service
 
-## Known Issues:
+## Known Issues
 
 - D42-40349 – Generic Import Tool trims custom fields with ':' character
 - D42-39460- Search criteria is not visible on Pre-Defined Reports view page
