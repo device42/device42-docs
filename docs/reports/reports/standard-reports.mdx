@@ -3,11 +3,20 @@ title: "Standard Reports"
 sidebar_position: 15.5
 ---
 
-From version 18.13.00, the traditional "Classic Reports" menu option has been renamed to **Standard Reports** under the **Analytics** menu. Standard Reports are generally the quickest and easiest way to query and report on information within Device42. 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+The traditional "Classic Reports" menu option has been renamed to **Standard Reports** under the **Analytics** menu. Standard Reports are generally the quickest and easiest way to query and report on information within Device42. 
 
 The standard reporting feature is the first place to go to answer difficult business questions with system data. These reports integrate this powerful tabular reporting functionality with DOQL queries, MA object tables, and the catalog of existing reports.
 
-![Standard Reports menu](/assets/images/standard-reports/standard-report-menu.png)
+<ThemedImage
+  alt="Standard reports menu"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/standard-report-menu-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/standard-report-menu-dark.png'),
+  }}
+/>
 
 Use the Standard Reporting options to create tabular reports directly from an existing report or from a list within the UI, or use a custom DOQL to retrieve and populate the data. These reports can then be exported or scheduled to email, providing recipients with data-rich tabular exports from the system that are easy to configure and digest.
 
@@ -24,9 +33,17 @@ You can create a Standard Report in several ways:
 
 A DOQL statement, or Device42 Object Query Language statement, is a query that can be run against the Device42 database in the **Insights+** interface, through the application, or using the RESTful API. DOQLs can be used in Standard Reporting to generate the data to display in the results table.
 
-**NOTE:** To create reports using DOQL, you should be familiar with and consult the data dictionary under the **Viewer Schema** option under the help icon.
+:::note
+To create reports using DOQL, you should be familiar with and consult the **Data Dictionary** under the **Viewer Schema** option under the help icon.
+:::
 
-![View Schema option](/assets/images/standard-reports/viewer-schema-option.png)
+<ThemedImage
+  alt="View schema option"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/viewer-schema-option-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/viewer-schema-option-dark.png'),
+  }}
+/>
 
 To use DOQL to create or edit a Standard Report, name the report and then select **DOQL Query** from the report-type dropdown. Enter the DOQL commands in the text box. The start of a sample select statement is displayed in the DOQL text box. If an error is encountered during parsing (for example, due to invalid syntax or referencing a table or field that does not exist), an error message will show at the bottom of the text box.
 
@@ -34,37 +51,38 @@ To use DOQL to create or edit a Standard Report, name the report and then select
 
 Create a multitab Standard Report with one tab containing the results of a previous existing report. Select the **Pre-Defined Report** option and choose from a set of existing reports to be included as a separate tab.
 
-![Pre-Defined Report option](/assets/images/standard-reports/pre-defined-report.png)
+
+<ThemedImage
+  alt="Pre-defined report option"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/pre-defined-report-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/pre-defined-report-dark.png'),
+  }}
+/>
 
 ### Creating a Report From a Guided Report 
 
-To build a Standard Report using the Guided Report option, select the model (like **Devices**), then select the table columns that are part of that device model. Field filters can be added or set to alter the result display of this report.
+Select the **Guided Report** option and object to create the report on. Filters can be added and set to alter the report.
 
-![Guided Report option](/assets/images/standard-reports/guided-report-option.png)
+<ThemedImage
+  alt="Guided report option"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/guided-report-option-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/guided-report-option-dark.png'),
+  }}
+/>
 
-![Guided Report dropdown](/assets/images/standard-reports/guided-report-dropdown.png)
+<ThemedImage
+  alt="Guided report dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/guided-report-dropdown-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/guided-report-dropdown-dark.png'),
+  }}
+/>
 
 ### Creating a Report From a List Page
 
-You can create a new Standard Report from list pages. A Standard Report can be emailed and scheduled.
-
-Create a Standard Report from Infrastructure list pages for:
-
-- Rooms
-- Racks
-- Telco Circuits
-- Parts Models
-- Parts List
-- Power Units
-- Hardware Models
-- Customers
-- Departments
-- Purchases
-- Vendors 
-
-Click the **Report** button at the top of the table.
-
-Create a Standard Report from lists from the **Resources** menu for:
+You can create a new Standard Report from any of the object list pages. A Standard Report can be emailed and scheduled. For example, you can create a Standard Report from the following list pages under the **Resources** menu:
 
 - All Devices
 - All Assets
@@ -79,21 +97,25 @@ Create a Standard Report from lists from the **Resources** menu for:
 - Software In Use
 - Secrets 
 
-First create and apply filters to a list, then create a Standard Report using the **Report** button at the top of the table.
+- From the object list page, apply filters to a list, then create a Standard Report using the **Report** button at the top of the table. 
 
-![Devices report button](/assets/images/standard-reports/devices-report-button.png)
+    <ThemedImage
+    alt="Devices report button"
+    sources={{
+        light: useBaseUrl('/assets/images/standard-reports/devices-report-button-light.png'),
+        dark: useBaseUrl('/assets/images/standard-reports/devices-report-button-dark.png'),
+    }}
+    />
 
-Create a Standard Report from list pages under the **Applications** menu: 
+- Configure the report. Reduce the report data to include only the essential columns by deselecting columns as needed. 
 
-- Application Components
-- Certificates
-- Certificate Instances
-
-Create and apply filters to a list, then create a Standard Report using the **Report** button at the top of the table.
-
-![Create new report UI](/assets/images/standard-reports/create-new-report.png)
-
-![Column options](/assets/images/standard-reports/create-new-report-columns.png)
+    <ThemedImage
+    alt="Column options"
+    sources={{
+        light: useBaseUrl('/assets/images/standard-reports/create-new-report-columns-light.png'),
+        dark: useBaseUrl('/assets/images/standard-reports/create-new-report-columns-dark.png'),
+    }}
+    />
 
 ## Exporting Standard Reports 
 
@@ -101,6 +123,12 @@ As with the previous Classic Reports, you can view the report output on the scre
 
 ## Scheduling Standard Reports
 
-You can set and apply a schedule to the report, including a comma-separated list of recipients.
+Toggle **Report Schedule** on and include a comma-separated list of recipients to send the report to.
 
-![Scheduling standard reports](/assets/images/standard-reports/scheduling-standard-reports.png)
+<ThemedImage
+  alt="Scheduling standard reports"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/scheduling-standard-reports-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/scheduling-standard-reports-dark.png'),
+  }}
+/>
