@@ -6,9 +6,9 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The database Viewer Schema tools are a resource for consulting on the structure of the Device42 database. 
+The database viewer schema tools are a resource for consulting on the structure of the Device42 database. 
 
-This page walks you through how to access and use the two database viewer tools, the Entity Relationship Diagram (ERD) and the Data Dictionary.
+This page walks you through accessing and using the two database viewer tools, the Entity Relationship Diagram (ERD) and the Data Dictionary.
 
 ## Locate the Viewer Tools
 
@@ -29,7 +29,7 @@ The ERD is a handy way to navigate the Device42 database schema, visualize relat
 - The ERD is searchable using the **Find** field, below the **Device42 - Viewer Entity Relationship Diagram** header. By searching for `device`, database views that contain "device" are highlighted (for example, `view_device_v2` and other related fields), while others fade into the background:
 
     <ThemedImage
-    alt="EDR Viewer example"
+    alt="ERD Viewer example"
     sources={{
         light: useBaseUrl('/assets/images/db-viewer-schema/edr-device-example-light.png'),
         dark: useBaseUrl('/assets/images/db-viewer-schema/edr-device-example-dark.png'),
@@ -39,7 +39,7 @@ The ERD is a handy way to navigate the Device42 database schema, visualize relat
 - Click the **tiny triangle symbol** on a table to expand it or use the **Expand All** button to expand all the database entities:
 
     <ThemedImage
-    alt="EDR expand buttons"
+    alt="ERD expand buttons"
     sources={{
         light: useBaseUrl('/assets/images/db-viewer-schema/tiny-triangle-closed-light.png'),
         dark: useBaseUrl('/assets/images/db-viewer-schema/tiny-triangle-closed-dark.png'),
@@ -60,7 +60,7 @@ The Data Dictionary is a text-based viewer used to explore the details of the De
 
 You can filter by Data Building Blocks (**DBB**), Device42 Object Query Language (**DOQL**), or both (**All**) views.
 
-- **DBB**: Structured database views require little-to-no extra view-joining, and are composed to let you quickly create reports. These views are refreshed on a nightly basis. 
+- **DBB**: Structured database views require little to no extra view-joining, and are composed to let you quickly create reports. These views are refreshed on a nightly basis. 
 
     <ThemedImage
     alt="Data Dictionary DBB view"
