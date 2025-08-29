@@ -10,7 +10,13 @@ InsightsAI generates queries from the natural language descriptions you provide 
 
 By typing plain English messages, like “Which SSL/TLS certificates are expiring in the next 90 days?” or "Find all Resources where name contains 'Nested,'" InsightsAI will create the query that can be executed without requiring deep knowledge of the query language or data model. You can preview the results and refine the query as needed.
 
-![InsightsAI page](/assets/images/insightsai/ui-insights-chat.png)
+<ThemedImage
+  alt="InsightsAI menu location"
+  sources={{
+    light: useBaseUrl('/assets/images/insightsai/insights-chat-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/insights-chat-dark.png'),
+  }}
+/>
 
 ## Create a New Chat
 
@@ -22,12 +28,17 @@ Navigate to **Analytics > Ask InsightsAI** from the Device42 Main Appliance to c
     light: useBaseUrl('/assets/images/insightsai/1-menu-light.png'),
     dark: useBaseUrl('/assets/images/insightsai/1-menu-dark.png'),
   }}
-  style={{ width: '70%' }} 
 />
 
 From the Ask InsightsAI page, type in a description of the data you want to fetch in the text box.
 
-![InsightsAI page](/assets/images/insightsai/ui-insights-page.png)
+<ThemedImage
+  alt="InsightsAI UI"
+  sources={{
+    light: useBaseUrl('/assets/images/insightsai/insightsai-ui-light.png'),
+    dark: useBaseUrl('/assets/images/insightsai/insightsai-ui-dark.png'),
+  }}
+/>
 
 The two buttons above the input box gets you started with an initial query that you can refine by submitting follow-up messages. Click **Device report** to start a new chart with the input:
 
@@ -67,7 +78,7 @@ find all devices in production
 
 If the data or query needs to be refined, ask a follow-up question, InsightsAI will provide a new response.  
 
-For example, the previous results did not include information on device types. You can give InsightsAI another direction to include the type of device and only find virtual devices.
+For example, the previous results did not include information on device operating systems. You can give InsightsAI another direction to include operating systems and find devices running Windows.
 
 <ThemedImage
   alt="Follow-up response"
@@ -109,7 +120,8 @@ To save the generated query, click **Report** on the InsightsAI [response toolba
   }}
 />
 
-- **(1) Save and Display On Screen:**  View, search, and print the data records.
+- **(1) Export:** Download a `.tsv` or `.xls` file of the query result. 
+- **(2) Save and Display On Screen:**  View, search, and print the data records.
   
     <ThemedImage
     alt="Report example"
@@ -119,7 +131,6 @@ To save the generated query, click **Report** on the InsightsAI [response toolba
     }}
     />    
 
-- **(2) Export:** Download a `.tsv` or `.xls` file of the query result. 
 - **(3) Report Schedule:** Periodically run the query and email the results by filling in the fields.
 
 ## InsightsAI Chats List Page
@@ -136,7 +147,7 @@ You can create a **New Chat** from the list page.
   }}
 />
 
-Click **+ More** to filter the chat queries by specific initial queries, users, and creation dates.
+Click **More Filters** to filter the chat queries by specific initial queries, users, and creation dates.
 
 <ThemedImage
   alt="List page filter options"
@@ -146,7 +157,7 @@ Click **+ More** to filter the chat queries by specific initial queries, users, 
   }}
 />
 
-Delete one or more chats by selecting them and choosing a delete option from the **Select and action** dropdown. Click the **hammer icon** to execute the selected action.
+Delete one or more chats by selecting them and choosing a delete option from the **Select and action** dropdown.
 
 <ThemedImage
   alt="List page actions"
