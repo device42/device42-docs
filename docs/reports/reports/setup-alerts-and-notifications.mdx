@@ -6,7 +6,7 @@ sidebar_position: 16
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can set up Device42 alerts to notify you about any Business Application, Discovery, OS, Part Model, Software, Subnet, or System changes that affect your IT environment. Alerts can generate notifications within the Device42 UI or be integrated with external systems such as PagerDuty, Opsgenie, and so on.
+You can set up Device42 alerts to notify you about any business service, discovery, OS, part model, software, subnet, or system changes that affect your IT environment. Alerts can generate notifications within the Device42 UI or be integrated with external systems such as PagerDuty and Opsgenie.
 
 <ThemedImage
 alt="Add alert button"
@@ -28,10 +28,10 @@ sources={{
   }}
 />
 
-- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each Rule Type has associated Triggers that define the conditions that will generate an alert.
-- Select the **Trigger** you want for the Rule Type you selected.
+- Enter a **Name** for the alert, and then select the **Rule Type** for the alert. Each rule type has associated triggers that define the conditions that will generate an alert.
+- Select the **Trigger** you want for the rule type you selected.
 - Select the **Alert Type**.
-  - If you select **D42 Notification**, select or add a new **Escalation Profile** to use for the alert. Escalation Profiles are used to set up email notification escalation tiers. To view, add, or edit escalation profiles, go to **Tools > Admins & Permissions > Escalation Profiles**.
+  - If you select **D42 Notification**, select or add a new **Escalation Profile** to use for the alert. Escalation profiles are used to set up email notification escalation tiers. To view, add, or edit escalation profiles, go to **Tools > Admins & Permissions > Escalation Profiles**.
   - If you select **Alert Integration**, select or add the integration used for the alert. Manage integrations from **Tools > Integrations > External Integrations**. Visit [https://www.device42.com/integrations/](https://www.device42.com/integrations/) to look up supported integrations.
 
 As you construct your alert, Device42 displays the alert definition based on the options you select. The example shows an alert with a **Rule Type** of `Operating System` and **Trigger** of `Count > 1` that sends a notification to the `Alert Group 1` escalation profile.
@@ -84,7 +84,7 @@ When you are done, click one of the **Save** options at the bottom of the page.
 
 ### Alert Rule Types and Triggers
 
-**Business Application**
+**Business Service**
 
 - New Application Group Dependency Found
 - Application Group Dependency Removed
@@ -184,7 +184,7 @@ sources={{
   }}
 />
 
-To act on alerts, select them and choose an **Action** from the dropdown menu. The action options are:
+To act on alerts, select them and choose one of the **Actions** from the dropdown menu:
 
 - **Delete with Detailed Confirmation:** Displays a confirmation dialog of the items selected for deleting. Note that this action only deletes notifications and not the alert conditions that triggered them.
 - **Fast Background Delete:** Deletes the selected items without confirming the selection.
@@ -215,14 +215,14 @@ Device42 supports the following variables for embedding within alert emails when
       <tr>
          <td valign="top"><span>Rule Type</span></td>
          <td valign="top"><span>Trigger</span></td>
-         <td valign="top"><span>parameters supported</span></td>
+         <td valign="top"><span>Parameters Supported</span></td>
       </tr>
       <tr>
          <td rowspan="2" valign="top">
-            <p align="center"><span>Business Application</span></p>
+            <p align="center"><span>Business Service</span></p>
          </td>
          <td valign="top"><span>New Application Group Dependency Found</span></td>
-         <td rowspan="2" valign="top"><span><br />%(from_model)s - from_model <br />%(to_model)s - to_model the device by default (for now we support only device-to-device connections in Business Apps) <br />%(from_name)s - from_name <br />%(to_name)s - to_name- the name of object (device) <br />%(business_app)s - the Business App name</span></td>
+         <td rowspan="2" valign="top"><span><br />%(from_model)s - from_model <br />%(to_model)s - to_model the device by default (for now we support only device-to-device connections in business services) <br />%(from_name)s - from_name <br />%(to_name)s - to_name- the name of object (device) <br />%(business_app)s - the business service name</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Application Group Dependency Removed</span></td>
@@ -232,7 +232,7 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>CRAC</span></p>
          </td>
          <td valign="top"><span>Inlet Temperature</span></td>
-         <td rowspan="2" valign="top"><span><br />%(sensor_rule_id)s – Alert Rule ID <br />%(sensor_rule_name)s – Alert Rule Name <br />%(device_type)s – Device / PDU <br />%(device_name)s – Device name <br />%(device_id)s – Device ID <br />%(device_ip)s – Device IP <br />%(element_type)s – Infeed, output, bank, etc. <br />%(element_name)s – Name if available, if not – ID <br />%(element_id)s – Element ID <br />%(measure)s – Current/power, status, etc. <br />%(value)s – Value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critcal/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC Name <br />%(date)s – Date when alert was triggered</span></td>
+         <td rowspan="2" valign="top"><span><br />%(sensor_rule_id)s – alert rule ID <br />%(sensor_rule_name)s – alert rule name <br />%(device_type)s – device / PDU <br />%(device_name)s – device name <br />%(device_id)s – device ID <br />%(device_ip)s – device IP <br />%(element_type)s – infeed, output, bank, etc. <br />%(element_name)s – name if available, if not – ID <br />%(element_id)s – element ID <br />%(measure)s – current/power, status, etc. <br />%(value)s – value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critical/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC name <br />%(date)s – date when alert was triggered</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Return Temperature</span></td>
@@ -265,18 +265,18 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>Operating System</span></p>
          </td>
          <td valign="top"><span>Count</span></td>
-         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s -Software name <br />%(license_key)s <br />%(operator)s - from Alert <br />%(trigger_value)s - value from Alert</span></td>
+         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s - software name <br />%(license_key)s <br />%(operator)s - from alert <br />%(trigger_value)s - value from alert</span></td>
       </tr>
       <tr>
          <td valign="top"><span>License Percent Used</span></td>
-         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s -Software name <br />%(license_key)s <br />%(operator)s - from Alert <br />%(trigger_value)s - value from Alert</span></td>
+         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s - software name <br />%(license_key)s <br />%(operator)s - from alert <br />%(trigger_value)s - value from alert</span></td>
       </tr>
       <tr>
          <td rowspan="2" valign="top">
             <p align="center"><span>Part Model</span></p>
          </td>
          <td valign="top"><span>Number Available</span></td>
-         <td valign="top"><span><br />%(type)s - type name <br />%(prop_name)s - name or model # <br />%(name)s- value of name or model # <br />%(value) - current value <br />%(operator) - alert condition operator <br />%(val)s- alert condition value</span></td>
+         <td valign="top"><span><br />%(type)s - type name <br />%(prop_name)s - name or model # <br />%(name)s- value of name or model # <br />%(value)s - current value <br />%(operator) - alert condition operator <br />%(val)s- alert condition value</span></td>
       </tr>
       <tr>
          <td valign="top"><span>% Available</span></td>
@@ -287,7 +287,7 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>Power Circuit<span class="Apple-converted-space">&nbsp;</span></span></p>
          </td>
          <td valign="top"><span>Avg Watts</span></td>
-         <td rowspan="3" valign="top"><span><br />%(sensor_rule_id)s – Alert Rule ID <br />%(sensor_rule_name)s – Alert Rule Name <br />%(device_type)s – Device / PDU <br />%(device_name)s – Device name <br />%(device_id)s – Device ID <br />%(device_ip)s – Device IP <br />%(element_type)s – Infeed, output, bank, etc. <br />%(element_name)s – Name if available, if not – ID <br />%(element_id)s – Element ID <br />%(measure)s – Current/power, status, etc. <br />%(value)s – Value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critcal/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC Name <br />%(date)s – Date when alert was triggered</span></td>
+         <td rowspan="3" valign="top"><span><br />%(sensor_rule_id)s – alert rule ID <br />%(sensor_rule_name)s – alert rule name <br />%(device_type)s – device / PDU <br />%(device_name)s – device name <br />%(device_id)s – device ID <br />%(device_ip)s – device IP <br />%(element_type)s – infeed, output, bank, etc. <br />%(element_name)s – name if available, if not – ID <br />%(element_id)s – element ID <br />%(measure)s – current/power, status, etc. <br />%(value)s – value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critical/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC name <br />%(date)s – date when alert was triggered</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Avg Current</span></td>
@@ -300,7 +300,7 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>Power Unit</span></p>
          </td>
          <td valign="top"><span>Is Offline</span></td>
-         <td rowspan="11" valign="top"><span><br />%(sensor_rule_id)s – Alert Rule ID <br />%(sensor_rule_name)s – Alert Rule Name <br />%(device_type)s – Device / PDU <br />%(device_name)s – Device name <br />%(device_id)s – Device ID <br />%(device_ip)s – Device IP <br />%(element_type)s – Infeed, output, bank, etc. <br />%(element_name)s – Name if available, if not – ID <br />%(element_id)s – Element ID <br />%(measure)s – Current/power, status, etc. <br />%(value)s – Value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critcal/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC Name <br />%(date)s – Date when alert was triggered</span></td>
+         <td rowspan="11" valign="top"><span><br />%(sensor_rule_id)s – alert rule ID <br />%(sensor_rule_name)s – alert rule name <br />%(device_type)s – device / PDU <br />%(device_name)s – device name <br />%(device_id)s – device ID <br />%(device_ip)s – device IP <br />%(element_type)s – infeed, output, bank, etc. <br />%(element_name)s – name if available, if not – ID <br />%(element_id)s – element ID <br />%(measure)s – current/power, status, etc. <br />%(value)s – value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critical/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC name <br />%(date)s – date when alert was triggered</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Is Not Responding</span></td>
@@ -315,7 +315,7 @@ Device42 supports the following variables for embedding within alert emails when
          <td valign="top"><span>Infeed Power (A)</span></td>
       </tr>
       <tr>
-         <td valign="top"><span>Infeed % of Rated Power()</span></td>
+         <td valign="top"><span>Infeed % of Rated Power(A)</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Infeed Power(A)</span></td>
@@ -337,11 +337,11 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>Software</span></p>
          </td>
          <td valign="top"><span>Count</span></td>
-         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s -Software name <br />%(license_key)s <br />%(operator)s - from Alert <br />%(trigger_value)s - value from Alert</span></td>
+         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s - software name <br />%(license_key)s <br />%(operator)s - from alert <br />%(trigger_value)s - value from alert</span></td>
       </tr>
       <tr>
          <td valign="top"><span>License Percent Used</span></td>
-         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s -Software name <br />%(license_key)s <br />%(operator)s - from Alert <br />%(trigger_value)s - value from Alert</span></td>
+         <td valign="top"><span><br />%(str_item_type)s - 'Software' or 'OS' <br />%(value)s - real current value <br />%(element_name)s - software name <br />%(license_key)s <br />%(operator)s - from alert <br />%(trigger_value)s - value from alert</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Prohibited Software Installed</span></td>
@@ -351,7 +351,7 @@ Device42 supports the following variables for embedding within alert emails when
          <td valign="top">
             <p align="center"><span>Subnet</span></p>
          </td>
-         <td valign="top"><span>Persent used</span></td>
+         <td valign="top"><span>Percent used</span></td>
          <td valign="top"><span>subnet name - <br />%(subnet_name)s usage percent - <br />%(percent_used)s</span></td>
       </tr>
       <tr>
@@ -382,7 +382,7 @@ Device42 supports the following variables for embedding within alert emails when
             <p align="center"><span>UPS</span></p>
          </td>
          <td valign="top"><span>Battery % Capacity Remaining</span></td>
-         <td rowspan="9" valign="top"><span><br />%(sensor_rule_id)s – Alert Rule ID <br />%(sensor_rule_name)s – Alert Rule Name <br />%(device_type)s – Device / PDU <br />%(device_name)s – Device name <br />%(device_id)s – Device ID <br />%(device_ip)s – Device IP <br />%(element_type)s – Infeed, output, bank, etc. <br />%(element_name)s – Name if available, if not – ID <br />%(element_id)s – Element ID <br />%(measure)s – Current/power, status, etc. <br />%(value)s – Value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critcal/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC Name <br />%(date)s – Date when alert was triggered</span></td>
+         <td rowspan="9" valign="top"><span><br />%(sensor_rule_id)s – alert Rule ID <br />%(sensor_rule_name)s – alert rule name <br />%(device_type)s – device / PDU <br />%(device_name)s – device name <br />%(device_id)s – device ID <br />%(device_ip)s – device IP <br />%(element_type)s – infeed, output, bank, etc. <br />%(element_name)s – name if available, if not – ID <br />%(element_id)s – element ID <br />%(measure)s – current/power, status, etc. <br />%(value)s – value that triggered action <br />%(units)s – W(atts), Amps, etc. <br />%(status)s – Critical/OK <br />%(remote_collector_id)s – RC ID <br />%(remote_collector_name)s – RC name <br />%(date)s – date when alert was triggered</span></td>
       </tr>
       <tr>
          <td valign="top"><span>Battery Time Remaining</span></td>
