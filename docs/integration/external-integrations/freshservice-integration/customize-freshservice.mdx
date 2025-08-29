@@ -112,7 +112,7 @@ Typically, the first `<field>` represents the Device42 data returned from the qu
 - `resource`: The same as the `target` value.
 - `source-type`: Not functionally critical; this provides the data type displayed on the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
 - `target`: The Device42 field to be mapped to Freshservice. The Freshservice convention is to use the display name in snake case, occasionally with the ID of the asset type as a suffix. For example, `memory_max_usage` and `memory_reservation_used`. The sync process determines the ID. Please look up which target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
-- `escape`: This is used on field elements where `target="name"`. Some characters used in Device42 names aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true` but disable it if mismatching issues occur.
+- `escape`: This is used on field elements where `target="name"`. Some characters used in Device42 names aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true`, but disable it if mismatching issues occur.
 
 :::tip
 Use our InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query snippets quickly in the context of the Device42 data tables.
@@ -120,7 +120,7 @@ Use our InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query
 
 ### Additional Matching Criteria for Updating Existing Items
 
-Some `<task>` elements in `mapping.xml` have a helper `<matching>` element for updating synched data that currently exists in Freshservice but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which query fields are used to match which asset attributes when trying to find a match. For example:
+Some `<task>` elements in `mapping.xml` have a helper `<matching>` element for updating synced data that currently exists in Freshservice but may have slightly different name formats. For example, asset-type syncing tasks include the `<matching>` element to determine which query fields are used to match which asset attributes when trying to find a match. For example:
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -509,7 +509,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
     <task enable="false" name="Device Contract Associations" type="contract_asset" description="Create association between asset and contract">
     ```
 
-3. If you want to disable Software Licensing from being synced, find the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2437`):
+3. If you want to prevent software licensing from being synced, find the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2437`):
 
     ![Line 2437](/assets/images/freshservice-integration/example-vscode-6.png)
 
@@ -563,7 +563,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
     <task enable="false" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_max_version="16.18.02">
     ```
 
-3. Software Licensing from Device42 syncs to `contract` in Freshservice. Find and disable the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2437`):
+3. Software licensing from Device42 syncs to `contract` in Freshservice. Find and disable the `Copy Software Licensing info from Device42 to Freshservice` task (around line `2437`):
 
     ![Line 2437](/assets/images/freshservice-integration/example-vscode-6.png)
 
