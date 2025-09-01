@@ -14,6 +14,8 @@ To get started, first [create and run an SNMP job](network-auto-discovery.mdx) t
 
 Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
 
+Citrix NetScaler load balancer API discovery is used to build TCP or UDP connections within application groups. NetScaler discovery will not add new devices and resources to the system. New devices and resources are typically added via SNMP scans. 
+
 ## Load Balancer Discovery
 
 ### Prerequisites
@@ -47,7 +49,7 @@ To discover UCS or other cluster devices, select **UCS** from the **Platform** d
 1. Give your job a meaningful, descriptive name and specify the server hostnames, IP addresses, IP ranges, or CIDR blocks for your cluster devices.
 2. Choose a Remote Collector (RC) if desired, specify the correct port, and select or unselect the SSL option as needed
 3. Choose one or more sets of credentials that will allow Device42 to authenticate and query your UCS/Cluster devices.
-4. Set other options (explained below) as needed, ceate a schedule if desired, and save your job.
+4. Set other options (explained below) as needed, create a schedule if desired, and save your job.
 5. Select **Run now** from the list page to run the discovery job now.
 
 Visit the [dedicated Cisco UCS / ACI discovery docs page](cisco-ucs-auto-discovery.mdx) for more information.
@@ -103,7 +105,7 @@ After saving, you can select the **Run Now** option to run the job immediately.
   }}
 />
 
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from running initially. If you want to run a job after its initial creation, select **Run Now** from the autodiscovery list page.
+Newly created jobs will not run on the first day they are created to prevent an unintentionally large number of jobs from running initially. If you want to run a job after its initial creation, select **Run Now** from the autodiscovery list page.
 
 <ThemedImage
   alt="Run now option on list page"
