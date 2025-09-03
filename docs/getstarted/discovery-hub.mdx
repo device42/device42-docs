@@ -31,7 +31,7 @@ Log in to the Device42 UI and navigate to **Discovery > Discovery Hub**.
 
 To set up a Discovery Hub scan, name the scan and select the [Remote Collector](getstarted/installation/remote-collector-rc-installation.mdx) to use. You need to know the IPs, IP ranges, or CIDR blocks for your target environment.
 
-Enter the IP information in the box highlighted in the image below and click on the **+** button. You can enter as many targets as you like but the more targets included, the longer the scan will likely take. 
+Enter the IP information in the box highlighted in the image below and click on the **up arrow** button. You can enter as many targets as you like but the more targets included, the longer the scan will likely take. 
 
 <ThemedImage
   alt="Discovery Hub menu"
@@ -42,7 +42,7 @@ Enter the IP information in the box highlighted in the image below and click on 
 />
 <br/><br/>
 
-After you have entered the information, click the bright green **Start** button. 
+After you have entered the IP address, named the scan and selected at least one RC, click the green **Start** button. 
 
 The scan will start immediately. You'll see the green start notification, a percentage ticker showing your completion status, and information on the six categories of assets: **Windows**, **Nix**, **Network Devices**, **Hypervisors**, **Other/Unknown**, and **Unreachable**.
 
@@ -104,8 +104,8 @@ The scans you have created will be displayed in the left-hand column. Once start
 <ThemedImage
   alt="Scan results with settings button"
   sources={{
-    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-outcome-light.png'),
-    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-outcome-dark.png'),
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-settings-button-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-settings-button-dark.png'),
   }}
 />
 <br/><br/>
@@ -162,7 +162,9 @@ The **One-time discovery** and **Continuous discovery** options are recommended 
     light: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-window-cidr-light.png'),
     dark: useBaseUrl('/assets/images/discovery-hub-onboarding/discovery-job-window-cidr-dark.png'),
   }}
+  style={{ width: '70%' }} 
 />
+
 <br/><br/>
 
 When the job is created successfully, you will see the screen below. You can close the window and go back to your scans or click the link to be taken to the job page to edit the job settings.
@@ -176,9 +178,7 @@ When the job is created successfully, you will see the screen below. You can clo
 />
 <br/><br/>
 
-From the **Settings** tab of completed Discovery Hub scans, you can see the linked jobs that were created based on those results. 
-
-Click on the **+ Add schedule button** to schedule the scan.
+From the **Settings** tab of completed Discovery Hub scans, you can see the linked jobs that were created based on those results. Click on the **+ Add schedule button** to schedule the scan.
 
 <ThemedImage
   alt="Network scan settings"
