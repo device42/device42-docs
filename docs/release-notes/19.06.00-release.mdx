@@ -1,17 +1,21 @@
 ---
-title: "Release Notes"
-sidebar_position: 0.6
+title: "19.06.00 Release"
+sidebar_position: 2
 ---
 
-**Disclaimer:** Please consider the [Device42 blog](https://www.device42.com/blog/) the authoritative source of release notes. The information below is taken from the blog and may not always be current.
+:::info
+The following release notes were taken from [this blog post](https://www.device42.com/blog/2025/05/06/business-service-and-freshservice-enhancements-v19-06-ma/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+:::
 
-If you need additional information about a release or have questions about upgrading, please [contact our support team](https://support.device42.com/).
+*Release Date: May 6, 2025*. 
 
-## Latest Release Details
+## Upgrading Details
 
-Device42 19.06.00 was released on May 6, 2025. In addition to bugs and minor UI enhancements, the following items were added or enhanced in version 19.06: 
+Upgrading to 19.06 is only possible from an existing version 19.05 system. Depending on the version you are upgrading from, you may have to install an incremental update first: [18.14](https://www.device42.com/blog/2024/03/28/integrations-with-ms-dhcp-for-ipam-hashicorp-and-delinea-for-password-vault-and-new-certificate-dashboard-in-v18-14-00/) > [19.00](https://www.device42.com/blog/2024/04/29/foundation-release-to-migrate-and-up-version-the-underlying-ma-operating-system-to-provide-greater-security-performance-support-and-reliability-in-v19-00-00/) > [19.05](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/) > 19.06.
 
-### Application Groups
+To download the latest release, visit [https://www.device42.com/update/](https://www.device42.com/update/).
+
+## Application Groups
 
 Added Application Group Calculation visualizations to Resources.
 
@@ -21,7 +25,7 @@ Added accept and ignore buttons when viewing Application Group Suggestion detail
 
 ![Accept Ignore buttons on App Group Suggestion](/assets/images/release-notes/accept-ignore.png)
 
-### Business Services
+## Business Services
 
 Application layouts are now visible as a tab on Business Services, meaning you can easily switch between layouts via the object explorer.
 
@@ -29,7 +33,7 @@ Application layouts are now visible as a tab on Business Services, meaning you c
 
 Improved the user experience around using Business Services by including the ability to add attachments and create custom types, and by improving tooltips and other minor items.
 
-### Freshservice Integration
+## Freshservice Integration
 
 Via the Cloud Connector, additional relationship types will be mapped into default Freshservice fields:
 
@@ -43,14 +47,15 @@ Via the Cloud Connector, additional relationship types will be mapped into defau
 
 ![Freshservices relationships diagram](/assets/images/release-notes/freshservice-relationships.png)
 
-### Discovery enhancements
+## Discovery Enhancements
+
 - D42-38413: Added job option to \*nix discovery to prioritize DNS domain name over YP/NIS domain name.
 - D42-38268: Added option to SNMP discovery to enable/disable additional protocols during ICMP/TCP port check.
 - D42-38026: Removed preview from WinRM and enhanced device matching.
 - D42-38320: Added the output and timing for every command to debug logs of Windows discovery.
-- D42-36015: **Don’t change via API** setting changed to **Don’t change via API/Discovery/EnrichAI**
+- D42-36015: **Don't change via API** setting changed to **Don't change via API/Discovery/EnrichAI**
 
-### API enhancements
+## API Enhancements
 
 Guidelines for connecting and using Device42 APIs have been updated. The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).  
 
@@ -71,7 +76,7 @@ Guidelines for connecting and using Device42 APIs have been updated. The API doc
 - D42-23262: Fixed a bug in the `power_unit_models` API call.
 - D42-23142: Fixed a bug in the `dns/records` `GET` API Call.
 
-### Reports
+## Reports
 
 Updated various dashboards to include Business Services.
 
@@ -81,7 +86,7 @@ Within Standard Reports: Created Guided Report templates for Resources/Cloud Res
 
 ![Guided report templates](/assets/images/release-notes/guided-report-templates.png)
 
-### Miscellaneous
+## Miscellaneous
 
 - D42-37740: Hid unpopulated Custom Fields in view pages.
 - D42-38493: Added columns to the 'Stored Assets' on the Rooms view page.
@@ -92,7 +97,7 @@ Within Standard Reports: Created Guided Report templates for Resources/Cloud Res
 - D42-20292: Removed older nginx ciphers suites.
 - D42-21948: Changed references from 'Passwords' to 'Secrets' on various pages and in the API.
 
-### Known Issues
+## Known Issues
 
 - D42-32348: Legacy custom reports using custom fields may fail to open in 19.05.00.
 - D42-38593: Audit logs (History) details do not allow users to scroll to see the change history details.
@@ -112,7 +117,7 @@ Within Standard Reports: Created Guided Report templates for Resources/Cloud Res
 - D42-37963: SVG Image in AG Page Is Not Downloadable.
 - D42-37951: 'Reboot Collectors' action popup on RC page does not show RC details.
 
-### Customer Requested Issues
+## Customer-Requested Issues
 
 - D42-27902: SNMP Discovery Bug when using multiple SNMPv3 credentials with the same name.
 - D42-38432: Fixed an issue with Fortinet Firewall discovery no longer capturing interfaces, IPs, and subnets after upgrade to FortiNet OS 7.2.x.
@@ -182,15 +187,9 @@ Within Standard Reports: Created Guided Report templates for Resources/Cloud Res
 - D42-35716: You can now change custom picklists to multi-select picklists.
 - D42-35350: Fixed a performance-related error when generating a Run Book.
 
-## Upgrading Details
+## Trial Deployments
 
-Upgrading to 19.06 is only possible from an existing version 19.05 system. Depending on the version you are upgrading from, you may have to install an incremental update first: [18.14](https://www.device42.com/blog/2024/03/28/integrations-with-ms-dhcp-for-ipam-hashicorp-and-delinea-for-password-vault-and-new-certificate-dashboard-in-v18-14-00/) > [19.00](https://www.device42.com/blog/2024/04/29/foundation-release-to-migrate-and-up-version-the-underlying-ma-operating-system-to-provide-greater-security-performance-support-and-reliability-in-v19-00-00/) > [19.05](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/) > 19.06.
-
-To download the latest release, visit [https://www.device42.com/update/](https://www.device42.com/update/).
-
-### Trial Deployments
-
-If you haven’t tried Device42 yet, [download a 14-day free trial](https://www.device42.com/download/).
+If you haven't tried Device42 yet, [download a 14-day free trial](https://www.device42.com/download/).
 
 For upgrades to trial deployments, please [contact our support team](https://support.device42.com/).
 
