@@ -3,25 +3,50 @@ title: "Getting Started with Power and Environmental Monitoring"
 sidebar_position: 2
 ---
 
-## The Power and Environmental Monitoring Add-ons
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::note
 To access the functionality described in this section, you need a **Power and Environmental Monitoring** license. Visit the [Device42 pricing page](https://www.device42.com/pricing/) to request a pricing quote based on your needs.
-
-* * *
+:::
 
 ## Power Unit Autodiscovery
 
-The process of autodiscovering power-enabled PDUs is similar to [Device42 Network Autodiscovery.](auto-discovery/network-auto-discovery.mdx) Begin by navigating to the Device42 main menu, **Discovery > SNMP**. You can then enter an IP address range, a port if not using the default 161, and any SNMP authentication information depending on if you are using v1, v2c, or v3: 
-
-![Add Power SNMP discovery job](/assets/images/add_power_SNMP_discovery.png)
-
 Install and set up a [Remote Collector](https://www.device42.com/autodiscovery/) if you have not already done so. See the [Remote Collector page](/auto-discovery/remote-collector-rc/#installation-and-configuration) for information.
 
-**NOTE** that the Power (SNMP) discovery options will not be visible if the power module is not licensed, or if no Remote Collector is available to collect data. Once these are registered in Device42, these option will be visible: 
+The process of discovering power-enabled PDUs is similar to [Device42 Network Autodiscovery](auto-discovery/network-auto-discovery.mdx). Begin by navigating to **Discovery > SNMP**. You can then enter an IP address range and a port if not using the default `161`. 
 
-![Enable power monitoring for discovered PDU devices](/assets/images/power_options_enable_monitoring-HL.png)
+<ThemedImage
+  alt="Add SNMP discovery job"
+  sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/add-snmp-discovery-job-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/add-snmp-discovery-job-dark.png'),
+  }}
+/>
 
-You'll see these options towards the bottom of the SNMP discovery job setup screen. **Be sure to check enable monitoring for discovered PDUs**, and you may also set the polling interval for any PDUs discovered by this job by choosing the appropriate value from the Polling Interval drop-down. This value controls the frequency at which monitoring will poll each PDU.
+Add any SNMP authentication information depending on if you are using v1, v2c, or v3: 
+
+<ThemedImage
+  alt="Add credentials"
+  sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/add-snmp-community-string-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/add-snmp-community-string-dark.png'),
+  }}
+/>
+
+### Power Monitoring Options
+
+The Power (SNMP) discovery options will not be visible if the power module is not licensed, or if no Remote Collector is available to collect data. Once these are registered in Device42, the **Power/Environmental options** section will be visible:
+
+<ThemedImage
+  alt="Power monitoring options"
+  sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/power-monitoring-options-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-power-and-environmental-monitoring/power-monitoring-options-dark.png'),
+  }}
+/>
+
+You'll see these options towards the bottom of the SNMP discovery job setup screen. Be sure to check ***Enable monitoring for discovered PDU devices**, and you may also set the polling interval for any PDUs discovered by this job by choosing the appropriate value from the Polling Interval dropdown. This value controls the frequency at which monitoring will poll each PDU.
 
 
 ### Viewing Discovered Sensors
