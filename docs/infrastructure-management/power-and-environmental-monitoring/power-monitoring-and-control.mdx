@@ -3,6 +3,9 @@ title: "Power Monitoring"
 sidebar_position: 4
 ---
 
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
 This section describes Device42's power monitoring capabilities. If you are just getting started, you'll want to first set up one or more [Remote collectors (RCs)](auto-discovery/remote-collector-rc.mdx).
 
 ## Power Heatmaps
@@ -21,7 +24,7 @@ To set the percentage that will cause a rack to display as red, enter a value in
 
 If you hover over a rack, you will see a popup. The Power/Utilization Charts hyperlink will take you to a display showing the power history for each infeed and outlet.
 
-## Rack-level power visualization
+## Rack-Level Power Visualization
 
 ![Rack-level power visualization](/assets/images/media_1416079634123.png)
 
@@ -47,15 +50,45 @@ After you release the mouse button, the view will expand to the highlighted peri
 
 Rack-level power charts are also available from the Rack View page by clicking the **Power** button at the top right of the page.
 
-## PDU-level power data
+## PDU-Level Power Data
 
-![View Power Unit PDU](/assets/images/view_power_unit.png)
+<ThemedImage
+  alt="Power unit details"
+  sources={{
+    light: useBaseUrl('/assets/images/power-monitoring-and-control/power-unit-example-light.png'),
+    dark: useBaseUrl('/assets/images/power-monitoring-and-control/power-unit-example-dark.png'),
+  }}
+/>
 
-When you drill into a PDU, you will see power details for both infeeds and outlets. In the example above, the PDU has three infeeds and 24 outlets (only five are shown above).
+<ThemedImage
+  alt="Connectivity tab example"
+  sources={{
+    light: useBaseUrl('/assets/images/power-monitoring-and-control/infeeds-light.png'),
+    dark: useBaseUrl('/assets/images/power-monitoring-and-control/infeeds-dark.png'),
+  }}
+/>
+
+When you drill into a PDU, you will see power details for both **Infeeds** and **Ports** (outlets). In the example, the PDU has three infeeds and 24 outlets as visualized under the **Connectivity** tab:
+
+<ThemedImage
+  alt="Connectivity tab example"
+  sources={{
+    light: useBaseUrl('/assets/images/power-monitoring-and-control/power-connectivity-light.png'),
+    dark: useBaseUrl('/assets/images/power-monitoring-and-control/power-connectivity-dark.png'),
+  }}
+/>
 
 For each infeed and each outlet, you will see a **Power Draw**. This is the amount of power that was drawn by the infeed or outlet the last time the PDU was polled via SNMP. As mentioned earlier, you can set the polling interval via the Device42 main menu, **Discovery > SNMP**.
 
 For the infeeds, the **Rated Power** is autodiscovered.
+
+<ThemedImage
+  alt="Connectivity ports example"
+  sources={{
+    light: useBaseUrl('/assets/images/power-monitoring-and-control/power-unit-ports-light.png'),
+    dark: useBaseUrl('/assets/images/power-monitoring-and-control/power-unit-ports-dark.png'),
+  }}
+/>
 
 For each outlet, you will see the **Override Watts** and the **Bootstrap Power** in addition to the **Power Draw.** The Bootstrap Power column shows the power required for this outlet at boot time. In the PDU header section at the top, the Bootstrap Power for the PDU will be the sum of the Bootstrap Power for each of the outlets.
 
