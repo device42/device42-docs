@@ -179,11 +179,11 @@ Specify the timeout range between 10 to 600 seconds in the **Timeout** field to
     }}
 />
 
+If you experience unexplainable issues during discovery that you suspect are due to banner text interfering with parsing, enable the **Check for Banner** option for discovery to detect and remove banner messages. The **Check for Banner** option is also available via API.
+
 When discovery switches between *nix users, the triggered banner text messages may disrupt database discovery and Application Component creation, resulting in discovery errors or incomplete data collection. 
 
-To ensure full data collection when switching users, enable the **Check for Banner** option for discovery to detect and remove banner messages.
-
-The **Check for Banner** option is also available via API.
+Note that banner text interference can't be directly determined from Device42. You require a power user with system access to the target machine to detect interference by switching users. Device42 support may advise you to select the banner option if they suspect banner text interference.  
 
 <ThemedImage
     alt="Check for Banner option"
