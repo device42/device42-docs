@@ -19,8 +19,8 @@ Fill in the virtual machine details, specifying the following:
 
 - Resource group
 - Virtual machine name
-- Size of VM - please note that you should choose something with at least 8 GB RAM and 2 vCPU (recommended 16GB RAM 4 vCPU) or else you will get out of memory errors.
-- Administrator account - choose **Authentication Type** as Password and just put in some random values. This field has no bearing on Device42 deployment.
+- Size of VM - Please note that you should choose something with at least 8 GB RAM and 2 vCPU (recommended 16GB RAM 4 vCPU) or else you will get out of memory errors.
+- Administrator account - Choose **Authentication Type** as Password and just put in some random values. This field has no bearing on Device42 deployment.
 - Networking
 - Disks
 
@@ -39,9 +39,9 @@ Add an ICMP Inbound Allowed rule. You should now be able to ping your Device42 i
 
 You should also be able to access the Web GUI by navigating to the public IP address. Please make sure your network security groups allow the following inbound ports:
 
-- 404: For SSH access
-- 443: For Web GUI and API access
-- 4343: The Appliance Manager SSL port
+- 404: For SSH access.
+- 443: For Web GUI and API access.
+- 4343: The Appliance Manager SSL port.
 
 ## Device42 Configuration
 
@@ -53,11 +53,11 @@ First, get your Device42 Azure VM’s instance ID by running the following comma
 az vm show --name <VM Name> --resource-group <resource group name>
 ```
 
-Save the `vmId` value, which you will use as the password for:
+Save the `vmId` value, which you will use as the password for the following:
 
-- The default **device42** user: For SSH login
-- The default **admin** user: For logging in to the D42 Main Appliance
-- The default **d42admin** user: For logging in to the Appliance Manager
+- SSH login as the default **device42** user.
+- Logging in to the D42 Main Appliance as the default **admin** user.
+- Logging in to the Appliance Manager as the default **d42admin** user.
 
 ![](/assets/images/WEB-316_Az-Install-Az-shell-2.png)
 
