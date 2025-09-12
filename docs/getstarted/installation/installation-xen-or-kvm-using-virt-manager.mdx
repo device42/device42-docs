@@ -6,7 +6,7 @@ sidebar_position: 16
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Install the Device42 Main Appliance on Xen or KVM-based platforms by following the steps in this guide.
+Install the Device42 Main Appliance on Xen- or KVM-based platforms by following the steps in this guide.
 
 ## Download the Image and Uncompress 
 
@@ -18,53 +18,57 @@ bunzip2 device42-3.2.3-raw.img.bz2
 
 ## Create the Virtual Machine
 
-1. Create a new virtual machine with the setting "Import existing disk image".  
+Create a new virtual machine with the **Import existing disk image** setting.  
 
-    If you don't see the option to "Import existing disk Image", please visit the link and follow the instructions: [How do I Install device42 Xen or KVM appliance if import existing disk image option is missing?](https://support.device42.com/hc/en-usentries/22412668)
+If you don't see the option to **Import existing disk Image**, please visit the link and follow the instructions: [How do I Install device42 Xen or KVM appliance if import existing disk image option is missing?](https://support.device42.com/hc/en-usentries/22412668)
 
-    ![Install](/assets/images/wpid6123-Download_and_Install.png)
+![Install](/assets/images/wpid6123-Download_and_Install.png)
 
-2. Choose "Linux" as the **OS type** and "Ubuntu 14.04" for the **version**. If you don't see the option for 14.04, choose the latest version available.
+Choose **Linux** as the **OS type** and **Ubuntu 14.04** for the **Version**. If you don't see the option for **14.04**, choose the latest version available.
 
-    ![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
+![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
 
-3. Allocate at least 8 GB RAM and 2 vCPU for production appliances. See [Sizing Recommendations](sizing-recommendations.mdx).
+Allocate at least `8` GB RAM and `2` vCPU for production appliances. See [Sizing Recommendations](sizing-recommendations.mdx).
 
-    ![](/assets/images/wpid6124-media_1326264722468.png)
+![](/assets/images/wpid6124-media_1326264722468.png)
 
-4. Choose your virtualization type from **Advanced options** and x86\_64 for the **Achitecture** and click **Finish**.
+Choose your virtualization type from **Advanced options** and select **x86_64** for the **Architecture** and click **Finish**.
    
-    ![](/assets/images/wpid6125-media_1326264734201.png)
+![](/assets/images/wpid6125-media_1326264734201.png)
 
 ## Set Up the Main Appliance and Log In
 
-1. When the import is finished, power on the new virtual appliance.
-2. Log in to the console using the default credentials:
+When the import has finished, power on the new virtual appliance.
+
+Log in to the console using the default credentials:
   
-    - Username: `device42`
-    - Password: `adm!nd42`
+- **Username:** `device42`
+- Password: `adm!nd42`
     
-    **Change the default password using option 10 on the appliance console.**
+Change the default password using **Option 10** on the appliance console.
 
-    ![](/assets/images/wpid6128-media_1418268309382.png)
+![](/assets/images/wpid6128-media_1418268309382.png)
 
-3. From the console, configure the IP. 
+From the console, configure the IP. 
 
-    ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
+![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
-    Please use a **static IP address** for all production Device42 VMs to avoid connectivity issues.
+Please use a **static IP address** for all production Device42 VMs to avoid connectivity issues.
 
-    ![IP config options v19.05](/assets/images/vm-ip-settings.png)
+![IP config options v19.05](/assets/images/vm-ip-settings.png)
 
-    You may apply updates and do other menu-related work using SSH. Please note that root login has been disabled.
+You can apply updates and perform other menu-related tasks using SSH. Please note that root login has been disabled.
 
-1. _Optional:_ Create a DNS entry for the new IP address for the new virtual appliance.
-2. Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` to go to the Device42 web UI.
-3. Log in to Device42 using the default credentials:
-    - **Username** `admin` 
-    - **Password:** `adm!nd42` 
+* * *
 
-    **Please change the password as soon as you log in.**
+You can also create a DNS entry for the new IP address for the new virtual appliance.
+
+Access the Device42 web UI by pointing your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` and logging in with the default credentials:
+
+- **Username:** `admin` 
+- **Password:** `adm!nd42` 
+
+**Please change the password as soon as you've logged in.**
 
 <ThemedImage
   alt="Device42 Web Interface Login Screen v19.05"
