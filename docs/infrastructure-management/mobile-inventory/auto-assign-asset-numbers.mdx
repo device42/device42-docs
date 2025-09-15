@@ -6,7 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-You can create Asset Number Profiles that will facilitate automatic creation and assignment of asset numbers. You can auto assign asset numbers individually and in bulk.
+You can create Asset Number Profiles that facilitate the automatic creation and assignment of asset numbers. You can auto-assign asset numbers individually and in bulk.
 
 ## Create an Asset Number Profile
 
@@ -24,19 +24,19 @@ Navigate to **Tools > Templates & Bulk Operations > Asset Number Profile**
 
 All the fields labeled with bolded text in the UI are required.
 
-**Name:** Use a descriptive name that can easily identify this profile. This will be helpful in the device or asset edit screens when picking a profile.
+**Name:** Use a descriptive name that makes the profile easily identifiable. This will be helpful in the device or asset edit screens when picking a profile.
 
-**Prefix:** (Optional) Enter a set of characters to prefix the generated asset numbers. For example, you could prefix the generated asset numbers with an abbreviation of the building or office an object is in.
+**Prefix:** (Optional) Enter a set of characters to prefix the generated asset numbers. For example, you could prefix the generated asset numbers with an abbreviation of the building or office in which an object is stored.
 
-**Number Length:** The number of digits in the asset number. For example, if you enter `4`, the generated asset numbers will go from `0001` to `9999`. If you have defined a prefix, then the numbering will be appended to the prefix (for example, `NH0001` to `NH9999`). Auto assignment will fail if more assets are needed than specified by this number. For example,  the 10,000th asset number will not be assigned.
+**Number Length:** The number of digits in the asset number. For example, if you enter `4`, the generated asset numbers will range from `0001` to `9999`. If you have defined a prefix, the numbering will be appended to the prefix (for example, `NH0001` to `NH9999`). Auto assignment will fail if more assets are needed than specified by this number. For example,  the 10,000th asset number will not be assigned.
 
-**Start #:** Where do you want the asset numbering to start from? Useful if you already have existing asset numbers. For example, if you have already assigned asset numbers up to 0155, you can instruct Device42 to start numbering with 0156.
+**Start #:** Where do you want the asset numbering to begin? This is useful if you already have existing asset numbers. For example, if you have already assigned asset numbers up to 0155, you can instruct Device42 to start numbering with 0156.
 
-**Last used:** Do not change this value except in the special case discussed. The system will display the last asset number used and uses this value to determine the next value to be generated. That is, if the last asset number generated was `0156`, this field would automatically change to `0156`. Change this only if you want to change the value the asset number counter automatically starts from.
+**Last used:** Do not change this value except in the special case discussed. The system will display the last asset number used and use this value to determine the next value to be generated. That is, if the last asset number generated were `0156`, this field would automatically change to `0156`. Change this only if you want to change the value that the asset number counter automatically starts from.
 
 ### Assign the Asset Number Profile 
 
-- If the **Asset #** field is empty for a device or asset, you'll be able to select an Asset Number Profile under the **Profile to auto assign asset #** field when editing an object. 
+- If the **Asset #** field is empty for a device or asset, you can select an Asset Number Profile under the **Profile to auto assign asset #** field when editing an object. 
 
     <ThemedImage
     alt="Select asset profile"
@@ -58,7 +58,7 @@ All the fields labeled with bolded text in the UI are required.
 
 ### Bulk Asset Number Assignment
 
-- From **Resources > All Devices** or **Resources > All Assets**, you can search and filter the listed objects, make your selection of objects using the checkboxes, and from the **Actions** menu select **Assign asset # to selected items**.
+- From **Resources > All Devices** or **Resources > All Assets**, you can search and filter the listed objects, make your selection of objects using the checkboxes, and select **Assign asset # to selected items** from the **Actions** dropdown.
 
     <ThemedImage
     alt="Bulk asset assignment"
@@ -68,7 +68,7 @@ All the fields labeled with bolded text in the UI are required.
     }}
     />
 
-- Select the profile to use to assign asset numbers to the selected items. Please note that the system will assign asset numbers to items that don't have one assigned already.
+- Select which profile the system will use to assign asset numbers to the selected items. Please note that the system will assign asset numbers to items that do not already have one assigned.
 
     <ThemedImage
     alt="Asset profile selection"
