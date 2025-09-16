@@ -1,54 +1,107 @@
 ---
-title: "Understanding QR and Bar Codes in Device42"
+title: "Understanding QR and Barcodes in Device42"
 sidebar_position: 6
 ---
 
-QR codes printed by device42 contain a mobile friendly url to the object in question. You can choose to also print text with the QR code for easier inventory.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-### QR Code profiles
+QR codes printed by Device42 contain a mobile-friendly URL to the object in question. You can choose to also print text with the QR code for easier inventory.
 
-![QR Code profiles](/assets/images/wpid5886-QR_Code_profiles.png)
+You can create multiple QR code and barcode profiles. You can then either assign one profile per device or asset or you can assign QR profiles in bulk, from the device and asset list pages under the **Resources** menu.
 
-You can create multiple QR code and bar code profiles. You can then either assign one profile per device / asset or you can assign QR profiles in bulk in the Device and Asset List Pages.
+## Creating a QR Code Profile
 
-To create or modify a QR or bar code profile, go to Tools > Templates and Bulk Operations > QR Profiles.
+To create or modify a QR or barcode profile, go to **Tools > Templates & Bulk Operations > QR Profiles**.
 
-When adding/changing a QR profile or bar code, the following options are presented:
+When adding or editing a QR profile or barcode, the following options are presented:
 
-**Name** : Use a descriptive name so it will be easier to pick when editing a device or asset.
+- **Name:** Use a descriptive name so it will be easier to pick when editing a device or asset.
 
-**Base url** : This is the the base url embedded in the QR code to manage the inventory from mobile devices. The program will initially try to guess it from the current page url and you can modify it.
+- **Base URL:** This is the base URL embedded in the QR code to manage the inventory from mobile devices. The program will initially try to guess it from the current page URL and you can modify it.
 
-**Print dpi** : This is critical for printing. Ideally this should match the print dpi for the label printer settings, but there is a glitch with IE that is discussed in one of the following sections.
+- **Print DPI:** This is critical for printing. Ideally this should match the print DPI for the label printer settings, but there is a glitch with IE that is discussed in one of the following sections.
 
-**Include Text** : Text will only print if this is checked.
+    <ThemedImage
+    alt="QR Code profile"
+    sources={{
+        light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-light.png'),
+        dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-dark.png'),
+    }}
+    />
 
-**Include Name in Text** : Includes the name of the device or asset in text print.
+- **Include Text:** Text will only print if this is checked.
 
-**Include Device Model in Text** : Includes the hardware model name for the device in text print.
+- **Include Name in Text:** Includes the name of the device or asset in text print.
 
-**Include Serial # in Text** : Includes the serial # for that object in text print.
+- **Include Device Model in Text:** Includes the hardware model name for the device in text print.
 
-**Include Hostname # in Text** : Includes the hostname for that object in text print.
+- **Include Serial # in Text:** Includes the serial # for that object in text print.
 
-**Custom Text** : You can add multiple custom text values to print with QR code label. Please note that if text overflows, all the overflow would be cutoff and not printed.
+- **Include Hostname # in Text:** Includes the hostname for that object in text print.
 
-You can also add to the QR / bar code the field names and values of any custom fields defined for the device or asset.
+    <ThemedImage
+    alt="QR Code profile checkboxes"
+    sources={{
+        light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-checkboxes-light.png'),
+        dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-checkboxes-dark.png'),
+    }}
+    />
 
-Last you can define a Label profile and value for the QR or bar code.
+- **Custom fields:** Add field names and values of any custom fields defined for the device or asset.
 
-### Assigning QR profiles to devices or assets.
+    <ThemedImage
+    alt="QR Code profile custom fields"
+    sources={{
+        light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-custom-fields-light.png'),
+        dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-custom-fields-dark.png'),
+    }}
+    />
 
-![Assigning QR profiles to devices or assets.](/assets/images/wpid5882-Assigning_QR_profiles_to_devices_or_assets.png)
+- **Custom Text for QR Label Profile:** You can add multiple custom text values to print with QR code label. Please note that if text overflows, all the overflow would be cut off and not printed.
 
-Under Asset LM(meaning Asset lifecycle management) tab for devices, you will see the QR profiles as the last option.
+    <ThemedImage
+    alt="QR Code label profile"
+    sources={{
+        light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-label-profile-light.png'),
+        dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-profiles-label-profile-dark.png'),
+    }}
+    />
 
-![](/assets/images/wpid5884-media_1343005349237.png)
+## Assigning QR Profiles to Devices and Assets
 
-![](/assets/images/wpid5885-media_1343005380574.png)
+For devices, under the **Details** information section, you can select a **QR Profile** to generate the QR code or barcode.
 
-### Bulk QR codes
+<ThemedImage
+  alt="Assigning QR profiles"
+  sources={{
+    light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/assigning-qr-profiles-light.png'),
+    dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/assigning-qr-profiles-dark.png'),
+  }}
+/>
 
-![Bulk QR codes](/assets/images/wpid5883-Bulk_QR_codes.png)
+For assets, you can select a **QR Profile** under the dedicated **Asset QR/Barcode** section.
 
-We will discuss bulk QR code printing in one of next chapters in detail. You can assign QR codes in bulk to devices or assets from the device or asset view page.
+<ThemedImage
+  alt="Assigning QR profiles"
+  sources={{
+    light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/assigning-qr-profiles-assets-light.png'),
+    dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/assigning-qr-profiles-assets-dark.png'),
+  }}
+/>
+
+When you save the device or asset, click the associated profile link to preview and print the QR code or barcode.
+
+![QR code generation](/assets/images/understanding-qr-and-bar-codes-in-device42/qr-code-generation.png)
+
+## Bulk Assigning QR Codes
+
+You can assign QR codes or barcodes in bulk to devices or assets from the device or asset view page. See the [Bulk QR Code Printing page](infrastructure-management/mobile-inventory/bulk-qr-printing.mdx) for more details.
+
+<ThemedImage
+  alt="Bulk QR codes"
+  sources={{
+    light: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/bulk-qr-codes-light.png'),
+    dark: useBaseUrl('/assets/images/understanding-qr-and-bar-codes-in-device42/bulk-qr-codes-dark.png'),
+  }}
+/>
