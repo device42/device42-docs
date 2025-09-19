@@ -6,21 +6,21 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-QR codes printed by Device42 contain a mobile-friendly URL to the object in question. You can choose to also print text with the QR code for easier inventory.
+QR codes printed by Device42 contain a mobile-friendly URL linking to the object in question. You can also choose to print text with the QR code for easier inventory.
 
-You can create multiple QR code and barcode profiles. You can then either assign one profile per device or asset or you can assign QR profiles in bulk, from the device and asset list pages under the **Resources** menu.
+You can create multiple QR code and barcode profiles. You can then either assign one profile per device or asset, or you can assign QR profiles in bulk from the device and asset list pages under the **Resources** menu.
 
 ## Creating a QR Code Profile
 
 To create or modify a QR or barcode profile, go to **Tools > Templates & Bulk Operations > QR Profiles**.
 
-When adding or editing a QR profile or barcode, the following options are presented:
+When adding or editing a QR profile or barcode, you have the following options:
 
-- **Name:** Use a descriptive name so it will be easier to pick when editing a device or asset.
+- **Name:** Use a descriptive name for easily identifying the specific device or asset.
 
-- **Base URL:** This is the base URL embedded in the QR code to manage the inventory from mobile devices. The program will initially try to guess it from the current page URL and you can modify it.
+- **Base URL:** This is the base URL embedded in the QR code to manage the inventory from mobile devices. The program will initially try to guess it from the current page URL, and you can modify it.
 
-- **Print DPI:** This is critical for printing. Ideally this should match the print DPI for the label printer settings, but there is a glitch with IE that is discussed in one of the following sections.
+- **Print DPI:** This is critical for printing. Ideally, it should match the print DPI for the label printer settings, but there is a glitch with IE that is discussed in one of the following sections.
 
     <ThemedImage
     alt="QR Code profile"
@@ -32,13 +32,13 @@ When adding or editing a QR profile or barcode, the following options are presen
 
 - **Include Text:** Text will only print if this is checked.
 
-- **Include Name in Text:** Includes the name of the device or asset in text print.
+- **Include Name in Text:** Selecting this option includes the name of the device or asset in text print.
 
-- **Include Device Model in Text:** Includes the hardware model name for the device in text print.
+- **Include Device Model in Text:** Selecting this option includes the hardware model name for the device in text print.
 
-- **Include Serial # in Text:** Includes the serial # for that object in text print.
+- **Include Serial # in Text:** Selecting this option includes the serial # for the device or asset in text print.
 
-- **Include Hostname # in Text:** Includes the hostname for that object in text print.
+- **Include Hostname # in Text:** Selecting this option includes the hostname for the device or asset in text print.
 
     <ThemedImage
     alt="QR Code profile checkboxes"
@@ -48,7 +48,7 @@ When adding or editing a QR profile or barcode, the following options are presen
     }}
     />
 
-- **Custom fields:** Add field names and values of any custom fields defined for the device or asset.
+- **Custom fields:** Add the field names and values of any custom fields defined for the device or asset.
 
     <ThemedImage
     alt="QR Code profile custom fields"
@@ -58,7 +58,7 @@ When adding or editing a QR profile or barcode, the following options are presen
     }}
     />
 
-- **Custom Text for QR Label Profile:** You can add multiple custom text values to print with QR code label. Please note that if text overflows, all the overflow would be cut off and not printed.
+- **Custom Text for QR Label Profile:** You can add multiple custom text values to print with the QR code label. Please note that if text overflows, all the overflow would be cut off and not printed.
 
     <ThemedImage
     alt="QR Code label profile"
