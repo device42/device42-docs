@@ -60,9 +60,9 @@ To import software components into Device42 so that they can be inventoried, man
 
 ### Autodiscovery Job Configuration
 
-In Device42, configure an autodiscovery job to scan systems for installed software by clicking the *Discovery* tab and selecting *HyperVisors / \*nix / Windows* > *Add Hypervisors/\*nix/win for Autodiscovery*.
+In Device42, configure an autodiscovery job to scan systems for installed software under **Discovery > Hypervisors/\*nix/Windows > Create**.
 
-Configure the autodiscovery job for the system's platform and network location. To enable software discovery, ensure the *Discover Software* option is selected under the *Software and Applications* section.
+Configure the autodiscovery job for the system's platform and network location. To enable software discovery, ensure the **Discover Software** option is selected under the **Software and Applications** section.
 
 <ThemedImage
   alt="Add autodiscovery job image 1"
@@ -80,11 +80,11 @@ Configure the autodiscovery job for the system's platform and network location. 
 />
 
 
-Note that for this option to appear, a supported platform such as *\*nix* or *Windows* must be selected for the autodiscovery job first.
+Note that for this option to appear, a supported platform such as **\*nix** or **Windows** must be selected for the autodiscovery job first.
 
 ### Software Type
 
-A configuration item to take note of is *Software Type*. This field controls how newly discovered software will initially be treated. There are four options for the initial software type field:
+A configuration item to take note of is **Software Type**. This field controls how newly discovered software will initially be treated. There are four options for the initial software type field:
 
 * **Unmanaged:** Software that is present on the scanned hosts but not actively tracked or managed in Device42. Unmanaged software typically includes software that has been installed without formal IT approval or is not part of the standard operating system images. Select this software type to identify and control software not formally approved in your organization and gain visibility into software that may pose security or compliance issues.
 
@@ -94,15 +94,15 @@ A configuration item to take note of is *Software Type*. This field controls how
 
 * **Ignored:** Software that is intentionally excluded from management in Device42. Select this software type for software that doesn't need active management or for which you want to reduce noise in a software inventory.
 
-"Unmanaged" is the default option. Select other options as required before saving the autodiscovery job.
+**Unmanaged** is the default option. Select other options as required before saving the autodiscovery job.
 
 Finally, run the autodiscovery job to discover installed software components and import them into Device42. 
 
 ## Viewing and Managing Discovered Software
 
-Discovered software can be found under *Resources* > *Software Components* > *All Software Components*.
+Discovered software can be found under **Resources > Software Components > All Software Components**.
 
-It's worth understanding the difference between the "All Software Components" and "Software In Use" views in Device42.
+It's worth understanding the difference between the **All Software Components** and **Software In Use** views in Device42.
 
 * **All Software Components:** This page lists all discovered software components, regardless of whether they are actively used. A given software component can be assigned to multiple devices, but this page will only list each software component once.
 * **Software In Use:** This page lists software components that are assigned to or in use by a particular device. A software component in use by multiple devices will appear multiple times on this page.
@@ -111,7 +111,7 @@ The All Software Components view represents a library of all software managed by
 
 ### All Software Components
 
-As with other list views in Device42, you can sort this table by the column headers, select filters for the view from the top-right of the page, search components using the search box at the top-left, and take bulk actions on items in the list.
+As with other list views in Device42, you can sort the Software Components table by the column headers, select filters for the view from the top-right of the page, search components using the search box at the top-left, and take bulk actions on items in the list.
 
 <ThemedImage
   alt="Software components list"
@@ -127,7 +127,7 @@ Some of the bulk actions that can be taken here include:
 * **Update software counts:** You might want to change the software counts if you're considering a licensing change and want to see the impact of this change immediately.
 * **Assign software to suite:** Use this option to group related software components. For example, multiple Adobe products could be grouped under a single software suite for easier management and auditing.
 
-You can merge software components by assigning them to a suite. Select the components to merge from the list view, then select "Assign Software to Suite" from the *Select an Action* dropdown. Select the software suite from the list and submit the form.
+You can merge software components by assigning them to a suite. Select the components to merge from the list view, then select **Assign Software to Suite** from the **Actions** dropdown. Select the software suite from the list and submit the form.
 
 <ThemedImage
   alt="Assign to suite"
@@ -137,7 +137,7 @@ You can merge software components by assigning them to a suite. Select the compo
   }}
 />
 
-You can manually add software components in the All Software Components view. Click the *Add Software Component* button at the top right. In the form that opens, enter the name of the component, type, license model, vendor, and other needed fields, then save the form. The newly created software component will be displayed in the list alongside any autodiscovered software.
+You can manually add software components in the All Software Components view. Click the **Add Software Component** button at the top-right. In the form that opens, enter the name of the component, type, license model, vendor, and other needed fields, then save the form. The newly created software component will be displayed in the list alongside any discovered software.
 
 <ThemedImage
   alt="Add software component"
@@ -149,7 +149,7 @@ You can manually add software components in the All Software Components view. Cl
 
 ### Software In Use
 
-The Software In Use page will list the software components assigned to or used by each device, including when it was first detected on the device and when it was last updated. As with the All Software Components page, this view can be sorted by column headers, filtered, and searched, and you can perform bulk actions.
+The Software In Use page will list the software components assigned to or used by each device, including when it was first detected on the device and when it was last updated. As with the All Software Components page, this view can be sorted by column headers, filtered, and searched, and you can perform bulk or individual **Actions**.
 
 <ThemedImage
   alt="Software in use list"
@@ -159,7 +159,7 @@ The Software In Use page will list the software components assigned to or used b
   }}
 />
 
-You can manually add a piece of software to the Software In Use page by clicking the *Add Software In Use* button at the top right of the page. In the form that opens, find and select the created software component that represents the software in use, any licensing information, and the device that it is used on, then save the form. The newly created software-in-use record will be displayed in the list alongside other records.
+You can manually add a piece of software to the Software In Use page by clicking the **Create** button at the top-right of the page. In the form that opens, find and select the created software component that represents the software in use, any licensing information, and the device that it is used on, then save the form. The newly created software-in-use record will be displayed in the list alongside other records.
 
 <ThemedImage
   alt="Add software in use"
@@ -174,9 +174,9 @@ You can manually add a piece of software to the Software In Use page by clicking
 With Device42, you can track software components by their licensing models. Licensing models are created as needed and customized to a particular piece of software. By matching a software component to its type of license, you can select to track software components and their associated licensing models by:
 
 * **User:** Documents whether a license is unlimited, purchased in bulk, or purchased individually. This field is only for documentation purposes and does not affect how Device42 counts the instances of software components with a license that it finds.
-* **Client Access License (CAL):** The "Count CAL by" field captures whether licenses should be counted on a per-seat (device or user), per-server, per-processor, or per-mailbox basis.
-* **Device:** The "Count Devices by" field captures how licenses are counted for each device, by volume, volume with a multiplier, single, unlimited, or OEM. This field is also used only for documentation purposes.
-* **Device CPU:** Similar to the track-by-device option above, the "Count Devices by" field has the same options for how to count the number of devices with this software. However, this license type also allows you to configure how multiple CPUs factor into the count for both physical and virtual systems. Valid options here are number of CPU cores on the host, number of sockets on the host, number of cores on virtual machines, or number of sockets on virtual machines.
+* **Client Access License (CAL):** The **Count CAL by** field captures whether licenses should be counted on a per-seat (device or user), per-server, per-processor, or per-mailbox basis.
+* **Device:** The **Count Devices by** field captures how licenses are counted for each device, by volume, volume with a multiplier, single, unlimited, or OEM. This field is also used only for documentation purposes.
+* **Device CPU:** Similar to the track-by-device option above, the **Count Devices by** field has the same options for how to count the number of devices with this software. However, this license type also allows you to configure how multiple CPUs factor into the count for both physical and virtual systems. Valid options here are number of CPU cores on the host, number of sockets on the host, number of cores on virtual machines, or number of sockets on virtual machines.
 
 Additionally, for each license type, the following options are configurable to further document and manage licenses:
 
@@ -187,7 +187,7 @@ Additionally, for each license type, the following options are configurable to f
 * **Concurrent Access:** If the software component is licensed by the number of concurrent users rather than by the total number of users with access to it.
 * **Count Major Versions Separately:** If instances of the software component with different major versions should be counted separately.
 
-Device42 comes with the license models outlined above predefined in *Resources* > *Software Components* > *Software Licensing Models*. You can also define custom license models if none of the predefined models suit your needs by selecting *Add Software Licensing Model* from the software licensing models page. The screenshot below demonstrates adding a new licensing model for open-source software.
+Device42 comes with the license models outlined above predefined in **Resources > Software Components > Software Licensing Models**. You can also define custom license models if none of the predefined models suit your needs by selecting **Create** from the Software Licensing Models list page. The screenshot below demonstrates adding a new licensing model for open-source software.
 
 <ThemedImage
   alt="Add license model"
@@ -201,15 +201,15 @@ Device42 comes with the license models outlined above predefined in *Resources* 
 
 You can configure several automations to help you manage software components and their licenses. For instance, you might like to receive an alert when a given piece of software is reaching its number of available licenses.
 
-Device42 distinguishes between "alerts" and "notifications" for software components. An alert is configured to define a set of criteria that require attention and what actions to perform when those criteria are met. A notification is more or less a log of alert rules that were triggered.
+Device42 distinguishes between **alerts** and **notifications** for software components. An alert is configured to define a set of criteria that require attention and what actions to perform when those criteria are met. A notification is more or less a log of alert rules that were triggered.
 
-To create an alert, navigate to *Analytics* > *Reports* > *Setup Alerts* > *Add Alert*. Switch the Rule Type field to "Software". The following alert types can be set in the Trigger field:
+To create an alert, navigate to **Analytics > Alerts > Setup Alerts > Create**. Switch the **Rule Type** field to **Software**. The following alert types can be set in the **Trigger** field:
 
 * **Count:** When the count of a piece of software is greater than, less than, equal to, or not equal to an expected value.
 * **License Percent Used:** When the number of licenses for a piece of software is greater than, less than, equal to, or not equal to an expected value.
 * **Prohibited Software Installed:** Whenever any prohibited software is detected on a scanned system.
 
-The recipient for an alert is set in the Escalation Profile field. If a profile is already configured, you can select it from the prepopulated list. If not, click the plus icon next to the Escalation Profile field to open a form to configure one.
+The recipient for an alert is set in the **Escalation Profile** field. If a profile is already configured, you can select it from the prepopulated list. If not, click the plus icon next to the **Escalation Profile** field to open a form to configure one.
 
 <ThemedImage
   alt="Add alert"
@@ -219,13 +219,13 @@ The recipient for an alert is set in the Escalation Profile field. If a profile 
   }}
 />
 
-Once an alert has been created and its criteria met, both open and acknowledged notifications for these alerts can be viewed at *Analytics* > *Reports* > *Notifications*.
+Once an alert has been created and its criteria met, both open and acknowledged notifications for these alerts can be viewed at **Analytics > Reports > Notifications**.
 
 ## End of Life and End of Service
 
-Manage end-of-life (EOL) and end-of-service (EOS) information for your software components in *Resources* > *Software Components* > *EOL / EOS*.
+Manage end-of-life (EOL) and end-of-service (EOS) information for your software components in **Resources > Software Components > EOL / EOS**.
 
-EOL and EOS dates are imported manually. To define EOL or EOS for a software component, select *Add Software EOL / EOS* at the top right of the page. In the Add Software EOL / EOS form, select the relevant software component and its corresponding EOL or EOS dates.
+EOL and EOS dates are imported manually. To define EOL or EOS for a software component, select **Create** at the top-right of the page. In the Add Software EOL / EOS form, select the relevant software component and its corresponding EOL or EOS dates.
 
 <ThemedImage
   alt="Add end of life"
@@ -235,10 +235,10 @@ EOL and EOS dates are imported manually. To define EOL or EOS for a software com
   }}
 />
 
-Note that it's not necessary to specify both end-of-life and end-of-service dates. These are similar concepts, but not all software will have both. 
+Note that it's not necessary to specify both End-of-Life and End-of-Service dates. These are similar concepts, but not all software will have both. 
 
-* **End of life:** The date on which a software component will no longer be actively developed, maintained, or supported by its vendor.
-* **End of service:** The date on which a software vendor will stop providing customer support or technical assistance for a particular version of the software, even though the software itself may still receive updates and bug fixes.
+* **End-of-Life:** The date on which a software component will no longer be actively developed, maintained, or supported by its vendor.
+* **End-of-Service:** The date on which a software vendor will stop providing customer support or technical assistance for a particular version of the software, even though the software itself may still receive updates and bug fixes.
 
 ## Reporting
 
@@ -246,41 +246,59 @@ Once your software components have been imported and categorized, the Device42 r
 
 Let's create a simple report that finds all managed Adobe software to illustrate. 
 
-First, create a new report at *Analytics* > *Classic Reports* > *Add Report* > *Software*. In the New Report form, select "Adobe" in the Available Vendor field and "Managed" in the Available Software Type field. Select search criteria for the report and which columns to include in the report. In our example, we selected the "Name", "Software type", and "Vendor" columns.
+First, create a new report via **Analytics > Standard Reports > Create**. Name the report.
 
-<ThemedImage
-  alt="Add report image 1"
-  sources={{
-    light: useBaseUrl('/assets/images/add-report-1-of-4-light.png'),
-    dark: useBaseUrl('/assets/images/add-report-1-of-4-dark.png'),
-  }}
-/>
+- Choose **Guided Report** and select **Software In Use** as the object of the report.
 
-<ThemedImage
-  alt="Add report image 2"
-  sources={{
-    light: useBaseUrl('/assets/images/add-report-2-of-4-light.png'),
-    dark: useBaseUrl('/assets/images/add-report-2-of-4-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Software In Use object"
+    sources={{
+      light: useBaseUrl('/assets/images/select-object-light.png'),
+      dark: useBaseUrl('/assets/images/select-object-dark.png'),
+    }}
+  />
 
-<ThemedImage
-  alt="Add report image 3"
-  sources={{
-    light: useBaseUrl('/assets/images/add-report-3-of-4-light.png'),
-    dark: useBaseUrl('/assets/images/add-report-3-of-4-dark.png'),
-  }}
-/>
+- Under the **More Filters** dropdown, select **Software > Vendor** to add the vendor dropdown filter.
 
-<ThemedImage
-  alt="Add report image 4"
-  sources={{
-    light: useBaseUrl('/assets/images/add-report-4-of-4-light.png'),
-    dark: useBaseUrl('/assets/images/add-report-4-of-4-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Select vendor filter"
+    sources={{
+      light: useBaseUrl('/assets/images/select-vendor-filter-light.png'),
+      dark: useBaseUrl('/assets/images/select-vendor-filter-dark.png'),
+    }}
+  />
 
-Select "Display On Screen" at the bottom right. In this case, "Adobe Acrobat Reader" was found that matched the criteria in the report.
+- Search for the vendors (for example, **Adobe**) in the new **Software -> Vendor** dropdown filter and select the matching items.
+
+  <ThemedImage
+    alt="Search and select vendors"
+    sources={{
+      light: useBaseUrl('/assets/images/select-vendors-light.png'),
+      dark: useBaseUrl('/assets/images/select-vendors-dark.png'),
+    }}
+  />
+
+- Apply the **Managed** option from the **Software -> Software Type** dropdown filter.
+
+  <ThemedImage
+    alt="Apply managed type selection"
+    sources={{
+      light: useBaseUrl('/assets/images/select-managed-type-light.png'),
+      dark: useBaseUrl('/assets/images/select-managed-type-dark.png'),
+    }}
+  />
+
+- Choose the columns to add in the report that match the previously selected filters, for example, the **Software -> Software type** and **Software -> Vendor** columns.
+
+  <ThemedImage
+    alt="Apply managed type selection"
+    sources={{
+      light: useBaseUrl('/assets/images/select-table-columns-light.png'),
+      dark: useBaseUrl('/assets/images/select-table-columns-dark.png'),
+    }}
+  />
+
+Finally, click **Save and Display On Screen** to view the report immediately. You can also **Export** the report and configure a **Report Schedule** if you want regular updates.
 
 <ThemedImage
   alt="Report results"
