@@ -8,55 +8,55 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 IT organizations use software license management systems to create and maintain a comprehensive, accurate profile of the software deployed across all systems in an entire IT infrastructure. Using a software license manager (SLM) has several benefits:
 
-1. Cost savings: SLMs help optimize software use, reducing unnecessary expenses on unused licenses.
-2. License compliance: SLMs ensure an organization remains compliant with software license policies, which reduces the legal and financial risks associated with non-compliance.
-3. Security improvements: SLMs help to promptly identify end-of-life and vulnerable software by maintaining an inventory of software versions and ensuring all are up to date.
-4. Centralized management: SLMs offer a centralized platform for managing software licenses across an organization, which streamlines administrative tasks and reduces complexity.
-5. Inventory transparency: In addition to centralized management, having software data in a central location unlocks the ability to report and alert on software in use for auditing and transparency purposes.
+- **Cost Savings:** SLMs help optimize software use, reducing unnecessary expenses on unused licenses.
+- **License Compliance:** SLMs ensure an organization remains compliant with software license policies, which reduces the legal and financial risks associated with non-compliance.
+- **Security Improvements:** SLMs help to promptly identify end-of-life and vulnerable software by maintaining an inventory of software versions and ensuring all are up to date.
+- **Centralized Management:** SLMs offer a centralized platform for managing software licenses across an organization, which streamlines administrative tasks and reduces complexity.
+- **Inventory Transparency:** In addition to centralized management, having software data in a central location unlocks the ability to report and alert on software in use for auditing and transparency purposes.
 
 The Device42 software license management system has powerful features designed to help you efficiently manage your software licenses with these goals in mind. Let's take a look at how the Device42 SLM can help you ensure compliance, reduce costs, and streamline the software license management process.
 
 ## Overview of Capabilities
 
-Device42 will automatically scan Windows and Linux machine instances, detecting software whether it's running or not. The software license management system compares counts of running instances against purchased or license counts and detects prohibited software. What's more, this is all accomplished without any need for agents installed on the scanned systems.
+Device42 automatically scans Windows and Linux machine instances to detect software, whether the software is running or not. The software license management system compares counts of running instances against purchased or licensed counts and detects prohibited software. What's more, this is all accomplished without any need for agents installed on the scanned systems.
 
-Specifically, Device42 can:
+Specifically, Device42 can do the following:
 
-* Scan and automatically discover installed software on devices.
-* Import these found software components into Device42.
-* Manage these software components through licensing policies and by software suite.
-* Track which software is in use on which devices.
-* Track the licenses for these software components by various methods as needed for varying licensing models.
-* Configure alerts for when licenses are about to run out or when prohibited software is found.
-* Generate reports and dashboards to visualize license data and software use.
+- Scan and automatically discover installed software on devices.
+- Import these found software components into Device42.
+- Manage these software components through licensing policies and by software suite.
+- Track which software is in use on which devices.
+- Track the licenses for these software components by various methods, as needed for varying licensing models.
+- Configure alerts for when licenses are about to run out or when prohibited software is found.
+- Generate reports and dashboards to visualize license data and software use.
 
 ## How It Works
 
-At a high level, managing software licenses with Device42 involves these steps:
+At a high level, managing software licenses with Device42 involves following these steps:
 
-1. Configure an autodiscovery job.
-2. Run the autodiscovery job to find and import software components (alternatively, you can manually import software components).
-3. View the imported software components and categorize the results based on your organization's needs. This step may include assigning a software type to a component or assigning software to suites.
-4. Configure licensing information for the imported software to establish license inventory.
-5. Set up alerts for license status and discovered software types.
+- Configure an autodiscovery job.
+- Run the autodiscovery job to find and import software components (alternatively, you can manually import software components).
+- View the imported software components and categorize the results based on your organization's needs. This step may include assigning a software type to a component or assigning software to suites.
+- Configure licensing information for the imported software to establish license inventory.
+- Set up alerts for license status and discovered software types.
 
 ## What Is Supported
 
-For device scanning, all major Linux distributions are supported, and software registered across various package managers will be discovered.
+For device scanning, all major Linux distributions are supported, and software registered across various package managers is discovered.
 
 Once software components are imported, Device42 supports the following features for software management:
 
-* Software component management.
-* Software-in-use tracking by device.
-* Software suite assignment.
-* License management of varying models.
-* End-of-life and end-of-service tracking.
-* Prohibited software detection.
-* Licensing usage alerts.
+- Software component management
+- Software-in-use tracking by device
+- Software suite assignment
+- License management of varying models
+- End-of-life and end-of-service tracking
+- Prohibited software detection
+- Licensing usage alerts
 
 ## Configuring Software Discovery
 
-To import software components into Device42 so that they can be inventoried, managed, and reported on, you'll first need to configure Device42 for software discovery.
+To import software components into Device42 so that they can be inventoried, managed, and reported on, you first need to configure Device42 for software discovery.
 
 ### Autodiscovery Job Configuration
 
@@ -80,19 +80,19 @@ Configure the autodiscovery job for the system's platform and network location. 
 />
 
 
-Note that for this option to appear, a supported platform such as **\*nix** or **Windows** must be selected for the autodiscovery job first.
+Note that for this option to appear, you must first select a supported platform, such as **\*nix** or **Windows**, for the autodiscovery job.
 
 ### Software Type
 
-A configuration item to take note of is **Software Type**. This field controls how newly discovered software will initially be treated. There are four options for the initial software type field:
+A configuration item (CI) worth noting is **Software Type**. This field controls how newly discovered software is initially treated. There are four options for the initial **Software Type** field:
 
-* **Unmanaged:** Software that is present on the scanned hosts but not actively tracked or managed in Device42. Unmanaged software typically includes software that has been installed without formal IT approval or is not part of the standard operating system images. Select this software type to identify and control software not formally approved in your organization and gain visibility into software that may pose security or compliance issues.
+- **Unmanaged:** Software that is present on the scanned hosts but not actively tracked or managed in Device42. Unmanaged software typically includes software that has been installed without formal IT approval or is not part of the standard operating system images. Select this software type to identify and control software not formally approved in your organization and gain visibility into software that may pose security or compliance issues.
 
-* **Managed:** Software that is actively tracked, monitored, and managed in Device42. The managed software type allows you to track use, versions, licenses, and compliance and ensure that critical software installations are up to date and compliant with licensing agreements. You can set up alerts and automate tasks for managed software. 
+- **Managed:** Software that is actively tracked, monitored, and managed in Device42. The managed software type allows you to track use, versions, licenses, and compliance and ensure that critical software installations are up to date and compliant with licensing agreements. You can set up alerts and automate tasks for managed software. 
 
-* **Prohibited:** Software that is disallowed within an organization. Prohibited software is blocked by IT policies and is actively monitored to ensure it is not installed or used in an environment. This helps enforce security and compliance policies by preventing the installation of software that poses security risks or violates licensing agreements.
+- **Prohibited:** Software that is disallowed within an organization. Prohibited software is blocked by IT policies and is actively monitored to ensure it is not installed or used in an environment. This helps enforce security and compliance policies by preventing the installation of software that poses security risks or violates licensing agreements.
 
-* **Ignored:** Software that is intentionally excluded from management in Device42. Select this software type for software that doesn't need active management or for which you want to reduce noise in a software inventory.
+- **Ignored:** Software that is intentionally excluded from management in Device42. Select this software type for software that doesn't need active management or for which you want to reduce noise in a software inventory.
 
 **Unmanaged** is the default option. Select other options as required before saving the autodiscovery job.
 
@@ -104,14 +104,14 @@ Discovered software can be found under **Resources > Software Components > All S
 
 It's worth understanding the difference between the **All Software Components** and **Software In Use** views in Device42.
 
-* **All Software Components:** This page lists all discovered software components, regardless of whether they are actively used. A given software component can be assigned to multiple devices, but this page will only list each software component once.
-* **Software In Use:** This page lists software components that are assigned to or in use by a particular device. A software component in use by multiple devices will appear multiple times on this page.
+- **All Software Components:** This page lists all discovered software components, regardless of whether they are actively used. A given software component can be assigned to multiple devices, but this page only lists each software component once.
+- **Software In Use:** This page lists the software components assigned to or in use on a particular device. A software component in use on multiple devices would appear multiple times on this page.
 
-The All Software Components view represents a library of all software managed by an organization whereas the Software In Use view is a record of one of those pieces of software in active use by some managed device.
+The All Software Components view represents a library of all the software managed by an organization, whereas the Software In Use view is a record of one of those pieces of software in active use by some managed device.
 
 ### All Software Components
 
-As with other list views in Device42, you can sort the Software Components table by the column headers, select filters for the view from the top-right of the page, search components using the search box at the top-left, and take bulk actions on items in the list.
+As with other list views in Device42, you can sort the Software Components table by the column headers, select filters for the view from the top-right of the page, search components using the search box in the top-left corner, and perform bulk actions on items in the list.
 
 <ThemedImage
   alt="Software components list"
@@ -123,9 +123,9 @@ As with other list views in Device42, you can sort the Software Components table
 
 Some of the bulk actions that can be taken here include:
 
-* **Change the software type:** A review of the found software components may include recategorizing components according to their software type.
-* **Update software counts:** You might want to change the software counts if you're considering a licensing change and want to see the impact of this change immediately.
-* **Assign software to suite:** Use this option to group related software components. For example, multiple Adobe products could be grouped under a single software suite for easier management and auditing.
+- **Change the software type:** A review of the found software components may include recategorizing components according to their software type.
+- **Update software counts:** You might want to change the software counts if you're considering a licensing change and want to see the impact of this change immediately.
+- **Assign software to suite:** Use this option to group related software components. For example, multiple Adobe products could be grouped under a single software suite for easier management and auditing.
 
 You can merge software components by assigning them to a suite. Select the components to merge from the list view, then select **Assign Software to Suite** from the **Actions** dropdown. Select the software suite from the list and submit the form.
 
@@ -149,7 +149,7 @@ You can manually add software components in the All Software Components view. Cl
 
 ### Software In Use
 
-The Software In Use page will list the software components assigned to or used by each device, including when it was first detected on the device and when it was last updated. As with the All Software Components page, this view can be sorted by column headers, filtered, and searched, and you can perform bulk or individual **Actions**.
+The Software In Use page lists the software components assigned to or used by each device, including when it was first detected on the device and when it was last updated. As with the All Software Components page, this view can be sorted by column headers, filtered, and searched, and you can perform bulk or individual **Actions**.
 
 <ThemedImage
   alt="Software in use list"
@@ -173,19 +173,19 @@ You can manually add a piece of software to the Software In Use page by clicking
 
 With Device42, you can track software components by their licensing models. Licensing models are created as needed and customized to a particular piece of software. By matching a software component to its type of license, you can select to track software components and their associated licensing models by:
 
-* **User:** Documents whether a license is unlimited, purchased in bulk, or purchased individually. This field is only for documentation purposes and does not affect how Device42 counts the instances of software components with a license that it finds.
-* **Client Access License (CAL):** The **Count CAL by** field captures whether licenses should be counted on a per-seat (device or user), per-server, per-processor, or per-mailbox basis.
-* **Device:** The **Count Devices by** field captures how licenses are counted for each device, by volume, volume with a multiplier, single, unlimited, or OEM. This field is also used only for documentation purposes.
-* **Device CPU:** Similar to the track-by-device option above, the **Count Devices by** field has the same options for how to count the number of devices with this software. However, this license type also allows you to configure how multiple CPUs factor into the count for both physical and virtual systems. Valid options here are number of CPU cores on the host, number of sockets on the host, number of cores on virtual machines, or number of sockets on virtual machines.
+- **User:** Documents whether a license is unlimited, purchased in bulk, or purchased individually. This field is only for documentation purposes and does not affect how Device42 counts the instances of software components with a license that it finds.
+- **Client Access License (CAL):** The **Count CAL by** field captures whether licenses should be counted on a per-seat (device or user), per-server, per-processor, or per-mailbox basis.
+- **Device:** The **Count Devices by** field captures how licenses are counted for each device, by volume, volume with a multiplier, single, unlimited, or OEM. This field is also used only for documentation purposes.
+- **Device CPU:** Similar to the track-by-device option above, the **Count Devices by** field has the same options for how to count the number of devices with this software. However, this license type also allows you to configure how multiple CPUs factor into the count for both physical and virtual systems. Valid options here are number of CPU cores on the host, number of sockets on the host, number of cores on virtual machines, and number of sockets on virtual machines.
 
 Additionally, for each license type, the following options are configurable to further document and manage licenses:
 
-* **License Type:** Either subscription or perpetual. This field is only for documentation purposes and does not affect how Device42 counts the instances of software components with a license that it finds.
-* **Node Locked:** If each licensed instance of a software component is restricted to a specific device.
-* **User Locked:** If each licensed instance of a software component is restricted to a specific user.
-* **Free Software:** If the software component is free or open source.
-* **Concurrent Access:** If the software component is licensed by the number of concurrent users rather than by the total number of users with access to it.
-* **Count Major Versions Separately:** If instances of the software component with different major versions should be counted separately.
+- **License Type:** Either subscription or perpetual. This field is only for documentation purposes and does not affect how Device42 counts the instances of software components with a license that it finds.
+- **Node Locked:** If each licensed instance of a software component is restricted to a specific device.
+- **User Locked:** If each licensed instance of a software component is restricted to a specific user.
+- **Free Software:** If the software component is free or open source.
+- **Concurrent Access:** If the software component is licensed by the number of concurrent users rather than by the total number of users with access to it.
+- **Count Major Versions Separately:** If instances of the software component with different major versions should be counted separately.
 
 Device42 comes with the license models outlined above predefined in **Resources > Software Components > Software Licensing Models**. You can also define custom license models if none of the predefined models suit your needs by selecting **Create** from the Software Licensing Models list page. The screenshot below demonstrates adding a new licensing model for open-source software.
 
@@ -205,9 +205,9 @@ Device42 distinguishes between **alerts** and **notifications** for software com
 
 To create an alert, navigate to **Analytics > Alerts > Setup Alerts > Create**. Switch the **Rule Type** field to **Software**. The following alert types can be set in the **Trigger** field:
 
-* **Count:** When the count of a piece of software is greater than, less than, equal to, or not equal to an expected value.
-* **License Percent Used:** When the number of licenses for a piece of software is greater than, less than, equal to, or not equal to an expected value.
-* **Prohibited Software Installed:** Whenever any prohibited software is detected on a scanned system.
+- **Count:** When the count of a piece of software is greater than, less than, equal to, or not equal to an expected value.
+- **License Percent Used:** When the number of licenses for a piece of software is greater than, less than, equal to, or not equal to an expected value.
+- **Prohibited Software Installed:** Whenever any prohibited software is detected on a scanned system.
 
 The recipient for an alert is set in the **Escalation Profile** field. If a profile is already configured, you can select it from the prepopulated list. If not, click the plus icon next to the **Escalation Profile** field to open a form to configure one.
 
@@ -225,7 +225,7 @@ Once an alert has been created and its criteria met, both open and acknowledged 
 
 Manage end-of-life (EOL) and end-of-service (EOS) information for your software components in **Resources > Software Components > EOL / EOS**.
 
-EOL and EOS dates are imported manually. To define EOL or EOS for a software component, select **Create** at the top-right of the page. In the Add Software EOL / EOS form, select the relevant software component and its corresponding EOL or EOS dates.
+EOL and EOS dates are imported manually. To define EOL or EOS for a software component, select **Create** at the top right of the page. In the Add Software EOL / EOS form, select the relevant software component and its corresponding EOL or EOS dates.
 
 <ThemedImage
   alt="Add end of life"
@@ -237,16 +237,16 @@ EOL and EOS dates are imported manually. To define EOL or EOS for a software com
 
 Note that it's not necessary to specify both end-of-life and end-of-service dates. These are similar concepts, but not all software will have both. 
 
-* **End of Life Date:** The date on which a software component will no longer be actively developed, maintained, or supported by its vendor.
-* **End of Service Date:** The date on which a software vendor will stop providing customer support or technical assistance for a particular version of the software, even though the software itself may still receive updates and bug fixes.
+- **End of Life Date:** The date on which a software component will no longer be actively developed, maintained, or supported by its vendor.
+- **End of Service Date:** The date on which a software vendor will stop providing customer support or technical assistance for a particular version of the software, even though the software itself may still receive updates and bug fixes.
 
 ## Reporting
 
-Once your software components have been imported and categorized, the Device42 reporting system can be put to use to better visualize and analyze the software in use throughout your organization.
+Once your software components have been imported and categorized, the Device42 reporting system can be used to better visualize and analyze the software in use throughout your organization.
 
-Let's create a simple report that finds all managed Adobe software to illustrate. 
+Let's illustrate this by creating a simple report that finds all managed Adobe software. 
 
-First, create a new report via **Analytics > Standard Reports > Create**. Name the report.
+- First, create a new report via **Analytics > Standard Reports > Create**. Name the report.
 
 - Choose **Guided Report** and select **Software In Use** as the object of the report.
 
@@ -288,7 +288,7 @@ First, create a new report via **Analytics > Standard Reports > Create**. Name t
     }}
   />
 
-- Choose the columns to add in the report that match the previously selected filters, for example, the **Software -> Software type** and **Software -> Vendor** columns.
+- Select the columns that match the previously selected filters to include them in the report, such as the **Software -> Software type** and **Software -> Vendor** columns.
 
   <ThemedImage
     alt="Apply managed type selection"
@@ -298,14 +298,14 @@ First, create a new report via **Analytics > Standard Reports > Create**. Name t
     }}
   />
 
-Finally, click **Save and Display On Screen** to view the report immediately. You can also **Export** the report and configure a **Report Schedule** if you want regular updates.
+- Finally, click **Save and Display On Screen** to view the report immediately. You can also **Export** the report and configure a **Report Schedule** if you want regular updates.
 
-<ThemedImage
-  alt="Report results"
-  sources={{
-    light: useBaseUrl('/assets/images/report-results-light.png'),
-    dark: useBaseUrl('/assets/images/report-results-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Report results"
+    sources={{
+      light: useBaseUrl('/assets/images/report-results-light.png'),
+      dark: useBaseUrl('/assets/images/report-results-dark.png'),
+    }}
+  />
 
 There are, of course, many other reporting configurations that Device42 supports. See the [full documentation on creating reports in Device42](https://docs.device42.com/reports/) for more details.
