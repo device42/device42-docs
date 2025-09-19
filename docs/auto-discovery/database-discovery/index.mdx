@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ## About Database Discovery
 
-Database (DB) discovery currently supports Windows and \*nix-based discovery jobs detecting Microsoft SQL (aka MSSQL), Oracle, Postgres SQL, and DB2 databases.
+Database (DB) discovery currently supports Windows and \*nix-based discovery jobs detecting Microsoft SQL (aka MSSQL), Oracle, PostgreSQL, and DB2 databases.
 
 :::note
 Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
@@ -453,22 +453,22 @@ We've made the following changes to the UI:
 
 We previously gathered all Oracle users and collected them as "Device42 Databases." Then, we only retrieved Oracle users that had at least one associated database object, and from there, we implemented changes to ignore user schemas. As a result, some Oracle database connections may no longer show under specific user schemas. These 'orphaned' database connections now map to the main database instance, instead of mapping to a specific **Database/Schema** resource. While they’re not linked to individual schemas anymore, key details like the user login and schema names are still preserved in the database instance details.
 
-## Postgres SQL Database Discovery (on \*nix targets)
+## PostgreSQL Database Discovery (on \*nix targets)
 
-Device42 offers Postgres SQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
+Device42 offers PostgreSQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
 
-### Minimum Permissions Requirements for Postgres SQL Discovery
+### Minimum Permissions Requirements for PostgreSQL Discovery
 
 For discovery to return detailed information about your database instance, you will need access to the following tables:
 
-* `pg_database`
-* `pg_tablespace`
-* `pg_stat_activity`
-* `init_server_addr` (function)
+* `pg_database` (table)
+* `pg_tablespace` (table)
+* `pg_stat_activity` (table)
+* `⁠inet_server_addr()` (function)
 
-### Set Up Your Postgres SQL Discovery Job
+### Set Up Your PostgreSQL Discovery Job
 
-To begin discovering your Postgres SQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
+To begin discovering your PostgreSQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
 
 Fill out both sets of credentials:
 
@@ -503,7 +503,7 @@ sources={{
 }}
 />
 
-### View Postgres SQL Database Discovery Job Results
+### View PostgreSQL Database Discovery Job Results
 
 When the job finishes, the most direct way to view the results of your database discovery is via the discovered Postgres application components themselves. On the Device42 main menu, select **Applications > Application Components**. If you don’t see your Postgres DB instances at the top of the list, you can search for "Postgres" to narrow down the list, or filter the list **By Category > Database**.
 
