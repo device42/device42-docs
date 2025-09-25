@@ -6,11 +6,28 @@ sidebar_position: 23
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Use the PagerDuty integration to notify on-call responders when alerts are triggered.
+Use the PagerDuty integration to notify on-call responders when an alert is triggered in Device42. PagerDuty allows you to set up escalation profiles to ensure a response to critical IT events if the designated on-call staff do not respond in time. 
 
-You can customize alerts sent from Device42 using a wide range of user configurable options. These alert types include, but are not limited to, the following:
+Connect your Device42 CMDB using the Device42 integration in PagerDuty, then configure an alert in Device42 to log an incident in PagerDuty when a violating condition is met.
 
-- **Device42 License:** Days to license expiration.
+This guide walks you through creating a PagerDuty Service, setting up the integration and alert in Device42, testing the integration, and uninstalling the integration in PagerDuty and Device42.
+
+## Alert Types
+
+You can customize alerts sent from Device42 by choosing from wide range of violating conditions from a set of **Rule Types**, such as Discovery, Operating System, Part Model, Software, and more. Choose from a range of available triggers for each rule type that include, but are not limited to, the following:
+
+Operating System
+
+- **Individual Operating System Count:** Count or license percentage use for selected OS(s).
+- **Any Operating System Count:** Count or license percentage use for any OS.
+
+Part Model
+
+- **Individual Part Model Count:** Number or percentage available for selected part model(s).
+- **Any Part Model Count:** Number or percentage available for selected part model(s).
+
+Power Unit
+
 - **Individual Power Unit Sensor(s):** Temperature or humidity rules for selected sensors.
 - **Any Power Unit Sensor:** Temperature or humidity rules for any sensor.
 - **Individual Power Unit(s) Infeed:** Power threshold rules for selected power unit infeeds.
@@ -19,15 +36,21 @@ You can customize alerts sent from Device42 using a wide range of user configura
 - **Individual Bank:** Power threshold rules for selected PDU bank(s).
 - **Any Bank:** Power threshold rules for any PDU bank.
 - **Any UPS:** State or threshold rules (battery, voltage, current, load) for any UPS.
+
+Software
+
 - **Individual Software Count:** Count or license percentage use for selected software or OS(s).
 - **Any Software Count:** Count or license percentage use for any software or OS.
 - **Prohibited Software:** When any prohibited software is discovered.
-- **Individual Operating System Count:** Count or license percentage use for selected OS(s).
-- **Any Operating System Count:** Count or license percentage use for any OS.
+
+Subnet
+
 - **Individual Subnet:** Percentage use for individual subnet(s).
 - **Any Subnet:** Percentage use for any subnet.
-- **Individual Part Model Count:** Number or percentage available for selected part model(s).
-- **Any Part Model Count:** Number or percentage available for selected part model(s).
+
+System
+
+- **Device42 License:** Days to license expiration.
 
 ## How it Works
 
