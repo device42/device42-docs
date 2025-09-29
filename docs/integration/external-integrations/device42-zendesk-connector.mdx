@@ -12,10 +12,10 @@ Device42 discovery keeps your infrastructure documentation up-to-date, and with 
 
 With the Device42-Zendesk integration, you'll benefit from the ability to:
 
-- Click links integrated into Zendesk that jump you directly to the relevant IT infrastructure CI details page in Device42.
-- Attach any part of your discovered IT infrastructure in Device42, including devices, racks, parts, and PDUs, directly to your Zendesk tickets.
-- View details like device type, device service level, and serial numbers stored in Device42 directly within Zendesk.
-- Customize Zendesk by adding your discovered Device42 infrastructure items as columns in your Zendesk custom views.
+- Click links integrated into Zendesk that jump you directly to the relevant IT infrastructure CI details page in Device42
+- Attach any part of your discovered IT infrastructure in Device42, including devices, racks, parts, and PDUs, directly to your Zendesk tickets
+- View details like device type, device service level, and serial numbers stored in Device42 directly within Zendesk
+- Customize Zendesk by adding your discovered Device42 infrastructure items as columns in your Zendesk custom views
 
 ## Set up the Integration
 
@@ -33,14 +33,15 @@ As a prerequisite, ensure your [Device42 Cloud Connector](integration/external-i
 
     ![Zendesk add API token](/assets/images/zendesk-integration/zendesk-add-api-token.png)
 
-- Name the new API token "Device42 Integration", or something similar, and then copy the token value and save it in a safe and retrievable location.
+- Name the new API token `Device42 Integration`, or something similar, and then copy the token value and save it in a safe and retrievable location.
 
     ![Zendesk generate API token](/assets/images/zendesk-integration/zendesk-copy-token.png)
 
 ### Add a Device42 External Integration
 
-Next, enable the Zendesk integration from Device42. Head to **Tools > Integrations > External Integrations** and click the **Create** button.
+Next, enable the Zendesk integration from Device42.
 
+- Head to **Tools > Integrations > External Integrations** and click the **Create** button.
 - Under **Type** select **Zendesk**.
 - Enter the **URL** of your Zendesk instance.
 
@@ -82,25 +83,30 @@ Now it's time to install the Zendesk add-on.
 
 ### Install the Device42 Add-On for Zendesk
 
-To begin installing the Device42-Zendesk integration, head to the [Zendesk marketplace](https://www.zendesk.com/marketplace/apps/). If you are having trouble with the link, you might need to sign in to your Zendesk account if you aren't already signed in. 
+To begin installing the Device42-Zendesk integration, head to the [Zendesk marketplace](https://www.zendesk.com/marketplace/apps/). If you have trouble with the link, check that you are signed in to your Zendesk account. 
 
-- Search for “Device42 Connector” to locate the integration add-on.
+- Search for `Device42 Connector` to locate the integration add-on.
 
     ![Zendesk Marketplace D42 App](/assets/images/zendesk-integration/device42-connector-marketplace.png)
 
-- Click the Zendesk marketplace **Install** button, choose the name of your account from the dropdown, and click **Install** to continue installation. 
+- Click the Zendesk marketplace **Install** button, choose the name of your account from the dropdown, and click **Install** to continue the installation. 
 
     ![Select account](/assets/images/zendesk-integration/select-account.png)
 
-- Name your integration. We used "Device42 connector for Zendesk" in this example. For the **Token** field, provide the **Verification Token** you saved from the Device42 External Integration setup steps above.
+- Name your integration. We used `Device42 connector for Zendesk` in this example.
+
+- For the **Token** field, provide the **Verification Token** you saved from the Device42 External Integration setup steps above.
 
     ![Plugin installation settings](/assets/images/zendesk-integration/connector-configure.png)
 
-- Enable role and group restrictions if desired, but we'll leave them disabled for now. Click **Install** to complete the integration installation.
+- Enable role and group restrictions if desired. (In the example, we left them disabled at this stage.)
+- Click **Install** to complete the integration installation.
 
 ## Use the Zendesk Connector
 
-Once the plugin is installed, you can associate CIs (Configuration Items) from Device42 with tickets. In Device42, head to any Device, Building, Room, or CI of your choice, and find the **Zendesk** section: 
+Once the plugin is installed, you can associate CIs (Configuration Items) from Device42 with tickets.
+
+- In Device42, head to any device, building, room, or CI of your choice, and find the **Zendesk** section:
 
 <ThemedImage
   alt="Add or link ticket"
@@ -121,7 +127,9 @@ Once the plugin is installed, you can associate CIs (Configuration Items) from D
     }}
     />
 
-- Click **Submit**, and you'll get email confirmation that the ticket was created. You'll now also see your new ticket listed as an attachment: 
+- Click **Submit**.
+
+You'll receive email confirmation that the ticket was created. You can now also see your new ticket listed as an attachment: 
 
     <ThemedImage
     alt="Ticket attached confirmation"
