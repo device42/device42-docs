@@ -6,6 +6,8 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+Use Device42's Google Cloud Platform (GCP) autodiscovery to automatically inventory your GCP infrastructure, including virtual machines, Kubernetes clusters, databases, networks, and load balancers.
+
 ## Google Cloud Platform Discovery Items
 
 The following table outlines the Google Cloud Platform (GCP) items that Device42 automatically discovers, the types of information generated for each item, and where that information can be found in Device42.
@@ -20,13 +22,20 @@ The following table outlines the Google Cloud Platform (GCP) items that Device42
 
 Device42 also discovers the following GCP items:
 
-- Subnets
-- VPCs (VRF Groups)
+**Storage:**
 - Cloud Device
 - Cloud Disk
+
+**Networking:**
+- VPCs (VRF Groups)
+- VPC Firewall Rules
+- GCP Load Balancer
+
+**Databases:**
 - Cloud SQL
 - GCP BigQuery Table
-- GCP Load Balancer
+
+**Kubernetes:**
 - Kubernetes Cluster
 - Kubernetes Config Map
 - Kubernetes Container
@@ -45,7 +54,6 @@ Device42 also discovers the following GCP items:
 - Kubernetes Service Port
 - Kubernetes Stateful Set
 - Kubernetes Volume
-- VPC Firewall Rules
 
 ## GCP Permission Requirements
 
