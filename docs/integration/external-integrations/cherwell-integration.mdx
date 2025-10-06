@@ -17,7 +17,7 @@ Follow these steps to create the new CIs:
 
     ![Create new or Open Blueprint](/assets/images/create_open_blueprint.png)
 
-2. Create a new CI type for Applications called `Config - Application` by clicking **New Business Object** and defining the object: 
+2. Create a new CI type for Applications called `Config-Application` by clicking **New Business Object** and defining the object: 
 
     ![Create new CI for applications](/assets/images/Create_application_CI_business_object_properties.png)
 
@@ -29,14 +29,14 @@ Follow these steps to create the new CIs:
 
     ![Add new custom fields to Cherwell business object CI](/assets/images/add_fields_to_new_Cherwell_business_object_CI.png)
 
-5. Add a second new CI business object named `Config - Service` to Cherwell for Services by repeating Steps 2-4.
+5. Add a second new CI business object named `Config-Service` to Cherwell for Services by repeating Steps 2-4.
 
 ## Configuring the Device42-Cherwell Integration
 
 To sync your discovered hardware, servers, software, services, or assets (CIs) from Device42 to Cherwell, configure the integration:
 
 1. Download the integration from the [Device42 Cherwell Integration page](https://www.device42.com/integrations/cherwell/), and unzip the folder to the directory of your choice.
-2. Download the sample `mapping.xml` configuration file from [Device42's Github](https://github.com/device42/cherwell_device42_sync/blob/master/mapping.xml.sample) and put it into the folder you created in Step 1.
+2. Download the sample `mapping.xml` configuration file from [Device42's GitHub](https://github.com/device42/cherwell_device42_sync/blob/master/mapping.xml.sample) and put it into the folder you created in Step 1.
 3. Configure the integration credentials to allow connection between Device42 and Cherwell:
     - Save a copy of `mapping.xml.sample` as `mapping.xml`.
     - Enter your Cherwell and Device42 **URLs**, **user names**, and **passwords** in their respective sections (lines 3-11), and for Cherwell only, the `client_id` - find it in your Cherwell instance under **Cherwell Service Management Administration > Security > Edit REST API Client Settings > Client Key**.
@@ -71,7 +71,7 @@ Each section must contain the following attributes:
 Each section must contain one or more upstream and downstream relationships. The section represents a one-to-many downstream relationship and must contain the following attributes:
 
 - `d42-model`: The name of the CI (model) in Device42 of the 'child' in relationship
-- `id`: The ID of the relationship (the `CI links Downstream CIs` relationship should be used in most cases). This value can be obtained in Cherwell from **Cherwell service management administration > blueprint > Config > Edit relationships... > relationship > Edit > Advanced > Relationship ID**. Please make sure the relationship has a reversed one (`Upstream`).
+- `id`: The ID of the relationship (the `CI links Downstream CIs` relationship should be used in most cases). This value can be obtained in Cherwell from **Cherwell Service Management Administration > blueprint > Config > Edit relationships... > relationship > Edit > Advanced > Relationship ID**. Please make sure the relationship has a reversed one (`Upstream`).
 
 The Service Instances and Application Components sections must include the section for creating new objects in Cherwell. Mappings are not applicable for devices, as they should be processed in their own tasks.
 
