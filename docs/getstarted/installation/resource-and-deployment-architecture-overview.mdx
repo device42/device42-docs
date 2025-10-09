@@ -2,29 +2,39 @@
 title: "Resource and Deployment Architecture Overview"
 sidebar_position: 1
 ---
-Learn about the Device42 core resources and how they fit into our deployment architecture.
+Learn about the Device42 core resources and how they fit into the deployment architecture.
 
 ## Device42 Resources
 
+Device42 consists of the Main Appliance (MA) interface for configuring and running discovery jobs, viewing and managing discovered Configuration Items (CIs), generating reports, and managing any third-party integrations.
+
+The CIs are discovered using the Remote Collector (RC) and Windows Discovery Service (WDS) components, both of which are installed after installing the MA. 
+
 ### Main Appliance
 
-The Device42 Main Appliance (MA) is the kick-off point for all the discovery and insights that will proliferate through your environment. It is a preconfigured virtual appliance (built on Linux) hosted by the end customer, enabling full protection under the client’s data center security architecture and policies.
+The Device42 Main Appliance is the kick-off point for all the discovery and insights that will proliferate through your environment. It is a preconfigured virtual appliance (built on Linux) hosted by you, for full protection under your organization's data center security architecture and policies.
 
 Device42 operates with only five ports open to the virtual appliance:
 
 - **Port 80:** Redirects to port 443
 - **Port 443:** Web (HTTPS)
 - **Port 4242:** Redirects to port 4343
-- **Port 4343:** Appliance manager (HTTPS)
+- **Port 4343:** Appliance Manager (HTTPS)
 - **Port 404:** SSH for limited console menu operations
+
+:::caution
+Device42 is delivered as a virtual appliance. Root access to the appliance is not supported, and the VM will cease to function if you attempt to break into the root account.
+:::
+
+The Main Appliance itself is managed using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx) where you can restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
 
 ### Remote Collector
 
-The Remote Collector (RC) is a much lighter preconfigured virtual appliance (built on Linux) used to perform agentless discovery across network segments. It also provides scalability by offloading discovery workloads from the MA. We require you to install at least one RC with any deployment of Device42.
+The Remote Collector is a much lighter preconfigured virtual appliance (built on Linux) used to perform agentless discovery across network segments. It also provides scalability by offloading discovery workloads from the MA. You will need to install at least one RC with any deployment of Device42.
 
 ### Windows Discovery Service
 
-The Windows Discovery Service (WDS) is a `.net` service that runs on a Windows system and makes WMI queries on behalf of the Linux-based RC and MA. If you’ll be running Windows discoveries, you will need to deploy at least one WDS instance and connect it to an RC.
+The Windows Discovery Service is a .NET service that runs on a Windows system and makes WMI queries on behalf of the Linux-based RC and MA. If you’ll be running Windows discoveries, you will need to deploy at least one WDS instance and connect it to an RC.
 
 ## Deployment Architecture
 

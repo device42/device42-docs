@@ -2,10 +2,39 @@
 title: "Installation"
 ---
 
-:::danger
-IMPORTANT NOTICE: Device42 is delivered as a virtual appliance. Root access to the appliance is not supported, and the VM will cease to function if you attempt to break into the root account.
-:::
+Welcome to the Device42 installation guide. This section outlines the initial process of installing Device42 for the purposes of mapping and gaining insight into your IT environment.
 
-In this section, we will discuss how to install Device42 and use it in your organization. To test Device42, we recommend you use the Device42 SaaS platform and properly provisioned and specced hardware. See the general [sizing recommendations](sizing-recommendations.mdx) for details. You can also sign up for a [free trial of Device42](https://www.device42.com/try-device42/) or [join us in a live demo](https://www.device42.com/weekly-demo/?nab=0).
+## Getting Started
 
-The subpages in this category provide platform-specific instructions for various providers, including AWS, Azure, and Citrix, and can be accessed via the sidebar.
+Device42 is delivered as a virtual appliance to be installed on a choice of virtualization platforms.
+
+Before you begin:
+- Review the [sizing recommendations](sizing-recommendations.mdx) to ensure your environment is properly provisioned.
+- Check the [security posture and high-level permissions](security-posture-and-high-level-permissions.mdx) required for discovery.
+- See the [discovery port configurations](discovery-port-configurations.mdx) for network requirements.
+
+### Installation Process and Device42 Components
+
+Device42 consists of three main components that need to be installed. First, install the Device42 Main Appliance (the Device42 application and user interface) followed by the Remote Collector (RC) and Windows Discovery Service (WDS). 
+
+The RC and WDS are used to collect information about the IT environment during discovery. The WDS is used for discovery in Windows environments and the RC is used for everything else.
+
+For explanations of these Device42 components, see the next [Resource and Deployment Architecture](resource-and-deployment-architecture-overview.mdx) page.
+
+After installing the Main Appliance, RC, and WDS, you can install the [Device42 NetFlow Collector](installing-the-d42-netflow-collector-as-a-service.mdx) to improve [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/index.mdx) discovery.
+
+## Choose Your Platform
+
+Select the platform-specific installation guide from the sidebar that matches your environment:
+
+- [VMware vCenter Server](installation-vcenter-server.mdx)
+- [Microsoft Hyper-V](installation-microsoft-hyperv.mdx)
+- [Citrix Xen Server](installation-citrix-xen-server.mdx)
+- [Xen or KVM](installation-xen-or-kvm-using-virt-manager.mdx) 
+- If the **Import existing disk image** option is missing in Virt-Manager, see the [alternate installation method](how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing.mdx)
+- [Amazon Web Services (AWS)](installation-amazon-web-services.mdx)
+- [Microsoft Azure](installation-microsoft-azure.mdx)
+
+## Try Device42
+
+You can sign up for a [free trial of Device42](https://www.device42.com/try-device42/) or [join us in a live demo](https://www.device42.com/weekly-demo/?nab=0) to see the platform in action.
