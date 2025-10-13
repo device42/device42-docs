@@ -26,7 +26,7 @@ Device42 operates with only five ports open to the virtual appliance:
 Device42 is delivered as a virtual appliance. Root access to the appliance is not supported, and the VM will cease to function if you attempt to break into the root account.
 :::
 
-The Main Appliance itself is managed using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx), which you can use to restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
+The Main Appliance itself is managed using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx), from which you can restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
 
 ### Remote Collector
 
@@ -38,7 +38,7 @@ The Windows Discovery Service is a .NET service that runs on a Windows system an
 
 ## Deployment Architecture
 
-The Device42 deployment architecture is similar to a hub-and-spoke model, with each RC/WDS collecting data and syncing back to the centralized MA. We recommend you deploy RCs and WDS instances in pairs if you require Windows discovery.
+The Device42 deployment architecture is similar to a hub-and-spoke model, with each RC/WDS collecting data and syncing back to the centralized MA. If you require Windows discovery, we recommend you deploy RCs and WDS instances in pairs.
 
 ### Device42 Deployment Example
 
