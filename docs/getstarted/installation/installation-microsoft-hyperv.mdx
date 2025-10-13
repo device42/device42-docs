@@ -6,43 +6,35 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This guide will walk you through installing Device42 on a Microsoft HyperV virtual machine (VM).
+This guide walks you through installing Device42 on a Microsoft Hyper-V virtual machine (VM).
 
 ## Outline of Installation Steps
 
 After you [download the Device42 virtual appliance file](https://www.device42.com/download/), take the following steps to set it up:
 
-1. Use 7zip to unzip the downloaded file.
+1. Use 7-Zip to unzip the downloaded file.
 2. Create a virtual machine with a **minimum** of 2 vCPU, 8 GB RAM for production use, and one network card. Configure the new VM to use the attached virtual disk file.
-3. Power on the new machine and log in to the console using the default credentials. Please change the credentials.
-   
-    - **Username:** `device42`
-    - **Password:** `adm!nd42`
+3. Power on the new machine and log in to the console using the default credentials, then update the credentials.
 
 4. On the console, configure the IP and choose your settings. Please use a static (non-DHCP) IP address for all Device42-related appliances. Create a DNS entry that points to the IP address of the new virtual appliance.
-5. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address`. Log in to the **web interface** using the default credentials:
-    
-    - **Username** `admin` 
-    - **Password:** `adm!nd42` 
-
-   Please change these credentials as soon as you log in.
+5. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address` and log in to the **web interface** using the default credentials.  Update the login credentials here as well.
 
 You are now ready to start discovering and documenting your IT infrastructure!
 
 ## Illustration of Installation Steps
 
-What follows are steps to install Device42 with screenshots to illustrate the process.
+Follow these steps to install Device42:
 
 ### Download the Device42 VM Image 
 
-Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and use 7zip to unzip the file.
+Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and use 7-Zip to unzip the file.
 
 ### Create a New Microsoft VM 
 
-Create a VM with a **minimum** of 2 vCPU, 8 GB RAM, and 1 network card, and configure the new VM to use the attached virtual disk file. See [Sizing Recommendations](sizing-recommendations.mdx) for more details.
+Create a VM with a **minimum** of 2 vCPU, 8 GB RAM, and 1 network card, and configure the new VM to use the attached virtual disk file. See the [Sizing Recommendations](sizing-recommendations.mdx) for more details.
 
 :::note
-Only HyperV Gen1 VMs are currently supported. In our experience, users have issues deploying Linux VMs as Generation 2 in HyperV. We recommend deploying Device42 only as a Gen1 VM.
+Only Hyper-V Gen1 VMs are currently supported. In our experience, users have issues deploying Linux VMs as Generation 2 in Hyper-V. We recommend deploying Device42 only as a Gen1 VM.
 :::
 
 ![Specify Name and Location](/assets/images/wpid6173-Here_are_step_1_in_pictures.png) 
@@ -62,8 +54,11 @@ Only HyperV Gen1 VMs are currently supported. In our experience, users have issu
 ### Boot the VM and Log In to the Console
 
 Power on the new machine and log in to the console using the default credentials:
+
 - **Username:** `device42`
 - **Password:** `adm!nd42`
+
+Please change these credentials as soon as you've logged in.
 
 ### Configure a Static IP and Networking Options
 
@@ -73,9 +68,9 @@ Configure an IP address for the Device42 appliance. Use a static IP or a DHCP ad
 
 ![IP config options v19.05](/assets/images/vm-ip-settings.png)
 
-Change the default password for user `device42` from the console menu before proceeding.
+Change the default password for the user `device42` from the console menu before proceeding.
 
-You can apply updates and do other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access root will cause the VM to disable itself permanently and is not supported.
+You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
 
 ### Log In to the Web Interface
 
@@ -85,6 +80,8 @@ Log in to the **web interface** using the default credentials:
 
 - **Username:** `admin`
 - **Password:** `adm!nd42`
+
+Please change these credentials as soon as you've logged in.
 
 You are now ready to start discovering your IT infrastructure! 
 
