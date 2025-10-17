@@ -7,20 +7,20 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import loginImg from '/assets/images/installation-amazon-web-services/login-appliance-manager.png'
 
-### Overview
+The Device42 Amazon Web Services (AWS) offering involves an EC2 instance that houses the Device42 Main Appliance (MA), Appliance Manager (AM), and Remote Collector (RC).
 
-The Device42 Main Appliance (MA) is available on Amazon Web Services (AWS), either as a manual installation or through the AWS Marketplace.
+![AWS architecture](/assets/images/aws-architecture.png)
 
-The Device42 Remote Collector (RC) is only available via manual installation only. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
+## Overview
+
+The Device42 Main Appliance is available on AWS, either as a manual installation or through the AWS Marketplace — this guide has instructions for both options.
+
+The Device42 RC is only available via manual installation only. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
 
 - The AWS region for Device42 deployment
 - The AWS account number
 
-The Device42 AWS offering involves an EC2 instance that houses the Device42 MA, Appliance Manager (AM), and RC.
-
-![AWS architecture](/assets/images/aws-architecture.png)
-
-### Costs and Licensing
+## Costs and Licensing
 
 Each Device42 AWS offering comes with a pre-installed limited license. To use the full capabilities of Device42, we recommend you obtain a more comprehensive license from a Device42 sales representative or business partner.
 
@@ -30,7 +30,7 @@ Device42 on AWS operates using the **Bring Your Own License (BYOL)** model, mean
 
 Device42 license pricing information is available on the [Device42 Pricing](https://www.device42.com/pricing/) page.
 
-### EC2 Instance Sizing for Device42
+## EC2 Instance Sizing for Device42
 
 When running Device42 on AWS, we recommended you size your Device42 MA to run on a **t3.xlarge** EC2 instance. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. The **t3.xlarge** EC2 instance size is the default and is currently the only instance size permitted.
 
@@ -40,7 +40,7 @@ Customers must regularly view and manage the quotas for AWS services using the A
 
 Refer to our [Sizing Recommendations](getstarted/installation/sizing-recommendations.mdx) page for sizing recommendations.
 
-### Regional Availability
+## Regional Availability
 
 Device42 AWS deployments are supported in the following regions:
 
@@ -318,9 +318,8 @@ The following is a sample IAM policy (with minimum appropriate permissions) that
 ### Security, Privacy, and Other Considerations
 
 - The Device42 AWS offering does not restrict the Instance Metadata Service version.
-- The Device42 AWS offering does not require AWS data encryption to operate properly.  
+- The Device42 AWS offering does not require AWS data encryption to operate properly.
 - Customer data resides on the instance itself. Customer passwords and secrets are encrypted with AES-256 encryption.
 
   Refer to the Device42 [Secrets, Security, and Permissions](administration/passwords/password-security-and-permissions.mdx) page for additional information on how passwords and secrets are stored.
-
 - The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.
