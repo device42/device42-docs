@@ -6,9 +6,9 @@ Learn about the Device42 core resources and how they fit into the deployment arc
 
 ## Device42 Resources
 
-Device42 consists of a  Main Appliance, one or more Remote Collectors (RCs), and a Windows Discovery Service (WDS). The Main Appliance is an interface for configuring and running discovery jobs, viewing and managing discovered Configuration Items (CIs), generating reports, and managing any third-party integrations.
+Device42 consists of the Main Appliance, one or more Remote Collectors (RCs), and a Windows Discovery Service (WDS). The Main Appliance is an interface for configuring and running discovery jobs, viewing and managing discovered Configuration Items (CIs), generating reports, and managing any third-party integrations.
 
-The CIs are discovered using the RC and WDS components, both of which you install after installing the MA. 
+During discovery, the RC and WDS collect data of your IT environment.
 
 ### Main Appliance
 
@@ -26,7 +26,7 @@ Device42 operates with only five ports open to the virtual appliance:
 Device42 is delivered as a virtual appliance. Root access to the appliance is not supported, and the VM will cease to function if you attempt to break into the root account.
 :::
 
-The Main Appliance itself is managed using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx), from which you can restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
+Manage the Main Appliance using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx), from which you can restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
 
 ### Remote Collector
 
