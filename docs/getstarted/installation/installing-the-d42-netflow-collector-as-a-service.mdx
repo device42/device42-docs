@@ -3,32 +3,31 @@ title: "Device42 NetFlow Collector - Installation"
 sidebar_position: 15
 ---
 
-## The Device42 NetFlow Collector
-
 The [Device42 NetFlow collector](https://www.device42.com/autodiscovery/) is a self-contained, portable utility that collects NetFlow data, analyzes it, and sends it to your Device42 instance to enhance application dependency mapping discovery. The data Device42 gets from NetFlow is used to augment data gathered via Device42’s other autodiscovery methods (for example, SNMP, WMI or WinRM for Windows, SSH for Linux), producing a comprehensive map of your infrastructure including accurate details and important inter-relationships without the need to configure expensive span or mirror ports!
 
 :::note
 Device42 Remote Collectors (RCs) include built-in NetFlow Collector functionality. Device42 recommends using the RC NetFlow Collector rather than the standalone collector if possible in your environment. For more information about the RC NetFlow Collector, see [NetFlow Collector](auto-discovery/netflow-collector.mdx).
 :::
 
-## NetFlow Collector Architecture High-Level Overview:
+## NetFlow Collector Architecture Terminology
 
-1. **The NetFlow exporter:** Your network devices are the 'source' of NetFlow messages
-2. **The NetFlow collector:** The Device42 NetFlow Collector serves as the receiver and pre-processor of NetFlow messages from your network devices
-3. **The NetFlow analyzer:** Device42 itself, aggregates and analyzes NetFlow messages from all your NetFlow exporting devices
+1. **The NetFlow exporter:** Your network devices are the source of NetFlow messages.
+2. **The NetFlow collector:** The Device42 NetFlow Collector serves as the receiver and preprocessor of NetFlow messages from your network devices.
+3. **The NetFlow analyzer:** Device42 itself aggregates and analyzes NetFlow messages from all your NetFlow exporting devices.
 
 ## System Requirements
 
-- A Windows or Linux 64-bit operating system
-- At least 6 GB of RAM is recommended
+- A Windows or Linux 64-bit operating system.
+- At least 6 GB of RAM is recommended.
 
-## How To Install the Device42 NetFlow Collector as a Windows or Linux Service
+## Install the Device42 NetFlow Collector as a Windows or Linux Service
 
 To install Device42 NetFlow as a service:
 
 1. Download and extract `d42-netflow-collector-v200.zip` from the [Device42 Autodiscovery tools page](https://www.device42.com/autodiscovery/), unzip it, and copy the 64-bit executable to the directory of your choice:
-    - For Windows 64-bit, `c:program files` is a good choice.
-    - For Linux, `/usr/bin/` is commonly used. We renamed the 64-bit binary and copied it to `C:Program Filesd42-netflowd42-netflow64.exe`. 
+    - For Windows 64-bit, `c:\program files` is a good choice.
+    - For Linux, `/usr/bin/` is commonly used. We renamed the 64-bit binary and copied it to `C:\Program Files\d42-netflow\d42-netflow64.exe`.
+
     We do not recommend using the 32-bit binary due to RAM limitations inherent in 32-bit.
 2. Ensure the Windows or Linux firewall allows NetFlow traffic on port 2055/UDP:
     - On Linux, run the commands:
@@ -53,12 +52,12 @@ $ sc create D42NetFlow binPath="c:pathtobinarywindows\_x64.exe -h \*ma\_url\* -u
 
 Where the string parameters are:
 
-- **`ServiceName`**: "D42NetFlow". The service will be registered with this name.
-- **`binPath`**: Path to binary
-- **`-h`**: URL of Device42 Main Appliance
-- **`-u`**: Device42 username
-- **`-p`**: Device42 password
-- **`-i`**: Flow delivery interval to Device42 MA in seconds (60 seconds is a good starting point)
+- **ServiceName:** "D42NetFlow". The service will be registered with this name.
+- **binPath:** Path to binary.
+- **-h:** URL of Device42 Main Appliance.
+- **-u:** Device42 username.
+- **-p:** Device42 password.
+- **-i:** Flow delivery interval to Device42 MA in seconds (60 seconds is a good starting point).
 
 
 ![Create D42NetFlow Windows Service](/assets/images/Create_D42_Netflow_Service.png)
@@ -72,35 +71,37 @@ After executing the above command, you'll see your new service in the services c
 Create a file `/etc/systemd/system/netflow.service` containing the following:
 
 <details>
-    <summary>Click to expand the code block</summary>
-    ```
-    ## systemd
+  <summary>Click to expand the code block</summary>
 
-    [Unit]
-    Description=NetFlow Service
+```
+## systemd
 
-    [Service]
-    PIDFile=/tmp/netflow.pid
-    User=root
-    Group=root
-    WorkingDirectory=/opt/rc/services
-    ExecStart=/opt/rc/services/netflow -h https://ma.host.domain -u username    -p password -i 30
-    Restart=always
+[Unit]
+Description=NetFlow Service
 
-    [Install]
-    WantedBy=multi-user.target
-    ```
+[Service]
+PIDFile=/tmp/netflow.pid
+User=root
+Group=root
+WorkingDirectory=/opt/rc/services
+ExecStart=/opt/rc/services/netflow -h https://ma.host.domain -u username -p password -i 30
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
 </details>
 
 ### Start the Service
 
-**On Windows:** 
+**On Windows:**
 
-- Run the service manager (services.msc)
-- Right-click **D42NetFlow**
-- Choose **Properties**
-- In the modal window, set the **Startup Mode** to "Automatic"
-- click **Start** to start D42NetFlow: 
+1. Run the service manager (services.msc).
+2. Right-click **D42NetFlow**.
+3. Choose **Properties**.
+4. In the modal window, set the **Startup Mode** to "Automatic".
+5. Click **Start** to start D42NetFlow.
 
 ![Set D42NetFlow service start as automatic](/assets/images/Set_service_start_automatic.png)
 
