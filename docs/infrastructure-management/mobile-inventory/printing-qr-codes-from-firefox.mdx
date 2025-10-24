@@ -1,27 +1,39 @@
 ---
-title: "Printing QR Codes from firefox"
+title: "Printing QR Codes from Firefox"
 sidebar_position: 5
 ---
 
-Printing from firefox is mostly straight forward with a few required margin and format settings as shown below.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-### Print dpi should match the dpi in printer settings.
+Printing from Firefox is straightforward, with a few recommended margin and format settings, as shown below.
 
-![wpid934-Print_dpi_should_match_the_dpi_in_printer_settings.png](/assets/images/wpid934-Print_dpi_should_match_the_dpi_in_printer_settings.png)
+## DPI Settings in QR Code Profile and Printer
+
+The **Print DPI** of the QR Code Profile used to generate the QR code should match the DPI in your printer settings.
+
+<ThemedImage
+  alt="Print DPI settings"
+  sources={{
+    light: useBaseUrl('/assets/images/printing-qr-codes-from-firefox/print-dpi-settings-light.png'),
+    dark: useBaseUrl('/assets/images/printing-qr-codes-from-firefox/print-dpi-settings-dark.png'),
+  }}
+/>
 
 ![wpid931-media_1341526292540.png](/assets/images/wpid931-media_1341526292540.png)
 
-### Page Setup
+## Firefox Print Page Setup
 
-![wpid932-Page_Setup.png](/assets/images/wpid932-Page_Setup.png)
+In Firefox, you can choose **File > Print...** or click the **Print** button on the QR code page to print the label.
 
-![wpid930-media_1340198201622.png](/assets/images/wpid930-media_1340198201622.png)
+![QR codes with print label](/assets/images/printing-qr-codes-from-firefox/qr-code-example.png)
 
-From Menu > Print > Page Setup, choose settings as shown in images above.  
-Landscape mode. Empty out headers and footers. Print background colors and images. Enable shrink-to-fit. Zero margins.
+Set up the print page with the following recommended settings:
 
-### Printing
+- Landscape mode
+- Enable **Fit to page width** (shrink-to-fit)
+- No margins
+- Deselect the **Print headers and footers** option
+- Select **Print backgrounds** 
 
-![wpid933-Printing.png](/assets/images/wpid933-Printing.png)
-
-You can choose Menu > Print or print from the QR code page to print the label.
+![Print settings for QR codes in Firefox](/assets/images/printing-qr-codes-from-firefox/printer-settings.png)

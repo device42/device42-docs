@@ -6,7 +6,7 @@ sidebar_position: 8
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Install the Device42 Main Appliance on Xen or KVM-based platforms by following the steps in this guide.
+Install the Device42 Main Appliance on Xen- or KVM-based platforms by following the steps in this guide.
 
 ## Outline of Installation
 
@@ -33,19 +33,19 @@ bunzip2 device42-<version>-raw.img.bz2
 
     If you don't see the option to **Import existing disk Image**, follow the [Alternate Install](how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing.mdx) guide.
 
-    ![Install](/assets/images/wpid6123-Download_and_Install.png)
+![Install](/assets/images/wpid6123-Download_and_Install.png)
 
 2. Choose **Linux** as the **OS type** and select the latest Ubuntu **Version**.
 
-    ![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
+![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
 
 3. Allocate at least 8 GB RAM and 2 vCPUs for production appliances. See [Sizing Recommendations](sizing-recommendations.mdx).
 
-    ![](/assets/images/wpid6124-media_1326264722468.png)
+![](/assets/images/wpid6124-media_1326264722468.png)
 
 4. Choose your virtualization type from **Advanced options** and x86_64 for the **Architecture**. Click **Finish**.
    
-    ![](/assets/images/wpid6125-media_1326264734201.png)
+![](/assets/images/wpid6125-media_1326264734201.png)
 
 ### Set Up the Main Appliance from the Console
 
@@ -57,15 +57,15 @@ bunzip2 device42-<version>-raw.img.bz2
 
    Change the default password after signing in to the appliance console.
 
-3. From the console, configure the IP. 
+![IP config options v19.05](/assets/images/vm-ip-settings.png)
 
-    ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
+You can apply updates and perform other menu-related tasks using SSH. Please note that root login has been disabled.
 
-    Please use a **static IP address** for all production Device42 VMs to avoid connectivity issues.
+* * *
 
-    ![IP config options v19.05](/assets/images/vm-ip-settings.png)
+You can also create a DNS entry for the new IP address for the new virtual appliance.
 
-    You may apply updates and do other menu-related work using SSH. Please note that root login has been disabled.
+Access the Device42 web UI by pointing your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` and logging in with the default credentials:
 
 4. (Optional) Create a DNS entry for the new IP address for the new virtual appliance.
 

@@ -22,17 +22,17 @@ The Device42 RC is only available via manual installation only. To request acces
 
 ## Costs and Licensing
 
-Each Device42 AWS offering comes with a pre-installed limited license. To use the full capabilities of Device42, we recommend you obtain a more comprehensive license from a Device42 sales representative or business partner.
+Each Device42 AWS offering comes with a pre-installed limited license. To make use of Device42's full capabilities, we recommend you obtain a more comprehensive license from a Device42 sales representative or business partner.
 
 Refer to the Device42 [Licensing](administration/licensing.mdx#upload-a-new-license) page for more information on managing licenses.
 
-Device42 on AWS operates using the **Bring Your Own License (BYOL)** model, meaning you can run on AWS with no additional charge from Device42. Other than the yearly fee for your Device42 license, the only costs you will incur via AWS are the charges they bill you for the use of your instances. These are usually hourly fees, depending on the instance size you select; larger instances generally cost more.
+Device42 on AWS operates using the **Bring Your Own License (BYOL)** model, meaning you can run on AWS with no additional charge from Device42. Other than the yearly fee for your Device42 license, the only costs you will incur via AWS are the charges Amazon bills you for the use of your instances. These are usually hourly fees, depending on the instance size you select. Larger instances generally cost more.
 
 Device42 license pricing information is available on the [Device42 Pricing](https://www.device42.com/pricing/) page.
 
 ## EC2 Instance Sizing for Device42
 
-When running Device42 on AWS, we recommended you size your Device42 MA to run on a **t3.xlarge** EC2 instance. During appliance configuration on the AWS Marketplace, you will have the option to select your EC2 instance size. The **t3.xlarge** EC2 instance size is the default and is currently the only instance size permitted.
+When running Device42 on AWS, we recommend you size your Device42 MA to run on a **t3.xlarge** EC2 instance. During appliance configuration on the AWS Marketplace, you have the option to select your EC2 instance size. The **t3.xlarge** EC2 instance size is the default and is currently the only instance size permitted.
 
 The configuration will only allow you to **Launch** successfully using one of the sizes listed above.
 
@@ -56,19 +56,19 @@ Device42 AWS deployments are supported in the following regions:
 |                           | Israel (Tel Aviv)  | Asia Pacific (Jakarta)   |
 |                           | Middle East (UAE)  | Asia Pacific (Melbourne) |
 
-## Deploying Device42 From the AWS Marketplace
+## Deploying Device42 from the AWS Marketplace
 
 ### Configuring Instance and Communication Settings
 
-Launch your Device42 instance via the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) one-click feature and follow the on-screen instructions.
+Launch your Device42 instance using the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) one-click feature and follow the on-screen instructions.
 
 When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and allow incoming access from your external IP address:
 
-- Click **Create a key pair in EC2** to generate a key. See the [Generating a new AWS key pair](#generating-a-new-aws-key-pair-for-ssh-access) section for more help with this step.
+- Click **Create a key pair in EC2** to generate a key. See the [Generating a New AWS Key Pair](#generating-a-new-aws-key-pair-for-ssh-access) section for more help with this step.
     
   ![Select SSH key pair to use for console access to Device42 on AWS](/assets/images/choose_SSH_keypair_AWSd42-hl.png)
 
-- Create an appropriate security group via **Security Group Settings**, select **Create new based on seller settings**, and add your external IP address as an allowed IP for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
+- Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and adding your external IP address as an allowed IP for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
   
   These ports are part of the default Device42 AMI security group settings for incoming SSH, Appliance Manager, and web UI access.
     
@@ -102,7 +102,7 @@ Navigate to the Device42 login screen by visiting `https://Device42_AWS_address`
   style={{ width: '80%' }} 
   />
 
-Update the appliance license key, as the included key is expired:
+Update the appliance license key, because the included key has expired:
 
 - Obtain an updated license by sending an email to [sales@device42.com](mailto:sales@device42.com) requesting a trial license for an AWS Marketplace Device42 installation.
 - When you receive the updated key file, save it to your local filesystem and go to **Tools > Settings > Licensing**. Browse to the new key file **(1)** and click the **Upload & Apply** button **(2)**.
@@ -132,7 +132,7 @@ Make sure your AMI is running the latest version of Device42 and update it if ne
     style={{ width: '70%' }} 
     />
 
-And you're all set! Now is a good time to check out our documentation for [Getting Started](getstarted/index.mdx) with Device42. If you have any questions or issues that the documentation doesn't address, visit our [support page](https://support.device42.com) or email [support@device42.com](mailto:support@device42.com) to open a ticket.
+And you're all set! Now is a good time to check out our documentation for [Getting Started](getstarted/index.mdx) with Device42. If you have any questions or issues that the documentation doesn't address, visit the [Device42 Support page](https://support.device42.com) or email [support@device42.com](mailto:support@device42.com) to open a ticket.
 
 * * *
 
@@ -147,19 +147,19 @@ To generate a new SSH key pair for use on AWS, you first need to access the **Ke
 
 On the **Key Pairs** page, take the following steps:
 
-1. Click the **Create Key Pair**" button (1).
+1. Click the **Create Key Pair** button (1).
 2. In the dialog that pops up, give your new key pair a meaningful name.
 3. Click the **Create** button.
 
-    Your key file will be created and the private key will begin downloading automatically. Save it somewhere safe.
+    This creates your key file and automatically begins downloading the private key. Save your key somewhere safe.
     
     The `FileName.pem` file contains the **private key** that you'll use for authentication. If you are using Linux, copy it to your key directory.
 
-4. To use your new SSH key with PuTTY on Windows, reference this helpful AWS article: [Connect to your Linux instance using PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html).
+4. To use your new SSH key with PuTTY on Windows, reference the helpful AWS article on [connecting to your Linux instance using PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html).
 
 ### Appliance Manager Access — AWS Marketplace Installation
 
-All maintenance operations are performed through the Device42 Appliance Manager (AM). The AM listens on port 4343 (for example, `https://YOUR\_DEVICE42\_INSTANCE:4343`) **(1)**.
+All maintenance operations are performed through the Device42 Appliance Manager (AM). The AM listens on port 4343 (for example, `https://YOUR_DEVICE42_INSTANCE:4343`) **(1)**.
 
 Software updates, Device42 backups and restores, and certificate management are all performed through the AM:
 
@@ -168,9 +168,9 @@ Software updates, Device42 backups and restores, and certificate management are 
 For one-click installations from the AWS Marketplace, log in to the AM using the following credentials **(2)**:
 
 - **Username:** `d42admin` 
-- **Password:** [Your AWS instance ID]
+- **Password:** Your AWS instance ID
   
-Once logged in, you'll see the AM main menu:
+Once you've logged in, you'll see the AM main menu:
 
 ![D42 Appliance Manager menu](/assets/images/installation-amazon-web-services/appliance-manager.png)
 
@@ -180,9 +180,7 @@ Once logged in, you'll see the AM main menu:
 
 Before you begin:
 
-1. Please submit a ticket requesting access to the Device42 AMI. Be certain to include the following information:
-    - The AWS region for Device42 deployment
-    - The AWS account number
+1. Please submit a ticket requesting access to the Device42 AMI. Be certain to include the **AWS region** for Device42 deployment and the **AWS account number**.
 2. After Device42 Support has granted you access to the Device42 AMI, navigate to your EC2 Dashboard and launch a new instance.
 3. Select **My AMIs**, choose **Shared with Me**, and deploy your appliance. **Device42 recommends `t3.xlarge` as the instance size.**
 
@@ -203,9 +201,9 @@ For additional visibility, Device42 recommends users enable [AWS CloudTrail](htt
 
 ### Software and Security Updates and Patches
 
-Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from the [Device42 update page](https://www.device42.com/update/).
+Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from the [Device42 Update page](https://www.device42.com/update/).
 
-Watch the [How To Update the Device42 Appliance](/how-to-videos/update-device42-appliance-how-to) walkthrough video for information on our quick update process.
+Watch the [How To Update the Device42 Appliance](/how-to-videos/update-device42-appliance-how-to) walkthrough video to discover our quick update process.
 
 ### Backing Up and Restoring Device42 Data on AWS
 
@@ -225,17 +223,17 @@ The built-in health check monitors the following:
 
 ### Configuring High Availability for Device42 on AWS
 
-If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported **Warm HA** solution. To configure your deployment to run Warm HA, failover, and (if desired) automatic backups, follow the instructions in the [Device42 Warm HA documentation](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx).
+If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported **Warm HA** solution. To configure your deployment to run Warm HA, failover, and (if desired) automatic backups, follow the instructions in the Device42 [Warm HA](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) documentation.
 
-The documentation also includes an example configuration that leverages Nagios to automatically fail over the instance in case of a failure.
+The documentation also includes an example configuration that leverages Nagios to automatically initiate a failover of the instance in the event of a failure.
 
 ### Cross-Instance Discovery - Sample IAM Policy
 
 :::note
-The following sample IAM policy is **not** needed to simply run Device42 on AWS. You would only set up an IAM policy similar to this if you wanted to **target** your AWS inventory for discovery (to document your AWS deployment in Device42). No IAM policy is necessary to **run** Device42 in AWS nor to discover infrastructure running elsewhere.
+The following sample IAM policy is **not** needed to simply run Device42 on AWS. You would only set up an IAM policy similar to this if you wanted to **target** your AWS inventory for discovery (to document your AWS deployment in Device42). No IAM policy is necessary for **running** Device42 in AWS, nor for discovering infrastructure that is running elsewhere.
 :::
 
-Visit the Device42 [support page](https://support.device42.com/) to open a ticket or reach out to [support@device42.com](mailto:support@device42.com) if you have any more questions.
+Visit the [Device42 Support page](https://support.device42.com/) to open a ticket or reach out to [support@device42.com](mailto:support@device42.com) if you have any more questions.
 
 The following permissions are required to support discovery:
 

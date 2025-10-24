@@ -6,6 +6,8 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+Use Device42's Google Cloud Platform (GCP) autodiscovery to automatically inventory your GCP infrastructure, including virtual machines, Kubernetes clusters, databases, networks, and load balancers.
+
 ## Google Cloud Platform Discovery Items
 
 The following table outlines the Google Cloud Platform (GCP) items that Device42 automatically discovers, the types of information generated for each item, and where that information can be found in Device42.
@@ -17,6 +19,41 @@ The following table outlines the Google Cloud Platform (GCP) items that Device42
 | Subnets                     | Networks -> Subnets          | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Mask, name, VRF Group |
 | SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, etc. |
 | VMs                         | Devices -> All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, Name, RAM, OS, CPU, cores, etc. |
+
+Device42 also discovers the following GCP items:
+
+**Storage:**
+- Cloud Device
+- Cloud Disk
+
+**Networking:**
+- VPCs (VRF Groups)
+- VPC Firewall Rules
+- GCP Load Balancer
+
+**Databases:**
+- Cloud SQL
+- GCP BigQuery Table
+
+**Kubernetes:**
+- Kubernetes Cluster
+- Kubernetes Config Map
+- Kubernetes Container
+- Kubernetes Daemon Set
+- Kubernetes Deployment
+- Kubernetes Ingress
+- Kubernetes Ingress Rule
+- Kubernetes Namespace
+- Kubernetes Node
+- Kubernetes Persistent Volume
+- Kubernetes Pod
+- Kubernetes Quota
+- Kubernetes Replica Set
+- Kubernetes Replication Controller
+- Kubernetes Service
+- Kubernetes Service Port
+- Kubernetes Stateful Set
+- Kubernetes Volume
 
 ## GCP Permission Requirements
 
