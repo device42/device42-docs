@@ -4,7 +4,7 @@ sidebar_position: 17
 ---
 
 :::info
-These are **special case** installation instructions for installing the Device42 appliance on Xen- or KVM-based platforms if the import disk image option is missing. Otherwise, please refer to [Device42 Xen and KVM install docs](getstarted/installation/installation-xen-or-kvm-using-virt-manager.mdx).
+These are **special case** installation instructions for installing the Device42 appliance on Xen- or KVM-based platforms if the **Import existing disk image** option is missing. Otherwise, please refer to the Device42 [guide to Xen and KVM installation](getstarted/installation/installation-xen-or-kvm-using-virt-manager.mdx).
 :::
 
 ### Download and Uncompress with bunzip2
@@ -19,34 +19,34 @@ bunzip2 device42-3.2.3-raw.img.bz2
 
 Once you have uncompressed the downloaded raw image, create a new virtual machine. 
 
-Choose the **Network Boot** option. We'll add the disk later. Please make sure you don't have some sort of automated network boot enabled for this machine. You will not see the **Import existing disk image** option.
+Choose the **Network Boot** option. We'll add the disk later. Please make sure you don't have any kind of automated network boot enabled for this machine. You will not see the **Import existing disk image** option.
 
 ![Install](/assets/images/wpid2483-Install.png)
 
 ### Choose OS and Version
 
-Choose "Linux" as the **OS type** and "Ubuntu 14.04" for the **version**. If you don't see the option for 14.04, choose the latest version available.
+Choose **Linux** as the **OS type** and **Ubuntu 14.04** for the **Version**. If you don't see the option for **14.04**, choose the latest version available.
 
 ![Choosing OS and version](/assets/images/wpid2480-Choosing_OS_and_version.png)
 
-Allocate at least 8 GB RAM and 2 vCPU for production appliances. See [Sizing Recommendations](sizing-recommendations.mdx).
+Allocate at least `8` GB RAM and `2` vCPU for production appliances. See the Device42 [Sizing Recommendations](sizing-recommendations.mdx) page for more information.
 
 ![](/assets/images/wpid2484-media_1326264722468.png)
 
-### Choose Disk (Bunzipped File)
+### Choose Disk (bunzipped File)
 
 ![Choose disk(bunzipped file)](/assets/images/wpid2479-Choose_disk_bunzipped_file_.png)
 
-Choose your virtualization type from **Advanced options** and "i686" as the **Architecture** and you are ready to go.
+Choose your virtualization type under the **Advanced options** and select **i686** as the **Architecture**.
 
 ![](/assets/images/wpid2487-media_1352976855381.png)
 
 ### Disable Network Boot
 
-Go to **Details** (1), **Boot Options** (2), uncheck **Network(PXE)**, and click **Apply** (4).
+Go to **Details** (1) > **Boot Options** (2), then uncheck **Network(PXE)** and click **Apply** (4).
 
 ![Disable network boot](/assets/images/wpid2481-Disable_network_boot.png)
 
 ### Complete the Setup
 
-Follow the steps outlined in "[Set Up the Main Appliance and Log In](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-and-log-in)" section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.mdx) page to complete the installation of the Main Appliance. 
+Follow the steps outlined in the [Set Up the Main Appliance and Log In](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-and-log-in) section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.mdx) page to complete the installation of the Main Appliance. 

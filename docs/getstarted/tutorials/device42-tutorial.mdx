@@ -12,11 +12,11 @@ If you're wondering what to do next, you're in the right place! This section wil
 
 Below, you'll find:
 
-1. An explanation of the Device42 object hierarchy and common Device42 terminology.
-2. An overview of how to get data into Device42.
-3. A summary of the available tutorials to help you decide whether they will be helpful to you.
+- An explanation of the Device42 object hierarchy and common Device42 terminology.
+- An overview of how to get data into Device42.
+- A summary of the available tutorials to help you decide whether they will be helpful to you.
 
-### Hierarchies and Terminology in Device42
+## Hierarchies and Terminology in Device42
 
 The **Infrastructure > DataCenter** menu lists the Device42 object types in hierarchical order. **Buildings** contain **Rooms**, which in turn house **Racks**.
 
@@ -36,10 +36,10 @@ Buildings are at the top of the object hierarchy in Device42; there are no highe
 
 Consider the example of a campus with multiple buildings. In Device42, the campus could be represented in either of the following ways:
 
-1. The simplest and most direct option is to define each physical building as an individual building in Device42. The building naming scheme is your choice, but a common approach is to use a moniker based on the address of each building. For example, `East Campus / 151 Main St` or even just the address, `115 Main St`.
-2. Alternatively, you can logically group the buildings into deployments. In Device42, you can represent a deployment of multiple physical buildings as a single building object. For example, you could create a Device42 building called `East Campus` that contains the entire East Campus deployment. Each room across all physical buildings on East Campus would be created in the `East Campus` building, neatly and logically grouping all managed assets across the East Campus. Each room name in Device42 could begin with the physical building's name, so two rooms in `East Campus` might be `151 Main St / 2nd Floor Data Closet` and `155 Main St / Basement Server Installation`.
+- The simplest and most direct option is to define each physical building as an individual building in Device42. The building naming scheme is your choice, but a common approach is to use a moniker based on the address of each building. For example, `East Campus / 151 Main St` or even just the address, `115 Main St`.
+- Alternatively, you can logically group the buildings into deployments. In Device42, you can represent a deployment of multiple physical buildings as a single building object. For example, you could create a Device42 building called `East Campus` that contains the entire East Campus deployment. Each room across all physical buildings on East Campus would be created in the `East Campus` building, neatly and logically grouping all managed assets across the East Campus. Each room name in Device42 could begin with the physical building's name, so two rooms in `East Campus` might be `151 Main St / 2nd Floor Data Closet` and `155 Main St / Basement Server Installation`.
 
-### Devices and Assets
+## Devices and Assets
 
 Everything placed within a room is either a **device** or an **asset**. Devices have IP addresses and assets do not. Every device and asset is an individual CI.
 
@@ -84,24 +84,24 @@ You can also define other asset types.
 
 Other Device42 object types include:
 
-- **Permissions**: There are add, change, view, and delete permissions for each of the 100+ Device42 object types. These 400+ permissions can be assigned to both individuals and groups of individuals.
-- **Customers**: This object holds the owner or user of a device or asset. You can use this object to define actual customers, corporate entities, corporate departments, or any other organizational entity.
-- **Vendors**: The providers of devices, assets, and services. For example, Dell or HP.
-- **Secrets**: Device42 can track service passwords (like database passwords) and offers individual and role-based authorization for each password, independent of the individual and role-based permissions that can be applied to the various Device42 objects.
-- **Hardware Models**: Numerous attributes can be assigned to each device. If we had only individual attributes for each device, and a site has 80 Dell servers, then you would add the attributes of the Dell server 80 times. For this reason, we have a **Hardware Model** object. You define the attributes of a particular hardware model once, then just add the hardware model to future devices.
-- **PDU Models**: Similar to hardware models, PDU models can be defined once and then simply added to devices.
-- **Operating Systems**: As with PDUs and hardware models, information about an operating system (OS) only needs to be entered once, then that OS can be added to a device.
-- **Parts**: Most companies maintain an inventory of spare parts, such as disk drives, RAM, CPUs, and so on. These are tracked in Device42 as **Parts**.
-- **Purchases/Contracts**: This object holds basic purchasing information for devices and assets, including hardware support warranty information and additional contract details.
-- **Circuits**: Device42 can track Telco, internet, or WAN circuits.
-- **Cost Centers**: Cost centers can be assigned to purchases and purchase line items.
-- **Service Profiles**: This object stores Cisco UCS service profiles.
-- **IP Addresses**: Device42 tracks IP addresses, as well as related objects, such as Subnets, VLANs, VRF Groups, MAC Addresses, and IP/NAT records.
-- **DNS Zones / Records**: DNS zones and records are also stored in Device42
-- **Switch Ports**: Switch ports track connections to switches, TAPs, patch panels, and devices.
-- **Application Components**: Application components (like web servers and Oracle servers) are assigned to devices, and dependencies between application components are defined. This information is represented in impact charts.
+- **Permissions:** There are add, change, view, and delete permissions for each of the 100+ Device42 object types. These 400+ permissions can be assigned to both individuals and groups of individuals.
+- **Customers:** This object holds the owner or user of a device or asset. You can use this object to define actual customers, corporate entities, corporate departments, or any other organizational entity.
+- **Vendors:** The providers of devices, assets, and services. For example, Dell or HP.
+- **Secrets:** Device42 can track service passwords (like database passwords) and offers individual and role-based authorization for each password, independent of the individual and role-based permissions that can be applied to the various Device42 objects.
+- **Hardware Models:** Numerous attributes can be assigned to each device. If we had only individual attributes for each device, and a site has 80 Dell servers, then you would add the attributes of the Dell server 80 times. For this reason, we have a **Hardware Model** object. You define the attributes of a particular hardware model once, then just add the hardware model to future devices.
+- **PDU Models:** Similar to hardware models, PDU models can be defined once and then simply added to devices.
+- **Operating Systems:** As with PDUs and hardware models, information about an operating system (OS) only needs to be entered once, then that OS can be added to a device.
+- **Parts:** Most companies maintain an inventory of spare parts, such as disk drives, RAM, CPUs, and so on. These are tracked in Device42 as **Parts**.
+- **Purchases/Contracts:** This object holds basic purchasing information for devices and assets, including hardware support warranty information and additional contract details.
+- **Circuits:** Device42 can track Telco, internet, or WAN circuits.
+- **Cost Centers:** Cost centers can be assigned to purchases and purchase line items.
+- **Service Profiles:** This object stores Cisco UCS service profiles.
+- **IP Addresses:** Device42 tracks IP addresses, as well as related objects, such as Subnets, VLANs, VRF Groups, MAC Addresses, and IP/NAT records.
+- **DNS Zones / Records:** DNS zones and records are also stored in Device42
+- **Switch Ports:** Switch ports track connections to switches, TAPs, patch panels, and devices.
+- **Application Components:** Application components (like web servers and Oracle servers) are assigned to devices, and dependencies between application components are defined. This information is represented in impact charts.
 
-## Getting Your Data Into Device42
+## Getting Your Data into Device42
 
 There are numerous ways to get data into and out of Device42. As a best practice, we recommend you begin by using [autodiscovery](/getstarted/getting-started-with-auto-discovery.mdx) to find your network and work up from there. Visit the [Autodiscovery Best Practices](auto-discovery/autodisc-best-practices.mdx) page to learn about the recommended infrastructure discovery order and more.
 
@@ -121,9 +121,9 @@ You may use any desired combination of autodiscovery, RESTful APIs, spreadsheet 
 
 Our three tutorials and selection of [how-to videos](docs/how-to-videos/index.mdx) familiarize you with the Device42 system and address common questions.
 
-1. The [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx) shows you how to use the API to load a fairly robust set of data into the Device42 system. Don't be concerned if you aren't a programmer. This tutorial uses a very simple bash script. Please send us a note if you would like a sample in PowerShell, Python, or other languages.
-2. The [spreadsheets tutorial](/getstarted/tutorials/tutorial-loading-data-using-spreadsheets.mdx) demonstrates how to use spreadsheets to load data. There is no scripting involved. If you are fairly certain that you will never script API calls, this is the tutorial you should use.
-3. The [Device42 UI tutorial](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx) uses data uploaded during the spreadsheets or API tutorial to guide you through the core features of the Device42 UI.
+- The [API tutorial](getstarted/tutorials/tutorial-loading-data-using-the-api.mdx) shows you how to use the API to load a fairly robust set of data into the Device42 system. Don't be concerned if you aren't a programmer. This tutorial uses a very simple bash script. Please send us a note if you would like a sample in PowerShell, Python, or other languages.
+- The [spreadsheets tutorial](/getstarted/tutorials/tutorial-loading-data-using-spreadsheets.mdx) demonstrates how to use spreadsheets to load data. There is no scripting involved. If you are fairly certain that you will never script API calls, this is the tutorial you should use.
+- The [Device42 UI tutorial](getstarted/tutorials/tutorial-navigating-the-device42-user-interface.mdx) uses data uploaded during the spreadsheets or API tutorial to guide you through the core features of the Device42 UI.
 
 If you don't have time to create data by following the tutorials, email [support@device42.com](mailto:support@device42.com) to request a sample data spreadsheet.
 
