@@ -400,7 +400,10 @@ const config = {
           },
           {
             to: '/administration/role-based-access-control/role-based-permissions-and-access/',
-            from: ['/role-based-access-control/role-based-permissions-and-access/', '/multitenancy-overview/'],
+            from: [
+              '/role-based-access-control/role-based-permissions-and-access/', 
+              '/multitenancy-overview/'
+            ],
           },
           {
             to: '/integration/imports/spreadsheet-imports-and-exports/',
@@ -419,20 +422,20 @@ const config = {
             from: ['/imports/'],
           },
           {
-            to: '/integration/imports/legacy-imports/',
-            from: ['/imports/legacy-imports/'],
+            to: '/integration/imports/spreadsheet-imports-and-exports/',
+            from: ['/imports/legacy-imports/', '/integration/imports/legacy-imports/'],
           },
           {
-            to: '/integration/imports/legacy-imports/import-ip-sheet/',
-            from: ['/imports/import-ip-sheet/'],
+            to: '/integration/imports/spreadsheet-imports-and-exports/',
+            from: ['/imports/import-ip-sheet/', '/integration/imports/legacy-imports/import-ip-sheet/'],
           },
           {
-            to: '/integration/imports/legacy-imports/import-overview/',
-            from: ['/imports/import-overview/'],
+            to: '/integration/imports/spreadsheet-imports-and-exports/',
+            from: ['/imports/import-overview/', '/integration/imports/legacy-imports/import-overview/'],
           },
           {
-            to: '/integration/imports/legacy-imports/import-racked-devices/',
-            from: ['/imports/import-racked-devices/'],
+            to: '/integration/imports/spreadsheet-imports-and-exports/',
+            from: ['/imports/import-racked-devices/', '/integration/imports/legacy-imports/import-racked-devices/'],
           },
           {
             to: '/integration/api-overview/',
