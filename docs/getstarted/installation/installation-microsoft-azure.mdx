@@ -1,66 +1,74 @@
 ---
 title: "Microsoft Azure - Installation"
-sidebar_position: 10
+sidebar_position: 11
 ---
 
-## Get Device42 from the Azure Marketplace
+Install the Device42 Main Appliance on Microsoft Azure using the virtual appliance from the Azure Marketplace.
 
-To install Device42 within your Microsoft Azure environment, go to the Azure Marketplace and get the Device42 virtual appliance file: [https://azuremarketplace.microsoft.com/en-us/marketplace/apps/device42inc.device42?tab=Overview](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/device42inc.device42?tab=Overview).
+## Installation Overview
 
-Click **Get It Now** and log in to your Azure account if necessary.
+To install Device42 within your Microsoft Azure environment, you need to:
 
-Please ensure that you have installed the Azure CLI (`az cli`) before starting the process below.
+1. Download the Device42 virtual appliance from the Azure Marketplace.
+2. Configure the virtual machine with proper resources and set up networking and deployment.
+3. Log in to the Device42 instance using the vmID as the default password and configure the setup.
 
-![](/assets/images/Azure-Marketplace-Device42.png)
+## Detailed Installation Steps
 
-## Azure VM Configuration
+As a prerequisite, install the [Azure CLI](https://learn.microsoft.com/en-us/dotnet/azure/install-azure-cli) before starting the virtual machine configuration process.
 
-Fill in the virtual machine details, specifying the following:
+### Download the Device42 Virtual Appliance
 
-- Resource group
-- Virtual machine name
-- Size of VM - Please note that you should choose something with at least 8 GB RAM and 2 vCPU (recommended 16GB RAM 4 vCPU) or else you will get out of memory errors.
-- Administrator account - Choose **Authentication Type** as Password and just put in some random values. This field has no bearing on Device42 deployment.
-- Networking
-- Disks
+1. Download the [Device42 virtual appliance from the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/device42inc.device42?tab=Overview).
+2. Click **Get it now** and log in to your Azure account if necessary.
 
-Click on **Review & Create.** After validation, deployment should start.
+    ![](/assets/images/azure-d42-virtual-appliance.png)
 
-The Azure deployment creates the following resources by default:
+### Configure the Azure Virtual Machine
 
-- `Microsoft.Network/networkInterfaces`
+Fill in the virtual machine details:
+
+- Specify the resource group, virtual machine name, networking, and disks.
+- For the size-of-VM field, choose at least 8 GB RAM and 2 vCPUs (16 GB RAM and 4 vCPUs recommended) to avoid out-of-memory errors. See [Sizing Recommendations](sizing-recommendations.mdx).
+- For the administrator account, choose **Password** as the **Authentication Type** and enter a random value, as this field has no bearing on the Device42 deployment.
+- Click **Review & Create**. After validation, the deployment will start.
+
+The Azure deployment creates the following resources by default: 
+- `Microsoft.Network/networkInterfaces` 
 - `Microsoft.Network/publicIpAddresses`
 - `Microsoft.Network/networkSecurityGroups`
 - `Microsoft.Compute/virtualMachines`
 
-Add an ICMP Inbound Allowed rule. You should now be able to ping your Device42 instance.
+### Configure Network
+
+You can add an ICMP Inbound Allowed rule to ping your Device42 instance.
 
 ![](/assets/images/WEB-316_Az-Install-ICMP-page.png)
 
-You should also be able to access the Web GUI by navigating to the public IP address. Please make sure your network security groups allow the following inbound ports:
+You should also be able to access the web GUI by navigating to the public IP address. Make sure your network security groups allow the following inbound ports:
 
-- 404: For SSH access.
-- 443: For Web GUI and API access.
-- 4343: The Appliance Manager SSL port.
+- **404:** SSH access
+- **443:** Web GUI and API access
+- **4343:** Appliance manager SSL port
+
+Set a password for the default superuser **admin** account in the next steps.
 
 ## Device42 Configuration
 
-Now you need to set a password for the default superuser **admin** account.
+Get your Device42 Azure VM's instance ID by running the following command in Azure Shell:
 
-First, get your Device42 Azure VM’s instance ID by running the following command in Azure Shell:
-  
 ```
 az vm show --name <VM Name> --resource-group <resource group name>
 ```
 
-Save the `vmId` value, which you will use as the password for the following:
+Use the value of  **vmId** as a password with the following default account usernames:
 
-- SSH login as the default **device42** user.
-- Logging in to the D42 Main Appliance as the default **admin** user.
-- Logging in to the Appliance Manager as the default **d42admin** user.
+- The `device42` user for SSH login.
+- The `admin` user to log in to the D42 Main Appliance.
+- The `d42admin` user to log in to the Appliance Manager.
 
 ![](/assets/images/WEB-316_Az-Install-Az-shell-2.png)
 
-You can keep the **device42** console user password as is or you can change it to a password of your own choosing by selecting **Option 10** from the console.
+Change the **device42** console user password to something of your own choosing from the console..
 
-You should now have a fully functioning Device42 Main Appliance hosted on Microsoft Azure. You can run updates on this instance to get it to the latest version. You will have to supply your license to get full functionality.
+You should now have a fully functioning Device42 Main Appliance hosted on Microsoft Azure. You can run updates on this instance to get it to the latest version. You have to supply your license to get full functionality.

@@ -1,58 +1,75 @@
 ---
-title: "Windows Discovery Service Installation"
-sidebar_position: 8
+title: "Device42 Windows Discovery Service - Installation"
+sidebar_position: 13
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Windows Discovery Service (WDS) should be connected directly to a Remote Collector (RC) to enable WMI discovery directly from the Device42 UI.
+The Windows Discovery Service (WDS) is connected directly to a Remote Collector (RC) to enable WMI discovery directly from the Device42 user interface.
 
-The .NET service must be installed on a Windows machine with the .NET runtimes installed.
+## Installation Outline
 
-## Installing the Windows Discovery Service
+1. Download the `.msi` installer file from the [Device42 software page](https://www.device42.com/autodiscovery/) and run it.
+2. Enter the IP address or FQDN of the RC.
+3. From the Device42 Main Appliance, generate a one-time PIN.
+4. Select an installation destination and run the installation.
+5. Verify the success of the WDS installation from the Device42 Main Appliance.
+6. Install a valid certificate on the RC and WDS to secure the WDS implementation in Device42.
 
-1. Download the current WDS `.msi` installer file from the [Device42 **Autodiscovery** software download page](https://www.device42.com/autodiscovery/).
+## Detailed Installation Steps
 
-2. Run the downloaded `Device42Discovery.msi` installer. Click **Next** and follow the prompts to continue with the installation:
+As a prerequisite, the .NET service must be installed on a Windows machine with the .NET runtimes installed.
+
+### Download the Installer File and Run
+
+Download the current WDS `.msi` installer file from the [Device42 **Autodiscovery** software download page](https://www.device42.com/autodiscovery/).
+
+Run the downloaded `Device42Discovery.msi` installer. Click **Next** and follow the prompts to continue with the installation:
 
 ![Welcome Device42Discovery Setup Wizard](/assets/images/welcome_d42discovery_wizard.png)
 
-3. In the **Device42 RC Link Setup** dialog, indicate your **RC Endpoint** by entering the RC IP address or FQDN in the first field.
+### Link to a Remote Collector
+
+In the **Device42 RC Link Setup** dialog, indicate your **RC Endpoint** by entering the RC IP address or FQDN in the first field. Enter a one-time PIN in the **RC Code** field after generating it from the Device42 Main Appliance.
 
 ![RC Link setup Device42](/assets/images/RC_Link_Setup.png)
 
-4. Enter a one-time pin in the **RC Code** field, after generating it as follows:
+### Generate the Remote Collector One-Time PIN
 
-    - From the Device42 MA, navigate to **Discovery > Remote Collectors**.
+- From the Device42 MA, navigate to **Discovery > Remote Collectors**.
 
-    <ThemedImage
-      alt="Remote Collectors menu location"
-      sources={{
-        light: useBaseUrl('/assets/images/windows-discovery-service-installation/remote-collectors-menu-19.06-light.png'),
-        dark: useBaseUrl('/assets/images/windows-discovery-service-installation/remote-collectors-menu-19.06-dark.png'),
-      }}
-    />
+  <ThemedImage
+    alt="Remote Collectors menu location"
+    sources={{
+      light: useBaseUrl('/assets/images/windows-discovery-service-installation/remote-collectors-menu-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/windows-discovery-service-installation/remote-collectors-menu-19.06-dark.png'),
+    }}
+  />
 
-    - Click **Generate OTP** in the upper-right corner of the **Remote Collectors** list page.
+- Click **Generate OTP** in the upper-right corner of the **Remote Collectors** list page.
 
-    <ThemedImage
-      alt="Generate OTP"
-      sources={{
-        light: useBaseUrl('/assets/images/windows-discovery-service-installation/generate-otp-19.06-light.png'),
-        dark: useBaseUrl('/assets/images/windows-discovery-service-installation/generate-otp-19.06-dark.png'),
-      }}
-    />
+  <ThemedImage
+    alt="Generate OTP"
+    sources={{
+      light: useBaseUrl('/assets/images/windows-discovery-service-installation/generate-otp-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/windows-discovery-service-installation/generate-otp-19.06-dark.png'),
+    }}
+  />
 
-5. Accept the default installation directory for the WDS service or specify a custom installation path.
+### Select an Installation Folder and Start the Installation
+
+Accept the default installation directory for the WDS service or specify a custom installation path.
 
 ![Select installation folder](/assets/images/select_install_folder.png)
 
-6. Click **Next** to confirm installation.
+Click **Next** to confirm installation.
 
 ![Confirm Installation](/assets/images/confirm_installation.png)
 
-7. Confirm that the installation was successful by checking that RCs in the Device42 UI have been renamed and the WDS indicator icon has turned green to reflect the WDS connection.
+### Confirm the Installation
+
+Confirm that the installation was successful by checking that the RCs in the Device42 UI have been renamed and the WDS indicator icon has turned green to reflect the WDS connection.
 
 <ThemedImage
   alt="Running and connected WDS in list page"
@@ -62,7 +79,7 @@ The .NET service must be installed on a Windows machine with the .NET runtimes i
   }}
 />
 
-### Securing WDS Implementation in Device42
+## Securing the WDS Implementation in Device42
 
 Both the MA and the RC ship with a self-signed certificate, making it necessary to support invalid certificates with the default installation of Device42.
 
@@ -70,20 +87,22 @@ Install a valid certificate on the MA and the RC. You can then change the defaul
 
 <details>
   <summary>Click to expand the code block</summary>
-  ```markup
-  <configuration>
-    <appSettings>
-  ....
-      <add key="IgnoreSSLErrors" value="false"/>
-  ....
-    </appSettings>
-  ...  
-  ```
+
+```markup
+<configuration>
+  <appSettings>
+....
+    <add key="IgnoreSSLErrors" value="false"/>
+....
+  </appSettings>
+...
+```
+
 </details>
 
 ## Create a New WMI Autodiscovery Job
 
-You are now ready to run discoveries with your new WDS. When creating a new Windows WMI autodiscovery job (**Discovery > Hypervisors/\*nix/win for Autodiscovery**), choose the WDS connected to the RC with WDS, and configure the job settings to discover Windows devices:
+You are now ready to run discoveries with your new WDS. When creating a new Windows WMI autodiscovery job (**Discovery > Hypervisors/\*nix/win for Autodiscovery**), choose the WDS connected to the RC, and configure the job settings to discover Windows devices:
 
 <ThemedImage
   alt="Add new Windows Discovery Job"

@@ -6,14 +6,31 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The following steps will guide you through importing the Device42 Main Appliance into a vCenter Server so you can start mapping your IT Infrastructure.
+This guide walks you through installing the Device42 Main Appliance on the VMware vCenter Server.
 
-## Installing Device42 on vCenter Server
+## Outline of Installation Steps
+
+1. Download and unzip the compressed Device42 virtual appliance.
+2. From the vCenter Server interface, select the unzipped `.ovf` file. 
+3. Follow the VMware prompts and choose your location, datastore, and NIC.
+4. Power on the newly deployed Device42 virtual appliance. 
+5. Log in to the Device42 console using the default credentials and update the credentials.
+6. Configure the static IP address from the console.
+7. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP-address`. Update the login credentials here as well.
+
+## Illustrated Steps for Installing Device42 on vCenter Server
+
+Follow these steps to set up your Device42 instance:
+
+### Download and Unzip Device42
 
 Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and connect to your vCenter Server. 
 
-1. Use 7zip to decompress the downloaded Device42 virtual appliance image.
-2. Open vCenter Server, select **File > Deploy OVF template...**, and browse to the location of the extracted `.ovf` file.
+Use 7-Zip to decompress the downloaded Device42 virtual appliance image.
+
+### Deploy Device42 on the vCenter Server
+
+Open vCenter Server, select **File > Deploy OVF template...**, and browse to the location of the extracted `.ovf` file.
    
     ![](/assets/images/wpid6183-media_1326257039196.png)
 
@@ -21,26 +38,32 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 
     ![](/assets/images/wpid6185-media_1326257215753.png)
 
-3. Choose your location, datastore, and NIC by following the VMware prompts, and wait until the import is finished.
+### Configure Location, Datastore, and Network
+
+Choose your location, datastore, and NIC by following the VMware prompts, and wait until the import has finished.
 
     ![](/assets/images/wpid6186-media_1326257260982.png)
 
     ![](/assets/images/wpid6187-media_1326257290551.png)
 
-4. Power on your newly deployed Device42 virtual appliance.
+### Start the Device42 VM
+
+Power on your newly deployed Device42 virtual appliance.
 
     ![](/assets/images/wpid6188-media_1326257403442.png)
 
-5. Log in to the console with the default credentials: 
-   
+### Log In to the Device42 Console
+
+From the vCenter Server interface, open the VM console for your Device42 appliance. The Device42 console login screen appears automatically.
+
+Log in using the default credentials and change them once you've logged in:
+
    - **Username:** `device42`
    - **Password:** `adm!nd42` 
-   
-   ![Device42 console login screen](/assets/images/d42-console-login-screen-v15.png)
 
-   **Change the default password using option 10 on the appliance console.**
+### Configure the Static IP Address
 
-6. From the console, configure the IP address. Use a **static IP** for all production Device42 VMs to avoid connectivity issues.
+From the console, configure the IP address. Use a **static IP** for all production Device42 VMs to avoid connectivity issues.
    
     ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
@@ -48,14 +71,20 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 
     ![IP config options](/assets/images/vm-ip-settings.png)
 
-7. _Optional:_ Create a DNS entry for the new IP address for the new virtual appliance
-8.  Point your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address`.
-9.  Log in to the **web interface** using the default credentials:
-    
-    - **Username** `admin` 
+### Create a DNS Entry
+
+This is an optional step: Create a DNS entry for the new IP address of the virtual appliance.
+
+### Log In to the Web Interface
+
+Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP-address`.
+
+Log in to the **web interface** using the default credentials:
+
+    - **Username:** `admin`
     - **Password:** `adm!nd42` 
     
-    **Please change the username and password as soon as you log in.**
+    Please change the username and password as soon as you log in.
 
     <ThemedImage
     alt="Device42 Web Interface Login Screen v19.05"
@@ -66,8 +95,14 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
     style={{ width: '70%' }} 
     />    
 
-You should be up and running, and are now ready to go! If you have any questions that you can't find answers to in the docs, email support@device42.com.
+You should be up and running, and are now ready to go! If you have any questions that you can't find answers to in the docs, email [support@device42.com](mailto:support@device42.com).
 
 ## Using SSH
 
-You can apply Device42 updates, as well as do other menu-related work using **SSH** via **port 404**. Please note that root login has been disabled.
+You can apply Device42 updates and perform other menu-related work using **SSH** via **port 404**. Please note that root login has been disabled.
+
+## Next Steps
+
+Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job. 
+
+You can import data into Device42 using the [Device42 API](https://api.device42.com/) or the [**Import/Export (xls)**](/getstarted/tutorials/tutorial-loading-data-using-spreadsheets.mdx) tool.

@@ -1,24 +1,24 @@
 ---
 title: "Amazon Web Services - Installation"
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import loginImg from '/assets/images/installation-amazon-web-services/login-appliance-manager.png'
 
-## Overview
-
-The Device42 Main Appliance (MA) is available on Amazon Web Services (AWS), either as a manual installation or through the AWS Marketplace.
-
-The Device42 Remote Collector (RC) is only available via manual installation. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
-
-- The AWS region for Device42 deployment.
-- The AWS account number.
-
-The Device42 AWS offering involves an EC2 instance that houses the Device42 MA, Appliance Manager (AM), and RC.
+The Device42 Amazon Web Services (AWS) offering involves an EC2 instance that houses the Device42 Main Appliance (MA), Appliance Manager (AM), and Remote Collector (RC).
 
 ![AWS architecture](/assets/images/aws-architecture.png)
+
+## Overview
+
+The Device42 Main Appliance is available on AWS, either as a manual installation or through the AWS Marketplace — this guide has instructions for both options.
+
+The Device42 RC is only available via manual installation only. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
+
+- The AWS region for Device42 deployment
+- The AWS account number
 
 ## Costs and Licensing
 
@@ -316,9 +316,8 @@ The following is a sample IAM policy (with minimum appropriate permissions) that
 ### Security, Privacy, and Other Considerations
 
 - The Device42 AWS offering does not restrict the Instance Metadata Service version.
-- The Device42 AWS offering does not require AWS data encryption to operate properly.  
+- The Device42 AWS offering does not require AWS data encryption to operate properly.
 - Customer data resides on the instance itself. Customer passwords and secrets are encrypted with AES-256 encryption.
 
   Refer to the Device42 [Secrets, Security, and Permissions](administration/passwords/password-security-and-permissions.mdx) page for additional information on how passwords and secrets are stored.
-
 - The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.
