@@ -1,34 +1,57 @@
 ---
-title: "Bulk QR Code Printing"
+title: "Bulk QR and Barcode Printing"
 sidebar_position: 3
 ---
 
-You can bulk print QR codes from the Devices or Assets list views.
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-- Search or filter for the devices or assets you would like to print QR codes for.
-- Select the items.
-- From the Action Menu, choose "Generate QR codes for selected items".
-- Click **Go**.
+You can bulk print QR codes or barcodes from the devices or assets list views.
 
-![wpid945-media_1343015518006.png](/assets/images/wpid945-media_1343015518006.png)
+## Create a QR or Barcode Profile
 
-- In the "Choose QR profile for selected items" field, select the QR code profile you prefer.
+First, create a QR/Barcode profile. 
 
-![wpid944-media_1343015494169.png](/assets/images/wpid944-media_1343015494169.png)
+Navigate to **Tools > Templates & Bulk Operations > QR Profiles** and choose between QR and Barcode for the **Code Type**.
 
-The next page will print the codes according to the profile settings you chose.
+<ThemedImage
+  alt="Create QR/Barcode Profile"
+  sources={{
+    light: useBaseUrl('/assets/images/bulk-qr-printing/qr-barcode-profile-light.png'),
+    dark: useBaseUrl('/assets/images/bulk-qr-printing/qr-barcode-profile-dark.png'),
+  }}
+/>
 
-![wpid943-media_1343015459705.png](/assets/images/wpid943-media_1343015459705.png)
+## Bulk Print QR Codes or Barcodes
 
-Tips:
+Navigate to the **All Devices** or **All Assets** list page under the **Resources** menu.  
 
-- Select "Cut at the end" in printer preferences.
-- Bulk print QR codes in batches of up to 100 at a time for better performance.
+- Search or filter for the devices or assets you would like to print QR codes or barcodes for, then select the items.
+- From the **Actions** menu, choose **Generate QR/Barcodes for selected items**.
 
+    <ThemedImage
+    alt="Generate QR codes action"
+    sources={{
+        light: useBaseUrl('/assets/images/bulk-qr-printing/generate-qr-codes-action-light.png'),
+        dark: useBaseUrl('/assets/images/bulk-qr-printing/generate-qr-codes-action-dark.png'),
+    }}
+    />
 
+- In the **Choose QR profile for selected items** field, select the QR code (or barcode) profile you prefer.
 
+    <ThemedImage
+    alt="Choose QR profile"
+    sources={{
+        light: useBaseUrl('/assets/images/bulk-qr-printing/choose-qr-profile-light.png'),
+        dark: useBaseUrl('/assets/images/bulk-qr-printing/choose-qr-profile-dark.png'),
+    }}
+    />
 
+- The next page will preview the codes according to your chosen profile settings, followed by the **Print** button.
 
+    ![QR codes print preview](/assets/images/bulk-qr-printing/qr-codes-print-preview-2.png)
 
+### Tips
 
-
+- Select the **Cut at the end** option in the printer preferences.
+- Bulk print the QR codes or barcodes in batches of up to 100 at a time for better performance.

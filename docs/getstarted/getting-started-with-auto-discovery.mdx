@@ -6,27 +6,27 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The following how-to runs down quickly enumerating network objects with Device42 Autodiscovery.
+The following guide briefly walks you through creating various network objects with Device42 Autodiscovery.
 
 ## Getting Started with Device42 Videos
 
-**If you're new to Device42**, begin with our [**getting started videos**](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under 5 minutes, you'll learn how to set up your Remote Collector (RC), connect a Windows Discovery Service (WDS) instance to it, and run your first discovery job. Watch them now and you'll be an expert in no time!
+If you're new to Device42, begin with our [**Getting Started videos**](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under five minutes, you'll learn how to set up your Remote Collector (RC), connect a Windows Discovery Service (WDS) instance to it, and run your first discovery job. [Watch them now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2) and you'll be an expert in no time!
 
-Ready to learn more? If you prefer videos, visit our [Device42 "How-To" playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or go to the [How-To video section](how-to-videos/index.mdx) in the docs. 
+Ready to learn more? If you prefer videos, visit the [Device42 **How To** playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or the [How-To Videos](how-to-videos/index.mdx) in the documentation. 
 
-If you can't find the answer you're looking for, please email support@device42 and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video.
+If you can't find the answer you're looking for, please email [support@device42](mailto:support@device42) and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video.
 
 ## Autodiscovery Account Notice
 
 :::caution
-Please do **not** set up an autodiscovery scan using critical production account credentials. Please create a separate, dedicated account to use only for discovery.
+Please **do not** set up an autodiscovery scan using critical production account credentials. Instead, create a separate, dedicated account to use only for discovery.
 :::
 
-Depending on permissions granted and your configured password policies, account lock-out could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result.
+Depending on the permissions granted and your configured password policies, account lockout could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result.
 
 ## Creating Subnets
 
-Go to **Resources > Networks > All Subnets** and click **Create** on the top right corner.
+Go to **Resources > Networks > All Subnets** and click **Create** in the top-right corner.
 
 <ThemedImage
 alt="View or edit existing subnets"
@@ -36,7 +36,7 @@ sources={{
 }}
 />
 
-The required fields are **Network**, **Mask Bits**, and **Service Level**. The other fields are optional. If left empty, **Range Begin** and **Range End** are automatically calculated based on network and bits.
+The required fields are **Network**, **Mask Bits**, and **Service Level**. The other fields are optional. If left empty, **Range Begin** and **Range End** are automatically calculated based on the **Network** and **Mask Bits**.
 
 <ThemedImage
 alt="Create a new subnet"
@@ -46,24 +46,26 @@ sources={{
 }}
 />
 
-If subnets have been pre-defined, all discovered IP addresses will be placed in their respective subnets. Otherwise, the IPs will end up in an "undefined" subnet.
+If subnets have been predefined, all discovered IP addresses will be placed in their respective subnets. Otherwise, the IPs will end up in an **undefined** subnet.
 
-## Set Up Autodiscovery
+## Setting Up Autodiscovery
 
-### Set Up WDS (Windows Discovery Service)
+### Setting Up Windows Discovery Service (WDS)
 
 Now is a good time to set up a [Remote Collector](auto-discovery/remote-collector-rc.mdx), as RCs are dedicated to discovery and can handle larger network ranges than your Main Appliance (MA). 
 
-If you’ll be discovering any Microsoft Windows OS-based servers or guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your Main Appliance OR to a Remote Collector. If you do have an RC set up, it’s recommended to connect to WDS rather than connecting it to your MA.
+If you’ll be discovering any Microsoft Windows OS-based servers or guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your MA **or** to an RC. If you have an RC set up, we recommend connecting the instance to the RC instead of your MA.
 
-### Create Your First Discovery Job
+### Creating Your First Discovery Job
 
-If you're discovering any Microsoft- or Windows-based products, install the [WDS](installation/windows-discovery-service-installation.mdx) first.
+If you're discovering any Microsoft- or Windows-based products, first install the [WDS](installation/windows-discovery-service-installation.mdx).
 
-Start by discovering your network. Navigate to **Discovery > SNMP** and click **Create** to create a [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx). This will build out a base for the rest of your network. Then move on to vServer discovery, followed by Windows/Linux servers, etc.
+Next, discover your network. Navigate to **Discovery > SNMP** and click **Create** to create a [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx). This will build out a base for the rest of your network.
+
+Then, move on to vServer discovery, followed by Windows/Linux server discovery, and more.
 
 :::info
-See [auto-discovery best practices](auto-discovery/autodisc-best-practices.mdx) for recommendations on the order in which to run initial discoveries. If you're familiar, jump right into [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
+See the [Autodiscovery Best Practices](auto-discovery/autodisc-best-practices.mdx) for recommendations on the order in which to run initial discoveries. If you're already familiar with these practices, jump right into [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
 :::
 
 <ThemedImage
@@ -74,27 +76,25 @@ sources={{
 }}
 />
 
-## The "unknown" Device Type 
+## The Unknown Device Type 
 
-Any devices that are not virtual will come over as device type "unknown" initially. This is because the appliance has not been told whether the hardware belongs to the physical, blade, or other category.
+All non-virtual devices will initially be assigned the **unknown** device type during discovery. These devices have a hardware model. The appliance categorizes them as **unknown** because it has not yet been instructed which of the following types the hardware models belong to:
 
-The following device types have a hardware model. Each hardware model can be one of three types: regular, blade, or other.
+- **Regular:** Represents physical devices.
+- **Blade:** Represents blade devices.
+- **Other:** Represents "other" devices, like laptops, workstations, and network printers, that aren't rack-mounted.
 
-- **Regular:** Represents physical devices
-- **Blade:** Represents blade devices
-- **Other:** Represents "other" devices like laptops, workstations, network printers, etc. that are not rack-mounted
+Once you change a hardware type, all the corresponding devices that refer to that hardware and have been assigned the **unknown** type will automatically be categorized accordingly.
 
-Once you change a hardware type, all the corresponding devices that refer to that hardware and are of the type "unknown" will automatically be categorized accordingly.
+The hardware bulk edit feature allows you to change hardware properties in bulk for all undefined hardware types. It automatically categorizes all devices belonging to a specific category. See the [Bulk Edit video](how-to-videos/add-and-bulk-edit-hardware-models-how-to.mdx) or [Bulk Edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information.
 
-The hardware bulk edit feature allows changing hardware properties in bulk for all undefined hardware types and it will automatically categorize all devices belonging to the category. See the [bulk edit YouTube videos](how-to-videos/add-and-bulk-edit-hardware-models-how-to.mdx) or [bulk edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information.
+Once a hardware type has been defined, any newly imported or discovered devices will go into the correct category.
 
-Also, once a hardware type is defined, any newly imported or discovered devices will go into the right category.
+## Viewing the Details of Discovered Items
 
-## View Details of Discovered Items
+To view the details of a discovered item type, navigate to that item type's list page and select an item from the table. 
 
-To view the details of discovered items, navigate to that item's list page and select an item from the table. 
-
-For example, go to **Resources > All Devices** and click on a device name to view device details. Depending on the device and information available, fields like **Hardware**, **Serial #**, **Total CPUs**, **RAM**, **OS**, and **IP Addresses** can be populated.
+For example, you can go to **Resources > All Devices** and click on a device name to view that device's details. Depending on the device and information available, fields like **Hardware**, **Serial #**, **Total CPUs**, **RAM**, **OS**, and **IP Addresses** may be populated.
 
 <ThemedImage
 alt="View device details"
