@@ -20,6 +20,29 @@ Device42 currently supports SaaS discovery from the following identity providers
 - Okta
 - G Suite (Google Workspace)
 
+## Required Permissions for SaaS Discovery in Azure
+
+All of the following permissions require read access with admin consent:
+
+- `User.Read.All`  
+- `User.ReadBasic.All`  
+- `Directory.Read.All`  
+- `Application.Read.All`  
+
+The `Group` and `Team` permissions are used to get usernames.
+
+- `Group.Read.All`  
+- `GroupMember.Read.All`  
+- `Team.ReadBasic.All`  
+- `TeamMember.Read.All`  
+
+The `AuditLog` permissions are used to determine the last time users logged in.
+
+- `AuditLogsQuery`  
+- `AuditLog.Read.All`   
+- `AuditLogsQuery-Entra.Read.All`  
+- `AuditActivity.Read`
+
 ## SaaS Discovery Items
 
 Device42 SaaS discovery collects software and user data:
