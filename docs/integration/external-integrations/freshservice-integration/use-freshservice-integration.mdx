@@ -91,39 +91,179 @@ We understand that some fields within Device42 may not easily translate to field
 
 ## Data Types Transferred From Device42 to Freshservice
 
-| D42 Data Type                                                                                                            | Freshservice Type (General)  | Type (Specific)                    |
-|--------------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------|
-| Device with physical type and Laptop subtype                                                                             | Assets/Inventory             | Laptop                             |
-| Device with physical type and WorkStation subtype                                                                        | Assets/Inventory             | Desktop                            |
-| Device with physical type and Network Printer subtype                                                                    | Assets/Inventory             | Printer                            |
-| Device with physical type and Router subtype (this is not a built-in subtype and would need to be created by the user)   | Assets/Inventory             | Router                             |
-| Device with physical type and Firewall subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory             | Firewall                           |
-| Device with OS of F5 or NetScaler                                                                                        | Assets/Inventory             | Load Balancer                      |
-| Device with Network Device flag set                                                                                      | Assets/Inventory             | Switch                             |
-| Device with physical type and Windows Server OS                                                                          | Assets/Inventory             | Windows Server                     |
-| Device with physical type and Unix or Linux OS                                                                           | Assets/Inventory             | Unix Server                        |
-| Device with physical type and AIX OS                                                                                     | Assets/Inventory             | AIX Server                         |
-| Device with physical type and SunOS or Solaris OS                                                                        | Assets/Inventory             | Solaris Server                     |
-| Device with Virtual/Container Host flag set and ESXi OS                                                                  | Assets/Inventory             | VMware VCenter Host                |
-| Device with Virtual/Container Host flag set                                                                              | Assets/Inventory             | Host                               |
-| Device with virtual type and VMWare subtype                                                                              | Assets/Inventory             | VMware VCenter VM                  |
-| Device with virtual type and Amazon EC2 Instance subtype                                                                 | Assets/Inventory             | AWS VM                             |
-| Device with virtual type and Azure Virtual Machine subtype                                                               | Assets/Inventory             | Azure VM                           |
-| Device with physical type and does not match one of the more specific asset types above                                  | Assets/Inventory             | Server                             |
-| Device with virtual type and does not match one of the more specific asset types above                                   | Assets/Inventory             | Virtual Machine                    |
-| Device that doesn't match one of the more specific asset types above                                                      | Assets/Inventory             | Computer                           |
-| Business Applications                                                                                                    | Assets/Inventory             | Business Service                   |
-| Software                                                                                                                 | Assets/Software              | Desktop                            |
-| PO Line Item/Contract Type: Warranty                                                                                     | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: BASE (IBM & Lenovo vendors)                                                                  | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: UPGRADE (IBM & Lenovo vendors)                                                               | Assets/Contracts             | Warranty                           |
-| PO Line Item/Contract Type: Lease                                                                                        | Assets/Contracts             | Lease                              |
-| PO Line Item/Contract Type: Service and all others                                                                       | Assets/Contracts             | Maintenance                        |
-| Software Licensing (only for managed software and can come from software or the PO line item)                            | Assets/Contracts             | Software License                   |
-| Business Applications Device to Device relationship                                                                      | Relationships between assets | Sends Data To / Receives Data From |
-| Business Application to Device Relationships                                                                             | Relationships between assets | Hosted On / Hosts                  |
-| Application Group Device to Device Relationships                                                                            | Relationships between assets | Depends On / Used By               |
-| VM to Host Relationships                                                                                                 | Relationships between assets | Virtualized by / Virtualizes       |
+This table maps Device42 data types to their corresponding categories in Freshservice
+
+| Device42 Data Type | Freshservice Type (General) | Type (Specific) |
+|--------------|----------------------------|-----------------|
+| Device with physical type and Laptop subtype or hardware name containing "macbook" | Assets/Inventory | Laptop |
+| Device with physical type and WorkStation subtype | Assets/Inventory | Desktop |
+| Device with physical type and Network Printer subtype | Assets/Inventory | Printer |
+| Device with fw_device_type of printer | Assets/Inventory | Printer |
+| Device with physical type and Router subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory | Router |
+| Device with fw_device_type of router | Assets/Inventory | Router |
+| Device with physical type and Firewall subtype (this is not a built-in subtype and would need to be created by the user) | Assets/Inventory | Firewall |
+| Device with fw_device_type of firewall | Assets/Inventory | Firewall |
+| Device with OS of F5 or NetScaler | Assets/Inventory | Load Balancer |
+| Device with Network Device flag set | Assets/Inventory | Switch |
+| Device with fw_device_type of switch | Assets/Inventory | Switch |
+| Device with physical type and Windows Server OS | Assets/Inventory | Windows Server |
+| Device with physical type and Unix or Linux OS | Assets/Inventory | Unix Server |
+| Device with physical type and AIX OS | Assets/Inventory | AIX Server |
+| Device with physical type and SunOS or Solaris OS | Assets/Inventory | Solaris Server |
+| Device with Virtual/Container Host flag set and ESXi OS | Assets/Inventory | VMware VCenter Host |
+| Device with Virtual/Container Host flag set | Assets/Inventory | Host |
+| Device with virtual type and VMWare subtype | Assets/Inventory | VMware VCenter VM |
+| Device with virtual type and Amazon EC2 Instance subtype | Assets/Inventory | AWS VM |
+| Device with virtual type and Azure Virtual Machine subtype | Assets/Inventory | Azure VM |
+| Device with physical type and does not match one of the more specific asset types above | Assets/Inventory | Server |
+| Device with virtual type and does not match one of the more specific asset types above | Assets/Inventory | Virtual Machine |
+| Device that doesn't match one of the more specific asset types above | Assets/Inventory | Computer |
+| Device with K8s node type | Assets/Inventory | AWS K8s Node |
+| Device with physical type and tablet subtype or hardware name containing "ipad" | Assets/Inventory | Tablet |
+| Device with physical type and mobile subtype or hardware name containing "iphone" | Assets/Inventory | Mobile |
+| Device with physical type (non-laptop) and IMEI number | Assets/Inventory | Mobile |
+| Device with physical type and access point subtype | Assets/Inventory | Access Point |
+| Device with fw_device_type of access point | Assets/Inventory | Access Point |
+| Device with virtual type and VMware subtype and is template | Assets/Inventory | VMware VCenter Image |
+| Device with virtual type and GCE subtype | Assets/Inventory | GCP VM |
+| Device with virtual type and Azure Load Balancer service | Assets/Inventory | Azure LB |
+| Business Applications | Assets/Inventory | Business Service |
+| Resource with category of ALB | Assets/Inventory | AWS LB |
+| Resource with category of Subnet | Assets/Inventory | AWS Subnet |
+| Resource with category of Security Group | Assets/Inventory | AWS Security Group |
+| Resource with category of VPC | Assets/Inventory | AWS VPC |
+| Resource with category of RDS | Assets/Inventory | AWS RDS |
+| Resource with category of Azure Subnet | Assets/Inventory | Azure Subnet |
+| Resource with category of Azure Disk | Assets/Inventory | Azure Disk |
+| Resource with category of Azure Security Group | Assets/Inventory | Azure Security Group |
+| Resource with category of Azure Subscription | Assets/Inventory | Azure Subscription |
+| Resource with category of Azure Application Gateway | Assets/Inventory | Azure Application Gateway |
+| Resource with category of Azure Network Interface | Assets/Inventory | Azure Network Interface |
+| Resource with category of AWS Network Interface | Assets/Inventory | AWS Network Interface |
+| Resource with category of GCP Network Interface | Assets/Inventory | GCP Network Interface |
+| Resource with category of Azure Resource Group | Assets/Inventory | Azure Resource Group |
+| Resource with category of Azure Image | Assets/Inventory | Azure Image |
+| Resource with category of AWS Image | Assets/Inventory | AWS Image |
+| Resource with category of GCP Load Balancer | Assets/Inventory | GCP LB |
+| Resource with category of EBS | Assets/Inventory | AWS Disk |
+| Resource with category of Key Pair | Assets/Inventory | AWS Key Pair |
+| Resource with category of S3 | Assets/Inventory | AWS S3 Bucket |
+| Resource with category of Public IP | Assets/Inventory | AWS Public IP Address |
+| Resource with category of Azure VPC | Assets/Inventory | Azure VPC |
+| Resource with category of GCP Subnet | Assets/Inventory | GCP Subnet |
+| Resource with category of GCP VPC | Assets/Inventory | GCP VPC |
+| Resource with category of GCP Disk | Assets/Inventory | GCP Disk |
+| Resource with category of Azure Public IP | Assets/Inventory | Azure Public IP Address |
+| Resource with category of GCP Image | Assets/Inventory | GCP Image |
+| Resource with category of GCP BigQuery Table | Assets/Inventory | GCP BigQuery Table |
+| Resource with category of Azure Key Vault | Assets/Inventory | Azure Key Vault |
+| Resource with category of VMware Resource Pool | Assets/Inventory | VMware VCenter Resource Pool |
+| Resource with category of VMware Network | Assets/Inventory | VMware VCenter Network |
+| Resource with category of VMware Disk | Assets/Inventory | VMware VCenter Disk |
+| Resource with category of VMware Datastore | Assets/Inventory | VMware VCenter Datastore |
+| Resource with category of VMware Datacenter | Assets/Inventory | VMware VCenter Datacenter |
+| Resource with category of K8s Pod | Assets/Inventory | AWS K8s Pod |
+| Resource with category of K8s Namespace | Assets/Inventory | AWS K8s Namespace |
+| Resource with category of K8s Deployment | Assets/Inventory | AWS K8s Deployment |
+| Resource with category of K8s Service | Assets/Inventory | AWS K8s Service |
+| Resource with category of K8s Daemon Set | Assets/Inventory | AWS K8s Daemon Set |
+| Resource with category of K8s Replica Set | Assets/Inventory | AWS K8s Replica Set |
+| Resource with category of K8s Cron Job | Assets/Inventory | AWS K8s Cron Job |
+| Resource with category of GCP Public IP | Assets/Inventory | GCP Public IP Address |
+| Resource with category of K8s Config Map | Assets/Inventory | AWS K8s Config Map |
+| Resource with category of AWS K8s Job | Assets/Inventory | AWS K8s Job |
+| Resource with category of K8s Stateful Set | Assets/Inventory | AWS K8s Stateful Set |
+| Software | Assets/Software | Desktop |
+| PO Line Item/Contract Type: Warranty | Assets/Contracts | Warranty |
+| PO Line Item/Contract Type: BASE (IBM & Lenovo vendors) | Assets/Contracts | Warranty |
+| PO Line Item/Contract Type: UPGRADE (IBM & Lenovo vendors) | Assets/Contracts | Warranty |
+| PO Line Item/Contract Type: Lease | Assets/Contracts | Lease |
+| PO Line Item/Contract Type: Service and all others | Assets/Contracts | Maintenance |
+| Software Licensing (only for managed software and can come from software or the PO line item) | Assets/Contracts | Software License |
+| PO Line Item/Contract Type: Support | Assets/Contracts | Support |
+| Business Applications Device to Device relationship | Relationships between assets | Connected to/Connected to |
+| Business Application to Device Relationships | Relationships between assets | Hosted On / Hosts |
+| Topology Device to Device Relationships | Relationships between assets | Connected to/Connected to |
+| Relationship between Host and Virtual Machine | Relationships between assets | Virtualized by / Virtualizes |
+| Relationship between cluster and device | Relationships between assets | Member of/Includes |
+| AWS RDS to AWS Subnet relationship | Relationships between assets | Contains/Contained By |
+| AWS RDS to AWS VPC relationship | Relationships between assets | Contains/Contained By |
+| AWS Image to AWS VM relationship | Relationships between assets | Provisioned From/Provisioned |
+| AWS K8s Namespace To AWS K8s Pod relationship | Relationships between assets | Contains/Contained By |
+| AWS K8s Node To AWS K8s Pods relationship | Relationships between assets | Contains/Contained By |
+| GCP Network Interface to GCP Public IP relationship | Relationships between assets | Has/Is Attached To |
+| GCP Network Interface to GCP VM relationship | Relationships between assets | Has/Is Attached To |
+| GCP Disk to GCP VM relationship | Relationships between assets | Has/Is Attached To |
+| GCP VPC to GCP VM relationship | Relationships between assets | Contains/Contained By |
+| GCP VPC to GCP Security Group relationship | Relationships between assets | Contains/Contained By |
+| GCP Subnet to GCP VM relationship | Relationships between assets | Contains/Contained By |
+| GCP VPC to GCP Subnet relationship | Relationships between assets | Contains/Contained By |
+| VMWARE Datacenter to Datastore relationship | Relationships between assets | Contains/Contained By |
+| VMWARE Datacenter to Virtual Machine relationship | Relationships between assets | Contains/Contained By |
+| VMWARE Datacenter to Host relationship | Relationships between assets | Contains/Contained By |
+| VMWARE Datacenter to Network relationship | Relationships between assets | Contains/Contained By |
+| VMWARE Datastore to Host relationship | Relationships between assets | Used By/Uses |
+| VMWARE Datastore to Virtual Machine relationship | Relationships between assets | Provides storage for/Stored on |
+| VMWARE Host to Virtual Machine relationship | Relationships between assets | Has Registered/Is Registered On |
+| VMWARE Network to Host relationship | Relationships between assets | Provides/Provided By |
+| VMWARE Resource Pool to Virtual Machine relationship | Relationships between assets | Defines Resources for/Gets Resources from |
+| VMWARE Resource Pool to Resource Pool relationship | Relationships between assets | Defines Resources for/Gets Resources from |
+| VMWare Virtual Machine to Disk relationship | Relationships between assets | Has/Is Attached To |
+| VMWare Network to Virtual Machine relationship | Relationships between assets | Connects/Connected By |
+| GCP Public IP to GCP VM relationship | Relationships between assets | Has/Is Attached To |
+| AWS K8s Deployment To AWS K8s Replica Set relationship | Relationships between assets | Uses/Owned By |
+| AWS K8s Daemon Set To AWS K8s Config Map relationship | Relationships between assets | Contains/Contained By |
+| AWS Subnet to AWS Network relationship | Relationships between assets | Contains/Contained By |
+| AWS Security Group to AWS VPC relationship | Relationships between assets | Contains/Contained By |
+| AWS Subnet to AWS VPC relationship | Relationships between assets | Contains/Contained By |
+| AWS VM to AWS Security Group relationship | Relationships between assets | Contains/Contained By |
+| AWS VM to AWS Subnet relationship | Relationships between assets | Contains/Contained By |
+| AWS VM to AWS VPC relationship | Relationships between assets | Contains/Contained By |
+| AWS VM to AWS Key Pair relationship | Relationships between assets | Used By/Uses |
+| AWS VM to AWS Application LB relationship | Relationships between assets | Routes Traffic/Receives Traffic |
+| AWS Public IP to AWS VM relationship | Relationships between assets | Has/Is Attached To |
+| AWS Network Interface to AWS Public IP relationship | Relationships between assets | Has/Is Attached To |
+| AWS VM to AWS Network relationship | Relationships between assets | Has/Is Attached To |
+| AWS VM to AWS Disk relationship | Relationships between assets | Has/Is Attached To |
+| Azure Public IP to Azure Network Interafce relationship | Relationships between assets | Has/Is Attached To |
+| Azure Network Interface to Azure Subnet relationship | Relationships between assets | Contains/Contained By |
+| Azure Security Group to Azure VPC ( subnet ) relationship | Relationships between assets | Contains/Contained By |
+| Azure Security Group to Azure VPC ( netport ) relationship | Relationships between assets | Contains/Contained By |
+| Azure Network Interface to Azure VPC relationship | Relationships between assets | Contains/Contained By |
+| Azure Subnet to Azure VPC relationship | Relationships between assets | Contains/Contained By |
+| Azure VM ( subnet ) to Azure Security Group relationship | Relationships between assets | Contains/Contained By |
+| Azure VM ( netport ) to Azure Security Group relationship | Relationships between assets | Contains/Contained By |
+| Azure VM to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure VM to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| Azure VM to Azure Subnet relationship | Relationships between assets | Contains/Contained By |
+| Azure VM to Azure VPC relationship | Relationships between assets | Contains/Contained By |
+| Azure Public IP to Azure VM relationship | Relationships between assets | Has/Is Attached To |
+| Azure Network Interface to Azure VM relationship | Relationships between assets | Has/Is Attached To |
+| Azure Disk to Azure VM relationship | Relationships between assets | Has/Is Attached To |
+| Azure Image to Azure VM relationship | Relationships between assets | Provisioned From/Provisioned |
+| Azure Resources to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure Resources to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| Azure Subnet to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure Network Interface to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure VPC to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure Public IP to Azure Resource Group relationship | Relationships between assets | Contains/Contained By |
+| Azure Subnet to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| Azure Network Interface to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| Azure VPC to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| Azure Public IP to Azure Subscription relationship | Relationships between assets | Contains/Contained By |
+| GCP VM to GCP Security Group relationship | Relationships between assets | Contains/Contained By |
+| GCP Image to GCP VM relationship | Relationships between assets | Provisioned From/Provisioned |
+| GCP VPC to GCP Network Interface | Relationships between assets | Contains/Contained By |
+| CPU Components | Component | Processor |
+| RAM Components | Component | Memory |
+| Network Adapter Components | Component | Network Adapter |
+| Hard Disk Components | Component | Hard Disk |
+| Logical Drive Components | Component | Logical Drive |
+| Datastore Components | Component | Datastore |
+| Printer Input | Component | Input Units |
+| Printer Output | Component | Output Units |
+| Printer Marker | Component | Marker Supply Units |
+| Interface Components | Component | Interface |
 
 ## Mandatory Attributes Required From Device42 During Sync
 
