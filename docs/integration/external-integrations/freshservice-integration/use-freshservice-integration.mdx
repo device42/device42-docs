@@ -43,6 +43,7 @@ To run the sync immediately, click the **Manual sync** button to reveal the opti
 - Select **Run Full Sync** (blue button) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
 - Select **Run Partial Sync** (green button) to sync only the items that have been changed in Device42, either added or updated, since the last successful sync.
 
+
 ### View Sync History Logs
 
 From Freshservice, go to **Admin**, search for `apps`, and click **Manage Apps**. Find the **Device42 for Freshservice** app, open the **Settings** dropdown, and select **Edit Settings**. 
@@ -62,6 +63,10 @@ To download the full logs, use the **Download Full Log** button in the lower-lef
 :::note
 A full sync will be forced during upgrades to get new data from Device42. The sync history type will be listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
+
+### Cancelled Syncs
+
+When Device42 deploys a new Cloud Connector server as part of its usual maintenance process, running syncs are stopped and marked as **cancelled** in the sync history logs. 
 
 ## View Mapped and Unmapped Data for Specific Assets
 
