@@ -43,6 +43,21 @@ To run the sync immediately, click the **Manual sync** button to reveal the opti
 - Select **Run Full Sync** (blue button) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
 - Select **Run Partial Sync** (green button) to sync only the items that have been changed in Device42, either added or updated, since the last successful sync.
 
+### Asset Matching Logic
+
+The integration matches Device42 devices to Freshservice assets during the sync. It updates the existing asset or creates a new asset if no match is found. 
+
+The matching logic compares properties in the following order:
+
+1. Device42 ID
+2. Item ID
+3. Serial Number
+4. UUID
+5. IMEI Number
+6. MAC Address (only for SNMP devices)
+7. Hostname (positive match only if the matching asset does not have an Item ID)
+
+The matching logic ensures corresponding items are found for an accurate sync.
 
 ### View Sync History Logs
 
