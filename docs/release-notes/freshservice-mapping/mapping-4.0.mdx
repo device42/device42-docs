@@ -1,0 +1,44 @@
+---
+title: "Changes in Mapping.xml Version 4.0"
+sidebar_position: 1
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.1.0 release.
+
+If you are using a custom mapping.xml file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## AWS Image Task
+
+Two changes were made within the `D42 AWS Image to Freshservice AWS Image` task:
+
+```xml
+<task enable="true" name="D42 AWS Image to Freshservice AWS Image" type="asset" description="Copy AWS Image from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+- The `target-type` attribute changed from `dropdown` to `string` in the `root_device_name` field mapping:
+
+    ```xml
+        <field resource="root_device_name" source-type="string" target="root_device_name" target-type="string" target-header="AWS Image" skip-if-null="true"/>
+    ```
+
+- The `target-type` attribute changed from `string` to `dropdown` in the `root_device_type` field mapping:
+
+    ```xml
+        <field resource="root_device_type" source-type="string" target="root_device_type" target-type="dropdown" target-header="AWS Image" skip-if-null="true"/>
+    ```
+
+## VMware VCenter Disk Task
+
+Two changes were made within the `D42 VMware VCenter Disk to Freshservice VMware VCenter Disk` task:
+
+```xml
+<task enable="true" name="D42 VMware VCenter Disk to Freshservice VMware VCenter Disk" type="asset" description="Copy VMware VCenter Disk from Device42 to Freshservice" d42_min_version="19.04.10">
+```
+
+- The `item_id` value in the DOQL query was changed 
+    - **from:** `resource.details ->> 'uuid' AS item_id,` 
+    - **to:** `resource.identifier AS item_id,`
+
+- The `WHERE` clause in the DOQL query was updated
+    - **from:** `WHERE 'vcenter' = ANY(resource.category) AND resource.vendor_resource_type = 'Disk' and resource.details ->> 'uuid' is not null`
+    - **to:** `WHERE resource.category @> ARRAY['vmware', 'vdisk', 'vcenter'] AND resource.vendor_resource_type = 'Disk'`
