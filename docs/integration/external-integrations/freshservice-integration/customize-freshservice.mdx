@@ -44,6 +44,35 @@ To get started, download the default mapping XML file and view the current mappi
 
 When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details on the asset **Update asset type for existing assets**  setting.
 
+### Control Contract Updates
+
+You can control whether Device42 contract updates sync to Freshservice by using the `skip-update` attribute on contract task elements. This applies to both regular contracts and software licensing contracts.
+
+Add the `skip-update` attribute to the `<task>` element:
+
+- `skip-update="false"`: Contract updates in Device42 will sync to Freshservice (updates existing contracts)
+- `skip-update="true"`: Contracts are created in Freshservice but not updated after initial creation
+- If the attribute is not present: Default behavior is that contracts will not be updated (same as `skip-update="true"`)
+
+For example, to enable contract updates:
+
+```xml
+<task enable="true" name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice" skip-update="false">
+```
+
+<!-- TODO: Add screenshot showing the skip-update attribute in mapping.xml in a code editor (VS Code)
+     Caption: "Setting skip-update attribute for contract tasks"
+     Highlight the skip-update="false" attribute in the <task> element -->
+
+This attribute applies to the following contract tasks in the `mapping.xml` file:
+
+- `<task name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice">`
+- `<task name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">`
+
+:::tip
+Use `skip-update="true"` to prevent overwriting contract values that may trigger Freshservice workflow automations or that are managed separately in Freshservice.
+:::
+
 ## The `mapping.xml` File Structure
 
 Open the `mapping.xml` file in a text or code editor to view and edit the data mapping. Version 1.0 of the file has around 6010 lines. There are tasks for syncing data, tasks for syncing the relationships between Device42 CI types (by recreating them between the corresponding Freshservice types), and two cleanup tasks for deleting any assets or asset relationships from Freshservice that do not exist in Device42.
@@ -430,6 +459,116 @@ If you can't find a task related to your custom field, you can create a new `<ta
 7. Finally, run the sync in Freshservice's Device42 integration app. You should end up with the custom field you created and set in Device42:
 
     ![Custom field in Freshservice](/assets/images/freshservice-integration/device-custom-field-fs-final.png)
+
+### How Do I Sync a Device42 Field to a Custom Contract Field in Freshservice?
+
+You can map existing Device42 contract data to custom fields in Freshservice contracts. This allows you to sync Device42 contract information (either standard fields or existing custom fields) to new custom fields you create in Freshservice.
+
+**Prerequisites:**
+- The Device42 field you want to sync should already exist and contain data (either a standard contract field or an existing Device42 custom field)
+- Make sure the contract task has `skip-update="false"` if you want to update existing contracts. See [Control Contract Updates](#control-contract-updates) for details.
+
+**Steps:**
+
+1. **Create custom fields in Freshservice:** Go to **Settings > Contract Types** in Freshservice and add custom fields to receive the Device42 contract data.
+
+   <!-- TODO: Add screenshot showing Freshservice Settings > Contract Types page
+        Caption: "Contract Types settings in Freshservice"
+        Show the Contract Types list page -->
+
+   Freshservice supports the following custom field types:
+   - Single Line Text
+   - Multi Line Text
+   - Checkbox
+   - Number
+   - Dropdown
+   - Phone Number
+   - URL
+   - Date
+
+   :::note
+   Custom fields can be made required. If a required field has no value in the sync, you will receive an error.
+   :::
+
+   You can create custom fields that exist in one contract type but not others, allowing you to customize each contract type independently.
+
+   <!-- TODO: Add screenshot showing the custom field creation interface in Freshservice
+        Caption: "Adding a custom field to a contract type"
+        Show the form for adding a new custom field like "Cancel Policy" with field type selection -->
+
+2. **Locate the contract task in `mapping.xml`:** [Download the mapping.xml file](#download-the-mappingxml-file) and find the contract task you want to customize. There are two contract tasks:
+
+   - `<task name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice">` (around line 2372)
+   - `<task name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">` (around line 2437)
+
+   <!-- TODO: Add screenshot showing the contract task in mapping.xml in VS Code
+        Caption: "Locating the Contracts task in mapping.xml"
+        Highlight the <task name="Contracts" type="contract"> element -->
+
+3. **Update the DOQL query:** Modify the DOQL query in the `<resource>` element to select the Device42 data you want to map to the Freshservice custom field. For example, to add the "Cancel Policy" field:
+
+    <details>
+        <summary>Click to expand the code block</summary>
+        ```sql
+        SELECT
+            -- ... existing fields ...
+            view_contract_v1.name,
+            view_contract_v1.contract_type,
+            view_contract_v1.vendor,
+            view_contract_v1.cancel_policy -- Add this line for the custom field
+        FROM
+            view_contract_v1
+        ```
+    </details>
+
+   :::tip
+   Use InsightsAI chat under **Analytics > InsightsAI** to help identify the correct Device42 tables and fields for your DOQL query.
+   :::
+
+   <!-- TODO: Add screenshot showing the DOQL query modification in mapping.xml
+        Caption: "Adding cancel_policy field to the DOQL query"
+        Highlight the new line in the SELECT statement -->
+
+4. **Add the field mapping:** In the `<mapping>` element of the contract task, add a new `<field>` element to map the Device42 field to the Freshservice custom field:
+
+    ```xml
+    <field resource="cancel_policy" source-type="string" target="cf_cancel_policy" target-type="string"/>
+    ```
+
+   <!-- TODO: Add screenshot showing the field mapping addition in mapping.xml
+        Caption: "Adding the field mapping for the custom contract field"
+        Highlight the new <field> element in the <mapping> section -->
+
+   **Important naming convention:** The Freshservice custom field target name must follow this pattern:
+
+   ```
+   cf_[custom field label in lowercase with underscores replacing spaces]
+   ```
+
+   For example:
+   - Custom field label in Freshservice: **Cancel Policy**
+   - Target name in `mapping.xml`: `cf_cancel_policy`
+
+   Other examples:
+   - **Renewal Notes** → `cf_renewal_notes`
+   - **Contract Owner** → `cf_contract_owner`
+   - **Annual Cost** → `cf_annual_cost`
+
+5. **Save and reupload the file:** Save your `mapping.xml` file and [reupload it to Freshservice](#reupload-the-mappingxml-file) using the **Upload Custom Mapping** button.
+
+6. **Run the sync:** Run a [partial or full sync](index.mdx#run-the-data-synchronization) to sync the custom field data to Freshservice.
+
+7. **Verify the results:**
+   - Check that contract custom fields are populated in Freshservice for both new and updated contracts
+   - In the Freshservice app's **Data Mapping Chart**, verify that your custom field mappings appear in the table for the contract type
+
+   <!-- TODO: Add screenshot showing a contract in Freshservice with custom field populated
+        Caption: "Contract custom field populated after sync"
+        Show a contract detail page with the "Cancel Policy" custom field displaying synced data -->
+
+   <!-- TODO: Add screenshot showing the Data Mapping Chart with contract custom fields
+        Caption: "Custom contract field mappings in the Data Mapping Chart"
+        Show the table with the cf_cancel_policy field listed in the contract mappings -->
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
