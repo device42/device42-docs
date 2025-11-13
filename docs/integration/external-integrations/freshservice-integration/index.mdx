@@ -172,7 +172,9 @@ If you see this error:
 [ERROR] 2025-06-30T19:06:37Z main.go:327: Connection error, error: websocket: bad handshake, response: Error: secure tunnel already established with same instance ID. Is there another D42 instance running with same settings?
 ```
 
-This means multiple Device42 instances are using the same GUID. To fix this:
+This means multiple Device42 instances are using the same GUID. Each Device42 instance must have a unique GUID. The primary keeps its GUID, and any duplicate GUIDs on other instances should be regenerated to be unique.
+
+To action this:
 
 1. Check the GUID on your primary Device42 instance at **Tools > Integrations > Cloud Services**.
 2. Check the GUID of your other Device42 instances (hot standby, development, and so on).
