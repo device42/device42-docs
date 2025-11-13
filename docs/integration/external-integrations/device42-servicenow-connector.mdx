@@ -5,7 +5,7 @@ sidebar_position: 28
 
 Use the Device42-ServiceNow connector (plugin) to sync your IT data from Device42 to your ServiceNow CMDB. Synchronization can be manual or automated on a schedule you set.
 
-The plugin supports the Xanadu, Washington DC, and Vancouver versions of ServiceNow.
+The plugin supports the three most recent releases of ServiceNow.
 
 ![The ServiceNow logo](/assets/images/device42-servicenow-connector/servicenow-logo-50.png)
 
@@ -30,7 +30,7 @@ The plugin supports the Xanadu, Washington DC, and Vancouver versions of Service
 
       ![ServiceNow search bar](/assets/images/device42-servicenow-connector/search-plugin-snow.png)
 
-2. Add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global.
+2. Add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
 
 <details>
     <summary>Click to expand the code block</summary>
@@ -56,10 +56,31 @@ The plugin supports the Xanadu, Washington DC, and Vancouver versions of Service
     </details>
     ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script.png)
 
+3. To verify that the discovery source of “Device42” was created, navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
+
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
+    var discoverySource = 'Device42';
+	var gr = new GlideRecord('sys_choice');
+	gr.addQuery('element', 'discovery_source');
+	gr.addQuery('name', 'cmdb_ci');
+	gr.addQuery('value', discoverySource);
+	gr.query();
+	
+	if (gr.hasNext()) {
+		gs.info('Device42 found');
+	} else {
+		gs.info('Device42 did not find');
+	}
+    ```
+    </details>
+    ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script1.png)
+
 ## Technical Overview
 
 :::caution
-The following information is accurate for the Washington DC and Vancouver versions of ServiceNow and may not work completely as expected for Xanadu. The approach laid out below is still relevant, but some details may differ. 
+The following information is accurate for the recent versions of ServiceNow. The approach laid out below is still relevant, but some details may differ. 
 :::
 
 Please contact our [support team](mailto:support@device42.com) for technical assistance. We're working on improving and updating this documentation and you can leave feedback by using the **Page Feedback** button at the top of this page.
@@ -82,12 +103,6 @@ From ServiceNow, the URI endpoints look something like this:
         /services/data/v1.0/query/?saved_query_name={DOQL Name}&delimiter=,&header=yes&output_type=csv
         ```
 
-**Version 2.0.1 (or previous)**
-
-- Cloud Connector Configuration
-        ```
-        sn/route_doql_csv/{VERIFICATION TOKEN}/{DOQL NAME}
-        ```
 
 The general request flow is laid out in the sections below.
 
@@ -143,7 +158,7 @@ Cloud Connection
 
 Please note that all records will appear to be ignored in versions 3+, because we use the Identification and Reconciliation Engine (IRE).
 
-**Direct Connection (3.0.0+ Only)**
+Direct Connection
 
 - File path:
         ```
@@ -153,12 +168,6 @@ Please note that all records will appear to be ignored in versions 3+, because w
 - Username: You may use any value here, but it is required
 - Password: `${x_192652_device42.instance_key}`
 
-**Version 2.0.1 (or previous)**
-
-- Cloud Connection
-        ```
-        sn/route_doql_csv/${x_192652_device42.instance_key}/SAVEDDOLQNAME
-        ```
 
 To add a custom DOQL data source, head to **System Import Sets -> Administration -> Data sources** in ServiceNow:
 
@@ -243,7 +252,7 @@ Add Device42 as the data source choice list record (New York and Orlando+).
     ```
 </details>
 
-If you are not on version 3.0.0+ or have completed these steps, continue with the rest of the configuration.
+If you have completed these steps, continue with the rest of the configuration.
 
 ### Device42 Main Appliance Configuration 
 
@@ -268,12 +277,6 @@ If you are not on version 3.0.0+ or have completed these steps, continue with th
 - Cloud Connection
 
     Ensure that the **Direct Connect** option is unchecked.
-
-**For version 2.0.1:**
-
--   Cloud Connection
-
-        Create the integration by entering the URL of your ServiceNow instance. The token credential field is not utilized in the ServiceNow integration so you may use whatever you wish for this field.
 
 Note the **Verification Token**, which you'll need to enter in ServiceNow:
 
@@ -302,7 +305,7 @@ Configure the data sync schedules as appropriate for your environment. Search Se
 
 ![](/assets/images/SN_Store_Download_4.png)
 
-These can be scheduled to run at certain times and should be run in the highlighted order: Devices, IPs, Services, Software Details (version 2.0.1), and Software Instances. You can click on an individual schedule to edit it or to **Execute Now**.
+These can be scheduled to run at certain times and should be run in the highlighted order: Devices, IPs, Services, and Software Instances. You can click on an individual schedule to change running order , period and time. And then you can **Execute Now**.
 
 ![](/assets/images/SN_Store_Download_5.png)
 
@@ -388,3 +391,15 @@ If you updated the ServiceNow app from version 4.0.0 or older, you should run a 
 - Click the **Run Script** button.
     
 	![](/assets/images/Web-780_running-script-last-pic.png)
+
+## Adding the Relationship
+
+If application does not create the relationship automatically, then you can add it. 
+
+- Go to **Configuration > Relation Type Exclusion List**
+	
+	![](/assets/images/device42-servicenow-connector/relation-list.png)
+
+- Click **New** to add the Relation
+
+	![](/assets/images/device42-servicenow-connector/relation-add.png)
