@@ -36,9 +36,27 @@ Two changes were made within the `D42 VMware VCenter Disk to Freshservice VMware
 ```
 
 - The `item_id` value in the DOQL query was changed 
-    - **from:** `resource.details ->> 'uuid' AS item_id,` 
-    - **to:** `resource.identifier AS item_id,`
+    - **from:** 
+
+    ```
+    resource.details ->> 'uuid' AS item_id,
+    ```
+
+    - **to:** 
+
+    ```
+    resource.identifier AS item_id,
+    ```
 
 - The `WHERE` clause in the DOQL query was updated
-    - **from:** `WHERE 'vcenter' = ANY(resource.category) AND resource.vendor_resource_type = 'Disk' and resource.details ->> 'uuid' is not null`
-    - **to:** `WHERE resource.category @> ARRAY['vmware', 'vdisk', 'vcenter'] AND resource.vendor_resource_type = 'Disk'`
+    - **from:** 
+
+    ```
+    WHERE 'vcenter' = ANY(resource.category) AND resource.vendor_resource_type = 'Disk' and resource.details ->> 'uuid' is not null
+    ```
+
+    - **to:** 
+
+    ```
+    WHERE resource.category @> ARRAY['vmware', 'vdisk', 'vcenter'] AND resource.vendor_resource_type = 'Disk'
+    ```
