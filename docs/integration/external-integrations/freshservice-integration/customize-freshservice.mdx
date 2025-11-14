@@ -14,7 +14,7 @@ This page covers advanced data mapping customization and XML file editing.
 
 ## Manage Customization with Newer Releases
 
-The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements (like assets, devices, CIs, and metadata) to Freshservice. We share these new additions in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/mapping-4.0).
+The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements to Freshservice (such as assets, devices, CIs, and metadata). We share these new additions in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/mapping-4.0).
 
 If you make an adjustment and use a custom XML file, Device42 will not update the custom XML during updates.
 
@@ -337,11 +337,11 @@ Use the following steps to verify that the field name is correct:
 
 ## Control Updates 
 
-Control whether changes made to Device42 assets types and contracts will update the corresponding items in Freshservice during sync.
+Control whether changes made to Device42 asset types and contracts will update the corresponding items in Freshservice during sync.
 
 ### Control Asset Type Updates
 
-When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details on the asset **Update asset type for existing assets**  setting.
+When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details about the **Update asset type for existing assets**  setting.
 
 ### Control Contract Updates
 
@@ -349,8 +349,8 @@ You can control whether Device42 contract updates sync to Freshservice. This app
 
 Add the `skip-update` attribute to the `<task>` element:
 
-- `skip-update="false"`: Contract updates in Device42 will be updated in Freshservice (if the contract exists).
-- `skip-update="true"`: Contracts are created in Freshservice but not updated after initial creation.
+- If `skip-update="false"`, contract updates in Device42 will be updated in Freshservice (if the contract exists).
+- If `skip-update="true"`, the contracts are created in Freshservice but will not be updated after initial creation.
 
 If the attribute is absent from the task element, the contracts in Freshservice will not be updated.
 
@@ -475,18 +475,18 @@ You can map existing Device42 contract data to custom fields in Freshservice con
 
 1. Create custom fields. Go to **Settings > Contract Types** in Freshservice and add custom fields to receive the Device42 contract data.
 
-    - Log into your Freshservice instance.
+    - Log in to your Freshservice instance.
     - Click the **ellipsis menu** (bottom of left panel) and select **Admin**.
-    - In the search bar, type "contract type".
+    - In the search bar, type `contract type`.
     - Click the **edit icon** to the right of the contract type name.
 
         ![Edit icon for Lease contract type](/assets/images/freshservice-integration/fs-contract-edit-button.png)
     
-    - Drag one of the data type buttons below last input in form to add the custom field. Freshservice supports the following custom field types: Single Line Text, Multi Line Text, Checkbox, Number, Dropdown, Phone Number, URL, Date.
+    - Drag one of the data type buttons below the last input on the form to add the custom field. Freshservice supports the following custom field types: Single Line Text, Multi Line Text, Checkbox, Number, Dropdown, Phone Number, URL, and Date.
 
         ![Drag custom field](/assets/images/freshservice-integration/fs-custom-field-drag.png)
 
-    - Label the custom field and set whether a value is required and if the field should appear on renewal forms. If you don't send a value to the required field, you will get an error.
+    - Label the custom field and set whether a value is required and whether the field should appear on renewal forms. If you don't send a value to the required field, you will get an error.
 
         ![Configure custom field](/assets/images/freshservice-integration/fs-custom-field-properties.png)
 
@@ -494,7 +494,7 @@ You can map existing Device42 contract data to custom fields in Freshservice con
 
 **In `mapping.xml`:**   
 
-2. Update the DOQL queries in the contract type tasks to select data that you will put into the contract custom fields. For example, add the "Cancel Policy" field, `pli.cancel_policy`, from the purchase line item:
+2. Update the DOQL queries in the contract type tasks to select data that you will enter in the contract custom fields. For example, add the **Cancel Policy** field, `pli.cancel_policy`, from the purchase line item:
 
     <details>
         <summary>Click to expand the code block</summary>
@@ -531,7 +531,7 @@ You can map existing Device42 contract data to custom fields in Freshservice con
     <field resource="cancel_policy" source-type="string" target="cf_cancel_policy" target-type="string"/>
     ```
 
-   The Freshservice custom field `target` is `cf_cancel_policy` following this pattern:
+   The Freshservice custom field `target` is `cf_cancel_policy`, following this pattern:
 
    ```
    cf_[lowercase with underscores replacing spaces]
