@@ -30,7 +30,28 @@ The plugin supports the three most recent releases of ServiceNow.
 
       ![ServiceNow search bar](/assets/images/device42-servicenow-connector/search-plugin-snow.png)
 
-2. Add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
+2. To verify that the discovery source of “Device42” was created, navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
+
+<details>
+    <summary>Click to expand the code block</summary>
+    ```js
+    var discoverySource = 'Device42';
+	var gr = new GlideRecord('sys_choice');
+	gr.addQuery('element', 'discovery_source');
+	gr.addQuery('name', 'cmdb_ci');
+	gr.addQuery('value', discoverySource);
+	gr.query();
+	
+	if (gr.hasNext()) {
+		gs.info('Device42 found');
+	} else {
+		gs.info('Device42 not find');
+	}
+    ```
+    </details>
+    ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script-find.png)
+
+3. If not found "Device42", add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
 
 <details>
     <summary>Click to expand the code block</summary>
@@ -56,31 +77,10 @@ The plugin supports the three most recent releases of ServiceNow.
     </details>
     ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script.png)
 
-3. To verify that the discovery source of “Device42” was created, navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
-
-<details>
-    <summary>Click to expand the code block</summary>
-    ```js
-    var discoverySource = 'Device42';
-	var gr = new GlideRecord('sys_choice');
-	gr.addQuery('element', 'discovery_source');
-	gr.addQuery('name', 'cmdb_ci');
-	gr.addQuery('value', discoverySource);
-	gr.query();
-	
-	if (gr.hasNext()) {
-		gs.info('Device42 found');
-	} else {
-		gs.info('Device42 did not find');
-	}
-    ```
-    </details>
-    ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script1.png)
-
 ## Technical Overview
 
 :::caution
-The following information is accurate for the recent versions of ServiceNow. The approach laid out below is still relevant, but some details may differ. 
+The following information is accurate for the recent versions of ServiceNow.
 :::
 
 Please contact our [support team](mailto:support@device42.com) for technical assistance. We're working on improving and updating this documentation and you can leave feedback by using the **Page Feedback** button at the top of this page.
@@ -90,8 +90,6 @@ Please contact our [support team](mailto:support@device42.com) for technical ass
 Each ServiceNow data source points to one data source endpoint. You need to create a separate data source for each endpoint. If you want to add multiple endpoints, you must create a separate data source for each one.
 
 From ServiceNow, the URI endpoints look something like this:
-
-**Version 3.0.0+**
 
 - Cloud Connector Configuration:
         ```
@@ -144,8 +142,6 @@ Don't include the `?` symbol in your system property, as ServiceNow will percent
 /services/data/v1.0/query/?${name_of_your_system_property}
 ```
 
-**Version 3.0.0+**
-
 Cloud Connection
 
 - File Path: 
@@ -156,7 +152,7 @@ Cloud Connection
 - Username: You may use any value here, but it is required.
 - Password : `${x_192652_device42.instance_key}`
 
-Please note that all records will appear to be ignored in versions 3+, because we use the Identification and Reconciliation Engine (IRE).
+Please note that all records will appear to be ignored, because we use the Identification and Reconciliation Engine (IRE).
 
 Direct Connection
 
@@ -203,15 +199,13 @@ The Cloud Connector uses a WebSocket connection initiated by the Device42 applia
 
 For a detailed rundown of the Cloud Connector communication and security architecture, see our [Cloud Connector documentation](integration/external-integrations/device42-cloud-connector-overview.mdx).
 
-There is also a direct connection option available on version 3.0.0+ of the ServiceNow integration plugin for users who would like to keep their integrations in their private networks.
+There is also a direct connection option available on the ServiceNow integration plugin for users who would like to keep their integrations in their private networks.
 
 ## Integration Setup and Configuration Overview
 
 Download the Device42-ServiceNow connector from the [ServiceNow Marketplace](https://store.servicenow.com/sn_appstore_store.do#!/store/application/42597533db201300a189622dca961964/4.2.0?sl=sh).
 
 ### Install and Configure the Integration
-
-**Version 3.0.0+**
 
 If you have the latest version of the ServiceNow integration plugin, you will be required to follow a few additional steps to configure the plugin and utilize ServiceNow's Identification and Reconciliation Engine (IRE).
 
@@ -268,8 +262,6 @@ If you have completed these steps, continue with the rest of the configuration.
 
     ![](/assets/images/WEB-813_3.jpg)
 
-**For version 3.0.0+:**
-
 -    Direct Connection
 
         If you have the latest version of Device42, you will see an option on the ServiceNow external integration page that displays a **Direct Connect** option. If you would like to configure the integration to use a direct connection, ensure that this option is checked. You cannot go back and change this option (you will have to delete and set up a new configuration), so confirm your settings before creating the integration.
@@ -305,11 +297,11 @@ Configure the data sync schedules as appropriate for your environment. Search Se
 
 ![](/assets/images/SN_Store_Download_4.png)
 
-These can be scheduled to run at certain times and should be run in the highlighted order: Devices, IPs, Services, and Software Instances. You can click on an individual schedule to change running order , period and time. And then you can **Execute Now**.
+These can be scheduled to run at certain times and should be run in the highlighted order: Affinity Group, Application Components, Business Applications, Database, Database to Instances, D42-Web-Sites, Web Site, Devices, IPs, Services, and Software Instances. You can click on an individual schedule to change running order , period and time. And then you can **Execute Now**.
 
 ![](/assets/images/SN_Store_Download_5.png)
 
-The scheduled imports first run the respective data source to collect and store data in the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow's internal tables. Version 3.0.0+ of the ServiceNow integration plugin leverages ServiceNow's IRE module. For more information on this feature, please visit ServiceNow's documentation page:
+The scheduled imports first run the respective data source to collect and store data in the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow's internal tables. ServiceNow integration plugin leverages ServiceNow's IRE module. For more information on this feature, please visit ServiceNow's documentation page:
 
 [https://docs.servicenow.com/bundle/utah-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/utah-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html)
 
@@ -394,7 +386,7 @@ If you updated the ServiceNow app from version 4.0.0 or older, you should run a 
 
 ## Adding the Relationship
 
-If application does not create the relationship automatically, then you can add it. 
+Check if the relationship exists and if it does not add it.
 
 - Go to **Configuration > Relation Type Exclusion List**
 	
