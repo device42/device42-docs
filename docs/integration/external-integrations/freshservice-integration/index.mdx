@@ -134,8 +134,8 @@ After installing the integration app in Freshservice, set up an External Integra
     
     ![SAML/SSO settings](/assets/images/freshservice-integration/saml-sso-settings.png)
 
-- **Auto Login**: Device42 will try to log you in automatically, without first directing you to the login page. If the automatic login fails, you will be directed to the login page.
-- **Show Login Page**: Device42 will always direct you to the login page (with buttons for normal and SSO login).
+    - **Auto Login**: Device42 will try to log you in automatically, without first directing you to the login page. If the automatic login fails, you will be directed to the login page.
+    - **Show Login Page**: Device42 will always direct you to the login page (with buttons for normal and SSO login).
 
 4. Restart your Device42 instance. From the Appliance Manager, go to **Application > Restart Application** and check the confirmation box before restarting Device42.
     
@@ -160,7 +160,7 @@ Test the SSO as follows:
 
 Now, when you're logged out of both Device42 and Freshservice, clicking the **Freshworks Login** button in Device42 will direct you to the Freshworks sign-in page.
 
-    ![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in-2.png)  
+![Freshworks sign-in page](/assets/images/freshservice-integration/freshworks-sign-in-2.png)  
 
 ## Troubleshooting
 
@@ -178,8 +178,8 @@ To action this:
 
 1. Check the GUID on your primary Device42 instance at **Tools > Integrations > Cloud Services**.
 2. Check the GUID of your other Device42 instances (hot standby, development, and so on).
-3. If the instances have the same GUID, regenerate GUID on all instances except the primary one.
-4. Restart Device42 services on instances where you changed the GUID.
+3. If the instances have the same GUID, regenerate the GUID on all instances except the primary one.
+4. Restart Device42 services on the instances where you changed the GUID.
 
 ## Next Steps
 
