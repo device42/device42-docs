@@ -40,39 +40,6 @@ To get started, download the default mapping XML file and view the current mappi
 
     ![View current mapping](/assets/images/freshservice-integration/view-mappings-2.png)
 
-### Control Asset Type Updates
-
-When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details on the asset **Update asset type for existing assets**  setting.
-
-### Control Contract Updates
-
-You can control whether Device42 contract updates sync to Freshservice by using the `skip-update` attribute on contract task elements. This applies to both regular contracts and software licensing contracts.
-
-Add the `skip-update` attribute to the `<task>` element:
-
-- `skip-update="false"`: Contract updates in Device42 will sync to Freshservice (updates existing contracts)
-- `skip-update="true"`: Contracts are created in Freshservice but not updated after initial creation
-- If the attribute is not present: Default behavior is that contracts will not be updated (same as `skip-update="true"`)
-
-For example, to enable contract updates:
-
-```xml
-<task enable="true" name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice" skip-update="false">
-```
-
-<!-- TODO: Add screenshot showing the skip-update attribute in mapping.xml in a code editor (VS Code)
-     Caption: "Setting skip-update attribute for contract tasks"
-     Highlight the skip-update="false" attribute in the <task> element -->
-
-This attribute applies to the following contract tasks in the `mapping.xml` file:
-
-- `<task name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice">`
-- `<task name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice">`
-
-:::tip
-Use `skip-update="true"` to prevent overwriting contract values that may trigger Freshservice workflow automations or that are managed separately in Freshservice.
-:::
-
 ## The `mapping.xml` File Structure
 
 Open the `mapping.xml` file in a text or code editor to view and edit the data mapping. Version 1.0 of the file has around 6010 lines. There are tasks for syncing data, tasks for syncing the relationships between Device42 CI types (by recreating them between the corresponding Freshservice types), and two cleanup tasks for deleting any assets or asset relationships from Freshservice that do not exist in Device42.
@@ -366,6 +333,42 @@ Use the following steps to verify that the field name is correct:
         dark: useBaseUrl('/assets/images/freshservice-integration/verify-field-name-dark.png'),
     }}
     />
+
+
+## Control Updates 
+
+Control whether changes made to Device42 assets types and contracts will update the corresponding items in Freshservice during sync.
+
+### Control Asset Type Updates
+
+When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details on the asset **Update asset type for existing assets**  setting.
+
+### Control Contract Updates
+
+You can control whether Device42 contract updates sync to Freshservice. This applies to contract tasks with `name="Contracts"` and `name="Software Licensing"`.
+
+Add the `skip-update` attribute to the `<task>` element:
+
+- `skip-update="false"`: Contract updates in Device42 will be updated in Freshservice (if the contract exists).
+- `skip-update="true"`: Contracts are created in Freshservice but not updated after initial creation.
+
+If the attribute is absent from the task element, the contracts in Freshservice will not be updated.
+
+- For example, add `skip-update="false"` to enable contract updates in mapping.xml v4.0:
+
+    ![Contracts task element with skip-update](/assets/images/freshservice-integration/vscode-contracts-skip-update.png)
+
+    ```xml
+    <task enable="true" name="Contracts" type="contract" description="Copy contract info from Device42 to Freshservice" skip-update="false">
+    ```
+
+- For example, add `skip-update="false"` to enable contract updates for software licensing in mapping.xml v4.0:
+
+    ![Contracts task element with skip-update](/assets/images/freshservice-integration/vscode-software-licensing-skip-update.png)
+
+    ```xml
+    <task enable="true" name="Software Licensing" type="contract" description="Copy Software Licensing info from Device42 to Freshservice" skip-update="false">
+    ```
 
 ## Data Mapping FAQs
 
