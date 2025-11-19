@@ -14,7 +14,7 @@ This page covers the usage and operations of the Freshservice integration.
 
 ## Using the Integration App
 
-Configure the **Device42 for Freshservice** app to sync data from Device42 to Freshservice and view and edit the fields mapped between Device42 and Freshservice.
+Configure the **Device42 for Freshservice** app to sync data from Device42 to Freshservice.
 
 ### Find the Settings Tab
 
@@ -26,22 +26,46 @@ Make your way to the **Settings** tab, located on the configuration page of the 
     
     ![Edit settings](/assets/images/freshservice-integration/edit-settings-2.png)
 
+### Asset-Type Update Behavior
+
+The **Update asset type for existing assets** checkbox controls whether asset types in Freshservice are updated during data synchronization (sync). Configure the following option [from the **Settings** tab](#find-the-settings-tab):
+
+- For new installations, the asset-type checkbox **is selected by default.** Asset types in the mapping file will overwrite existing asset types in Freshservice. Uncheck this option if you want to preserve manual customizations in Freshservice after the sync runs.
+
+- For existing installations, the asset-type checkbox is **not selected by default.** Asset types in Freshservice will not be overwritten by the sync. Existing installations are installations that didn't initially have the asset-type checkbox.
+
+    ![Asset-type checkbox](/assets/images/freshservice-integration/sync-config-asset-type.png)
+
 ### Run the Data Synchronization
 
-Data synchronization (sync) imports new CIs and updates the existing ones within Freshservice. Locate the synced data under **Assets > Inventory** in Freshservice.
+The sync imports new CIs and updates the existing ones within Freshservice. We recommend running a full sync after installing the integration app. Configure the following options [from the **Settings** tab](#find-the-settings-tab):
 
-You can schedule a daily sync and run the sync immediately. We recommend running a full sync after installing the integration app.
-
-[From the **Settings** tab](#find-the-settings-tab), scroll down to the **Schedule Synchronization** section. 
-
-To automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** at which to perform the sync. 
-
-    ![Schedule synchronization](/assets/images/freshservice-integration/schedule-sync-2.png)
+To schedule the sync and automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** at which to perform the sync.
 
 To run the sync immediately, click the **Manual sync** button to reveal the options:
 
 - Select **Run Full Sync** (blue button) to sync all items from Device42 to Freshservice, regardless of when the items were added or updated in Device42.
 - Select **Run Partial Sync** (green button) to sync only the items that have been changed in Device42, either added or updated, since the last successful sync.
+
+    ![Schedule synchronization](/assets/images/freshservice-integration/sync-config-schedule.png)
+
+Locate the synced data in Freshservice under **Assets > Inventory**.    
+
+### Asset Matching Logic
+
+The integration matches Device42 devices to Freshservice assets during the sync. It updates the existing asset or creates a new asset if no match is found. 
+
+The matching logic compares properties in the following order:
+
+1. Device42 ID
+2. Item ID
+3. Serial Number
+4. UUID
+5. IMEI Number
+6. MAC Address (only for SNMP devices)
+7. Hostname (positive match only if the matching asset does not have an Item ID)
+
+The matching logic ensures corresponding items are found for an accurate sync.
 
 ### View Sync History Logs
 
@@ -62,6 +86,10 @@ To download the full logs, use the **Download Full Log** button in the lower-lef
 :::note
 A full sync will be forced during upgrades to get new data from Device42. The sync history type will be listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
+
+### Cancelled Syncs
+
+When Device42 deploys a new Cloud Connector server as part of its usual maintenance process, running syncs are stopped and marked as **cancelled** in the sync history logs. 
 
 ## View Mapped and Unmapped Data for Specific Assets
 
@@ -91,7 +119,7 @@ We understand that some fields within Device42 may not easily translate to field
 
 ## Data Types Transferred From Device42 to Freshservice
 
-This table maps Device42 data types to their corresponding categories in Freshservice
+The following table maps Device42 data types to their corresponding categories in Freshservice:
 
 | Device42 Data Type | Freshservice Type (General) | Type (Specific) |
 |--------------|----------------------------|-----------------|
@@ -311,7 +339,7 @@ The **Contract Type** dropdown in Freshservice displays the available contract t
 
 ### Sync Purchase Line Items Types to Contracts
 
-In Device42, a **Purchase Line Item** is an individual entry associated with a larger purchase (located under **Infrastructure > Purchases**). Contract purchase line item sub-types include **Lease**, **Warranty**, **Subscription**, **Service**, and **In-Service**. The sub-type **(None)** is used for unspecified types:
+In Device42, a **Purchase Line Item** is an individual entry associated with a larger purchase (located under **Infrastructure > Purchases**). Contract purchase line item subtypes include **Lease**, **Warranty**, **Subscription**, **Service**, and **In-Service**. The subtype **(None)** is used for unspecified types:
 
     <ThemedImage
     alt="PO Line Item Types in Device42"
