@@ -49,7 +49,8 @@ The plugin supports the three most recent releases of ServiceNow.
 	}
     ```
     </details>
-    ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script-find.png)
+
+    ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script1.png)
 
 3. If not found "Device42", add **Device42** to the data source choice list. Navigate to **System Definition > Scripts – Background** (search for it under **All**) and paste in the following script. Leave **in scope** as **global**.
 
@@ -75,6 +76,7 @@ The plugin supports the three most recent releases of ServiceNow.
     }
     ```
     </details>
+
     ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script.png)
 
 ## Technical Overview
@@ -297,13 +299,28 @@ Configure the data sync schedules as appropriate for your environment. Search Se
 
 ![](/assets/images/SN_Store_Download_4.png)
 
-These can be scheduled to run at certain times and should be run in the highlighted order: Affinity Group, Application Components, Business Applications, Database, Database to Instances, D42-Web-Sites, Web Site, Devices, IPs, Services, and Software Instances. You can click on an individual schedule to change running order , period and time. And then you can **Execute Now**.
+The Device scheduled job is set to run at a default time which can be modified if needed. The Device scheduled job will automatically trigger the next scheduled job to run, which will then trigger the next scheduled job, and so on until all of the scheduled jobs are run.  
+
+The order the scheduled jobs will run is: 
+- Device
+- IP 
+- Software
+- Service
+- Affinity Group
+- Application Component
+- Business Application
+- Database
+- Database Instance
+- Database to Instance
+- Website
+
+You can click on the Device scheduled job to change period and time. And then you can **Execute Now**. 
 
 ![](/assets/images/SN_Store_Download_5.png)
 
-The scheduled imports first run the respective data source to collect and store data in the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow's internal tables. ServiceNow integration plugin leverages ServiceNow's IRE module. For more information on this feature, please visit ServiceNow's documentation page:
+The scheduled imports first run the respective data source to collect and store data in the import set tables for a given data source. After this data has been imported into this table a transform script is run to map the data into ServiceNow's internal tables. The ServiceNow integration plugin leverages ServiceNow's IRE module. For more information on this feature, please visit ServiceNow's documentation page:
 
-[https://docs.servicenow.com/bundle/utah-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html](https://docs.servicenow.com/bundle/utah-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html)
+[https://www.servicenow.com/docs/bundle/zurich-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html](https://www.servicenow.com/docs/bundle/zurich-servicenow-platform/page/product/configuration-management/concept/c_CMDBIdentifyandReconcile.html)
 
 ![](/assets/images/SN_Imports_1.png)
 
