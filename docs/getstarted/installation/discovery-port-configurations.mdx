@@ -8,6 +8,7 @@ Below is a complete reference list of all ports that may be used to access targe
 | Source                        | Default Port       | Protocol  | Directionality | Reason                                     |
 |-------------------------------|--------------------|-----------|----------------|---------------------------------------------|
 | Main Appliance (MA)           | 389 (TCP/UDP)<br/>636 (TCP/UDP)      | LDAP<br/>LDAPS      | MA to targets  | Active Directory Sync                      |
+| Main Appliance (MA)           | 123 (UDP)          | NTP       | MA to targets  | Time synchronization                       |
 | Remote Collector(s) (RC)      | 53 (TCP)           | DNS       | Device42 to targets | DNS Zone Discovery                 |
 | Remote Collector(s) (RC)      | 623 (UDP)          | IPMI      | RC to targets  | IPMI based discovery of management interfaces |
 | Remote Collector(s) (RC)      | 22 (TCP)           | SSH       | RC to targets  | SSH based discovery of Linux and Unix systems |
