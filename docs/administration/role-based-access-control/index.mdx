@@ -155,24 +155,25 @@ As with Object Categories, it's not necessary to assign a subnet category to eve
 
 ## Assigning Object Permissions to Admin Groups
 
-Object permissions apply to the following objects: 
+You can assign admin groups to objects from the list view of the object type or the edit page of a specific object. You can also assign admin groups to discovered objects.
+
+The **Add Groups** and **Delete Groups** actions are available for the following objects: 
+
 - Buildings 
 - Rooms 
 - Racks 
-- Devices 
-- Assets 
-- Object Categories 
-- PDUs 
-- VRF Groups 
-- Subnet Categories 
-- Purchases
-- Vendors 
 - Customers 
-- Auto Discovery jobs
+- Discovery job objects:
+  - AD/LDAP Sync 
+  - Certificate Autodiscovery 
+  - Cloud Autodiscovery
+  - Hypervisors/*nix/win for Autodiscovery
+  - IPMI/Redfish Autodiscovery
+  - Ping Sweep
+  - SNMP Autodiscovery
+  - UCS/ACI/Load Balancers for Autodiscovery
 
-You can assign admin groups to objects from the list view of the object type or the edit page of a specific object. You can also assign admin groups to discovered objects.
-
-From the list view of the object type, you can bulk select the objects you want to assign permissions to. From the **Actions** dropdown, select the **Assign Permissions** action.
+From the list view of the object type, bulk select the objects you want to assign permissions to. From the **Actions** dropdown, select the **Add Groups** action.
 
 <ThemedImage
   alt="Add Groups action"
@@ -195,14 +196,6 @@ Here, we are about to assign the **Prod** admin group permissions to the three r
 Remove previously assigned permissions with the **Delete Groups** action. If you want to delete the **Prod** group's permissions for these racks, select that option. You can change the **Change Permissions?** flag through this dialog as well.
 
 You can also assign permissions from object edit pages, as shown above.
-
-The **Add Groups** and **Delete Groups** actions are available for the following objects: 
-- Buildings 
-- Rooms 
-- Racks 
-- VRF Groups
-
-Similarly, the device, asset, and PDU list pages have **Set Object Category** and **Delete Object Category** actions. The Subnet list page has **Set Subnet Category** and **Delete Subnet Category** actions.
 
 ## Who Can Assign Admin Groups to Objects?
 
