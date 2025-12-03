@@ -839,7 +839,7 @@ const config = {
           },
           {
             to: '/infrastructure-management/software/software-license-management/',
-            from: ['/apps/software/software-license-management/'],
+            from: ['/apps/software/software-license-management/', '/solution-guides/software-license-management/'],
           },
           {
             to: '/infrastructure-management/software/software-licensing-alerts-and-notifications/',
