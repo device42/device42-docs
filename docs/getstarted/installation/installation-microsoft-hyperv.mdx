@@ -74,8 +74,6 @@ Change the default password for the user `device42` from the console menu before
 
 After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
-You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
-
 ### Log In to the Web Interface
 
 Point your browser to the address at the top of the console menu or your newly created DNS entry at `https://FQDN (Fully Qualified Domain Name) or IP address`. 
@@ -87,7 +85,7 @@ Log in to the **web interface** using the default credentials:
 
 Please change these credentials as soon as you've logged in.
 
-You are now ready to start discovering your IT infrastructure! 
+You are now ready to start discovering your IT infrastructure!
 
 <ThemedImage
   alt="Device42 Web Interface Login Screen v19.05"
@@ -95,8 +93,12 @@ You are now ready to start discovering your IT infrastructure!
     light: useBaseUrl('/assets/images/login-19.05-light.png'),
     dark: useBaseUrl('/assets/images/login-19.05-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '70%' }}
 />
+
+## Using SSH
+
+You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
 
 ## Next Steps
 
