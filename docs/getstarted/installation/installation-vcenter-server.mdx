@@ -11,12 +11,13 @@ This guide walks you through installing the Device42 Main Appliance on the VMwar
 ## Outline of Installation Steps
 
 1. Download and unzip the compressed Device42 virtual appliance.
-2. From the vCenter Server interface, select the unzipped `.ovf` file. 
+2. From the vCenter Server interface, select the unzipped `.ovf` file.
 3. Follow the VMware prompts and choose your location, datastore, and NIC.
-4. Power on the newly deployed Device42 virtual appliance. 
+4. Power on the newly deployed Device42 virtual appliance.
 5. Log in to the Device42 console using the default credentials and update the credentials.
 6. Configure the static IP address from the console.
-7. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP-address`. Update the login credentials here as well.
+7. Set the time zone and configure NTP.
+8. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP-address`. Update the login credentials here as well.
 
 ## Illustrated Steps for Installing Device42 on vCenter Server
 
@@ -64,12 +65,16 @@ Log in using the default credentials and change them once you've logged in:
 ### Configure the Static IP Address
 
 From the console, configure the IP address. Use a **static IP** for all production Device42 VMs to avoid connectivity issues.
-   
+
     ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
-    Enter your settings on the Device42 IP address configuration screen: 
+    Enter your settings on the Device42 IP address configuration screen:
 
     ![IP config options](/assets/images/vm-ip-settings.png)
+
+### Set the Time Zone and Configure NTP
+
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 ### Create a DNS Entry
 
@@ -102,8 +107,6 @@ You should be up and running, and are now ready to go! If you have any questions
 You can apply Device42 updates and perform other menu-related work using **SSH** via **port 404**. Please note that root login has been disabled.
 
 ## Next Steps
-
-After installation, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
 

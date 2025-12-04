@@ -16,7 +16,8 @@ This guide walks you through installing the Device42 Main Appliance on Citrix Xe
 4. Power on the newly deployed Device42 virtual appliance.
 5. Log in to the Device42 console using the default credentials and update the credentials.
 6. Configure the static IP address from the console.
-7. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP address`. Update the login credentials here as well.
+7. Set the time zone and configure NTP.
+8. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP address`. Update the login credentials here as well.
 
 ## Illustrated Steps of Installing Device42 on Citrix XenServer
 
@@ -78,6 +79,10 @@ From the console, configure the IP address. Use a **static IP** for all producti
 
     ![IP config options](/assets/images/vm-ip-settings.png)
 
+### Set the Time Zone and Configure NTP
+
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
+
 ### Create a DNS Entry
 
 This is an optional step: Create a DNS entry for the new IP address of the virtual appliance.
@@ -109,8 +114,6 @@ You should be up and running, and are now ready to go! If you have any questions
 You can apply updates and do other menu-related work using SSH port 404. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
 
 ## Next Steps
-
-After installation, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
 

@@ -16,7 +16,8 @@ After you [download the Device42 virtual appliance file](https://www.device42.co
 2. Create a virtual machine with a **minimum** of 2 vCPU, 8 GB RAM for production use, and one network card. Configure the new VM to use the attached virtual disk file.
 3. Power on the new machine and log in to the console using the default credentials, then update the credentials.
 4. On the console, configure the IP and choose your settings. Please use a static (non-DHCP) IP address for all Device42-related appliances. Create a DNS entry that points to the IP address of the new virtual appliance.
-5. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address` and log in to the **web interface** using the default credentials.  Update the login credentials here as well.
+5. Set the time zone and configure NTP.
+6. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address` and log in to the **web interface** using the default credentials. Update the login credentials here as well.
 
 You are now ready to start discovering and documenting your IT infrastructure!
 
@@ -69,6 +70,10 @@ Configure an IP address for the Device42 appliance. Use a static IP or a DHCP ad
 
 Change the default password for the user `device42` from the console menu before proceeding.
 
+### Set the Time Zone and Configure NTP
+
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
+
 You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
 
 ### Log In to the Web Interface
@@ -94,8 +99,6 @@ You are now ready to start discovering your IT infrastructure!
 />
 
 ## Next Steps
-
-After installation, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
 

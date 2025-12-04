@@ -113,8 +113,10 @@ Update the appliance license key, because the included key has expired:
       light: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-light.png'),
       dark: useBaseUrl('/assets/images/installation-amazon-web-services/upload-license-dark.png'),
   }}
-  style={{ width: '90%' }} 
+  style={{ width: '90%' }}
   />
+
+[Set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 Make sure your AMI is running the latest version of Device42 and update it if necessary:
 
@@ -129,10 +131,8 @@ Make sure your AMI is running the latest version of Device42 and update it if ne
         light: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-light.png'),
         dark: useBaseUrl('/assets/images/installation-amazon-web-services/update-software-dark.png'),
     }}
-    style={{ width: '70%' }} 
+    style={{ width: '70%' }}
     />
-
-After installation, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 And you're all set!
 

@@ -12,8 +12,9 @@ Install the Device42 Main Appliance on Xen- or KVM-based platforms by following 
 
 1. Download the Device42 image and unzip the image using bunzip2.
 2. Import the disk image and follow the wizard to create a new virtual machine.
-3. Log in to the Device42 console and configure the Main Appliance. 
-4. Log in to the Device42 Main Appliance from the browser. 
+3. Log in to the Device42 console and configure the Main Appliance.
+4. Set the time zone and configure NTP.
+5. Log in to the Device42 Main Appliance from the browser. 
 
 ## Illustrated Steps of Installing Device42 using Virt-Manager
 
@@ -57,17 +58,17 @@ bunzip2 device42-<version>-raw.img.bz2
 
    Change the default password after signing in to the appliance console.
 
+3. Configure a static IP address for the Device42 appliance.
+
 ![IP config options v19.05](/assets/images/vm-ip-settings.png)
+
+4. (Optional) Create a DNS entry for the new IP address for the new virtual appliance.
 
 You can apply updates and perform other menu-related tasks using SSH. Please note that root login has been disabled.
 
-* * *
+### Set the Time Zone and Configure NTP
 
-You can also create a DNS entry for the new IP address for the new virtual appliance.
-
-Access the Device42 web UI by pointing your browser to `https://FQDN(Fully Qualified Domain Name) or IP-address` and logging in with the default credentials:
-
-4. (Optional) Create a DNS entry for the new IP address for the new virtual appliance.
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 ### Log in to the Web Interface
 
@@ -88,8 +89,6 @@ Access the Device42 web UI by pointing your browser to `https://FQDN(Fully Quali
 />
 
 ## Next Steps
-
-After installation, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
 
