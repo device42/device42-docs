@@ -15,8 +15,9 @@ After you [download the Device42 virtual appliance file](https://www.device42.co
 1. Use 7-Zip to unzip the downloaded file.
 2. Create a virtual machine with a **minimum** of 2 vCPU, 8 GB RAM for production use, and one network card. Configure the new VM to use the attached virtual disk file.
 3. Power on the new machine and log in to the console using the default credentials, then update the credentials.
-4. On the console, configure the IP and choose your settings. Please use a static (non-DHCP) IP address for all Device42-related appliances. Create a DNS entry that points to the IP address of the new virtual appliance.
-5. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address` and log in to the **web interface** using the default credentials.  Update the login credentials here as well.
+4. On the console, configure the IP and choose your settings. Please use a static (non-DHCP) IP address for all Device42-related appliances.
+5. Set the time zone and configure NTP.
+6. Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address` and log in to the **web interface** using the default credentials. Update the login credentials here as well.
 
 You are now ready to start discovering and documenting your IT infrastructure!
 
@@ -61,7 +62,7 @@ Please change these credentials as soon as you've logged in.
 
 ### Configure a Static IP and Networking Options
 
-Configure an IP address for the Device42 appliance. Use a static IP or a DHCP address reservation. Ensure that DNS entries are created for every appliance to be used in a production setting. DNS server configuration is a necessary step.
+Configure an IP address for the Device42 appliance using either a static IP or a DHCP reservation. Ensure that DNS server settings are configured on the appliance for production use, as these are required for autodiscovery to resolve hostnames.
 
 ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
 
@@ -69,7 +70,9 @@ Configure an IP address for the Device42 appliance. Use a static IP or a DHCP ad
 
 Change the default password for the user `device42` from the console menu before proceeding.
 
-You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
+### Set the Time Zone and Configure NTP
+
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
 
 ### Log In to the Web Interface
 
@@ -82,7 +85,7 @@ Log in to the **web interface** using the default credentials:
 
 Please change these credentials as soon as you've logged in.
 
-You are now ready to start discovering your IT infrastructure! 
+You are now ready to start discovering your IT infrastructure!
 
 <ThemedImage
   alt="Device42 Web Interface Login Screen v19.05"
@@ -90,11 +93,15 @@ You are now ready to start discovering your IT infrastructure!
     light: useBaseUrl('/assets/images/login-19.05-light.png'),
     dark: useBaseUrl('/assets/images/login-19.05-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '70%' }}
 />
+
+## Using SSH
+
+You can apply updates and perform other menu-related work using SSH **port 404**. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
 
 ## Next Steps
 
-Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job. 
+Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
 
 You can import data into Device42 using the [Device42 API](https://api.device42.com/) or the [**Import/Export (xls)**](/getstarted/tutorials/tutorial-loading-data-using-spreadsheets.mdx) tool.

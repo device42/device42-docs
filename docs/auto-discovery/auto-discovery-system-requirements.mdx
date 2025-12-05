@@ -40,23 +40,4 @@ Contact [support@device42.com](mailto:support@device42.com) with any questions r
 
 ## Ports and Protocols Used By Discovery
 
-Device42 uses the following ports and protocols for discovery. Ensure the appropriate ones are allowed through main and target machine firewalls for proper discovery functionality:
-
-- **UDP/161 - Device42 Appliance**
-    - Networking (SNMP)
-    - Blade Systems (SNMP)
-    - Power (SNMP)
-- **TCP/443 - Device42 Appliance and Communication between RC and Main Appliance**
-    - vServers (VMware, OVirt/Redhat, Citrix/Xen)
-    - Cisco UCS Manager
-- **TCP/22 - Standalone Discovery Tool and Device42 Appliance**
-    - SSH for *nix and select hypervisor discovery
-    - KVM/libvirt
-- **ICMP - Device42 Appliance or Standalone Discovery Tool**
-- **UDP/623 - Device42 Appliance - IPMI**
-- **TCP/389 or TCP/636 - Device42 Appliance**
-    - Active Directory or AD SSL
-    - LDAP: Default is port 389 or 636 for LDAPs or LDAPs with SSL
-- **TCP/135 and 445 - Standalone Discovery Tool - WMI**
-    - Random ephemeral TCP port(s) between 1024 and 65535 may also be used
-- **TCP/5985 and 5986 - Device42 Appliance - WinRM HTTP & HTTPS Discovery**
+See [Discovery Port Configurations](/getstarted/installation/discovery-port-configurations/) for a complete list. 
