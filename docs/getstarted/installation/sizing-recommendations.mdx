@@ -13,4 +13,9 @@ The sizing requirements depend on the size of the environment and the Device42 f
 | Remote Collector(s) (virtual appliance) | **One RC per 1000 workloads:** <br/>- Two vCPU <br/>- 4GB RAM <br/>- 50GB vDisk |
 | Windows Discovery Service (.NET installer) | **One WDS per 1000 workloads:**  <br/> - Two vCPU <br/> - 8GB RAM <br/> - 50GB vDisk (minimum) |
 
-Depending on your environment, we may recommend a dedicated resource pool for the virtual appliance to ensure there is no resource contention.
+Depending on your environment, we may recommend a dedicated resource pool for the virtual appliance to ensure there is no resource contention. 
+
+Device42 utilizes a database within the virtual appliance we recommend solid-state storage, or similar storage optimized for database operations.
+
+For Windows infrastructure, Device42 requires a WDS to be installed on one machine per discovery
+segment/Remote Collector.
