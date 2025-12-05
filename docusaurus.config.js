@@ -92,12 +92,72 @@ const config = {
             from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
           },
           {
-            to: '/getstarted/installation/installation-microsoft-hyperv/',
-            from: ['/getstarted/installation/installation-microsoft-hyper/'],
+            to: '/getstarted/deploy-device42/installation-microsoft-hyperv/',
+            from: ['/getstarted/installation/installation-microsoft-hyper/', '/getstarted/installation/installation-microsoft-hyperv/'],
           },
           {
-            to: '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/',
-            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/'],
+            to: '/getstarted/deploy-device42/installation-xen-or-kvm-using-virt-manager/',
+            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/', '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/',
+            from: ['/getstarted/installation/', '/getstarted/installation/index/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/configuring-remote-collector/',
+            from: ['/getstarted/installation/configuring-remote-collector/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/discovery-port-configurations/',
+            from: ['/getstarted/installation/discovery-port-configurations/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
+            from: ['/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-amazon-web-services/',
+            from: ['/getstarted/installation/installation-amazon-web-services/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-citrix-xen-server/',
+            from: ['/getstarted/installation/installation-citrix-xen-server/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-microsoft-azure/',
+            from: ['/getstarted/installation/installation-microsoft-azure/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-vcenter-server/',
+            from: ['/getstarted/installation/installation-vcenter-server/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installing-the-d42-netflow-collector-as-a-service/',
+            from: ['/getstarted/installation/installing-the-d42-netflow-collector-as-a-service/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/remote-collector-rc-installation/',
+            from: ['/getstarted/installation/remote-collector-rc-installation/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/resource-and-deployment-architecture-overview/',
+            from: ['/getstarted/installation/resource-and-deployment-architecture-overview/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/security-posture-and-high-level-permissions/',
+            from: ['/getstarted/installation/security-posture-and-high-level-permissions/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/sizing-recommendations/',
+            from: ['/getstarted/installation/sizing-recommendations/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/windows-discovery-service-installation/',
+            from: ['/getstarted/installation/windows-discovery-service-installation/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/windows-service-installation/',
+            from: ['/getstarted/installation/windows-service-installation/'],
           },
           {
             to: '/getstarted/tutorials/device42-tutorial/',
