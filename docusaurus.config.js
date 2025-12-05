@@ -104,10 +104,6 @@ const config = {
             from: ['/getstarted/installation/', '/getstarted/installation/index/'],
           },
           {
-            to: '/getstarted/deploy-device42/configuring-remote-collector/',
-            from: ['/getstarted/installation/configuring-remote-collector/'],
-          },
-          {
             to: '/getstarted/deploy-device42/discovery-port-configurations/',
             from: ['/getstarted/installation/discovery-port-configurations/'],
           },
