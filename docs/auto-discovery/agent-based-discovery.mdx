@@ -6,25 +6,15 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-# Device42 Discovery Agent
-
-:::tip
-To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.mdx).
-:::
-
 There are special situations where using an agent for discovery makes more sense. The IT environment may be unreachable from the network or security-hardened rules may be in place that limit traffic flow. Device42 offers many optional auto-discovery agents across several [supported platforms](#supported-platforms).
 
 As a best practice, we recommend using agentless discovery over agent-based discovery when possible. The information gathered is the same, but the agent does not support Resource Utilization (RU). 
 
-:::warning
-**Discovery Account warning: Please do _not_ set up an autodiscovery scan using critical or production account credentials! Please create a separate, dedicated account to use _only_ for discovery**
-
-Doing so, depending on permissions granted and configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
-:::
+To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.mdx).
 
 ## Supported Platforms
 
-**Device42 autodiscovery agents are available for deployment on the following platforms:**
+Device42 autodiscovery agents are available for deployment on the following platforms:
 
 - Windows 64-bit (Recommended)
 - Windows 32-bit
@@ -39,8 +29,12 @@ Doing so, depending on permissions granted and configured password policies coul
 - Solaris Sparc 64-bit
 - Encrypted config file for Agent
 
-:::info
 See **[Windows Discovery Agent Service Wrapper](/getstarted/installation/windows-service-installation)** and **[Mac Agent Service Launcher](/auto-discovery/mac-agent-service-launcher)** for information on installing versions of the Windows and Mac discovery agent as a service.
+
+:::warning
+Do not set up an autodiscovery scan using critical or production account credentials. Please create a separate, dedicated account to use only for discovery.
+
+Doing so, depending on permissions granted and configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
 :::
 
 ## Proxy Environment Variables
@@ -73,6 +67,8 @@ The agent can be run from the command line or can be scheduled using the relevan
   ```bash
     -capture-host-files
           capture hosts files
+    -config-file string
+          reads the config from an encrypted file (Only works for signed binaries. Ignored Otherwise)
     -debug
           prints the data being sent and result of post operation
     -device-customer string
@@ -91,8 +87,6 @@ The agent can be run from the command line or can be scheduled using the relevan
           doesn't do a post, just prints the data to be sent
     -extended-logs
           enables extended logs
-    -host string
-          specifies the Main Appliance or Remote Collector target (overrides built-in host)
     -hostname-precedence
           sets device name as 'new name' to prevent creation of new device if only hostname was changed
     -ignore-domain
@@ -113,24 +107,28 @@ The agent can be run from the command line or can be scheduled using the relevan
           default IP VRF group
     -light-mode
           reduces CPU utilization by cost of discovery speed
-    -new-device-object-category
-        updates/overwrites the object category for the device
+    -new-device-object-category string
+          new device object category
     -offline
           doesn't connect with Device42, just prints the encrypted data to be sent
+    -prioritize-dns-name
+          Prioritize DNS domain name
     -quiet
           disables all logs
     -service-ports-only
           returns only service ports data
     -skip-aws-instance-info
-          disables AWS instance info discovery (default true)
+          disables AWS instance info discovery (deprecated)
     -skip-bios
           disables bios discovery
     -skip-cluster-info
-          disables cluster info discovery (Windows only) (default true)
+          disables cluster info discovery (Windows only)
     -skip-cpu-info
           disables CPU info discovery
     -skip-database-info
-          disables database discovery (default true)
+          disables database discovery
+    -skip-gpu-info
+          disables GPU info discovery
     -skip-hardware-info
           disables hardware discovery
     -skip-hba
@@ -145,8 +143,12 @@ The agent can be run from the command line or can be scheduled using the relevan
           disables network discovery
     -skip-os-details
           disables OS discovery
+    -skip-other-data
+          disables other data
     -skip-parts
           disables parts discovery
+    -skip-provider-unique-identifier
+          disables instance unique identifier lookup
     -skip-serials
           disables serial numbers discovery
     -skip-service-ports
@@ -155,30 +157,26 @@ The agent can be run from the command line or can be scheduled using the relevan
           disables services discovery
     -skip-software
           disables software discovery
+    -skip-tpm-info
+          disables TPM info discovery
     -skip-virtual-machines
           disables VM discovery
     -software-initial-group string
           default software group
     -store-config-files
           store configuration files
-    -store-filesystem-info
-          store filesystem information
-    -store-registry-info
-          store registry information
-    -store-software-config-files
-          store software configuration files
     -sudo-password string
           sudo password used in some OSes (Mac, Linux) to get information about the system
     -use-aws-token
-          use generated token to get AWS instance info
+          use generated token to get AWS instance info (deprecated)
     -use-global-ignore-software-file
           use global ignore software file
     -use-global-ignore-software-pattern-file
           use global ignore software pattern file
+    -use-provider-token
+          use generated token to get instance info
     -version
           print version number and exit
-    --wmi-timeout
-        timeout for Windows WMI calls (default is 120 seconds if not supplied)
   ```
 </details>
 
