@@ -67,6 +67,8 @@ The agent can be run from the command line or can be scheduled using the relevan
   ```bash
     -capture-host-files
           capture hosts files
+    -config-file string
+          reads the config from an encrypted file (Only works for signed binaries. Ignored Otherwise)
     -debug
           prints the data being sent and result of post operation
     -device-customer string
@@ -85,8 +87,6 @@ The agent can be run from the command line or can be scheduled using the relevan
           doesn't do a post, just prints the data to be sent
     -extended-logs
           enables extended logs
-    -host string
-          specifies the Main Appliance or Remote Collector target (overrides built-in host)
     -hostname-precedence
           sets device name as 'new name' to prevent creation of new device if only hostname was changed
     -ignore-domain
@@ -107,24 +107,28 @@ The agent can be run from the command line or can be scheduled using the relevan
           default IP VRF group
     -light-mode
           reduces CPU utilization by cost of discovery speed
-    -new-device-object-category
-        updates/overwrites the object category for the device
+    -new-device-object-category string
+          new device object category
     -offline
           doesn't connect with Device42, just prints the encrypted data to be sent
+    -prioritize-dns-name
+          Prioritize DNS domain name
     -quiet
           disables all logs
     -service-ports-only
           returns only service ports data
     -skip-aws-instance-info
-          disables AWS instance info discovery (default true)
+          disables AWS instance info discovery (deprecated)
     -skip-bios
           disables bios discovery
     -skip-cluster-info
-          disables cluster info discovery (Windows only) (default true)
+          disables cluster info discovery (Windows only)
     -skip-cpu-info
           disables CPU info discovery
     -skip-database-info
-          disables database discovery (default true)
+          disables database discovery
+    -skip-gpu-info
+          disables GPU info discovery
     -skip-hardware-info
           disables hardware discovery
     -skip-hba
@@ -139,8 +143,12 @@ The agent can be run from the command line or can be scheduled using the relevan
           disables network discovery
     -skip-os-details
           disables OS discovery
+    -skip-other-data
+          disables other data
     -skip-parts
           disables parts discovery
+    -skip-provider-unique-identifier
+          disables instance unique identifier lookup
     -skip-serials
           disables serial numbers discovery
     -skip-service-ports
@@ -149,30 +157,26 @@ The agent can be run from the command line or can be scheduled using the relevan
           disables services discovery
     -skip-software
           disables software discovery
+    -skip-tpm-info
+          disables TPM info discovery
     -skip-virtual-machines
           disables VM discovery
     -software-initial-group string
           default software group
     -store-config-files
           store configuration files
-    -store-filesystem-info
-          store filesystem information
-    -store-registry-info
-          store registry information
-    -store-software-config-files
-          store software configuration files
     -sudo-password string
           sudo password used in some OSes (Mac, Linux) to get information about the system
     -use-aws-token
-          use generated token to get AWS instance info
+          use generated token to get AWS instance info (deprecated)
     -use-global-ignore-software-file
           use global ignore software file
     -use-global-ignore-software-pattern-file
           use global ignore software pattern file
+    -use-provider-token
+          use generated token to get instance info
     -version
           print version number and exit
-    --wmi-timeout
-        timeout for Windows WMI calls (default is 120 seconds if not supplied)
   ```
 </details>
 
