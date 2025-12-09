@@ -6,25 +6,15 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-# Device42 Discovery Agent
-
-:::tip
-To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.mdx).
-:::
-
 There are special situations where using an agent for discovery makes more sense. The IT environment may be unreachable from the network or security-hardened rules may be in place that limit traffic flow. Device42 offers many optional auto-discovery agents across several [supported platforms](#supported-platforms).
 
 As a best practice, we recommend using agentless discovery over agent-based discovery when possible. The information gathered is the same, but the agent does not support Resource Utilization (RU). 
 
-:::warning
-**Discovery Account warning: Please do _not_ set up an autodiscovery scan using critical or production account credentials! Please create a separate, dedicated account to use _only_ for discovery**
-
-Doing so, depending on permissions granted and configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
-:::
+To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.mdx).
 
 ## Supported Platforms
 
-**Device42 autodiscovery agents are available for deployment on the following platforms:**
+Device42 autodiscovery agents are available for deployment on the following platforms:
 
 - Windows 64-bit (Recommended)
 - Windows 32-bit
@@ -39,8 +29,12 @@ Doing so, depending on permissions granted and configured password policies coul
 - Solaris Sparc 64-bit
 - Encrypted config file for Agent
 
-:::info
-See **[Windows Discovery Agent Service Wrapper](/getstarted/deploy-device42/windows-service-installation)** and **[Mac Agent Service Launcher](/auto-discovery/mac-agent-service-launcher)** for information on installing versions of the Windows and Mac discovery agent as a service.
+See **[Windows Discovery Agent Service Wrapper](/getstarted/installation/windows-service-installation)** and **[Mac Agent Service Launcher](/auto-discovery/mac-agent-service-launcher)** for information on installing versions of the Windows and Mac discovery agent as a service.
+
+:::warning
+Do not set up an autodiscovery scan using critical or production account credentials. Please create a separate, dedicated account to use only for discovery.
+
+Doing so, depending on permissions granted and configured password policies could result in account lock-out, therefore causing an otherwise completely avoidable outage.
 :::
 
 ## Proxy Environment Variables
