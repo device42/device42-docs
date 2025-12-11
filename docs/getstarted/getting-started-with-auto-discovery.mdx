@@ -26,13 +26,13 @@ If you can't find the answer you're looking for, please email [support@device42.
 
 ## Discovery Job Best Practices
 
-Below is a list of basic discovery job best practices. While [this list]((/auto-discovery/autodisc-best-practices.mdx)) is long, discovery is the foundation of Device42, and it is therefore important that you understand and implement these best practices. We recommend you refer back to this list often.
+Below is a list of basic discovery job best practices. While [this list](/auto-discovery/autodisc-best-practices.mdx) is long, discovery is the foundation of Device42, and it is therefore important that you understand and implement these best practices. We recommend you refer back to this list often.
 
 ### Discovery Job Best Practices: Discovery Job Planning
 
 1. **Limit your discovery focus:** There are a variety of discovery jobs and it is tempting to immediately run as many as possible. Focus on the jobs that will deliver the maximum value to your organization; these typically include jobs like SNMP, Virtualization, Windows, Linux and Unix, Cloud, Storage, and Certificate. You can run additional discovery jobs once the core jobs have been created and scheduled.
 
-2. **Organize your discovery jobs:** There are different discovery job types (for example SNMP, Hypervisor, Windows, Linux, Cloud, Storage, and so on) and each of these will likely have multiple jobs based on location, Data Center, Region, etc. or due to the large number of items to be discovered. Consider how you want to organize each discovery job type. For example, you may conclude it is best to have a separate Windows discovery job for each location or Data Center. Take into account the recommended maximum number of devices a Remote Collector supports when organizing your jobs.
+2. **Organize your discovery jobs:** There are different discovery job types (for example SNMP, Hypervisor, Windows, Linux, Cloud, Storage, and so on) and each of these will likely have multiple jobs based on location, Data Center, Region, and so on, or due to the large number of items to be discovered. Consider how you want to organize each discovery job type. For example, you may conclude it is best to have a separate Windows discovery job for each location or Data Center. Take into account the recommended maximum number of devices a Remote Collector supports when organizing your jobs.
 
 3. **Adopt a standard discovery job naming convention:** Name each discovery job so they are easily understandable, are consistent, and can be sorted in a way that will be useful.
 
@@ -45,7 +45,7 @@ Below is a list of basic discovery job best practices. While [this list]((/auto-
 
 3. For each discovery job, **be as specific as possible** in terms of defining your discovery targets (for example, your devices), excluding any targets that should not be discovered. Doing so will reduce the number of discovery failures.
 
-4. **Do not exceed the largest recommended network range of `/16`**, which includes `65`,`534` IP addresses. Adding more than the recommended range may either yield inconsistent discovery results or lengthen the time required for the discovery job to complete.
+4. **Do not exceed the largest recommended network range of `/16`**, which includes 65,534 IP addresses. Adding more than the recommended range may either yield inconsistent discovery results or lengthen the time required for the discovery job to complete.
 
 5. Break down larger subnets into smaller subnets, and leverage additional RCs to optimize discovery performance for larger environments.
 
@@ -201,7 +201,7 @@ To create and run a Hypervisor discovery job, perform the following steps:
 5. Select the **Hypervisor Platform** (for example, VMWare).
 6. Select the **URL prefix** (for example, HTTP or HTTPS).
 7. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
-8. Add the Discovery Target(s) Credential(s) (i.e. Username and Password).
+8. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
 9. Review the remaining options and choose the items that best fit your needs.
 10. Click the **Save** button.
 11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
@@ -233,7 +233,7 @@ To create and run a Windows discovery job, perform the following steps:
 4. Select the **Remote Collector**.
 5. Select the **Windows Platform**.
 6. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
-7. Add the Discovery Target(s) Credential(s) (i.e. Username and Password).
+7. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
 8. Review the remaining options and choose the items that best fit your needs.
 9. Click the **Save** button.
 10. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
@@ -273,7 +273,7 @@ To view a video on troubleshooting common Windows discovery job issues, click [h
 
 #### 2.4 Create Linux and Unix Discovery Jobs
 
-Linux and Unix discovery jobs provide an accurate inventory of the Linux and Unix devices on your target network and discover your *nix physical and virtual infrastructure.
+Linux and Unix discovery jobs provide an accurate inventory of the Linux and Unix devices on your target network and discover your \*nix physical and virtual infrastructure.
 
 **Port and Credential Requirements**
 
@@ -283,17 +283,17 @@ Linux and Unix discovery jobs provide an accurate inventory of the Linux and Uni
 
 Click [here](/auto-discovery/linux-unix-server-auto-discovery/) for more detail regarding Linux and Unix Autodiscovery. This should be your first place to look when troubleshooting Linux and Unix discovery job issues.
 
-**Steps to Create and Run a Linux/\*nix Discovery Job**
+**Steps to Create and Run a Linux or \*nix Discovery Job**
 
-To create and run a Linux/*nix discovery job, perform the following steps:
+To create and run a Linux or \*nix discovery job, perform the following steps:
 1. Choose **Discovery > HyperVisors / \*nix / Windows**.
 2. Click the **Create** button.
 3. Enter the **Job name**.
 4. Select the **Remote Collector**.
-5. Select the ***nix Platform**.
+5. Select the **\*nix Platform**.
 6. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
 7. Enter the **Port** (if default port 22 is not being used).
-8. Add the Discovery Target(s) Credential(s) (i.e. Username and Password).
+8. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
 9. Review the remaining options and choose the items that best fit your needs.
 10. Click the **Save** button.
 11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
