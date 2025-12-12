@@ -69,10 +69,6 @@ The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI Data. 
 Depending on the vendor, OS, and availability of information, EnrichAI Data may not populate all the date fields.
 :::
 
-## Viewing Enriched Data
-
-Enriched data is available throughout Device42. You can view enriched software information on the [Software Components](/infrastructure-management/software/software-components.mdx) page and software lifecycle dates on the [Software EOL/EOS](/infrastructure-management/software/software-eol-eos.mdx) page. Vendor and OS enriched data is also available via API and Device42 Object Query Language (DOQL).
-
 ## EnrichAI Data Collection
 
 When EnrichAI Data is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the EnrichAI Data service, where it is processed in background tasks to prevent negative system impact. When EnrichAI Data finds a match, it responds with enriched data. All enriched data is displayed on the EnrichAI Data page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
