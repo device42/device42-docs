@@ -84,8 +84,8 @@ const config = {
             from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
           },
           {
-            to: '/getstarted/discovery-hub/',
-            from: ['/getstarted/getting-started-discovery-hub/'],
+            to: '/getstarted/using-device42/discovery-hub/',
+            from: ['/getstarted/getting-started-discovery-hub/', '/getstarted/discovery-hub/'],
           },
           {
             to: '/getstarted/deploy-device42/deployment-best-practices/',
@@ -156,8 +156,52 @@ const config = {
             from: ['/getstarted/installation/windows-service-installation/'],
           },
           {
-            to: '/getstarted/tutorials/device42-tutorial/',
-            from: ['/getstarted/tutorials/tutorials-overview/'],
+            to: '/getstarted/using-device42/tutorials/device42-tutorial/',
+            from: ['/getstarted/tutorials/tutorials-overview/', '/getstarted/tutorials/device42-tutorial/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/',
+            from: ['/getstarted/tutorials/', '/getstarted/tutorials/index/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-loading-data-using-spreadsheets/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-loading-data-using-the-api/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-the-api/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-navigating-the-device42-user-interface/',
+            from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/'],
+          },
+          {
+            to: '/getstarted/using-device42/home-page-widgets-and-global-search/',
+            from: ['/getstarted/home-page-widgets-and-global-search/'],
+          },
+          {
+            to: '/getstarted/using-device42/basic-navigation-tips-for-adding-editing/',
+            from: ['/getstarted/basic-navigation-tips-for-adding-editing/'],
+          },
+          {
+            to: '/getstarted/using-device42/arrange-and-save-list-page-column-layout/',
+            from: ['/getstarted/arrange-and-save-list-page-column-layout/'],
+          },
+          {
+            to: '/getstarted/using-device42/advanced-search-feature/',
+            from: ['/getstarted/advanced-search-feature/'],
+          },
+          {
+            to: '/getstarted/using-device42/language-selection/',
+            from: ['/getstarted/language-selection/'],
+          },
+          {
+            to: '/getstarted/using-device42/importing-data-from-existing-spreadsheets/',
+            from: ['/getstarted/importing-data-from-existing-spreadsheets/'],
+          },
+          {
+            to: '/getstarted/using-device42/faqs/',
+            from: ['/getstarted/faqs/'],
           },
           {
             to: '/auto-discovery/blade-systems-auto-discovery/',
