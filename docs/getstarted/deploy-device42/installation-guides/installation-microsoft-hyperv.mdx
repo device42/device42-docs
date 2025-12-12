@@ -1,6 +1,6 @@
 ---
 title: "Microsoft HyperV - Installation"
-sidebar_position: 6
+sidebar_position: 2
 ---
 
 import ThemedImage from '@theme/ThemedImage'
@@ -31,7 +31,7 @@ Download the compressed [Device42 virtual appliance](https://www.device42.com/do
 
 ### Create a New Microsoft VM 
 
-Create a VM with a **minimum** of 2 vCPU, 8 GB RAM, and 1 network card, and configure the new VM to use the attached virtual disk file. See the [Sizing Recommendations](sizing-recommendations.mdx) for more details.
+Create a VM with a **minimum** of 2 vCPU, 8 GB RAM, and 1 network card, and configure the new VM to use the attached virtual disk file. See the [Sizing Recommendations](../sizing-recommendations.mdx) for more details.
 
 :::note
 Only Hyper-V Gen1 VMs are currently supported. In our experience, users have issues deploying Linux VMs as Generation 2 in Hyper-V. We recommend deploying Device42 only as a Gen1 VM.
@@ -102,6 +102,6 @@ You can apply updates and perform other menu-related work using SSH **port 404**
 
 ## Next Steps
 
-Install the Device42 [Remote Collector](remote-collector-rc-installation.mdx) and [Windows Discovery Service](windows-discovery-service-installation.mdx) before creating your first discovery job.
+Install the Device42 [Remote Collector](../remote-collector-rc-installation.mdx) and [Windows Discovery Service](../windows-discovery-service-installation.mdx) before creating your first discovery job.
 
 You can import data into Device42 using the [Device42 API](https://api.device42.com/) or the [**Import/Export (xls)**](/getstarted/using-device42/tutorials/tutorial-loading-data-using-spreadsheets.mdx) tool.

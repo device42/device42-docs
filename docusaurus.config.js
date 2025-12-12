@@ -92,12 +92,12 @@ const config = {
             from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices', '/getstarted/deployment-best-practices/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-microsoft-hyperv/',
-            from: ['/getstarted/installation/installation-microsoft-hyper/', '/getstarted/installation/installation-microsoft-hyperv/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-microsoft-hyperv/',
+            from: ['/getstarted/installation/installation-microsoft-hyper/', '/getstarted/installation/installation-microsoft-hyperv/', '/getstarted/deploy-device42/installation-microsoft-hyperv/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-xen-or-kvm-using-virt-manager/',
-            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/', '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-xen-or-kvm-using-virt-manager/',
+            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/', '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/', '/getstarted/deploy-device42/installation-xen-or-kvm-using-virt-manager/'],
           },
           {
             to: '/getstarted/deploy-device42/',
@@ -108,24 +108,24 @@ const config = {
             from: ['/getstarted/installation/discovery-port-configurations/'],
           },
           {
-            to: '/getstarted/deploy-device42/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
-            from: ['/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/'],
+            to: '/getstarted/deploy-device42/installation-guides/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
+            from: ['/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/', '/getstarted/deploy-device42/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-amazon-web-services/',
-            from: ['/getstarted/installation/installation-amazon-web-services/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-amazon-web-services/',
+            from: ['/getstarted/installation/installation-amazon-web-services/', '/getstarted/deploy-device42/installation-amazon-web-services/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-citrix-xen-server/',
-            from: ['/getstarted/installation/installation-citrix-xen-server/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-citrix-xen-server/',
+            from: ['/getstarted/installation/installation-citrix-xen-server/', '/getstarted/deploy-device42/installation-citrix-xen-server/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-microsoft-azure/',
-            from: ['/getstarted/installation/installation-microsoft-azure/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-microsoft-azure/',
+            from: ['/getstarted/installation/installation-microsoft-azure/', '/getstarted/deploy-device42/installation-microsoft-azure/'],
           },
           {
-            to: '/getstarted/deploy-device42/installation-vcenter-server/',
-            from: ['/getstarted/installation/installation-vcenter-server/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-vcenter-server/',
+            from: ['/getstarted/installation/installation-vcenter-server/', '/getstarted/deploy-device42/installation-vcenter-server/'],
           },
           {
             to: '/getstarted/deploy-device42/installing-the-d42-netflow-collector-as-a-service/',
