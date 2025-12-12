@@ -88,8 +88,8 @@ const config = {
             from: ['/getstarted/getting-started-discovery-hub/'],
           },
           {
-            to: '/getstarted/deployment-best-practices/',
-            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
+            to: '/getstarted/deploy-device42/deployment-best-practices/',
+            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices', '/getstarted/deployment-best-practices/'],
           },
           {
             to: '/getstarted/deploy-device42/installation-microsoft-hyperv/',
