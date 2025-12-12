@@ -6,11 +6,13 @@ sidebar_position: 99
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-EnrichAI Data is a Device42 service for enhancing discovered data. Device42 supports the enrichment of Operating System (OS) and vendor data for discovered devices.
+EnrichAI Data is a Device42 service for enhancing discovered data. Device42 supports the enrichment of Operating System (OS), vendor, and software data for discovered devices.
+
+Device42 uses [Common Platform Enumeration (CPE)](https://en.wikipedia.org/wiki/Common_Platform_Enumeration) standards for consistency.
 
 ## Data Fields
 
-The EnrichAI Data service populates the following vendor attributes, operating system attributes, and support date fields according to the available data. The data is mined from validated, authoritative sources to ensure accuracy.
+The EnrichAI Data service populates the following vendor attributes, operating system attributes, software attributes, and support date fields according to the available data. The data is mined from validated, authoritative sources to ensure accuracy.
 
 ### Vendor Attributes
 
@@ -19,6 +21,8 @@ The EnrichAI Data service populates the following vendor attributes, operating s
 | Vendor Name             | The standardized vendor company title     |
 | Parent                  | The name of the vendor's corporate parent company (if one exists)  |
 | Vendor Name Aliases     | A list of any other names the vendor is known as (if they exist)               |
+| Vendor Website          | The official vendor website URL                         |
+| Legal Name              | The official legal name of the vendor entity            |
 
 ### Operating System Attributes
 
@@ -32,6 +36,21 @@ The EnrichAI Data service populates the following vendor attributes, operating s
 | Key Support Dates  | See the details for the available date fields in the table below  |
 
 The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI Data. The 32- and 64-bit architectures have been coalesced into a single entry, since the architecture does not affect OS dates, licensing, patches, or risk profiles.
+
+### Software Attributes 
+
+| Field               | Description                                                   |
+|---------------------|---------------------------------------------------------------|
+| Product Name            | The standardized product name                  |
+| Part/type         | CPE type: `a` (Application), `h` (Hardware), `o` (Operating System)         |
+| Vendor              | The standardized vendor name                         |
+| Version             | The full version number including major, minor, patch, and build values (using [Semantic Versioning](https://semver.org/))                                 |
+| Release             | The software release identifier (when applicable)            |
+| Edition             | The software edition (such as Professional or Enterprise)    |
+| Language            | The language variant (such as en-us for US English)          |
+| Update              | Update identifier (such as `SP1` or `beta`)      |
+| Target Software     | The target software platform (if applicable)               |
+| Target Hardware     | The target hardware      |
 
 ### Key Support Dates
 
