@@ -84,24 +84,124 @@ const config = {
             from: ['/getstarted/faqs/main-appliance-remote-collector-faq/'],
           },
           {
-            to: '/getstarted/discovery-hub/',
-            from: ['/getstarted/getting-started-discovery-hub/'],
+            to: '/getstarted/using-device42/discovery-hub/',
+            from: ['/getstarted/getting-started-discovery-hub/', '/getstarted/discovery-hub/'],
           },
           {
-            to: '/getstarted/deployment-best-practices/',
-            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices'],
+            to: '/getstarted/deploy-device42/deployment-best-practices/',
+            from: ['/public-deployment-best-practices/', '/getstarted/public-deployment-best-practices', '/getstarted/deployment-best-practices/'],
           },
           {
-            to: '/getstarted/installation/installation-microsoft-hyperv/',
-            from: ['/getstarted/installation/installation-microsoft-hyper/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-microsoft-hyperv/',
+            from: ['/getstarted/installation/installation-microsoft-hyper/', '/getstarted/installation/installation-microsoft-hyperv/', '/getstarted/deploy-device42/installation-microsoft-hyperv/'],
           },
           {
-            to: '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/',
-            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/'],
+            to: '/getstarted/deploy-device42/installation-guides/installation-xen-or-kvm-using-virt-manager/',
+            from: ['/getstarted/installation/installation-xen-kvm-virt-manager/', '/getstarted/installation/installation-xen-or-kvm-using-virt-manager/', '/getstarted/deploy-device42/installation-xen-or-kvm-using-virt-manager/'],
           },
           {
-            to: '/getstarted/tutorials/device42-tutorial/',
-            from: ['/getstarted/tutorials/tutorials-overview/'],
+            to: '/getstarted/deploy-device42/',
+            from: ['/getstarted/installation/', '/getstarted/installation/index/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/discovery-port-configurations/',
+            from: ['/getstarted/installation/discovery-port-configurations/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-guides/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/',
+            from: ['/getstarted/installation/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/', '/getstarted/deploy-device42/how-do-i-install-device42-xenkvm-appliance-if-import-existing-disk-image-option-is-missing/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-guides/installation-amazon-web-services/',
+            from: ['/getstarted/installation/installation-amazon-web-services/', '/getstarted/deploy-device42/installation-amazon-web-services/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-guides/installation-citrix-xen-server/',
+            from: ['/getstarted/installation/installation-citrix-xen-server/', '/getstarted/deploy-device42/installation-citrix-xen-server/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-guides/installation-microsoft-azure/',
+            from: ['/getstarted/installation/installation-microsoft-azure/', '/getstarted/deploy-device42/installation-microsoft-azure/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installation-guides/installation-vcenter-server/',
+            from: ['/getstarted/installation/installation-vcenter-server/', '/getstarted/deploy-device42/installation-vcenter-server/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/installing-the-d42-netflow-collector-as-a-service/',
+            from: ['/getstarted/installation/installing-the-d42-netflow-collector-as-a-service/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/remote-collector-rc-installation/',
+            from: ['/getstarted/installation/remote-collector-rc-installation/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/resource-and-deployment-architecture-overview/',
+            from: ['/getstarted/installation/resource-and-deployment-architecture-overview/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/security-posture-and-high-level-permissions/',
+            from: ['/getstarted/installation/security-posture-and-high-level-permissions/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/sizing-recommendations/',
+            from: ['/getstarted/installation/sizing-recommendations/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/windows-discovery-service-installation/',
+            from: ['/getstarted/installation/windows-discovery-service-installation/'],
+          },
+          {
+            to: '/getstarted/deploy-device42/windows-service-installation/',
+            from: ['/getstarted/installation/windows-service-installation/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/device42-tutorial/',
+            from: ['/getstarted/tutorials/tutorials-overview/', '/getstarted/tutorials/device42-tutorial/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/',
+            from: ['/getstarted/tutorials/', '/getstarted/tutorials/index/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-loading-data-using-spreadsheets/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-spreadsheets/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-loading-data-using-the-api/',
+            from: ['/getstarted/tutorials/tutorial-loading-data-using-the-api/'],
+          },
+          {
+            to: '/getstarted/using-device42/tutorials/tutorial-navigating-the-device42-user-interface/',
+            from: ['/getstarted/tutorials/tutorial-navigating-the-device42-user-interface/'],
+          },
+          {
+            to: '/getstarted/using-device42/home-page-widgets-and-global-search/',
+            from: ['/getstarted/home-page-widgets-and-global-search/'],
+          },
+          {
+            to: '/getstarted/using-device42/basic-navigation-tips-for-adding-editing/',
+            from: ['/getstarted/basic-navigation-tips-for-adding-editing/'],
+          },
+          {
+            to: '/getstarted/using-device42/arrange-and-save-list-page-column-layout/',
+            from: ['/getstarted/arrange-and-save-list-page-column-layout/'],
+          },
+          {
+            to: '/getstarted/using-device42/advanced-search-feature/',
+            from: ['/getstarted/advanced-search-feature/'],
+          },
+          {
+            to: '/getstarted/using-device42/language-selection/',
+            from: ['/getstarted/language-selection/'],
+          },
+          {
+            to: '/getstarted/using-device42/importing-data-from-existing-spreadsheets/',
+            from: ['/getstarted/importing-data-from-existing-spreadsheets/'],
+          },
+          {
+            to: '/getstarted/using-device42/faqs/',
+            from: ['/getstarted/faqs/'],
           },
           {
             to: '/auto-discovery/blade-systems-auto-discovery/',
@@ -839,7 +939,7 @@ const config = {
           },
           {
             to: '/infrastructure-management/software/software-license-management/',
-            from: ['/apps/software/software-license-management/'],
+            from: ['/apps/software/software-license-management/', '/solution-guides/software-license-management/'],
           },
           {
             to: '/infrastructure-management/software/software-licensing-alerts-and-notifications/',

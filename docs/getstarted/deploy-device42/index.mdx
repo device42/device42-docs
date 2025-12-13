@@ -1,0 +1,246 @@
+---
+title: "Deploy Device42"
+---
+
+The Deploy phase contains a series of tasks, and each of these tasks requires steps to complete.
+
+:::tip
+This is the first phase (Deploy) in the Device42 implementation process. See [How is Device42 Implemented?](../how-is-device42-implemented.mdx) for an overview of all four phases.
+:::
+
+## About the Deploy Tasks
+
+For each task you may find one or more of the following:
+-  A simplified list of steps to enable you to **understand** the steps, but may in some
+cases lack all the detail to complete the tasks.
+- A link to a web page that includes all the detail you will need to **perform** the task, including options you may or may not choose to enable.
+- A link to a video to **see** the task performed, along with related commentary.
+
+## Device42 Components
+
+In the Deploy phase you will install and configure:
+- The **Device42 Main Appliance (MA)**
+- **Remote Collectors (RCs)** 
+- **Windows Discovery Service (WDS) instances**
+- (optionally) **Device42 Discovery Agents**
+
+Prior to performing these tasks you must understand each of these components, their prerequisites,
+and how they interoperate.
+
+### Component Descriptions
+
+**Main Appliance:** The Device42 Main Appliance (MA) is a self-contained and self-maintaining
+virtual appliance that serves as the core component of the Device42 system. It is a
+pre-configured virtual appliance (built on Linux) that your organization hosts, enabling full
+protection under your data center security architecture and policies.
+
+**Remote Collector:** The Remote Collector (RC), is a lighter pre-configured virtual appliance (built
+on Linux), used to perform agentless discovery across network segments. It also provides
+scalability by offloading discovery workloads from the MA. The RC will connect to your
+non-Windows targets for discovery as well as hand Windows discovery jobs off to the WDS, if
+applicable. We require that you install at least one RC for any Device42 deployment.
+
+**Windows Discovery Service:** The Windows Discovery Service (WDS) is a .NET service which
+runs on a Windows system and makes WMI queries on behalf of the Linux-based RC and MA. If
+you’ll be running Windows discoveries, you must deploy at least one WDS instance and connect it to
+an RC.
+
+**Discovery Agent:** The Device42 Discovery Agent can be optionally deployed into your
+environment. It is typically deployed either on devices like laptops that are not consistently
+connected to your corporate network or in segmented network environments where agentless
+discovery is not permitted or possible. The Device42 Agent can run on Windows, macOS, Linux,
+and other Unix-based operating systems.
+
+## Review Information
+
+Before you continue:
+- Understand the [Device42 architecture](resource-and-deployment-architecture-overview.mdx).
+- See the [discovery port configurations](discovery-port-configurations.mdx) for network requirements.
+- Visit the [security posture and high-level permissions](security-posture-and-high-level-permissions.mdx) page.
+- Review the [sizing recommendations](sizing-recommendations.mdx) to ensure your environment is properly provisioned.
+
+## Task 1: Deploy the Main Appliance
+
+### 1.1 Size the Main Appliance Server
+
+Device42 Main Appliance server sizing is based on the quantity of devices to be discovered. Refer to the [Component Sizing Recommendations](sizing-recommendations.mdx) to properly size your Device42 Main Appliance server.
+
+### 1.2 Install and Configure the Main Appliance
+
+**Main Appliance Prerequisites**
+
+Device42 operates with only five ports open to the virtual appliance:
+- **Port 80**: Redirects to port 443
+- **Port 443**: Web (HTTPS)
+- **Port 4242**: Redirects to port 4343
+- **Port 4343**: Appliance manager (HTTPS)
+- **Port 404**: SSH for limited console menu operations
+
+Make sure the appropriate network personnel are made aware of these requirements.
+
+**Main Appliance Installation and Configuration**
+
+The MA can be installed on virtual environments like VCenter, Microsoft HyperV, and Citrix Xen server, as well as cloud platforms like Amazon Web Services and Microsoft Azure. 
+
+Select the platform-specific installation guide that matches your environment:
+
+- [VMware vCenter Server](installation-guides/installation-vcenter-server.mdx)
+- [Microsoft Hyper-V](installation-guides/installation-microsoft-hyperv.mdx)
+- [Citrix Xen Server](installation-guides/installation-citrix-xen-server.mdx)
+- [Xen or KVM](installation-guides/installation-xen-or-kvm-using-virt-manager.mdx)
+- [Amazon Web Services (AWS)](installation-guides/installation-amazon-web-services.mdx)
+- [Microsoft Azure](installation-guides/installation-microsoft-azure.mdx)
+
+### 1.3 Apply Your License
+
+After installing the MA you will be prompted to apply for your new license file. Perform these steps:
+1. Click the **Choose File** button.
+2. Select the file and click **Open**.
+3. Click the **Upload & Apply** button.
+
+### 1.4 Register the MA
+
+You have 30 days after MA installation to register. When prompted, click the **Register Now** button.
+
+### 1.5 Create a Passphrase to Encrypt Device42 Passwords
+
+You must create a passphrase that will encrypt passwords within Device42. To create a passphrase, perform these steps:
+1. Choose **Tools > Password Security**.
+2. Enter a passphrase and click the checkbox stating you will save the passphrase in a secure location.
+3. Click the **Save** button.
+
+:::tip
+To view a video on installing and configuring the MA, click [here](https://device42.wistia.com/medias/sleift9zbj).
+:::
+
+## Task 2: Deploy the Remote Collectors
+
+### 2.1 Size the Remote Collectors
+
+Device42 Remote Collector server sizing is based on the quantity of workloads to be discovered. Refer to the [Sizing Recommendations table](sizing-recommendations.mdx) to properly size your Device42 Remote Collector servers.
+
+### 2.2 Install and Configure the Remote Collectors
+
+The Remote Collectors can be installed on the Hypervisor of your choice. Click [here](https://www.device42.com/autodiscovery/) to link to the page where you can download the RC installer.
+
+Note that while the above linked page includes an **Initial (First-Boot) Network Configuration** section for configuring the Remote Collector, we recommend you instead reference the [Remote Collector Configuration](remote-collector-rc-installation.mdx) guide.
+
+:::tip
+To view a video on configuring the RCs, click [here](https://device42.wistia.com/medias/3rtti4gtgx).
+:::
+
+## Task 3: Deploy the Windows Discovery Service
+
+### 3.1 Size the Windows Discovery Service Servers
+
+Windows Discovery Services server sizing is based on the quantity of workloads to be discovered. Refer to [Sizing Recommendations table](sizing-recommendations.mdx) to properly size your Device42 Remote Collector servers.
+
+### 3.2 Install the Windows Discovery Service
+
+Click [here](https://www.device42.com/autodiscovery/) to link to the page where you can both download the WDS installer and access WDS installation documentation.
+
+:::tip
+To view a video on installing the WDS, click [here](https://device42.wistia.com/reviews/cvt3qzahea).
+:::
+
+## Task 4: Deploy the Discovery Agent
+
+We recommend you use agentless discovery whenever possible, as it makes deployment easier, minimizes impact on target systems, and reduces operational overhead for most environments. However, as mentioned, you may choose to install the Discovery Agent on devices like laptops that are not consistently connected to your corporate network or in segmented network environments where agentless discovery is not permitted or possible.
+
+### 4.1 Discovery Agent Supported Platforms
+
+Device42 autodiscovery agents are available for deployment on the following platforms:
+- Windows 64-bit (Recommended)
+- Windows 32-bit
+- Mac—Intel
+- Mac—ARM
+- Linux 32-bit
+- Linux 64-bit
+- FreeBSD 32-bit
+- FreeBSD 64-bit
+- OpenBSD 32-bit
+- OpenBSD 64-bit
+- Solaris Sparc 64-bit
+
+### 4.2 Install the Discovery Agent
+
+The agent can be downloaded from the Main Appliance and can either be run from the command line or can be scheduled using a scheduling program. Click [here](/auto-discovery/agent-based-discovery.mdx) to access the Device42 Discovery Agent main page that provides these instructions as well as additional agent information.
+
+You can also install versions of the Windows and Mac discovery agent as a service. Click [here](/getstarted/deploy-device42/windows-service-installation.mdx) for more information about the Windows Discovery Agent Service Wrapper.
+
+The Windows or Linux Discovery Agent can also be leveraged in an offline mode, where it creates a log of discovered data, which is uploaded to a machine for processing, and is finally uploaded to your Device42 Main Appliance. Click [here](/auto-discovery/agent-based-offline-discovery.mdx) for more information about this option.
+
+## Optional Deploy Tasks
+
+Below is a list of tasks that can be performed either now or in the future.
+
+### Task 5: Back up Your Deployed Environment
+
+You should back up your deployed environment so you can quickly restore a configuration in case of emergency.
+
+To back up your environment, perform the following steps:
+1. Hover over **Tools**, then choose **Appliance Manager** from the Settings section. This will take you to the Device42 Appliance Manager login screen.
+2. Enter the Username and Password to log in (default Username is d42admin and default Password is default). We recommend changing these credentials once logged in.
+3. Follow the steps listed [here](/administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx) to configure your backup.
+
+### Task 6: Add Users
+
+Adding users will help you better track user changes and define user permission levels.
+
+To add new administrators, perform the following steps:
+1. Hover over **Tools**, then choose **Administrators** from the Admins & Permissions section.
+2. Click either **Create Local Admin** or **Create Active Directory Admin** (if AD is connected to the Main Appliance).
+3. Fill out the Add Admin User page and click the **Save** button.
+
+Click [here](/administration/add-an-active-directory-user-as-a-device42-administrator.mdx) for more information to add an Active Directory User as a Device42 Administrator. For information on setting up an Active Directory/LDAP User Sync click [here](/auto-discovery/active-directory-sync.mdx), and for information on configuring Device42 Role-Based Access Control click [here](/administration/role-based-access-control/index.mdx). 
+
+### Task 7: Configure Audit Logs
+
+Every change made to Device42 Configuration Items (CIs), via the user interface, autodiscovery jobs, RESTful API calls, or imports, is recorded as history, and this history is maintained in Audit Logs.
+
+To change the log settings, perform the following steps:
+1. Hover over **Tools**, then choose **Log Settings** from the Settings section.
+2. Click the **Edit** button.
+3. Edit the settings.
+4. Click the **Save** button.
+
+Note the longer the duration, the more disk space will be used. For long term storage, you may leverage webhooks (click [here](/integration/external-integrations/webhooks-generic-integration.mdx) for more information about webhooks).
+
+Click [here](/reports/reports/object-history-aka-audit-log.mdx) for more information about Audit Logs.
+
+### Task 8: Set up a Mail Server
+
+Setting up a mail server enables automated email notifications and alerts for events like discovery scans, system updates, backup completions, reports, and custom workflow actions.
+
+Click [here](/reports/reports/save-and-schedule-reports.mdx#mail-server-settings-for-scheduling-reports) for instructions on adding mail server settings.
+
+## Deploy Phase Checklist
+
+The Deploy phase is considered complete when:
+- Device42 Infrastructure Installation is complete: The Device42 MA and RCs are properly
+deployed and configured; WDS/WMI is selected as the preferred path forward and WDS is
+installed on RCs (if Windows is in scope for the deployment); and the Discovery Agent is
+installed if required.
+- Network Configuration is complete: Network settings and firewall rules are properly
+configured to allow Device42 to communicate with all relevant infrastructure components in
+scope for the deployment.
+- Access and Permissions are granted: Appropriate access permissions are granted to
+Device42, ensuring it can access all necessary systems and devices across the various
+in-scope jobs the customer will be running.
+- Initial Connectivity Checks have passed: Initial connectivity tests confirm that Device42 can
+communicate with key infrastructure components without errors.
+- Device42 environment is backed up and scheduled for future backups. Main Appliance Meta
+Data, SSH key pair, System Configuration Files are backed up; Remote Collector Meta Data,
+TLS Key Pair, Configuration files, and Data Files are backed up. Future backups are scheduled
+to occur.
+- Additional Admin users have been defined.
+- Audit Log configuration is configured as desired.
+- Mail Server is configured.
+
+## Deploy Phase Support
+
+At the conclusion of Phase 1 your Device42 Main Appliance, Remote Collectors, and Windows Discovery Service should be deployed and configured. Your network should be configured with the proper access granted, and initial connectivity checks to your infrastructure components should be successful.
+
+You may also access the Device42 Support page [here](https://support.device42.com/hc/en-us), where you can submit a request, access our Knowledge Base, or access other general information.
+
+

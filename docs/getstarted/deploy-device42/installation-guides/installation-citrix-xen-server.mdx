@@ -1,0 +1,120 @@
+---
+title: "Citrix XenServer - Installation"
+sidebar_position: 3
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+This guide walks you through installing the Device42 Main Appliance on Citrix XenServer.
+
+## Outline of Installation Steps
+
+1. Download and unzip the compressed Device42 virtual appliance.
+2. From XenCenter, import the unzipped file.
+3. Follow the Citrix prompts and choose your server, storage location, and network card.
+4. Power on the newly deployed Device42 virtual appliance.
+5. Log in to the Device42 console using the default credentials and update the credentials.
+6. Configure the static IP address from the console.
+7. Set the time zone and configure NTP.
+8. Log in to the Device42 web interface from a browser: `https://FQDN (Fully Qualified Domain Name) or IP address`. Update the login credentials here as well.
+
+## Illustrated Steps of Installing Device42 on Citrix XenServer
+
+Set up your Device42 instance by following these steps.
+
+### Download and Unzip Device42
+
+Download the compressed [Device42 virtual appliance](https://www.device42.com/download/) and connect to your XenCenter.
+
+Use 7-Zip to decompress the downloaded Device42 virtual appliance image.
+
+### Import Device42 into XenCenter
+
+From XenCenter, right-click the server's name and select **Import**.
+
+    ![Here are the steps in Images:](/assets/images/wpid5942-wpid-media_1331243551635.png)
+
+Choose the source file you downloaded.
+
+    ![Locate the file you you downloaded](/assets/images/wpid5943-wpid-media_1331243622364.png)
+
+### Configure Server, Storage, and Network
+
+Choose your server (or accept the default pool).
+
+    ![Choose a pool, or accept the default (next)](/assets/images/wpid5944-wpid-media_1331243664174.png)
+
+Choose a storage location for the VM.
+
+    ![Choose a storage location for the VM](/assets/images/wpid5945-wpid-media_1331243689911.png)
+
+Choose the network card and click **Finish**.
+
+    ![Choose the network to connect the VM to](/assets/images/wpid5946-wpid-media_1331243717545.png)
+    ![Click finish](/assets/images/wpid5947-wpid-media_1331243745178.png)
+
+### Start the Device42 VM
+
+Power on your newly deployed Device42 virtual appliance.
+
+### Log In to the Device42 Console
+
+From the XenCenter interface, open the VM console for your Device42 appliance. The Device42 console login screen will appear automatically.
+
+Log in using the default credentials and change them after logging in: 
+
+   - **Username:** `device42`
+   - **Password:** `adm!nd42`
+
+_(Deprecated appliance logins: 32-bit: ubuntu/adm!nd42 -- Power: ubuntu/default)._
+
+### Configure the Static IP Address
+
+From the console, configure the IP address. Use a **static IP** for all production Device42 VMs to avoid connectivity issues.
+
+    ![Device42 VM console menu v19.05](/assets/images/vm-main-menu.png)
+
+    Enter your settings on the Device42 IP address configuration screen:
+
+    ![IP config options](/assets/images/vm-ip-settings.png)
+
+### Create a DNS Entry
+
+This is an optional step: Create a DNS entry for the new IP address of the virtual appliance.
+
+### Set the Time Zone and Configure NTP
+
+After setting a static IP address, [set the time zone and configure NTP](/administration/setting-time-zone-and-ntp.mdx) to ensure autodiscovery scheduling and log history work correctly.
+
+### Log In to the Web Interface
+
+Point your browser to `https://FQDN (Fully Qualified Domain Name) or IP address`.
+
+Log in to the **web interface** using the default credentials:
+
+    - **Username:** `admin`
+    - **Password:** `adm!nd42`
+
+    Please change the username and password as soon as you log in.
+
+    <ThemedImage
+    alt="Device42 Web Interface Login Screen v19.05"
+    sources={{
+        light: useBaseUrl('/assets/images/login-19.05-light.png'),
+        dark: useBaseUrl('/assets/images/login-19.05-dark.png'),
+    }}
+    style={{ width: '70%' }}
+    />
+
+You should be up and running, and are now ready to go! If you have any questions that you can't find answers to in the docs, email [support@device42.com](mailto:support@device42.com).
+
+## Using SSH
+
+You can apply updates and do other menu-related work using SSH port 404. Please note that root login has been disabled via SSH. Attempting to access the root will cause the VM to disable itself permanently and is not supported.
+
+## Next Steps
+
+Install the Device42 [Remote Collector](../remote-collector-rc-installation.mdx) and [Windows Discovery Service](../windows-discovery-service-installation.mdx) before creating your first discovery job.
+
+You can import data into Device42 using the [Device42 API](https://api.device42.com/) or the [**Import/Export (xls)**](/getstarted/using-device42/tutorials/tutorial-loading-data-using-spreadsheets.mdx) tool.

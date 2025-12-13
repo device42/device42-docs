@@ -1,32 +1,100 @@
 ---
-title: "Getting Started with Autodiscovery"
-sidebar_position: 2
+title: "Discover"
+sidebar_position: 4
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The following guide briefly walks you through creating various network objects with Device42 Autodiscovery.
+In the Discover phase you will configure, execute, and schedule jobs that discover your IT landscape and collect and store the associated data. These discovery jobs systematically scan and inventory your IT infrastructure, using Device42's automatic discovery capabilities to populate the database. This includes everything from network devices to software, applications, and storage.
+
+:::tip
+This is the second phase (Discover) in the Device42 implementation process. See [How is Device42 Implemented?](/getstarted/how-is-device42-implemented.mdx) for an overview of all four phases.
+:::
+
+This phase is broken down into four tasks:
+- **Task 1:** Prepare for Discovery Jobs
+- **Task 2:** Create and Run Discovery Jobs
+- **Task 3:** Verify Discovery Jobs
+- **Task 4:** Schedule Discovery Jobs
+
+Note that the Verify and Schedule tasks can be performed immediately following Task 2 (Create and Run Discovery Jobs for each discovery job) instead of validating and scheduling after running all the discovery jobs.
 
 ## Getting Started with Device42 Videos
 
 If you're new to Device42, begin with our [**Getting Started videos**](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR). In under five minutes, you'll learn how to set up your Remote Collector (RC), connect a Windows Discovery Service (WDS) instance to it, and run your first discovery job. [Watch them now](https://www.youtube.com/watch?v=ClkvR9zLQUU&t=0s&list=PLJ9je_qSNumJ-rMzIXUufY-XsbrwWfeCR&index=2) and you'll be an expert in no time!
 
-Ready to learn more? If you prefer videos, visit the [Device42 **How To** playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or the [How-To Videos](how-to-videos/index.mdx) in the documentation. 
+Ready to learn more? If you prefer videos, visit the [Device42 **How To** playlist on YouTube](https://www.youtube.com/playlist?list=PLJ9je_qSNumJ4HuNVS75wzRgBRrtCh6_q) or the [How-To Videos](/how-to-videos/index.mdx) in the documentation.
 
-If you can't find the answer you're looking for, please email [support@device42](mailto:support@device42) and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video.
+If you can't find the answer you're looking for, please email [support@device42.com](mailto:support@device42.com) and let us know. There's a good chance other people are wondering the same thing, and we'll be happy to create a new video.
 
-## Autodiscovery Account Notice
+## Discovery Job Best Practices
 
-:::caution
-Please **do not** set up an autodiscovery scan using critical production account credentials. Instead, create a separate, dedicated account to use only for discovery.
-:::
+Below is a list of basic discovery job best practices. While [this list](/auto-discovery/autodisc-best-practices.mdx) is long, discovery is the foundation of Device42, and it is therefore important that you understand and implement these best practices. We recommend you refer back to this list often.
 
-Depending on the permissions granted and your configured password policies, account lockout could result in an otherwise completely avoidable outage. You, the customer, are responsible for any such behavior that might result.
+### Discovery Job Best Practices: Discovery Job Planning
 
-## Creating Subnets
+1. **Limit your discovery focus:** There are a variety of discovery jobs and it is tempting to immediately run as many as possible. Focus on the jobs that will deliver the maximum value to your organization; these typically include jobs like SNMP, Virtualization, Windows, Linux and Unix, Cloud, Storage, and Certificate. You can run additional discovery jobs once the core jobs have been created and scheduled.
 
-Go to **Resources > Networks > All Subnets** and click **Create** in the top-right corner.
+2. **Organize your discovery jobs:** There are different discovery job types (for example SNMP, Hypervisor, Windows, Linux, Cloud, Storage, and so on) and each of these will likely have multiple jobs based on location, Data Center, Region, and so on, or due to the large number of items to be discovered. Consider how you want to organize each discovery job type. For example, you may conclude it is best to have a separate Windows discovery job for each location or Data Center. Take into account the recommended maximum number of devices a Remote Collector supports when organizing your jobs.
+
+3. **Adopt a standard discovery job naming convention:** Name each discovery job so they are easily understandable, are consistent, and can be sorted in a way that will be useful.
+
+
+### Discovery Job Best Practices: Discovery Job Configuration
+
+1. **Do not set up an autodiscovery scan using critical production account credentials**; create a separate, dedicated account used only for discovery. Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+
+2. **Always leverage a Remote Collector** when performing discovery jobs. Note this is required when scanning networks larger than `/24`, using Nmap and leveraging any of our modular offerings such as: Application Dependency Mapping (ADM), Resource Utilization (RU), Storage Discovery, and Power and Environmental Monitoring.
+
+3. For each discovery job, **be as specific as possible** in terms of defining your discovery targets (for example, your devices), excluding any targets that should not be discovered. Doing so will reduce the number of discovery failures.
+
+4. **Do not exceed the largest recommended network range of `/16`**, which includes 65,534 IP addresses. Adding more than the recommended range may either yield inconsistent discovery results or lengthen the time required for the discovery job to complete.
+
+5. Break down larger subnets into smaller subnets, and leverage additional RCs to optimize discovery performance for larger environments.
+
+### Discovery Job Best Practices: Discovery Job Scheduling
+
+1. **Schedule your discovery jobs**. Discovery jobs that are created, run once, and never scheduled to run again result in stale information and an inaccurate inventory.
+
+2. **Confirm job health before scheduling**. Make sure your discovery jobs return the expected data before you schedule them to run.
+
+3. **Schedule discovery jobs to run with the level of frequency required** to keep your data current. Different jobs will require different frequencies based on their rate of data change.
+
+4. **Confirm that scheduled discovery jobs are complete before they are scheduled to run next**. For example, a discovery job scheduled to run every four hours completes in less than four hours.
+
+5. **Avoid running jobs during high network traffic hours**; this can reduce impact to network performance.
+
+6. When running multiple jobs during a day, **schedule them to run evenly throughout the day**. If you cannot run jobs during primary business or production hours, spread them across non-peak, non-business hours as evenly as possible.
+
+7. Regularly view the **Scheduled Job Distribution Status** report to ensure your jobs are not overloaded (**Insights+ > System Administration > Scheduled Job Distribution Status**).
+
+## Task 1: Prepare for Discovery Jobs
+
+### 1.1 Collect and Store Discovery Credentials
+
+Credentials ([Secrets](/administration/passwords/password-security-and-permissions.mdx)) are frequently required when performing agentless Discovery; you specify them when creating discovery jobs. It is important to store the correct credentials in Device42 so you can reference them for jobs that require them. 
+
+Incorrect credentials is a common reason why discovery jobs do not successfully complete. Make sure you have the correct credentials and that you enter them correctly.
+
+Here are some examples of credentials required for common discovery jobs:
+- **SNMP Discovery:** Requires SNMP Community String (SNMP GET read account)
+- **Linux Discovery:** Requires SSH Login
+- **Windows Discovery:** Requires Windows Services Account (WMI access to devices)
+
+Secrets are centrally stored in **Resources > Secrets > All Secrets**; note they are only visible to the user who created them but can be shared.
+
+### 1.2 Create Subnets
+
+Adding subnets helps you define the network scope as you discover your network(s) and also reduces the number of `undefined 0.0.0.0` network types.
+
+To add your Subnets, perform the following steps:
+1. Go to **Resources > Networks > All Subnets** and click **Create** in the top-right corner.
+2. Enter an IPv4 or IPv6 address into the **Network** field.
+3. Enter the **Mask Bits** (omit the `/`).
+4. Enter the **Service Level**.
+5. Review the remaining options and choose the items that best fit your needs.
+6. Click the **Save** button.
 
 <ThemedImage
 alt="View or edit existing subnets"
@@ -48,25 +116,56 @@ sources={{
 
 If subnets have been predefined, all discovered IP addresses will be placed in their respective subnets. Otherwise, the IPs will end up in an **undefined** subnet.
 
-## Setting Up Autodiscovery
+Click [here](/infrastructure-management/ipam/subnets.mdx) for more information about subnets, including detailed instructions for adding or editing a subnet.
 
-### Setting Up Windows Discovery Service (WDS)
+### 1.3 Configure Ports to Discovery Targets
 
-Now is a good time to set up a [Remote Collector](auto-discovery/remote-collector-rc.mdx), as RCs are dedicated to discovery and can handle larger network ranges than your Main Appliance (MA). 
+It is critical that the ports used to access the targets are open in advance of running discovery jobs. Click [here](/getstarted/deploy-device42/discovery-port-configurations.mdx) for a list of all ports that may be used to access targets for discovery, along with their directionality.
 
-If you’ll be discovering any Microsoft Windows OS-based servers or guests, go ahead and set up an instance of WDS. Note that your WDS instance can be connected to either your MA **or** to an RC. If you have an RC set up, we recommend connecting the instance to the RC instead of your MA.
+## Task 2: Create and Run Discovery Jobs
 
-### Creating Your First Discovery Job
+### Discovery Job Order
 
-If you're discovering any Microsoft- or Windows-based products, first install the [WDS](installation/windows-discovery-service-installation.mdx).
+Device42 strongly recommends you run your first discovery jobs in the order listed below; you will achieve the best results and it will minimize future reconciliation work. You can skip any jobs that are not applicable to your organization.
 
-Next, discover your network. Navigate to **Discovery > SNMP** and click **Create** to create a [SNMP/Network discovery job](auto-discovery/network-auto-discovery.mdx). This will build out a base for the rest of your network.
+| Order | Discovery | Description |
+|-------|-----------|-------------|
+| 1 | Network (SNMP) | Uses Simple Network Management Protocol (SNMP) to build your L2 Network landscape by discovering and gathering information from network devices such as switches, routers, and printers, collecting hardware and connectivity details. Use [this document](/auto-discovery/network-auto-discovery.mdx) to help get you started. |
+| 2 | Virtual Machine | V-Server autodiscovery collects data from hypervisors such as VMware, Citrix Xen, libvirt, and oVirt. Use [this document](/auto-discovery/virtual-machine-auto-discovery.mdx) to help get you started. |
+| 3 | Windows/Hyper-V | Brings in Windows and Hyper-V machines, performing deep discovery on Hypervisors, and Windows OS using WMI and WinRM protocols. It collects comprehensive hardware and software details and discovers virtualization platforms such as VMware, Hyper-V, and others. It gathers information about virtual machines, hosts, and their configurations. Use [this document](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) to help get you started. |
+| 4 | Linux | Brings in host information, parts, OS, Service processes, and installed software and applications and configuration files for Linux and Unix machines. Use [this document](/auto-discovery/linux-unix-server-auto-discovery.mdx) to help get you started. |
+| 5 | Cloud | Brings in virtual machines and storage in Amazon Web Services, Microsoft Azure, Cloudstack, Openstack, and numerous other platforms. Discovers infrastructure and resources in various cloud environments such as AWS, Azure, Google Cloud, and Alibaba Cloud. It collects detailed information about the cloud assets and their configurations. Use [this document](/auto-discovery/cloud-auto-discovery/index.mdx) to help get you started. |
+| 6 | Storage | Discovers Storage Arrays for on premise storage solutions, using the appropriate API for the vendors required. Detailed information of Controllers, LUNs, Storage Pools and Disks in use. Connected to the appropriate hypervisors and file servers with a breakdown of usage. Use [this document](/auto-discovery/storage-arrays-autodiscovery/index.mdx) to help get you started. |
+| 7 | Certificate | Scans and discovers SSL certificates across your network. It gathers information about the certificates and alerts you before they expire. Use [this document](/infrastructure-management/certificate-management.mdx) to help get you started. |
+| 8 | Warranty Sync | Syncs with vendors like Dell, IBM, Lenovo, and Meraki to pull in warranty information for discovered devices using their service tags and serial numbers. This helps in tracking device warranties and managing end-of-life replacements. Use [this document](/auto-discovery/warranty-autodiscovery.mdx) to help get you started. |
+| 9 | UCS/Load Balancer | Discovers Cisco Unified Computing System (UCS) and Application Centric Infrastructure (ACI) environments, as well as load balancers like F5. It collects detailed configuration and performance data. Use [this document](/auto-discovery/load-balancer-f5-autodiscovery/#load-balancer-discovery) to help get you started. |
 
-Then, move on to vServer discovery, followed by Windows/Linux server discovery, and more.
+### 2.1 Create SNMP Discovery Jobs
 
-:::info
-See the [Autodiscovery Best Practices](auto-discovery/autodisc-best-practices.mdx) for recommendations on the order in which to run initial discoveries. If you're already familiar with these practices, jump right into [SNMP/Network discovery](auto-discovery/network-auto-discovery.mdx).
-:::
+SNMP discovery jobs capture network equipment data per unique IP Address, CIDR block, or IP Range responding to SNMP get requests on Port 161.
+
+SNMP discovery will discover network switches, storage switches, basic SAN details, management interfaces (iLO, iDRAC, and so on) and load balancer details. The Main Appliance will then federate newly discovered devices and details with other configuration items in Device42 allowing you to map connectivity across the network. The SAN discovery will also allow you to see which SANs are attached to a fiber switch when their WWNs are discovered. Discovery of various management interfaces will bring in BMC details and associate them with their affiliated hypervisor/bare-metal servers in Device42. 
+
+Device42 supports SNMP v1, v2c and v3.
+
+**Port and Credential Requirements**
+
+**Ports:** UDP Port 161 should be accessible on any of the SNMP targets from the Device42 Remote Collectors.
+
+**Credentials:** Read-only credentials are required for SNMP discovery jobs.
+
+**Steps to Create and Run an SNMP Discovery Job**
+
+To create and run an SNMP Discovery Job, perform the following steps:
+1. Navigate to **Discovery > SNMP**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+6. Review the remaining options and choose the items that best fit your needs.
+7. Add the credentials.
+8. Click the **Save** button.
+9. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
 
 <ThemedImage
 alt="Add SNMP discovery"
@@ -76,7 +175,432 @@ sources={{
 }}
 />
 
-## The Unknown Device Type 
+Click [here](/auto-discovery/network-auto-discovery.mdx) for more detail regarding SNMP Network Autodiscovery. This should be your first place to look when troubleshooting SNMP discovery job issues.
+
+:::tip
+To view a video on creating an SNMP discovery job, click [here](https://device42.wistia.com/medias/z6ax2z6hwm).
+:::
+
+### 2.2 Create Hypervisor Discovery Jobs
+
+Hypervisor discovery jobs discover the Virtual Systems on the Hypervisor Platform, including ESX and ESXi, Citrix XenServer, HyperV, oVirt, Redhat, KVM/libvirt, OpenVZ, AIX HMC, Nutanix Prism, Nutanix Prism Central, Docker, and LXC.
+
+Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery.mdx) for a full list of supported Platforms.
+
+**Port and Credential Requirements**
+
+**Ports:** For **VMWare**, TCP port 443 should be accessible from the Remote Collectors to the Hypervisors. **Other Hypervisors** leverage APIs over HTTPS, or SSH over a user-definable port for discovery.
+
+**Credentials:** For **VMWare**, Read-only API account with access to vCenter or the target infrastructure is sufficient.
+
+**Steps to Create and Run a Hypervisor Discovery Job**
+
+To create and run a Hypervisor discovery job, perform the following steps:
+1. Choose **Discovery > HyperVisors / \*nix / Windows**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Select the **Hypervisor Platform** (for example, VMWare).
+6. Select the **URL prefix** (for example, HTTP or HTTPS).
+7. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+8. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
+9. Review the remaining options and choose the items that best fit your needs.
+10. Click the **Save** button.
+11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery.mdx) for more detail regarding Hypervisor Autodiscovery. This should be your first place to look when troubleshooting Hypervisor discovery job issues.
+
+:::tip
+To view a video that discusses Best Practices for Hypervisor discovery jobs, click [here](https://device42.wistia.com/medias/m4m5pvper8).
+:::
+
+### 2.3 Create Windows Discovery Jobs
+
+Windows discovery jobs provide an accurate inventory of the Windows devices on your target network.
+
+While your virtual infrastructure can be discovered via VMWare, Hypervisor, etc. discovery jobs, Windows discovery jobs perform an OS-level discovery of your Windows devices, including your virtual Windows servers. Windows Discovery of physical infrastructure can be done either via Windows Management Instrumentation (WMI), an older and less secure discovery method, or Windows Remote Management (WinRM), which is newer and more secure.
+
+**Port and Credential Requirements**
+
+There are a number of prerequisites and requirements for Windows discovery jobs to run properly, including WinRM Network Requirements, WMI Network Requirements, WMI and Windows Permissions, and Port Requirements. **It is imperative that the prerequisites and the requirements are met prior to running Windows discovery jobs.** 
+
+Click [here](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx#permission-requirements-for-wmi-and-windows) for these requirements and prerequisites, and also for more detailed instructions on creating and running Windows discovery jobs. This should be your first place to look when troubleshooting Windows discovery job issues.
+
+**Steps to Create and Run a Windows Discovery Job**
+
+To create and run a Windows discovery job, perform the following steps:
+1. Choose **Discovery > HyperVisors / \*nix / Windows**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Select the **Windows Platform**.
+6. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+7. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
+8. Review the remaining options and choose the items that best fit your needs.
+9. Click the **Save** button.
+10. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+**Note:**
+
+- There are sometimes failures when discovering Windows operating system-based devices. Use the [Windows Discovery Troubleshooting](/auto-discovery/windows-discovery-troubleshooting.mdx) guide to help you investigate and resolve these failures. If you are unable to resolve these failures, please contact Device42 Support for assistance.
+- Organizations that have purchased the Software License Management module can include Software discovery when running Windows discovery jobs by clicking the **Discover Software** checkbox within the Software and Applications section of the job. For more information regarding Software License Management with Device42, see the Software License Management Discovery Jobs section later in this document.
+- Do not initially configure Windows discovery jobs to collect ADM information. There are two reasons for this: **1)** You may inadvertently consume your ADM licenses by discovering the wrong devices. **2)** We recommend you wait ~30 days before enabling ADM.
+  
+  - Set **ADM Sampling** to **Off**. Note: This is enabled by default when licensed for Enterprise Application Discovery and Services Discovery. If you do not set ADM Sampling to **Off** you will have to perform multiple 'cleanup' steps.
+  
+  <ThemedImage
+  alt="Turn off ADM sampling"
+  sources={{
+      light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/adm-off-light.png'),
+      dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/adm-off-dark.png'),
+  }}
+  />
+
+  - In **Software and Applications**, click **Show** and make sure that **Discover Services** and **Discover Applications** checkboxes are unchecked.
+
+  <ThemedImage
+  alt="Turn off Discover Services and Application"
+  sources={{
+      light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/uncheck-apps-services-light.png'),
+      dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/uncheck-apps-services-dark.png'),
+  }}
+  />
+
+
+:::tip
+To view a video on creating a Windows discovery job, click [here](https://device42.wistia.com/medias/mbiz7vjio4).
+
+To view a video on troubleshooting common Windows discovery job issues, click [here](https://device42.wistia.com/medias/olx0ryzrf2).
+:::
+
+### 2.4 Create Linux and Unix Discovery Jobs
+
+Linux and Unix discovery jobs provide an accurate inventory of the Linux and Unix devices on your target network and discover your \*nix physical and virtual infrastructure.
+
+**Port and Credential Requirements**
+
+**Ports:** Device42 will, by default, use the standard SSH port 22 to target your Linux and Unix infrastructure. If your organization uses a non-standard SSH port you can specify this port in the discovery job.
+
+**Credentials:** Several of the commands that are run invoke `sudo` for escalated privileges. This is avoided when possible, but is sometimes necessary to determine certain information for a comprehensive discovery.
+
+Click [here](/auto-discovery/linux-unix-server-auto-discovery.mdx) for more detail regarding Linux and Unix Autodiscovery. This should be your first place to look when troubleshooting Linux and Unix discovery job issues.
+
+**Steps to Create and Run a Linux or \*nix Discovery Job**
+
+To create and run a Linux or \*nix discovery job, perform the following steps:
+1. Choose **Discovery > HyperVisors / \*nix / Windows**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Select the **\*nix Platform**.
+6. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+7. Enter the **Port** (if default port 22 is not being used).
+8. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
+9. Review the remaining options and choose the items that best fit your needs.
+10. Click the **Save** button.
+11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+**Note:** Organizations that have purchased the Software License Management module can include Software discovery when running *nix discovery jobs (as well as other platforms like Classic WinRM, IBM i/AS400, IBM z/OS, and SCCM) by clicking the **Discover Software** checkbox within the Software and Applications section of the job. For more information regarding Software License Management with Device42, see the [Software License Management Discovery Jobs](#software-license-management-discovery-jobs) section later in this document.
+
+:::tip
+To view a video on creating a Linux discovery job, click [here](https://device42.wistia.com/medias/rfsh34oii8).
+:::
+
+### 2.5 Create Cloud Discovery Jobs
+
+Cloud discovery jobs discover your infrastructure in AWS, Azure, Google Cloud, and other cloud providers and inventory your cloud infrastructure from available cloud solutions: AWS, Azure, GCP, Alibaba Cloud, Amazon API, Digital Ocean, Intune, Linode, Open stack, Oracle Cloud and Standalone Kubernetes.
+
+**Port and Credential Requirements**
+
+**Ports:** Cloud infrastructure discovery is performed using HTTPS over port 443.
+
+**Credentials:** Required credentials vary by Cloud Provider.
+
+- **AWS**
+  - Dynamic and Static Account Discovery are supported using both IAM users and EC2 instance Profiles
+- **Microsoft Azure**
+  - Require Subscription ID (not required when performing Tenant wide discovery)
+  - Tenant ID Credentials (Username/Password or Service Principle ClientID/Client Secret Value)
+- **Google Cloud**
+  - Project ID (leave blank if doing multi project discovery)
+  - Service Account with viewer role and a Service Account key (JSON key file)
+- **Kubernetes Cluster**
+  - Basic Authentication (Username/Password) OR
+  - Bearer Token (Username and token string) OR
+  - The User or Service Account will need view permissions to any desired pods or applications or view cluster wide.
+
+Click [here](/auto-discovery/cloud-auto-discovery/index.mdx) for more detail regarding Cloud Autodiscovery. This should be your first place to look when troubleshooting Cloud discovery job issues.
+
+Click the following links for discovery details for [AWS](/auto-discovery/cloud-auto-discovery/aws-autodiscovery.mdx), [MS Azure](/auto-discovery/cloud-auto-discovery/azure-autodiscovery.mdx), [Google Cloud](/auto-discovery/cloud-auto-discovery/google-cloud-platform-autodiscovery.mdx), and [Kubernetes](/auto-discovery/cloud-auto-discovery/kubernetes-autodiscovery.mdx) Cloud discovery jobs. Regarding Kubernetes, click [here](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#service-account-permissions) for information regarding provisioning a Service Account.
+
+**Steps to Create and Run a Cloud Discovery Job**
+
+To create and run a Cloud discovery job, perform the following steps:
+1. Choose **Discovery > Cloud**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Cloud Type** and **Vendor(s)**.
+5. Select the **VRF Group**.
+6. Select the **Remote Collector**.
+7. Enter the appropriate cloud credentials (varies depending on platform).
+8. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+9. Review the remaining options and choose the items that best fit your needs.
+10. Click the **Save** button.
+11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+### 2.6 Create Storage Array Discovery Jobs
+
+Storage Array discovery jobs identify and return Storage Array resource details, related resources, and topology maps for a wide range of storage platforms.
+
+Click [here](/auto-discovery/storage-arrays-autodiscovery/index.mdx) for more detail regarding Storage Arrays Autodiscovery, including the list of supported platforms. This page also contains links to additional information about access protocols and minimum permissions for [Dell/EMC Arrays](/auto-discovery/storage-arrays-autodiscovery/dell-emc-autodiscovery.mdx), [HP Arrays](/auto-discovery/storage-arrays-autodiscovery/hp-autodiscovery.mdx), [IBM Arrays](/auto-discovery/storage-arrays-autodiscovery/ibm-autodiscovery.mdx), as well as [All Other Storage Arrays](/auto-discovery/storage-arrays-autodiscovery/all-other-storage-autodiscovery.mdx). It also contains more detail on creating new Storage Array discovery jobs. This should be your first place to look when troubleshooting Storage Array discovery job issues.
+
+**Steps to Create and Run a Storage Arrays Discovery Job**
+
+To create and run a Storage Arrays discovery job, perform the following steps:
+1. Choose **Discovery > Storage Arrays**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Select the **Platform** (e.g. Netapp).
+6. Enter the **Server or Servers**, **CIDR Block**, or **IP Range**.
+7. Select the **Target Type** (values dependent on selected Platform).
+8. Select the **Protocol Type** (values dependent on selected Platform).
+9. Check or uncheck **Enable Performance Data Collection**.
+10. Select the **Performance Data Sampling Interval**.
+11. Select the **Action for Storage Array not found** (keep or delete Array Resource).
+12. Add the Discovery Target(s) Credential(s) (that is, Username and Password).
+13. Review the remaining options and choose the items that best fit your needs.
+14. Click the **Save** button.
+15. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+Click [here](/auto-discovery/storage-arrays-autodiscovery/storage-arrays.mdx) to view more information about Storage Arrays, including viewing and editing storage arrays, viewing arrays mapped to devices, viewing storage resource maps and trend graphs, and importing and exporting Storage Array discovery jobs.
+
+### 2.7 Create Certificates Discovery Jobs
+
+Certificates discovery jobs provide detailed information on https SSL certificates, including expiration dates, which is helpful for business continuity.
+
+Click [here](/auto-discovery/certificate-auto-discovery.mdx) for more detail regarding Certificates Autodiscovery, including creating a Certificates discovery job, SSL Certificate Cipher Suite Discovery, and discovery risks when multitenancy is enabled. This should be your first place to look when troubleshooting Certificates discovery job issues.
+
+**Steps to Create and Run a Certificates Discovery Job**
+
+To create and run a Certificates discovery job, perform the following steps:
+1. Choose **Discovery > Certificates**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Provide the **Server or Servers**, **CIDR Block** or **IP Range**.
+6. Review the remaining options and choose the items that best fit your needs.
+7. Click the **Save** button.
+8. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+Click [here](/infrastructure-management/certificate-management.mdx) for information on managing discovered certificates.
+
+:::tip
+To view a video on viewing the results from Certificates discovery jobs, click [here](https://device42.wistia.com/medias/3fbivne7bp).
+:::
+
+### 2.8 Create Warranty Discovery Jobs
+
+Warranty discovery jobs enable you to discover and document your hardware warranties. Device42 currently supports warranty autodiscovery for the following vendors: Dell, IBM, Lenovo, Meraki, and Cisco (Preview).
+
+**Warranty Discovery Job Prerequisites**
+
+**Device Field Prerequisites**
+
+The warranty discovery API requires both the device model and serial number fields be correctly entered, either manually or via discovery.
+
+The Device42 **Hardware** field must include a vendor name that exactly equals a value of "Dell", "IBM", "Meraki", and "Lenovo". You can add vendor aliases if you choose. If you have multiple vendor entries for any of these vendors (e.g. "Dell", "Dell Inc.") we recommend merging these into a single vendor, using the above-mentioned vendor names (see the [Merge Vendor Section of the Warranty Autodiscovery page](/auto-discovery/warranty-autodiscovery.mdx#merge-vendors) for instructions to merge multiple vendors).
+
+**API Prerequisites**
+
+Warranty Discovery requires vendor API keys. See the information below on how to receive API keys from each vendor.
+
+- **Dell API key:** Register or log in at [Dell TechDirect portal](https://techdirect.dell.com) and choose **Services > APIs** to request an API key; you will be provided with a Client ID and Client Secret for API access.
+- **Meraki API key:** Click [here](https://meraki-cli.readthedocs.io/en/latest/getting-your-api-key/) for Meraki instructions to receive your API key.
+- **Lenovo API key:** Large enterprise customers can request a warranty lookup API key from Lenovo Sales or Support Account Representatives.
+- **IBM API key:** Click [here](https://login.ibm.com/authsvc/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=https%3A%2F%2Flogin.ibm.com%2Foidc%2Fendpoint%2Fdefault%2Fauthorize%3FqsId%3D18d7b5a9-bbe1-4d66-9e31-57a48ef148c5%26client_id%3DOGMyMGQ1MzQtZDFhYi00) to log in to your IBM account to access your warranty lookup information.
+
+**Steps to Create and Run a Warranty Discovery Job**
+
+To create and run a Warranty discovery Job, perform the following steps:
+1. Choose **Discovery > Warranty Sync**.
+2. Click the **Create** button.
+3. Enter the **Job name**.
+4. Select the **Remote Collector**.
+5. Select the **Vendor**:
+   - For Dell, then specify the **API Version** then specify the **Access Key** and **Secret Key**
+   - For Meraki, then specify the **Access Key**
+   - For IBM or Lenovo, then specify the **Access Key**
+6. Select the **Order Number Type**.
+7. Select the **Debug level**.
+8. Click the **Save** button.
+9. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+Click [here](/auto-discovery/warranty-autodiscovery.mdx) for more detail regarding Warranty Autodiscovery, including API Key details, configuration information, and prerequisites. It also includes information to configure the warranty script, as well as documenting the secure communication details between the Device42 UI and warranty script to the hardware vendor, and other information. This should be your first place to look when troubleshooting Warranty discovery job issues.
+
+### 2.9 Create UCS/Load Balancer Discovery Jobs
+
+UCS/Load Balancer discovery jobs map out virtual servers, pools, and their relationships to backend devices. Once you have run SNMP and Windows/*nix discovery jobs, you can create UCS/Load Balancer jobs to collect connectivity and dependency data.
+
+**Prerequisites**
+
+For F5 discovery, ensure you have the **username for a local account** with access to the F5 API. The API calls work with read-only access and do not require administrative privileges.
+
+Note that F5 devices do not support username and password authentication for accounts that use external authentication providers, such as Active Directory, which uses token-based authentication.
+
+**Steps to Create and Run a Load Balancer and Cluster Device (UCS) Discovery Job**
+
+Given the variety of Discovery platforms, we recommend you click [here](/auto-discovery/load-balancer-f5-autodiscovery.mdx) to follow the steps to create these jobs. This page also includes prerequisites and discovery options. To run the created job, click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
+
+## Task 3: Verify Discovery Jobs
+
+There are a variety of ways for you to evaluate the success of a discovery job. These include:
+- **Discovery Job Results Status:** Provides a status of the overall job, displaying successes, failures, warnings, and other results.
+- **Discovery Scores:** Provides a score for one or all discovery jobs.
+- **Discovery Target Details:** Provides discovery results and scores for individual targets (e.g. server).
+
+### 3.1 Discovery Job Results
+
+After running a discovery job you will be presented with the Job Status. 
+
+<ThemedImage
+alt="Job Results"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/job-run-report-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/job-run-report-dark.png'),
+}}
+/>
+
+It will include:
+- The **Job Status** section provides the **Last Job Status**, as well as **Basic Discovery** and **Detailed Discovery** results.
+- You can click the **Show** link next to the **Job Run Report** to see the Job Report Log.
+- You can see the **Discover Breakdown** (e.g. Port Check Failed, Auth Failed, and so on) and click the quantity value for these to link to the Discovery Scores for these items. From here you can link to the Discovery Target Details for each discovered item.
+
+### 3.2 Discovery Scores
+
+The Discovery Scores page enables you to view the success of your discovery jobs on a granular level. It provides an overall view of discovery success, discovery scores, and discovery queues. You can see each discovered device, the target IP it was discovered from (which is also a link to that job's page), the job name, cumulative score, and more.
+
+<ThemedImage
+alt="Discovery Scores"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-scores-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-scores-dark.png'),
+}}
+/>
+
+Discovery Scores can be accessed in a variety of ways, including **Analytics > Discovery Scores**.
+
+**Access Discovery Score Steps**
+
+To access Discovery Scores, perform the following steps:
+1. Choose **Analytics > Discovery Scores**.
+2. Hover over the pie charts to view summary data for each category. You can also click on a legend entry to filter in or out from the summary.
+3. View the scrollable list of discovered devices, sorted from newest to oldest by default. Each device is displayed on its own line and provides information such as Discovery Target, Job Name, Job Timestamp, and a red or green Success indicator.
+4. Click on any of the Discovered Targets to view the Discovery Target Details for that target.
+5. Click on the Job Name to navigate to the discovery job to which that device was a part. Here you can see the status of the overall job.
+
+Click [here](/reports/reports/discovery-quality-scores.mdx) for more information about Discovery Scores.
+
+### 3.3 Discovery Target Details
+
+Discovery Target Details provide discovery information for a single Discovery target (e.g. an IP Address) within a specific discovery job (e.g. a specific Cloud discovery job). You can access Discovery Target Details by clicking on a Discovery Target within Discovery Scores.
+
+<ThemedImage
+alt="Discovery Scores Advanced Search"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-scores-advanced-search-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-scores-advanced-search-dark.png'),
+}}
+/>
+
+<ThemedImage
+alt="Discovery Scores Details"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-score-details-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/discovery-score-details-dark.png'),
+}}
+/>
+
+- The **Details** section provides the Discovery Target, Job Name, Discovery Status (e.g. Port Check, Auth, etc.), and other information.
+- You can click the **Show** link next to **Advanced Status**, **Detailed Discovery Scores**, and **Detailed Queue Scores** sections for additional details.
+
+## Task 4: Schedule Discovery Jobs
+
+### 4.1 Scheduling a Discovery Job
+
+Once a discovery job has been run and validated, it can be scheduled to automatically run. In the **Autodiscovery Schedule** section of each job, you can set as many different autodiscovery schedules as required to cover your environment. You can choose specific times and days of the week to run the autodiscovery job.
+
+**Steps to Schedule a Discovery Job**
+
+To schedule an existing discovery job, perform the following steps:
+1. Choose **Discovery**, then choose the type of discovery job you want to schedule.
+2. Click the name of the job you want to schedule.
+3. Click the **Edit** button.
+4. Scroll to the **Autodiscovery Schedule** section and click the **+ Add another Autodiscover Schedule** link.
+5. Specify the schedule you want.
+6. Click the **Save** button.
+
+<ThemedImage
+alt="Schedule discovery job"
+sources={{
+    light: useBaseUrl('/assets/images/getting-started-with-auto-discovery/job-schedule-light.png'),
+    dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/job-schedule-dark.png'),
+}}
+/>
+
+## Discovery and Unprocessed Device Records
+
+Unprocessed device records are discovered devices that could not be confidently matched to any existing device records based on the system's device matching criteria. This most commonly happens when using "Moderate" or "Conservative" matching levels, in which the system considers multiple data points (such as hostname, IP address, MAC address, serial number, and UUID) and requires a certain combined score to merge with an existing record. If this threshold is not met, the discovered device ends up as "unprocessed" and requires manual review or action.
+
+Users can review these records and either merge them with existing assets, create a new record, or delete them if they are outdated or incorrectly discovered.
+
+To view Unprocessed Device Records, hover over **Discovery**, then choose **Unprocessed Device Records**.
+
+**Unprocessed Device Records Best Practices**
+
+1. Regularly check the **Unprocessed Device Records** page.
+2. Merge records that clearly belong to existing assets, and delete old or stale records. Implement Auto Clean rules to delete old or stale records when appropriate.
+3. Update discovery credentials and methods if frequent unprocessed records indicate incomplete data collection or matching failures.
+4. In environments where matching is challenging, switching to "classic" device matching level can reduce the incidence of unprocessed records.
+
+Click [here](/auto-discovery/unprocessed-device-records.mdx) for more information about Unprocessed Device Records, including defining matching levels, enabling Enhanced Device Matching, and other information.
+
+:::tip
+To view a video providing more information about Unprocessed Device Records, click [here](https://device42.wistia.com/medias/7gkkt458yo).
+:::
+
+## Discovery and Auto Clean Rules
+
+AutoClean Rules enable you to automatically manage old and possibly stale data based on specific criteria you set. Data pertaining to objects (e.g a device or an IP address) that is not found in subsequent autodiscovery jobs can be automatically deleted, architect, or otherwise modified. Auto Clean rules are particularly relevant for cleaning up IP Addresses, Devices, and Software. Click [here](/administration/auto-clean-feature.mdx) for more information on adding Auto Clean rules, including instructions to create new rules.
+
+:::tip
+To view a video on using Auto Clean rules, click [here](https://device42.wistia.com/medias/2z87thtqh3).
+:::
+
+## Additional Discovery Information
+
+Click [here](/auto-discovery/index.mdx) to view the Autodiscovery main page, where you will find a wealth of autodiscovery information. This should be the first place to look for autodiscovery questions you may still have. It also includes a long list of sub-pages for each job discovery type.
+
+## Software License Management Discovery Jobs
+
+### Overview
+
+As mentioned earlier in this document, Software License Management (SLM) is a separate Device42 module that among other things, scans Windows, Linux, and other device instances to detect installed software.
+
+SLM is configured by enabling certain options within **HyperVisors / \*nix / Windows** discovery jobs, specifically when the following **Platform** values are chosen:
+
+- *nix
+- Classic WinRM
+- IBM i/AS400
+- IBM z/OS
+- SCCM
+- Windows
+
+To enable software discovery for these discovery jobs, click the **Software** checkbox within the **Software and Applications** section of the job.
+
+Click [here](/infrastructure-management/software/software-license-management.mdx) to link to a page providing information on how to configure the SLM module, view discovered software, enable software alerting, run software reports, and more.
+
+## The Unknown Device Type
 
 All non-virtual devices will initially be assigned the **unknown** device type during discovery. These devices have a hardware model. The appliance categorizes them as **unknown** because it has not yet been instructed which of the following types the hardware models belong to:
 
@@ -86,13 +610,13 @@ All non-virtual devices will initially be assigned the **unknown** device type d
 
 Once you change a hardware type, all the corresponding devices that refer to that hardware and have been assigned the **unknown** type will automatically be categorized accordingly.
 
-The hardware bulk edit feature allows you to change hardware properties in bulk for all undefined hardware types. It automatically categorizes all devices belonging to a specific category. See the [Bulk Edit video](how-to-videos/add-and-bulk-edit-hardware-models-how-to.mdx) or [Bulk Edit documentation](infrastructure-management/devices/hardware-models-templates.mdx) for more information.
+The hardware bulk edit feature allows you to change hardware properties in bulk for all undefined hardware types. It automatically categorizes all devices belonging to a specific category. See the [Bulk Edit video](/how-to-videos/add-and-bulk-edit-hardware-models-how-to.mdx) or [Bulk Edit documentation](/infrastructure-management/devices/hardware-models-templates.mdx) for more information.
 
 Once a hardware type has been defined, any newly imported or discovered devices will go into the correct category.
 
 ## Viewing the Details of Discovered Items
 
-To view the details of a discovered item type, navigate to that item type's list page and select an item from the table. 
+To view the details of a discovered item type, navigate to that item type's list page and select an item from the table.
 
 For example, you can go to **Resources > All Devices** and click on a device name to view that device's details. Depending on the device and information available, fields like **Hardware**, **Serial #**, **Total CPUs**, **RAM**, **OS**, and **IP Addresses** may be populated.
 
@@ -103,3 +627,21 @@ sources={{
     dark: useBaseUrl('/assets/images/getting-started-with-auto-discovery/view-ci-details-19.06-dark.png'),
 }}
 />
+
+## Discover Phase Checklist
+
+The Discover phase is considered complete when:
+
+- You have defined your subnets.
+- You have defined the discover jobs that will deliver the maximum return to your organization.
+- You have determined how you want to organize and name your discovery jobs.
+- You have created and run your discovery jobs, making sure to include only those targets relevant to each job, and making sure to limit the quantity of targets to ensure the jobs successfully complete.
+- You have viewed your Unprocessed Device Records and have taken the appropriate actions (e.g. delete records, merge records).
+- You have verified your discovery jobs were successful by reviewing Discovery Job results, Discovery Scores, and Discover Target Details.
+- You have scheduled your discovery jobs, making sure to run them only as frequently as is needed, to schedule them during times when it will have minimal network impact, and to schedule jobs to run on different days and at different times so as to not overwhelm the Main Appliance.
+
+## Discover Phase Support
+
+At the conclusion of the Discover phase you should have created and configured your relevant discovery jobs, validated that the jobs ran successfully, and scheduled those jobs to automatically run at specific intervals.
+
+You may access the [Device42 Support page](https://support.device42.com) where you can submit a request, access our Knowledge Base, or access other general information.

@@ -1,0 +1,35 @@
+---
+title: "Resource and Deployment Architecture Overview"
+sidebar_position: 1
+---
+
+The Main Appliance (MA), Remote Collectors (RCs), and Windows Discovery Service (WDS) all play a role in discovering your IT environment. 
+
+Device42 is deployed in a hub-and-spoke architecture; each RC/WDS collects data and syncs it back to the centralized MA. It is typically recommended for RCs and WDS instances to be deployed in pairs, if Windows discovery is required.
+
+Device42 consists of the Main Appliance, one or more Remote Collectors (RCs), and a Windows Discovery Service (WDS). The Main Appliance is an interface for configuring and running discovery jobs, viewing and managing discovered Configuration Items (CIs), generating reports, and managing any third-party integrations.
+
+The image below depicts a Production environment consisting of one Main Appliance and two sets
+of Remote Collectors and Windows Discovery Service instances.
+
+![](/assets/images/deployment-architecture.png)
+
+:::tip
+Click [here](https://device42.wistia.com/medias/o5rvpixfmw) to view a video describing the architecture depicted in the above image.
+:::
+
+It is critical that network settings are correctly configured and firewall rules properly enabled
+to grant appropriate access permissions while adhering to the principle of least privilege.
+Once configured, we strongly recommend you perform connectivity tests to confirm these
+changes were successfully made.
+
+A reference list of all ports used to gain access to targets to be discovered can be found [here](/getstarted/deploy-device42/discovery-port-configurations.mdx). It is **critical to provide this link to network personnel** so they can ensure the necessary ports are open so Device42 can discover your infrastructure.
+
+### Where do I put this stuff?
+
+:::caution
+Device42 is delivered as a virtual appliance. Root access to the appliance is not supported, and the VM will cease to function if you attempt to break into the root account.
+:::
+
+Manage the Main Appliance using the [Appliance Manager (AM)](/administration/appliance-manager/index.mdx), from which you can restart and stop the Device42 application, generate logs or SNMP walks for tech support, and more.
+

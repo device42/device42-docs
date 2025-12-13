@@ -1,0 +1,30 @@
+---
+title: "How is Device42 Implemented?"
+sidebar_position: 1
+---
+
+We view a Device42 implementation as occurring in four phases, what we refer to as "The 4 Ds of Device42". This structured approach is based upon best practices from thousands of implementations. These four phases are:
+- Deploy
+- Discover
+- Data Validation
+- Display
+
+![The 4 Ds of Device42](/assets/images/4-ds-flow-v2.png)
+
+## Deploy
+
+The Deploy phase ensures you install and properly configure the required Device42 components to discover your infrastructure. You will install and configure the Device42 Main Appliance (MA), Remote Collectors (RCs), and the Windows Discovery Service (WDS) instances if Windows systems are in scope. While Device42 primarily performs agentless discovery, you may optionally install Device42 Discovery Agents onto your machines running Windows, Linux, and UNIX operating systems.
+
+The Deploy phase also includes you properly configuring network settings and firewall rules to enable communication with all your relevant infrastructure components. Appropriate access permissions need to be granted to Device42, adhering to the principle of least privilege, after which you should perform connectivity tests to confirm proper functionality.
+
+## Discover
+
+Once the Deploy phase is complete, as part of the Discover phase you will configure and execute discovery jobs to discover your IT environment. You will configure discovery job settings, including IP ranges, credentials, and schedules, for various components such as SNMP devices, Hypervisors, Windows and Linux servers, and cloud resources. At the beginning of this phase you will execute discovery jobs to identify and inventory your infrastructure. Then you will review discovery scores that provide you insight into the success and accuracy of these jobs. You will use these discovery scores to identify any discovery job issues that you will then remedy. Finally, you will schedule these discovery jobs to automatically run at specified time intervals.
+
+## Data Validation
+
+The Data Validation phase follows the Discover phase, where you will ensure the discovered data is complete and accurate. You will perform sample checks comparing discovered data against other existing data sources to verify data accuracy, completeness, and consistency. You will resolve any data errors or inconsistencies.
+
+## Display
+
+Once your discovered data is validated, you will make sure it is consumable by users and provides actionable insights so you and others can make impactful business decisions. You will verify the accuracy of all relevant data visualizations (charts, graphs, maps, and so on). You will configure reports or custom dashboards to display key metrics, and create and schedule reports that provide insights into infrastructure status, changes, and performance. In short, you will ensure you and others can leverage the data Device42 discovered about your IT environment to make better IT and business decisions.

@@ -1,0 +1,121 @@
+---
+title: "Tutorial: Loading Data Using the API"
+sidebar_position: 2
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+This tutorial demonstrates how to load sample data into the Device42 Main Appliance (MA) using the Device42 API. You don't need prior programming knowledge, only the ability to execute a bash script of curl commands from the command prompt.
+
+To run the script, you need a \*nix system with curl, a data transfer tool built into Linux and Ubuntu.
+
+### Running the API Script
+
+1. Download the API script from the Device42 [automation scripts page](https://github.com/device42/demo-data-shell-scripts/blob/master/demo_script.sh) on GitHub. 
+
+    ![GitHub download button](/assets/images/tutorial-loading-data-using-the-api/download-script.png)
+
+2. Open the script in a text editor, like Windows Notepad or Ubuntu Gedit. Don't use a word processor like Microsoft Word.
+3. Add your credentials to lines 2-4 of the script. Replace `https://IP` with your Device42 IP address or FQDN, and supply your `username` and `password`:
+
+    ```bash
+    URL=https://IP
+    USER='username'         
+    PASS='password' 
+    ```
+
+4. Open a Linux terminal and run the script by typing `sh` followed by the path and file name of the script. For example:
+
+    ```bash
+    $ sh /tmp/demo_script.sh
+    ```
+
+
+    You will see information displayed in the terminal as the script executes and each curl statement outputs a success message. 
+
+5. Log in to your Device42 MA.
+
+Running the script adds sample data to your MA, including a building, two rooms, six vendors, four racks, seven devices, and three customers. Depending on your settings, you may see statistics for these additions on your dashboard. Some data isn't displayed in the dashboard but can be found by browsing the system (for example, data concerning custom keys and value pairs).
+
+You can view data added for an object category by navigating to the relevant list page from the main menu. For example, if you go to **Resources > All Devices**, you'll see the newly created records with names beginning with `nh-demo`.
+
+
+<ThemedImage
+  alt="New devices added on the list page"
+  sources={{
+    light: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/added-devices-light.png'),
+    dark: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/added-devices-dark.png'),
+  }}
+/>
+
+### Understanding the API Script
+
+Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section.
+
+Each line in the script has a curl statement like the one below.
+
+<details>
+  <summary>Click to expand the code block</summary>
+  ```bash
+  #Add a Building
+  curl -i -H "Accept: application/json" \
+      -X POST \
+      -d "name=New Haven DC" \
+      -d "address=123 main st" \
+      -d "contact_name=roger" \
+      -d "contact_phone=1234567890" \
+      -d "notes=super critical" \
+      -u $USER:$PASS \
+      $URL/api/1.0/buildings/ \
+      --insecure
+  ```
+</details>
+
+The `-i`, `-H`, and `--insecure` parameters should be in all Device42 API calls:
+
+- The `-i` flag specifies that the header should be included in the output.
+- The `-H` flag tells the Device42 application that a JSON-formatted response will be accepted.
+- The `--insecure` flag is required because the Device42 appliance does not have a certificate.
+
+The values of the following flags and variables vary depending on the API used:
+
+- The `-X` value specifies the HTTP method used.
+- The `-d` values are object category parameters. For example, a building has the `address=` parameter as an optional fillable field.
+- The `URL` value is the API endpoint. For example, `/api/1.0/buildings/` is the endpoint for the building object category.
+  
+Watch our videos for guided examples of how to use API imports to [create hardware models](how-to-videos/api-imports-add-create-hardware-models.mdx) or [add devices to racks](how-to-videos/api-imports-adding-devices-to-racks.mdx).
+
+## The API Documentation
+
+The [Device42 API website](https://api.device42.com/) serves as a resource for information about the API endpoint needed to get data to and from Device42.
+
+The documentation for the above API command tells you that the `-X` value should be `POST` and the `URL` endpoint is `/api/1.0/buildings/`. Under the **Parameters** section, you can see that a `name` value is required and that `address` is an option.
+
+![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/api-docs-buildings.png)
+
+### Finding Unique IDs
+
+Some API parameters use the unique IDs of other Configuration Items (CIs). For example, if you create a rack and want to specify the room where the rack is stored, you can find the unique ID for that room. This is especially useful if you have multiple rooms with the same name and want to specify one of them.
+
+The following screenshot shows the documentation for the **Create/update** racks API, highlighting the optional `room_id` parameter.
+
+![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/racks-api-paramaters.png)
+
+- You can use the endpoint for the object (for example, `/api.1.0/rooms/`) to get it programmatically. This method is most appropriate for a more complex program written in Java or Python.
+- If executing curl commands in a shell script, you can open the MA, go to **Infrastructure > DataCenter > Rooms**, and hover over a room name to view its URL in the lower left corner of your screen. The last number in the URL is the unique ID.
+
+  <ThemedImage
+    alt="Hover over room name"
+    sources={{
+      light: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/hover-room-light.png'),
+      dark: useBaseUrl('/assets/images/tutorial-loading-data-using-the-api/hover-room-dark.png'),
+    }}
+    style={{ width: '40%' }} 
+  />
+
+  For example, if you hover over the **DF2** hyperlink, you'll see that the last number in the URL is `26`. This is its unique ID.
+
+## Next Steps
+
+Next, we encourage you to follow the [Device42 UI](tutorial-navigating-the-device42-user-interface.mdx) tutorial. Browse through the documentation for more detailed information on the various Device42 features.
