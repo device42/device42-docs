@@ -24,7 +24,7 @@ The Device42 RC is only available via manual installation only. To request acces
 
 Each Device42 AWS offering comes with a pre-installed limited license. To make use of Device42's full capabilities, we recommend you obtain a more comprehensive license from a Device42 sales representative or business partner.
 
-Refer to the Device42 [Licensing](administration/licensing.mdx#upload-a-new-license) page for more information on managing licenses.
+Refer to the Device42 [Licensing](/administration/licensing.mdx#upload-a-new-license) page for more information on managing licenses.
 
 Device42 on AWS operates using the **Bring Your Own License (BYOL)** model, meaning you can run on AWS with no additional charge from Device42. Other than the yearly fee for your Device42 license, the only costs you will incur via AWS are the charges Amazon bills you for the use of your instances. These are usually hourly fees, depending on the instance size you select. Larger instances generally cost more.
 
@@ -116,7 +116,7 @@ Update the appliance license key, because the included key has expired:
   style={{ width: '90%' }}
   />
 
-[Set the time zone and configure NTP](/administration/setting-time-zone-and-ntp/) to ensure autodiscovery scheduling and log history work correctly.
+[Set the time zone and configure NTP](/administration/setting-time-zone-and-ntp.mdx) to ensure autodiscovery scheduling and log history work correctly.
 
 Make sure your AMI is running the latest version of Device42 and update it if necessary:
 
@@ -207,13 +207,13 @@ For additional visibility, Device42 recommends users enable [AWS CloudTrail](htt
 
 Security patches are bundled with Device42 software updates. There is no need to manually apply patches to your Device42 instances outside of software updates. Software updates can be downloaded from the [Device42 Update page](https://www.device42.com/update/).
 
-Watch the [How To Update the Device42 Appliance](/how-to-videos/update-device42-appliance-how-to) walkthrough video to discover our quick update process.
+Watch the [How To Update the Device42 Appliance](/how-to-videos/update-device42-appliance-how-to.mdx) walkthrough video to discover our quick update process.
 
 ### Backing Up and Restoring Device42 Data on AWS
 
 The Device42 backup facilities are accessible through the AM. Backups can be executed immediately. You can download a backup file immediately or schedule automatic saving to an SFTP, NFS, or AWS S3 destination.
 
-For more information on backing up and restoring Device42 data, see our guide to [setting up backups](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx).
+For more information on backing up and restoring Device42 data, see our guide to [setting up backups](/administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx).
 
 ### Monitoring and Health Checks for Device42 on AWS
 
@@ -227,7 +227,7 @@ The built-in health check monitors the following:
 
 ### Configuring High Availability for Device42 on AWS
 
-If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported **Warm HA** solution. To configure your deployment to run Warm HA, failover, and (if desired) automatic backups, follow the instructions in the Device42 [Warm HA](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) documentation.
+If a High Availability (HA) deployment of Device42 is desired or required for a Device42 instance running on AWS, Device42 offers a supported **Warm HA** solution. To configure your deployment to run Warm HA, failover, and (if desired) automatic backups, follow the instructions in the Device42 [Warm HA](/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) documentation.
 
 The documentation also includes an example configuration that leverages Nagios to automatically initiate a failover of the instance in the event of a failure.
 
@@ -323,5 +323,5 @@ The following is a sample IAM policy (with minimum appropriate permissions) that
 - The Device42 AWS offering does not require AWS data encryption to operate properly.
 - Customer data resides on the instance itself. Customer passwords and secrets are encrypted with AES-256 encryption.
 
-  Refer to the Device42 [Secrets, Security, and Permissions](administration/passwords/password-security-and-permissions.mdx) page for additional information on how passwords and secrets are stored.
+  Refer to the Device42 [Secrets, Security, and Permissions](/administration/passwords/password-security-and-permissions.mdx) page for additional information on how passwords and secrets are stored.
 - The Device42 AWS offering does not require the storage of any secrets in AWS Secrets Manager.

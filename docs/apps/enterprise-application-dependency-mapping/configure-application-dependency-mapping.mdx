@@ -43,7 +43,7 @@ You can opt to store config files by selecting the **Store Applications Componen
 
 ## Viewing Application Dependencies
 
-When autodiscovery is run, [Application Components](/apps/application-components) will be created based on related services on a server. For example, for a server running Oracle Database, a component would be created to group together all Oracle Database services on that machine. The Autodiscovery Application would also find the service-to-service connections so that you could, for example, see that your Apache service on "Prod-Server1" was directly dependent on the MySQL service running on "Prod-Database3".
+When autodiscovery is run, [Application Components](/apps/application-components/index.mdx) will be created based on related services on a server. For example, for a server running Oracle Database, a component would be created to group together all Oracle Database services on that machine. The Autodiscovery Application would also find the service-to-service connections so that you could, for example, see that your Apache service on "Prod-Server1" was directly dependent on the MySQL service running on "Prod-Database3".
 
 To see the autodiscovered application dependencies, go to **Applications > Application Components**.
 
@@ -55,7 +55,7 @@ To see the autodiscovered application dependencies, go to **Applications > Appli
     }}
   />
 
-A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](apps/enterprise-application-dependency-mapping/adm-supported-applications.mdx).
+A full list of currently supported applications is available at [Application Dependency Mapping Supported Applications](/apps/enterprise-application-dependency-mapping/adm-supported-applications.mdx).
 
 When you view the details page for an application component, you will see the device it was discovered on, as well as any other application components that it depends on. You'll also see any services that have been associated with the application component. From here, you can also edit the application to assign responsible and/or affected departments, describe what's impacted by downtime, and edit any custom fields.
 
@@ -90,7 +90,7 @@ With Application Dependency Mapping, you can create Application Groups to group 
 You can create an Application Group using one of the discovered Application Components as a starting point which will serve as one of the focus items for that group. Automatically, Device42 will suggest Application Groups based on the discovered Application Components. Accept the groups that most accurately describe significant dependencies in your environment and ignore the others. 
 
 :::tip
-After configuring ADM sampling on the autodiscovery job, see the [Application Group Calculation Rules](/apps/application-groups/calculation-rules) page for a further explanation of how Starting Points are used to generate Application Groups. 
+After configuring ADM sampling on the autodiscovery job, see the [Application Group Calculation Rules](/apps/application-groups/calculation-rules.mdx) page for a further explanation of how Starting Points are used to generate Application Groups. 
 :::
 
 ## Turning Off Application Discovery

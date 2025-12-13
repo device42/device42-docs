@@ -75,7 +75,7 @@ Below is a list of basic discovery job best practices. While [this list](/auto-d
 
 #### 1.1 Collect and Store Discovery Credentials
 
-Credentials ([Secrets](/administration/passwords/password-security-and-permissions/)) are frequently required when performing agentless Discovery; you specify them when creating discovery jobs. It is important to store the correct credentials in Device42 so you can reference them for jobs that require them. 
+Credentials ([Secrets](/administration/passwords/password-security-and-permissions.mdx)) are frequently required when performing agentless Discovery; you specify them when creating discovery jobs. It is important to store the correct credentials in Device42 so you can reference them for jobs that require them. 
 
 Incorrect credentials is a common reason why discovery jobs do not successfully complete. Make sure you have the correct credentials and that you enter them correctly.
 
@@ -138,7 +138,7 @@ Device42 strongly recommends you run your first discovery jobs in the order list
 | 4 | Linux | Brings in host information, parts, OS, Service processes, and installed software and applications and configuration files for Linux and Unix machines. Use [this document](/auto-discovery/linux-unix-server-auto-discovery.mdx) to help get you started. |
 | 5 | Cloud | Brings in virtual machines and storage in Amazon Web Services, Microsoft Azure, Cloudstack, Openstack, and numerous other platforms. Discovers infrastructure and resources in various cloud environments such as AWS, Azure, Google Cloud, and Alibaba Cloud. It collects detailed information about the cloud assets and their configurations. Use [this document](/auto-discovery/cloud-auto-discovery/index.mdx) to help get you started. |
 | 6 | Storage | Discovers Storage Arrays for on premise storage solutions, using the appropriate API for the vendors required. Detailed information of Controllers, LUNs, Storage Pools and Disks in use. Connected to the appropriate hypervisors and file servers with a breakdown of usage. Use [this document](/auto-discovery/storage-arrays-autodiscovery/index.mdx) to help get you started. |
-| 7 | Certificate | Scans and discovers SSL certificates across your network. It gathers information about the certificates and alerts you before they expire. Use [this document](/infrastructure-management/certificate-management/) to help get you started. |
+| 7 | Certificate | Scans and discovers SSL certificates across your network. It gathers information about the certificates and alerts you before they expire. Use [this document](/infrastructure-management/certificate-management.mdx) to help get you started. |
 | 8 | Warranty Sync | Syncs with vendors like Dell, IBM, Lenovo, and Meraki to pull in warranty information for discovered devices using their service tags and serial numbers. This helps in tracking device warranties and managing end-of-life replacements. Use [this document](/auto-discovery/warranty-autodiscovery.mdx) to help get you started. |
 | 9 | UCS/Load Balancer | Discovers Cisco Unified Computing System (UCS) and Application Centric Infrastructure (ACI) environments, as well as load balancers like F5. It collects detailed configuration and performance data. Use [this document](/auto-discovery/load-balancer-f5-autodiscovery/#load-balancer-discovery) to help get you started. |
 
@@ -187,7 +187,7 @@ To view a video on creating an SNMP discovery job, click [here](https://device42
 
 Hypervisor discovery jobs discover the Virtual Systems on the Hypervisor Platform, including ESX and ESXi, Citrix XenServer, HyperV, oVirt, Redhat, KVM/libvirt, OpenVZ, AIX HMC, Nutanix Prism, Nutanix Prism Central, Docker, and LXC.
 
-Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery/) for a full list of supported Platforms.
+Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery.mdx) for a full list of supported Platforms.
 
 **Port and Credential Requirements**
 
@@ -210,7 +210,7 @@ To create and run a Hypervisor discovery job, perform the following steps:
 10. Click the **Save** button.
 11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
 
-Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery/) for more detail regarding Hypervisor Autodiscovery. This should be your first place to look when troubleshooting Hypervisor discovery job issues.
+Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discovery.mdx) for more detail regarding Hypervisor Autodiscovery. This should be your first place to look when troubleshooting Hypervisor discovery job issues.
 
 :::tip
 To view a video that discusses Best Practices for Hypervisor discovery jobs, click [here](https://device42.wistia.com/medias/m4m5pvper8).
@@ -285,7 +285,7 @@ Linux and Unix discovery jobs provide an accurate inventory of the Linux and Uni
 
 **Credentials:** Several of the commands that are run invoke `sudo` for escalated privileges. This is avoided when possible, but is sometimes necessary to determine certain information for a comprehensive discovery.
 
-Click [here](/auto-discovery/linux-unix-server-auto-discovery/) for more detail regarding Linux and Unix Autodiscovery. This should be your first place to look when troubleshooting Linux and Unix discovery job issues.
+Click [here](/auto-discovery/linux-unix-server-auto-discovery.mdx) for more detail regarding Linux and Unix Autodiscovery. This should be your first place to look when troubleshooting Linux and Unix discovery job issues.
 
 **Steps to Create and Run a Linux or \*nix Discovery Job**
 
