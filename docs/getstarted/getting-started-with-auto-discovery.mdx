@@ -69,11 +69,9 @@ Below is a list of basic discovery job best practices. While [this list](/auto-d
 
 7. Regularly view the **Scheduled Job Distribution Status** report to ensure your jobs are not overloaded (**Insights+ > System Administration > Scheduled Job Distribution Status**).
 
-## Discover Tasks
+## Task 1: Prepare for Discovery Jobs
 
-### Task 1: Prepare for Discovery Jobs
-
-#### 1.1 Collect and Store Discovery Credentials
+### 1.1 Collect and Store Discovery Credentials
 
 Credentials ([Secrets](/administration/passwords/password-security-and-permissions.mdx)) are frequently required when performing agentless Discovery; you specify them when creating discovery jobs. It is important to store the correct credentials in Device42 so you can reference them for jobs that require them. 
 
@@ -86,7 +84,7 @@ Here are some examples of credentials required for common discovery jobs:
 
 Secrets are centrally stored in **Resources > Secrets > All Secrets**; note they are only visible to the user who created them but can be shared.
 
-#### 1.2 Create Subnets
+### 1.2 Create Subnets
 
 Adding subnets helps you define the network scope as you discover your network(s) and also reduces the number of `undefined 0.0.0.0` network types.
 
@@ -120,13 +118,13 @@ If subnets have been predefined, all discovered IP addresses will be placed in t
 
 Click [here](/infrastructure-management/ipam/subnets.mdx) for more information about subnets, including detailed instructions for adding or editing a subnet.
 
-#### 1.3 Configure Ports to Discovery Targets
+### 1.3 Configure Ports to Discovery Targets
 
 It is critical that the ports used to access the targets are open in advance of running discovery jobs. Click [here](/getstarted/deploy-device42/discovery-port-configurations.mdx) for a list of all ports that may be used to access targets for discovery, along with their directionality.
 
-### Task 2: Create and Run Discovery Jobs
+## Task 2: Create and Run Discovery Jobs
 
-#### Discovery Job Order
+### Discovery Job Order
 
 Device42 strongly recommends you run your first discovery jobs in the order listed below; you will achieve the best results and it will minimize future reconciliation work. You can skip any jobs that are not applicable to your organization.
 
@@ -142,7 +140,7 @@ Device42 strongly recommends you run your first discovery jobs in the order list
 | 8 | Warranty Sync | Syncs with vendors like Dell, IBM, Lenovo, and Meraki to pull in warranty information for discovered devices using their service tags and serial numbers. This helps in tracking device warranties and managing end-of-life replacements. Use [this document](/auto-discovery/warranty-autodiscovery.mdx) to help get you started. |
 | 9 | UCS/Load Balancer | Discovers Cisco Unified Computing System (UCS) and Application Centric Infrastructure (ACI) environments, as well as load balancers like F5. It collects detailed configuration and performance data. Use [this document](/auto-discovery/load-balancer-f5-autodiscovery/#load-balancer-discovery) to help get you started. |
 
-#### 2.1 Create SNMP Discovery Jobs
+### 2.1 Create SNMP Discovery Jobs
 
 SNMP discovery jobs capture network equipment data per unique IP Address, CIDR block, or IP Range responding to SNMP get requests on Port 161.
 
@@ -183,7 +181,7 @@ Click [here](/auto-discovery/network-auto-discovery.mdx) for more detail regardi
 To view a video on creating an SNMP discovery job, click [here](https://device42.wistia.com/medias/z6ax2z6hwm).
 :::
 
-#### 2.2 Create Hypervisor Discovery Jobs
+### 2.2 Create Hypervisor Discovery Jobs
 
 Hypervisor discovery jobs discover the Virtual Systems on the Hypervisor Platform, including ESX and ESXi, Citrix XenServer, HyperV, oVirt, Redhat, KVM/libvirt, OpenVZ, AIX HMC, Nutanix Prism, Nutanix Prism Central, Docker, and LXC.
 
@@ -216,7 +214,7 @@ Click [here](/auto-discovery/hypervisors-and-containers-supported-in-auto-discov
 To view a video that discusses Best Practices for Hypervisor discovery jobs, click [here](https://device42.wistia.com/medias/m4m5pvper8).
 :::
 
-#### 2.3 Create Windows Discovery Jobs
+### 2.3 Create Windows Discovery Jobs
 
 Windows discovery jobs provide an accurate inventory of the Windows devices on your target network.
 
@@ -275,7 +273,7 @@ To view a video on creating a Windows discovery job, click [here](https://device
 To view a video on troubleshooting common Windows discovery job issues, click [here](https://device42.wistia.com/medias/olx0ryzrf2).
 :::
 
-#### 2.4 Create Linux and Unix Discovery Jobs
+### 2.4 Create Linux and Unix Discovery Jobs
 
 Linux and Unix discovery jobs provide an accurate inventory of the Linux and Unix devices on your target network and discover your \*nix physical and virtual infrastructure.
 
@@ -308,7 +306,7 @@ To create and run a Linux or \*nix discovery job, perform the following steps:
 To view a video on creating a Linux discovery job, click [here](https://device42.wistia.com/medias/rfsh34oii8).
 :::
 
-#### 2.5 Create Cloud Discovery Jobs
+### 2.5 Create Cloud Discovery Jobs
 
 Cloud discovery jobs discover your infrastructure in AWS, Azure, Google Cloud, and other cloud providers and inventory your cloud infrastructure from available cloud solutions: AWS, Azure, GCP, Alibaba Cloud, Amazon API, Digital Ocean, Intune, Linode, Open stack, Oracle Cloud and Standalone Kubernetes.
 
@@ -350,7 +348,7 @@ To create and run a Cloud discovery job, perform the following steps:
 10. Click the **Save** button.
 11. Click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
 
-#### 2.6 Create Storage Array Discovery Jobs
+### 2.6 Create Storage Array Discovery Jobs
 
 Storage Array discovery jobs identify and return Storage Array resource details, related resources, and topology maps for a wide range of storage platforms.
 
@@ -377,7 +375,7 @@ To create and run a Storage Arrays discovery job, perform the following steps:
 
 Click [here](/auto-discovery/storage-arrays-autodiscovery/storage-arrays.mdx) to view more information about Storage Arrays, including viewing and editing storage arrays, viewing arrays mapped to devices, viewing storage resource maps and trend graphs, and importing and exporting Storage Array discovery jobs.
 
-#### 2.7 Create Certificates Discovery Jobs
+### 2.7 Create Certificates Discovery Jobs
 
 Certificates discovery jobs provide detailed information on https SSL certificates, including expiration dates, which is helpful for business continuity.
 
@@ -401,7 +399,7 @@ Click [here](/infrastructure-management/certificate-management.mdx) for informat
 To view a video on viewing the results from Certificates discovery jobs, click [here](https://device42.wistia.com/medias/3fbivne7bp).
 :::
 
-#### 2.8 Create Warranty Discovery Jobs
+### 2.8 Create Warranty Discovery Jobs
 
 Warranty discovery jobs enable you to discover and document your hardware warranties. Device42 currently supports warranty autodiscovery for the following vendors: Dell, IBM, Lenovo, Meraki, and Cisco (Preview).
 
@@ -440,7 +438,7 @@ To create and run a Warranty discovery Job, perform the following steps:
 
 Click [here](/auto-discovery/warranty-autodiscovery.mdx) for more detail regarding Warranty Autodiscovery, including API Key details, configuration information, and prerequisites. It also includes information to configure the warranty script, as well as documenting the secure communication details between the Device42 UI and warranty script to the hardware vendor, and other information. This should be your first place to look when troubleshooting Warranty discovery job issues.
 
-#### 2.9 Create UCS/Load Balancer Discovery Jobs
+### 2.9 Create UCS/Load Balancer Discovery Jobs
 
 UCS/Load Balancer discovery jobs map out virtual servers, pools, and their relationships to backend devices. Once you have run SNMP and Windows/*nix discovery jobs, you can create UCS/Load Balancer jobs to collect connectivity and dependency data.
 
@@ -454,14 +452,14 @@ Note that F5 devices do not support username and password authentication for acc
 
 Given the variety of Discovery platforms, we recommend you click [here](/auto-discovery/load-balancer-f5-autodiscovery.mdx) to follow the steps to create these jobs. This page also includes prerequisites and discovery options. To run the created job, click the checkbox next to the discovery job(s) and choose **Actions > Run Selected Jobs**.
 
-### Task 3: Verify Discovery Jobs
+## Task 3: Verify Discovery Jobs
 
 There are a variety of ways for you to evaluate the success of a discovery job. These include:
 - **Discovery Job Results Status:** Provides a status of the overall job, displaying successes, failures, warnings, and other results.
 - **Discovery Scores:** Provides a score for one or all discovery jobs.
 - **Discovery Target Details:** Provides discovery results and scores for individual targets (e.g. server).
 
-#### 3.1 Discovery Job Results
+### 3.1 Discovery Job Results
 
 After running a discovery job you will be presented with the Job Status. 
 
@@ -478,7 +476,7 @@ It will include:
 - You can click the **Show** link next to the **Job Run Report** to see the Job Report Log.
 - You can see the **Discover Breakdown** (e.g. Port Check Failed, Auth Failed, and so on) and click the quantity value for these to link to the Discovery Scores for these items. From here you can link to the Discovery Target Details for each discovered item.
 
-#### 3.2 Discovery Scores
+### 3.2 Discovery Scores
 
 The Discovery Scores page enables you to view the success of your discovery jobs on a granular level. It provides an overall view of discovery success, discovery scores, and discovery queues. You can see each discovered device, the target IP it was discovered from (which is also a link to that job's page), the job name, cumulative score, and more.
 
@@ -503,7 +501,7 @@ To access Discovery Scores, perform the following steps:
 
 Click [here](/reports/reports/discovery-quality-scores.mdx) for more information about Discovery Scores.
 
-#### 3.3 Discovery Target Details
+### 3.3 Discovery Target Details
 
 Discovery Target Details provide discovery information for a single Discovery target (e.g. an IP Address) within a specific discovery job (e.g. a specific Cloud discovery job). You can access Discovery Target Details by clicking on a Discovery Target within Discovery Scores.
 
@@ -526,9 +524,9 @@ sources={{
 - The **Details** section provides the Discovery Target, Job Name, Discovery Status (e.g. Port Check, Auth, etc.), and other information.
 - You can click the **Show** link next to **Advanced Status**, **Detailed Discovery Scores**, and **Detailed Queue Scores** sections for additional details.
 
-### Task 4: Schedule Discovery Jobs
+## Task 4: Schedule Discovery Jobs
 
-#### 4.1 Scheduling a Discovery Job
+### 4.1 Scheduling a Discovery Job
 
 Once a discovery job has been run and validated, it can be scheduled to automatically run. In the **Autodiscovery Schedule** section of each job, you can set as many different autodiscovery schedules as required to cover your environment. You can choose specific times and days of the week to run the autodiscovery job.
 
