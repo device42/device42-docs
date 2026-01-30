@@ -6,11 +6,11 @@ sidebar_position: 15.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 supports [Jamf](https://www.jamf.com/) autodiscovery. Run a Jamf cloud autodiscovery job to bring in your Apple ecosystem data.
+This page is for Device42 administrators who need to discover Apple devices managed by [Jamf](https://www.jamf.com/). Learn how to configure Jamf cloud discovery jobs, set up the required permissions, and collect data from your Jamf environment.
 
-## Jamf Autodiscovery Items
+## Jamf Discovery Items
 
-Currently, Jamf autodiscovery retrieves data on the following:
+Jamf discovery retrieves data on the following:
 
 - Computers
 - Mobile devices
@@ -18,17 +18,17 @@ Currently, Jamf autodiscovery retrieves data on the following:
 - Installed software and applications
 - Extension attributes (Custom Fields)
 
-You can view the discovered software under the **Software In Use** tab on the details page of any of the discovered mobile devices.
+You can view the discovered software under the **Software In Use** tab on the details page of any discovered mobile device.
 
 ![Jamf mobile autodiscovery items](/assets/images/jamf-autodiscovery/jamf-mobile-discovery-sw.png)
 
-## Requirements for Jamf autodiscovery
+## Requirements for Jamf Discovery
 
-To run a Jamf autodiscovery job, you need to set the appropriate permissions in your Jamf account and provide your Jamf username and password when creating the job.
+To run a Jamf discovery job, you need to set the appropriate permissions in your Jamf account and provide your Jamf username and password when creating the job.
 
 ### Permission Requirements
 
-A standard Jamf user account with read-all permissions is required for autodiscovery. The easiest way to grant read-all permissions is to create a standard user account with the **Auditor** privilege set. 
+A standard Jamf user account with read-all permissions is required for discovery. The easiest way to grant read-all permissions is to create a standard user account with the **Auditor** privilege set. 
 
 Alternatively, you can use a **Custom** privilege set with all-read permissions enabled. 
 
@@ -36,11 +36,11 @@ For information on standard accounts and privilege sets, see the [Jamf Pro User 
 
 ### Authentication Requirements 
 
-Your Jamf account username and password are required in the **Basic credentials** field of the **Add Cloud Autodiscovery** form.  
+Your Jamf account username and password are required in the **Basic credentials** field of the **Add Cloud Discovery** form.  
 
 Your username and password are used to request a bearer token. Bearer token authentication is then used for subsequent requests.
 
-## Create a Jamf Autodiscovery Job
+## Create a Jamf Discovery Job
 
 Navigate to **Discovery > Cloud** and click **Create**.
 
@@ -56,7 +56,7 @@ Navigate to **Discovery > Cloud** and click **Create**.
   }}
 />
 
-- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and select an **Object Category for the discovered devices** to be assigned to.
+- Enter your **Basic credentials** for the Jamf account. You can optionally add a **Service Level** and select an **Object Category for the discovered devices**.
 - **Add device vendor metadata as** either **Tags** or **Custom Fields**, or leave it set as the default option, **Do Nothing**.
 
   <ThemedImage
@@ -81,7 +81,7 @@ Navigate to **Discovery > Cloud** and click **Create**.
 
 ### Schedule the Job
 
-Scroll down to create a run schedule for the job. Create multiple schedules for the job with the **+ Add another Autodiscovery Schedule** button.
+Scroll down to create a run schedule for the job. You can create multiple schedules with the **+ Add another Autodiscovery Schedule** button.
 
 <ThemedImage
   alt="Create a discovery schedule"
@@ -93,7 +93,7 @@ Scroll down to create a run schedule for the job. Create multiple schedules for 
 
 ### Run the Job Now
 
-After saving the job, the details view page is displayed. Here, you have the option to run the job immediately using the **Run Now** button.
+After saving the job, the details view page is displayed. You can run the job immediately using the **Run Now** button.
 
 <ThemedImage
   alt="Run Now button on job view"
