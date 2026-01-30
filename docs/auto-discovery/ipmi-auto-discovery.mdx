@@ -24,29 +24,30 @@ Navigate to **Discovery > IPMI / Redfish** and click **Create** to create the IP
 
 Fill in the job details:
 
-- **Job Name:** Enter a unique name for the job. 
+- **Job Name:** Enter a unique name for the job.
 - **Server(s):** Input the IP address range against which you want to run the job. 
 - **Exclude Server(s):** Add any servers that you want to exclude from discovery.
 - **Discovery Type:** Choose between **IPMI** and **Redfish**.
-  
-  <ThemedImage
+
+
+<ThemedImage
   alt="Select Discovery Type"
   sources={{
       light: useBaseUrl('/assets/images/ipmi-auto-discovery/discovery-type-light.png'),
       dark: useBaseUrl('/assets/images/ipmi-auto-discovery/discovery-type-dark.png'),
   }}
   style={{ width: '70%' }} 
-  />
-  
+/>
+
 - **Discovery Target(s) Credential(s):** Add credentials to connect to the IPMI board.
   
-  <ThemedImage
+<ThemedImage
   alt="Add credentials"
   sources={{
       light: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-19.06-light.png'),
       dark: useBaseUrl('/assets/images/ipmi-auto-discovery/target-credentials-19.06-dark.png'),
   }}
-  />
+/>
 
 
 ### Hostname to Use and Other Options
@@ -60,36 +61,36 @@ Select one of the **Hostname to use** options:
 - **Discovered Name / Serial # / Reverse DNS / IP**: If the discovered name from IPMI is found, it is used to name the device. If no discovered name is found, the naming order is the same as above.
 - **Reverse DNS / Discovered Name / Serial # / IP**: If the reverse DNS name is found, it is used as the device name. Otherwise, the discovered name is used. If neither the reverse DNS name nor the discovered name is found, the serial number is used to name the device. If neither those names nor the serial number is found, the IP address is used as the device name.
   
-  <ThemedImage
-    alt="Hostname to use options"
-    sources={{
-      light: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-light.png'),
-      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Hostname to use options"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/hostname-19.06-dark.png'),
+  }}
+/>
 
 - **Add hardware model, if found:** Select this option to add the hardware model discovered via the naming method. Note that the naming method is ignored for existing devices with hardware models.
 - **Debug Level:** Select **Debug On** to generate a debug log that can be sent to support via log bundle.
 - Deselect **Run as Operator** to allow discovery to run as an administrator on the IPMI device. By default, IPMI discovery is run as an operator rather than an administrator, which may result in some details not being discovered. 
 
-  <ThemedImage
-    alt="Run as operator option"
-    sources={{
-      light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-light.png'),
-      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-dark.png'),
-    }}
-    style={{ width: '70%' }} 
-  />
+<ThemedImage
+  alt="Run as operator option"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/run-as-operator-19.06-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
 
 - **Serial to use:** Choose between **Product Serial**, **Board Serial**, and **Service Tag**.
 
-  <ThemedImage
-    alt="serial to use option"
-    sources={{
-      light: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-light.png'),
-      dark: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="serial to use option"
+  sources={{
+    light: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-light.png'),
+    dark: useBaseUrl('/assets/images/ipmi-auto-discovery/serial-to-use-dark.png'),
+  }}
+/>
 
 ## Ensure IPMI Over LAN Is Enabled
 
