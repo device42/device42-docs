@@ -6,14 +6,18 @@ sidebar_position: 7
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+This page is for Device42 administrators setting up SNMP autodiscovery jobs to collect blade chassis and server information.
+
 The Blade Systems autodiscovery method discovers HP and IBM blade systems, including the IBM BladeCenter. Cisco UCS is also supported, but in a separate menu entry. 
 
-If you would like to see other vendors, please email [support@device42.comt](mailto:support@device42.com).
+If you would like to see other vendors, please email [support@device42.com](mailto:support@device42.com).
+
+## Discovered Blade Server Details
 
 Blade server discovery gets the following information:
 
-- Enclosure or chassis: Name, Hardware Make and Model, Serial Number(s), MAC Address(es), IP Address(es), and Interface Name.
-- Blade: Name, location within the chassis, Hardware Make and Model, Serial Number(s).
+- **Enclosure or chassis details**: Name, Hardware Make and Model, Serial Number(s), MAC Address(es), IP Address(es), and Interface Name.
+- **Blade details**: Name, location within the chassis, Hardware Make and Model, Serial Number(s).
 
 ## Add a Blade System Autodiscovery Job
 
@@ -30,10 +34,10 @@ Navigate to **Discovery > SNMP** and click the **Create** button.
 Fill in the basic job details:
 
 1. **Server(s):** Add the server, or range of servers to target.
-2. **Port:** The default is "161".
-3. **Give Precedence to hostname:** to overwrite the existing name, if one exists.
+2. **Port:** The default is `161`.
+3. **Give Precedence to hostname:** Overwrite the existing name, if one exists.
 4. **Strip domain name:** Strip domain suffix from discovered device name.
-5. Scroll down to **Credential(s)**, select the **SNMP version** (v1, v2c, v3 ), and add the authentication details.
+5. Scroll down to **Credential(s)**, select the **SNMP version** (v1, v2c, v3), and add the authentication details.
 
 <ThemedImage
   alt="Blade system discovery job example"
@@ -65,11 +69,11 @@ Scroll down to the **Enclosure/blade system options** section and click **Show**
    - Change Service Level
    - Delete Module
    - Do Nothing
-4. Select a **Service Level for Module not found** from the dropdown or add a new one using the add button
+4. Select a **Service Level for Module not found** from the dropdown or add a new one using the add button.
 
 **Save** the blade autodiscovery job.
 
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large number of jobs from initially running. If you would like to run a job after its initial creation, click the **Run Now** button on the job details page or on the SNMP Autodiscovery list page.
+Device42 does not automatically run newly created jobs on the first day to prevent running an unintentionally large number of jobs at once. If you would like to run a job after its initial creation, click the **Run Now** button on the job details page or on the SNMP Autodiscovery list page.
 
 <ThemedImage
   alt="Run the blade system job from the list page"
