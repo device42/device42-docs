@@ -16,7 +16,7 @@ Add AD/LDAP users as regular end users or administrators. Schedule regular syncs
 Changes to user accounts made in Device42 will not be sent to AD/LDAP. The sync is one-way from AD/LDAP to Device42.
 :::
 
-## Prerequisites - The Settings Config
+## Configure Active Directory Settings
 
 Before you create and run your AD/LDAP discovery jobs, configure the **Active Directory Settings** in Device42. These settings control authentication to AD, the servers to authenticate against, base DNs, and how to add discovered users to Device42. 
 
@@ -32,7 +32,9 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
 
 2. Click the **Create** button and enter values specific to your Active Directory (or LDAP) domain.
 
-### Field Descriptions
+### Configuration Options
+
+Configure the following settings to connect Device42 to your AD or LDAP server.
 
 - **LDAP Type**: Choose either **Active Directory** or **OpenLDAP** for Lightweight directory access protocol for non-Microsoft directory servers.
 - **Server**: Enter the AD or LDAP server IP address. You can use the fully qualified domain name (FQDN) if your DNS can resolve it. Use an IP address if your Device42 server doesn't use AD-aware DNS servers, as the FQDN may not resolve correctly.
