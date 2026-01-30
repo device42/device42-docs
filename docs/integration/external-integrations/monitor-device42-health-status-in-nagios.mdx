@@ -10,7 +10,7 @@ Device42 offers a [Nagios plugin for Device42](https://github.com/device42/Devic
 - Memory usage
 - CPU usage
 
-## Installing the Nagios add-on
+## Install the Nagios Add-On
 
 Prior to installing the plugin, there are a couple prerequisites we should make sure are installed.
 
@@ -59,7 +59,7 @@ define host{
   address               192.168.11.211
 ```
 
-### Using SSL with the integration
+### Use SSL with the Integration
 
 To enable checking over SSL, in the Health Check Command section of d42.cfg, add the port number with the -P option and --ssl to enable ssl, e.g:
 
@@ -67,7 +67,7 @@ To enable checking over SSL, in the Health Check Command section of d42.cfg, add
 command_line    /usr/bin/perl $USER1$/check_d42_health.pl -H $HOSTADDRESS$ -I $ARG1$ -w $ARG2$ -c $ARG3$ -P 4343 --ssl
 ```
 
-## Adding Device42 to Nagios
+## Add Device42 to Nagios
 
 With the scripts in place and configured, the last step is to edit your nagios.cfg file and add a line to add the Device42 configuration:
 
@@ -85,7 +85,7 @@ service nagios restart
 
 Now when you browse to Nagios, you should see your Device42 instance start to report information:
 
-## Viewing Device42's Health Status in Nagios
+## View Device42's Health Status in Nagios
 
 When you select the Device42 host from Nagios, you will now be able to see the appliance's current status via the various health checks:
 

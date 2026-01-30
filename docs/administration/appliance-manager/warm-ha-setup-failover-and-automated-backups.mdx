@@ -52,7 +52,7 @@ A backup file without metadata can still be used for an on-demand **Restore**.
 
 Refer to the Device42 docs to find additional details about [backup metadata](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx#backing-up-metadata) and [scheduling the backup](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx#scheduling-the-backup).
 
-## Setting Appliance Mode via API
+## Set Appliance Mode via API
 
 With automated restores in place on your backup appliance, you're ready to set the backup appliance to production mode in the event of a device failure. You can send a POST call to `/api/1.0/appliancemode/` with the payload `appliance_mode=production` or `appliance_mode=standby` to set the appliance to production or standby mode. This is intended to be triggered from the monitoring software of your choice (see the example below). After switching, a simple update to the DNS settings to point your domain to the new production instance IP will facilitate continuous use of Device42 without downtime.
 

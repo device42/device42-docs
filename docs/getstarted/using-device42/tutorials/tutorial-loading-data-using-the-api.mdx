@@ -10,7 +10,7 @@ This tutorial demonstrates how to load sample data into the Device42 Main Applia
 
 To run the script, you need a \*nix system with curl, a data transfer tool built into Linux and Ubuntu.
 
-## Running the API Script
+## Run the API Script
 
 1. Download the API script from the Device42 [automation scripts page](https://github.com/device42/demo-data-shell-scripts/blob/master/demo_script.sh) on GitHub. 
 
@@ -49,7 +49,7 @@ You can view data added for an object category by navigating to the relevant lis
   }}
 />
 
-### Understanding the API Script
+### Understand the API Script
 
 Now, let's look at one of the curl statements you just executed. If you are sure that you will never use curl and the Device42 API, you can safely skip this section.
 
@@ -94,7 +94,7 @@ The documentation for the above API command tells you that the `-X` value should
 
 ![API docs buildings](/assets/images//tutorial-loading-data-using-the-api/api-docs-buildings.png)
 
-### Finding Unique IDs
+### Find Unique IDs
 
 Some API parameters use the unique IDs of other Configuration Items (CIs). For example, if you create a rack and want to specify the room where the rack is stored, you can find the unique ID for that room. This is especially useful if you have multiple rooms with the same name and want to specify one of them.
 

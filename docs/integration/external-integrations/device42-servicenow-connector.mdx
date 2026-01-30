@@ -79,7 +79,7 @@ The plugin supports the three most recent releases of ServiceNow.
 
     ![The JS script in ServiceNow](/assets/images/device42-servicenow-connector/the-script.png)
 
-## Managing ServiceNow Data Sources
+## Manage ServiceNow Data Sources
 
 Each ServiceNow data source points to one data source endpoint. You need to create a separate data source for each endpoint. If you want to add multiple endpoints, you must create a separate data source for each one.
 
@@ -242,7 +242,7 @@ Add Device42 as the data source choice list record (New York and Orlando+).
 
 If you have completed these steps, continue with the rest of the configuration.
 
-### Device42 Main Appliance Configuration 
+### Main Appliance Configuration 
 
 1. Ensure that the **External Integration Settings** section of your **Cloud Services Configuration** is correctly set. Head to the Device42 main menu, under **Tools > Cloud Services**, and enter your Device42 instance's URL or IP address in the **D42 URL for SaaS apps** field (for example, `https://myd42url.com`). Fill in your company name and email address. If you aren't based in the USA, you can change to the optional Europe-based Cloud Connector in the same section:
 
@@ -336,7 +336,7 @@ A quick overview of the Device42-ServiceNow connector, screenshots, and links to
 
 If you have any questions that weren't covered here, feel free to reach out to [support@device42.com](mailto:support@device42.com).
 
-### Increasing the Field Size for Imported Device42 Data
+### Increase the Field Size for Imported Device42 Data
 
 If data coming in from Device42 is being truncated, follow the steps below in ServiceNow to increase the column length limit. These steps are to be done at the discretion of the user. Please be aware that making changes to the `sys_properties` table will affect all applications and cause the field lengths for all import sets to automatically increase in size if the data being imported is greater than the default character limit.
 
@@ -359,7 +359,7 @@ To have the import set table column size automatically based on the size of the 
 
 The data should now appear in ServiceNow without truncation.
 
-## Updating the Integration
+## Update the Integration
 
 If you updated the ServiceNow app from version 4.0.0 or older, you should run a script to delete old software instance records that were created by the app and are no longer needed. The `cmdb_software_instance` records that should be deleted will have a name that has the format `software_name_instance`. To delete these records, follow the steps below.
 
@@ -393,7 +393,7 @@ If you updated the ServiceNow app from version 4.0.0 or older, you should run a 
     
 	![](/assets/images/Web-780_running-script-last-pic.png)
 
-## Adding the Relationship
+## Add the Relationship
 
 Check if the relationship exists and if it does not add it.
 

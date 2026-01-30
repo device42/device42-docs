@@ -9,7 +9,7 @@ Device42 supports role-based access control, which is useful in several cases. A
 
 Or you as a service provider might allocate subnets or racks to customers. The role-based access feature enables you to restrict customer access to specific subnets and racks.
 
-## Setting Up Role-Based Access
+## Set Up Role-Based Access
 
 To set up role-based access in Device42, navigate to **Tools > Settings > Global Settings**, and click **Edit** at the top right of the page.
 
@@ -30,7 +30,7 @@ See the [Orphaned Objects](#orphaned-objects) section for details about the thre
 
 Click **Save** at the bottom of the Global Settings page to save your selections.
 
-## Viewing Role-Based Access Permissions
+## View Role-Based Access Permissions
 
 When role-based access is enabled, you'll see the view-only **Group Permissions** field on the details page for each object:
 
@@ -47,7 +47,7 @@ The **Group Permissions** field tells you which groups are assigned to this devi
 - Groups assigned via buildings, rooms, or racks containing the device
 - VMs and blade chassis containing the device
 
-## Defining Admin Groups
+## Define Admin Groups
 
 Navigate to the Admin Groups list page under **Tools > Admins & Permissions > Admin Groups** to view, edit, and create new admin groups.
 
@@ -94,7 +94,7 @@ The **Do Not Propagate** option can be set on buildings, rooms, and racks to sto
 
 In the above example, devices, assets, and PDUs in rack NH-CT-88 will be visible to anyone with permission to see the rack. This is useful for a co-location operator who wants to split a rack among different customers. In the rack layout view, a customer with permission to see specific racks and their devices, but not others, will see a grayed-out rack with no information about the devices, assets, and PDUs they are not authorized to view.
 
-## Functional vs. Object Permissions
+## Functional Vs. Object Permissions
 
 If role-based access is turned off, admin groups are granted 'functional permissions' that define the menu items that can be seen by users assigned to a group.
 
@@ -150,7 +150,7 @@ Subnet Categories work on subnets exactly like Object Categories work on devices
 
 As with Object Categories, it's not necessary to assign a subnet category to every subnet. If a group is assigned to a VRF Group, then every subnet in that VRF Group will inherit the permissions of the VRF Group. Also, if a subnet is assigned a subnet category, then every child subnet of that subnet will also have the permissions granted by the subnet category.
 
-## Assigning Object Permissions to Admin Groups
+## Assign Object Permissions to Admin Groups
 
 You can assign admin groups to objects from the list view of the object type or the edit page of a specific object. You can also assign admin groups to discovered objects.
 
@@ -209,7 +209,7 @@ Superusers are allowed to add, change, and delete groups for objects through the
 When you turn on role-based access, you will need to go to each admin group and check if they have the object permissions you want. If you give a group add, change, or delete permission, then all users assigned to that group (including non-superusers) will have the ability to add, change, or delete object permissions through the UI, imports, and APIs.
 
 
-## Objects that Do Not Have Explicit Permissions
+## Objects That Do Not Have Explicit Permissions
 
 Certain objects are subject to permissions even though admin groups are not directly granted these permissions.
 
