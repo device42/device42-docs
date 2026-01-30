@@ -48,7 +48,7 @@ Configure the following settings to connect Device42 to your AD or LDAP server.
   }}
   />  
 
-- **Port**: Port for auth requests to your LDAP or Active Directory server. Note that `389` is the non-SSL default and `636` is the default SSL port. Ensure you change the port if you decide to enable SSL or run a non-standard port.
+- **Port**: Port for authentication requests to your LDAP or Active Directory server. Note that `389` is the non-SSL default and `636` is the default SSL port. Ensure you change the port if you decide to enable SSL or run a non-standard port.
 - **Base**: Enter the Base DN that points to your users.
 
   <ThemedImage
@@ -67,7 +67,7 @@ Configure the following settings to connect Device42 to your AD or LDAP server.
     Changes to the **Username login style** setting only affect users imported after the change. To change the account and login format for all users, delete the existing Device42 accounts, change the login style setting, and then re-sync the accounts from AD.
     :::
 
-- **NetBIOS name**: NetBIOS name is an up-to-15-character representation of your domain name, and may actually be entirely different from the domain name. Visit the [Microsoft Disjoint namespace scenarios](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help) article for help locating domain NetBIOS names.
+- **NetBIOS name**: NetBIOS name is an up-to-15-character representation of your domain name, and may be entirely different from the domain name. Visit the [Microsoft Disjoint namespace scenarios](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help) article for help locating domain NetBIOS names.
 
   <ThemedImage
   alt="Active Directory Settings example values"
@@ -149,7 +149,7 @@ Now, disabled accounts will be ignored when Active Directory accounts are synced
 
 ### Select Config Settings and Add Credentials
 
-Next, choose the settings configuration you created in the [Prerequisites section](#prerequisites---the-settings-config) and provide the AD/LDAP **Username** and **Password** to use for authentication.
+Next, choose the settings configuration you created in the [Prerequisites section](#configure-active-directory-settings) and provide the AD/LDAP **Username** and **Password** to use for authentication.
 
 <ThemedImage
   alt="Settings and credential fields"
