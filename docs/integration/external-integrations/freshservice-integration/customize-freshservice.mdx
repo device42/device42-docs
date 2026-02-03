@@ -42,33 +42,30 @@ To get started, download the default mapping XML file and view the current mappi
 
 ## The `mapping.xml` File Structure
 
-Open the `mapping.xml` file in a text or code editor to view and edit the data mapping. Version 1.0 of the file has around 6010 lines. There are tasks for syncing data, tasks for syncing the relationships between Device42 CI types (by recreating them between the corresponding Freshservice types), and two cleanup tasks for deleting any assets or asset relationships from Freshservice that do not exist in Device42.
+Open the `mapping.xml` file in a text or code editor to view and edit the data mapping; there are tasks for syncing data, tasks for syncing the relationships between Device42 CI types (by recreating them between the corresponding Freshservice types), and cleanup tasks for deleting any assets or asset relationships from Freshservice that do not exist in Device42.
 
-    ![mapping.xml in VS Code](/assets/images/freshservice-integration/mapping-v1-annotated.png)
+    ![mapping.xml in VS Code](/assets/images/freshservice-integration/mapping-v5-annotated.png)
 
  You can customize the data mapping between Device42 and Freshservice by modifying and adding to these tasks. Refer to [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) table below for descriptions of the default mapping tasks, types, and their version requirements. 
 
-For example, the following `<task>` element copies product information from Device42 to Freshservice:
+For example, the following `<task>` element copies software information from Device42 to Freshservice:
 
 <details>
   <summary>Click to expand the code block</summary>
     ```xml
     <tasks>
-        <task enable="true" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
+        <task enable="true" name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL">
             <api>
-                <target asset-type="Hardware"/>
+                <target/>
                 <resource
-                    doql="
-                    select distinct
-                        view_vendor_v1.name as manufacturer,
-                    <!-- ... -->
-                    "
+                    doql="select * from (select trim(name) as name, 'discovered' as software_type, min(view_software_v1.notes) as notes, 'desktop' as application_type, min(last_changed) as last_changed from view_software_v1 group by trim(name)) a"
                 />
             </api>
-            <mapping key="name" doql-suffix=" where GREATEST(view_hardware_v2.last_changed, view_vendor_v1.last_changed, view_device_v2.last_changed) >'%s'">
-                <field resource="name" source-type="string" target="name" target-type="string" max-length="255" escape="true"/>
-                <field resource="manufacturer" source-type="string" target="manufacturer" target-type="string"
-                   not-null="true" set-space="true" min-length="1" max-length="255"/>
+            <mapping key="name" source="Softwares" doql-suffix=" where last_changed>'%s'">
+                <field resource="name" source-type="string" target="name" target-type="string" target-header="General" max-length="255" escape="true"/>
+                <field resource="notes" source-type="string" target="notes" target-type="string" target-header="General" max-length="2000"/>
+                <field resource="software_type" source-type="string" target="status" target-type="string" target-header="General"/>
+                <field resource="application_type" source-type="string" target="application_type" target-header="General"/>
             </mapping>
         </task>
     ```
@@ -433,12 +430,10 @@ If you can't find a task related to your custom field, you can create a new `<ta
 
 4. Now it's time to map the custom field to Freshservice. Add a new `<field>` element in the `<mapping>` tag section of the XML file. You'll need to keep Freshservice open and follow the next step to get the exact Freshservice values to use in the new `<field>` element below.
 
-   ![Add a new field element](/assets/images/freshservice-integration/custom-field-map-code.png)
-
     ```xml
     <!-- Custom Fields -->
     <field resource="cf_name" source-type="string" target="cf_name" target-type="string"
-    target-header="Server" not-null="true" set-space="true" min-length="1" max-length="255"/>
+    target-header="Server" min-length="1" max-length="255"/>
     <!-- Custom Fields -->
     ```
 
@@ -615,7 +610,7 @@ To download the full logs, scroll down and click the **Download Full Log** butto
 
 This section provides specific examples of how to edit the `mapping.xml` file to change the data synced from Device42 to Freshservice.
 
-The line estimates in the examples are based on the default version 1.0 of the `mapping.xml` file and won't match your file exactly if you've customized the sync or used an updated version.
+The line estimates in the examples are approximate and may vary based on your mapping file version.
 
 ### Example 1: How Can I Stop the Sync From Importing Contracts From Device42 to Freshservice?
 
@@ -624,7 +619,7 @@ The line estimates in the examples are based on the default version 1.0 of the `
 Set the `enable` attribute to `false` on those `<task>` elements:
 
 1. Find the task with the description `Copy contract info from Device42 to Freshservice` (around line `2372`):
-   
+
     ![Line 2372](/assets/images/freshservice-integration/example-vscode-4.png)
 
    Change `enable="true"` to `enable="false"`:
@@ -724,7 +719,7 @@ By default, Device42 does not update `asset_state` values in Freshservice (in De
 
 The mapping file includes `<field>` elements with `asset_state` as the target. The `skip-update` attribute is set to `"true"` to prevent the overwriting of values that may trigger Freshservice workflow automations. 
 
-If you want Device42 to update `asset_state` values, set `skip-update` to `"false"`. There are three `<field>` elements to update in version 2.0 of the default `mapping.xml` file:
+If you want Device42 to update `asset_state` values, set `skip-update` to `"false"`. There are three `<field>` elements to update in the default `mapping.xml` file:
 
 1. Find the attribute on line 493 (for DOQL v2).
 
