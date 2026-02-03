@@ -17,6 +17,7 @@
 *.swp
 .vscode/
 CLAUDE.md
+/scripts
 
 npm-debug.log*
 yarn-debug.log*
