@@ -12,8 +12,6 @@ Device42 offers optional auto-discovery agents across several [supported platfor
 
 Use agentless discovery over agent-based discovery when possible. Both methods gather the same information, but the agent does not support Resource Utilization (RU) or database discovery. 
 
-Device information discovered by the agent is only updated when the agent checks in.
-
 To learn about using the agent for **offline** discovery, see [Agent-Based Offline Discovery](agent-based-offline-discovery.mdx).
 
 ## Supported Platforms
@@ -368,3 +366,7 @@ You can use Agent Version and Agent Last Check-in Date to filter the devices lis
         dark: useBaseUrl('/assets/images/agent-based-discovery/advanced-search-dark.png'),
     }}
     />
+
+## Agent Update Behavior
+
+When a new version of the Main Appliance is installed, deployed agents automatically update to the latest version on check-in.
