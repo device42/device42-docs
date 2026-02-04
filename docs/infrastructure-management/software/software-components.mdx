@@ -153,9 +153,11 @@ For example, you could select several software components and choose to:
 - **Mark selected Software as Prohibited** and Device42 would send alerts whenever prohibited software was found on a user's machine (if the alert was configured).
 _ **Refresh/update Software counts** and the software counts (but not the autodiscovery job) would be run immediately.
 
-:::note
 The **Refresh/update Software counts** action is useful when you have changed the licensing or software count configuration and want to see the impact of the change immediately.
-:::
+
+### Update Ignored Software Discovery Count
+
+The Discovered Count field is automatically recalculated at a regular interval (configured in **Global Settings > Software Licensing**) for Managed, Unmanaged, and Prohibited software types – excluding Ignored software. Use the **Refresh/update Software counts** action to manually update counts for Ignored software.
 
 ### Assign Software to Suite
 
