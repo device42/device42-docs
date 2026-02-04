@@ -88,6 +88,7 @@ You can add a new template by clicking **Create** in the top right of the temp
 - Select the **Service Type** (Windows or \*Nix) to specify which platform Device42 autodiscovery searches for the service(s) that the Application Component will be based on.(required).
 - Select, enter, or add (using the **plus sign** icon) the **Associated Service** that autodiscovery will search for and use to create the Application Component (required).
 - Enter a port in the **Only services listening on this port** field to limit autodiscovery to only the services that are listening on your chosen port. Leave the field empty to ignore the port.
+- Select an **Associated Software Component** to limit Application Component creation to instances where the specified software is installed. This is useful when filtering by service alone is too broad, such as when an application uses a common service like Java.
 - For **Match Type**, select **Text** or **Regular Expression** to specify how you want to filter services:
   - You can enter a **Text** string pattern that discovery will use to create more service-specific Application Components by only generating Application Components for services with Service Command Arguments that contain the string.
 
