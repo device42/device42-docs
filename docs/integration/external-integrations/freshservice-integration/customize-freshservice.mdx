@@ -83,7 +83,7 @@ Let's take a closer look at the attributes and elements of the `<task>` elements
 
     Note that if you turn off a task that has `asset` or `asset_relationship` as its corresponding Freshservice type (for example, devices, business services, and resources in Device42), you'll need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-prevent-a-relationship-between-two-device42-asset-types-from-syncing-to-freshservice).
 
-- `name`: You can edit the task name. Task names appear in the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
+- `name`: You can edit the task name. Task names appear in the integration app's **Data Mapping Chart**.
 - `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
 
   - `product`
@@ -119,7 +119,7 @@ The `<mapping>` element contains:
 Typically, the first `<field>` represents the Device42 data returned from the query put in a field. The second `<field>` element describes the equivalent field in Freshservice.
 
 - `resource`: The same as the `target` value.
-- `source-type`: Not functionally critical; this provides the data type displayed on the [integration app's **Data Mapping Chart**](#data-mapping-between-device42-and-freshservice).
+- `source-type`: Not functionally critical; this provides the data type displayed on the integration app's **Data Mapping Chart**.
 - `target`: The Device42 field to be mapped to Freshservice. The Freshservice convention is to use the display name in snake case, occasionally with the ID of the asset type as a suffix. For example, `memory_max_usage` and `memory_reservation_used`. The sync process determines the ID. Please look up which target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
 - `escape`: This is used on field elements where `target="name"`. Some characters used in Device42 names aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true`, but disable it if mismatching issues occur.
 
