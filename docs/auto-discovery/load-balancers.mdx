@@ -6,15 +6,17 @@ sidebar_position: 18
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Device42 Simple Network Management Protocol (SNMP) autodiscovery provides a new option for F5 load balancer discovery that returns discovered load balancers as both devices and managed resources. Discovering F5 load balancers as managed resources provides you with additional details about the load balancers and their related resources, including resource maps that visually represent the relationships between load balancers and resources, and simplifies the Application Groups chart view by placing the servers beneath a load balancer.
+This page is for Device42 administrators who need to view and work with discovered F5 load balancers. Learn how to access load balancer resources, view resource maps, and understand the simplified Application Groups chart view.
 
-The recommended best practice for Load balancer discovery is to first identify the devices using SNMP. This will identify the devices and associated resources. Next perform a Windows/*nix discovery of the back end resources to get more detailed inforamtion. Once you have the devices discovered you can then perform the API based "Load Balancer" discovery to link the devices correctly.
+Device42 SNMP discovery returns discovered load balancers as both devices and managed resources. Discovering F5 load balancers as managed resources provides additional details about the load balancers and their related resources, including resource maps that visually represent the relationships between load balancers and resources. This also simplifies the Application Groups chart view by placing the servers beneath a load balancer.
+
+The recommended best practice for load balancer discovery is to first identify the devices using SNMP. This identifies the devices and associated resources. Next, perform a Windows/*nix discovery of the backend resources to get more detailed information. Once the devices are discovered, perform the API-based load balancer discovery to link the devices correctly.
 
 ## Managed Resources Views
 
-Discovered F5 load balancers are included in the **Resources** list. Navigate to **Resources > All Resources** from the Device42 menu to display the list page. You can consult the Device42 [Managed Resources](resources/index.mdx) documentation for more information.
+Discovered F5 load balancers are included in the **Resources** list. Navigate to **Resources > All Resources** from the Device42 menu to display the list page. See the [Managed Resources](resources/index.mdx) documentation for more information.
 
-Click the **Vendor Resource Type** dropdown and check "F5" to filter the list for load balancer resources.
+Click the **Vendor Resource Type** dropdown and select **F5** to filter the list for load balancer resources.
 
 <ThemedImage
   alt="Resources list page"
@@ -24,7 +26,7 @@ Click the **Vendor Resource Type** dropdown and check "F5" to filter the list
   }}
 />
 
-Click on a load balancer and use the right-hand panel to navigate between sections of the load balancer's details.
+Click on a load balancer and use the right-hand panel to navigate between sections of the load balancer's details.
 
 <ThemedImage
   alt="View load balancer details"
@@ -34,9 +36,9 @@ Click on a load balancer and use the right-hand panel to navigate between secti
   }}
 />
 
-Click **Resource Map** on the top left of the load balancer details page to view the topography map for the resource. In the **Tools & Breakdown** section of the left-hand panel, you can view, add, highlight, and search items to include in the map according to their resource type.
+Click **Resource Map** on the top left of the load balancer details page to view the topography map for the resource. In the **Tools & Breakdown** section of the left-hand panel, you can view, add, highlight, and search items to include in the map according to their resource type.
 
-The image below shows an example resource map for clustered load balancers.
+The following image shows an example resource map for clustered load balancers.
 
 <ThemedImage
   alt="View resource map"
@@ -46,7 +48,7 @@ The image below shows an example resource map for clustered load balancers.
   }}
 />
 
-The chart views for Application Groups are now much simpler and easier to understand. Navigate to **Applications > Application Groups** from the Device42 main menu to display the **Application Groups** list page.
+The chart views for Application Groups are simpler and easier to understand. Navigate to **Applications > Application Groups** from the Device42 main menu to display the **Application Groups** list page.
 
 <ThemedImage
   alt="Application Groups list page"
