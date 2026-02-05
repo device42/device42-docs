@@ -6,9 +6,9 @@ sidebar_position: 32
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42’s load balancer discovery maps out virtual servers, pools, and their relationships to backend devices.
+This page is for Device42 administrators who need to discover load balancers, Cisco UCS, and ACI devices. Learn how to create discovery jobs and configure options for these device types.
 
-To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer and other cluster devices. Next, run a [Windows/*nix job](auto-discovery/index.mdx#hypervisor--nix--windows-autodiscovery) to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
+Device42's load balancer discovery maps out virtual servers, pools, and their relationships to backend devices. To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer and other cluster devices. Next, run a [Windows/*nix job](index.mdx#hypervisor--nix--windows-autodiscovery) to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
 
 Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and cluster devices via their native APIs. Devices from A10 Networks should also produce good output using SNMP. 
 
@@ -38,7 +38,7 @@ Navigate to **Discovery > UCS/ACI/Load Balancers**, click **Create**, and select
 
 If you're discovering an F5 device, follow these steps:
 
-1. Start by scanning an F5 device via SNMP. Add a job under **Discovery > SNMP** and input the correct matching community string. Ensure you configure SNMP on your F5. See the [Load Balancers](auto-discovery/load-balancers.mdx) page for more information about SNMP discovery.
+1. Start by scanning an F5 device via SNMP. Add a job under **Discovery > SNMP** and input the correct matching community string. Ensure you configure SNMP on your F5. See the [Load Balancers](load-balancers.mdx) page for more information about SNMP discovery.
 2. Once discovered via SNMP, scan your F5 pool members via either SSH or the API, depending on the device's OS. This will allow you to gather detailed information about the F5 pool members.
 3. After you've discovered via SNMP, scan the F5 by creating a discovery job under **Discovery > UCS/ACI/Load Balancers** as shown above. This requires an account with F5 API permissions.
 
@@ -47,7 +47,7 @@ If you're discovering an F5 device, follow these steps:
 To discover UCS or other cluster devices, select **UCS** from the **Platform** dropdown menu (pictured above). 
 
 1. Give your job a meaningful, descriptive name and specify the server hostnames, IP addresses, IP ranges, or CIDR blocks for your cluster devices.
-2. Choose a Remote Collector (RC) if desired, specify the correct port, and select or unselect the SSL option as needed
+2. Choose a Remote Collector (RC) if desired, specify the correct port, and select or clear the SSL option as needed.
 3. Choose one or more sets of credentials that will allow Device42 to authenticate and query your UCS/Cluster devices.
 4. Set other options (explained below) as needed, create a schedule if desired, and save your job.
 5. Select **Run now** from the list page to run the discovery job now.
@@ -67,7 +67,7 @@ Visit the [dedicated Cisco UCS / ACI discovery docs page](cisco-ucs-auto-discove
 The following options apply to UCS/ACI devices:
 
 - **Hostname to use:** Choose the hostname format to use for newly discovered devices. Choose between **Discovered Name** or **Serial #**.
-- **Give precedence to hostname** Select to force-overwrite the current hostname for existing devices in Device42, using the hostname option selection in **Hostname to use**.
+- **Give precedence to hostname:** Select to force-overwrite the current hostname for existing devices in Device42, using the hostname option selection in **Hostname to use**.
 - **VRF Group for discovered devices:** Place discovered devices into the chosen VRF group.
 
 <ThemedImage
