@@ -5,15 +5,17 @@ title: "Cloud Platforms Autodiscovery"
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Knowing what's happening in all your on-premises and cloud environments is key to optimizing your cloud costs, reducing shadow IT, and ensuring you can pass audits with ease. To that end, Device42 is continuously adding more discovery functionality within all major hyperscale clouds so we can help you maintain your edge.
+Device42 cloud discovery provides visibility into your cloud environments by discovering virtual machines, databases, storage, networking, and other resources across major cloud platforms. Discovery helps you optimize cloud costs, reduce shadow IT, and maintain audit readiness.
 
-Device42 supports autodiscovery of cloud instances, known as virtual devices, on Amazon AWS, Amazon API, Microsoft Azure, Linode, DigitalOcean, OpenStack, Google Cloud, Alibaba Cloud, Oracle Cloud, and standalone Kubernetes. Please [email support](mailto:support@device42.com) to request discovery for new cloud platforms.
+Device42 supports discovery of cloud instances on Amazon AWS, Microsoft Azure, Linode, DigitalOcean, OpenStack, Google Cloud, Alibaba Cloud, Oracle Cloud, and standalone Kubernetes. [Email support](mailto:support@device42.com) to request discovery for new cloud platforms.
 
-Device42 discovers cloud virtual machines, databases, and storage as devices. These cloud assets have the same features as any other device in Device42. You can work with the cloud assets to define application components, store passwords, and create custom keys – just as you would for any other physical or virtual device.
+Discovered cloud virtual machines, databases, and storage are represented as devices in Device42. These cloud assets have the same features as any other device, so you can define application components, store passwords, and create custom keys just as you would for any other physical or virtual device.
 
-Go to the Cloud Autodiscovery list page under **Discovery > Autodiscovery > Cloud** to create a new cloud autodiscovery job and see your existing jobs. You’ll typically create one job per cloud account. Like other autodiscovery jobs, cloud discovery jobs can be run immediately or scheduled. 
+To create a new cloud discovery job or view your existing jobs, navigate to **Discovery > Cloud**. You typically create one job per cloud account. Like other discovery jobs, cloud discovery jobs can be run immediately or scheduled.
 
 ## Create a Cloud Platform Discovery Job
+
+The **Cloud Autodiscovery** list page displays your existing jobs.
 
 <ThemedImage
   alt="Cloud Discovery menu"
@@ -23,7 +25,7 @@ Go to the Cloud Autodiscovery list page under **Discovery > Autodiscovery > Clou
   }}
 />
 
-Click the **Create** button in the top right to create a new job, then select the platform **Type**:
+Click **Create** in the top right to create a new job, then select the platform **Type**:
 
 <ThemedImage
   alt="Choose Cloud Type"
@@ -45,7 +47,7 @@ Go to **Resources > Compute > All Devices**, then select **Virtual** from the **
   }}
 />
 
-Click on a device name to enter the view or edit mode. The **Cloud Instance Information** details are located at the bottom of the page.
+Click a device name to view its details. The **Cloud Instance Information** section is located at the bottom of the page.
 
 <ThemedImage
   alt="View instance info"
@@ -59,9 +61,9 @@ Click on a device name to enter the view or edit mode. The **Cloud Instance Info
 
 All cloud platform discovery jobs have the option to set the **Service Level** to apply to the discovered items. For example, you can set it so that the **Development**, **Deployment**, or **Production** service level is applied to discovered items. 
 
-Select an option from the dropdown menu, or add a new service-level category using the **plus symbol** button. 
+Select an option from the dropdown menu, or add a new service-level category using the **plus icon**.
 
-You can also create a new **Object Category for discovered devices** to add another specialized classification. The **Overwrite existing object categories** option gives preference to the discovered object category (if available) over the manually defined object category.
+You can also set an **Object Category for discovered devices** to add another specialized classification. Select **Overwrite existing object categories** to give preference to the discovered object category over a manually defined object category.
 
 <ThemedImage
   alt="Additional cloud options"
