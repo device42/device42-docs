@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 [Automox](https://www.automox.com/) cloud discovery retrieves up-to-date details about your devices, operating systems, and software packages directly into Device42, which serves as a source of truth for your IT environment.
 
-This page outlines the Automox autodiscovery items, authentication requirements, and how to set up and schedule a discovery job.
+This page outlines the Automox discovery items, authentication requirements, and how to set up and schedule a discovery job.
 
-## Automox Autodiscovery Items
+## Automox Discovery Items
 
-Device42 gets the following details when an Automox discovery job is run:
+Device42 collects the following details when an Automox discovery job runs:
 
 - Device name
 - Serial number and UUID
@@ -32,7 +32,7 @@ Your Automox username and password are required for Device42 to request a bearer
 
 Navigate to **Discovery > Cloud** and click **Create**. 
 
-Name the autodiscovery job and under the **Type** dropdown, select **Automox**. 
+Name the discovery job and select **Automox** from the **Type** dropdown.
 
 <ThemedImage
   alt="Add a new Automax job"
@@ -42,7 +42,7 @@ Name the autodiscovery job and under the **Type** dropdown, select **Automox**.
   }}
 />
 
-Select the **Bearer Token** or click on the **+** (plus sign) icon to create a Secret with your client credentials (bearer token). 
+Select the **Bearer Token** or click the **+** icon to create a Secret with your client credentials (bearer token).
 
 <ThemedImage
   alt="Provide your Automox credentials"
@@ -54,11 +54,11 @@ Select the **Bearer Token** or click on the **+** (plus sign) icon to create a S
 
 ### Optional Fields
 
-You can optionally select or add a **Service Level** to associate with the discovered Automox Configuration Items. 
+The following optional fields are available for Automox discovery jobs.
 
-Choose an **Object Category for discovered devices**. If you'd like for the Object Category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box. 
-
-Add **Tags for discovered devices** to categorize and later help you filter the discovered devices by your chosen tags.  
+- Select or add a **Service Level** to associate with the discovered Automox Configuration Items.
+- Choose an **Object Category for discovered devices**. To update the object category of existing devices to match the newly selected object, check the **Overwrite existing object categories** box.
+- Add **Tags for discovered devices** to categorize and filter discovered devices by your chosen tags.
 
 <ThemedImage
   alt="Optional autodiscovery job fields"
@@ -68,11 +68,11 @@ Add **Tags for discovered devices** to categorize and later help you filter the 
   }}
 />
 
-### Schedule the Autodiscovery Job
+### Schedule the Discovery Job
 
-You can automate the autodiscovery process by choosing the day(s) and time(s) when the job runs. 
+Automate the discovery process by choosing the days and times when the job runs.
 
-Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
+Create multiple schedules using the **+ Add another Autodiscovery Schedule** button.
 
 <ThemedImage
   alt="Schedule the job"
@@ -82,11 +82,11 @@ Create multiple jobs using the **+ Add another Autodiscovery Schedule** button.
   }}
 />
 
-### Run Now
+### Run the Discovery Job
 
-After saving, you can click the **Run Now** button on the job details page that is displayed. 
+After saving, click **Run Now** on the job details page to run the job immediately.
 
-You can also find the job on the **Cloud Autodiscovery** list page and click **Run Now** under the **Quick Actions** column to run the job at any time. 
+You can also find the job on the **Cloud Autodiscovery** list page and click **Run Now** under the **Quick Actions** column to run the job at any time.
 
 <ThemedImage
   alt="Run the Automox job immediately"
