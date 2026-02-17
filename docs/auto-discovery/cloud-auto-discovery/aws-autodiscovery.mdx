@@ -6,13 +6,11 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 AWS discovery provides full visibility into your AWS environments, giving you insight into your total AWS consumption so you can optimize spending and services consumed. Device42 supports a wide range of AWS services including EC2, S3, RDS, Lambda, EKS, and more.
+The Device42 AWS autodiscovery feature ensures you have full visibility into your AWS environments. This visibility gives you insight into your total AWS consumption, allowing you to optimize spending and services consumed. New discoveries are added all the time based on the needs of our customers.
 
-This page covers how to set up AWS discovery, the items discovered, IAM policy requirements, AWS Roles configuration, and environment credential setup using EC2 instance profiles.
+## Viewing Discovered AWS Items
 
-## Discovery Items List Page
-
-View the discovered AWS items by navigating to the list page under **Resources > Cloud Resources**. Use the search bar on the left or click one of the column dropdown menus to filter for specific AWS discovery item fields.
+You can view the discovered AWS items by navigating to the list page under **Resources > Cloud Resources**. Use the search bar on the left or click on one of the column dropdown menus to filter for specific AWS discovery item fields. 
 
 For example, click the **Vendor Resource Type** dropdown menu and start typing a discovery item type in the search bar. Filter by a segment of the item field name using the advanced **Contains** search bar or use the **Not Contains** criteria to filter by exclusion.
 
@@ -38,24 +36,24 @@ If you want to keep this list page setup as the default view, select the **Syste
   }}
 />
 
-## Getting Started with AWS Discovery
+## Getting Started with AWS Autodiscovery
 
-To create an AWS discovery job:
+**To create an AWS Autodiscovery job, you will need to:**
 
-1. Prepare your AWS account. You can use the policy example [shown below](#additional-endpoint-information).
-2. Have your AWS Access Key and Secret Key ready, as Device42 uses them to perform discovery.
+1. Prepare your AWS Account. You can use the [example IAM policy](#iam-policy-and-endpoints) below.
+2. Have your AWS Access Key ID and Secret Key ready. Device42 uses these to perform discovery.
 
 :::note
-Device42 encourages you to follow AWS best practices for managing your IAM credentials, including using strong passwords, regular password rotation, applying the principle of least privilege to users and their passwords, and so on.
+Follow AWS best practices for managing IAM credentials, including strong passwords, regular rotation, and the principle of least privilege.
 :::
 
 For more information, see [Best Practices for Managing AWS Access Keys](https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html) on Amazon.
 
-### Create an AWS Discovery Job
+### Initiating an AWS Discovery
 
-- Select **Discovery > Cloud** from the main menu and click **Create** at the top right of the Cloud Autodiscovery list page.
-- Enter a **Name** for the job.
-- Select **Type > Amazon AWS** from the dropdown menu.
+- Select **Discovery > Cloud** from the main menu and then click **Create** at the top right of the Cloud Autodiscovery list page.
+- Enter a **Name** for the job.
+- Select **Type > Amazon AWS** from the dropdown menu.
 
 <ThemedImage
   alt="Create AWS cloud discovery job"
@@ -65,14 +63,12 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
   }}
 />
 
-- Select the **Remote Collector** for the job.
-- Select **Use Environment Credentials** (see [Set Up Environment Credentials](#set-up-environment-credentials-using-ec2-instance-profiles) below), or add your Amazon **Access Key ID** and **Secret Key** for the account(s) to be discovered:
+- Select the **Remote Collector** for the job.
+- Select **Use Environment Credentials** (see [Setting Up Environment Credentials](#credential-free-discovery-with-ec2-instance-profiles) below), or add your Amazon **Access Key ID** and **Secret Key** for the account(s) to be discovered. Click the **magnifying glass icon** and **Add Password** in the upper-right corner. Enter your Access Key ID or Secret Key in the field labeled **Password**. Device42 uses encryption to store the keys.
+- Select **Discover Main Account** to discover the main AWS account in addition to any AWS Roles accounts you select.
+- Select the **Available AWS Roles** for the account(s) you want to discover using the arrow to add them to the **Chosen AWS Roles** list.
 
- Click the **magnifying glass icon** and **Add Password** in the upper-right corner. Enter your Access Key ID or Secret Key in the **Password**. Device42 uses encryption to store the keys.
-- Select **Discover Main Account** to discover the main AWS account in addition to any AWS Roles accounts you select.
-- Select the **Available AWS Roles** for the account(s) you want to discover using the arrow to add them to the **Chosen AWS Roles** list.
-
-**Note:** See [Add and Edit AWS Roles](#add-and-edit-aws-roles) below for instructions on creating the AWS Roles that Device42 displays for AWS cloud discovery jobs.
+**Note:** See [Defining AWS Roles](#defining-aws-roles) below for instructions on creating the AWS Roles that Device42 displays for AWS cloud discovery jobs.
 
 - Choose one or more Amazon regions to search. 
 
@@ -85,8 +81,8 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
 />
 
 - You can also use **Add vendor metadata as** to specify the format for vendor metadata, choose an **Action for Instance not found** in subsequent discoveries, select **Device Name Format** options, and add **Tags for discovered devices**.
-- Check **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
-- Check **Extended Summary Discovery** to discover the full breadth of resources within your AWS environment. These resources are displayed in the **Cloud Resources** section with a limited dataset. 
+- Check **Kubernetes Discovery** to discover Kubernetes clusters hosted on your cloud platform.
+- Check **Extended Summary Discovery** to discover the full breadth of resources within your AWS Environment. These resources will be displayed in the Cloud Resources section with a limited dataset. 
 - Optionally, you can set the [Service Level](index.mdx#service-level-and-object-category-options) of the job to be applied to the discovered items.
 - Add object categories, tags, and a customer for discovered devices.
 - Scroll down the page to the **Advanced Features (Show)** tab and select the types of resources you want the job to discover (for example, Route53, S3, EBS, and Databases).
@@ -99,47 +95,133 @@ For more information, see [Best Practices for Managing AWS Access Keys](https://
   }}
 />
 
-- Add an optional **Autodiscovery Schedule** to schedule the job.
-- Add the **Admin Groups** for the job.
-- Click **Save** or **Save and continue editing** to save the discovery job.
-- To run the job immediately, go to the Cloud Discovery list page and click **Run Now**.
+- Add an optional **Autodiscovery Schedule** to schedule the job.
+- Add the **Admin Groups** for the job.
+- Click **Save** or **Save and continue editing** to save the discovery job.
+- To run the job immediately, go to the Cloud Discovery list page and click **Run Now**.
 
-### AWS Discovery Items
+### Defining AWS Roles
 
-Some discovery items require enabling the feature in the job configuration before they can be discovered.
+Device42 includes an editor to define or edit the AWS Roles displayed for Amazon AWS cloud autodiscovery jobs. Follow the steps below to view and add AWS Roles:
 
-| Cloud Service or Object Name | Where in Device42                      | Accessed API                             | Information Generated                                   | Permission(s) Required                                   |
+- Select **Resources > Secrets > AWS Roles** from the main menu.
+
+<ThemedImage
+  alt="Choose AWS Roles menu item"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-dark.png'),
+  }}
+/>
+
+- Use the **AWS Role** dropdown to select a role to display or click **Advanced** to construct more specific searches. See [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) for instructions.
+
+<ThemedImage
+  alt="View AWS roles"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-dark.png'),
+  }}
+/>
+
+- Click **Create** at the top right to add a new role.
+
+<ThemedImage
+  alt="Add a new AWS role"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-dark.png'),
+  }}
+/>
+
+- Enter a **Name** for the role.
+- Enter the **AWS Role** label and an optional **AWS Role Description**.
+- In the **Account ID and External ID** section, click **+ Add New**.
+- Add the **Account ID** and **External ID**. Click the eye icon to show or hide the field. Click the trash can icon to remove the entries.
+- Click **Save** to save the role.
+
+<ThemedImage
+  alt="Add AWS IDs to roles"
+  sources={{
+    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-light.png'),
+    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-dark.png'),
+  }}
+/>
+
+Device42 adds the new AWS Role to the roles list; it will also appear in the Available AWS Roles list when you create or edit an Amazon AWS cloud autodiscovery job.
+
+The following steps are required if you are looking to leverage the AWS switch (Assume) Role on the API calls to scan other AWS accounts.
+
+**From the Main Account:**
+
+  - Create a role within IAM using the **Another AWS Account** option.
+  - Enter the **Account ID** and select the **Require External ID** option. MFA is not required at this time.
+  - Use the [example IAM policy](#iam-policy-and-endpoints) needed for discovery.
+
+**From the sub- (or separate) account:**
+
+Assign a user to a role that has already been granted access as described in [Grant Access to the Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html#tutorial_cross-account-with-roles-2).
+
+### Setting Up Cross-Account Role Assumption
+
+You can discover all sub-accounts and add them to the discovery process using Dynamic Account Discovery. 
+
+Before setting up the roles, complete these prerequisites:
+1. Create a role with no accounts associated with it.
+2. Use the role in the discovery with the key pair associated with it.
+
+**Option 1: Root Account Key Pair**
+
+- The key pair user must be deployed into the organization’s root account.
+- This user's policy must have the following rights, at minimum:
+    - `sts:assumerole`
+    - `organizations:listaccounts`
+- A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired.
+- The Device42 discovery policy must be granted to the role.
+- For role config within Device42, do not add any accounts to the role.
+- At this time, we cannot use dynamic account discovery to discover roles that use external ID values.
+
+**Option 2: Main Account Role or Direct Policy**
+
+If you don't want to follow the steps above, you can either:
+  - Make the assumable role available in the main account. Dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of IDs.
+  - Or also attach the Device42 discovery policy to the user directly. Select the **Discover main account** box on the job.
+
+## Discovered Services and Required Permissions
+
+Note that some Discovery items require enabling the feature and cannot be discovered otherwise.
+
+| Cloud Service/Object Name | Where in Device42                      | Accessed API                             | Information Generated                                   | Permission(s) Required                                   |
 | ------------------------- | --------------------------------- | ---------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
-| API Gateway                | Resources > All Resources            | `apigateway._region_.amazonaws.com`      | Cloud vendor, cloud account, etc.      | `apigateway:GET`                                       |
-| AWS Account Name (fallback)    | Infrastructure > Cloud Accounts    | `iam.amazonaws.com` | Cloud account alias             | `iam:ListAccountAliases` |
-| CloudFront                 | Resources > All Resources            | `cloudfront.amazonaws.com`               | Cloud vendor, cloud account, status, tags, etc                      | `cloudfront:ListDistributions`, `cloudfront:ListTagsForResource` | Dynamo DB                 | Resources > All Resources       | dynamodb._region_.amazonaws.com         | Backup details, contributor insights, tables, limits, etc. | `dynamodb:DescribeGlobalTable`, `dynamodb:DescribeLimits`, `dynamodb:DescribeTable`, `dynamodb:ListGlobalTables`, `dynamodb:ListTables` |
-| EC2 Instances             | Resources > All Devices       | ec2._region_.amazonaws.com              | Service name, instance id, status, location, etc.      | `ec2:Describe*`                                        |
-| Elastic Block Storage (EBS) | Resources > All Resources      | ec2._region_.amazonaws.com              | Lists, rules, tags, etc.                                | `ec2:Describe*` (EBS is part of EC2)                  |
-| ElastiCache Nodes         | Resources > All Resources       | elasticache._region_.amazonaws.com      | Account info, status, location                          | `elasticache:Describe*`                                |
-| Elastic File System (EFS) | Resources > All Resources       | elasticfilesystem._region_.amazonaws.com  | File system, access points, mount targets               | `elasticfilesystem:DescribeAccessPoints`, `elasticfilesystem:DescribeAccountPreferences`, `elasticfilesystem:DescribeFileSystems`, `elasticfilesystem:DescribeMountTargets` |
-| Elastic Load Balancer (ELB) | Resources > All Resources      | elasticloadbalancing._region_.amazonaws.com | Attributes, description, rules, tags, target groups  | `elasticloadbalancing:Describe*`                       |
-| Lambda                   | Resources > All Resources       | lambda._region_.com                    | Name, ARN, code size, memory, runtime                   | `lambda:GetAccountSettings`, `lambda:GetFunction`, `lambda:GetPolicy`, `lambda:List*` |
-| KMS                      | Resources > All Resources       | kms._region_.amazonaws.com             | Region, categories, access points, ACLs, notes, tags, custom fields | `kms:DescribeKey`, `kms:ListKeys`, `kms:ListResourceTags` |
-| Kubernetes (EKS)         | Resources > All Resources       | eks._region_.amazonaws.com              | Containers, nodes, clusters                              | `eks:DescribeCluster`, `eks:DescribeNodegroup`, `eks:DescribeUpdate`, `eks:ListClusters`, `eks:ListNodegroups`, `eks:ListUpdates` |
-| RDS Instances             | Resources > All Resources       | rds._region_.amazonaws.com              | Account info, status, location                          | `rds:Describe*`, `rds:ListTagsForResource`             |
-| Redshift                 | Resources > All Resources       | redshift._region_.amazonaws.com         | Backup details, contributor insights, tables, limits    | `redshift:DescribeClusters`, `redshift:DescribeReservedNodes` |
-| Route 53                 | Resources > All Resources       | route53.amazonaws.com                  | Type, content, tags                                     | `route53:ListHostedZones`, `route53:ListResourceRecordSets`, `route53:ListTagsForResource`, `route53domains:ListDomains` |
-| S3                        | Resources > Storage > Cloud Storage | *.s3._region_.amazonaws.com s3._region_.amazonaws.com *.s3.amazonaws.com s3.amazonaws.com | Storage utilization, bucket, bucket policies           | `s3:GetAccessPointPolicyStatus`, `s3:GetBucketAcl`, `s3:GetBucketLocation`, `s3:GetBucketPolicyStatus`, `s3:GetBucketPublicAccessBlock`, `s3:GetBucketTagging`, `s3:GetEncryptionConfiguration`, `s3:ListAccessPoints`, `s3:ListAllMyBuckets` |
-| Security Group (AWS)     | Resources > Cloud Resources | ec2._region_.amazonaws.com | Region, identifier, owner ID, Vpc Id, etc. | `ec2:DescribeSecurityGroups`                           |
-| SNS                       | Resources > All Resources     | sns._region_.amazonaws.com            | Topic, endpoints, attributes, subscriptions  | `sns:GetTopicAttributes`, `sns:ListTagsForResource`, `sns:ListTopics` |
-| SQS                       |  Resources > All Resources     | sqs._region_.amazonaws.com            | Queues, tags, queue attributes | `sqs:GetQueueAttributes`, `sqs:ListQueues`, `sqs:ListQueueTags` |
-| Subnets                   | Network > Subnets              |                                       | Subnets                                                | `ec2:DescribeSubnets` (Subnets are part of EC2)        |
-| VPCs                      | Resources > VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       | `ec2:DescribeVpcs` (VPCs are part of EC2)              |
+| API Gateway                | Resources --> All Resources            | `apigateway._region_.amazonaws.com`      | Cloud vendor, cloud account, etc.      | `apigateway:GET`                                       |
+| AWS Account Name (fallback)    | Infrastructure --> Cloud Accounts    | `iam.amazonaws.com` | Cloud account alias             | `iam:ListAccountAliases` |
+| CloudFront                 | Resources --> All Resources            | `cloudfront.amazonaws.com`               | Cloud vendor, cloud account, status, tags, etc                      | `cloudfront:ListDistributions`, `cloudfront:ListTagsForResource` |
+| DynamoDB                 | Resources --> All Resources       | dynamodb._region_.amazonaws.com         | Backup details, contributor insights, tables, limits, etc. | `dynamodb:DescribeGlobalTable`, `dynamodb:DescribeLimits`, `dynamodb:DescribeTable`, `dynamodb:ListGlobalTables`, `dynamodb:ListTables` |
+| EC2 Instances             | Resources --> All Devices       | ec2._region_.amazonaws.com              | Service name, instance id, status, location, etc.      | `ec2:Describe*`                                        |
+| Elastic Block Storage (EBS) | Resources --> All Resources      | ec2._region_.amazonaws.com              | Lists, rules, tags, etc.                                | `ec2:Describe*` (EBS is part of EC2)                  |
+| ElastiCache Nodes         | Resources --> All Resources       | elasticache._region_.amazonaws.com      | Account info, status, location                          | `elasticache:Describe*`                                |
+| Elastic File System (EFS) | Resources --> All Resources       | elasticfilesystem._region_.amazonaws.com  | File system, access points, mount targets               | `elasticfilesystem:DescribeAccessPoints`, `elasticfilesystem:DescribeAccountPreferences`, `elasticfilesystem:DescribeFileSystems`, `elasticfilesystem:DescribeMountTargets` |
+| Elastic Load Balancer (ELB) | Resources --> All Resources      | elasticloadbalancing._region_.amazonaws.com | Attributes, description, rules, tags, target groups  | `elasticloadbalancing:Describe*`                       |
+| Lambda                   | Resources --> All Resources       | lambda._region_.amazonaws.com                    | Name, ARN, code size, memory, runtime                   | `lambda:GetAccountSettings`, `lambda:GetFunction`, `lambda:GetPolicy`, `lambda:List*` |
+| KMS                      | Resources --> All Resources       | kms._region_.amazonaws.com             | Region, categories, access points, ACLs, notes, tags, custom fields | `kms:DescribeKey`, `kms:ListKeys`, `kms:ListResourceTags` |
+| Kubernetes (EKS)         | Resources --> All Resources       | eks._region_.amazonaws.com              | Containers, nodes, clusters                              | `eks:DescribeCluster`, `eks:DescribeNodegroup`, `eks:DescribeUpdate`, `eks:ListClusters`, `eks:ListNodegroups`, `eks:ListUpdates` |
+| RDS Instances             | Resources --> All Resources       | rds._region_.amazonaws.com              | Account info, status, location                          | `rds:Describe*`, `rds:ListTagsForResource`             |
+| Redshift                 | Resources --> All Resources       | redshift._region_.amazonaws.com         | Backup details, contributor insights, tables, limits    | `redshift:DescribeClusters`, `redshift:DescribeReservedNodes` |
+| Route 53                 | Resources --> All Resources       | route53.amazonaws.com                  | Type, content, tags                                     | `route53:ListHostedZones`, `route53:ListResourceRecordSets`, `route53:ListTagsForResource`, `route53domains:ListDomains` |
+| S3                        | Resources --> Storage --> Cloud Storage | *.s3._region_.amazonaws.com s3._region_.amazonaws.com *.s3.amazonaws.com s3.amazonaws.com | Storage utilization, bucket, bucket policies           | `s3:GetAccessPointPolicyStatus`, `s3:GetBucketAcl`, `s3:GetBucketLocation`, `s3:GetBucketPolicyStatus`, `s3:GetBucketPublicAccessBlock`, `s3:GetBucketTagging`, `s3:GetEncryptionConfiguration`, `s3:ListAccessPoints`, `s3:ListAllMyBuckets` |
+| Security Group (AWS)     | Resources --> Cloud Resources | ec2._region_.amazonaws.com | Region, identifier, owner ID, Vpc Id, etc. | `ec2:DescribeSecurityGroups`                           |
+| SNS                       | Resources --> All Resources     | sns._region_.amazonaws.com            | Topic, endpoints, attributes, subscriptions  | `sns:GetTopicAttributes`, `sns:ListTagsForResource`, `sns:ListTopics` |
+| SQS                       |  Resources --> All Resources     | sqs._region_.amazonaws.com            | Queues, tags, queue attributes | `sqs:GetQueueAttributes`, `sqs:ListQueues`, `sqs:ListQueueTags` |
+| Subnets                   | Network --> Subnets              |                                       | Subnets                                                | `ec2:DescribeSubnets` (Subnets are part of EC2)        |
+| VPCs                      | Resources --> VPC                 | vpc.aws-region.amazonaws.com            | Attributes, AZs, Auth rules, etc.                       | `ec2:DescribeVpcs` (VPCs are part of EC2)              |
 
-### Additional Endpoint Information
+### IAM Policy and Endpoints
 
 **Regular Discovery**
 
 - [sts.amazonaws.com](https://sts.amazonaws.com)
 - `sts.<region_name>.amazonaws.com` or `sts.*.amazonaws.com`: Try these endpoints if you encounter an SSL certificate error.
 - `https://organizations.us-east-1.amazonaws.com`: Only use this if one of the available features is enabled.
-
-
 
 **K8s cluster endpoints access per K8s RBAC setup**
 
@@ -154,7 +236,7 @@ Some discovery items require enabling the feature in the job configuration befor
 <details>
   <summary>Click to expand code example</summary>
 
-  ```js
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -237,17 +319,9 @@ Some discovery items require enabling the feature in the job configuration befor
   ```
 </details>
 
-### AWS Tags
+## AWS Tags and S3 Access Control
 
 Organizations that use AWS tags can retrieve tags associated with each cloud account within AWS. Discovered tags are located under the **Vendor Custom Fields** field.
-
-<ThemedImage
-  alt="AWS Lambda settings"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-lambda-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-lambda-19.06-dark.png'),
-  }}
-/>
 
 <ThemedImage
   alt="AWS tags"
@@ -257,9 +331,7 @@ Organizations that use AWS tags can retrieve tags associated with each cloud acc
   }}
 />
 
-### Amazon S3 Fields and Access Control
-
-Device42 can discover the following S3 fields:
+Device42 can discover information on the following S3 fields:
 - Has Public Access Point
 - Has Public ACL
 - Has Public Policy
@@ -273,112 +345,15 @@ A bucket can be [public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/a
 - See [S3 Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) for more details. 
 - Visit the [block public access settings](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-options) section for S3 access control options.
 
-### Add and Edit AWS Roles
+## Multi-Account Discovery with AWS Roles
 
-Device42 includes an editor to define or edit the AWS Roles displayed for Amazon AWS cloud discovery jobs. Follow the steps below to view and add AWS Roles.
+AWS Cloud Discovery jobs can use AWS roles to discover multiple accounts. When the job includes an AWS role, the discovery job dynamically retrieves accounts from AWS. A single role can discover multiple accounts, so you can either specify exact accounts to discover or leave the account empty to have the discovery job create cloud accounts automatically.
 
-- Select **Resources > Secrets > AWS Roles** from the main menu.
+## Credential-Free Discovery with EC2 Instance Profiles
 
-<ThemedImage
-  alt="Choose AWS Roles menu item"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-roles-menu-19.06-dark.png'),
-  }}
-/>
+You can perform AWS discovery without supplying any form of long-term, programmatic credentials by leveraging Instance Profiles or IAM roles for Amazon EC2 instances.
 
-
-- Use the **AWS Role** dropdown to select a role to display or click **Advanced** to construct more specific searches. See [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) for instructions.
-
-<ThemedImage
-  alt="View AWS roles"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/aws-role-filter-19.06-dark.png'),
-  }}
-/>
-
-
-- Click **Create** at the top right to add a new role.
-
-<ThemedImage
-  alt="Add a new AWS role"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-19.06-dark.png'),
-  }}
-/>
-
-- Enter a **Name** for the role.
-- Enter the **AWS Role** label and an optional **AWS Role Description**.
-- In the **Account ID and External ID** section, click **+ Add New**.
-- Add the **Account ID** and **External ID**. Click the eye icon to show or hide the field. Click the trash can icon to remove the entries.
-- Click **Save** to save the role.
-
-<ThemedImage
-  alt="Add AWS IDs to roles"
-  sources={{
-    light: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-light.png'),
-    dark: useBaseUrl('/assets/images/cloud-discovery-aws/add-aws-role-id-19.06-dark.png'),
-  }}
-/>
-
-Device42 adds the new AWS Role to the roles list. It will also appear in the **Available AWS Roles** list when you create or edit an Amazon AWS cloud discovery job.
-
-The following steps are required to use the AWS switch (Assume) Role on the API calls to scan other AWS accounts.
-
-**From the Main Account:**
-    
-  - Create a role within IAM using the **Another AWS Account** option.
-        
-  - Supply an account that uses **Account ID** and an account that uses the **Require External ID** option. There is no requirement for the MFA option at this time.
-        
-  - Use the [example IAM policy](#additional-endpoint-information) needed for discovery.
-        
-**From the sub-account (or separate account):**
-
-Assign a user to a role that has already been granted access as described in [Grant Access to the Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html#tutorial_cross-account-with-roles-2).
-
-### Set Up Dynamic Account Discovery Roles
-
-You can discover all sub-accounts and add them to the discovery process using Dynamic Account Discovery.
-
-Complete the following prerequisite steps before setting up the roles:
-1. Create a role with no accounts associated with it.
-2. Use the role in the discovery with the key pair associated with it.
-
-**Option 1:**
-
-- The key pair user must be deployed into the organization’s root account.
-- This user's policy must have the following rights, at minimum:
-    - `sts:assumerole`
-    - `organizations:listaccounts`
-- A role must be added to all accounts where discovery is desired, with the same role name used in every account where discovery is desired.
-- The Device42 discovery policy must be granted to the role.
-- For role config within Device42, do not add any accounts to the role.
-- Dynamic account discovery does not currently support discovering roles that use external ID values.
-
-**Option 2:**
-
-If you don't want to follow the steps above, you can either:
-  - Make the assumable role available in the main account. Dynamic discovery will pull it in if no accounts are listed or if the main account is included in the manually added list of IDs.
-  - Attach the Device42 discovery policy to the user directly and select the **Discover main account** box on the job.
-
-## Use AWS Roles to Discover Accounts Within Discovery Jobs
-
-AWS cloud discovery jobs can use AWS roles to discover accounts. When the job includes an AWS role, the discovery job dynamically retrieves multiple accounts from AWS. A single role can discover multiple accounts, which enables you to set up discovery and specify the precise account to create, or leave the account empty to have the discovery job create cloud accounts as a result of the discovery.
-
-## Cloud Instance Statuses
-
-All VMs in Device42 have their statuses normalized into one of three buckets: **Running**, **Stopped**, or **Deleted**. This allows for consistency regardless of which hypervisor or cloud is used.
-
-Device42 statuses are not mapped to the naming convention of the cloud provider. For example, [in AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html), VM states include **Running**, **Stopped**, and **Terminated**. In Device42, the **Terminated** state is mapped to **Deleted**.
-
-## Set Up Environment Credentials Using EC2 Instance Profiles
-
-You can perform AWS discovery without supplying long-term programmatic credentials by using Instance Profiles or IAM roles for Amazon EC2 instances.
-
-When **Use Environment Credentials** is enabled, the discovery job can be saved without selecting an Access Key ID or Secret Key in the job configuration. This is only possible when using an AWS-hosted Main Appliance or Remote Collector for discovery, as it relies on internal AWS mechanisms.
+When **Use Environment Credentials** is enabled, the discovery job can be saved without selecting an Access Key ID or Secret Key in the job configuration. This is only possible when using an AWS-hosted Main Appliance or Remote Collector for discovery as it relies on internal AWS mechanisms.
 
 <ThemedImage
   alt="Use Environment Credentials"
@@ -388,142 +363,143 @@ When **Use Environment Credentials** is enabled, the discovery job can be saved 
   }}
 />
 
-### Configuration
+### Step 1: Deploy a Main Appliance or Remote Collector Within AWS
 
-Follow these steps to configure environment credentials for AWS discovery.
+Deploy either a Device42 Main Appliance or Remote Collector as an EC2 instance in your AWS environment.
 
-1. **Deploy a Main Appliance or Remote Collector within AWS.**
-2. **Create a new IAM Policy:**
+### Step 2: Create a New IAM Policy
 
-    On the IAM Policy creation screen, click **JSON** in the policy editor and paste one of the policies below based on your desired discovery configuration:
-      - **Option 1:** For single account Discovery, refer to the example discovery policy above.
-      - **Option 2:** Role Assumption Using Static Account Discovery
-        This option is good if you have a need to specify External IDs when assuming roles, as Dynamic Account Discovery does not support role assumption using External IDs.
+On the IAM Policy creation screen, click **JSON** in the policy editor and paste one of the policies below based on your desired discovery configuration.
 
-        **Example IAM Policy**
+**Option 1: Single Account Discovery**
 
-        <details>
-          <summary>Click to expand code example</summary>
+Refer to the [example discovery policy](#iam-policy-and-endpoints) in the Discovered Services section.
 
-          ```js
-          {
-              "Version": "2012-10-17",
-              "Statement": [
-                  {
-                      "Effect": "Allow",
-                      "Action": [
-                          "sts:assumerole"
-                      ],
-                      "Resource": [
-                          "*"
-                      ]
-                  }
-              ]
-          }
-          ```
-        </details>
+**Option 2: Role Assumption Using Static Account Discovery**
 
-      - **Option 3:** Role Assumption Using Dynamic Account Discovery
-          
-          This option is good if you want to discover resources in all member accounts without the need to specify individual Account IDs.
-          
-          **Note:** This requires the associated Remote Collector or Main Appliance to be deployed within the organization's root (management) account.
-          
-          See [Set Up Dynamic Account Discovery Roles](#set-up-dynamic-account-discovery-roles) for more details on configuring Dynamic Account Discovery.
+This option is good if you need to specify External IDs when assuming roles, as Dynamic Account Discovery does not support role assumption using External IDs.
 
-          **Example IAM Policy**
+<details>
+<summary>Example IAM Policy</summary>
 
-          <details>
-            <summary>Click to expand code example</summary>
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sts:assumerole"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+</details>
 
-            ```js
-            {
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Effect": "Allow",
-                        "Action": [
-                            "sts:assumerole",
-                            "organizations:listaccounts"
-                        ],
-                        "Resource": [
-                            "*"
-                        ]
-                    }
+**Option 3: Role Assumption Using Dynamic Account Discovery**
+
+This option is good if you want to discover resources in all member accounts without specifying individual Account IDs.
+
+:::note
+This requires the associated Remote Collector or Main Appliance to be deployed within the organization's root (management) account. See [Setting Up Dynamic Account Discovery Roles](#setting-up-cross-account-role-assumption) for more details.
+:::
+
+<details>
+<summary>Example IAM Policy</summary>
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sts:assumerole",
+                "organizations:listaccounts"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+</details>
+
+When you've confirmed you have the appropriate permission set selected, click **Next**, give the policy a name and description, and click **Create Policy**.
+
+### Step 3: Create a New IAM Role
+
+1. On the IAM Role creation screen, select **AWS service** as the trusted entity type and **EC2** as the service or use case. Click **Next**.
+2. On the add permissions screen, search for and select the policy created in Step 2. Click **Next**, give the role a name and description, and then click **Create Role**.
+
+If you want to do the role preparation via the AWS CLI instead of the AWS Management Console, you can reference the trust policy below:
+
+<details>
+<summary>Example Trust Policy</summary>
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Principal": {
+                "Service": [
+                    "ec2.amazonaws.com"
                 ]
             }
-            ```
-          </details>
+        }
+    ]
+}
+```
+</details>
 
-    When you've confirmed you have the appropriate permission set selected, click **Next**, give the policy a name and description, and click **Create Policy**.
+### Step 4: Attach the Role
 
-3. **Create a new IAM Role**
+1. From the EC2 Instances list page, select the EC2 instance deployed in Step 1. Then click **Actions > Security > Modify IAM role**.
+2. From the "Modify IAM role" page, select the IAM Role created in Step 3 and click **Update IAM role**.
 
-    - On the IAM Role creation screen, select **AWS service** as the trusted entity type and **EC2** as the service or use case. Click **Next**.
-    - On the add permissions screen, search for and select the policy created in Step 2. Click **Next**, give the role a name and description, and then click **Create Role**.
-   
-        If you want to do the role preparation via the AWS CLI and not within the AWS Management Console, you can reference the trust policy below:
+### Step 5: Additional Configuration for Multi-Account Role Assumption
 
-        **Example Trust Policy**
+If you're configuring Single Account Discovery, no further steps are needed. If you've opted for Role Assumption using static or dynamic account discovery, continue with the steps below.
 
-        <details>
-          <summary>Click to expand code example</summary>
+1. **Create the discovery policy** in each member account to be discovered. Follow Step 2 again, but this time, use the [example discovery policy](#iam-policy-and-endpoints).
 
-          ```js
-          {
-              "Version": "2012-10-17",
-              "Statement": [
-                  {
-                      "Effect": "Allow",
-                      "Action": [
-                          "sts:AssumeRole"
-                      ],
-                      "Principal": {
-                          "Service": [
-                              "ec2.amazonaws.com"
-                          ]
-                      }
-                  }
-              ]
-          }
-          ```
-        </details>
+2. **Create the discovery role** in each member account to be discovered. Follow Step 3 again, but this time, select **Custom trust policy** instead of **AWS service**. Paste the trust policy below, then at the add permissions screen, search for and select the discovery policy created in the previous step.
 
-4. **Attach the role:**
-    - From the EC2 Instances list page, select the EC2 instance created in Step 1. Then click **Actions > Security > Modify IAM role**.
-    - From the **Modify IAM role** page, select the IAM Role created in Step 3 and click **Update IAM role**.
+    <details>
+    <summary>Example Trust Policy</summary>
 
-5. **Additional Member Account Configuration for Role Assumption Using Static or Dynamic Account Discovery**
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": "arn:aws:iam::ROOT_ACCOUNT_ID:role/EC2_D42_RC_ROLE"
+                },
+                "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    ```
+    </details>
 
-    If you're configuring single account discovery, there are no remaining steps. If you've opted for role assumption using static or dynamic account discovery, continue with the steps below:
-   
-    - Create the discovery policy in each member account to be discovered. Follow Step 2 again, but this time, use the example discovery policy above.
-    - Create the discovery role in each member account to be discovered.
-   
-        Follow Step 3 again, but this time, select **Custom trust policy** instead of **AWS service**. Copy and paste the trust policy below. At the add permissions screen, search for and select the discovery policy created in the previous step.
+    Replace the placeholder values with your own:
+    - `ROOT_ACCOUNT_ID` — The root account ID where the role configured in Step 3 resides.
+    - `EC2_D42_RC_ROLE` — The name of the role in the root account to establish trust with.
 
-        **Example Trust Policy**
+## Cloud Instance Statuses
 
-        <details>
-          <summary>Click to expand code example</summary>
+All VMs in Device42 have their statuses normalized into one of three buckets: **Running**, **Stopped**, or **Deleted**. This allows for consistency regardless of which hypervisor or cloud is used.
 
-          ```js
-          {
-              "Version": "2012-10-17",
-              "Statement": [
-                  {
-                      "Effect": "Allow",
-                      "Principal": {
-                          "AWS": "arn:aws:iam::ROOT_ACCOUNT_ID:role/EC2_D42_RC_ROLE"
-                      },
-                      "Action": "sts:AssumeRole"
-                  }
-              ]
-          }
-          ```
-        </details>
-       
-        Replace `ROOT_ACCOUNT_ID` and `EC2_D42_RC_ROLE` with your own values.
-
-        - `ROOT_ACCOUNT_ID`: This is the root account ID where the role, which was configured in Step 3, resides.
-        - `EC2_D42_RC_ROLE`: This is the name of the role in the root account to establish trust with.
+Device42's statuses aren't mapped to the naming convention of the cloud provider. For example, [in AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html), VM states include **Running**, **Stopped**, and **Terminated**. In Device42, the **Terminated** state is mapped to **Deleted**.
