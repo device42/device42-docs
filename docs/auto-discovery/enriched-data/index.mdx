@@ -72,9 +72,9 @@ Depending on the vendor's published information, Enriched Data may not populate 
 
 ## Enriched Data Collection
 
-When the data Normalization and Enrichment Service is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service, where it is processed in background tasks to prevent negative system impact. When the service finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
+When Enriched Data is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service, where it is processed in background tasks to prevent negative system impact. When the service finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
 
-When presented with a new or unique data entry, the Enriched Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the Enriched Data service to ensure the discovered values are correct and up to date. No data sent to the service contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
+When presented with a new or unique data entry, the Enriched Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the Enriched Data service to ensure the discovered values are correct and up to date. No data sent to the Enriched Data service contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -201,8 +201,8 @@ The image below shows a vendor view page with enriched data. Enriched data is al
 
 ## Data Handling and Security Practices
 
-1. No personal or personally identifiable data is maintained by the data Normalization and Enrichment Service.
-2. Unmatched values (those without a corresponding match in Enriched Data) are stored for future mining and resolution.
+1. No personal or personally identifiable data is maintained by the Enriched Data service.
+2. Unmatched values (those without a corresponding match in the Enriched Data service) are stored for future mining and resolution.
 3. Only Device42 personnel work with these non-identifiable data elements.
 4. Data collected for future enrichment mining is stored in the United States.
 
