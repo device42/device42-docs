@@ -1,4 +1,4 @@
----
+\---
 title: "Enriched Data"
 sidebar_position: 99
 ---
@@ -6,11 +6,13 @@ sidebar_position: 99
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The data Normalization and Enrichment Service is a Device42 cloud-based service for enhancing discovered data. Device42 supports the enrichment of software applications, operating systems (OS), and vendor that are discovered by Device42 Autodiscovery.
+The data Normalization and Enrichment Service is a Device42 cloud-based service that cleanses and enhances the software, operating system (OS), and vendor data collected by Device42 discovery. It replaces raw discovered values with standardized names and version numbers, and adds extended fields such as product categories and support lifecycle dates.
+
+This page describes the enriched data fields, how the service collects and processes data, connectivity requirements, and the Enriched Data interface.
 
 ## Data Fields
 
-The Enriched Data service takes the vendor name, product name, and version number fields as populated by the product vendor and uses it to replace those values with cleansed and normalized values. In addition, it adds values for an extended set of fields, like categories and support lifecycle dates. The enriched data is mined from validated, authoritative, public sources to ensure accuracy.
+The Enriched Data service takes the vendor name, product name, and version number fields as populated by the product vendor and replaces them with cleansed and normalized values. The enriched data is mined from validated, authoritative, public sources to ensure accuracy.
 
 The following is a partial list of enriched fields:
 
@@ -33,13 +35,12 @@ The following is a partial list of enriched fields:
 | OS Family              | The OS release family (Linux, Windows, etc.)              |
 | OS Edition             | The edition of the OS (Enterprise, Datacenter, etc.)             |
 | OS Version Number           | The general version number of the release                          |
-| OS Family              | The OS release family (Linux, Windows, etc.)              |
 | Service Pack              | The service pack level of the OS release             |
-| Key Support Dates  | See the details for the available date fields in the table below  |
+| Key Support Dates  | See [Key Support Dates](#key-support-dates) below  |
 
-The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. The 32- and 64-bit architectures have been coalesced into a single entry, since the architecture does not affect OS dates, licensing, patches, or risk profiles.
+The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. The 32- and 64-bit architectures have been merged into a single entry, as the architecture does not affect OS dates, licensing, patches, or risk profiles.
 
-### Software Attributes 
+### Software Attributes
 
 | Field               | Description                                                   |
 |---------------------|---------------------------------------------------------------|
@@ -51,7 +52,7 @@ The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. 
 | Version             | The full version number including major, minor, patch, and build values (using [Semantic Versioning](https://semver.org/))                                 |
 | Service Pack              | The service pack level of the software release      |
 | Category              | The product category this software application belongs to      |
-| Key Support Dates  | See the details for the available date fields in the table below  |
+| Key Support Dates  | See [Key Support Dates](#key-support-dates) below  |
 
 ### Key Support Dates
 
@@ -63,8 +64,8 @@ The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. 
 | End of Life Date                    | When the release will no longer receive security/vulnerability updates                                    |
 | End of Support Date                 | When mainstream support will no longer be available                                    |
 | Extended End of Support Date        | When extended support will no longer be available                                         |
-| End Of Maintenance Date             | When non-security patches will no longer be released under standard maintenance agreement |
-| Extended End Of Maintenance Date    | When non-security patches will no longer be released under extended maintenance agreement |
+| End of Maintenance Date             | When non-security patches will no longer be released under standard maintenance agreement |
+| Extended End of Maintenance Date    | When non-security patches will no longer be released under extended maintenance agreement |
 
 :::note
 Depending on the vendor's published information, Enriched Data may not populate all or any of the date fields.
@@ -72,14 +73,16 @@ Depending on the vendor's published information, Enriched Data may not populate 
 
 ## Enriched Data Collection
 
-When Enriched Data is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service, where it is processed in background tasks to prevent negative system impact. When the service finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
+When Enriched Data is enabled, device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service. The service processes requests in background tasks to prevent negative system impact. When it finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page. Depending on the number of requests in the queue and system load, this data may not be immediately visible.
 
-When presented with a new or unique data entry, the Enriched Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the Enriched Data service to ensure the discovered values are correct and up to date. No data sent to the Enriched Data service contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
+When presented with a new or unique data entry, the Enriched Data service may need to perform a background check with authoritative sources to identify new or changed data. This data is then displayed on the next discovery for that device. Each discovery is validated by the service to ensure discovered values are correct and up to date.
+
+No data sent to the Enriched Data service contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
 
 <details>
   <summary>Click to expand the code block</summary>
 
-```js
+```json
 [
   {
     "client_id": "D42",
@@ -142,9 +145,9 @@ When presented with a new or unique data entry, the Enriched Data service may ne
 
 ## Enriched Data Connectivity
 
-Please do the following to ensure connectivity with the Enriched Data service:
+Do the following to ensure connectivity with the Enriched Data service:
 
-1. Configure the Cloud Connector and check that it is reachable.
+1. Configure the **Cloud Connector** and check that it is reachable.
 2. Make sure the Enriched Data endpoints are reachable, including the registration endpoint:
 
    - `https://registration.device42.com`
@@ -152,11 +155,10 @@ Please do the following to ensure connectivity with the Enriched Data service:
    - `https://enrichai.device42.io/api/normalizations`
 
 3. Register the license online.
-4. For enrichment of Software, the Software Enrichment license needs to be listed as Enabled under Tools > Licensing.
+4. For software enrichment, the Software Enrichment license must be listed as **Enabled** under **Tools > Licensing**.
 
-Device42 [InsightsAI](/reports/device42-doql/insightsai.mdx) generates queries based on natural language prompts. The prompts you enter are sent to the `ai42.device42.io` endpoint.
+## Enriched Data Interface
 
-## Using the Enriched Data Interface
 
 Select **Analytics > EnrichAI Data** to display the Enriched Data list page.
 
@@ -169,7 +171,7 @@ Select **Analytics > EnrichAI Data** to display the Enriched Data list page.
   style={{ width: '90%' }} 
 />
 
-Click the **Enriched Value** link to view the data record. If desired, you can click the **Lock** button on an Enriched Data record to prevent Device42 from updating it in the future.
+Click the **Enriched Value** link to view the data record. Click the **Lock** button on an Enriched Data record to prevent Device42 from updating it in the future.
 
 <ThemedImage
   alt="Data lock button"
@@ -179,7 +181,7 @@ Click the **Enriched Value** link to view the data record. If desired, you can c
   }}
 />
 
-Device42 currently displays additional information generated by the Enriched Data service on enriched vendor and OS view pages. You can identify enriched vendors by the **AI icon** included next to their names on the vendor list page (under **Infrastructure > Vendors**).
+Vendor and OS view pages display additional information generated by the Enriched Data service. You can identify enriched vendors by the **AI icon** next to their names on the vendor list page (under **Infrastructure > Vendors**).
 
 <ThemedImage
   alt="Enriched Data symbol on Vendor list page"
@@ -189,7 +191,7 @@ Device42 currently displays additional information generated by the Enriched Dat
   }}
 />
 
-The image below shows a vendor view page with enriched data. Enriched data is also available via API and Device42 Object Query Language (DOQL) in the vendor and device OS DOQL views.
+Enriched data is also available via API and Device42 Object Query Language (DOQL) in the vendor and device OS DOQL views.
 
 <ThemedImage
   alt="Vendor view"
@@ -201,7 +203,9 @@ The image below shows a vendor view page with enriched data. Enriched data is al
 
 ## Data Handling and Security Practices
 
-1. No personal or personally identifiable data is maintained by the Enriched Data service.
+The following practices govern how the Enriched Data service handles your data:
+
+1. The Enriched Data service does not maintain personal or personally identifiable data.
 2. Unmatched values (those without a corresponding match in the Enriched Data service) are stored for future mining and resolution.
 3. Only Device42 personnel work with these non-identifiable data elements.
 4. Data collected for future enrichment mining is stored in the United States.
