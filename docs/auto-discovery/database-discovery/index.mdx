@@ -5,8 +5,9 @@ title: "Database Discovery"
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+Device42 database discovery detects and catalogs database instances running in your environment, including Microsoft SQL (MSSQL), Oracle, PostgreSQL, and DB2. Discovery runs through Windows and \*nix-based discovery jobs and returns instance details, connection information, and schema data.
 
-Database (DB) discovery currently supports Windows and \*nix-based discovery jobs detecting Microsoft SQL (aka MSSQL), Oracle, PostgreSQL, and DB2 databases.
+This page covers supported database versions, permission requirements, job setup for each database type, and how to view discovery results.
 
 :::note
 Database discovery requires an **Application Dependency Mapping** license. Go to **Tools > Settings > Licensing** to see if the license is enabled. Contact [support@device42.com](mailto:support@device42.com) for licensing assistance.
@@ -21,21 +22,21 @@ By default, the target machine ports are defined by the database vendors as foll
 
 Dynamic discovery detects which ports to use. Device42 supports MSSQL and Oracle database discovery for customers with database instances configured to listen on non-standard ports, especially on shared database servers that host multiple instances. During database discovery, Device42 will identify and connect via the discovered active listening port.
 
-If you want to specify database discovery details yourself, including the database server port, server IP address, and database access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs (see below) to discover databases.
+If you want to specify database discovery details yourself, including the database server port, server IP address, and database access credentials, use [Database Connections Discovery](#database-connections-discovery-jobs) jobs to discover databases.
 
 ## Discovery Exclusions
 
-Set discovery exclusions in **Tools > Settings > Global Settings** in the **Discovery Exclusions** section.
+Configure discovery exclusions under **Tools > Settings > Global Settings** in the **Discovery Exclusions** section.
 
 If you enable the **Ignore DB Login Names** setting, database login names will not be collected during database discovery.
 
-You can also specify interfaces, IP addresses, and MAC addresses to be ignored during discovery. 
+You can also specify interfaces, IP addresses, and MAC addresses to be ignored during discovery.
 
-## MSSQL Server Database Discovery (on Windows Targets)
+## MSSQL Server Database Discovery (on Windows and \*nix Targets)
 
-Microsoft SQL Server (MSSQL) server discovery is supported on discovery targets running Microsoft Windows, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure the discovery credentials have appropriate permissions to view the databases you are interested in discovering.
+MSSQL server discovery requires a separate set of credentials to authenticate to the database instance. Ensure the discovery credentials have appropriate permissions to view the databases you want to discover.
 
-Device42 supports autodiscovery on Windows and \*nix platforms for the following MSSQL versions:
+Device42 supports discovery on Windows and \*nix platforms for the following MSSQL versions:
 
 - MSSQL 2005
 - MSSQL 2008
@@ -47,7 +48,7 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 
 ### Minimum Permissions Requirements for MSSQL Discovery
 
-To query the tables below, please ensure you have **View Server State** permissions. For the discovery to return detailed information about your database instance, you need read permissions to the following system views:
+To query the tables below, ensure you have **View Server State** permissions. For discovery to return detailed information about your database instance, you need read permissions to the following system views:
 
 <table><tbody><tr><td width="288"><ul><li>`sys.dm_exec_connections`</li><li>`sys.dm_exec_sessions`</li><li>`sys.databases`</li><li>`sys.master_files`</li></ul></td><td width="288"><ul><li>`sys.tables`</li><li>`sys.dm_os_sys_info`</li><li>`sys.dm_os_sys_memory`</li><li>`sys.all_objects`</li></ul></td></tr></tbody></table>
 
@@ -60,13 +61,15 @@ GRANT VIEW ANY DEFINITION TO [discovery_user];
 GO
 ```
 
-**Note**: The discovery user must belong to the administrator’s user group to discover databases successfully.
+:::note
+The discovery user must belong to the administrator's user group to discover databases successfully.
+:::
 
-### Set Up Your MSSQL Discovery Job
+### Set Up an MSSQL Discovery Job
 
-Create a new Windows discovery job under **Discovery > HyperVisors /\*nix /Windows** to discover MSSQL databases running on Windows. 
+Create a new discovery job under **Discovery > HyperVisors /\*nix /Windows** to discover MSSQL databases. Use a Windows or \*nix job type depending on your target platform.
 
-Enable database discovery by checking the **Collect database server information** checkbox. 
+Enable database discovery by checking the **Collect database server information** checkbox.
 
 <ThemedImage
 alt="MS SQL discovery job"
@@ -88,7 +91,7 @@ Be sure to fill out both sets of credentials. Two sets of credentials must also 
     }}
     />
 
-- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server. You can enter an ordered list of preferred **Discovery Target(s) Credential(s)**. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+- **Discovery Target(s) Credential(s):** Credentials for authenticating to the Windows server. You can enter multiple credentials in a preferred order. The job tries each credential in order and stops at the first successful authentication. Subsequent runs start with the last successful credential.
 
     <ThemedImage
     alt="MS SQL discovery job"
@@ -98,7 +101,7 @@ Be sure to fill out both sets of credentials. Two sets of credentials must also 
     }}
     />
 
-Run the autodiscovery job to test it by clicking **Run Now** from the autodiscovery jobs list.
+Run the discovery job to test it by clicking **Run Now** from the discovery jobs list.
 
 As MSSQL databases are detected, discovery will import a list of all the instances, databases, and connection details it finds.
 
@@ -112,15 +115,9 @@ You can see the status of the discovery job on the job setup page. Scroll down t
     }}
     />
 
-### View Your MSSQL Discovery Job Results
+### View MSSQL Discovery Job Results
 
-Once the job finishes, there are multiple ways to view the results of your database discovery. 
-
-### Access Your Results Through the Discovered MSSQL Application Components
-
-The most direct method for viewing the discovered database details is via the discovered MSSQL application components themselves. 
-
-Navigate to the Device42 main menu and go to **Applications > Application Components**. If you don't see your SQL Server instances at the top of the list, you can search for "SQL" to narrow down the list.
+Once the job finishes, there are multiple ways to view the results. The most direct method is to view the discovered MSSQL application components. Navigate to **Applications > Application Components**. If you don't see your SQL Server instances at the top of the list, search for "SQL" to narrow down the list.
 
 You can see the newly discovered SQL Server instances in the example below. Click on the **Name** of one of the application components to view more details.
 
@@ -144,11 +141,11 @@ sources={{
 
 For a rundown of the database details that discovery provides, jump to the [**Available SQL Database Instance Information**](#available-sql-database-instance-information) section.
 
-### Another Way To View SQL Database Details
+### View SQL Database Details From the Device Record
 
-Results are also available by browsing to the discovered Windows server instance's CI; either search for the device from the dashboard, via **Devices > All Devices**, go to **Analytics > Discovery Scores** and search for your discovery job, or navigate to your discovery job results page and access the servers from there. 
+You can also view results by navigating to the discovered Windows server instance's CI. Search for the device from the dashboard, via **Devices > All Devices**, or go to **Analytics > Discovery Scores** and search for your discovery job.
 
-- Click the success number to go to the Discovery Scores page and quickly see the newly discovered items. 
+- Click the success number to go to the Discovery Scores page and see the newly discovered items.
 
     <ThemedImage
     alt="Job status view"
@@ -158,7 +155,7 @@ Results are also available by browsing to the discovered Windows server instance
     }}
     />
 
-- Click the links under the **Object** column to view the server details. 
+- Click the links under the **Object** column to view the server details.
 
     <ThemedImage
     alt="Discovery Scores view"
@@ -230,11 +227,11 @@ If your environment includes SQL cluster databases, discovery returns the follow
 - Does Passive Node use Log Ship
 - Does Passive Node use DB Mirroring
 
-## Oracle Database Discovery (on Windows and \*nix targets)
+## Oracle Database Discovery (on Windows and \*nix Targets)
 
-Oracle database discovery is supported for Windows and \*nix discovery targets. Oracle discovery jobs require a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you want to discover.
+Oracle database discovery is supported for Windows and \*nix targets. Oracle discovery jobs require a separate set of credentials to authenticate to the database instance. Ensure these credentials have the appropriate permissions for viewing the databases you want to discover.
 
-Device42 supports autodiscovery on Windows and \*nix platforms for the following Oracle database versions:
+Device42 supports discovery on Windows and \*nix platforms for the following Oracle database versions:
 
 **Oracle 10g**
 
@@ -263,17 +260,19 @@ Device42 supports autodiscovery on Windows and \*nix platforms for the following
 - Windows 64 bit
 - CentOS 7 64 bit
 
-Device42 database autodiscovery for Windows and \*nix targets supports discovery for Oracle RAC clustered database environments, which helps users better assess their cluster databases and understand all the IT assets tied to critical business applications. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run the autodiscovery against one or more nodes in the Oracle RAC and return information about all connected nodes. Device42 requires the use of sudo for Oracle discoveries to mitigate the risk of lockout.
+Device42 also supports discovery for Oracle RAC clustered database environments on Windows and \*nix targets. Discovery returns data about the RAC configuration, the RAC database, and the nodes (physical servers) running the RAC software. You can run discovery against one or more nodes in the Oracle RAC to return information about all connected nodes.
+
+Device42 requires the use of `sudo` for Oracle discoveries to mitigate the risk of lockout.
 
 ### Minimum Database-Level Permissions
 
-For discovery to return detailed info about your database instance, you will require read or view permissions for the following system views and tables:
+For discovery to return detailed information about your database instance, you need read or view permissions for the following system views and tables:
 
-<table><tbody><tr><td width="288"><ul><li>V$SESSION</li><li>V$DATABASE</li><li>V$CONTAINERS</li><li>DBA_SEGMENTS</li></ul></td><td width="288"><ul><li>DBA_OBJECTS</li><li>SYS.ALL_USERS</li><li>DATABASE_COMPATIBLE_LEVEL</li><li>SYS.PRODUCT_COMPONENT_VERSION</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="288"><ul><li><code>V$SESSION</code></li><li><code>V$DATABASE</code></li><li><code>V$CONTAINERS</code></li><li><code>DBA_SEGMENTS</code></li></ul></td><td width="288"><ul><li><code>DBA_OBJECTS</code></li><li><code>SYS.ALL_USERS</code></li><li><code>DATABASE_COMPATIBLE_LEVEL</code></li><li><code>SYS.PRODUCT_COMPONENT_VERSION</code></li></ul></td></tr></tbody></table>
 
 To get information about pluggable databases (PDBs) within an Oracle container database (CDB), two key permission configurations are required for non-DBA users:
 
-- SELECT permission on the V$CONTAINERS view.
+- SELECT permission on the `V$CONTAINERS` view.
 - Set `container_data=all container=current` for context configuration. For example:
 
     ```sql
@@ -285,9 +284,9 @@ To get information about pluggable databases (PDBs) within an Oracle container d
 
 ### System-Level Permissions
 
-In addition to the minimum DB-level permissions above, discovery also needs shell access to the target system to run OS-level commands to get information about the Oracle environment. 
+In addition to the minimum DB-level permissions above, discovery needs shell access to the target system to run OS-level commands to gather information about the Oracle environment.
 
-For example, shell access is needed to read the `tnsames.ora` file, which contains network connection details:
+For example, shell access is needed to read the `tnsnames.ora` file, which contains network connection details:
 
 ```bash
 /usr/bin/cat: /dbprog/oracle/product/19.3.0.0.26/network/admin/tnsnames.ora
@@ -299,7 +298,7 @@ Another example is the `lsnrctl status` command, which checks the status of the 
 oracle -c 'lsnrctl status'
 ```
 
-To allow Device42 to run these commands securely, you can grant limited `sudo` access by adding the following to the `/etc/sudoers` file or by creating a separate `sudoers` file for Device42 Oracle discovery:
+To allow Device42 to run these commands securely, grant limited `sudo` access by adding the following to the `/etc/sudoers` file or by creating a separate sudoers file for Device42 Oracle discovery:
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -330,9 +329,9 @@ Cmnd_Alias DEVICE42_ORACLE_RAC = \
 ```
 </details>
 
-### Set Up Your Oracle Discovery Job
+### Set Up an Oracle Discovery Job
 
-To begin discovering your Oracle databases, navigate to **Discovery > HyperVisors /\*nix /Windows**. Create a new discovery job for Windows or \*nix (or both) targets, and be sure to check the **Collect database server information** checkbox.
+To discover Oracle databases, navigate to **Discovery > HyperVisors /\*nix /Windows**. Create a new discovery job for Windows or \*nix (or both) targets and check the **Collect database server information** checkbox.
 
 <ThemedImage
 alt="Add Oracle DB Discovery job"
@@ -344,10 +343,10 @@ sources={{
 
 Be sure to fill out both sets of credentials:
 
-- **Database Username / Password(s)** to authenticate to the Oracle database. 
-- **Discovery Target(s) Credential(s)** to authenticate to the Windows or *nix server.
+- **Database Username / Password(s):** Credentials to authenticate to the Oracle database.
+- **Discovery Target(s) Credential(s):** Credentials to authenticate to the Windows or \*nix server.
 
-You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+You can enter multiple credentials in a preferred order. The job tries each credential in order and stops at the first successful authentication. Subsequent runs start with the last successful credential.
 
 <ThemedImage
 alt="Discovery Target(s) Credential(s) order"
@@ -431,48 +430,46 @@ sources={{
 }}
 />
 
-### Oracle CDB/PDB Matching Process and Regular Processing Procedures
+### Oracle CDB/PDB Matching Process
 
-An Oracle database instance is created for each Container Database (CDB) and Pluggable Database (PDB), even in cases where they share the same endpoint listener.
+An Oracle database instance is created for each Container Database (CDB) and Pluggable Database (PDB), even when they share the same endpoint listener.
 
-We attempt to match any root database instance (CDB) with the same endpoint as our incoming resource (CDB or PDB). If we find a root database instance (CDB), we try to locate all related child databases (PDBs) for it and iterate through all of the child records. If any child database name matches the name of the incoming resource, we identify this database instance as the same as the incoming one and update the existing record with the new incoming resource data.
+Device42 attempts to match any root database instance (CDB) with the same endpoint as the incoming resource (CDB or PDB). If a root database instance (CDB) is found, Device42 locates all related child databases (PDBs) and iterates through the child records. If any child database name matches the name of the incoming resource, that database instance is identified as the same and the existing record is updated with the new incoming resource data.
 
-If we can't find any child database instance resources, we match the resource to the root resource. If there's no match to the root resource, we proceed with regular processing.
+If no child database instance resources are found, the resource is matched to the root resource. If there is no match to the root resource, regular processing proceeds.
 
-We don't aim to match orphaned PDBs to the CDB if a fresh CDB is incoming.
+Orphaned PDBs are not matched to a CDB if a fresh CDB is incoming. If a candidate database instance is detected to be a child of a CDB, the matching process is skipped.
 
-If a candidate database instance is detected to be a child of a CDB, we skip the matching process.
+### Oracle User Discovery Details
 
-### Oracle User Discovery Updates
+The Device42 UI displays:
 
-We've made the following changes to the UI:
+1. **Database Instance Name** under the identifier (generally the service name).
+2. **Database/Schema** showing only schemas with attached objects for Oracle.
 
-1. Added **Database Instance Name** under the identifier (generally the service name).
-2. Renamed **Database** to **Database/Schema** and only show ones with attached objects for Oracle.
+Device42 discovers Oracle users that have at least one associated database object, ignoring empty user schemas. As a result, some Oracle database connections may not appear under specific user schemas. These database connections map to the main database instance instead of a specific **Database/Schema** resource. Key details like the user login and schema names are still preserved in the database instance details.
 
-We previously gathered all Oracle users and collected them as "Device42 Databases." Then, we only retrieved Oracle users that had at least one associated database object, and from there, we implemented changes to ignore user schemas. As a result, some Oracle database connections may no longer show under specific user schemas. These 'orphaned' database connections now map to the main database instance, instead of mapping to a specific **Database/Schema** resource. While they’re not linked to individual schemas anymore, key details like the user login and schema names are still preserved in the database instance details.
+## PostgreSQL Database Discovery (on \*nix Targets)
 
-## PostgreSQL Database Discovery (on \*nix targets)
-
-Device42 offers PostgreSQL database discovery for \*nix discovery targets, although it requires a separate set of credentials to authenticate to the database instance itself. Ensure these additional credentials have the appropriate permissions for viewing the databases you are interested in discovering.
+PostgreSQL database discovery is supported for \*nix targets and requires a separate set of credentials to authenticate to the database instance. Ensure these credentials have the appropriate permissions for viewing the databases you want to discover.
 
 ### Minimum Permissions Requirements for PostgreSQL Discovery
 
-For discovery to return detailed information about your database instance, you will need access to the following tables:
+For discovery to return detailed information about your database instance, you need access to the following tables:
 
 * `pg_database` (table)
 * `pg_tablespace` (table)
 * `pg_stat_activity` (table)
 * `⁠inet_server_addr()` (function)
 
-### Set Up Your PostgreSQL Discovery Job
+### Set Up a PostgreSQL Discovery Job
 
-To begin discovering your PostgreSQL databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
+To discover PostgreSQL databases, create a new discovery job for \*nix targets and check the **Collect database server information** checkbox.
 
 Fill out both sets of credentials:
 
-- **Database Username / Password(s):** These credentials are used to authenticate to the Postgres database. 
-- **Discovery Target(s) Credential(s):** These credentials are used to authenticate to the \*nix server.
+- **Database Username / Password(s):** Credentials to authenticate to the Postgres database.
+- **Discovery Target(s) Credential(s):** Credentials to authenticate to the \*nix server.
 
 <ThemedImage
 alt="New Postgres discovery job"
@@ -482,7 +479,7 @@ sources={{
 }}
 />
 
-You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+You can enter multiple credentials in a preferred order. The job tries each credential in order and stops at the first successful authentication. Subsequent runs start with the last successful credential.
 
 <ThemedImage
 alt="Discovery Target(s) Credential(s)"
@@ -524,13 +521,13 @@ sources={{
 }}
 />
 
-## DB2 Discovery (on \*nix targets)
+## DB2 Discovery (on \*nix Targets)
 
-DB2 database discovery is for \*nix discovery targets and requires a separate set of credentials to authenticate to the database instance itself. Ensure these credentials have the appropriate permissions for viewing the databases you are interested in discovering.
+DB2 database discovery is supported for \*nix targets and requires a separate set of credentials to authenticate to the database instance. Ensure these credentials have the appropriate permissions for viewing the databases you want to discover.
 
 ### Permissions for DB2 Discovery
 
-For discovery to return detailed info about your database instance, you will require the following permissions:
+For discovery to return detailed information about your database instance, you need the following permissions:
 
 **1. Privileges for ENV_SYS_INFO:**
 
@@ -560,7 +557,7 @@ For discovery to return detailed info about your database instance, you will req
 **6. Privileges for Monitoring:**
 
    - **EXECUTE** privilege on the `MON_GET_CONNECTION`.
-   - One of the following authorities: `DATAACCESS`, `DBADM`, or `SQLADM`.
+   - One of the following authorities: **DATAACCESS**, **DBADM**, or **SQLADM**.
 
 **7. Privileges for Routines:**
 
@@ -581,17 +578,16 @@ For discovery to return detailed info about your database instance, you will req
       - **SYSCTRL**
       - **SYSADM**
 
+### Set Up a DB2 Discovery Job
 
-### Set Up Your DB2 Discovery Job
+To discover DB2 databases, create a new discovery job for \*nix targets and check the **Collect database server information** checkbox.
 
-To begin discovering your DB2 databases, create a new discovery job for \*nix targets, and be sure to enable database discovery by checking the **Collect database server information** checkbox.
+Fill out both sets of credentials:
 
-Be sure to fill out both sets of credentials.
+- **Database Username / Password(s):** Credentials to authenticate to the DB2 database.
+- **Discovery Target(s) Credential(s):** Credentials to authenticate to the \*nix server.
 
-- **Database Username / Password(s):** These credentials are used to authenticate to the DB2 database. 
-- **Discovery Target(s) Credential(s):** These credentials are used to authenticate to the \*nix server itself.
-
-You can enter an ordered list of preferred **Discovery Target(s) Credential(s)** when you create a database discovery job. When the job runs, it will use the credentials in the order that you entered them, stopping at the first successful authentication. Subsequent job runs use the last successful credential and then the remaining credentials in the ordered list.
+You can enter multiple credentials in a preferred order. The job tries each credential in order and stops at the first successful authentication. Subsequent runs start with the last successful credential.
 
 <ThemedImage
 alt="Nix discovery job"
@@ -619,15 +615,17 @@ sources={{
 
 ## Database Connections Discovery Jobs
 
-Discover information about the databases in your environment using the database discovery job type. Database discovery is based on the database connection information, such as the application components and DB server details, that you supply for the job. Returned database information is added to the **On-Prem Databases** list page.
+Database connections discovery lets you manually specify connection details — such as application components, server IP, port, and credentials — for databases that the OS-based discovery jobs cannot automatically connect to. Returned database information is added to the **On-Prem Databases** list page.
 
-This database discovery job type is useful when the main detailed database discovery (in OS jobs) cannot determine the proper connection settings for a specific database, because the database connection discovery job instead uses a string containing connection settings provided by the user.
+This job type is useful when the main database discovery cannot determine the proper connection settings for a specific database, as it uses connection settings that you provide directly.
 
 :::note
-If you have already discovered cloud databases using cloud autodiscovery jobs when you perform a database connection discovery using FQDN, Device42 will not duplicate the databases (which was the previous behavior).
+If you have already discovered cloud databases using cloud discovery jobs, performing a database connection discovery using FQDN will not create duplicate database entries.
 :::
 
-- Select **Discovery > Autodiscovery >Database** from the main menu to display the **Database Discoveries** list page.
+Follow these steps to create and configure a database connections discovery job:
+
+- Select **Discovery > Autodiscovery > Database** from the main menu to display the **Database Discoveries** list page.
 
     <ThemedImage
     alt="Database Discoveries menu"
@@ -698,7 +696,6 @@ You can view **Discovery Scores** for the database jobs that have been run.
         dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-menu-19.06-dark.png'),
     }}
     />
-    <br/><br/>
 
 - Click on the job you want to view in the **Discovery Target** column. You can use the search bar and filters to find a specific database or narrow down your results.
 
@@ -709,7 +706,6 @@ You can view **Discovery Scores** for the database jobs that have been run.
         dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-page-19.06-dark.png'),
     }}
     />
-    <br/><br/>
 
 - Click **Detailed Discovery Scores** to see additional information.
 
@@ -720,7 +716,6 @@ You can view **Discovery Scores** for the database jobs that have been run.
         dark: useBaseUrl('/assets/images/database-discovery/discovery-scores-oracle-19.06-dark.png'),
     }}
     />
-    <br/><br/>
 
 ### View Discovered Databases
 
