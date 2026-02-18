@@ -1,17 +1,17 @@
 ---
-title: "Add/Edit a Device"
+title: "Add or Edit a Device"
 sidebar_position: 1
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Device Add and Change pages provide direct access to device properties such as the device **Name** and **Asset** and **Serial** numbers. You can also set the device **Type**, which allows you to define a **physical**, **virtual**, or **cluster** device. 
+Devices represent the physical servers, virtual machines, blade chassis, clusters, and other compute resources in your environment. You can add devices manually or let discovery jobs populate them automatically.
 
-The **Network Device** checkbox should be checked for all network hardware, the **Blade Chassis** checkbox should be checked for blade chassis devices, and the **Virtual/Container Host** box should be checked for devices that will host virtual devices. You can use **Service Level** to define a device's production status and **Hardware** to select the appropriate device hardware model.
+This page covers the devices list page, the device details view, and how to add and edit devices. It also explains device type options, bulk actions, and what happens when you change a device type.
 
 :::note
-Device42 no longer identifies previously undiscovered hardware as **unknown** by default. Autodiscovery assigns the **physical** type to devices with hardware models. The **other** type and subtypes have been reclassified as the **physical** type and subtypes.
+Discovery assigns the **physical** type to devices with hardware models. The **other** type and subtypes have been reclassified as the **physical** type and subtypes.
 :::
 
 ## Devices List Page
@@ -19,14 +19,14 @@ Device42 no longer identifies previously undiscovered hardware as **unknown** by
 Select **Resources > Compute > All Devices** to display a list of devices.
 
 <ThemedImage
-  alt="All devices button"
+  alt="Devices list page"
   sources={{
     light: useBaseUrl('/assets/images/device-add-edit/devices-list-page-light.png'),
     dark: useBaseUrl('/assets/images/device-add-edit/devices-list-page-dark.png'),
   }}
 />
 
-Configure the grid view to display the columns you want to see by clicking the **gear icon**. You can set the view as the **System Default** or the **User Default** using the checkboxes. 
+Configure the grid view to display the columns you want to see by clicking the **gear icon**. You can set the view as the **System Default** or the **User Default** using the checkboxes.
 
 The **Latest Life Cycle Event** is a useful column to add to the default view for tracking the status of a device.
 
@@ -38,18 +38,16 @@ The **Latest Life Cycle Event** is a useful column to add to the default view fo
   }}
 />
 
-### View Device Information
+### Device Details View
 
-Click on a device's name to enter the device details view.
+Click a device's name to open the device details view.
 
-Version 19.05 introduces an improved device details page. If you prefer the previous layout, you can revert to the **Legacy View** layout. 
+The device details page has two panels that you can hide and expand as needed:
 
-There are two new panels that you can hide and expand as needed:
+- **Object List** (left): Navigate to different devices without returning to the list page. This panel displays the same items from the list page grid, and any filters or searches you applied carry over.
+- **Breakdown** (right): Navigate between sections of the selected device's details.
 
-- **Object List** (left): Navigate to the detail view of different devices without going back to the list page. This panel displays the same items shown in the list page grid from the previous screen. Any filters or searches made on the Devices list page are applied to this panel to navigate easily between the devices.
-- **Breakdown** (right): Navigate between sections of the selected device's details. This panel is similar to the tabs of the previous layout but includes a more granular list of sections.
-
-<ThemedImage 
+<ThemedImage
   alt="Device details"
   sources={{
     light: useBaseUrl('/assets/images/device-add-edit/device-details-view-light.png'),
@@ -57,9 +55,9 @@ There are two new panels that you can hide and expand as needed:
   }}
 />
 
-**UI Notes**
-  
-- Columns under the **Asset Lifecycle** subview can now be sorted in ascending or descending order.
+**UI Notes:**
+
+- Columns under the **Asset Lifecycle** subview can be sorted in ascending or descending order.
 
   <ThemedImage
     alt="Asset Lifecycle columns"
@@ -81,9 +79,9 @@ There are two new panels that you can hide and expand as needed:
 
 ### Object Category Visibility
 
-In v19.06, the **Object Category** field is hidden when [Role-Based Access Control](/administration/role-based-access-control/#object-category-field) (RBAC) is turned off globally. A workaround on view pages is to use the **Legacy View** button to see the field.
+The **Object Category** field is hidden when [Role-Based Access Control](/administration/role-based-access-control/#object-category-field) (RBAC) is turned off globally. To see the field on view pages, use the **Legacy View** button.
 
-Also, the following **Actions** on the Devices list page will be hidden when RBAC is off:
+The following **Actions** on the Devices list page are hidden when RBAC is off:
 
 - **Set Object Category**
 - **Delete Object Category**
@@ -92,7 +90,7 @@ You can enable RBAC under **Tools > Settings > Global Settings**.
 
 ### Subpage Options
 
-Subpage buttons are now displayed in the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, are also displayed in this row of subpage buttons. Typical subpages include:
+Subpage buttons are displayed at the top of the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, also appear in this row. Typical subpages include:
   
   - Info (basic device details)
   - Application Group Calculation
@@ -110,9 +108,9 @@ Subpage buttons are now displayed in the device details view. Devices with condi
     }}
   />
 
-### Add a Device
+## Add a Device
 
-Select **Resources > Compute > All Devices** and then click **Create** in the upper-right corner. You will see the generic form with the **Type** shown as blank.
+Select **Resources > Compute > All Devices** and click **Create** in the upper-right corner.
 
 <ThemedImage
   alt="Create button"
@@ -134,7 +132,7 @@ Enter a **Name** for the device and select **physical**, **virtual**, or **clust
   }}
 />
 
-The available options and fields on the Add Device page differ according to the device **Type** selected:
+The fields differ based on the **Type** selected:
 
 - For physical devices, you can select or add a **Physical Subtype**.
 
@@ -156,7 +154,7 @@ The available options and fields on the Add Device page differ according to the 
       }}
     />
 
-- The cluster devices, the page displays an **Available Devices in Cluster** list.
+- For cluster devices, the page displays an **Available Devices in Cluster** list.
 
   <ThemedImage
     alt="Clusters"
@@ -167,16 +165,14 @@ The available options and fields on the Add Device page differ according to the 
   />
 
 :::note
-For dropdown menus that include related lookups – for example, when you select **Physical** and the **Physical Subtype** dropdown appears – you'll see the **+** (plus sign) button. However, if your account lacks the necessary permissions, you won’t be able to create new records.
+For dropdown menus that include related lookups, such as **Physical Subtype**, you'll see a **+** button to create new records. This button requires the necessary account permissions.
 :::
 
-## Basic Device Addition and Editing
+## Edit a Device
 
-Select **Devices > All Devices** to display a list of devices.
+Select **Resources > Compute > All Devices** to display a list of devices. Click a device **Name** to see the details for that device, and then click **Edit** in the top right of the view page.
 
-Click on a device **Name** to see the details for that device, and then click **Edit** in the top right of the View page.
-
-Consider the following example of a network switch:
+The following example shows a network switch:
 
 <ThemedImage
   alt="Edit Device"
@@ -186,19 +182,13 @@ Consider the following example of a network switch:
   }}
 />
 
-- The highlighted checkboxes above indicate whether the device is a **Network Device**, **Blade Chassis**, or **Virtual/Container Host**. 
-  <!-- Keep the two-line spacing for Docusaurus to render the sub-paragraphs on a new line. -->
-  
-  **It is important to choose the correct attributes**: You can only add switch ports to devices with the **Network Device** option checked. Similarly, blades can only be added to a **Blade Chassis**, and only a **Virtual/Container Host** can have guests.
-- You can edit the **Service Level** status.
+- **Network Device**, **Blade Chassis**, and **Virtual/Container Host** checkboxes: Select the correct attributes for the device. Switch ports can only be added to devices with **Network Device** checked, blades to a **Blade Chassis**, and guests to a **Virtual/Container Host**.
+- **Service Level:** Set the device's production status. Select **In Procurement** to reserve rack space for a device that is awaiting installation.
+- **Serial #** and **Asset #:** Displayed for physical and blade devices.
 
+### Non-Editable Fields
 
-  If you have a server that is in procurement or awaiting installation, you can select the **In Procurement** option from the **Service Level** dropdown to reserve rack space for the device after procurement.
-- The **Serial #** and **Asset #** fields are displayed for physical and blade devices.
-
-### Non-Editable Fields 
-
-Fields populated through Enriched Data, like **End of Life** and **End of Support**, are not editable. To set these fields, you need to [disable the Enriched Data service](auto-discovery/enriched-data/enriched-data-opt-out.mdx) and disconnect the record from the Enriched Data record.
+Fields populated through Enriched Data, like **End of Life** and **End of Support**, are not editable. To set these fields manually, [disable the Enriched Data service](/auto-discovery/enriched-data/enriched-data-opt-out.mdx) and disconnect the record from Enriched Data.
 
 <ThemedImage
   alt="Non-editable fields"
@@ -208,11 +198,11 @@ Fields populated through Enriched Data, like **End of Life** and **End of Suppor
   }}
 />
 
-### Warning: Changing a Device Type
+### Change a Device Type
 
-It is possible to change a device type, for example, from **physical** to **virtual**, **cluster**, or **unknown**. Please be aware that when you change a device type, you will lose all the attributes specific to that device type.
+You can change a device type, for example from **physical** to **virtual**, **cluster**, or **unknown**. When you change a device type, you lose all attributes specific to that type.
 
-Device42 presents an alert with potential change conflicts when a user alters a device type.
+Device42 displays an alert listing the attributes that will be lost.
 
 <ThemedImage
   alt="Change conflict warning"
@@ -222,38 +212,24 @@ Device42 presents an alert with potential change conflicts when a user alters a 
   }}
 />
 
-When you change from a physical device type, you lose the following:
+The following table lists the attributes lost for each device type change:
 
-- The rack, room, or storage room information
-- The hardware model
-- Any IP or power connectivity
-- The blade chassis property
-- All blade information
-
-When you change from a virtual device type, you lose the following:
-
-- The virtual host property
-- Any cloud instance data
-
-When you change from a blade device type, you lose the following:
-
-- The blade host information
-- The blade chassis slot number
-- The hardware model
-- The storage room information
-- Any IP or power connectivity
-
-When you change from a cluster device type, you lose all cluster associations.
+| Original Type | Attributes Lost |
+|---------------|----------------|
+| Physical | Rack, room, or storage room information; hardware model; IP or power connectivity; blade chassis property; all blade information |
+| Virtual | Virtual host property; cloud instance data |
+| Blade | Blade host information; blade chassis slot number; hardware model; storage room information; IP or power connectivity |
+| Cluster | All cluster associations |
 
 ## Actions Menu
 
-The **Actions** menu has numerous options for bulk editing and deleting selected items. 
+The **Actions** menu provides options for bulk editing and deleting selected devices.
 
 ### Bulk Add or Remove Device Tags
 
-You can add or remove tags on one or multiple devices from an item's list page. 
+You can add or remove tags on one or more devices from the list page.
 
-- Select one or more devices. From the **Actions** menu, select **Add tags to selected items** or **Remove tags from selected items**. 
+1. Select one or more devices. From the **Actions** menu, select **Add tags to selected items** or **Remove tags from selected items**.
 
   <ThemedImage
     alt="Add and remove tags"
@@ -263,7 +239,7 @@ You can add or remove tags on one or multiple devices from an item's list page.
     }}
   />
 
-- Find a specific tag by typing its name into the text box.
+2. Find a specific tag by typing its name into the text box.
 
   <ThemedImage
     alt="Tags search"
