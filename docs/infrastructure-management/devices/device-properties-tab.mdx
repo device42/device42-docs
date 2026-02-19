@@ -6,17 +6,15 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From version 19.05 of Device42 onward, the **Properties Tab** is only available from the device details page **Legacy View**. 
+The **Properties** tab is a legacy view that groups hardware, OS, connectivity, and IP address details for a device. These sections are now available in the **Breakdown** panel on the device details page. You can still access the legacy view using the **Legacy View** button.
 
-The sections that were within the **Properties Tab** can be accessed from the right-hand **Breakdown** panel of the device details page. This includes:
+The following Properties tab sections are in the **Breakdown** panel:
 
 - **CPU Memory HardDisk** (under **Details**)
 - **Device Operating Systems** (under **Details**)
-- **Connectivity** (called **Ports** from version 19.05)
+- **Ports** (previously called **Connectivity**)
 - **IP Addresses**
 - **Device Alias**
-
-Most fields are automatically populated by autodiscovery.
 
 <ThemedImage
   alt="Breakdown panel"
@@ -26,13 +24,13 @@ Most fields are automatically populated by autodiscovery.
   }}
 />
 
-## The Details Section
+## Details Section
 
-Find CPU and OS information under the **Details** section of the device **Breakdown** panel.
+CPU and OS information is under the **Details** section of the device **Breakdown** panel.
 
 ### CPU Memory HardDisk
 
-The **CPU Memory HardDisk** subsection of the **Details** block holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM**, and other hard disk drive (HDD) info. If you don't want the CPU and memory values to be changed via autodiscovery, check the **Don't change via api** option.
+The **CPU Memory HardDisk** subsection holds values for **Total CPUs**, **Cores/CPU**, **CPU Speed**, total **RAM**, and other hard disk drive (HDD) info. Select **Don't change via api** if you have manually set CPU or memory values and don't want discovery jobs to overwrite them.
 
 ### Device Operating Systems
 
@@ -43,21 +41,20 @@ The **CPU Memory HardDisk** subsection of the **Details** block holds values for
     dark: useBaseUrl('/assets/images/device-properties/device-os-dark.png'),
   }}
 />
-<br/><br/>
 
-The **OS** name, **OS Version**, and **OS Version #** fields are the basic operating system (OS) details for each device. If the data Normalization and Enrichment Service is active and the data is available, these fields may be automatically populated by the autodiscovery client. The vendor support details, like the **End of Life** and **End of Support** fields, may also be autopopulated. If the Enriched Data service is disabled, you can manually enter the relevant data or execute scripts to populate the fields. Note that the **OS License Key** field can also be entered manually. 
+The **OS**, **OS Version**, and **OS Version #** fields hold the basic operating system details for each device. If the Normalization and Enrichment Service is active, these fields may be automatically populated by discovery. Vendor support details like **End of Life** and **End of Support** may also be autopopulated. If the Enriched Data service is disabled, you can manually enter the data or run scripts to populate the fields. The **OS License Key** field can also be entered manually.
 
-The **Count In Licensing** option is checked by default and can be unchecked if it doesn't count towards the OS licensing for the device OS. Check the **Don't change via api** option if you don't want the property values to be changed via autodiscovery.
+**Count In Licensing** is checked by default. Uncheck it if the OS does not count towards licensing. Select **Don't change via api** if you have manually set these values and don't want discovery jobs to overwrite them.
 
-Note that if the Operating System fields are blank, you may need to rerun autodiscovery.
+If the Operating System fields are blank, you may need to rerun discovery.
 
 ## Rack Info
 
-Rack information is no longer shown under the device **Properties** tab. To locate the list of physical devices, navigate to **Resources > All Assets**. You can view and edit rack information by clicking on an asset and scrolling to the **Rack Info** section. 
+Rack information is no longer on the **Properties** tab. Navigate to **Resources > All Assets**, click an asset, and scroll to the **Rack Info** section to view or edit rack details.
 
 ## Ports Connectivity
 
-From the **Ports** section, you can **Add New** and **Add Existing** connections. You can also **Edit** connections or delete them using the **trash can** icon at the far right (not pictured). 
+From the **Ports** section, you can **Add New** and **Add Existing** connections. You can also **Edit** connections or delete them using the **trash can icon** at the far right.
 
 <ThemedImage
   alt="Ports"
@@ -65,11 +62,11 @@ From the **Ports** section, you can **Add New** and **Add Existing** connections
     light: useBaseUrl('/assets/images/device-properties/connectivity-ports-light.png'),
     dark: useBaseUrl('/assets/images/device-properties/connectivity-ports-dark.png'),
   }}
-/> 
+/>
 
 ## IP Addresses
 
-Add an IP address to the device by clicking the **Add New** button and selecting an existing IP address from the dropdown menu, or by clicking the **plus icon** button to create a new IP address.
+Add an IP address to the device by clicking **Add New** and selecting an existing IP address from the dropdown, or click the **plus icon** to create a new one.
 
 <ThemedImage
   alt="Add IP Addresses"
@@ -78,11 +75,12 @@ Add an IP address to the device by clicking the **Add New** button and selecting
     dark: useBaseUrl('/assets/images/device-properties/add-ip-address-dark.png'),
   }}
 />
-<br/><br/>
 
 ## Device Alias and Non-Authoritative Alias
 
-You can add multiple aliases to a device using the **+ Add New** button. Toggle on **Is Preferred** for one of the aliases. Then, you can add one or many **Device Non-Authoritative Alias** to associate nicknames with the device.
+Devices often have multiple names — a short hostname, a fully qualified domain name, or names used by different teams. Aliases let you track all of these and choose which name displays in charts and topology maps.
+
+Add multiple aliases to a device using **+ Add New**. Toggle **Is Preferred** for one of the aliases. You can also add **Device Non-Authoritative Alias** entries to associate nicknames with the device.
 
 <ThemedImage
   alt="Add device aliases"
@@ -91,42 +89,37 @@ You can add multiple aliases to a device using the **+ Add New** button. Toggle 
     dark: useBaseUrl('/assets/images/device-properties/device-aliases-dark.png'),
   }}
 />
-<br/><br/>
 
-Both the device alias and non-authoritative alias add alternate names for the device. You can search for a device using its authoritative alias. However, only the preferred alias is used for device matching during an autodiscovery job.
+Both alias types add alternate names for the device. You can search for a device using its authoritative alias. However, only the preferred alias is used for device matching during a discovery job.
 
-The preferred alias will be the name that appears in device topology maps, impact charts, and dependency charts. The preferred alias is also displayed when adding a device to a business application. 
+The preferred alias is the name that appears in topology maps, impact charts, and dependency charts. It is also displayed when adding a device to a Business Service.
 
-For example, a device named "0101-DEV01" has the preferred alias "0101-DEV01.gov.it". 
+For example, a device named `0101-DEV01` has the preferred alias `0101-DEV01.gov.it`.
 
-- The preferred alias is displayed on the topology map:
+The preferred alias is displayed on the topology map.
 
-  <ThemedImage
-    alt="Topology with device alias"
-    sources={{
-      light: useBaseUrl('/assets/images/device-properties/topology-light.png'),
-      dark: useBaseUrl('/assets/images/device-properties/topology-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Topology with device alias"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/topology-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/topology-dark.png'),
+  }}
+/>
 
-- When adding a device to a business application, you can search for that device with the device name, but the preferred alias is the name that will display on the chart.
+When adding a device to a Business Service, you can search by device name, but the preferred alias is the name displayed on the chart.
 
-  Business Service device search:
+<ThemedImage
+  alt="Business Service search"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/business-service-search-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/business-service-search-dark.png'),
+  }}
+/>
 
-  <ThemedImage
-    alt="Business Service search"
-    sources={{
-      light: useBaseUrl('/assets/images/device-properties/business-service-search-light.png'),
-      dark: useBaseUrl('/assets/images/device-properties/business-service-search-dark.png'),
-    }}
-  />
-
-  Business Service chart:
-
-  <ThemedImage
-    alt="Business Service with device"
-    sources={{
-      light: useBaseUrl('/assets/images/device-properties/business-service-alias-light.png'),
-      dark: useBaseUrl('/assets/images/device-properties/business-service-alias-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Business Service chart with alias"
+  sources={{
+    light: useBaseUrl('/assets/images/device-properties/business-service-alias-light.png'),
+    dark: useBaseUrl('/assets/images/device-properties/business-service-alias-dark.png'),
+  }}
+/>
