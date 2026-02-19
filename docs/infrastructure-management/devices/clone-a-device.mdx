@@ -6,24 +6,22 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Cloning a device in Device42 saves time and provides consistency when adding multiple similar devices.
+Cloning a device saves time and provides consistency when adding multiple similar devices. You select a source device, choose which properties to copy, and specify how many clones to create.
 
-Navigate to **Tools > Templates & Bulk Operations > Clone Device**.
+Navigate to **Tools > Templates and Bulk Operations > Clone Device**.
 
-- Select a **Device to clone** using the **magnifying glass icon** and choose the properties to include in the clone(s) using the checkboxes.
-
-    **Notes** will not be associated with the clones.
+1. Select a **Device to clone** and choose the properties to include using the checkboxes. **Notes** are not included in clones.
 
     <ThemedImage
-    alt="Device to Clone's name and properties"
+    alt="Device clone name and properties"
     sources={{
         light: useBaseUrl('/assets/images/clone-a-device/name-and-properties-light.png'),
         dark: useBaseUrl('/assets/images/clone-a-device/name-and-properties-dark.png'),
     }}
     />
 
-- Input the number of clones you wish to create in the **# of devices** field. Next, choose between naming all the clone(s) by selecting a **Device Name Profile** or naming each clone individually by entering a comma-separated list of names.
-    
+2. Enter the number of clones in the **# of devices** field. Name the clones by selecting a **Device Name Profile**, or enter a comma-separated list of names to name each clone individually.
+
     <ThemedImage
     alt="Number of clones and naming options"
     sources={{
@@ -32,12 +30,12 @@ Navigate to **Tools > Templates & Bulk Operations > Clone Device**.
     }}
     />
 
-- Optionally, you can include an original **Asset Number Profile**, **Service Level**, and **Customer** to be associated with the clone(s). If you apply a new **Service Level** or **Customer** to the clone(s), be sure you deselect the relevant checkbox under **Properties** to prevent the original device property from being cloned.
+3. Optionally, set an **Asset Number Profile**, **Service Level**, or **Customer** for the clones. If you apply a new **Service Level** or **Customer**, deselect the corresponding checkbox under **Properties** to prevent the original value from being copied.
 
-- When you're ready to create the clone(s), click **Clone** in the bottom-right corner.
+4. Click **Clone** in the bottom-right corner to create the clones.
 
     <ThemedImage
-    alt="Other properties options and Clone button"
+    alt="Additional properties and Clone button"
     sources={{
         light: useBaseUrl('/assets/images/clone-a-device/other-properties-light.png'),
         dark: useBaseUrl('/assets/images/clone-a-device/other-properties-dark.png'),
