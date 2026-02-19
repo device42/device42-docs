@@ -6,19 +6,19 @@ sidebar_position: 8
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From version 19.05 of the Device42 UI onward, the **Other Tab** is only available using the **Legacy** view of the device details page.
+The **Other** tab is a legacy view that groups miscellaneous device information such as URLs, BIOS details, custom fields, cloud instance data, file attachments, and discovery scores. The current UI organizes this information differently through the **Breakdown** panel and other sections of the device details page.
 
-In the latest versions of the UI, most of the sections that belonged to the **Other Tab** can be found in the right-hand **Breakdown** panel of the device details page. This includes:
+The following Other tab sections are available in the **Breakdown** panel:
 
-- **Device URLs**
-- **BIOS Info** (under **Details** in the **Breakdown** panel)
-- **[Custom Fields](administration/custom-key-value-pairs-explained.mdx)** - used to create and store custom attributes
-- **File Attachments** - used to attach files associated with the device
+- **Device URLs:** Links associated with the device
+- **BIOS Info:** Vendor, version, and firmware details (under **Details** in the **Breakdown** panel)
+- **[Custom Fields](/administration/custom-key-value-pairs-explained.mdx):** Custom attributes for the device
+- **File Attachments:** Files associated with the device
 
-Port details for power units can be found under the **Ports** section on the details page of a power unit (located under **Infrastructure > Power Units**).
+You can access the full legacy Other tab using the **Legacy View** button on the device details page.
 
 <ThemedImage
-  alt="The Breakdown panel"
+  alt="Device details page"
   sources={{
     light: useBaseUrl('/assets/images/device-other-tab/device-breakdown-view-other-tab-light.png'),
     dark: useBaseUrl('/assets/images/device-other-tab/device-breakdown-view-other-tab-dark.png'),
@@ -27,39 +27,25 @@ Port details for power units can be found under the **Ports** section on the det
 
 ## Device URLs
 
-Device URLs enable you to create links associated with the device.
+Device URLs let you create links associated with the device. The following variables are available:
 
-The following variables can be used: 
-
-- `{{device.name}}`: Device name 
-- `{{device.serial_no}}`: Serial number associated with this device
-- `{{device.asset_no}}`: Asset number associated with this device
+- `{{device.name}}`: Device name
+- `{{device.serial_no}}`: Serial number
+- `{{device.asset_no}}`: Asset number
 
 <ThemedImage
-  alt="Device URLS"
+  alt="Device URLs section"
   sources={{
     light: useBaseUrl('/assets/images/device-other-tab/device-urls-light.png'),
     dark: useBaseUrl('/assets/images/device-other-tab/device-urls-dark.png'),
   }}
 />
 
-See also - [How to video adding links and other URLs](how-to-videos/adding-links-and-other-urls-to-devices.mdx)
-
-## Ports in PDU
-
-Navigate to **Infrastructure > Power Units** and select a power unit. If this device has associated PDU ports, the ports are shown here.
-
-<ThemedImage
-  alt="Power Unit Ports"
-  sources={{
-    light: useBaseUrl('/assets/images/device-other-tab/power-unit-ports-light.png'),
-    dark: useBaseUrl('/assets/images/device-other-tab/power-unit-ports-dark.png'),
-  }}
-/>
+See also: [Adding Links and Other URLs to Devices](/how-to-videos/adding-links-and-other-urls-to-devices.mdx).
 
 ## File Attachments
 
-Any files you have uploaded or associated with this device will be shown here.
+Upload files and add descriptions to associate them with the device. Attached files are displayed in the **File Attachments** section.
 
 <ThemedImage
   alt="File attachments"
@@ -68,5 +54,3 @@ Any files you have uploaded or associated with this device will be shown here.
     dark: useBaseUrl('/assets/images/device-other-tab/file-attachments-dark.png'),
   }}
 />
-
-See also: Managing [patch panels](infrastructure-management/connectivity/patch-panels/patch-panel-cable-management-definitions-and-legends-2.mdx) and [switch ports](infrastructure-management/ipam/switch-ports.mdx) in Device42.
