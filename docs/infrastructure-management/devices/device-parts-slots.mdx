@@ -6,15 +6,15 @@ sidebar_position: 9
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Part slots may be added to both new and existing blade-based and non-blade hardware. Parts slots can optionally receive parts. Define parts slots on hardware templates, or add one directly to an existing hardware device.
+Parts slots define where parts can be installed in a hardware model. When you add parts slots to a hardware model, every device that uses that model inherits the same slot layout, ensuring consistency across your infrastructure.
 
-For information on blade slots, which work similarly but accept blades instead of parts, see [Blade Slots documentation](device-blade-slots.mdx)
+You can add parts slots to both blade-based and non-blade hardware models. This page covers how to define parts slots on a hardware model and arrange their visual layout using the model editor. For information on blade slots, which accept blades instead of parts, see [Device - Blade Slots](device-blade-slots.mdx).
 
-## Add Parts Slots to Hardware Models
+## Add Parts Slots to a Hardware Model
 
-Navigate to **Infrastructure > Hardware Models** and select or create a hardware model with a **Rackable**, or similar, **Physical Subtype**. 
+Navigate to **Infrastructure > Hardware Models** and select or create a hardware model with a **Rackable**, or similar, **Physical Subtype**.
 
-To add a parts slot to a hardware model, click the **Model Layout** tab.
+Search for the hardware model from the list page and click **Model Layout** to open the layout editor.
 
 <ThemedImage
   alt="Model Layout button"
@@ -24,17 +24,7 @@ To add a parts slot to a hardware model, click the **Model Layout** tab.
   }}
 />
 
-You’ll then be at the Hardware Model layout editor screen. You can turn edit mode on or off via the **Turn ON** button:
-
-<ThemedImage
-  alt="Model Layout button"
-  sources={{
-    light: useBaseUrl('/assets/images/device-parts-slots/turn-on-layout-light.png'),
-    dark: useBaseUrl('/assets/images/device-parts-slots/turn-on-layout-dark.png'),
-  }}
-/>
-
-Add a parts slot by dragging and dropping a **New Slot** icon at the front or the back of the chassis. You can specify the part model to put in the parts slot during this process:
+Add a parts slot by dragging and dropping a **New Slot** icon to the front or back of the chassis. You can specify the part model during this step.
 
 <ThemedImage
   alt="New Slot details"
@@ -44,48 +34,56 @@ Add a parts slot by dragging and dropping a **New Slot** icon at the front or th
   }}
 />
 
-### Note About Manually Moving Parts When Using the Auto-Add Ports Option
+## Arrange the Layout with the Visual Model Editor
 
-Should you manually move one or more parts around the layout _(for example, from Slot A to Slot B)_, any ports associated with that part that were auto-added **will not automatically regenerate**. It is assumed that if you are manually moving existing parts, you are attempting to correct the location of a part.
+After adding parts slots to a hardware model, use the visual model editor to arrange their position on the front and back of the chassis.
 
-Should you be actually **moving the physical part from one slot to another**, to represent this in Device42, you should **first remove the part from the device, save, and then add it back to its new slot**. The system will then delete all associated network ports from the device, and will auto-add new ones back to the new slot ID _(as long as auto-add ports is enabled for that hardware model)_.
-
-## Use the Visual Model Editor
-
-Click **Turn ON** to enable edit mode, and then drag and drop parts slots as desired. Slots that were created when the part model was defined will appear in the left column, **Unmapped Existing Parts** or **Unmapped Existing Blade Slots**:
+Click **Turn ON** to enable edit mode, then drag and drop parts slots as desired.
 
 <ThemedImage
-  alt="Unmapped slots"
+  alt="Turn ON button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-parts-slots/turn-on-layout-light.png'),
+    dark: useBaseUrl('/assets/images/device-parts-slots/turn-on-layout-dark.png'),
+  }}
+/>
+
+Slots defined in the hardware model appear in the left column under **Unmapped Existing Parts** or **Unmapped Existing Blade Slots**.
+
+<ThemedImage
+  alt="Unmapped parts slots"
   sources={{
     light: useBaseUrl('/assets/images/device-parts-slots/unmapped-blade-slots-light.png'),
     dark: useBaseUrl('/assets/images/device-parts-slots/unmapped-blade-slots-dark.png'),
   }}
 />
 
-Click any parts or blade slot and click the **pencil** button in the top-right corner to reorient, rename, or place a part in a parts slot:
+### Edit a Parts Slot
+
+Click a parts slot or blade slot and click the **pencil icon** in the top-right corner to reorient, rename, or place a part in a parts slot.
 
 <ThemedImage
-  alt="Edit part slot"
+  alt="Edit parts slot fields"
   sources={{
     light: useBaseUrl('/assets/images/device-parts-slots/edit-part-slot-light.png'),
     dark: useBaseUrl('/assets/images/device-parts-slots/edit-part-slot-dark.png'),
   }}
 />
 
-Editing a **Blade Slot** offers different options. When editing a blade slot, similarly to a parts slot, you may add a number or change the orientation between horizontal and vertical. However, you cannot put a part in a blade slot; instead, you have the ability to set the blade height.
+Blade slots have different options: you can add a number or change the orientation, but instead of placing a part, you set the blade height. For more details, see [Device - Blade Slots](device-blade-slots.mdx).
+
+When you have finished editing the layout, click **Save**. A green confirmation appears in the upper left.
+
+### Move Parts with Auto-Add Ports Enabled
+
+When a hardware model has auto-add ports enabled, Device42 automatically creates network ports for parts placed in slots. Be aware of the following behavior when moving parts in the editor.
+
+If you manually move a part from one slot to another in the layout (for example, from Slot A to Slot B), any auto-added ports associated with that part **will not automatically regenerate**. The system assumes you are correcting the displayed location of a part that has not physically moved.
+
+If you are **moving the physical part from one slot to another**, first remove the part from the device, save, and then add it back to the new slot. The system deletes all associated network ports and auto-adds new ones for the new slot ID, as long as auto-add ports is enabled for that hardware model.
 
 <ThemedImage
-  alt="Edit blade slot"
-  sources={{
-    light: useBaseUrl('/assets/images/device-parts-slots/edit-blade-slot-light.png'),
-    dark: useBaseUrl('/assets/images/device-parts-slots/edit-blade-slot-dark.png'),
-  }}
-/>
-
-When you have finished editing your layout, **Save** your edits. You will see a green save confirmation in the upper left.
-
-<ThemedImage
-  alt="Successful save message"
+  alt="Save confirmation message"
   sources={{
     light: useBaseUrl('/assets/images/device-parts-slots/layout-success-light.png'),
     dark: useBaseUrl('/assets/images/device-parts-slots/layout-success-dark.png'),
