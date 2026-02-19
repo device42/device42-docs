@@ -6,15 +6,17 @@ sidebar_position: 20
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This section discusses the management of hardware models for physical, blade, and other device types. In Device42, a hardware model is a template that hardware CIs are deployed from. Each hardware model template specifies the rack display size, depth, image, part slots, connectivity, and power calculations for a given device model.
+A hardware model is a template that defines the rack display size, depth, image, part slots, connectivity, and power calculations for a device model. When you create a device and assign it a hardware model, the device inherits those properties. This way, you define rack size, ports, and power details once and every device using that model gets the same configuration.
+
+This page covers how to create and edit hardware models, define ports and slots, manage device layouts, and merge duplicate models.
 
 ## Hardware Model List Page
 
-Locate the hardware model list page under **Infrastructure > Hardware Models**. You can filter and search through existing models from this page. Click the name of a hardware model to view and edit its properties. Make changes to an existing hardware model using the **Edit** button on the top right of its view page.
+Navigate to **Infrastructure > Hardware Models** to display the list page. You can filter and search existing models from this page. Click the name of a hardware model to view its properties, then click **Edit** to make changes.
 
 ### Create a Hardware Model
 
-Open a new hardware model form by clicking **Create** at the top right of the list page. 
+Click **Create** at the top right of the list page to open a new hardware model form.
 
 <ThemedImage
   alt="Hardware Model list page"
@@ -24,15 +26,13 @@ Open a new hardware model form by clicking **Create** at the top right of the li
   }}
 />
 
-In the **Name** field, enter the model name. The manufacturer name will be automatically added to the model name whenever this hardware model is displayed. For example, if you have specified the manufacturer as Dell, you can enter "PE2950" for a Dell PE2950 and the model will be displayed as "Dell PE2950".
+Enter the model name in the **Name** field. The manufacturer name is automatically prepended when the hardware model is displayed. For example, if the manufacturer is Dell and you enter `PE2950`, the model displays as "Dell PE2950".
 
-In the **Physical Subtype** field, indicate whether the model is for a physical device (rackable), blade device, or other device (for example, laptops or workstations). Depending on the type you choose, different fields will become available.
+Select a **Physical Subtype** to indicate whether the model is for a rackable device, blade device, or another type (for example, laptops or workstations). Different fields become available depending on the subtype.
 
-**Size** is the size of the physical device or regular type in Us. You can enter "1/2" or "0.5".
-
-**Blade size** provides the various combinations of possible blade sizes.
-
-If you want to add back-to-back devices in the rack, use "Half Depth" in the **Depth** field.
+- **Size:** The size of the device in Us. You can enter `1/2` or `0.5`.
+- **Blade Size:** The available blade size combinations.
+- **Depth:** Set to `Half Depth` to support back-to-back devices in the rack.
 
 <ThemedImage
   alt="Add/edit hardware model"
@@ -44,11 +44,9 @@ If you want to add back-to-back devices in the rack, use "Half Depth" in the **D
 
 ### Define Ports on Hardware Models
 
-When you create a hardware model, you can specify all the direct ports, part slots, and blade slots for each hardware model.
+You can define direct ports, part slots, and blade slots on a hardware model.
 
-**Direct Ports** specify ports that are part of the hardware chassis and are not removable.
-
-Select the **Add Ports When Creating Device** option for the system to automatically create all defined direct ports when a device is created.
+**Direct Ports** are ports built into the hardware chassis that are not removable. Select **Add Ports When Creating Device** to automatically create all defined direct ports when a device is created.
 
 <ThemedImage
   alt="Define ports on Device hardware model"
@@ -58,9 +56,9 @@ Select the **Add Ports When Creating Device** option for the system to automatic
   }}
 />
 
-## Edit the Layout of an Existing Hardware Device
+## Edit a Device Layout
 
-To edit the layout of an existing hardware device visually, go to the CI details page for the device and click the **Layout** button in the upper right-hand corner:
+Each device has a visual layout based on its hardware model. To edit it, navigate to the device details page and click **Layout** in the top right.
 
 <ThemedImage
   alt="Physical device Layout button"
@@ -70,35 +68,31 @@ To edit the layout of an existing hardware device visually, go to the CI details
   }}
 />
 
-In the layout view, click the **Turn ON** button to enter edit mode. Add parts slots, parts, and direct ports to the hardware chassis by dragging and dropping the grey icons from the left column onto either the **Front** or the **Back** representation of the device.
+In the layout view, click **Turn ON** to enter edit mode. Add parts slots, parts, and direct ports to the hardware chassis by dragging and dropping the icons from the left column onto the **Front** or **Back** of the device.
 
-:::info
-If you attempt to edit the layout of a device that doesn't have its ports, parts slots, or blade slots defined in the hardware model, they won't be on the device layout.
-:::
+### Fix a Blank Device Layout
 
-If your editing screen doesn't have any defined parts and looks similar to the image below, you must first edit the hardware model:
+If the layout is empty, the hardware model does not have ports, parts slots, or blade slots defined yet. You need to add them to the hardware model first.
 
 <ThemedImage
-  alt="If your hardware layout is blank, edit the model first!"
+  alt="Blank hardware layout"
   sources={{
     light: useBaseUrl('/assets/images/hardware-model-templates/blank-layout-model-for-device-light.png'),
     dark: useBaseUrl('/assets/images/hardware-model-templates/blank-layout-model-for-device-dark.png'),
   }}
 />
 
-Here are the steps to edit the hardware model the CI you are looking at is based on.
+1. On the device details page, click the link to the hardware model.
 
-1. Go to the CI details page and click the link to the hardware model page (highlighted):
-    
     <ThemedImage
     alt="Link to hardware model"
     sources={{
         light: useBaseUrl('/assets/images/hardware-model-templates/hardware-model-link-light.png'),
         dark: useBaseUrl('/assets/images/hardware-model-templates/hardware-model-link-dark.png'),
     }}
-    />    
+    />
 
-2. Click the **Model Layout** button and add the missing part slots, direct ports, or blade slots to the hardware model:
+2. Click **Model Layout** and add the missing ports and slots to match the actual physical hardware.
 
     <ThemedImage
     alt="Model layout edit button"
@@ -108,8 +102,6 @@ Here are the steps to edit the hardware model the CI you are looking at is based
     }}
     />
 
-3. Add the missing ports and slots to match the layout of the actual physical hardware (the example screenshot below is not accurate):
-
     <ThemedImage
     alt="Add parts and ports to hardware model"
     sources={{
@@ -118,26 +110,26 @@ Here are the steps to edit the hardware model the CI you are looking at is based
     }}
     />
 
-Now you should be able to modify the layout of the hardware device CI.
+3. Return to the device details page and click **Layout** again. The slots and ports from the hardware model are now available.
 
-## Device Type and Hardware Type 
+## Device Type and Hardware Type
 
-When a device that is not a virtual device is discovered using auto-discovery, it is classified as type **unknown**. This is because the discovered device could be a physical device, a blade device, or other type.
+A device's type controls which fields and features are available — for example, rack placement fields appear for physical devices, and chassis assignment appears for blade devices. When a non-virtual device is discovered, it is classified as type **unknown**, as the discovered device could be physical, blade, or another type.
 
-You can change the device type in bulk by changing the type of the associated hardware model.
+There are two ways to fix this:
 
-For example, 50 devices are discovered with hardware Dell PE1950 and are classified as "unknown". Auto-discovery also creates a PE1950 hardware model, which you can edit by changing the **Type** to "regular (rack mountable)" and assigning a **Size** of "1". All associated devices will automatically change type to "physical device" and any future device discovery with hardware PE1950 is automatically categorized as physical.
+### Change Type via Hardware Model
 
-Use the bulk edit and spreadsheet import features to efficiently change the device type for multiple devices.
+If many devices share the same hardware model, change the type on the hardware model to update all of them at once. For example, if 50 devices are discovered with hardware Dell PE1950 and classified as **unknown**, you can edit the PE1950 hardware model by changing the **Type** to `regular (rack mountable)` and assigning a **Size** of `1`. All associated devices automatically change to **physical** and any future discovery with hardware PE1950 is categorized as physical.
 
-### Device Type Bulk Edit
+### Change Type via Bulk Edit
 
-Change the **Type** property for multiple devices at once with the **Change type** bulk action. For example, you can change the **unknown** device type value to **physical**. 
+If you need to change the type for specific devices regardless of their hardware model, use the **Change type** bulk action.
 
-1. Go to the **Device** list page under **Resources > All Devices**. 
-2. Select the devices you want to edit. You can filter for devices with the **unknown** Type using the dropdown menu.
+1. Navigate to **Resources > Compute > All Devices**.
+2. Select the devices you want to edit. You can filter for devices with the **unknown** type using the dropdown menu.
 3. Choose the **Change type** action.
-4. Choose the new device type for the selected devices and click **Change**. 
+4. Select the new device type and click **Change**.
 
 <ThemedImage
   alt="Change device type"
@@ -149,10 +141,10 @@ Change the **Type** property for multiple devices at once with the **Change type
 
 ## Upload Images
 
-You can upload images (like front and rear views of devices) into Device42 and associate them with Hardware Model templates for visual context.
+You can upload images of devices (such as front and rear views) and associate them with hardware models. The images show up on the hardware model list page, which helps when you need to tell similar models apart.
 
-1. Go to **Tools > Templates & Bulk Operations > Image files**.
-2. Click the **Create** button on the top right.
+1. Navigate to **Tools > Templates and Bulk Operations > Image Files**.
+2. Click **Create** in the top right.
 3. Browse to select the image file from your computer.
 4. Click **Save**. To upload more images, click the **Save and add another** button.
 
@@ -177,7 +169,7 @@ Add images to a hardware model by selecting them from the hardware model's edit 
   }}
 />
 
-These images will then be displayed on the hardware model list page.
+The images are then displayed on the hardware model list page.
 
 <ThemedImage
   alt="Hardware model list page with images"
@@ -189,13 +181,9 @@ These images will then be displayed on the hardware model list page.
 
 ## Merge Hardware Models
 
-When you use auto-discovery, imports, or the APIs, you may find multiple hardware models describing the same hardware have been created with devices assigned to each.
+Discovery, imports, or API calls can create multiple hardware models that describe the same hardware. Having duplicates means your devices are spread across separate models. You can merge duplicates as long as their size, depth, type, and blade size (for blade types) match. When you merge, device relationships are reassigned to the master model and the duplicate models are deleted.
 
-You can merge hardware models as long as the size, depth, type, and blade size (for blade types) of each model are the same.
-
-When you merge a hardware model with another, device relationships are reassigned to the merged hardware model, and the original hardware model is deleted.
-
-Navigate to the **Hardware Model** list page under **Infrastructure > Hardware Models** and select the two or more models you wish to merge. From the **Action** menu, select **Merge selected hardware models**.
+Navigate to **Infrastructure > Hardware Models** and select two or more models to merge. From the **Actions** menu, select **Merge selected hardware models**.
 
 <ThemedImage
   alt="Hardware Model merge action"
@@ -205,9 +193,9 @@ Navigate to the **Hardware Model** list page under **Infrastructure > Hardware M
   }}
 />
 
-Select the hardware model that should be the master model. The selected hardware models will be merged into this hardware model.
+Select the hardware model that should be the master model. All selected models are merged into this model.
 
-You can optionally add the merged hardware model names as aliases in the master hardware model, but this is strictly for reference and all existing devices will be associated with the new master hardware model.
+You can optionally add the merged model names as aliases on the master model for reference. All existing devices are reassigned to the master model regardless.
 
 Click **Merge hardware models** to complete the merge.
 
@@ -219,7 +207,7 @@ Click **Merge hardware models** to complete the merge.
   }}
 />
 
-Note that if the U size is different, the hardware models will not merge. You will see the differently-sized models you attempted to merge in the list page table.
+If the U size differs between models, the merge will not proceed. The models with mismatched sizes remain on the list page.
 
 <ThemedImage
   alt="Hardware Models with different U sizes"
