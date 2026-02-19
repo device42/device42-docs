@@ -6,9 +6,11 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-A blade slot is a placeholder for a blade server in a blade chassis. You can add blade slots to a Hardware Model that has been configured as a **Blade Host/Chassis** with the same number, type, and layout of blade slots as its corresponding physical hardware.
+A blade slot is a placeholder for a blade server in a blade chassis. You can add blade slots to a hardware model configured as a **Blade Host/Chassis** to match the number, type, and layout of slots in your physical hardware.
 
-## Create or Edit a Chassis Hardware Model 
+This page covers how to create chassis hardware models with blade slots and use the visual model editor to arrange their layout.
+
+## Create or Edit a Chassis Hardware Model
 
 Navigate to **Infrastructure > Hardware Models** and select an existing hardware model or click **Create** to create a new one.
 
@@ -24,7 +26,7 @@ For **Physical Subtype**, choose **Rackable** or a similarly defined subtype to 
 
 ### Add Blade Slots to the Chassis
 
-Scroll down to **Chassis Blade Slots** and add as many blade slots as necessary to match the layout of your hardware. 
+Scroll down to **Chassis Blade Slots** and add as many blade slots as necessary to match your hardware layout.
 
 <ThemedImage
   alt="Add blade slots to chassis Hardware Model"
@@ -34,11 +36,11 @@ Scroll down to **Chassis Blade Slots** and add as many blade slots as necessary 
   }}
 />
 
-Click **Save** or **Save and continue editing** to save your progress. 
+Click **Save** or **Save and continue editing** to save your progress.
 
-### Adjust Layout on Existing Hardware Model
+### Adjust the Layout on an Existing Hardware Model
 
-Search for the Hardware Model you created from the Hardware Model list page and click **Model Layout** to create or adjust the visual layout of the blade slots.
+Search for the hardware model from the list page and click **Model Layout** to create or adjust the visual layout of the blade slots.
 
 <ThemedImage
   alt="Model Layout button"
@@ -48,9 +50,9 @@ Search for the Hardware Model you created from the Hardware Model list page and 
   }}
 />
 
-## Using the Visual Model Editor
+## Use the Visual Model Editor
 
-Click **Turn ON** to enable edit mode, then drag and drop blade slots as desired. 
+Click **Turn ON** to enable edit mode, then drag and drop blade slots as desired.
 
 <ThemedImage
   alt="Turn ON button"
@@ -58,12 +60,12 @@ Click **Turn ON** to enable edit mode, then drag and drop blade slots as desired
     light: useBaseUrl('/assets/images/device-blade-slots/turn-on-button-light.png'),
     dark: useBaseUrl('/assets/images/device-blade-slots/turn-on-button-dark.png'),
   }}
-  style={{ width: '35%' }} 
+  style={{ width: '35%' }}
 />
 
-The slots created when the Hardware Model was defined will appear in the left column under **Un-mapped Existing Blade Slots**.
+The slots you defined in the hardware model appear in the left column under **Un-mapped Existing Blade Slots**.
 
-Toggle the grid background on or off using the **Grid** icon to help you align the slots.
+Toggle the grid background on or off using the **grid icon** to help align the slots.
 
 <ThemedImage
   alt="Unmapped blade slots"
@@ -73,11 +75,11 @@ Toggle the grid background on or off using the **Grid** icon to help you align t
   }}
 />
 
-### Editing a Blade Slot
+### Edit a Blade Slot
 
-Double-click a blade slot or select it and click the **Pencil** icon to change the slot size, orientation, or number. 
+Double-click a blade slot or select it and click the **pencil icon** to change the slot size, orientation, or number.
 
-Note that parts cannot be placed into a blade slot; however, you can specify the height of the blade that occupies the slot.
+Parts cannot be placed into a blade slot, but you can specify the height of the blade that occupies the slot.
 
 <ThemedImage
   alt="Edit blade slot fields"
@@ -87,7 +89,7 @@ Note that parts cannot be placed into a blade slot; however, you can specify the
   }}
 />
 
-When you have finished editing your layout, **Save** the edits you made. You will see a green save confirmation notice at the top of the left panel. 
+When you have finished editing your layout, click **Save**. A green confirmation notice appears at the top of the left panel.
 
 <ThemedImage
   alt="Save button on visual model editor"
