@@ -6,7 +6,9 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-When creating or editing a discovery job under **Discovery > Hypervisors / \*nix / Windows**, you will see the following autodiscovery form:
+The Software Components page lists all software discovered across your Windows and Linux machines. Software is collected by enabling the **Discover Software** option on a discovery job — this page covers how to view, edit, and manage the resulting software components.
+
+When creating or editing a discovery job under **Discovery > Hypervisors or \*nix or Windows**, you will see the following form:
 
 <ThemedImage
   alt="Add discovery job"
@@ -16,7 +18,7 @@ When creating or editing a discovery job under **Discovery > Hypervisors / \*nix
   }}
 />
 
-Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to facilitate the autodiscovery of software on Windows and Linux machines in the defined CIDR blocks, hostnames, domain servers, or IP range(s).
+Scroll down to the **Software and Applications** section. By default, **Discover Software** is enabled to discover software on Windows and Linux machines in the defined CIDR blocks, hostnames, domain servers, or IP range(s).
 
 <ThemedImage
   alt="The Discover Software option"
@@ -38,10 +40,10 @@ To view the full list of discovered software, navigate to **Resources > Software
     light: useBaseUrl('/assets/images/software-components/software-components-menu-light.png'),
     dark: useBaseUrl('/assets/images/software-components/software-components-menu-dark.png'),
   }}
-  style={{ width: '90%' }} 
+  style={{ width: '90%' }}
 />
 
-As with other list views in Device42, you can sort the discovered software components using the column headers, the various **Advanced** filters on the right side of the page, the **search box** at the top of the page, or the bulk actions in the **Actions** dropdown.
+As with other list views in Device42, you can sort the discovered software components using the column headers, filter using the **Advanced** filters on the right, or search using the **search box** at the top. Use the **Actions** dropdown for bulk actions.
 
 <ThemedImage
   alt="Software component list page"
@@ -80,17 +82,17 @@ For better tracking and reporting, you can select a **Deployment Type** to categ
     light: useBaseUrl('/assets/images/software-license-management/deployment-type-light.png'),
     dark: useBaseUrl('/assets/images/software-license-management/deployment-type-dark.png'),
   }}
-  style={{ width: '50%' }} 
+  style={{ width: '50%' }}
 />
 
 ## Edit a Software Component
 
-Click on the name of a software component and then select **Edit** to add additional details to its record. For example, you can specify a **License Model**, select a **Vendor**, add and define a **Category**, and add **Notes** and **Tags**.
+Click the name of a software component and select **Edit** to add additional details to its record. For example, you can specify a **License Model**, select a **Vendor**, add and define a **Category**, and add **Notes** and **Tags**.
 
 Check the **Track Licensed Count by Keys** checkbox to base the software usage count on keys, rather than the total number of software component instances.
 
 <ThemedImage
-  alt="Change software component"
+  alt="Software component details form with license model and vendor fields"
   sources={{
     light: useBaseUrl('/assets/images/software-components/change-component-1-light.png'),
     dark: useBaseUrl('/assets/images/software-components/change-component-1-dark.png'),
@@ -100,7 +102,7 @@ Check the **Track Licensed Count by Keys** checkbox to base the software usage c
 You can also add **Software Component Aliases** and **Software License Keys**, view the actual instances of the discovered software under **Software In Use**, and add **Purchase/Support Info**.
 
 <ThemedImage
-  alt="Change software component"
+  alt="Software component aliases and license keys"
   sources={{
     light: useBaseUrl('/assets/images/software-components/change-component-2-light.png'),
     dark: useBaseUrl('/assets/images/software-components/change-component-2-dark.png'),
@@ -108,7 +110,7 @@ You can also add **Software Component Aliases** and **Software License Keys**, v
 />
 
 <ThemedImage
-  alt="Change software component"
+  alt="Software in use and purchase or support info"
   sources={{
     light: useBaseUrl('/assets/images/software-components/change-component-3-light.png'),
     dark: useBaseUrl('/assets/images/software-components/change-component-3-dark.png'),
@@ -129,7 +131,7 @@ On the **All Software Components** list page, you can make bulk modifications to
     light: useBaseUrl('/assets/images/software-components/software-actions-light.png'),
     dark: useBaseUrl('/assets/images/software-components/software-actions-dark.png'),
   }}
-  style={{ width: '50%' }} 
+  style={{ width: '50%' }}
 />
 
 The available actions are:
@@ -149,7 +151,7 @@ For example, you could select several software components and choose to:
 
 - **Mark selected Software as Ignored** and Device42 would remove the components from the list and ignore them in future discoveries.
 - **Mark selected Software as Prohibited** and Device42 would send alerts whenever prohibited software was found on a user's machine (if the alert was configured).
-- **Refresh/update Software counts** and the software counts (but not the autodiscovery job) would be run immediately.
+- **Refresh/update Software counts** and the software counts (but not the discovery job) would be run immediately.
 
 The **Refresh/update Software counts** action is useful when you have changed the licensing or software count configuration and want to see the impact of the change immediately.
 
@@ -159,12 +161,9 @@ The Discovered Count field is automatically recalculated at a regular interval (
 
 ### Assign Software to Suite
 
-The **Assign Software to Suite** action is also useful, as it allows you to group selected software components into sets.
+The **Assign Software to Suite** action lets you group selected software components into sets for easier management and reporting.
 
-For example, if you wanted to group Adobe products, you would create a suite and then assign Adobe software components to it.
-
-- To create the suite, you could either select an existing software component and define it as a suite or create a new software component using the **Add Software Component** button and call it something like "Adobe Software Suite".
-- Then, you could select Adobe software components from the list, choose **Assign Software to Suite** from the **Actions** dropdown, and click the action to assign the selected software components to an Adobe suite.
+For example, to group Adobe products, create a suite by either selecting an existing software component and defining it as a suite, or creating a new one using **Add Software Component** and naming it something like "Adobe Software Suite". Then select the Adobe software components from the list, choose **Assign Software to Suite** from the **Actions** dropdown, and confirm to assign them to the suite.
 
 <ThemedImage
   alt="Assign software to suite"
