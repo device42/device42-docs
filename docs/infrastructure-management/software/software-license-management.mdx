@@ -298,27 +298,7 @@ The **CPU count virtual** field defines how software found on virtual machines i
 
 ## Alerts and Notifications
 
-You can configure alerts to notify you when software license thresholds are reached or prohibited software is detected.
-
-Device42 distinguishes between **alerts** and **notifications**. An alert defines a set of criteria that require attention and the actions to perform when those criteria are met. A notification is a log entry for an alert rule that was triggered.
-
-To create an alert, navigate to **Analytics > Alerts > Setup Alerts > Create**. Switch the **Rule Type** field to **Software**. The following alert types can be set in the **Trigger** field:
-
-- **Count:** When the count of a piece of software is greater than, less than, equal to, or not equal to an expected value.
-- **License Percent Used:** When the number of licenses for a piece of software is greater than, less than, equal to, or not equal to an expected value.
-- **Prohibited Software Installed:** Whenever any prohibited software is detected on a scanned system.
-
-The recipient for an alert is set in the **Escalation Profile** field. If a profile is already configured, you can select it from the prepopulated list. If not, click the plus icon next to the **Escalation Profile** field to open a form to configure one.
-
-<ThemedImage
-  alt="Add alert"
-  sources={{
-    light: useBaseUrl('/assets/images/add-alert-light.png'),
-    dark: useBaseUrl('/assets/images/add-alert-dark.png'),
-  }}
-/>
-
-Once an alert's criteria are met, you can view open and acknowledged notifications at **Analytics > Reports > Notifications**.
+You can configure alerts to notify you when software license thresholds are reached or prohibited software is detected. For full details on setting up alerts and managing notifications, see [Software Licensing Alerts and Notifications](software-licensing-alerts-and-notifications.mdx).
 
 ## End of Life and End of Service
 
