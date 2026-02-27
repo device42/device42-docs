@@ -6,22 +6,22 @@ sidebar_position: 5
 import ThemedImage from "@theme/ThemedImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-This page is about managing SSL certificates in Device42, including viewing discovered certificates and importing certificates from files. For details on creating a certificate autodiscovery job, visit [Certificate Autodiscovery](/auto-discovery/certificate-auto-discovery.mdx).
+Device42 tracks SSL certificates discovered across your infrastructure and lets you view validity details, associate certificates with devices and FQDNs, and run expiry reports. For details on creating a certificate discovery job, see [Certificate Discovery](/auto-discovery/certificate-auto-discovery.mdx).
 
 ## Certificate List Page
 
-The list page for certificates, under **Applications > Certificates**, will show you all certificates discovered in Device42 along with their validity details.
+The certificate list page, under **Applications > Certificates**, shows all certificates discovered in Device42 along with their validity details.
 
-The fields include:
+Each certificate entry displays the following fields:
 
 - Serial Number
-- Is Key Encipherment
-- Is Key CERT Sign
+- Key Encipherment
+- Key CERT Sign
 - Subject Alternative Name
 - First Detected date and time
 - Encryption method
 
-You can export certificates by selecting them from the list and choosing the **Export Selected items as CSV** option from the **Actions** dropdown menu. 
+You can export certificates by selecting them from the list and choosing **Export Selected items as CSV** from the **Actions** dropdown.
 
 <ThemedImage
   alt="Certificate list page"
@@ -37,9 +37,9 @@ You can export certificates by selecting them from the list and choosing the **E
 
 ### View Certificates
 
-Click on the name of a certificate from the list page, under **Applications > Certificates**, to view it.
+Click the name of a certificate to view it.
 
-When viewing a certificate that has been imported, you can now associate FQDN, multiple devices, IPs, and different validity dates with your certificates. This allows you to have a wildcard certificate and easily see the different FQDNs or subdomains associated with it.
+You can associate an FQDN, multiple devices, IPs, and different validity dates with a certificate. This is useful for wildcard certificates, where you can see all the FQDNs or subdomains associated with a single certificate.
 
 <ThemedImage
   alt="View certificate"
@@ -63,20 +63,20 @@ Device42 supports certificate uploads in the following formats:
 
 ## Certificate Instances
 
-In addition to seeing all certificates, you can now see certificate instances - allowing you to see device/IP address relationships for individual certificates. Locate certificate instances under **Applications > Certificate Instances**. Filter certificate instances based on device building, service level, and customer.
+Certificate instances show the device and IP address relationships for individual certificates. Navigate to **Applications > Certificate Instances** to view them. You can filter by device building, service level, and customer.
 
 Certificate instances are also displayed in the device details view.
 
-  <ThemedImage
-    alt="Certificate Instances"
-    sources={{
-      light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
-      dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Certificate instances in the device details view"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/certificate-instances-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
+  }}
+/>
 
 ## Certificate Reports
 
-Though you can have multiple valid-to dates associated with a single certificate, Device42 reports still know to alert you based on the oldest date stored for a given certificate.
+When a certificate has multiple valid-to dates, Device42 reports alert based on the oldest date stored for that certificate.
 
-This allows you to run reports to see which devices you still need their certificates updated, allowing you to see your update progressing — which can prove especially useful with very large deployments.
+You can run reports to see which devices still need their certificates updated. This is especially useful in large deployments where you want to track update progress.
