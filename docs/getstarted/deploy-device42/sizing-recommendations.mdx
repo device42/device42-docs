@@ -3,9 +3,9 @@ title: "Sizing Recommendations"
 sidebar_position: 4
 ---
 
-Use the sizing recommendations below to properly provision your Device42 Main Appliance, Remote Collectors, and Windows Discovery Service. 
+Use the sizing recommendations below to properly provision your Device42 Main Appliance, Remote Collectors (RC), and Windows Discovery Service (WDS). 
 
-The sizing requirements depend on the size of the environment and the Device42 features used.
+Sizing requirements depend on the size of your environment and the Device42 features you use.
 
 | Device42 Item                                    | Sizing and Notes |
 |--------------------------------------------------|------------------|
@@ -13,9 +13,22 @@ The sizing requirements depend on the size of the environment and the Device42 f
 | Remote Collector(s) (virtual appliance) | **One RC per 1000 workloads:** <br/>- Two vCPU <br/>- 4GB RAM <br/>- 50GB vDisk |
 | Windows Discovery Service (.NET installer) | **One WDS per 1000 workloads:**  <br/> - Two vCPU <br/> - 8GB RAM <br/> - 50GB vDisk (minimum) |
 
-Depending on your environment, we may recommend a dedicated resource pool for the virtual appliance to ensure there is no resource contention. 
+## Recommendations
 
-Device42 utilizes a database within the virtual appliance we recommend solid-state storage, or similar storage optimized for database operations.
+The following are general recommendations, but the optimal setup depends on your specific infrastructure. [Contact support](https://support.device42.com/hc/en-us) for more guidance.
 
-For Windows infrastructure, Device42 requires a WDS to be installed on one machine per discovery
-segment/Remote Collector.
+### RC for Large Workloads
+
+First, increase the CPU and RAM when adding more workloads (> 1000) to the Remote Collector. If the Remote Collector is still performing slowly, add more Remote Collectors.
+
+### Dedicated Resource Pool
+
+Depending on your environment, a dedicated resource pool for the virtual appliance may be necessary to ensure there is no resource contention.
+
+### Database Storage
+
+Device42 uses a database within the virtual appliance. Solid-state storage, or similar storage optimized for database operations is recommended.
+
+### WDS Installation
+
+For Windows infrastructure, Device42 requires a WDS to be installed on one machine per discovery segment or Remote Collector.
