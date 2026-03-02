@@ -14,7 +14,7 @@ To access the functionality described in this section, you need a **Power and En
 
 Install and set up a [Remote Collector](https://www.device42.com/autodiscovery/) if you have not already done so. See the [Remote Collector page](/auto-discovery/remote-collector-rc/#installation-and-configuration) for information.
 
-The process of discovering power-enabled PDUs is similar to [Device42 Network Autodiscovery](auto-discovery/network-auto-discovery.mdx). Begin by navigating to **Discovery > SNMP**. You can then enter an IP address range and a port if not using the default `161`. 
+The process of discovering power-enabled PDUs is similar to [Device42 Network Autodiscovery](auto-discovery/network-auto-discovery.mdx). Begin by navigating to **Discovery > SNMP**. You can then enter an IP address range and a port if not using the default `161`.
 
 <ThemedImage
   alt="Add SNMP discovery job"
@@ -52,6 +52,12 @@ You'll see these options towards the bottom of the SNMP discovery job setup scre
 ### Viewing Discovered Sensors
 
 When sensors are discovered, they are created with Asset records in Device42. Navigate to **Resources > Assets > All Assets** to see a list of all assets. Filter the list by `Type="Sensor"` to see a list of all the PDU-attached sensors discovered.
+
+### Geist Power Unit Serial Number Discovery
+
+As of version 19.08, Device42 uses a different OID to discover power unit serial numbers for Geist PDUs, which now match the physical serial numbers on the devices.
+
+If a Geist power unit was discovered before this change and the [device matching level](/auto-discovery/unprocessed-device-records.mdx#device-matching-level) is not set to **Moderate**, a separate device record will be created. If matching is set to **Moderate** and the **Give precedence to hostname** option is not selected, the serial number will be updated but not the name of the device or power unit. 
 
 ## Capacity Considerations
 

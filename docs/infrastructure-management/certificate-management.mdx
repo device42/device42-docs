@@ -6,11 +6,9 @@ sidebar_position: 5
 import ThemedImage from "@theme/ThemedImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-:::info
-This page is about managing SSL certificates that have already been discovered by Device42. For details on creating a certificate autodiscovery job, visit [Certificate Autodiscovery](/auto-discovery/certificate-auto-discovery.mdx).
-:::
+This page is about managing SSL certificates in Device42, including viewing discovered certificates and importing certificates from files. For details on creating a certificate autodiscovery job, visit [Certificate Autodiscovery](/auto-discovery/certificate-auto-discovery.mdx).
 
-### Certificate List Page
+## Certificate List Page
 
 The list page for certificates, under **Applications > Certificates**, will show you all certificates discovered in Device42 along with their validity details.
 
@@ -37,7 +35,7 @@ You can export certificates by selecting them from the list and choosing the **E
   }}
 />
 
-### Viewing Certificates
+### View Certificates
 
 Click on the name of a certificate from the list page, under **Applications > Certificates**, to view it.
 
@@ -55,7 +53,15 @@ When viewing a certificate that has been imported, you can now associate FQDN, m
   }}
 />
 
-### Certificate Instances
+## Supported File Formats
+
+Device42 supports certificate uploads in the following formats:
+
+- PEM
+- ASN.1 
+- PKCS12 (pfx/p12) 
+
+## Certificate Instances
 
 In addition to seeing all certificates, you can now see certificate instances - allowing you to see device/IP address relationships for individual certificates. Locate certificate instances under **Applications > Certificate Instances**. Filter certificate instances based on device building, service level, and customer.
 
@@ -69,7 +75,7 @@ Certificate instances are also displayed in the device details view.
     }}
   />
 
-### Certificate Reports
+## Certificate Reports
 
 Though you can have multiple valid-to dates associated with a single certificate, Device42 reports still know to alert you based on the oldest date stored for a given certificate.
 
