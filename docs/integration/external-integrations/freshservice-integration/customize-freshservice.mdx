@@ -428,7 +428,7 @@ If you can't find a task related to your custom field, you can create a new `<ta
     **Explanation of the DOQL changes**:
 
    - The custom field `Name` is added to the `SELECT` statement.
-    **Syntax notes**: You need to escape the double quotes (`"`) by using the `&quote;` HTML entity. The greater-than (`>`) and less-than (`<`) symbols also need to be escaped. The equality operator works without special quotes. Please check existing DOQL for examples. 
+    **Syntax notes**: You need to escape the double quotes (`"`) by using the `&quot;` HTML entity. The greater-than (`>`) and less-than (`<`) symbols also need to be escaped. The equality operator works without special quotes. Please check existing DOQL for examples. 
    - A `LEFT JOIN` is added because all custom fields in Device42 are stored in the `{CI name}_custom_fields` views. For example, the Devices CI is stored in `view_device_custom_fields_flat_v2`.
 
 4. Now it's time to map the custom field to Freshservice. Add a new `<field>` element in the `<mapping>` tag section of the XML file. You'll need to keep Freshservice open and follow the next step to get the exact Freshservice values to use in the new `<field>` element below.
