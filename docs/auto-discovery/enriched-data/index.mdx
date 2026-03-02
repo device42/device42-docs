@@ -1,16 +1,16 @@
 ---
-title: "EnrichAI Data"
+title: "Enriched Data"
 sidebar_position: 99
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-EnrichAI is a Device42 cloud-based service for enhancing discovered data. Device42 supports the enrichment of software applications, operating systems (OS), and vendor that are discovered by Device42 Autodiscovery.
+The data Normalization and Enrichment Service is a Device42 cloud-based service for enhancing discovered data. Device42 supports the enrichment of software applications, operating systems (OS), and vendor that are discovered by Device42 Autodiscovery.
 
 ## Data Fields
 
-The EnrichAI data service take the vendor name, product name, and version number fields as populated by the product vendor and uses it to replace those values with cleansed and normalized values. In addition, it adds values for an extended set of fields, like categories and support lifecycle dates. The enriched data is mined from validated, authoritative, public sources to ensure accuracy.
+The Enriched Data service takes the vendor name, product name, and version number fields as populated by the product vendor and uses it to replace those values with cleansed and normalized values. In addition, it adds values for an extended set of fields, like categories and support lifecycle dates. The enriched data is mined from validated, authoritative, public sources to ensure accuracy.
 
 The following is a partial list of enriched fields:
 
@@ -37,7 +37,7 @@ The following is a partial list of enriched fields:
 | Service Pack              | The service pack level of the OS release             |
 | Key Support Dates  | See the details for the available date fields in the table below  |
 
-The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI Data. The 32- and 64-bit architectures have been coalesced into a single entry, since the architecture does not affect OS dates, licensing, patches, or risk profiles.
+The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. The 32- and 64-bit architectures have been coalesced into a single entry, since the architecture does not affect OS dates, licensing, patches, or risk profiles.
 
 ### Software Attributes 
 
@@ -67,14 +67,14 @@ The **OS Architecture: 32 vs 64 bit** field is no longer part of EnrichAI Data. 
 | Extended End Of Maintenance Date    | When non-security patches will no longer be released under extended maintenance agreement |
 
 :::note
-Depending on the vendor's published information, EnrichAI Data may not populate all or any of the date fields.
+Depending on the vendor's published information, Enriched Data may not populate all or any of the date fields.
 :::
 
-## EnrichAI Data Collection
+## Enriched Data Collection
 
-When EnrichAI Data is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the EnrichAI Data service, where it is processed in background tasks to prevent negative system impact. When EnrichAI finds a match, it responds with enriched data. All enriched data is displayed on the Analytics > EnrichAI Data page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
+When the data Normalization and Enrichment Service is enabled, the device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service, where it is processed in background tasks to prevent negative system impact. When the service finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page; depending on the number of requests in the queue and system load, this data may not be immediately visible.
 
-When presented with a new or unique data entry, the EnrichAI service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the EnrichAI Data service to ensure the discovered values are correct and up to date. No data sent to EnrichAI contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
+When presented with a new or unique data entry, the Enriched Data service may need to perform a background check with authoritative sources to identify any new or changed data that can be displayed on the next discovery for that device. As such, each discovery is validated by the Enriched Data service to ensure the discovered values are correct and up to date. No data sent to the service contains identifiable information, such as hostnames, IP addresses, or MAC addresses. Below is a sample of the payload:
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -140,12 +140,12 @@ When presented with a new or unique data entry, the EnrichAI service may need to
 
 </details>
 
-## EnrichAI Data Connectivity
+## Enriched Data Connectivity
 
-Please do the following to ensure connectivity with EnrichAI Data:
+Please do the following to ensure connectivity with the Enriched Data service:
 
 1. Configure the Cloud Connector and check that it is reachable.
-2. Make sure the EnrichAI Data endpoints are reachable, including the registration endpoint:
+2. Make sure the Enriched Data endpoints are reachable, including the registration endpoint:
 
    - `https://registration.device42.com`
    - `https://crs.device42.io/`
@@ -156,12 +156,12 @@ Please do the following to ensure connectivity with EnrichAI Data:
 
 Device42 [InsightsAI](/reports/device42-doql/insightsai.mdx) generates queries based on natural language prompts. The prompts you enter are sent to the `ai42.device42.io` endpoint.
 
-## Using the EnrichAI Data Interface
+## Using the Enriched Data Interface
 
-Select **Analytics > EnrichAI Data** to display the EnrichAI Data list page.
+Select **Analytics > EnrichAI Data** to display the Enriched Data list page.
 
 <ThemedImage
-  alt="Enrich AI Menu"
+  alt="Enriched Data menu"
   sources={{
     light: useBaseUrl('/assets/images/enrichai-data/enrichai-data-menu-light.png'),
     dark: useBaseUrl('/assets/images/enrichai-data/enrichai-data-menu-dark.png'),
@@ -169,7 +169,7 @@ Select **Analytics > EnrichAI Data** to display the EnrichAI Data list page.
   style={{ width: '90%' }} 
 />
 
-Click the **Enriched Value** link to view the data record. If desired, you can click the **Lock** button on an EnrichAI data record to prevent Device42 from updating it in the future.
+Click the **Enriched Value** link to view the data record. If desired, you can click the **Lock** button on an Enriched Data record to prevent Device42 from updating it in the future.
 
 <ThemedImage
   alt="Data lock button"
@@ -179,10 +179,10 @@ Click the **Enriched Value** link to view the data record. If desired, you can
   }}
 />
 
-Device42 currently displays additional information generated by EnrichAI Data on enriched vendor and OS view pages. You can identify enriched vendors by the **AI icon** included next to their names on the vendor list page (under **Infrastructure > Vendors**).
+Device42 currently displays additional information generated by the Enriched Data service on enriched vendor and OS view pages. You can identify enriched vendors by the **AI icon** included next to their names on the vendor list page (under **Infrastructure > Vendors**).
 
 <ThemedImage
-  alt="EnrichAI symbol on Vendor list page"
+  alt="Enriched Data symbol on Vendor list page"
   sources={{
     light: useBaseUrl('/assets/images/enrichai-data/vendor-list-ai-icon-light.png'),
     dark: useBaseUrl('/assets/images/enrichai-data/vendor-list-ai-icon-dark.png'),
@@ -201,8 +201,8 @@ The image below shows a vendor view page with enriched data. Enriched data is al
 
 ## Data Handling and Security Practices
 
-1. No personal or personally identifiable data is maintained by the EnrichAI service.
-2. Unmatched values (those without a corresponding match in EnrichAI Data) are stored for future mining and resolution.
+1. No personal or personally identifiable data is maintained by the data Normalization and Enrichment Service.
+2. Unmatched values (those without a corresponding match in Enriched Data) are stored for future mining and resolution.
 3. Only Device42 personnel work with these non-identifiable data elements.
 4. Data collected for future enrichment mining is stored in the United States.
 
