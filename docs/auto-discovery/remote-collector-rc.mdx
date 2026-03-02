@@ -6,8 +6,6 @@ sidebar_position: 24
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## The Device42 Remote Collector
-
 A Remote Collector (RC) is a virtual appliance deployed separately from the Device42 Main Appliance (MA). An RC is controlled from the MA and sent autodiscovery jobs that it executes remotely. All autodiscovery jobs, including Power SNMP jobs, are supported and can be run remotely on an RC.
 
 :::note
@@ -16,7 +14,7 @@ Windows discovery requires at least one [Windows Discovery Service](getstarted/d
 
 You may configure an unlimited number of RC appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor, and other types of autodiscovery across networks requiring only HTTPS access, eliminating the need to open numerous ports across network segments.
 
-### Sizing Recommendations
+## Sizing Recommendations
 
 For one RC per 1000 workloads, the sizing recommendations are as follows:
 
@@ -24,7 +22,7 @@ For one RC per 1000 workloads, the sizing recommendations are as follows:
 - 4GB RAM
 - 50GB vDisk
 
-## Running Remote Discoveries
+## Run Remote Discoveries
 
 Once registered, you can schedule any autodiscovery job from the MA and instruct it to run on the RC of your choosing. Each autodiscovery screen shows a **Remote Collector** dropdown menu. Click this dropdown to display all registered RCs and choose the RC you would like to run the discovery job:
 
@@ -50,7 +48,7 @@ Note that the view and edit pages now include a **MAC Address** field showing 
   }}
 />
 
-### Remote Collector List Page Actions
+## Remote Collector List Page Actions
 
 Navigate to the **Remote Collectors** list page under **Discovery > Remote Collectors** and click **Actions**.
 

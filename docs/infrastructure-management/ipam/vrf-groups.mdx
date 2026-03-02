@@ -6,8 +6,6 @@ sidebar_position: 11
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## About VRF Groups
-
 Virtual routing and forwarding groups (VRF groups) are often used by ISPs and other larger network service providers to organize and track customers' (or their own) logical networks segments, subnets, and VLANs, some of which often overlap with IP ranges in use in other VRF groups - _but never within the same VRF group_. The reason why is quite simple: There are really only three IP address ranges dedicated to private network use: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16; however, there are thousands of end users on these networks that need to route traffic to the internet - and in a few special cases, to each other. VRF groups to the rescue!
 
 Most VRF groups are designed so that they can't route between each other by default; however, all are able to route out to a larger network cloud (for example, the internet), thus allowing multiple customers to assign IP addresses to end users on their own networks as they please - without interfering with one another.

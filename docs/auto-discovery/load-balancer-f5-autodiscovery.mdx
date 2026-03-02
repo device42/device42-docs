@@ -6,8 +6,6 @@ sidebar_position: 32
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Discovering F5, NetScaler, and Other Load Balancers or Cluster Devices
-
 Device42’s load balancer discovery maps out virtual servers, pools, and their relationships to backend devices.
 
 To get started, first [create and run an SNMP job](network-auto-discovery.mdx) to identify and discover the load balancer and other cluster devices. Next, run a [Windows/*nix job](auto-discovery/index.mdx#hypervisor--nix--windows-autodiscovery) to discover backend servers (pool members). Finally, create an API-based load balancer job under **Discovery > UCS/ACI/Load Balancers** to collect connectivity and dependency data.
@@ -17,6 +15,8 @@ Device42 discovers Cisco ASA, Cisco UCS, NetScaler, and cluster devices via thei
 Citrix NetScaler load balancer API discovery is used to build TCP or UDP connections within application groups. NetScaler discovery will not add new devices and resources to the system. New devices and resources are typically added via SNMP scans. 
 
 ## Load Balancer Discovery
+
+Create a job to collect load balancer configuration and connectivity data.
 
 ### Prerequisites
 

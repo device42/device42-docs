@@ -6,8 +6,6 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Device42 Autodiscovery Jobs
-
 Device42 offers several autodiscovery tools, some of which are internal to Device42 while some run externally. Find the internal autodiscovery job types under the **Discovery** menu of the Main Appliance. If you are new to Device42 autodiscovery, start with a [Discovery Hub](/getstarted/using-device42/discovery-hub.mdx) network scan to establish baseline discovery information.
 
 You may run the autodiscovery tools in any combination and order that makes sense for your environment. All autodiscovery jobs can be run on a regular schedule to automate a significant portion of your network documentation.
@@ -17,6 +15,10 @@ Do not set up an autodiscovery scan using critical production account credential
 
 Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
 :::
+
+## Get Started
+
+Plan your discovery process by referencing the recommended [Initial Discovery Sequence](/getstarted/getting-started-with-auto-discovery.mdx) and set up your environment to get the most out of discovery process. [Contact our support team](https://support.device42.com/hc/en-us) for additional guidance.
 
 ### Start With the Network
 
@@ -50,7 +52,17 @@ The list of excluded IPs copied to the job can be seen in the newly created job'
 
 Note that previously created jobs will not be affected or updated with changes to the exclusion list.
 
-### Cloning Discovery Jobs
+## Manage Discovery Jobs
+
+Learn how to clone discovery jobs, run multiple jobs and about retry behavior.
+
+### Remote Collector (RC)
+
+The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed, for example, in places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Choose the desired RC from the **Remote Collector** dropdown when initially setting up a new autodiscovery job, or editing an existing discovery job. Most autodiscovery jobs that can be launched from the Device42 **Discovery** menu support running from a deployed RC.
+
+For more information head to the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.mdx).
+
+### Clone Discovery Jobs
 
 Clone an autodiscovery job to create a copy of the job with all its settings without manually re-entering all the job details. You can then modify the cloned job for your specific purposes.   
 
@@ -124,46 +136,6 @@ You can run multiple discovery jobs concurrently. From the autodiscovery job lis
     }}
   />
 
-## Agent-Based Discovery
-
-There are special situations when using an agent for discovery makes more sense. We offer optional autodiscovery agents for many platforms. See [Device42 Agent-Based discovery](agent-based-discovery.mdx) to learn more.
-
-## Agent-Based Offline Discovery and Upload Tool
-
-There are some edge cases where the network, or lack of network, doesn’t allow communication back to the main Device42 appliance for a variety of reasons.
-
-Whether remote collectors can’t be deployed or the policy simply doesn’t allow it, we've got the solution: 
-- See [Device42 Offline Agent-based discovery](agent-based-offline-discovery.mdx)
-- Download the [Offline Discovery Data Processing Tool or Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
-
-## Blade Systems Discovery
-
-Use SNMP discovery to collect HP and IBM Blade System (or Blade Center) chassis and blade details. See [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.mdx) for more information. 
-
-The Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. See [Cisco UCS Cluster](cisco-ucs-auto-discovery.mdx) for more information.
-
-## Cloud Platform Discovery
-
-Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and OpenStack from the cloud discovery under **Discovery > Cloud**. Cloud discovery details can be found on the [Cloud Platforms Autodiscovery](cloud-auto-discovery/index.mdx) page.
-
-## DNS Autodiscovery
-
-DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). DNS autodiscovery is run and scheduled from the Device42 web UI under **Discovery > DNS Zone Sync (One way)**.
-
-## Hypervisor / \*nix / Windows Autodiscovery
-
-Hypervisors, Windows, and Linux/UNIX discovery jobs can all be created under **Discovery > HyperVisors / \*nix / Windows**.
-
-- Windows-based machine inventory details are discovered with WMI.
-- Linux machines' inventory details are discovered via SSH.
-- VMWare hypervisor host and guest VM details are discovered using appropriate APIs (VMware, WMI).
-- Hyper-V hypervisors/guests are discovered as Windows machines using WinRM, and documented separately.
-
-Visit the dedicated page for each machine type:
-- [VMware and Virtual Machine discovery](virtual-machine-auto-discovery.mdx)
-- [Linux/UNIX discovery](linux-unix-server-auto-discovery.mdx)
-- [Windows and Hyper-V discoveries](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx)
-
 ### Scanning Timeout, Retries, and Failure Behavior
 
 For \*nix scans (via SSH), you can set the scanning timeout when configuring the autodiscovery job under the **Miscellaneous** section.
@@ -178,17 +150,61 @@ For \*nix scans (via SSH), you can set the scanning timeout when configuring the
 
 Retries are done in Windows Discovery Service (WDS) scans. WDS retries a scan until it either gets a successful set of results or fails with the same errors across several retries. This design accounts for sporadic failures due to system load or temporary network issues with WMI/WDS.
 
-## IPMI Autodiscovery
+## Agent-Based and Offline Discovery
+
+There are special situations when using an agent for discovery makes more sense. We offer optional autodiscovery agents for many platforms. See [Device42 Agent-Based discovery](agent-based-discovery.mdx) to learn more.
+
+### Agent-Based Offline Discovery and Upload Tool
+
+There are some edge cases where the network, or lack of network, doesn’t allow communication back to the main Device42 appliance for a variety of reasons.
+
+Whether remote collectors can’t be deployed or the policy simply doesn’t allow it, we've got the solution: 
+- See [Device42 Offline Agent-based discovery](agent-based-offline-discovery.mdx)
+- Download the [Offline Discovery Data Processing Tool or Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
+
+## Infrastructure and Platform Discovery
+
+Discover hardware, cloud platforms, hypervisors, and network devices.
+
+### Blade Systems Discovery
+
+Use SNMP discovery to collect HP and IBM Blade System (or Blade Center) chassis and blade details. See [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.mdx) for more information. 
+
+The Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. See [Cisco UCS Cluster](cisco-ucs-auto-discovery.mdx) for more information.
+
+### Cloud Platform Discovery
+
+Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and OpenStack from the cloud discovery under **Discovery > Cloud**. Cloud discovery details can be found on the [Cloud Platforms Autodiscovery](cloud-auto-discovery/index.mdx) page.
+
+### DNS Autodiscovery
+
+DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). DNS autodiscovery is run and scheduled from the Device42 web UI under **Discovery > DNS Zone Sync (One way)**.
+
+### Hypervisor / \*nix / Windows Autodiscovery
+
+Hypervisors, Windows, and Linux/UNIX discovery jobs can all be created under **Discovery > HyperVisors / \*nix / Windows**.
+
+- Windows-based machine inventory details are discovered with WMI.
+- Linux machines' inventory details are discovered via SSH.
+- VMWare hypervisor host and guest VM details are discovered using appropriate APIs (VMware, WMI).
+- Hyper-V hypervisors/guests are discovered as Windows machines using WinRM, and documented separately.
+
+Visit the dedicated page for each machine type:
+- [VMware and Virtual Machine discovery](virtual-machine-auto-discovery.mdx)
+- [Linux/UNIX discovery](linux-unix-server-auto-discovery.mdx)
+- [Windows and Hyper-V discoveries](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx)
+
+### IPMI Autodiscovery
 
 Discover iLO, iDrac, or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS-level discovery methods, the BMC IP and MAC address will show up in the device properties.
 
 Visit [IPMI/Redfish Autodiscovery](ipmi-auto-discovery.mdx) for details.
 
-## Midrange / Mainframe discovery (IBM AS/400 and z/OS)
+### Midrange / Mainframe discovery (IBM AS/400 and z/OS)
 
 Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](ibm-i-as400.mdx) platform and the [IBM z/OS mainframe platform](z-os-ibm-mainframe.mdx).
 
-## Network / SNMP Autodiscovery
+### Network / SNMP Autodiscovery
 
 Run an SNMP discovery job from the Device42 web UI main menu under **Discovery > SNMP**.
 
@@ -200,9 +216,23 @@ Using SNMP v1/v2c/v3 discovery for network devices, you can automate the discove
 - MAC to switch port associations
 - Switch port status and remote port associations
 
-Visit [SNMP Network Discovery](auto-discovery/network-auto-discovery.mdx) for more information.
+### Other SNMP-Based Discovery
 
-## Node Data From Chef and Puppet
+SNMP discoveries can also be used to discover many other types of devices, like power devices, UPS, ATS, and other SNMP-compatible network-connected hardware. Many environmental sensors also support SNMP discovery. 
+
+To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see [SNMP - Network Discovery](network-auto-discovery.mdx).
+
+### VMware / Citrix XenServer / oVirt / Redhat Virtualization / KVM
+
+Hypervisors are discovered via the Device42 web UI under **Discovery > HyperVisors / \*nix / Windows**. Using native APIs, Device42 connects to your VMWare vCenter server(s), ESX server(s), Citrix XenServer, oVirt, or Redhat Virtualization servers and retrieves host details, inventory details, and guest VM details.
+
+See [Virtual Machine Autodiscovery](auto-discovery/virtual-machine-auto-discovery.mdx) for more information.
+
+## Configuration Management and Integrations
+
+Integrate Device42 with configuration management tools and APIs.
+
+### Node Data From Chef and Puppet
 
 To manage and integrate your configuration management data with Device42, you can use the following scripts:
 
@@ -212,33 +242,15 @@ To manage and integrate your configuration management data with Device42, you ca
 
 - See the [Device42 API Autodiscovery GitHub repo](https://github.com/device42/Device42-AutoDiscovery-Scripts) for another Puppet integration script that reads the YAML factor files and populates inventory details in Device42 using the RESTful API.
 
-## Other SNMP-Based Discovery
+### Use REST APIs
 
-SNMP discoveries can also be used to discover many other types of devices, like power devices, UPS, ATS, and other SNMP-compatible network-connected hardware. Many environmental sensors also support SNMP discovery. 
-
-To run an SNMP v1/v2c/v3 discovery against any SNMP-compatible endpoint, see [SNMP - Network Discovery](network-auto-discovery.mdx).
+You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as shown in the [Create Hardware Models](how-to-videos/api-imports-add-create-hardware-models.mdx) video.
 
 ## Ping Sweep Utility
 
 The open-source, standalone [Ping Sweep tool](https://www.device42.com/autodiscovery/) uses NMAP in the background to run ping sweeps against the selected network(s), uploading discovered IP, MAC, and reverse DNS details via Device42's RESTful APIs. The Ping Sweep tool is written in .NET.
 
 There is also a ping sweep tool built into Device42. Find it in the UI under **Discovery > Ping Sweep**. Note that the UI-based option may be deprecated in the future and the standalone tool is much faster.
-
-## Remote Collector (RC)
-
-The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed, for example, in places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Choose the desired RC from the **Remote Collector** dropdown when initially setting up a new autodiscovery job, or editing an existing discovery job. Most autodiscovery jobs that can be launched from the Device42 **Discovery** menu support running from a deployed RC.
-
-For more information head to the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.mdx).
-
-## Using REST APIs
-
-You can automate inventory management and integrate with your own scripts or other programs using the Device42 RESTful APIs as shown in the [Create Hardware Models](how-to-videos/api-imports-add-create-hardware-models.mdx) video.
-
-## VMware / Citrix XenServer / oVirt / Redhat Virtualization / KVM
-
-Hypervisors are discovered via the Device42 web UI under **Discovery > HyperVisors / \*nix / Windows**. Using native APIs, Device42 connects to your VMWare vCenter server(s), ESX server(s), Citrix XenServer, oVirt, or Redhat Virtualization servers and retrieves host details, inventory details, and guest VM details.
-
-See [Virtual Machine Autodiscovery](auto-discovery/virtual-machine-auto-discovery.mdx) for more information.
 
 ## Next Steps
 

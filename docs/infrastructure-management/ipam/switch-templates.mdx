@@ -8,8 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Switch templates can be used to create switches and switch ports using templates. Once you create the templates, you can either add/edit switch and switch ports using the UI or REST APIs.
 
-### Network switch templates for new and existing ports and switches
-
 <ThemedImage
   alt="Switch template menu"
   sources={{
@@ -18,11 +16,11 @@ Switch templates can be used to create switches and switch ports using templates
   }}
 />
 
-**Switch Templates – Legacy** can be used to not only create new switches and ports, but also to edit existing switches and ports.
+**Switch Templates – Legacy:** Create new switches and ports, or edit existing switches and ports.
 
-**Switch Templates 2.0** **–** is very similar to Legacy, however, the user doesn't have to enter port information as we discover the port definition from the hardware models to auto create the ports. You can select the hardware models that you want to generate switches from and it will create them for you.  If your hardware model also has parts slots (for modular switches) then you will be able to populate the part models that you want to prepopulate those switches with. This is typically used when manually adding these hardware types and not relying on auto-discovery of switches.
+**Switch Templates 2.0:** Similar to Legacy, but port information is discovered from hardware models to auto-create ports. You can select the hardware models that you want to generate switches from and it will create them for you.  If your hardware model also has parts slots (for modular switches) then you will be able to populate the part models that you want to prepopulate those switches with. This is typically used when manually adding these hardware types and not relying on auto-discovery of switches.
 
-### Extended properties for a switch port
+## Switch Port Properties
 
 <ThemedImage
   alt="Switch template extended properties for switch port"
@@ -34,7 +32,7 @@ Switch templates can be used to create switches and switch ports using templates
 
 Module or Asset to show if a port belongs to a blade or fabric extender. Network switch 2nd would represent cluster switch in case of stacked switches or 2nd switch in case of paired switches.
 
-### Catering to different switch types in the templates
+## Switch Types
 
 <ThemedImage
   alt="Catering to different switch types in the templates"
@@ -42,12 +40,12 @@ Module or Asset to show if a port belongs to a blade or fabric extender. Network
     light: useBaseUrl('/assets/images/switch-templates/Catering_to_different_switch_types_in_the_templates-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/Catering_to_different_switch_types_in_the_templates-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '50%' }} 
 />
 
 Whether the switch is singular, modular and/or distributed, you can add any type from the templates. Also, stacked switches and paired switches can be added. All different options are discussed below.
 
-### Singular switch
+### Singular Switch
 
 <ThemedImage
   alt="Switch template singular switch"
@@ -59,7 +57,7 @@ Whether the switch is singular, modular and/or distributed, you can add any type
 
 For a simple switch, you can choose (or add) the hardware module and add the ports in that switch with port prefixes. In example shown above, ports gbe/ 24 gig0/ and fiber/ 2 Fiber would be created (you can choose port starting number for each port template). Once you save this, on the list page it displays a create/edit link next to the switch. Once you click that you can choose an existing switch or add name for new one and rest is done automatically for you.
 
-### Stacked switches
+### Stacked Switches
 
 <ThemedImage
   alt="Switch template stacked switch"
@@ -95,7 +93,7 @@ Here you can enter a name for the cluster device(or choose an existing one) and 
 
 This type can be used to represent modular and/or distributed switches, e.g., a single 6509 switch with modules, Nexus 7k or Nexus 5k with fabric extender modules. Modules with hardware model, slot #, port prefixes and # of ports can be added here. You can also add asset templates( for Fabric Extenders) on this screen. Based on template values, you would be asked for switch/asset name etc. and it would create the switch, modules, assets(Fabric extenders) and switch ports based on the template.
 
-### Paired modular/distributed switches
+### Paired Modular/Distributed Switches
 
 <ThemedImage
   alt="Switch template modular/paired switch"

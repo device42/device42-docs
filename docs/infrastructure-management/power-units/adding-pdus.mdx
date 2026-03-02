@@ -6,8 +6,6 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Adding a PDU
-
 Add a new PDU by heading to **DataCenter > Power Units > Power Units**. Relevant PDU-related fields are listed and defined below. 
 
 Note that PDUs (like almost all Device42 CIs) can also be added and manipulated [via the API](https://api.device42.com/#pdu).
@@ -21,7 +19,7 @@ Note that PDUs (like almost all Device42 CIs) can also be added and manipulated 
   style={{ width: '110%' }}
 />
 
-### PDU Field Descriptions
+## PDU Field Descriptions
 
 - **Name:** Name your PDU (required).
 - **Type:** Choose between **PDU**, **UPS**, **ATS**, and **Environmental Monitor** (required).
@@ -35,7 +33,7 @@ Note that PDUs (like almost all Device42 CIs) can also be added and manipulated 
 - **Tags:** Include a comma-separated list of tags to categorize this power unit.
 - **Notes:** Optionally add notes regarding this power unit.
 
-### Device Mapping Section
+## Device Mapping Section
 
 <ThemedImage
   alt="Add new PDU Rack info & Infeeds"
@@ -46,16 +44,14 @@ Note that PDUs (like almost all Device42 CIs) can also be added and manipulated 
   style={{ width: '110%' }}
 />
 
-### Device Mapping Section - PDU
-
 **Device:** Associating your PDU with a device is required only if you want to track IP address, life cycle, or other asset information for the PDU; IP and asset info is tracked via the chosen device (optional).
 
 - **Serial #:** If PDU is mapped to a device, the serial number of the mapped device is shown here.
 - **Asset #:** If PDU is mapped to a device, the asset number of the mapped device is shown here.
 
-### Gateway PDU Mapping Section
+## Gateway PDU Mapping Section
 
-**Gateway PDU:** If this PDU is plugged into another PDU \[aka daisy chained\], identify the "Gateway PDU" it is plugged in to, if any (optional).
+**Gateway PDU:** If this PDU is plugged into another PDU (aka daisy chained), identify the "Gateway PDU" it is plugged in to, if any (optional).
 
 **Infeeds:** Power infeed information will display here (n/a; auto-discovered).
 
@@ -78,7 +74,7 @@ When you click **Save**, the new PDU is created and PDU ports are automatically 
   style={{ width: '110%' }}
 />
 
-## Mapping PDUs to a Device
+## Map PDUs to a Device
 
 <ThemedImage
   alt="Add device type other to associate with PDU"
@@ -107,7 +103,7 @@ To track details about a PDU (for example, its serial number, asset number, IP a
   style={{ width: '110%' }}
 />
     
-### Viewing and Navigating Between a Mapped PDU and Device
+### View and Navigate Between a Mapped PDU and Device
 
 You can easily navigate from a device to the PDU it's plugged into or from a PDU to the device page of the device that's plugged into it. The PDU mapping page links to the device details page (see the above image) and the device mapping page links back to the PDU details page (see the image below).
 

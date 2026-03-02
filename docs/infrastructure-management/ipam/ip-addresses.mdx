@@ -10,7 +10,7 @@ IP Addresses in the Device42 database must be unique per VRF group. So, you can 
 
 Device42 can return information about IP addresses that are associated with multiple devices. The IP list page now includes a **Devices** column displaying the device or devices associated with an IP (in comma-separated format). You can also use the IP edit page to add or delete devices associated with an IP address as shown in the [Add/Edit Page](#addedit-page) section below.
 
-### IP Addresses List Page
+## IP Addresses List Page
 
 Navigate to the IP Addresses list page by going to **Resources > IPs > All IP Addresses**.
 
@@ -73,7 +73,7 @@ Clicking on the link in the **Resource** field will take you to the K8s cluster 
 Entries in the **Configuration Resource** and **Configuration Resource Item** fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud-auto-discovery/index.mdx)) and are filled in automatically. These fields should not be populated for a regular IP address.
 :::
 
-### Add/Edit Page
+### Add an IP Address
 
 Click on the **Create** button on the view page to add an IP address.
 
@@ -97,6 +97,8 @@ When adding or editing an IP, the Subnet field is required. Device42 will automa
 />
 <br/><br/>
 
+## Associate Devices With an IP Address
+
 To enter additional device(s) to associate with an already-created IP address, click on the **Edit** button of the IP address from its view page. Then click on the **+ Add New** button.
 
 <ThemedImage
@@ -112,6 +114,6 @@ To enter additional device(s) to associate with an already-created IP address, c
 Select **Resources > DNS > All DNS Records** from the main menu to add DNS A/AAAA records for the IP and they will be updated on the IP address.
 :::
 
-### IP Address Management from the Command Line
+## IP Address Management from the Command Line
 
 With Device42, you can find if an IP is already in a D42 instance, suggest the next available IP, and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/)

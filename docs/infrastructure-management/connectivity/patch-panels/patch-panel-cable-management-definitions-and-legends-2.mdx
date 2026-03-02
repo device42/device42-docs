@@ -6,9 +6,15 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+This page covers setting up patch panels, configuring connectivity, visualization options, and drag-and-drop connections.
+
 Patch panels can be added as assets from **Resources > Assets > All Assets**.
 
-### Adding a Patch Panel
+## Set Up Patch Panels
+
+Create patch panel models and add patch panels to your assets.
+
+### Add a Patch Panel
 
 <ThemedImage
   alt="Adding a patch panel"
@@ -64,6 +70,10 @@ You can add modules to your patch panels and configure different port types or j
 
 Once you have chosen a modular patch panel, you can add patch panel models as shown above the ports section.
 
+## Configure Connectivity
+
+Connect patch panel ports to switches, devices, and other patch panels.
+
 ### Patch Panel Connectivity
 
 <ThemedImage
@@ -109,7 +119,11 @@ You can choose the individual **Back connection** per port and add a **Back cabl
 
 From **Tools > Templates & Bulk Operations > Panel back connectivity**, you can choose the patch panel, its modules (if any), starting port #, ending port #, patch panel and module, starting port #, and cable type. You can also provision back connectivity in bulk.
 
-### Full path visualized
+## Visualization
+
+View full connection paths and patch panel layouts.
+
+### Full Path Visualized
 
 <ThemedImage
   alt="Full path displayed"
@@ -146,7 +160,11 @@ The view or edit page of that asset (the patch panel) adds a new **View Patch Pa
 
 If the patch panel is connected to another patch panel, both panels are displayed side by side. Hovering over any port (or device) highlights the path and displays the text for that port and its connections. Each port is color-coded in the same way as in the port display.
 
-### Creating Connections With Drag-and-Drop
+## Drag-and-Drop Connections
+
+Use drag-and-drop to create and manage patch panel connections.
+
+### Create Connections With Drag-and-Drop
 
 <ThemedImage
   alt="Creating connections with drag and drop"
@@ -182,6 +200,10 @@ From the Patch Panel Layout page, you can also drag-and-drop switch ports to dev
 />
 
 You can add front patch panel connections to the ports of another patch panel via drag-and-drop.
+
+## Special Cases
+
+Handle devices outside the rack, half-depth devices, and multi-hop connections.
 
 ### Devices Outside the Rack
 
@@ -220,23 +242,3 @@ Half-depth devices are displayed side by side to show the cabling.
 />
 
 If a connection spans multiple patch panels, it is displayed when you hover your cursor over that port (or connected device, switch port, etc.). It is displayed on the left side of the panel.
-
-### Create Connections Using Drag-and-Drop
-
-<ThemedImage
-  alt="Create connections using drag and drop"
-  sources={{
-    light: useBaseUrl('/assets/images/patch-panels/wpid5723-media_1414406394456-light.png'),
-    dark: useBaseUrl('/assets/images/patch-panels/wpid5723-media_1414406394456-dark.png'),
-  }}
-/>
-
-From the Patch Panel Layout page, you can turn on edit mode and then connect patch panel ports to other devices or switch ports by dragging the port to a device or another port. This makes it very easy to manage your patch panel connectivity and keep the information up to date.
-
-<ThemedImage
-  alt="Drag and drop connection creation"
-  sources={{
-    light: useBaseUrl('/assets/images/patch-panels/wpid5724-media_1414407289415-light.png'),
-    dark: useBaseUrl('/assets/images/patch-panels/wpid5724-media_1414407289415-dark.png'),
-  }}
-/>

@@ -3,13 +3,11 @@ title: "Puppet and Chef Integrations"
 sidebar_position: 25
 ---
 
-### Puppet Integration
-
 Puppet is a free configuration management utility created by Puppet Labs that helps sysadmins automate configuration and management of machines and the software running on them throughout the enterprise IT infrastructure.
 
 Device42’s integration connector for Puppet allows Device42 software to utilize discovered system information data stored in “puppet manifests” to populate the Device42 asset inventory, eliminating the need to run redundant auto-discovery processes across the IT infrastructure.
 
-### Puppet ENC (External Node Classifier) Integration
+## Puppet ENC (External Node Classifier) Integration
 
 External Node Classifiers can accept the name of a node as input, and return the class hierarchy for that node as output. Device42 can be utilized as a Puppet ENC, allowing easy management of Puppet classes right from Device42. As opposed to managing node definitions in the main site manifest (site.pp) on your Puppet master.
 
@@ -72,7 +70,7 @@ An ENC Script pipes data between your Puppet Master and an ENC source -- Device4
 
 Once that's set, restart your Puppet server Services, and you're all set. Now, just create a class, and you're in business!
 
-### Chef Integration
+## Chef Integration
 
 Device42 also provides an integration connector for Chef software — used to streamline the task of provisioning, configuring, and maintaining servers.
 
@@ -80,7 +78,7 @@ The Device42 – Chef integration allows Device42 software to utilize Chef-disco
 
 The Device42 integration connector works with all Chef-supported versions of Chef software.
 
-### Device42’s Additional IT Infrastructure Capabilities
+## Device42’s Additional IT Infrastructure Capabilities
 
 Integrating Puppet or Chef with Device42, also ensures that Device42 remains aligned with the Chef or Puppet device data ensuring consistency and uniformity between Device42 and either application across all of Device42’s broad IT infrastructure management capabilities:
 
@@ -93,7 +91,7 @@ Integrating Puppet or Chef with Device42, also ensures that Device42 remains ali
 - Power control
 - Integration Connectors Information
 
-### Device42 — Puppet and Chef integrations are easily accomplished using Device42 provided scripts.
+## Puppet and Chef Integrations
 
 **Puppet:** The script to sync Puppet nodes information to Device42 can be found here: [github.com/device42/puppet_to_device42_sync_py](https://github.com/device42/puppet_to_device42_sync_py)
 

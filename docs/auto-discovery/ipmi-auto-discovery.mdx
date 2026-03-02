@@ -6,8 +6,6 @@ sidebar_position: 15
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## IP Management Interface (IPMI) Discovery
-
 Device42 can discover a device via its IPMI/BMC (iDrac, iLo, etc.) board. From a device's IPMI interface, Device42 can discover the hardware model, serial number, and the BMC interface's IP address and MAC address, both of which are added to the device record as an interface labeled "mgmt".
 
 ## Add a New IPMI Autodiscovery Job
@@ -96,7 +94,6 @@ Select one of the **Hostname to use** options:
 The following image is an example from the Dell iDrac web portal that shows why IPMI over LAN must be enabled for autodiscovery to work.
 
 ![Make sure IPMI over LAN is enabled](/assets/images/ipmi-settings.png)
-
 
 ## Run Now or Schedule
 

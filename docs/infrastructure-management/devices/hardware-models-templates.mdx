@@ -8,15 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 This section discusses the management of hardware models for physical, blade, and other device types. In Device42, a hardware model is a template that hardware CIs are deployed from. Each hardware model template specifies the rack display size, depth, image, part slots, connectivity, and power calculations for a given device model.
 
-### Hardware Model List Page
+## Hardware Model List Page
 
 Locate the hardware model list page under **Infrastructure > Hardware Models**. You can filter and search through existing models from this page. Click the name of a hardware model to view and edit its properties. Make changes to an existing hardware model using the **Edit** button on the top right of its view page.
 
-
-### Hardware Model Properties
+### Create a Hardware Model
 
 Open a new hardware model form by clicking **Create** at the top right of the list page. 
-
 
 <ThemedImage
   alt="Hardware Model list page"
@@ -44,7 +42,7 @@ If you want to add back-to-back devices in the rack, use "Half Depth" in the **D
   }}
 />
 
-### Defining Ports on Hardware Models
+### Define Ports on Hardware Models
 
 When you create a hardware model, you can specify all the direct ports, part slots, and blade slots for each hardware model.
 
@@ -60,7 +58,7 @@ Select the **Add Ports When Creating Device** option for the system to automatic
   }}
 />
 
-### Editing the Layout of an Existing Hardware Device
+## Edit the Layout of an Existing Hardware Device
 
 To edit the layout of an existing hardware device visually, go to the CI details page for the device and click the **Layout** button in the upper right-hand corner:
 
@@ -122,7 +120,7 @@ Here are the steps to edit the hardware model the CI you are looking at is based
 
 Now you should be able to modify the layout of the hardware device CI.
 
-### Device Type and Hardware Type 
+## Device Type and Hardware Type 
 
 When a device that is not a virtual device is discovered using auto-discovery, it is classified as type **unknown**. This is because the discovered device could be a physical device, a blade device, or other type.
 
@@ -132,34 +130,31 @@ For example, 50 devices are discovered with hardware Dell PE1950 and are classif
 
 Use the bulk edit and spreadsheet import features to efficiently change the device type for multiple devices.
 
-### Device Bulk Edit
+### Device Type Bulk Edit
 
-Change the **Type** property for multiple devices at once with the **Change Type for selected devices** bulk action. For example, you can change the **unknown** device type value to **physical**. 
+Change the **Type** property for multiple devices at once with the **Change type** bulk action. For example, you can change the **unknown** device type value to **physical**. 
 
 1. Go to the **Device** list page under **Resources > All Devices**. 
 2. Select the devices you want to edit. You can filter for devices with the **unknown** Type using the dropdown menu.
-3. Choose the **Change Type for selected devices** from the action dropdown menu and click the **hammer icon** to proceed.
-4. Choose the new device type for the selected devices and click **Change Type for devices**. 
-5. Click **OK** on the notification window to confirm. 
+3. Choose the **Change type** action.
+4. Choose the new device type for the selected devices and click **Change**. 
 
 <ThemedImage
-  alt="Resizing objects"
+  alt="Change device type"
   sources={{
     light: useBaseUrl('/assets/images/hardware-model-templates/bulk-change-type-light.gif'),
     dark: useBaseUrl('/assets/images/hardware-model-templates/bulk-change-type-dark.gif'),
   }}
 />
 
-### Adding Images for Hardware
+## Upload Images
 
-You can import images for hardware models and add them to templates in the hardware edit page, bulk hardware edit page, or spreadsheet import. 
+You can upload images (like front and rear views of devices) into Device42 and associate them with Hardware Model templates for visual context.
 
 1. Go to **Tools > Templates & Bulk Operations > Image files**.
-2. Click the **+ Add Image File** button on the right.
-3. Browse to the image file.
-4. Click **Save**. To upload more images click the **Save and add another** button.
-
-Image files can be in PNG, JPG, or GIF formats.
+2. Click the **Create** button on the top right.
+3. Browse to select the image file from your computer.
+4. Click **Save**. To upload more images, click the **Save and add another** button.
 
 <ThemedImage
   alt="Adding images for hardware"
@@ -170,29 +165,9 @@ Image files can be in PNG, JPG, or GIF formats.
   style={{ width: '85%' }}
 />
 
-### Adding and Viewing Images for Hardware
+### Add Images to Hardware Models
 
-You can upload images (like front and rear views of devices) into Device42. These uploaded images can then be associated with various items, such as Hardware Model templates, to provide visual context.
-
-To upload an image:
-
-1.  Go to **Tools > Templates & Bulk Operations > Image files**.
-2.  Click the **Create** button on the top right.
-3.  Browse to select the image file from your computer. Accepted formats are PNG, JPG, or GIF.
-4.  Click **Save**. To upload more images, click the **Save and add another** button.
-
-<ThemedImage
-  alt="Adding images via the Image Files upload page"
-  sources={{
-    light: useBaseUrl('/assets/images/hardware-model-templates/add-image-file-light.png'),
-    dark: useBaseUrl('/assets/images/hardware-model-templates/add-image-file-dark.png'),
-  }}
-  style={{ width: '85%' }}
-/>
-
-#### Adding Images to Hardware Models
-
-Add uploaded images to hardware models by going to the hardware model edit page and selecting the image from the dropdown. You can add pictures of the device's front and rear views. 
+Add images to a hardware model by selecting them from the hardware model's edit page.
 
 <ThemedImage
   alt="Adding images to hardware models"
@@ -212,7 +187,7 @@ These images will then be displayed on the hardware model list page.
   }}
 />
 
-### Hardware Merge Function
+## Merge Hardware Models
 
 When you use auto-discovery, imports, or the APIs, you may find multiple hardware models describing the same hardware have been created with devices assigned to each.
 
@@ -220,9 +195,7 @@ You can merge hardware models as long as the size, depth, type, and blade size (
 
 When you merge a hardware model with another, device relationships are reassigned to the merged hardware model, and the original hardware model is deleted.
 
-### Hardware Bulk Merge Function
-
-Navigate to the **Hardware Model** list page under **Infrastructure > Hardware Models** and select the two or more models you wish to merge. From the **Action** menu, select **Merge selected hardware models** and click the **hammer icon**.
+Navigate to the **Hardware Model** list page under **Infrastructure > Hardware Models** and select the two or more models you wish to merge. From the **Action** menu, select **Merge selected hardware models**.
 
 <ThemedImage
   alt="Hardware Model merge action"

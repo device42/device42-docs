@@ -10,7 +10,7 @@ Switch ports can be autodiscovered using SNMP network discovery.
 
 You can bulk add switch ports via [switch templates](switch-templates.mdx), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) for an easy way to programmatically add or edit many switch ports at once.
 
-### Ports List Page
+## Ports List Page
 
 From the main menu, navigate to **Resources > Network Devices > Ports**. 
 
@@ -34,7 +34,7 @@ You can also see a list of associated Ports via the **Ports** section on the dev
   }}
 />
 
-### Switch Port Properties
+## Switch Port Properties
 
 Discovered ports use the **Is Default** property to indicate whether a port is the primary interface or IP address.
 
@@ -69,7 +69,7 @@ The associations for the Module, Asset, and the Network Switch 2nd fields can be
 **Tags:** A comma-separated list of tags you would like attributed to the switch port. 
 **HW Address:** Any MAC addresses and devices connected to the switch port and the VLAN associated with the MAC address.
 
-### Add a New Switch Port
+## Add a New Switch Port
 
 Click the **+ Add Port** button on the upper right of the Ports list page and fill in the details of the port:
 
@@ -101,7 +101,7 @@ Scroll down to add **Port Aliases**, **Parts**, and see **Custom Fields**:
   }}
 />
 
-### Switch Port Bulk Operations
+## Switch Port Bulk Operations
 
 Perform bulk operations by selecting ports from the table and choosing an action in the dropdown menu. Click the **icon hammer** to execute the action.
 
@@ -115,7 +115,7 @@ For example, you can filter ports by up/down status, network switch, or discover
   }}
 />
 
-### Switch Port Count
+## Switch Port Count
 
 In the rack layout view, the hover-over popup shows the total "counted" ports and up ports for that switch.  
 
@@ -129,7 +129,7 @@ Also, from the switch port list page, you can filter by switch and up/down statu
   }}
 />
 
-### Switch Port Visualization
+## Switch Port Visualization
 
 For physical switches, click **Impact Chart** to see all the ports with connectivity, including each MAC-to-device relationship. Virtual devices are shown as 2nd layer devices that are connected to their vHost or marked with a '?' character if the vHost is unknown. 
 
@@ -141,7 +141,7 @@ For physical switches, click **Impact Chart** to see all the ports with connecti
   }}
 />
 
-### How Do I Represent a Stacked Switch?
+## How Do I Represent a Stacked Switch?
 
 All switches, stacked or not, are represented according to their underlying hardware model. Stacked switches are represented by configuring their hardware model. To add an instance of a stacked switch, select the underlying hardware model that you created previously.
 
@@ -155,7 +155,7 @@ To add a new stacked switch, head to **Infrastructure > Hardware Models** and cl
   }}
 />
 
-### How To Represent FEX Modules?
+## Represent FEX Modules
 
 FEX modules can be added as an asset and then associated with the switch using asset device relations. This is easier to add using [switch templates](switch-templates.mdx).
 

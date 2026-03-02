@@ -3,8 +3,6 @@ title: "HashiCorp Vault Integration"
 sidebar_position: 12.5
 ---
 
-# HashiCorp Vault Integration
-
 Each Device42 autodiscovery job is configured to use one (or more) sets of system credentials. If you already use HashiCorp Vault to manage passwords and other secrets, or simply don't want to use Device42 for this purpose, the Device42 HashiCorp Vault integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
 
 HashiCorp Vault offers useful features such as automatic password rotation, which can be configured to rotate secrets per your specific corporate policies and industry guidelines.
@@ -14,8 +12,6 @@ Please note that passwords retrieved from HashiCorp Vault are not viewable in De
 :::
 
 ## Configuring HashiCorp Vault
-
-### Pre-requisites
 
 - **(Required) Role ID / Secret ID:** For the HashiCorp Vault integration to work, you will need to create an AppRole in HashiCorp Vault with a policy that grants "read" to the desired Secret Paths. 
     - AppRole authentication is done by using both "RoleID" and "SecretID" as credentials. 

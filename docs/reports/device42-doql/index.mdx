@@ -12,7 +12,7 @@ DOQL queries are run against the Device42 database via both HTTPS and the RESTfu
 Use our [InsightsAI chat](insightsai.mdx), under **Analytics > InsightsAI** on the MA, to create and interpret DOQL query snippets quickly in the context of the Device42 data tables. 
 :::
 
-### DOQL Query API Endpoint Example
+## DOQL Query API Endpoint Example
 
 Visit the [Device42 API documentation](https://api.device42.com/) for more information on DOQL query endpoints.
 
@@ -35,6 +35,18 @@ https://localhost/services/data/v1.0/query/?query=SELECT name, os_name, os_versi
   ```
 </details>
 
+## DOQL API Query Parameters
+
+The following database query parameters can be used with DOQL via the API. The required parameters are `query` and `output_type`.
+
+- **`query`**: This is the DOQL query you want to run, a `SELECT` command that returns results as CSV data (required).
+- **`delimiter`**: This specifies the character that separates columns within each row (line) of the file. The default is a comma (`,`). This must be a single one-byte character.
+- **`header`**: If `yes`, this specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
+- **`quote`**: This specifies the quoting character to be used when a data value is quoted. The default is a double-quote (`"`). It must be a single one-byte character.
+- **`null_string`**: A parameter defining how null values are represented in the CSV. The default is an empty string, but you can customize this (for example, to represent nulls with a specific string like `'NULL'`).
+- **`quote_escape`**: This specifies the character that should appear before a data character that matches the `QUOTE` value. The default is the same as the `QUOTE` value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
+- **`output_type`**: Get JSON results by setting this parameter to `json`.
+
 ### Query Results in JSON Format
 
 If you'd like your DOQL query results in JSON format, set the `output_type` query parameter to `json`. For example:
@@ -50,19 +62,7 @@ If you'd like your DOQL query results in JSON format, set the `output_type` quer
   ```
 </details>
 
-### DOQL API Query Parameters
-
-The following database query parameters can be used with DOQL via the API. The required parameters are `query` and `output_type`.
-
-- **`query`**: This is the DOQL query you want to run, a `SELECT` command that returns results as CSV data (required).
-- **`delimiter`**: This specifies the character that separates columns within each row (line) of the file. The default is a comma (`,`). This must be a single one-byte character.
-- **`header`**: If `yes`, this specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
-- **`quote`**: This specifies the quoting character to be used when a data value is quoted. The default is a double-quote (`"`). It must be a single one-byte character.
-- **`null_string`**: A parameter defining how null values are represented in the CSV. The default is an empty string, but you can customize this (for example, to represent nulls with a specific string like `'NULL'`).
-- **`quote_escape`**: This specifies the character that should appear before a data character that matches the `QUOTE` value. The default is the same as the `QUOTE` value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
-- **`output_type`**: Get JSON results by setting this parameter to `json`.
-
-### The Data Dictionary, ERD, and Viewer Schema
+## The Data Dictionary, ERD, and Viewer Schema
 
 The Data Dictionary is available in JSON format via the API at the following endpoint:
 
@@ -168,7 +168,7 @@ The query URL links to the DOQL query API endpoint and returns the results of th
     }}
     />
 
-## Device42 DOQL Notes
+## DOQL Notes
 
 - Wherever possible, DOQL syntax is equivalent to PostgreSQL syntax, but this document highlights the areas where the two syntaxes differ.
 - `POST` calls are recommended rather than `GET` calls, as the URL length isn't limited in `POST` calls.
@@ -267,7 +267,7 @@ Below is a sample database schema in JSON format:
   ```
 </details>
 
-## Obtaining DOQL Support
+## Get DOQL Support
 
 Generate DOQL queries by entering natural language descriptions in the **InsightsAI** chat, under **Analytics > InsightsAI** on the MA. See the [InsightsAI page](insightsai.mdx) for more details.
 

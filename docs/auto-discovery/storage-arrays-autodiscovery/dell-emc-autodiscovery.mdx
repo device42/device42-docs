@@ -3,9 +3,17 @@ title: "Dell/EMC Autodiscovery"
 sidebar_position: 1
 ---
 
+This page details access protocols and configuring read-only user accounts with minimum permissions for use in Dell or EMC storage array autodiscovery.
+
 ## Access Protocols by Array
 
-![](/assets/images/discovery_storage_arrays_autodiscovery_dell-emc-autodiscovery.png)
+| Vendor | Array | Access Mechanism | Default Port |
+|--------|-------|------------------|--------------|
+| Dell   | Compellent | REST | 3033 |
+| Dell   | VNX/VMAX | SMIS | 5988 / 5989 |
+| EMC    | Data Domain | REST / SSH | 3009 / 22 |
+| EMC    | Unity | REST | 443 |
+| Dell   | Isilon (Gen 6) | Vendor API | 8080 |
 
 ## Minimum Permissions for Storage Array Autodiscovery
 

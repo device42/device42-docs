@@ -6,9 +6,13 @@ sidebar_position: 10
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-All VLANs defined on your switches can be documented here.
+View and manage VLANs discovered by Device42 or add them manually.
 
-### VLAN List Page
+## VLAN List Page
+
+Locate the VLAN list page under **Resources > Subnets > VLANs**.
+
+The list page displays all of the L2 VLANs that have been defined, along with all the switches that each VLAN is on. As with any list in the Device42 portal, you can sort by multiple fields, search by VLAN **Number** or **Name**, and click on an individual VLAN to open the details page for that VLAN.
 
 <ThemedImage
   alt="VLAN list page"
@@ -18,9 +22,9 @@ All VLANs defined on your switches can be documented here.
   }}
 />
 
-The list page displays all of the L2 VLANs that have been defined, along with all the switches that each VLAN is on. As with any list in the Device42 portal, you can sort by multiple fields, search by VLAN number or name, and click on an individual VLAN to open the details page for that VLAN.
+### Add a New VLAN
 
-### Adding a New VLAN
+The VLAN number is the only required field in this form. The name is automatically calculated as `VLANxxxx` if not entered. You can associate multiple switches with a VLAN.
 
 <ThemedImage
   alt="Adding a new VLAN"
@@ -30,9 +34,11 @@ The list page displays all of the L2 VLANs that have been defined, along with al
   }}
 />
 
-The VLAN number is the only required field in this form. The name is automatically calculated as `VLANxxxx` if not entered. You can associate multiple switches with a VLAN.
+## Merge Discovered VLANs
 
-### Merging Autodiscovered VLANs
+With VLAN autodiscovery, all VLANs are pulled into Device42 from each switch that is discovered. During the discovery process, the system does not assume that matching VLAN numbers from different switches are the same VLAN. It is common to have duplicate VLANs after running autodiscovery. While most duplicate VLANs are actually the same VLAN, it is not always true. 
+
+The **Merge selected Vlans** bulk action is available to address this by merging duplicate VLANs. There are two approaches to merging VLANs:
 
 <ThemedImage
   alt="Merging auto-discovered VLANs"
@@ -42,16 +48,14 @@ The VLAN number is the only required field in this form. The name is automatical
   }}
 />
 
-With VLAN autodiscovery, all VLANs are pulled into Device42 from each switch that is discovered. During the discovery process, the system does not assume that matching VLAN numbers from different switches are the same VLAN. It is common to have duplicate VLANs after running autodiscovery. While most duplicate VLANs are actually the same VLAN, it is not always true. The **Merge selected Vlans** bulk action is available to address this by merging duplicate VLANs. There are two approaches to merging VLANs:
+1. Select a specific subset of VLANs you wish to merge: For example, if VLAN #42 were discovered on 10 different switches and you knew each instance was the same VLAN, it should be merged. You would select the VLANs you want to merge, choose **Merge selected Vlans** from the **Actions** dropdown menu.
 
-**Select all the VLANs in Device42 and let the system merge all matching VLAN numbers to eliminate duplicates**: As pictured in the example above, select all VLANs on the list, then choose **Merge selected Vlans** from the **Actions** dropdown menu, and click **Go**.
+2. Select all the VLANs in Device42 and let the system merge all matching VLAN numbers to eliminate duplicates: Select all VLANs on the list, then choose **Smart Merge selected Vlans** from the **Actions** dropdown menu.
 
-**Select a specific subset of VLANs you wish to merge**: For example, if VLAN #42 were discovered on 10 different switches and you knew each instance was the same VLAN, it should be merged. You would select the VLANs you want to merge, choose **Merge selected Vlans** from the **Actions** dropdown menu, then click **Go**.
-
-**What happens when VLANs are merged?**
+### What happens when VLANs are merged?
 
 Duplicate VLAN numbers are eliminated, and all subnets, switch ports, and MAC addresses are consolidated into and associated with the merged VLAN.
 
-**Does a VLAN merge prevent future duplicate VLANs?**
+### Does a VLAN merge prevent future duplicate VLANs?
 
 Yes, but with one exception: VLANs on any newly discovered switches will be pulled in as unique VLANs. If this occurs, simply merge the newly discovered VLAN using the approach outlined above.

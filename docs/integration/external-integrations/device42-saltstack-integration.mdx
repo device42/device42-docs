@@ -3,11 +3,7 @@ title: "SaltStack Integration"
 sidebar_position: 27
 ---
 
-### Intro
-
-**_Quickly and easily sync Salt Node information to Device42_**
-
-Salt (aka SaltStack) is a Python-based open source configuration management software and remote execution engine. Salt supports the Software-Defined Datacenter, allowing configuration of your Infrastructure as Code (IaC). With the Device42 Salt Integration, you can now gather information about your devices from the same tool you use to provision them. The Device42 / Salt Integration can gather the following from Salt:
+Salt (aka SaltStack) is a Python-based open source configuration management software and remote execution engine. Salt supports the Software-Defined Datacenter, allowing configuration of your Infrastructure as Code (IaC). With the Device42 Salt Integration, you can now gather information about your devices from the same tool you use to provision them. The Device42-Salt Integration can gather the following from Salt:
 
 - Name
 - Node Type
@@ -22,7 +18,7 @@ Salt (aka SaltStack) is a Python-based open source configuration management soft
 - HDD Count
 - Service Level
 
-### Assumptions & Pre-Requisites
+## Assumptions & Pre-Requisites
 
 Working Salt & Device42 installations. Tested against Salt Master 2016.11.1 Carbon To allow connections, sign your minions certificate on your Salt Master and run the script on your Salt Master server.
 
@@ -90,11 +86,11 @@ Python v2.7.x
 	```
 
 
-### Configuration and Usage
+## Configuration and Usage
 
-1. Create a working directory foo and copy the contents of the salt\_to\_device42\_sync repository to it.
-2. Copy (or move/rename) the settings file settings.yaml.example to _settings.yaml_.
-3. Populate the settings.yaml file you created in the last step with your Device42 instance info \[host, user, pss\]:
+1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository to it.
+2. Copy (or move/rename) the settings file settings.yaml.example to `settings.yaml`.
+3. Populate the `settings.yaml` file you created in the last step with your Device42 instance info (host, user, pss):
 
 <details>
     <summary>Click to expand the code block</summary>
@@ -119,11 +115,11 @@ Python v2.7.x
     ```
 </details>
 
-(consult README.MD & requirements.txt for more details)
+Consult `README.md` and `requirements.txt` for more details
 
-1. Configure node filtering, if desired. Details regarding configuration options can be found in NodeFilter.md. Filter settings are added following the ‘options:’ section of _settings.yaml_.
-2. Run the script! $ python saltexplore.py \[-c /path/to/settings.yaml\]
+1. Configure node filtering, if desired. Details regarding configuration options can be found in `NodeFilter.md`. Filter settings are added following the `Options:` section of `settings.yaml`.
+2. Run the script: `$ python saltexplore.py` (`-c /path/to/settings.yaml`)
 
 If you run into any unexpected behavior, bugs, or otherwise have questions, comments, or feature requests, feel free to reach out to support@device42.com.
 
-### Download the Salt integration script for Device42 today!
+**Download the Salt integration script for Device42 today!**

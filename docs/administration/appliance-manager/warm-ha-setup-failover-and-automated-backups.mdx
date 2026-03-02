@@ -3,9 +3,11 @@ title: "Warm HA Setup, Failover, and Automated Backups"
 sidebar_position: 19
 ---
 
+The Device42 Warm High Availability (HA) configuration allows you to put a second appliance on standby mode and do periodic restorations to the device for use as a failover. 
+
 ## Automate Restores to Back Up Your Main Appliance for Warm HA
 
-The Device42 Warm High Availability (HA) configuration allows you to put a second appliance on standby mode and do periodic restorations to the device for use as a failover. This process consists of two steps:
+This process consists of two steps:
 
 - Setting up the automated restores
 - Setting the backup appliance to production mode in the event of a device failure
@@ -50,7 +52,7 @@ A backup file without metadata can still be used for an on-demand **Restore**.
 
 Refer to the Device42 docs to find additional details about [backup metadata](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx#backing-up-metadata) and [scheduling the backup](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx#scheduling-the-backup).
 
-## Setting Appliance Mode via API
+## Set Appliance Mode via API
 
 With automated restores in place on your backup appliance, you're ready to set the backup appliance to production mode in the event of a device failure. You can send a POST call to `/api/1.0/appliancemode/` with the payload `appliance_mode=production` or `appliance_mode=standby` to set the appliance to production or standby mode. This is intended to be triggered from the monitoring software of your choice (see the example below). After switching, a simple update to the DNS settings to point your domain to the new production instance IP will facilitate continuous use of Device42 without downtime.
 

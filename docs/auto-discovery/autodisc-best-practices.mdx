@@ -3,8 +3,6 @@ title: "Autodiscovery Best Practices"
 sidebar_position: 5
 ---
 
-## Automating Device Discovery – Introduction
-
 Device42 automates a significant portion of your IT infrastructure with agentless, automated, device discovery tools to build an accurate picture. The discovery tools work seamlessly in the background to collect inventory data and populate the Device42 Configuration Management Database (CMDB).
 
 Autodiscovery is based on your unique requirements and can be scheduled to keep your CMDB updated. The process isn't network-load intensive because autodiscovery only collects and reports inventory data. You can schedule many discoveries in a day or even in an hour. The autodiscovery frequency depends on the amount of change occurring in the data center, with more change requiring more frequent autodiscovery jobs.
@@ -25,13 +23,13 @@ While the discoveries can be run in any order, Device42 suggests the following o
 
 **IPMI:** Intelligent Platform Management Interface defines a set of interfaces used by system administrators for out-of-band management of computer systems and monitoring of their operation. Device42 recommends running this last because IPMI might not have the correct hostname of the machine, but it will reconcile with a server discovered by any of the methods discussed above based on serial numbers.
 
-## Matching Devices in Device42
+## Match Devices in Device42
 
 Autodiscovery checks against the serial number, UUID, and name, in that order, to check if it is an existing device to update or a new device to create. When looking for a name, Device42 also looks at any aliases that exist for a device.
 
 The latest discovered information on an existing device is always used. For example, if there was a manual change to a device stating it has two CPUs, and an autodiscovery job pulls information for this device with three CPUs, the newer discovered data will override the old entry.
 
-## Building Comprehensive Discovery Profiles
+## Build Comprehensive Discovery Profiles
 
 Don’t be alarmed if one autodiscovery method doesn't provide the level of detail you were expecting. As more auto discoveries are run, Device42 constructs a comprehensive device profile by matching data such as the serial number, UUID, and device name collected during subsequent discovery stages.
 

@@ -6,8 +6,6 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-# Discovery Hub: Scoping and Onboarding Support
-
 Discovery Hub allows you to quickly get started with Device42 to accurately assess your environments. Using the collected information, you can get familiar with Device42 and deliver results to end users quickly. Discovery Hub can be used at the beginning of your Device42 journey and revisited as the visibility of your IT estates increases.
 
 Using IPs, IP ranges, or CIDR blocks, we will scan your network and pull in information. We group the returned information into six categories and give you information about the returned devices, like the OS type or the Fully Qualified Domain Name (FQDN).
@@ -16,7 +14,7 @@ Using IPs, IP ranges, or CIDR blocks, we will scan your network and pull in info
 Currently, Discovery Hub is only available for on-premises environments.
 :::
 
-### Set Up Your First Discovery Hub Scan
+## Set Up Your First Discovery Hub Scan
 
 Log in to the Device42 UI and navigate to **Discovery > Discovery Hub**.
 
@@ -71,9 +69,6 @@ The **Windows**, **Nix**, **Network**, and **Hypervisors** categories are straig
 
 **Other/Unknown** devices either don’t fall neatly into one of the four main categories or Nmap doesn’t have a mapping to the device. **Unreachable** indicates that nothing was returned from that IP address. 
 
-### Prerequisites
-
-While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or the firewalls in front of them). These hosts could be untrustworthy and send responses intended to confuse or mislead Nmap.
 
 ### Configure Network Scan Options
 
@@ -97,7 +92,7 @@ Locate the **Configure Network Scan Options** by clicking the button with the **
 
 Nmap returns a list of matches for each accessible target, in order of accuracy percentage. Allowing alternate matching means we will always use the match with the highest accuracy. The accuracy distance is the percentage points of accuracy that will be allowed. By default, alternate matching will be turned on.
 
-### View Scan Results
+## View Scan Results
 
 The scans you have created will be displayed in the left-hand column. Once started, a scan can be stopped but cannot be resumed or edited. To view the scope of the scan, click the **Settings** button in the top right of the screen (highlighted below) to display the parameters. 
 
@@ -134,7 +129,11 @@ Now you are ready to dig into your results! You can view the entirety of the res
 
 From here, you should have a good baseline understanding of your environment. You can continue to add scans to get a complete view or start setting up discovery jobs. Once you begin to set up jobs, you will begin to consume Device42 Core Licenses. You’ll need to make sure you have enough licenses to cover the jobs or results will be impacted.
 
-### Set Up Discovery Jobs
+### Nmap Accuracy Consideration
+
+While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or the firewalls in front of them). These hosts could be untrustworthy and send responses intended to confuse or mislead Nmap.
+
+## Set Up Discovery Jobs
 
 First, select a device category, for example, Windows or Nix, and select the Remote Collector. Next, enter the IP addresses. You can add individual IPs or the entire CIDR block. 
 
@@ -189,7 +188,7 @@ From the **Settings** tab of completed Discovery Hub scans, you can see the link
 />
 <br/><br/>
 
-#### Additional Notes
+## Additional Notes
 
 - We recommend running one scan at a time, at least initially, to prevent inundating the network.
 - If a scan is stopped, it cannot be resumed. A new scan needs to be created to finish scanning those remaining targets.

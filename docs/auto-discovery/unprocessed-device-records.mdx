@@ -10,7 +10,7 @@ Due to the scope of Device42 discovery, duplicate items may occur. To help avoid
 
 When a new full discovery is performed, the algorithm will use various device attributes to determine potential matches with previously discovered devices.
 
-### Device Matching Level
+## Device Matching Level
 
 Under **Tools > Global Settings**, you can set the device matching level in the **Miscellaneous** section. 
 
@@ -37,7 +37,7 @@ A device is identified as a match when the calculated match score is equal to or
 
 You can change the matching aggressiveness to ensure the best performance in a given environment, no matter the present state of the organization or the naming and deployment conventions in use.
 
-### Enhanced Device Matching
+## Enhanced Device Matching
 
 We recommend enabling the **Enhanced Device Matching** option (under **Tools > Global Settings > Miscellaneous**) for improved accuracy when dealing with separate devices with the same name.
 
@@ -53,7 +53,7 @@ To access this setting, which is turned off by default, select the **Moderate** 
 
 Enhanced matching also uses heuristics to determine if a potential match from [Application Dependency Mapping (ADM)](/apps/enterprise-application-dependency-mapping/index.mdx) is correct or incorrect. 
 
-### Device Attributes Used in Matching
+## Device Attributes Used in Matching
 
 The following device properties, ordered from most to least significant (levels 1 - 4), are used for matching:
 
@@ -65,7 +65,7 @@ The following device properties, ordered from most to least significant (levels 
 
 4. ID of the discovery job (for example, `jobtype-id: vserver-1`)
 
-### Unmatched Devices
+## Unmatched Devices
 
 A device must have at least one match for a match score to be calculated. If no matches are found, the device will be treated as a new device.
 

@@ -6,15 +6,13 @@ sidebar_position: 25.5
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# SCCM Discovery
-
-As of 18.11.00, SCCM Discovery is integrated into our main discovery jobs. Microsoft System Center Configuration Manager (SCCM) or Microsoft Endpoint Configuration Manager (MECM), is a comprehensive management platform for managing and deploying software, applications, updates, and operating systems in an enterprise environment. SCCM offers administrators a centralized, unified solution for efficiently managing a wide range of physical and virtual devices running various versions of Windows, macOS, Linux, and other operating systems
+SCCM Discovery is integrated into our main discovery jobs. Microsoft System Center Configuration Manager (SCCM) or Microsoft Endpoint Configuration Manager (MECM), is a comprehensive management platform for managing and deploying software, applications, updates, and operating systems in an enterprise environment. SCCM offers administrators a centralized, unified solution for efficiently managing a wide range of physical and virtual devices running various versions of Windows, macOS, Linux, and other operating systems
 
 If you already use SCCM in your environment, the Device42 SCCM integration can automatically sync the hardware and software inventory (Configuration Item) data to Device42. SCCM discovery can discover devices, OS, CPU, memory, network, and software from SCCM.
 
 SCCM Discovery can be configured using either WinRM, WMI (Requires a WDS and read only access to the SMS namespace), or direct database discovery.
 
-### View, Run, and Add Jobs
+## View, Run, and Add Jobs
 
 Navigate to the list page under **Discovery > HyperVisors / \*nix / Windows** to view existing jobs, run a job, or create a new SCCM job by clicking the **Create** button on the top right.
 
@@ -38,7 +36,7 @@ Modify the job using the **Edit** button on the top right.
   }}
 />
 
-### Discovery Using WDS Credentials
+## Discovery Using WDS Credentials
 
 Select the **Use Service Account Credentials (only Applies to WDS)** checkbox.
 
@@ -50,7 +48,7 @@ Select the **Use Service Account Credentials (only Applies to WDS)** checkbox.
   }}
 />
 
-### Discovery Using WinRM
+## Discovery Using WinRM
 
 Select **Discover Using WinRM (Preview)** to set the **URL prefix** and **Port** to use.
 

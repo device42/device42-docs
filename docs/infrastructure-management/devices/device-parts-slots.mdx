@@ -6,8 +6,6 @@ sidebar_position: 9
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-## Part Slot Overview
-
 Part slots may be added to both new and existing blade-based and non-blade hardware. Parts slots can optionally receive parts. Define parts slots on hardware templates, or add one directly to an existing hardware device.
 
 For information on blade slots, which work similarly but accept blades instead of parts, see [Blade Slots documentation](device-blade-slots.mdx)
@@ -52,7 +50,7 @@ Should you manually move one or more parts around the layout _(for example, from
 
 Should you be actually **moving the physical part from one slot to another**, to represent this in Device42, you should **first remove the part from the device, save, and then add it back to its new slot**. The system will then delete all associated network ports from the device, and will auto-add new ones back to the new slot ID _(as long as auto-add ports is enabled for that hardware model)_.
 
-## Using the Visual Model Editor
+## Use the Visual Model Editor
 
 Click **Turn ON** to enable edit mode, and then drag and drop parts slots as desired. Slots that were created when the part model was defined will appear in the left column, **Unmapped Existing Parts** or **Unmapped Existing Blade Slots**:
 
