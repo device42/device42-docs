@@ -1,26 +1,39 @@
 ---
-title: "Services"
+title: "All Services"
 sidebar_position: 1
 ---
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Services menu contains the items shown below.
+A Service is any communication process between a listener and client discovered via netstat in Device42.
 
-<ThemedImage
-  alt="Services menu options"
-  sources={{
-    light: useBaseUrl('/assets/images/services-menu-light.png'),
-    dark: useBaseUrl('/assets/images/services-menu-dark.png'),
-  }}
-/>
+Use the **All Services** list page to see which services are running across your infrastructure and how many instances of each exist. View widely-deployed applications and noisy monitoring agents.
 
-When you create a discovery job, remember to select the Discover Services option to discover services information.
+- Navigate to **Resources > Services** to view and manage the discovered services.
 
-<ThemedImage
-  alt="Software and Applications menu options"
-  sources={{
-    light: useBaseUrl('/assets/images/software-and-applications-options-light.png'),
-    dark: useBaseUrl('/assets/images/software-and-applications-options-dark.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Services menu options"
+    sources={{
+      light: useBaseUrl('/assets/images/services/services-menu-light.png'),
+      dark: useBaseUrl('/assets/images/services/services-menu-dark.png'),
+    }}
+  />
+
+## Application Dependency Mapping and Services
+
+For [Application Dependency Mapping (ADM)](/apps/index.mdx), reviewing **All Services** and [**Service Instances**](service-instances.mdx) of the Device42 Main Appliance is particularly useful.
+
+### All Services vs Service Instances
+
+The All Services list page has records of the unique names of the discovered services and the number of **Service Instances** with that name. For example:
+
+- `15` instances of `java`
+- `8` instances of `java.exe`
+
+Identify noisy services, like agents, from the All Services list page by sorting the **Service Instances** column from high to low count.
+
+The Service Instances list page stores every discovered service as an individual entry, with the **Device** it's running on and [other details](service-instances.mdx). For example:
+
+- `java.exe` running on device `jboss-27`
+- `java.exe` running on device `jboss-29`
+

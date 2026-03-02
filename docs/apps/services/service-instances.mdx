@@ -3,20 +3,82 @@ title: "Service Instances"
 sidebar_position: 2
 ---
 
-Select _Apps > Services > Service Instances_ to view, edit, or or add service instances.Click on a _Service Name_ to view or edit that instance.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![](/assets/images/WEB-293_Service-Instance-View.png)
+Service Instances are the running services discovered on your devices. These form the foundation for Application Dependency Mapping and help you understand what's running where.
+
+Device42 stores each discovered service as an entry in the Service Instance list page, under **Resources > Service Instances**. You'll see multiple services with the same **Service Name**. If you want a tally of the number of services with the same name, visit the [All Services](/apps/services/index.mdx) list page under **Resources > All Services**.
+
+A Service Instance record includes the service **Device**, its **State**, **Service Path**, **Listener Addresses**, and **Ports**.
+
+## Using the Service Instances Interface
+
+From **Resources > Service Instances**, click on a **Service Name** to view or edit that instance.
+
+<ThemedImage
+  alt="Service Instance list page"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-instance-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-instance-list-page-dark.png'),
+  }}
+/>
 
 ### Service Instances Actions
 
-Select one of more service instances, and then select an Action to apply that action to the instances.
+Select one or more Service Instances and select an option from the **Actions** menu to perform on the selection.
 
-![](/assets/images/WEB-293_Service-Instance-View-Actions-Menu.png)
+<ThemedImage
+  alt="Service Instance Actions menu"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-instances-actions-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-instances-actions-dark.png'),
+  }}
+/>
 
 ### Add a Service Instance
 
-Click _Add Service Instance_ to add a new instance.
+Click **Create** to add a new instance.
 
-![](/assets/images/WEB-293_Service-Instance-Add.png)
+<ThemedImage
+  alt="Add Service Instance form"
+  sources={{
+    light: useBaseUrl('/assets/images/services/add-service-instance-light.png'),
+    dark: useBaseUrl('/assets/images/services/add-service-instance-dark.png'),
+  }}
+/>
 
-Click **Service** to select the service you want to add. Device42 displays the Select Service dialog – you can also add a new component from this dialog. Click on the name of the service you want to add. Select the **Start Mode**, **State**, and **Topology Status**. Enter or select any other information you want for the instance, and then click _Save_ at the bottom of the page.
+- Click **Service** to select the service you want to add. Device42 displays the Select Service dialog – you can also add a new component from this dialog. 
+- Select the **Start Mode**, **State**, and **Topology Status**. 
+
+Enter or select any other information you want for the instance, and then click **Save** at the bottom of the page.
+
+## Application Dependency Mapping and Service Instances
+
+As part of the [Application Dependency Mapping (ADM) workflow](/apps/enterprise-application-dependency-mapping/index.mdx), Device42 creates Application Components (**Applications > Application Components**) from discovered data and services. Application Components are building blocks for creating Application Groups, and eventually, a Business Service. 
+
+If you have an application that is absent or not quite captured as an Application Component, after running OS-level discovery jobs with ADM sampling enabled, create an Application Component Template to instruct Device42 on what to look for.
+
+The **Service Command Args** value of a Service Instance can be used as match criteria when configuring the Application Component Template you need. 
+
+- Copy the **Service Command Args** value of a Service Instance. 
+
+<ThemedImage
+  alt="Service Instance Example"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-instances-args-example-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-instances-args-example-dark.png'),
+  }}
+/>
+
+- Create a new Application Component Template using the previous Service Instance **Service Command Args** value as match criteria:
+
+<ThemedImage
+  alt="Application Component Template"
+  sources={{
+    light: useBaseUrl('/assets/images/services/app-comp-template-arg-light.png'),
+    dark: useBaseUrl('/assets/images/services/app-comp-template-arg-dark.png'),
+  }}
+/>
+
+Creating Application Component Templates for Java.exe applications is particularly useful - you provide the command line switches (**Service Command Args**) containing the launch details of the service. 

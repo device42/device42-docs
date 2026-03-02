@@ -3,33 +3,72 @@ title: "Service Communications"
 sidebar_position: 5
 ---
 
-Select Resources _> Services > Service Communications_ to view, edit, or add service communication information.  Click the _Client_ device name to edit an existing service communication.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![](/assets/images/WEB-787_1.png)
+Select **Resources > Services > Service Communications** to view, edit, or add service communication information.  Click the **Client** device name to edit an existing service communication.
 
-![](/assets/images/WEB-787_2.png)
+<ThemedImage
+  alt="Service Communications list page"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-communications-list-page-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-communications-list-page-dark.png'),
+  }}
+/>
 
 ### Service Communications Actions
 
-Select one or more Service Communications, and then select an Action to apply the action to the items.
+Select one or more Service Communication records, and then select an Action to apply the action to the items.
 
-![](/assets/images/WEB-787_3.png)
+<ThemedImage
+  alt="Service Communications actions"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-communications-actions-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-communications-actions-dark.png'),
+  }}
+/>
 
 ### Add a Service Communication
 
-Click _Add Service Communication_ to add a new communication.
+Click **Create** from the Service Communications list page to add a new communication.
 
-![](/assets/images/WEB-787_4.png)
+<ThemedImage
+  alt="Create a Service Communication"
+  sources={{
+    light: useBaseUrl('/assets/images/services/add-service-communications-light.png'),
+    dark: useBaseUrl('/assets/images/services/add-service-communications-dark.png'),
+  }}
+/>
 
 Enter a Client IP Address, Listener IP Address. Port, and Protocol. You can also select the Client Device, Listener Device, and enter a Client process display name and a Client process name. Click Save at the bottom of the page to ad the service communication.
 
 ### Service Port IP Statistics
 
-Select _Apps > Services > Service Communications_ to view service port IP statistics. As of version 16.00.00, Device42 has revamped statistics collection. Statistics are now only kept from a listener perspective and are client-IP-centric (not per client service). Previously collected statistics now appear in the _Classic Statistics_ section of this page. See below for descriptions of the Netstat and Netflow statistics Device42 collects.
+Select **Resources > Services > Service Communications** and click on a record **ID** to view service port IP statistics. 
 
-![](/assets/images/WEB-787_5.png)
+Statistics are only kept from a listener perspective and are client-IP-centric (not per client service). Collected statistics appear in the **Classic Statistics** section of this page. See below for descriptions of the Netstat and Netflow statistics Device42 collects.
 
-#### Netstat Statistics
+**Statistics**
+
+<ThemedImage
+  alt="Service Communication Statistics"
+  sources={{
+    light: useBaseUrl('/assets/images/services/service-communications-statistics-light.png'),
+    dark: useBaseUrl('/assets/images/services/service-communications-statistics-dark.png'),
+  }}
+/>
+
+**Classic Statistics**
+
+<ThemedImage
+  alt="Service Communication Classic Statistics"
+  sources={{
+    light: useBaseUrl('/assets/images/services/classic-statistics-light.png'),
+    dark: useBaseUrl('/assets/images/services/classic-statistics-dark.png'),
+  }}
+/>
+
+### Netstat Statistics
 
 <table>
   <tbody>
