@@ -1228,12 +1228,12 @@ const config = {
             from: ['/how-to-videos/update-d42-how-to/'],
           },
           {
-            to: '/auto-discovery/enrichai-data/enrichai-opt-out',
-            from: ['/enrichai-data/enrichai-opt-out/'],
+            to: '/auto-discovery/enriched-data/enriched-data-opt-out',
+            from: ['/enrichai-data/enrichai-opt-out/', '/auto-discovery/enrichai-data/enrichai-opt-out'],
           },
           {
-            to: '/auto-discovery/enrichai-data/',
-            from: ['/enrichai-data/'],
+            to: '/auto-discovery/enriched-data/',
+            from: ['/enrichai-data/', '/auto-discovery/enrichai-data/'],
           },
         ],
       },
