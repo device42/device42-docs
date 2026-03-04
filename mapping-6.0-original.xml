@@ -7737,6 +7737,156 @@
         </task>
         <!-- END VMWARE RELATIONSHIPS -->
 
+        <task enable="true" name="D42 Building to Freshservice Building" type="asset" description="Copy Building from Device42 to Freshservice">
+            <api>
+                <target/>
+                <resource
+                          doql="
+                                select
+                                b.name,
+                                format('Building-%s', b.building_pk) as device42_id,
+                                'Building' as asset_type,
+                                b.address,
+                                b.contact_name,
+                                b.contact_phone,
+                                b.notes,
+                                b.tags,
+                                b.latitude,
+                                b.longitude
+                                from view_building_v1 b
+                               "
+                        />
+            </api>
+            <matching>
+                <source-1 device42-id="device42_id" name="name"/>
+            </matching>
+            <mapping key="name" doql-suffix=" where b.last_changed >'%s'">
+                <field resource="device42_id" source-type="string" target="device42_id" target-type="string" target-header="General"/>
+                <field resource="name" source-type="string" target="name" target-type="string" target-header="General"
+                       min-length="1" max-length="248" escape="true"/>
+                <field resource="address" source-type="string" target="address" target-type="string" target-header="Building"
+                       min-length="1" max-length="60000"/>
+                <field resource="contact_name" source-type="string" target="contact_name" target-type="string" target-header="Building"
+                       min-length="1" max-length="255"/>
+                <field resource="contact_phone" source-type="string" target="contact_phone" target-type="string" target-header="Building"
+                       min-length="1" max-length="255"/>
+                <field resource="notes" source-type="string" target="description" target-header="General"
+                       min-length="1" max-length="60000"/>
+                <field resource="tags" source-type="string" target="tags" target-type="string"
+                       target-header="Building" min-length="1" max-length="255"/>                       
+                <field resource="latitude" source-type="float" target="latitude" target-type="float" target-header="Building" />
+                <field resource="longitude" source-type="float" target="longitude" target-type="float" target-header="Building" />
+            </mapping>
+        </task>
+
+        <task enable="true" name="D42 Room to Freshservice Room" type="asset" description="Copy Room from Device42 to Freshservice">
+            <api>
+                <target/>
+                <resource
+                          doql="
+                                select
+                                r.name,
+                                format('Room-%s', r.room_pk) as device42_id,
+                                'Room' as asset_type,
+                                r.notes,
+                                r.raised_floor,
+                                r.tags
+                                from view_room_v1 r
+                               "
+                        />
+            </api>
+            <matching>
+                <source-1 device42-id="device42_id" name="name"/>
+            </matching>
+            <mapping key="name" doql-suffix=" where r.last_changed >'%s'">
+                <field resource="device42_id" source-type="string" target="device42_id" target-type="string" target-header="General"/>
+                <field resource="name" source-type="string" target="name" target-type="string" target-header="General"
+                       min-length="1" max-length="248" escape="true"/>
+                <field resource="notes" source-type="string" target="description" target-header="General"
+                       min-length="1" max-length="60000"/>
+                <field resource="raised_floor" source-type="boolean" target="raised_floor" target-type="boolean" target-header="Room" />
+                <field resource="tags" source-type="string" target="tags" target-type="string"
+                       target-header="Room" min-length="1" max-length="255"/>                       
+            </mapping>
+        </task>
+
+        <task enable="true" name="D42 Rack to Freshservice Rack" type="asset" description="Copy Rack from Device42 to Freshservice">
+            <api>
+                <target/>
+                <resource
+                          doql="
+                                select
+                                r.name,
+                                format('Rack-%s', r.rack_pk) as device42_id,
+                                'Rack' as asset_type,
+                                r.notes,
+                                r.asset_no,
+                                r.tags,
+                                ven.name maker_name
+                                from view_rack_v1 r LEFT JOIN view_vendor_v1 ven ON r.vendor_fk=ven.vendor_pk
+                               "
+                        />
+            </api>
+            <matching>
+                <source-1 device42-id="device42_id" name="name"/>
+            </matching>
+            <mapping key="name" doql-suffix=" where r.last_changed >'%s'">
+                <field resource="device42_id" source-type="string" target="device42_id" target-type="string" target-header="General"/>
+                <field resource="name" source-type="string" target="name" target-type="string" target-header="General"
+                       min-length="1" max-length="248" escape="true"/>
+                <field resource="asset_no" source-type="string" target="asset_no" target-type="string"
+                       target-header="Rack" min-length="1" max-length="255"/>                       
+                <field resource="tags" source-type="string" target="tags" target-type="string"
+                       target-header="Rack" min-length="1" max-length="255"/>                       
+                <field resource="maker_name" source-type="string" target="maker_name" target-type="string"
+                       target-header="Rack" min-length="1" max-length="255"/>                       
+                <field resource="notes" source-type="string" target="description" target-header="General"
+                       min-length="1" max-length="60000"/>
+            </mapping>
+        </task>
+
+        <task enable="true" name="Room to Building" type="asset_relationship" description="Create Relationship from Room to Building">
+              <api>
+                     <target/>
+                     <resource doql="
+                                     select
+                                     r.name as room_name,
+                                     format('Room-%s', r.room_pk) as room_device42_id,
+                                     b.name as building_name,
+                                     format('Building-%s', b.building_pk) as building_device42_id
+                                     from view_room_v1 r
+                                     inner join view_building_v1 b on r.building_fk = b.building_pk
+                                    "
+              />
+              </api>
+              <matching>
+                     <source-1 device42-id="room_device42_id"/>
+                     <source-2 device42-id="building_device42_id"/>
+              </matching>
+              <mapping key="room_name" downstream-relationship="Located In" upstream-relationship="Houses" target-key="building_name"></mapping>
+        </task>
+
+        <task enable="true" name="Rack to Room" type="asset_relationship" description="Create Relationship from Rack to Room">
+              <api>
+                     <target/>
+                     <resource doql="
+                                     select
+                                     rk.name as rack_name,
+                                     format('Rack-%s', rk.rack_pk) as rack_device42_id,
+                                     rm.name as room_name,
+                                     format('Room-%s', rm.room_pk) as room_device42_id
+                                     from view_rack_v1 rk
+                                     inner join view_room_v1 rm on rk.room_fk = rm.room_pk
+                                    "
+              />
+              </api>
+              <matching>
+                     <source-1 device42-id="rack_device42_id"/>
+                     <source-2 device42-id="room_device42_id"/>
+              </matching>
+              <mapping key="rack_name" downstream-relationship="Located In" upstream-relationship="Houses" target-key="room_name"></mapping>
+        </task>
+       
         <task enable="true" type="asset" description="Delete assets from Freshservice that do not exist in Device42">
             <api>
                 <target delete="true"/>
@@ -7788,6 +7938,24 @@
                                 select
                                     format('Netport-%s', np.netport_pk) as device42_id
                                 from view_netport_v1 np
+
+                                union
+
+                                select
+                                    format('Building-%s', b.building_pk) as device42_id
+                                from view_building_v1 b
+
+                                union
+
+                                select
+                                    format('Room-%s', r.room_pk) as device42_id
+                                from view_room_v1 r
+
+                                union
+
+                                select
+                                    format('Rack-%s', r.rack_pk) as device42_id
+                                from view_rack_v1 r
                                "
                 />
             </api>
@@ -8007,6 +8175,30 @@
                                 inner join view_device_v2 dp on dic.parent_device_fk = dp.device_pk
                                 inner join view_device_v2 dc on dic.child_device_fk = dc.device_pk
                                 where lower(dp.type) = 'cluster'
+
+                                union
+                                
+                                select
+                                   r.name                                    as dependent_device_name,
+                                   format('Room-%s', r.room_pk)              as dependent_device_device42_id,
+                                   'Located In'                              as downstream_relationship,
+                                   b.name                                    as dependency_device_name,
+                                   format('Building-%s', b.building_pk)      as dependency_device_device42_id,
+                                   'Houses'                                  as upstream_relationship
+                                from view_room_v1 r
+                                inner join view_building_v1 b on r.building_fk = b.building_pk
+                                
+                                union
+                                
+                                select
+                                   rk.name                                   as dependent_device_name,
+                                   format('Rack-%s', rk.rack_pk)             as dependent_device_device42_id,
+                                   'Located In'                              as downstream_relationship,
+                                   rm.name                                   as dependency_device_name,
+                                   format('Room-%s', rm.room_pk)             as dependency_device_device42_id,
+                                   'Houses'                                  as upstream_relationship
+                                from view_rack_v1 rk
+                                inner join view_room_v1 rm on rk.room_fk = rm.room_pk
                                "
                         />
             </api>
@@ -9549,6 +9741,26 @@
                             rel.relation = 'Disk' 
                             AND disk.category @> ARRAY['vmware', 'vdisk', 'vcenter']
                             AND device.type = 'virtual'
+                     UNION
+                     SELECT
+                            r.name                                    AS dependent_device_name,
+                            format('Room-%s', r.room_pk)              AS dependent_device_device42_id,
+                            'Located In'                              AS downstream_relationship,
+                            b.name                                    AS dependency_device_name,
+                            format('Building-%s', b.building_pk)      AS dependency_device_device42_id,
+                            'Houses'                                  AS upstream_relationship
+                     FROM view_room_v1 r
+                     INNER JOIN view_building_v1 b on r.building_fk = b.building_pk
+                     UNION
+                     SELECT
+                            rk.name                                   AS dependent_device_name,
+                            format('Rack-%s', rk.rack_pk)             AS dependent_device_device42_id,
+                            'Located In'                              AS downstream_relationship,
+                            rm.name                                   AS dependency_device_name,
+                            format('Room-%s', rm.room_pk)             AS dependency_device_device42_id,
+                            'Houses'                                  AS upstream_relationship
+                     FROM view_rack_v1 rk
+                     INNER JOIN view_room_v1 rm on rk.room_fk = rm.room_pk
                    "
                         />
             </api>
