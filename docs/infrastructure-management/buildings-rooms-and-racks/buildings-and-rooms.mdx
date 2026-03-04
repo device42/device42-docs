@@ -6,9 +6,9 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From the main menu, navigate to the Buildings list page under **Infrastructure > DataCenter > Buildings** to view and enter information about the buildings that house your data centers. In Device42, a room is part of a building. You can add rooms, racks, and other asset details to a building's information. 
+Device42 lets you model your physical infrastructure by organizing devices and assets into buildings, rooms, and racks. In Device42, a room is part of a building, and racks are part of a room. You can add rooms, racks, and other asset details to a building's record.
 
-Users with the [necessary permissions](/administration/role-based-access-control/index.mdx) can access the [Room Layout View](#room-layout-view) to see how the room layout represents a room and its objects.
+Navigate to **Infrastructure > DataCenter > Buildings** to view and manage buildings. Users with the [necessary permissions](/administration/role-based-access-control/index.mdx) can access the [Room Layout View](#room-layout-view) to see a visual representation of a room and its objects.
 
 ## Buildings List Page
 
@@ -48,7 +48,7 @@ Click the **Impact Chart** button on the view page to open the chart in a new ta
     }}
   />
 
-The Rooms associated with the Building are clickable links in the room layout view. You can click **Edit** to add or remove Rooms from a building.
+Rooms associated with the building are clickable links in the room layout view. Click **Edit** to add or remove rooms from a building.
 
   <ThemedImage
     alt="Buildings with Room links"
@@ -85,7 +85,7 @@ You'll see the following buttons:
 - **Impact Chart:** View a chart of devices, assets, and applications that rely on this room.
 - **Room Layout:** View a logical representation of the room. The [Room Layout View](#room-layout-view) section below provides more information.
 
-The right **Object List** panel displays the rooms that were included in the Rooms list view – the previous screen you were on when you clicked the room name - with whichever filters were applied. If your user account does not have permission to view buildings, you won't see "@ - Building" next to the room name.
+The right **Object List** panel displays the rooms from the Rooms list view you navigated from, with any filters that were applied. If your user account does not have permission to view buildings, you won't see "@ - Building" next to the room name.
 
 <ThemedImage
   alt="Rooms List View"
@@ -101,7 +101,7 @@ Navigate between sections, including the following, using the left **Breakdown**
 - **Devices:** View basic info about devices (like CRAC and UPS), click a device name to access the device details, or add a new device.
 - **Assets:** View basic info about assets (like breaker panels and DMARC locations), click an asset name to access the asset details, or add a new asset.
 
-The room view has clickable links to the Racks associated with it. You can click **Edit** to add or remove racks from a room.
+Racks associated with the room are linked in the room view. Click **Edit** to add or remove racks from a room.
 
 <ThemedImage
   alt="Rooms List View"
@@ -220,7 +220,7 @@ You can add racks and objects to the layout, move them around, resize and rotate
 
 - You can reposition and rotate multiple objects at once. Select multiple objects by dragging your cursor over them. Reposition multiple selected objects by dragging them. Rotate multiple selected objects using the rotate buttons in the popup.
 
-### Adding Objects to a Layout
+### Add Objects to a Layout
 
 Ensure that editing mode is enabled. Navigate to **Infrastructure > DataCenter > Rooms**, click the **Show** link under the **Layout** column, and select **Turn ON** from the layout view.
 
@@ -228,9 +228,9 @@ You can add any asset type to the room and are not confined to the template obje
 
 Racks and other objects can be added via the API or from the **Tools > Imports/Exports** menu.
 
-### Mouse-Over Options
+### Hover Options
 
-If you hover over an object, you will see a popup with detailed information about the object.
+Hover over an object to see a popup with detailed information about the object.
 
 <ThemedImage
   alt="Object details"
@@ -247,9 +247,9 @@ For racks, you'll see the following information:
 - **Vendor**
 - **Available (Us)**
 - **Number of Devices**
-- **Total Power Ports** The total number of ports for all PDUs in the rack.
-- **Open Power Ports** The number of available power ports by connector type.
-- **Tags** Any tags added to the rack for labeling and classification purposes.
+- **Total Power Ports:** The total number of ports for all PDUs in the rack.
+- **Open Power Ports:** The number of available power ports by connector type.
+- **Tags:** Any tags added to the rack for labeling and classification purposes.
 - **Notes**
 
 If you have [Power and Environmental Monitoring](/infrastructure-management/power-and-environmental-monitoring/index.mdx) enabled, you will also see the following information:
@@ -269,7 +269,7 @@ The popup also has links to several additional views.
     }}
     />
 
-- **View [name] Power Unit Map:**
+- **View [name] Power Unit Map:** Click this link to display a map of the power units in the rack.
 
     <ThemedImage
     alt="Power Unit map"
@@ -282,16 +282,16 @@ The popup also has links to several additional views.
 - **View [name] details:** Click this link to go to the **Rack Details** page for the rack.
 
     <ThemedImage
-    alt="Power Unit map"
+    alt="Rack detail view"
     sources={{
         light: useBaseUrl('/assets/images/buildings-and-rooms/rack-detail-view-light.png'),
         dark: useBaseUrl('/assets/images/buildings-and-rooms/rack-detail-view-dark.png'),
     }}
-    />  
+    />
 
 - **Power/Utilization Charts:** Click this link to display the power history for each input and output. Note that this link is only available if you have the Power Monitoring option.
 
-- **View Connections:** Mouse over the rack displayed in the object popup panel to find this link. Click the link to display a visualization of the PDU connections in the rack. 
+- **View Connections:** Hover over the rack in the object popup panel to find this link. Click the link to display a visualization of the PDU connections in the rack.
   
     <ThemedImage
     alt="View connections link"
@@ -313,7 +313,7 @@ You can set the object colors to denote usage or temperature information. Choose
   }}
 />
 
-In addition, you can choose to **Show temperature bubbles** or turn it off.
+You can also toggle the **Show temperature bubbles** option on or off.
 
 <ThemedImage
   alt="Display heatmap bubbles"
@@ -324,7 +324,7 @@ In addition, you can choose to **Show temperature bubbles** or turn it off.
   style={{ width: '60%' }}
 />
 
-These options are saved in cookies, so you don't have to reselect the combination of options that works best for you when revisiting the page.
+These options are saved in cookies, so your preferred settings are restored when you revisit the page.
 
 **Usage Heatmap Legend**
 
@@ -354,9 +354,9 @@ In rooms that have temperature information, halo temperature shading around rack
 
 The default color value is based on the maximum temperature of the rack and corresponds to the following temperatures:
 
-- **Green:** \<\= 75°F (23.88°C)
-- **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
-- **Red:** > 90°F (32.22°C)
+- **Green:** \<\= 75°F (23.88°C)
+- **Yellow:** Between > 75°F (23.88°C) and \<\= 90°F (32.22°C)
+- **Red:** > 90°F (32.22°C)
 
 You can update the high and moderate temperature values from the Racks section under **Tools > Settings > Global Settings**. The room rack view updates accordingly.
 
@@ -370,7 +370,7 @@ You can update the high and moderate temperature values from the Racks section u
 
 ### PDU Power Monitoring
 
-If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use divided by the power capacity of the input. Green is high, and red is low. You can change the percentages in **Tools > Settings > Global Settings**.
+If you have the Power Monitoring option, you will see a rectangular bar for each input of every PDU in the rack. These bars are color-coded for power usage and represent the amount of power currently in use divided by the power capacity of the input. Green indicates high available capacity, and red indicates low available capacity. You can change the percentages in **Tools > Settings > Global Settings**.
 
 ![Heat Maps](/assets/images/wpid6004-media_1424515509781.png)
 
@@ -398,4 +398,3 @@ The following operations are available from the **Actions** dropdown menu on the
 - **Add Groups**: Select and add a permission group to the selected buildings or rooms.
 - **Delete Groups**: Select and remove a permission group from the selected buildings or rooms.
 - **Set Custom Field Value**: Add a populated custom field parameter to the selected buildings or rooms.
-
