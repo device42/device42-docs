@@ -18,7 +18,9 @@ Click the **Impact Chart** button at the top of the screen:
   }}
 />
 
-Device42's powerful, agentless autodiscovery uses native WMI and SSH in combination with other platform-dependent technologies to identify the details of running services and listening ports, and the relationships between those services and ports or executables and ports. This provides a clear picture of exactly which services or executables are listening on which ports on a machine. Device42 also goes on to capture a point-in-time snapshot of the IP addresses that are connected to each listening port. Should these communicating IP addresses already exist in Device42 and be mapped to a device, the system automatically shows that device when drawing the dynamic impact charts.
+Device42's agentless discovery uses native WMI and SSH, along with other platform-dependent technologies, to identify running services, listening ports, and the relationships between them. This provides a clear picture of which services or executables are listening on which ports on a machine.
+
+Device42 also captures a point-in-time snapshot of the IP addresses connected to each listening port. If those IP addresses already exist in Device42 and are mapped to a device, the system automatically includes that device when drawing impact charts.
 
 ## Impact Charts for Buildings, Rooms, and Racks
 
@@ -46,7 +48,7 @@ The following is a sample room impact chart:
 
 Looking at the impact chart for a room, from left to right, you see the room itself, the list of racks (with one rack selected), and all the servers that are located in the selected rack. You can view a legend via the **Legend** button above.
 
-Now, let's gather more information about one of the servers. You can do this easily by hovering over it (or any item in the chart) as such:
+To get more information about a server, hover over it (or any item in the chart):
 
 <ThemedImage
   alt="Hover over server for details demonstration"
@@ -82,7 +84,7 @@ Topology charts provide a full picture of all the services, executables, and app
 
 For example, if the device is a blade chassis or a virtual host, all the blades or virtual machines would be dependent on the device, and you would see those dependencies. Similarly, if Device42 discovers that a remote device is connecting to a port on the device, you would see the remote device (and its services, executables, and application components) in the topology chart. You can also manually define which application components depend on which other application component (see below), and those custom dependencies will display in the chart as well.
 
-Below is the topology chart for a device. (Don't try to read the details. We'll zoom in below.)
+Below is the topology chart for a device (details are shown in the sections below):
 
 <ThemedImage
   alt="Device topology chart"
@@ -92,7 +94,7 @@ Below is the topology chart for a device. (Don't try to read the details. We'll 
   }}
 />
 
-### Topology Element Overview:
+### Topology Element Overview
 
 **Global View** is a simplified view of device-to-device directionality in relationship. No details of the relationship are viewable here, except the hostnames that have interactions with each other. Any type of device can be visible here. If there is any relationship of services, applications, hypervisor, or virtual, it will be represented in the **Global View**.
 
@@ -139,7 +141,7 @@ The device topology chart has its own legend:
   style={{ width: '50%' }} 
 />
 
-The **Display Options** are used to manipulate current in-view objects based on the below criteria:
+Use the **Display Options** to filter the objects currently shown in the topology:
 
 - **Hide services without connections:** This shows any service objects that have been discovered on an in-view and associated device, but with no connections yet discovered or added. (By default, this box is checked.)
 - **Hide client IP addresses with no Device/Managed Resources:** This shows IP addresses for any remote connections that were found in the netstat table of the in-view discovered devices. These are not yet considered **Device** objects in the database and are classified as clients or remote connections of the service objects. (By default, this box is checked).
@@ -230,7 +232,7 @@ Most impact and topology screens have a **Create Image** button that allows you 
   }}
 />
 
-The **Create Image** button allows you to choose from two layout options: You may choose the Global or the Local view pane, and can also choose either **PNG** format or **SVG** (vector) image format. Simply click the **Download** button to choose your save location, and save the file wherever is convenient for you.
+The **Create Image** button lets you choose between the Global and Local view panes, and either **PNG** or **SVG** (vector) image format. Click the **Download** button to save the file.
 
 **Service Dependencies Report Download**
 
@@ -260,7 +262,7 @@ An impact list is simply a list version of an impact graph. Impact lists are typ
   }}
 />
 
-The full impact list for a device. Sometimes, it is useful to hide services without connections, which significantly reduces clutter by hiding services you may not be concerned with (many services that fit this criteria are standard operating-system components). See the example following the full list for more details:
+The full impact list for a device is shown below. You can hide services without connections to reduce clutter — many such services are standard operating system components.
 
 <ThemedImage
   alt="Device Impact List Full"
@@ -330,11 +332,11 @@ A dependency chart _(previously a 'dependency graph')_ can also be generated for
 
 ## How Are Dependencies Created in Device42?
 
-One question that comes up in almost every demo is, "How are all these dependencies created?" Nearly all the dependencies you saw in the above charts were _automatically created by autodiscovery_ in combination with internal Device42 correlation processes.
+Nearly all the dependencies shown in the charts above are automatically created by discovery in combination with internal Device42 correlation processes.
 
 It should be fairly obvious how all the physical dependencies are created: buildings have rooms, which have racks, which have devices. The blades in a chassis are dependent on their blade host, while virtual machines (VMs) are dependent on their virtual host(s).
 
-Software and services that are discovered on a virtual or physical machine are dependent on that machine. Many of the service-to-service dependencies or software are autodiscovered.
+Software and services that are discovered on a virtual or physical machine are dependent on that machine. Many service-to-service dependencies and software relationships are discovered automatically.
 
 Only some application components need to be manually entered. If a service is defined to be an application component, then the application component dependencies are all known.
 
