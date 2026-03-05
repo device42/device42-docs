@@ -6,9 +6,7 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Set up alerts to trigger an email and Device42 notification, or have data sent to a third-party application when a software condition you define occurs.
-
-Alerts that have been triggered are called notifications. Manage notifications to indicate the action status taken to resolve the trigger condition to the rest of your team.
+Software licensing alerts notify you by email or Device42 notification — or send data to a third-party application — when a software condition you define is met. Triggered alerts are called notifications, and you can manage them to communicate resolution status to your team.
 
 ## Create Alerts
 
@@ -26,12 +24,12 @@ Three **Trigger** types are available for software licensing. You can create a r
     light: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/trigger-options-light.png'),
     dark: useBaseUrl('/assets/images/software-licensing-alerts-and-notifications/trigger-options-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
 
-When a rule is triggered, emails are sent to the address(es) specified under the **Escalation Profile** option. Consider the example in the screenshot above: When more than 85% of the license for a software component has been used, those in "Alert Group 1" are notified by email.
+When a rule is triggered, emails are sent to the address(es) specified under the **Escalation Profile** option. In this example, when more than 85% of the licenses for a software component have been used, the members of **Alert Group 1** are notified by email. If a profile is already configured, you can select it from the prepopulated list. If not, click the **plus icon** next to the **Escalation Profile** field to open a form to configure one.
 
-Select the **Apply To: All** checkbox to set the alert condition on all software components or search for specific software under **Available objects** and move them to **Chosen objects** using the **right arrow** button.
+Select the **Apply To: All** checkbox to apply the alert to all software components, or search for specific software under **Available objects** and move them to **Chosen objects** using the **right arrow** button.
 
 <ThemedImage
   alt="Add alert example"
@@ -41,11 +39,11 @@ Select the **Apply To: All** checkbox to set the alert condition on all software
   }}
 />
 
-## Manage Notifications  
+## Manage Notifications
 
 Each triggered alert rule creates a notification. Notifications for all rule types are listed under **Analytics > Notifications**.
 
-Only one email and one alert notification will be sent for the chosen software components.
+Only one email and one notification will be sent per software component per trigger.
 
 <ThemedImage
   alt="Notification list view and actions"
@@ -57,13 +55,13 @@ Only one email and one alert notification will be sent for the chosen software c
 
 ### Bulk Actions
 
-You can carry out bulk actions for notifications using the **Actions** dropdown menu. Select the relevant notifications from the table, then choose one of the following actions and confirm the dialog to execute it:
+To perform a bulk action, select notifications from the table, choose an action from the **Actions** dropdown, and confirm the dialog:
 
-- **Delete**: Choose whether to delete the selected notifications immediately or only after confirmation. If the condition re-occurs, a new alert and notification will be created.
+- **Delete**: Choose whether to delete the selected notifications immediately or only after confirmation. If the condition recurs, a new alert and notification will be created.
 - **Export Selected Columns as CSV**: Create a CSV file with the selected notifications.
-- **Acknowledge Notification**: Use this bulk action and the corresponding **Acknowledged** column when multiple system administrators receive the alert. One system administrator can then acknowledge the alert indicating that they are working on the issue.
-- **Clear Conditions**: Use this bulk action to indicate to Device42 that a condition has been fixed and a new alert and notification should be created if the condition recurs. Each cleared action under **Cleared** will have a green checkmark. Please note that only one notification will be sent until the condition is marked as cleared.
+- **Acknowledge Notification**: Use this bulk action and the corresponding **Acknowledged** column when multiple system administrators receive the alert. One system administrator can then acknowledge the alert to indicate that they are working on the issue.
+- **Clear Conditions**: Indicates to Device42 that a condition has been fixed. A new alert and notification will be created if the condition recurs. Each cleared action under **Cleared** will have a green checkmark. Only one notification will be sent until the condition is marked as cleared.
 
 ## Licensing
 
-The software licensing module is licensed as an add-on to the core product. You can contact us about the pricing from the [Device42 website](https://www.device42.com/contact/).
+The software licensing module is an add-on to the core product. For pricing information, visit the [Device42 website](https://www.device42.com/contact/).

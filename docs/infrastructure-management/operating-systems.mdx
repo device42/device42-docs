@@ -6,9 +6,9 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 tracks which devices are running which Operating Systems (OS). This module also ties into Software License Management so that you can see how many copies you are licensed for and how many you are actually using.
+Device42 tracks which operating systems (OS) are running on which devices, and integrates with Software License Management so you can compare licensed counts against actual usage.
 
-Navigate to **Resources > Operating Systems > All Operating Systems** to locate the Operating Systems list.
+Navigate to **Resources > Operating Systems > All Operating Systems** to view the Operating Systems list.
 
 <ThemedImage
   alt="Operating Systems list with Enriched Data icons"
@@ -18,16 +18,16 @@ Navigate to **Resources > Operating Systems > All Operating Systems** to locate 
   }}
 />
 
-If the OS is standardized and enriched by the data Normalization and Enrichment Service, an **AI icon** will be displayed to the right of its name.
+If the OS is standardized and enriched by the data Normalization and Enrichment Service, an **AI icon** appears to the right of its name.
 
-The Operating Systems list page shows all of your operating systems and includes the **Total Count** of devices running the OS, the **Discovered Licensed Count**, and the number of OSs that are not licensed (named **Discovered Non-Licensed Count**). If you click on one of the listed operating systems, you will see details including which machines are running the OS.
+The list shows all operating systems with the **Total Count** of devices running each OS, the **Discovered Licensed Count**, and the **Discovered Non-Licensed Count**. Click an operating system to see details, including which machines are running it.
 
 ## Enriched Data Operating System Fields
 
-If the OS record has been enriched, key maintenance dates may be displayed in the **Enriched Data** section along with other OS details.
+When an OS record has been enriched, key maintenance dates and other OS details appear in the **Enriched Data** section of the record.
 
 <ThemedImage
-  alt="Windows device Enriched Data example"
+  alt="AI icon hover over on the Operating Systems list"
   sources={{
     light: useBaseUrl('/assets/images/operating-systems/ai-hover-over-light.png'),
     dark: useBaseUrl('/assets/images/operating-systems/ai-hover-over-dark.png'),
@@ -35,7 +35,7 @@ If the OS record has been enriched, key maintenance dates may be displayed in th
 />
 
 <ThemedImage
-  alt="Windows device Enriched Data example"
+  alt="Enriched Data section on a Windows OS record"
   sources={{
     light: useBaseUrl('/assets/images/operating-systems/enriched-data-details-light.png'),
     dark: useBaseUrl('/assets/images/operating-systems/enriched-data-details-dark.png'),
@@ -47,12 +47,12 @@ See the [Operating System Attributes](auto-discovery/enriched-data/index.mdx#ope
 Note that data will only be populated by the data Normalization and Enrichment Service if it's used by the OS vendor and if the data is available.
 
 :::info
-Operating System fields that contain Enriched Data cannot be edited or changed.  
+Operating System fields that contain Enriched Data cannot be edited or changed.
 :::
 
 ### Disable OS Changes via API, Discovery, or EnrichAI
 
-You can prevent non-manual changes being made to OS data. On the OS view, click the **Edit** button and turn on the **Don't change via API/Discovery/EnrichAI** option for device OSs.
+Use this option to protect OS data from being overwritten by automated processes. On the OS record, click **Edit** and enable the **Don't change via API/Discovery/EnrichAI** option.
 
 <ThemedImage
   alt="Don't change via API/Discovery/EnrichAI option"
@@ -62,6 +62,6 @@ You can prevent non-manual changes being made to OS data. On the OS view, click 
   }}
 />
 
-## OS Update Logic for Devices
+## OS Update Logic
 
-Each discovery job in Device42 assigns an accuracy score to the OS it detects. Device42 will only update a device's OS information for newly discovered OS on the same device if the accuracy score is equal to or greater than the prior OS accuracy score.
+Each discovery job assigns an accuracy score to the OS it detects. Device42 only updates a device's OS information if the newly discovered OS has an accuracy score equal to or greater than the previously recorded score.

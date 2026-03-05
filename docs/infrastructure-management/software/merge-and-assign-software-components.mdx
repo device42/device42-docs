@@ -6,10 +6,13 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can merge software components and assign them to a component suite as follows:
+Software suites let you group related software components together for easier license tracking and reporting. This page covers how to assign components to a suite and how to handle components that share the same name before merging.
 
-- Navigate to **Resources > Software Components > All Software Components** to view the **Software Components** list page.
-- Select the components you want to merge, choose **Assign Software to Suite** from the **Actions** dropdown, and confirm to run the action.
+## Assign Software to a Suite
+
+1. Navigate to **Resources > Software Components > All Software Components**.
+2. Select the components you want to merge and choose **Assign Software to Suite** from the **Actions** dropdown.
+3. Confirm to run the action.
 
   <ThemedImage
     alt="Assign software to suite"
@@ -19,13 +22,13 @@ You can merge software components and assign them to a component suite as follow
     }}
   />
 
-- In the **Assign Software to Suite** dialog, click **Select Software Suite** and search for an existing software component to create the suite that the selected components will be assigned to, then click **Assign** to confirm.
+4. In the **Assign Software to Suite** dialog, click **Select Software Suite** and search for the existing software component that will become the suite. Click **Assign** to confirm.
 
   <ThemedImage
     alt="Assign software component"
     sources={{
       light: useBaseUrl('/assets/images/merge-assign-software-components/merge-add-component-light.png'),
-      dark: useBaseUrl('/assets/images/merge-assign-software-components//merge-add-component-dark.png'),
+      dark: useBaseUrl('/assets/images/merge-assign-software-components/merge-add-component-dark.png'),
     }}
   />
 
@@ -37,19 +40,18 @@ To view the software components in a suite, select the suite **Name** from the *
   alt="Software components in suite box"
   sources={{
     light: useBaseUrl('/assets/images/merge-assign-software-components/software-components-in-suite-light.png'),
-    dark: useBaseUrl('/assets/images/merge-assign-software-components//software-components-in-suite-dark.png'),
+    dark: useBaseUrl('/assets/images/merge-assign-software-components/software-components-in-suite-dark.png'),
   }}
 />
 
 ## Merge Software Components with the Same Name
 
-To merge software components with the same name into a suite, you must first merge them together, then merge them into a suite. A new component suite cannot have the same **name + vendor** combination as an existing software component; it must have a unique **name + vendor** combination.
+To merge software components with the same name into a suite, you must first merge them, then add them to a suite. A new component suite must have a unique **name + vendor** combination — it cannot match an existing software component.
 
+For example, given these three components:
 
-For example, if you had:
+1. `ABC` — vendor `Cisco`
+2. `ABC` — vendor `MS`
+3. `ABC-Suite` — vendor `None`
 
-1. A software component `ABC`, with the vendor `Cisco`.
-2. A software component `ABC`, with the vendor `MS`.
-3. A software component `ABC-Suite`, with the vendor `None`.
-
-You could merge either `1.` **or** `2.` into `3.` without problem. However, if you tried to merge `1.` **and** `2.` into `3.`, you would receive a validation error prompting you to merge `1.` with `2.` before trying to merge them into `3.`.
+You can merge either component 1 or component 2 into component 3 without issue. However, merging both 1 and 2 into 3 at the same time will produce a validation error. In that case, merge 1 and 2 together first, then merge the result into 3.
