@@ -6,15 +6,15 @@ sidebar_position: 25.5
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-SCCM Discovery is integrated into our main discovery jobs. Microsoft System Center Configuration Manager (SCCM) or Microsoft Endpoint Configuration Manager (MECM), is a comprehensive management platform for managing and deploying software, applications, updates, and operating systems in an enterprise environment. SCCM offers administrators a centralized, unified solution for efficiently managing a wide range of physical and virtual devices running various versions of Windows, macOS, Linux, and other operating systems
+SCCM discovery is integrated into the main discovery jobs. Microsoft System Center Configuration Manager (SCCM), or Microsoft Endpoint Configuration Manager (MECM), is a comprehensive management platform for managing and deploying software, applications, updates, and operating systems in an enterprise environment. SCCM offers administrators a centralized, unified solution for efficiently managing a wide range of physical and virtual devices running various versions of Windows, macOS, Linux, and other operating systems.
 
 If you already use SCCM in your environment, the Device42 SCCM integration can automatically sync the hardware and software inventory (Configuration Item) data to Device42. SCCM discovery can discover devices, OS, CPU, memory, network, and software from SCCM.
 
-SCCM Discovery can be configured using either WinRM, WMI (Requires a WDS and read only access to the SMS namespace), or direct database discovery.
+SCCM discovery can be configured using WinRM, WMI (requires a WDS and read-only access to the SMS namespace), or direct database discovery.
 
 ## View, Run, and Add Jobs
 
-Navigate to the list page under **Discovery > HyperVisors / \*nix / Windows** to view existing jobs, run a job, or create a new SCCM job by clicking the **Create** button on the top right.
+Navigate to **Discovery > HyperVisors / \*nix / Windows** to view existing jobs, run a job, or create a new SCCM job by clicking **Create**.
 
 <ThemedImage
   alt="List page"
@@ -26,7 +26,7 @@ Navigate to the list page under **Discovery > HyperVisors / \*nix / Windows** to
 
 Click on a job to view its details. The **Discovery Target** must be the database server and not other SCCM components. 
 
-Modify the job using the **Edit** button on the top right.
+Modify the job by clicking **Edit**.
 
 <ThemedImage
   alt="List page"
@@ -62,7 +62,7 @@ Select **Discover Using WinRM (Preview)** to set the **URL prefix** and **Port**
 
 ## SCCM Database Discovery
 
-For discovery to return detailed information, you will require read permissions to the following system views:
+For discovery to return detailed information, read permissions are required for the following system views:
 
 <table>
   <tbody>
@@ -100,4 +100,6 @@ The **MSSQL SCCM Instance** field is optional and should be left blank unless yo
   }}
 />
 
-Note: The discovery user must belong to the administrator’s user group to discover databases successfully.
+:::note
+The discovery user must belong to the administrator's user group to discover databases successfully.
+:::

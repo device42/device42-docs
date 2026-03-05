@@ -6,13 +6,13 @@ sidebar_position: 7
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-From version 19.05 of the Device42 UI onward, the **Lifecycle Tab** is only available using the device **Legacy** view. 
+The **Lifecycle** tab is a legacy view for managing asset lifecycle events, purchase information, and QR codes for a device. These sections are now available in the **Breakdown** panel on the device details page. You can still access the legacy view using the **Legacy View** button.
 
-In the device details view, from version 19.05 and later, the following sections have been moved from the **Lifecycle Tab** to the right-hand **Breakdown** panel:
+The following Lifecycle tab sections are in the **Breakdown** panel:
+
 - **Asset Lifecycle**
 - **Purchase/Support Info**
-
-The **Device QR/Barcode** field is now under the **Details** section of the device details view.
+- **Device QR/Barcode** (under **Details**)
 
 <ThemedImage
   alt="The Breakdown panel"
@@ -24,9 +24,9 @@ The **Device QR/Barcode** field is now under the **Details** section of the devi
 
 ## Asset Lifecycle
 
-Provide the required details of **Date**, **Time**, and lifecycle **Event** to associate a new lifecycle event with the device. Optionally add an **End User** and related **Notes** and **Tags** to the event. Tags are useful for adding additional categories to manage your devices.
+Lifecycle events track the history of a device. Add a new lifecycle event using **+ Add New**.
 
-Add a new lifecycle event to the device using the **+ Add New** button. 
+Enter the required **Date**, **Time**, and lifecycle **Event**. Optionally add an **End User** and related **Notes** and **Tags**.
 
 <ThemedImage
   alt="Asset lifecycle"
@@ -38,11 +38,11 @@ Add a new lifecycle event to the device using the **+ Add New** button.
 
 Some of the predefined **Events** have logic built in. For example, you cannot choose **Checked Out** on a device or asset already checked out. Similarly, you can only select **Checked In** if the device is checked out.
 
-To add logic to asset lifecycle **Events**, go to **Tools > Lifecycle Event Actions**.
+To add logic to asset lifecycle **Events**, navigate to **Tools > Lifecycle Event Actions**.
 
-### Add a New LifeCycle Event
+### Add a New Lifecycle Event
 
-Define a custom lifecycle **Event** by clicking the **plus sign** button near the **Events** dropdown menu and then **Create** on the pop-up window. 
+Define a custom lifecycle **Event** by clicking the **plus icon** near the **Events** dropdown and then clicking **Create** on the pop-up window.
 
 <ThemedImage
   alt="Add new lifecycle event"
@@ -54,23 +54,23 @@ Define a custom lifecycle **Event** by clicking the **plus sign** button near th
 
 Choose actions for your lifecycle event in the pop-up window. For example, when retiring a server, you can add actions like **Clear all IPs** and **Clear all Connectivity**.
 
-The options are: 
+The options are:
 
 - **Clear all IPs:** Clear any IP addresses associated with the device.
 - **Clear all Connectivity:** Clear any switch port, direct device, or patch panel connections.
-- **Append seconds since epoch to hostname:** Add a unique number to the hostname so that you re-use the original hostname but still have a record of the old one.
-- Add custom suffix to name.
-- **Append seconds since epoch to name, serial number, and uuid:** Add a unique number to the name, serial number, and UUID to re-use the original values and keep a record of the old one.
-- Add custom suffix to name, serial number, and uuid.
+- **Append seconds since epoch to hostname:** Add a unique number to the hostname so that you can reuse the original hostname but still have a record of the old one.
+- **Add custom suffix to name**
+- **Append seconds since epoch to name, serial number, and UUID:** Add a unique number to the name, serial number, and UUID to reuse the original values and keep a record of the old ones.
+- **Add custom suffix to name, serial number, and UUID**
 - **Change device service level to:** For example, out of service.
-- Change asset service level to
-- Remove device or asset from rack
-- **Add device or asset to storage room:** Select a room from the dropdown menu or click the magnifying glass icon to add a new room.
-- Checkboxes for the options:
-  - Change to not in service
-  - Remove virtual machine from the host
-  - Remove blade device from the host
-  - No longer count OS or software on this device in licensing.
+- **Change asset service level to**
+- **Remove device or asset from rack**
+- **Add device or asset to storage room:** Select a room from the dropdown or click the **plus icon** to add a new room.
+- Checkboxes:
+  - **Change to not in service**
+  - **Remove virtual machine from the host**
+  - **Remove blade device from the host**
+  - **No longer count OS or software on this device in licensing**
 
 ### Asset QR/Barcode
 
@@ -84,14 +84,14 @@ Add a QR code or barcode to the device for inventory management.
   }}
 />
 
-1. Assign an existing QR code or barcode profile to the device or create a new profile by clicking the plus sign.
-2. You can view and print the QR code by clicking the **QR/Barcode **link.
+1. Assign an existing QR code or barcode profile to the device, or create a new profile by clicking the **plus icon**.
+2. View and print the QR code by clicking the **QR/Barcode** link.
 
-See working with [QR asset tags](infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42.mdx) in Device42.
+See [QR Asset Tags](/infrastructure-management/mobile-inventory/understanding-qr-and-bar-codes-in-device42.mdx) for more information.
 
 ### Purchase/Support Info
 
-Enter purchase information related to the device under **Purchase/Support Info**. You can add once-off purchases and record and manage contracts relating to the device. 
+Enter purchase information for the device under **Purchase/Support Info**. You can add one-time purchases and record contracts related to the device.
 
 <ThemedImage
   alt="Purchase/Support Info"
@@ -111,4 +111,4 @@ Add new **Purchase/Support Info** using the **+ Add New** button.
   }}
 />
 
-See [managing purchases](infrastructure-management/accounting/purchases.mdx) for more information.
+See [Purchases](/infrastructure-management/accounting/purchases.mdx) for more information.

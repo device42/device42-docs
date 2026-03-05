@@ -2,9 +2,11 @@
 title: "Using APIs for Custom Autodiscovery"
 sidebar_position: 34
 ---
-If you need autodiscovery methods that aren't provided by Device42, you can create your own autodiscovery tools that use Device42 APIs to load data into a Device42 instance.
+If you need discovery methods that are not provided by Device42, you can create your own discovery tools that use Device42 APIs to load data into a Device42 instance.
 
-Device42 provides several [sample scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts) you can use as a basis for custom autodiscovery tools, including the following:
+This page lists the available sample scripts and walks through an example using IronPython.
+
+Device42 provides several [sample scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts) you can use as a basis for custom discovery tools, including the following:
 
 - `api-sample.py`: This script runs against a single Windows server and uploads info to the Device42 appliance.
 - `ad-sample.py`: This script runs against Active Directory computers, servers, or a list of IP addresses, and uploads discovered systems info to the Device42 appliance.
@@ -16,20 +18,18 @@ Device42 provides several [sample scripts](https://github.com/device42/Device42-
 
 All these scripts are written in Python, but you can use any programming language that calls RESTful APIs.
 
-The remainder of this document demonstrates how to use one of these scripts. We use IronPython for this example because it is simple to install. You can drop the executables into a folder, and as long as you have the .NET 4 framework installed, you are good to go.
-
-* * *
+The remainder of this page demonstrates how to use one of these scripts. The example uses IronPython, as it is simple to install. You can drop the executables into a folder and run them as long as you have the .NET 4 framework installed.
 
 ## Install IronPython Binaries
 
-### Requirements
+You need the following software to follow along with this example:
 
 - [IronPython](https://ironpython.net/download/)
 - The [.NET Framework 4](https://www.microsoft.com/en-us/download/details.aspx?id=17851)
 - PowerShell version 1 or 2 (preferred)
 - Device42 [sample scripts](https://github.com/device42/Device42-AutoDiscovery-Scripts) (the latest versions are under the `src` folder)
 
-When you have installed PowerShell and the .NET Framework 4, download the installer or binaries for IronPython (we recommend the binaries because you can unzip the folder), and you are ready to go.
+After installing PowerShell and the .NET Framework 4, download the installer or binaries for IronPython. The binaries are recommended, as you can unzip the folder and start using them right away.
 
 ![1. Install IronPython](/assets/images/install_ironpython.png)
 
@@ -41,7 +41,7 @@ Download the [latest script](https://github.com/device42/Device42-AutoDiscovery-
 
 Click on the script file to open it, then click the download button and save the file in the same folder as the unzipped binaries for IronPython.
 
-## Get Sample Script Ready for Your Environment
+## Prepare the Sample Script for Your Environment
 
 Open the script and locate the following sections:
 
@@ -56,7 +56,7 @@ Open the script and locate the following sections:
 Edit the sections as follows:
 
 - Change the value of `BASE_URL` to the URL for the Device42 appliance. Ensure there is no trailing `/` at the end of the URL. Example: `BASE_URL='https://d42app.device42.pvt'`.
-- Change the values for `USER` and `PASSWORD` to the credentials for an administrator user with log-in access to the Device42 appliance.
+- Change the values for `USER` and `PASSWORD` to the credentials for an administrator user with login access to the Device42 appliance.
 
 ## Run the Script
 

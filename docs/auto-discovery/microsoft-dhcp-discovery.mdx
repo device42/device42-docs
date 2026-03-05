@@ -6,7 +6,13 @@ sidebar_position: 4.8
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Select the Microsoft DHCP discovery type by navigating to **Discovery > DHCP** on the Main Appliance. 
+This page covers how to discover Microsoft DHCP servers and automatically populate records of IP addresses, subnets, and DHCP details like scope, state, lease duration, and DNS information.
+
+Microsoft Dynamic Host Configuration Protocol (DHCP) is a network management protocol used to dynamically assign IP addresses and other network configuration parameters to devices on a network. If you use Microsoft DHCP Servers in your environment, Microsoft DHCP discovery automatically populates records of discovered DHCP servers, IP addresses, and subnets.
+
+## Create a DHCP Discovery Job
+
+Navigate to **Discovery > DHCP** on the Main Appliance and click **Create**.
 
 <ThemedImage
   alt="DHCP menu location and list page"
@@ -16,18 +22,12 @@ Select the Microsoft DHCP discovery type by navigating to **Discovery > DHCP** o
   }}
 />
 
-Microsoft Dynamic Host Configuration Protocol (DHCP) is a service provided by the Microsoft Windows Server operating system. DHCP is a network management protocol used to dynamically assign IP addresses and other network configuration parameters, like the subnet mask, default gateway, and DNS servers, to devices on a network.
+Microsoft DHCP discovery uses WMI by default, but WinRM is also supported and can be enabled in the job configuration. The **URL prefix** and **Port** fields default accordingly when you select **Discover Using WinRM**.
 
-If you already use Microsoft DHCP Servers in your environment, Microsoft DHCP Discovery will automatically populate records of discovered DHCP Servers, IP Addresses, and subnets; including additional DHCP details like DHCP Scope, State, Lease Duration, DNS information, Start and End address ranges. 
-
-## Discovery
-
-Microsoft DHCP Discovery uses WMI by default, but WinRM is also supported and can be enabled in the job configuration. The **URL prefix** and **Port** fields will default accordingly upon selecting **Discover Using WinRM**. 
-
-Although WinRM is fast and Microsoft's preferred protocol, we don't necessarily recommend updating existing jobs to use WinRM, as we currently (v19.06) use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+Although WinRM is fast and Microsoft's preferred protocol, updating existing jobs to use WinRM is not recommended, as Device42 currently (v19.06) uses NTLM, which Microsoft is deprecating. Kerberos support is planned for a future release.
 
 :::note
-If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI. 
+If **Discover Using WinRM** is not enabled, pair a WDS with the selected Remote Collector to use WMI.
 :::
 
 <ThemedImage
@@ -38,13 +38,12 @@ If **Discovery Using WinRM** is not enabled, pair a WDS with the selected Remote
   }}
 />
 
-
-## Additional Options
+### Additional Options
 
 You can set a schedule to run the job automatically, turn off the default **Create Device from DHCP lease information** option, and set a **Service Level**.
 
 <ThemedImage
-  alt="DHCP WinRM option"
+  alt="DHCP scheduling and service options"
   sources={{
     light: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-1-light.png'),
     dark: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-1-dark.png'),
@@ -54,7 +53,7 @@ You can set a schedule to run the job automatically, turn off the default **Crea
 You can also link a **Customer** to the discovered items, select a **VRF Group for subnets**, and set a **Subnet Category for discovered subnets**.
 
 <ThemedImage
-  alt="DHCP WinRM option"
+  alt="DHCP customer and subnet options"
   sources={{
     light: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-2-light.png'),
     dark: useBaseUrl('/assets/images/microsoft-dhcp-discovery/dhcp-miscellaneous-options-2-dark.png'),

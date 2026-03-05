@@ -1,16 +1,18 @@
 ---
-title: "Viewing Storage Arrays"
+title: "View Storage Arrays"
 sidebar_position: 6
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Storage arrays are identified and returned by the Device42 [storage arrays autodiscovery](./). Storage arrays also display their resource details, related resources, and topology maps.
+Storage arrays are identified and returned by Device42 [storage array discovery](index.mdx) jobs. You can view resource details, related resources, and topology maps for each discovered array.
 
-## View All Storage Arrays
+This page covers how to view, filter, edit, and manage storage arrays, including resource maps and import or export options.
 
-Select **Resources > Storage > Arrays** from the Device42 menu to display the **Storage Arrays** list page.
+## Storage Arrays List Page
+
+Select **Resources > Storage > Arrays** from the Device42 menu to display the **Storage Arrays** list page.
 
 <ThemedImage
   alt="Storage arrays list page"
@@ -20,7 +22,7 @@ Select **Resources > Storage > Arrays** from the Device42 menu to display the 
   }}
 />
 
-On this page, you can **Search by name**, filter the list by **Type**, and add **More Filters**.
+On this page, you can **Search by name**, filter the list by **Type**, and add **More Filters**.
 
 <ThemedImage
   alt="Storage arrays search and filter"
@@ -31,10 +33,10 @@ On this page, you can **Search by name**, filter the list by **Type**, and add
 />
 
 :::note
-The **Storage Arrays** list page also includes an **Advanced Search** option you can use to construct more specific searches. See the [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) documentation page for instructions.
+The **Storage Arrays** list page also includes an **Advanced Search** option you can use to construct more specific searches. See [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) for instructions.
 :::
 
-Click on an array **Name** to see details about that array. You can use the links in the panel on the right to see details about that related resource.
+Click an array **Name** to see details about that array.
 
 <ThemedImage
   alt="Storage array example"
@@ -43,6 +45,9 @@ Click on an array **Name** to see details about that array. You can use the li
     dark: useBaseUrl('/assets/images/storage-arrays/array-example-details-dark.png'),
   }}
 />
+
+Use the links in the right panel to view related resources.
+
 <ThemedImage
   alt="Storage array related resource"
   sources={{
@@ -63,6 +68,8 @@ Devices with attached storage arrays display links to those arrays in the **Part
   }}
 />
 
+The **Parts** tab lists the attached storage arrays.
+
 <ThemedImage
   alt="Physical device parts with storage array"
   sources={{
@@ -71,7 +78,7 @@ Devices with attached storage arrays display links to those arrays in the **Part
   }}
 />
 
-Click on a **Parts** link to see that resource (in this case a LUN).
+Click a **Parts** link to see that resource (in this case, a LUN).
 
 <ThemedImage
   alt="Linked storage array example"
@@ -81,9 +88,9 @@ Click on a **Parts** link to see that resource (in this case a LUN).
   }}
 />
 
-## Resource Maps and Trends Graphs
+## Resource Maps
 
-Click **Resource Map** at the top left of the page to see the topography map for the array. On the left panel, you can add, highlight, or search by type or individual items to customize the chart view.
+Click **Resource Map** at the top left of the page to see the topology map for the array. Use the left panel to add, highlight, or search by type or individual items to customize the chart view.
 
 <ThemedImage
   alt="Storage array resource map"
@@ -93,9 +100,14 @@ Click **Resource Map** at the top left of the page to see the topography map f
   }}
 />
 
-## Edit Storage Arrays
+## Edit a Storage Array
 
-Click **Edit** on the storage array view page to edit the array. You can add or edit **Notes** (1) or **D42 Tags** (2) for the array, toggle the **In Service** (3) indicator on or off, and select or add a **Service Level** value (4).
+Click **Edit** on the storage array view page to modify the following fields:
+
+- **Notes** (1): Add or edit notes for the array.
+- **D42 Tags** (2): Add or edit tags.
+- **In Service** (3): Toggle the indicator on or off.
+- **Service Level** (4): Select or add a service level value.
 
 <ThemedImage
   alt="Storage array edit options"
@@ -105,15 +117,13 @@ Click **Edit** on the storage array view page to edit the array. You can add o
   }}
 />
 
-Click **Save** to save your edits or click **Cancel** to discard them.
+Click **Save** to save your edits or click **Cancel** to discard them.
 
-## Storage Arrays Actions
+## Storage Array Actions
 
-Select one or more arrays from the list and choose an action from the menu. 
+Select one or more arrays from the list and choose an action from the **Actions** dropdown menu.
 
-To delete items, choose **Delete with Detailed Confirmation**, **Fast Background Delete**, or **Fast Background Archive** from the **Actions** dropdown menu.
-
-You can also select storage arrays to **Add to Business Application**.
+The available actions are **Delete with Detailed Confirmation**, **Fast Background Delete**, **Fast Background Archive**, and **Add to Business Service**.
 
 <ThemedImage
   alt="Storage array actions"
@@ -126,18 +136,18 @@ You can also select storage arrays to **Add to Business Application**.
 Confirm the deletion if prompted.
 
 <ThemedImage
-  alt="Storage array actions"
+  alt="Storage array delete confirmation"
   sources={{
     light: useBaseUrl('/assets/images/storage-arrays/array-delete-confirmation-light.png'),
     dark: useBaseUrl('/assets/images/storage-arrays/array-delete-confirmation-dark.png'),
   }}
 />
 
-## Storage Array Discovery Job Import and Export
+## Import and Export Storage Array Discovery Jobs
 
-You can import or export storage array discovery jobs using an Import/Export Excel file.
+You can import or export storage array discovery jobs using an Excel file.
 
-- Select **Tools > Imports/Exports (xls)** from the Device42 main menu. Locate the **Autodiscovery – Create Storage Array Autodiscovery Jobs** row and click **Download Sample Excel File**.
+1. Select **Tools > Imports/Exports (xls)** from the Device42 main menu. Locate the **Autodiscovery - Create Storage Array Autodiscovery Jobs** row and click **Download Sample Excel File**.
 
     <ThemedImage
     alt="Storage array import and export"
@@ -147,11 +157,11 @@ You can import or export storage array discovery jobs using an Import/Export Exc
     }}
     />
 
-- Fill in the Excel file to set up your storage array discovery job. Click on the tips in the cell headings for details on what values to enter in each column.
-  
+2. Fill in the Excel file to set up your storage array discovery job. Click the tips in the cell headings for details on what values to enter in each column.
+
     ![Sample Excel file](/assets/images/storage-arrays/sample-excel-download.png)
 
-- **Browse** to the Excel file and click **Upload** to add the storage array discovery jobs to Device42.
+3. Click **Browse** to select the Excel file and click **Upload** to add the storage array discovery jobs to Device42.
 
     <ThemedImage
     alt="Import Excel file"

@@ -6,17 +6,17 @@ sidebar_position: 30
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Cloud resources are items that have been identified and returned by Device42 discovery jobs and can be visualized in the resource map view.
+Cloud resources are items identified and returned by Device42 discovery jobs. You can visualize them in the resource map view and sort by cloud vendor, region, subnet, Virtual Private Cloud (VPC), and other resource types.
 
-Discovered information can be sorted by cloud vendor, region, subnet, Virtual Private Cloud (VPC), and other discovered resource types in your environments.
+This page covers how to view cloud accounts, use the resource map, and navigate resource details.
 
 :::note
-While you can display Azure and GCP environments in the resource map, AWS currently displays more accurate information. We are working to add this like-for-like functionality for all cloud accounts.
+While you can display Azure and GCP environments in the resource map, AWS currently displays more detailed information.
 :::
 
 ## View Cloud Resources
 
-Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the Device42 menu to display the Cloud Accounts list page.
+Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the main menu to display the Cloud Accounts list page.
 
 <ThemedImage
   alt="Cloud Resources in menu"
@@ -25,9 +25,9 @@ Navigate to **Infrastructure > Cloud Infrastructures > Cloud Accounts** from the
     dark: useBaseUrl('/assets/images/cloud-resources/cloud-menu-dark.png'),
   }}
   style={{ width: '90%' }} 
-/> 
+/> 
 
-### Cloud Accounts List Page
+### Filter Cloud Accounts
 
 From the Cloud Accounts list page, you can use the search bar and **Cloud Vendor** dropdown to filter the cloud accounts. Add additional filtering criteria using the **More Filters** button.
 
@@ -37,15 +37,11 @@ From the Cloud Accounts list page, you can use the search bar and **Cloud Vendor
     light: useBaseUrl('/assets/images/cloud-resources/cloud-accounts-list-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/cloud-accounts-list-dark.png'),
   }}
-/>  
+/>  
 
 ## Resource Map View
 
-From the list page, click on a cloud account to view its details. Navigate back up to the **Cloud Vendor** to view all accounts.
-
-Access the **Resource Map** view to view the cloud account and its related resources and assets in a chart view.
-
-Click on the account level or provider to display additional cloud accounts in your environment.
+From the list page, click a cloud account to view its details, then click **Resource Map** to view the account and its related resources in a chart. Click the account level or provider to display additional cloud accounts in your environment.
 
 <ThemedImage
   alt="Resource map link"
@@ -53,9 +49,9 @@ Click on the account level or provider to display additional cloud accounts in y
     light: useBaseUrl('/assets/images/cloud-resources/cloud-resource-map-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/cloud-resource-map-dark.png'),
   }}
-/>  
+/>  
 
-The **Show All** view can be applied to all areas in the resource map. Please note that large environments will take a few seconds to fully populate.
+The **Show All** option can be applied to all areas in the resource map. Large environments may take a few seconds to fully populate.
 
 <ThemedImage
   alt="Show All"
@@ -69,9 +65,7 @@ The **Show All** view can be applied to all areas in the resource map. Please no
 
 Use the summary panel on the left to search by resource name and quickly identify your assets.
 
-Below the search bar are filter options that are identified by their resource type. 
-
-For example, click the **target icon** for **VPCs (VRF Groups)** to display and highlight those items on the map for quick identification.
+Below the search bar are filter options organized by resource type. For example, click the **target icon** for **VPCs (VRF Groups)** to highlight those items on the map.
 
 <ThemedImage
   alt="Highlight VPCs in resource map"
@@ -79,39 +73,35 @@ For example, click the **target icon** for **VPCs (VRF Groups)** to display and 
     light: useBaseUrl('/assets/images/cloud-resources/highlight-vpcs-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/highlight-vpcs-dark.png'),
   }}
-/>   
+/>   
 
 ### View Details with Resource Icons
 
-Regions and some resource items have an **expand icon** (1) to drill down into regions and other resources and a **magnifying glass icon** (2) to see the resources in the region.
+Regions and some resource items have an **expand icon** (1) to drill down into resources, and a **magnifying glass icon** (2) to view the resources in a region.
 
 <ThemedImage
-  alt="Icons"
+  alt="Expand and magnifying glass icons"
   sources={{
     light: useBaseUrl('/assets/images/cloud-resources/icons-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/icons-dark.png'),
   }}
   style={{ width: '35%' }} 
-/>  
+/>  
 
-The **magnifying glass icon** will change to a **compass icon** and an info box will open that you can use to identify the resources and assets within that region. Click **Show All** to load and display all the listed resources on the map.
+The **magnifying glass icon** changes to a **compass icon** and opens an info box listing the resources and assets within that region. Click **Show All** to load and display all listed resources on the map.
 
 <ThemedImage
-  alt="Select expanded item example"
+  alt="Magnifying glass info box"
   sources={{
     light: useBaseUrl('/assets/images/cloud-resources/magnify-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/magnify-dark.png'),
   }}
 />
 
-:::info
-Please keep in mind that large environments will need a few seconds to fully populate.
-:::
-
-Click the **expand icon** and then select the resource to open a summary box displaying important information such as the **Service Level**, **Last Changed** date and time, **Vendor Resource Type**, and **Resource Categories**.
+Click the **expand icon** and select a resource to open a summary box with details such as **Service Level**, **Last Changed** date and time, **Vendor Resource Type**, and **Resource Categories**.
 
 <ThemedImage
-  alt="Select expanded item example"
+  alt="Expanded resource summary"
   sources={{
     light: useBaseUrl('/assets/images/cloud-resources/expanded-light.png'),
     dark: useBaseUrl('/assets/images/cloud-resources/expanded-dark.png'),

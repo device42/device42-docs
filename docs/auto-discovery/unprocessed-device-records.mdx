@@ -6,9 +6,9 @@ sidebar_position: 33
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Due to the scope of Device42 discovery, duplicate items may occur. To help avoid and consolidate duplicate records, we apply a proprietary matching algorithm to the unprocessed device tables. 
+Due to the scope of Device42 discovery, duplicate items may occur. To help avoid and consolidate duplicate records, Device42 applies a proprietary matching algorithm to the unprocessed device tables.
 
-When a new full discovery is performed, the algorithm will use various device attributes to determine potential matches with previously discovered devices.
+When a new full discovery is performed, the algorithm uses various device attributes to determine potential matches with previously discovered devices. This page explains the device matching levels, the attributes used for matching, and how to handle unmatched devices.
 
 ## Device Matching Level
 
@@ -24,7 +24,7 @@ Device42 supports three different matching models: **Classic**, **Moderate**, an
   }}
 />
 
-With **Classic** matching, Device42 will check the serial number, UUID, and name (in that order) of discovered devices against existing records to verify whether an existing device should be updated or a new device should be created.
+With **Classic** matching, Device42 checks the serial number, UUID, and name (in that order) of discovered devices against existing records to determine whether to update an existing device or create a new one.
 
 **Moderate** and **Conservative** device matching both use various device attributes, weighted by significance, to calculate a score that determines potential matches with devices already in Device42.
 
@@ -39,7 +39,7 @@ You can change the matching aggressiveness to ensure the best performance in a g
 
 ## Enhanced Device Matching
 
-We recommend enabling the **Enhanced Device Matching** option (under **Tools > Global Settings > Miscellaneous**) for improved accuracy when dealing with separate devices with the same name.
+Enable the **Enhanced Device Matching** option (under **Tools > Global Settings > Miscellaneous**) for improved accuracy when dealing with separate devices that share the same name.
 
 To access this setting, which is turned off by default, select the **Moderate** or **Conservative** matching level under **Device Matching Level**.
 
@@ -67,7 +67,7 @@ The following device properties, ordered from most to least significant (levels 
 
 ## Unmatched Devices
 
-A device must have at least one match for a match score to be calculated. If no matches are found, the device will be treated as a new device.
+A device must have at least one match for a match score to be calculated. If no matches are found, the device is treated as a new device.
 
 The advanced matching model mitigates the possibility of false positives and increases the intelligence of automatic matching, but can result in unmatched devices when score results are too low.  
 

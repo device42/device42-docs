@@ -6,19 +6,23 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 offers several autodiscovery tools, some of which are internal to Device42 while some run externally. Find the internal autodiscovery job types under the **Discovery** menu of the Main Appliance. If you are new to Device42 autodiscovery, start with a [Discovery Hub](/getstarted/using-device42/discovery-hub.mdx) network scan to establish baseline discovery information.
+This page is for Device42 administrators who need a comprehensive guide to discovery in Device42. Use this page as your central reference to find all available discovery types, learn how to manage and schedule discovery jobs, and navigate to detailed documentation for each discovery method.
 
-You may run the autodiscovery tools in any combination and order that makes sense for your environment. All autodiscovery jobs can be run on a regular schedule to automate a significant portion of your network documentation.
+If you are new to Device42 discovery, see [Getting Started With Autodiscovery](/getstarted/getting-started-with-auto-discovery.mdx) for the recommended initial discovery sequence and setup guidance. For operational best practices on running and maintaining discovery jobs, see [Autodiscovery Best Practices](/auto-discovery/autodisc-best-practices.mdx).
+
+Device42 offers several discovery tools, some of which are internal to Device42 while some run externally. Find the internal discovery job types under the **Discovery** menu of the Main Appliance.
+
+All discovery jobs can be run on a regular schedule to automate a significant portion of your network documentation.
 
 :::caution
-Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
+Do not set up an discovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
 
-Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+Account lockout could result in an otherwise avoidable outage depending on your permissions and configured password policies.
 :::
 
 ## Get Started
 
-Plan your discovery process by referencing the recommended [Initial Discovery Sequence](/getstarted/getting-started-with-auto-discovery.mdx) and set up your environment to get the most out of discovery process. [Contact our support team](https://support.device42.com/hc/en-us) for additional guidance.
+Plan your discovery process by referencing the recommended [Initial Discovery Sequence](/getstarted/getting-started-with-auto-discovery.mdx) and set up your environment to get the most out of the discovery process. [Contact our support team](https://support.device42.com/hc/en-us) for additional guidance.
 
 ### Start With the Network
 
@@ -54,19 +58,19 @@ Note that previously created jobs will not be affected or updated with changes t
 
 ## Manage Discovery Jobs
 
-Learn how to clone discovery jobs, run multiple jobs and about retry behavior.
+Learn how to clone discovery jobs, run multiple jobs, and about retry behavior.
 
 ### Remote Collector (RC)
 
-The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed, for example, in places like a secure network segment. RCs can be selected to run autodiscovery jobs by simply choosing them when creating the job. Choose the desired RC from the **Remote Collector** dropdown when initially setting up a new autodiscovery job, or editing an existing discovery job. Most autodiscovery jobs that can be launched from the Device42 **Discovery** menu support running from a deployed RC.
+The Device42 remote collector (RC) is a lightweight virtual appliance (a VM) that can be quickly deployed, for example, in places like a secure network segment. RCs can be selected to run discovery jobs by simply choosing them when creating the job. Choose the desired RC from the **Remote Collector** dropdown when initially setting up a new discovery job, or editing an existing discovery job. Most discovery jobs that can be launched from the Device42 **Discovery** menu support running from a deployed RC.
 
-For more information head to the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.mdx).
+For more information, see the dedicated [Remote Collector page](auto-discovery/remote-collector-rc.mdx).
 
 ### Clone Discovery Jobs
 
-Clone an autodiscovery job to create a copy of the job with all its settings without manually re-entering all the job details. You can then modify the cloned job for your specific purposes.   
+Clone a discovery job to create a copy of the job with all its settings without manually re-entering all the job details. You can then modify the cloned job for your specific purposes.   
 
-1. From a discovery list page, click on a discovery **job name** of the job you want to clone and then click **Edit**.
+1. From a discovery list page, click a discovery **job name** of the job you want to clone and then click **Edit**.
 
   <ThemedImage
     alt="Edit existing job"
@@ -98,7 +102,7 @@ Clone an autodiscovery job to create a copy of the job with all its settings wit
 
 ### Run Multiple Discovery Jobs Concurrently
 
-You can run multiple discovery jobs concurrently. From the autodiscovery job list page, select the jobs you want to run concurrently and then select **Run Selected Jobs** from the **Actions** dropdown. 
+You can run multiple discovery jobs concurrently. From the discovery job list page, select the jobs you want to run concurrently and then select **Run Selected Jobs** from the **Actions** dropdown. 
 
   <ThemedImage
     alt="Run Selected Jobs"
@@ -138,7 +142,7 @@ You can run multiple discovery jobs concurrently. From the autodiscovery job lis
 
 ### Scanning Timeout, Retries, and Failure Behavior
 
-For \*nix scans (via SSH), you can set the scanning timeout when configuring the autodiscovery job under the **Miscellaneous** section.
+For \*nix scans (via SSH), you can set the scanning timeout when configuring the discovery job under the **Miscellaneous** section.
 
   <ThemedImage
     alt="Set *nix timeout"
@@ -152,13 +156,13 @@ Retries are done in Windows Discovery Service (WDS) scans. WDS retries a scan un
 
 ## Agent-Based and Offline Discovery
 
-There are special situations when using an agent for discovery makes more sense. We offer optional autodiscovery agents for many platforms. See [Device42 Agent-Based discovery](agent-based-discovery.mdx) to learn more.
+There are special situations when using an agent for discovery makes more sense. Device42 offers optional discovery agents for many platforms. See [Device42 Agent-Based discovery](agent-based-discovery.mdx) to learn more.
 
 ### Agent-Based Offline Discovery and Upload Tool
 
-There are some edge cases where the network, or lack of network, doesn’t allow communication back to the main Device42 appliance for a variety of reasons.
+There are some edge cases where the network, or lack of network, doesn't allow communication back to the main Device42 appliance for a variety of reasons.
 
-Whether remote collectors can’t be deployed or the policy simply doesn’t allow it, we've got the solution: 
+Whether remote collectors can't be deployed or the policy simply doesn't allow it, Device42 has the solution: 
 - See [Device42 Offline Agent-based discovery](agent-based-offline-discovery.mdx)
 - Download the [Offline Discovery Data Processing Tool or Agent Log Upload Utility](https://www.device42.com/miscellaneous-tools/).
 
@@ -168,19 +172,19 @@ Discover hardware, cloud platforms, hypervisors, and network devices.
 
 ### Blade Systems Discovery
 
-Use SNMP discovery to collect HP and IBM Blade System (or Blade Center) chassis and blade details. See [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.mdx) for more information. 
+Use SNMP discovery to collect HP and IBM Blade System (or Blade Center) chassis and blade details. See [Blade Systems Autodiscovery](auto-discovery/blade-systems-auto-discovery.mdx) for more information.
 
-The Cisco UCS Manager is supported as well. You can grab chassis, blade, service profile information, and more. See [Cisco UCS Cluster](cisco-ucs-auto-discovery.mdx) for more information.
+The Cisco UCS Manager is supported as well. You can discover chassis, blade, service profile information, and more. See [Cisco UCS Cluster](cisco-ucs-auto-discovery.mdx) for more information.
 
 ### Cloud Platform Discovery
 
 Connect to Amazon AWS, Alibaba Cloud, Microsoft Azure, Digital Ocean, Google Cloud, Linode, and OpenStack from the cloud discovery under **Discovery > Cloud**. Cloud discovery details can be found on the [Cloud Platforms Autodiscovery](cloud-auto-discovery/index.mdx) page.
 
-### DNS Autodiscovery
+### DNS Discovery
 
-DNS autodiscovery is built into Device42 and can do zone transfer(s) from your DNS server(s). DNS autodiscovery is run and scheduled from the Device42 web UI under **Discovery > DNS Zone Sync (One way)**.
+DNS discovery is built into Device42 and can do zone transfer(s) from your DNS server(s). DNS discovery is run and scheduled from the Device42 web UI under **Discovery > DNS Zone Sync (One way)**.
 
-### Hypervisor / \*nix / Windows Autodiscovery
+### Hypervisor / \*nix / Windows Discovery
 
 Hypervisors, Windows, and Linux/UNIX discovery jobs can all be created under **Discovery > HyperVisors / \*nix / Windows**.
 
@@ -194,17 +198,17 @@ Visit the dedicated page for each machine type:
 - [Linux/UNIX discovery](linux-unix-server-auto-discovery.mdx)
 - [Windows and Hyper-V discoveries](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx)
 
-### IPMI Autodiscovery
+### IPMI Discovery
 
 Discover iLO, iDrac, or other IPMI/BMC boards with basic hardware info and BMC IP and MAC address for a given IP range. If the server has already been discovered by OS-level discovery methods, the BMC IP and MAC address will show up in the device properties.
 
 Visit [IPMI/Redfish Autodiscovery](ipmi-auto-discovery.mdx) for details.
 
-### Midrange / Mainframe discovery (IBM AS/400 and z/OS)
+### Midrange / Mainframe Discovery (IBM AS/400 and z/OS)
 
 Device42 supports agent-less mainframe and mid-range discovery of both the [IBM i / AS400 mid-range](ibm-i-as400.mdx) platform and the [IBM z/OS mainframe platform](z-os-ibm-mainframe.mdx).
 
-### Network / SNMP Autodiscovery
+### Network / SNMP Discovery
 
 Run an SNMP discovery job from the Device42 web UI main menu under **Discovery > SNMP**.
 
@@ -250,8 +254,8 @@ You can automate inventory management and integrate with your own scripts or oth
 
 The open-source, standalone [Ping Sweep tool](https://www.device42.com/autodiscovery/) uses NMAP in the background to run ping sweeps against the selected network(s), uploading discovered IP, MAC, and reverse DNS details via Device42's RESTful APIs. The Ping Sweep tool is written in .NET.
 
-There is also a ping sweep tool built into Device42. Find it in the UI under **Discovery > Ping Sweep**. Note that the UI-based option may be deprecated in the future and the standalone tool is much faster.
+There is also a ping sweep tool built into Device42. Find it in the UI under **Discovery > Ping Sweep**. The UI-based ping sweep may be deprecated in the future and the standalone tool is much faster.
 
 ## Next Steps
 
-To dive deeper into specific autodiscovery topics, take a look at this category's subpages in the sidebar.
+To dive deeper into specific discovery topics, take a look at this category's subpages in the sidebar.

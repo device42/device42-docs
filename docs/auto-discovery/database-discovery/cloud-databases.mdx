@@ -6,11 +6,13 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Cloud databases are cloud platform database instances identified and returned by Device42 autodiscovery jobs. You can view the resource details, related databases, and topography maps of cloud database items.
+Device42 discovery jobs identify and return database instances running on cloud platforms. You can view the resource details, related databases, and topology maps of these items.
+
+This page covers how to view, edit, and delete cloud databases in Device42.
 
 ## View Cloud Databases
 
-Select **Resources > Cloud Databases** from the Device42 menu to display the Cloud Databases list page.
+Select **Resources > Cloud Databases** from the Device42 menu to display the Cloud Databases list page.
 
 <ThemedImage
   alt="Cloud Databases menu"
@@ -20,11 +22,14 @@ Select **Resources > Cloud Databases** from the Device42 menu to display the C
   }}
 />
 
-Device42 displays the Cloud Databases list page. On this page, you can **Search by resource name** (1), or filter the list by **Cloud Account -> Cloud Vendor** (2) and **Vendor Resource Subtype** (4).
+Use the list page filters to find specific cloud databases:
 
-Click **More Filters** (3) to add additional filters to the search.
+- **Search by resource name** (1)
+- **Cloud Account > Cloud Vendor** (2)
+- **More Filters** (3) for additional filter options
+- **Vendor Resource Subtype** (4)
 
-The Cloud Databases list page also includes an **Advanced Search** option for constructing more specific searches. Instructions for this option are available on the [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) documentation page.
+Use the **Advanced Search** option to construct more specific searches. See the [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) page for instructions.
 
 <ThemedImage
   alt="Cloud Databases list page"
@@ -46,7 +51,7 @@ Click on the name of a cloud database to see details about that database. You ca
 
 ### Resource Map
 
-Click **Resource Map** on the top left of the page to see the topography map for the cloud database. You can select which **Resource Types** to include in the map.
+Click **Resource Map** on the top left of the page to see the topology map for the cloud database. You can select which **Resource Types** to include in the map.
 
 <ThemedImage
   alt="Resource map"
@@ -58,10 +63,10 @@ Click **Resource Map** on the top left of the page to see the topography map f
 
 ### Application Group Calculation
 
-You can view a visualization of the [Application Group](apps/application-groups/index.mdx) calculation for the cloud database by clicking on the **Application Group Calculation** tab at the top of the page.
+Click the **Application Group Calculation** tab at the top of the page to view a visualization of the [Application Group](/apps/application-groups/index.mdx) calculation for the cloud database.
 
 <ThemedImage
-  alt="Resource map"
+  alt="Application Group Calculation"
   sources={{
     light: useBaseUrl('/assets/images/cloud-databases/cloud-calculation-19.06-light.png'),
     dark: useBaseUrl('/assets/images/cloud-databases/cloud-calculation-19.06-dark.png'),
@@ -70,7 +75,12 @@ You can view a visualization of the [Application Group](apps/application-groups/
 
 ## Edit Cloud Databases
 
-Click the **Edit** button on the **Info** page of a cloud database to add or change **Notes** and **Tags** for the database, toggle **Yes** or **No** for **In Service**, and select or add a **Service Level** value. You can also add and edit **Custom Field** values.
+Click the **Edit** button on the **Info** page of a cloud database to modify the following fields:
+
+- **Notes** and **Tags**
+- **In Service** (toggle **Yes** or **No**)
+- **Service Level**
+- **Custom Field** values
 
 <ThemedImage
   alt="Edit cloud database"
@@ -80,11 +90,11 @@ Click the **Edit** button on the **Info** page of a cloud database to add or c
   }}
 />
 
-Click **Save** to save your changes or **Cancel** to discard them.
+Click **Save** to save your changes or **Cancel** to discard them.
 
 ## Delete Cloud Databases
 
-Select one or more databases on the Cloud Databases list page and from the **Actions** dropdown, select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation**.
+Select one or more databases on the Cloud Databases list page. From the **Actions** dropdown, select **Fast Background Delete**, **Fast Background Archive**, or **Delete with Detailed Confirmation**.
 
 <ThemedImage
   alt="Action menu"
@@ -106,4 +116,4 @@ Confirm or cancel the deletion when prompted.
 
 ## DOQL Views and API
 
-Additional functionality and enhancements are available directly through our DOQL views and API for quick data extraction and will not initially have UI fields. More information can be found on the [API reference website](https://api.device42.com/#resource_Auto-Discovery).
+Additional cloud database data is available through DOQL views and the API for quick data extraction. Some of these fields may not yet have corresponding UI elements. See the [API reference website](https://api.device42.com/#resource_Auto-Discovery) for more information.

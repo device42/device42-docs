@@ -3,35 +3,47 @@ title: "Autodiscovery Best Practices"
 sidebar_position: 5
 ---
 
-Device42 automates a significant portion of your IT infrastructure with agentless, automated, device discovery tools to build an accurate picture. The discovery tools work seamlessly in the background to collect inventory data and populate the Device42 Configuration Management Database (CMDB).
+This page explains how Device42 builds comprehensive device profiles through sequential discovery and device matching. For operational best practices on planning, configuring, and scheduling discovery jobs, see [Discovery Job Best Practices](/getstarted/getting-started-with-auto-discovery.mdx#discovery-job-best-practices).
 
-Autodiscovery is based on your unique requirements and can be scheduled to keep your CMDB updated. The process isn't network-load intensive because autodiscovery only collects and reports inventory data. You can schedule many discoveries in a day or even in an hour. The autodiscovery frequency depends on the amount of change occurring in the data center, with more change requiring more frequent autodiscovery jobs.
+Device42 uses agentless, automated device discovery tools to collect inventory data and populate the Configuration Management Database (CMDB). The discovery tools work seamlessly in the background and are not network-load intensive. You can schedule multiple autodiscoveries per day or hour, with frequency depending on how rapidly your environment changes.
 
-## Initial Discovery Sequence
+## Recommended Discovery Sequence
 
-While the discoveries can be run in any order, Device42 suggests the following order to minimize reconciliation work later on:
+You can run discovery jobs in any order, but Device42 recommends the following sequence to minimize reconciliation work and build more complete device profiles. For a comprehensive list including Storage, Certificate, Warranty, and other discovery types, see [Discovery Job Order](/getstarted/getting-started-with-auto-discovery.mdx#discovery-job-order).
 
-**Network:** Network autodiscovery builds your Layer 2 network landscape and pulls in your network devices inventory, VLANs, Subnets, IP Addresses, Mac Addresses, and more.
+### Network Discovery (SNMP)
 
-**V-Server:** V-Server autodiscovery collects data from hypervisors such as VMware, Citrix Xen, libvirt, and oVirt.
+Network autodiscovery builds your Layer 2 network landscape and discovers network devices, VLANs, subnets, IP addresses, MAC addresses, and connectivity information. Run this first to establish the network foundation.
 
-**Windows/Linux/Hyper-V:** Brings in Windows, Linux, and Hyper-V machine data.
+### Hypervisor Discovery (V-Server)
 
-**Cloud autodiscovery:** Brings in virtual machine and storage data from Amazon Web Services, Microsoft Azure, OpenStack, and numerous other platforms.
+Hypervisor autodiscovery collects data from virtualization platforms such as VMware, Citrix Xen, libvirt, and oVirt. This discovers hosts, virtual machines, and initial operating system information.
 
-**Blade:** Blade server autodiscovery identifies the blade chassis, S blade servers, and their location within the chassis. By matching serial numbers to previously discovered data, Device42 builds a comprehensive blade database.
+### Windows, Linux, and Hyper-V Discovery
 
-**IPMI:** Intelligent Platform Management Interface defines a set of interfaces used by system administrators for out-of-band management of computer systems and monitoring of their operation. Device42 recommends running this last because IPMI might not have the correct hostname of the machine, but it will reconcile with a server discovered by any of the methods discussed above based on serial numbers.
+OS-level discovery brings in detailed Windows, Linux, and Hyper-V machine data, including CPU counts, RAM, software, services, and configuration details.
 
-## Match Devices in Device42
+### Cloud Discovery
 
-Autodiscovery checks against the serial number, UUID, and name, in that order, to check if it is an existing device to update or a new device to create. When looking for a name, Device42 also looks at any aliases that exist for a device.
+Cloud autodiscovery discovers virtual machines and storage from cloud platforms including Amazon Web Services, Microsoft Azure, Cloudstack, OpenStack, and other providers.
 
-The latest discovered information on an existing device is always used. For example, if there was a manual change to a device stating it has two CPUs, and an autodiscovery job pulls information for this device with three CPUs, the newer discovered data will override the old entry.
+### Blade Discovery
 
-## Build Comprehensive Discovery Profiles
+Blade server autodiscovery identifies blade chassis, blade servers, and their physical locations within the chassis. Device42 matches this data to previously discovered devices using serial numbers to build comprehensive blade profiles.
 
-Don’t be alarmed if one autodiscovery method doesn't provide the level of detail you were expecting. As more auto discoveries are run, Device42 constructs a comprehensive device profile by matching data such as the serial number, UUID, and device name collected during subsequent discovery stages.
+### IPMI Discovery
+
+Intelligent Platform Management Interface (IPMI) provides out-of-band management data for physical servers. Run IPMI discovery last because it may not have accurate hostname information, but Device42 reconciles it with servers discovered by other methods using serial numbers.
+
+## How Device42 Matches Devices
+
+Autodiscovery uses serial number, UUID, and device name (in that order) to determine whether discovered data updates an existing device or creates a new device. When matching by name, Device42 also checks device aliases.
+
+Device42 uses the latest discovered information for existing devices. For example, if a device record shows two CPUs and autodiscovery detects three CPUs, the newer discovered data overrides the previous entry.
+
+## Comprehensive Discovery Profiles
+
+Don't be alarmed if one autodiscovery method doesn't provide the level of detail you were expecting. As more auto discoveries are run, Device42 constructs a comprehensive device profile by matching data such as the serial number, UUID, and device name collected during subsequent discovery stages.
 
 ### Example Discovery Scenario
 
@@ -43,14 +55,14 @@ The next level, blade discovery, identifies the Serial Number and adds it to the
 
 The native Windows and Linux OS discovery matches the Serial Number and UUID. The new data is added to Device42 including the number of CPUs associated with the VM, the amount of RAM, VM version, version number, and other OS-related information.
 
-In the example above, you'll find out which blade server is in which chassis slot, what network ports or chassis it's connected to, what VMs are on that blade server (if it's a Hypervisor), all the services that are running on those VMs, and all the software installed on those VMs.
+In the example above, you'll find out which blade server is in which chassis slot, what network ports or chassis the blade server is connected to, what VMs are on that blade server (if it's a Hypervisor), all the services that are running on those VMs, and all the software installed on those VMs.
 
 The result is a comprehensive profile of the discovered devices, their characteristics, locations, software, and the physical and virtual interdependencies between the devices. The discoveries populate the CMDB with detailed records and uses that information to construct Device42 impact and dependency mapping charts.
 
 ## User Account for Autodiscovery
 
 :::caution
-Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
+Do not set up an autodiscovery scan using critical production account credentials. Create a separate, dedicated account to use only for discovery.
 
-Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+Account lockout could result in an otherwise avoidable outage depending on your permissions and configured password policies.
 :::

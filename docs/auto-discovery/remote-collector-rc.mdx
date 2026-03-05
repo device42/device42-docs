@@ -6,17 +6,19 @@ sidebar_position: 24
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-A Remote Collector (RC) is a virtual appliance deployed separately from the Device42 Main Appliance (MA). An RC is controlled from the MA and sent autodiscovery jobs that it executes remotely. All autodiscovery jobs, including Power SNMP jobs, are supported and can be run remotely on an RC.
+A Remote Collector (RC) is a virtual appliance deployed separately from the Device42 Main Appliance (MA). An RC is controlled from the MA and sent discovery jobs that it executes remotely. All discovery jobs, including Power SNMP jobs, are supported and can be run remotely on an RC.
+
+This page covers sizing recommendations, how to run remote discoveries, and how to view and manage Remote Collectors. For installation instructions, see [Remote Collector Installation](/getstarted/deploy-device42/remote-collector-rc-installation.mdx).
 
 :::note
-Windows discovery requires at least one [Windows Discovery Service](getstarted/deploy-device42/windows-discovery-service-installation.mdx) (WDS) instance to be deployed.
+Windows discovery requires at least one [Windows Discovery Service](/getstarted/deploy-device42/windows-discovery-service-installation.mdx) (WDS) instance to be deployed.
 :::
 
-You may configure an unlimited number of RC appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor, and other types of autodiscovery across networks requiring only HTTPS access, eliminating the need to open numerous ports across network segments.
+You can configure an unlimited number of RC appliances as needed across your environment. RCs facilitate SNMP, IPMI, hypervisor, and other types of discovery across networks requiring only HTTPS access, eliminating the need to open numerous ports across network segments.
 
 ## Sizing Recommendations
 
-For one RC per 1000 workloads, the sizing recommendations are as follows:
+For one RC per 1000 workloads, the sizing recommendations are:
 
 - Two vCPU
 - 4GB RAM
@@ -24,7 +26,7 @@ For one RC per 1000 workloads, the sizing recommendations are as follows:
 
 ## Run Remote Discoveries
 
-Once registered, you can schedule any autodiscovery job from the MA and instruct it to run on the RC of your choosing. Each autodiscovery screen shows a **Remote Collector** dropdown menu. Click this dropdown to display all registered RCs and choose the RC you would like to run the discovery job:
+Once registered, you can schedule any discovery job from the MA and instruct it to run on the RC of your choosing. Each discovery screen shows a **Remote Collector** dropdown menu. Click this dropdown to display all registered RCs and choose the RC to run the discovery job.
 
 <ThemedImage
   alt="Select RC example"
@@ -36,9 +38,9 @@ Once registered, you can schedule any autodiscovery job from the MA and instruct
 
 ## View and Edit Remote Collectors
 
-Open the Device42 website in your browser. Click the RC **Name** on the **Remote Collectors** list page to view or edit a specific RC. Click the **Edit** button to edit the RC.
+Navigate to **Discovery > Remote Collectors** and click the RC **Name** on the list page to view or edit a specific RC. Click the **Edit** button to edit the RC.
 
-Note that the view and edit pages now include a **MAC Address** field showing the address of the RC. Be careful editing this address; an incorrect address will cause the RC to disconnect.
+The view and edit pages include a **MAC Address** field showing the address of the RC. Be careful when editing this address; an incorrect address causes the RC to disconnect.
 
 <ThemedImage
   alt="RC edit page"
@@ -50,7 +52,7 @@ Note that the view and edit pages now include a **MAC Address** field showing 
 
 ## Remote Collector List Page Actions
 
-Navigate to the **Remote Collectors** list page under **Discovery > Remote Collectors** and click **Actions**.
+Navigate to **Discovery > Remote Collectors** and click **Actions** to access bulk actions.
 
 <ThemedImage
   alt="Remote Collector list page actions"
@@ -62,13 +64,13 @@ Navigate to the **Remote Collectors** list page under **Discovery > Remote Colle
 
 Select the relevant RC(s) from the table, choose one of the following actions, and click the **hammer icon** to execute the action:
 
-- **Delete with Detailed Confirmation**: Delete the selected RC(s) with a confirmation prompt.
-- **Export Selected Items as CSV**: Export a CSV file with information about the selected RC(s).
-- **Clear logs**: Clear the log files for the selected RC(s).
-- **Reboot Collectors**: Reboot the selected connected RC(s). Note that if your RC is exhibiting unusual behavior, rebooting the RC is a good first step to resolving the problem.
-- **Set Logging Level**: Set the RC logging level. Select **Information** to reduce the log file size. You can also set a Global Logging Level via the RC console.
-- **Set Proxy Settings**: Edit the RC(s) inherited proxy settings.
+- **Delete with Detailed Confirmation:** Delete the selected RC(s) with a confirmation prompt.
+- **Export Selected Items as CSV:** Export a CSV file with information about the selected RC(s).
+- **Clear logs:** Clear the log files for the selected RC(s).
+- **Reboot Collectors:** Reboot the selected connected RC(s). If your RC is exhibiting unusual behavior, rebooting the RC is a good first step to resolving the problem.
+- **Set Logging Level:** Set the RC logging level. Select **Information** to reduce the log file size. You can also set a Global Logging Level via the RC console.
+- **Set Proxy Settings:** Edit the RC(s) inherited proxy settings.
 
-## Installation and Configuration
+## Install and Configure Remote Collectors
 
-See the [Remote Collector Installation page](/getstarted/deploy-device42/remote-collector-rc-installation.mdx) for installation and configuration instructions.
+See the [Remote Collector Installation](/getstarted/deploy-device42/remote-collector-rc-installation.mdx) page for installation and configuration instructions.

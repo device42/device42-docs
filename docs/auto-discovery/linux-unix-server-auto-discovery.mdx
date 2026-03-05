@@ -7,7 +7,9 @@ import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ignoreIpImage from '/assets/images/ip-mac-ignore.png';
 
-Device42 supports SSH-based Linux and UNIX discovery from the Main Appliance. For a full list of supported Linux and UNIX operating systems, please visit [Device42 Supported Operating Systems](operating-systems-supported-in-auto-discovery.mdx).
+This page is for Device42 administrators who need to discover Linux and Unix servers. Learn how to set up SSH-based discovery jobs, use SSH key authentication, and configure the required permissions.
+
+Device42 supports SSH-based Linux and UNIX discovery from the Main Appliance. For a full list of supported Linux and UNIX operating systems, see [Device42 Supported Operating Systems](operating-systems-supported-in-auto-discovery.mdx).
 
 ## Information Discovered
 
@@ -22,9 +24,9 @@ Provided you have successfully configured the discovery account and the data is 
 
 Within the **Parts** section of device details, the CPU, RAM, and storage entries for the device will be displayed. You may also see additional information such as model number, slot, and location.
 
-## Set Up Linux/Unix Autodiscovery
+## Create a Linux/Unix Discovery Job
 
-Before configuring an SSH-based discovery job, please be sure the SSH port (standard TCP port 22 or a custom port) is open between the Device42 Main Appliance or Remote Collector and the targeted Unix or Linux servers. 
+Before configuring an SSH-based discovery job, ensure the SSH port (standard TCP port 22 or a custom port) is open between the Device42 Main Appliance or Remote Collector and the targeted Unix or Linux servers. 
 
 Select **Discovery > Hypervisors / \*nix / Windows** from the main menu and click the **Create** button to add a discovery job to connect and gather host and VM details. 
 
@@ -46,7 +48,7 @@ Choose **\*nix** as the platform, and enter your discovery target (hostnames, IP
     }}
 />
 
-### Discovery Job Option Definitions
+### Linux/Unix Discovery Job Options
 
 - **Job Name:** User-defined name for the job.  
 - **Remote Collector:** Select the remote collector to run the discovery job from (_optional_).  
@@ -56,21 +58,21 @@ Choose **\*nix** as the platform, and enter your discovery target (hostnames, IP
 - **Use telnet if SSH port is closed:** Fall back to telnet (port 23) if the SSH port is found to be closed.  
 - **Collect database server information:** Select this option to discover Oracle database servers.  
 - **Database Username/Password(s):** Username and password with database server permissions.  
-- **ADM Sampling Interval:** Is _Off_ by default. Enter a sampling interval in minutes or hours.  
+- **ADM Sampling Interval:** Off by default. Enter a sampling interval in minutes or hours.  
 - **Enable Resource Utilization Tracking for Device(s):** Optionally enable the collection of resource utilization metrics from discovered devices.  
 - **Resource Utilization Sampling Interval:** Set the interval for RU data collection (only in effect if RU Tracking is enabled).  
-- **Discovery Target(s) Credential(s):** Use username with permission to connect to the Linux and Unix targets.  
+- **Discovery Target(s) Credential(s):** Use a username with permissions to connect to the Linux and Unix targets.  
 - **Schedule for autodiscovery:** You can schedule the discovery to run at certain times.
 
 :::caution
-Please don't set up an autodiscovery scan using critical production account credentials.
+Do not set up a discovery scan using critical production account credentials. Create a separate, dedicated account to use only for discovery.
 
-Account lock-out could result in an otherwise completely avoidable outage depending on the permissions granted and your configured password policies. You are responsible for any such behavior that might result if you choose to ignore this requirement.
+Account lockout could result in an otherwise avoidable outage depending on the permissions granted and your configured password policies.
 :::
 
-### Option To Ignore IPs and MAC Addresses
+### Option to Ignore IPs and MAC Addresses
 
-You can prevent IP and MAC addresses from being included in our database during autodiscovery. Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
+You can prevent IP and MAC addresses from being included in the database during discovery. Devices with these addresses will still be discovered but the detailed information that would typically be collected and stored is ignored.
 
 Configure rules to ignore IP and MAC addresses for a specific job when creating or editing the job. 
 
@@ -121,6 +123,8 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 
 ### Naming Options
 
+Configure the naming options for discovered devices.
+
 <ThemedImage
     alt="Naming options"
     sources={{
@@ -131,22 +135,22 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 
 - **Strip domain suffix:** Check this option to strip the domain suffix from discovered servers.
 - **Domains to strip:** Enter an ordered list of domains to strip from hostname, listing one per line. If left blank, the full domain is stripped; if specified, the first match is stripped.  
-- **Prioritize DNS domain name:** When checked, discovered devices will be named using the hostname plus FQDN. If unchecked (default), discovered devices will use the hostname plus the YP/NIS domain name. 
-  :::note
-  After upgrading to v19.06, existing jobs will have the **Prioritize DNS domain name** option disabled by default (devices will be named using the hostname plus the YP/NIS domain name).
-  :::
+- **Prioritize DNS domain name:** When checked, discovered devices are named using the hostname plus FQDN. If unchecked (default), discovered devices use the hostname plus the YP/NIS domain name.
+:::note
+After upgrading to v19.06, existing jobs have the **Prioritize DNS domain name** option disabled by default (devices are named using the hostname plus the YP/NIS domain name).
+:::
 - **Set the device name as the name given in the server field of the autodiscovery job:** If checked and discovering via hostname or FQDN, the device will be named using the discovery target name provided.  
 - **Overwrite existing device hostname with discovered hostname:** Check this option to give precedence to the discovered hostname.  
 - **Device Name Format:** Select the desired device naming format.
 
-    <ThemedImage
-        alt="Device Name Format options"
-        sources={{
-            light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light-1.png'),
-            dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark-1.png'),
-        }}
-        style={{ width: '45%' }} 
-    />
+<ThemedImage
+    alt="Device Name Format options"
+    sources={{
+        light: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-light-1.png'),
+        dark: useBaseUrl('/assets/images/linux-unix-server-auto-discovery/device-name-format-options-dark-1.png'),
+    }}
+    style={{ width: '45%' }} 
+/>
 
     - **Hostname as Discovered:** If the domain is present and the domain is not in the name, it is set to `name`.
     - **Hostname plus Domain Name:** The device name becomes `name.domain`.
@@ -155,7 +159,7 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
   
 ### Host Discovery
 
-Enabling the **Discover ProviderID/CloudID** option reveals the **Provider Token** option, which might be needed for authentication with the cloud service provider.
+Enable the **Discover ProviderID/CloudID** option to reveal the **Provider Token** option, which might be needed for authentication with the cloud service provider.
 
 <ThemedImage
     alt="Host Discovery options"
@@ -183,7 +187,7 @@ If you experience unexplainable issues during discovery that you suspect are due
 
 When discovery switches between *nix users, the triggered banner text messages may disrupt database discovery and Application Component creation, resulting in discovery errors or incomplete data collection. 
 
-Note that banner text interference can't be directly determined from Device42. You require a power user with system access to the target machine to detect interference by switching users. Device42 support may advise you to select the banner option if they suspect banner text interference.  
+Banner text interference cannot be directly determined from Device42. A power user with system access to the target machine is required to detect interference by switching users. Device42 support may advise you to select the banner option if they suspect banner text interference.  
 
 <ThemedImage
     alt="Check for Banner option"
@@ -226,7 +230,7 @@ Configure Linux target servers for SSH public key authentication. You can create
 ssh-keygen -t rsa
 ```
 
-Running `ssh-keygen` will ask you to set the file location of the key pair. You can use the default location - typically `$HOME/.ssh/id_rsa`. Note that if a key already exists at this location, it will be overwritten unless you choose a different file location.
+Running `ssh-keygen` prompts you to set the file location of the key pair. You can use the default location, typically `$HOME/.ssh/id_rsa`. If a key already exists at this location, it will be overwritten unless you choose a different file location.
 
 You will also be prompted to supply a passphrase (password) for your new private key. This is optional and you can leave it blank if you choose. 
 
@@ -263,7 +267,7 @@ The following two files will be created by the command you just ran:
 - **`$HOME/.ssh/id_rsa`:** Contains your private key.
 - **`$HOME/.ssh/id_rsa.pub`:** Contains your public key.
 
-Save a copy of the **id_rsa** file (this is your private key) somewhere on your local machine so you can browse to it and upload it to Device42.
+Save a copy of the `id_rsa` file (your private key) on your local machine so you can browse to it and upload it to Device42.
 
 Use `$ssh-copy-id` to copy the newly generated certificate to your target host(s): 
 
@@ -276,21 +280,21 @@ This sets up your target hosts for remote SSH-key-based authentication using the
 **Manual Set Up Option**
 
 Instead of using `ssh-copy-id`, you can log in to the target servers and manually set up the authentication: 
-- Create the `.ssh` directory in the home directory you'll be using for discovery and create an **authorized_keys** file in it. 
+- Create the `.ssh` directory in the home directory you'll be using for discovery and create an `authorized_keys` file in it. 
 - Substitute `$HOME` with your discovery user's username and set the permissions by running: 
 ```bash
 mkdir -p $HOME/.ssh 
 chmod 0700 $HOME/.ssh
 ```
 - Create the `$HOME/.ssh/authorized_keys` file if it doesn't already exist. 
-- Copy the newly generated public key (copy the entire file) and paste it on a new line in the `authorized_keys` file. It will look something like this: 
+- Copy the entire newly generated public key and paste it on a new line in the `authorized_keys` file. It will look something like this: 
 ![authorized_key file with public key contents ](/assets/images/authorized_key-contents.png)
 
 ### **Step 2:** Create a Discovery Job With SSH Key Auth
 
-Add your private SSH RSA or DSA Private key created in [Step 1](#step-1-configure-discovery-target-servers-for-ssh-public-key-authentication) to your Device42 instance's discovery job. 
+Add the private SSH RSA or DSA key created in [Step 1](#step-1-configure-discovery-target-servers-for-ssh-public-key-authentication) to your Device42 discovery job.
 
-- Set up a new discovery job. Go to **Discovery > HyperVisors / \*nix / Windows** and click **+ Add Hypervisors/\*nix/win for Autodiscovery**.
+- Set up a new discovery job. Go to **Discovery > HyperVisors / \*nix / Windows** and click **Create**.
 - Select a credential for the **Discovery Target(s) Credential(s)** field that includes the SSH key file instead of a password. 
 - You can also add the file via the discovery job page, or by going to **Resources > All Secrets** and clicking **Create**.
 
@@ -302,9 +306,9 @@ Add your private SSH RSA or DSA Private key created in [Step 1](#step-1-configur
     }}
 />
 
-If you set a passphrase for your SSH key, check the **Use Password** box and supply the SSH key file's password and SSH key. Note that you can do this later by editing your created credential (called a Secret). 
+If you set a passphrase for your SSH key, check the **Use Password** box and supply the SSH key file's password and SSH key. Note that you can do this later by editing your created credential (called a Secret).
 
-You're all set to run Linux discovery using an SSH key! Save and run your discovery job. 
+Save and run your discovery job to begin Linux discovery using an SSH key. 
 
 ### Download the Key File
 
@@ -365,7 +369,7 @@ Newly created jobs will not run on the day they are created to prevent an excess
 
 ## Linux Considerations
 
-Linux autodiscovery has been tested against Redhat, Debian, CentOS, Ubuntu, and Oracle distributions and should work fine against just about all similar Linux distributions.
+Linux discovery has been tested against Redhat, Debian, CentOS, Ubuntu, and Oracle distributions and should work fine against just about all similar Linux distributions.
 
 Confirm compatibility by checking to see if your platform supports the following commands:
 
@@ -402,9 +406,9 @@ Confirm compatibility by checking to see if your platform supports the following
 
 ## Linux Permissions
 
-Several commands are run as part of the Linux autodiscovery process that, by default, typically require root privileges. We do extensive testing to see which commands we can run without `sudo` while still obtaining all available information. 
+Several commands run as part of the Linux discovery process typically require root privileges by default. Device42 does extensive testing to see which commands can run without `sudo` while still obtaining all available information. 
 
-The following is a table of commands we sometimes or always run as `sudo`. For the "Sometimes" commands, we'll try to run the command first without `sudo`, and if we receive a "permission denied" command rather than an "invalid command", "command not found", or similar, we'll attempt to run it as `sudo`. This list also specifies whether the command is run on every Linux or UNIX flavor, or only certain platforms:
+The following table lists commands that Device42 sometimes or always runs with `sudo`. For the "Sometimes" commands, Device42 first tries to run the command without `sudo`. If the response is "permission denied" rather than "invalid command" or "command not found", Device42 attempts the command with `sudo`. This list also specifies whether the command runs on every Linux or UNIX flavor, or only certain platforms:
 
 | Command             | Run with sudo? | OS flavor                                                 |
 |---------------------|----------------|-----------------------------------------------------------|
@@ -456,13 +460,13 @@ The following is a table of commands we sometimes or always run as `sudo`. For t
 | `vzlist`            | Sometimes      | Aix                                                       |
 | `zlogin`            | Always         | Solaris (For Zones)                                       |
 
-Below you can see an example of how to allow a particular user or group to run a specific sudo command without being prompted for a password:
+The following example shows how to allow a particular user or group to run a specific sudo command without being prompted for a password:
 
 ```
-**%your-group-here ALL = (ALL) NOPASSWD:/usr/sbin/dmidecode, /sbin/hdparm, /sbin/fdisk**
+%your-group-here ALL = (ALL) NOPASSWD:/usr/sbin/dmidecode, /sbin/hdparm, /sbin/fdisk
 ```
 
-Adjust the above paths as needed to match the location of each program. If these permissions are missing, the autodiscovery client will not be able to discover hardware, manufacturer, serial number, and so on, as well as service dependencies and valuable application configuration information. You might also have to comment out `Default Require tty` in the `/etc/sudoers` file.
+Adjust the paths as needed to match the location of each program. If these permissions are missing, the discovery client cannot discover hardware, manufacturer, serial number, and so on, as well as service dependencies and application configuration information. You might also need to comment out `Default Require tty` in the `/etc/sudoers` file.
 
 ## SUDO PATH in Non-Interactive Shells
 
@@ -470,9 +474,9 @@ If you have a Linux discovery where Device42 uses a non-interactive shell, Devic
 
 You can set that information in the `sudoers` file for the service account to prevent these commands from being executed multiple times. It should be there by default, but sometimes it's commented out or removed for security hardening.
 
-It's not a bug, but some deployments may see security alerts for invalid commands being executed because of this.
+This is not a bug, but some deployments may see security alerts for invalid commands being executed because of this.
 
-In sudoers, there should be a line as follows:
+The `sudoers` file should contain a line as follows:
 ```
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```

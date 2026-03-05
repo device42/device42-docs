@@ -6,9 +6,9 @@ sidebar_position: 23
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42's built-in Ping Sweep autodiscovery performs a series of pings against the specified network(s) for a quick initial discovery of which IPs are live and respond to pings and which are not.
+This page is for Device42 administrators who need to perform quick network scans to identify live IP addresses. Device42's Ping Sweep autodiscovery performs a series of pings against specified networks to discover which IPs are live and respond.
 
-For the time being, an external standalone [Device42 Ping Sweep utility](https://www.device42.com/autodiscovery/) is still available, but it may be deprecated in the future. See the [Using the External Ping Sweep Utility](#using-the-external-ping-sweep-utility) section below for information on using the standalone tool.
+For the time being, an external standalone [Device42 Ping Sweep utility](https://www.device42.com/autodiscovery/) is still available, but it may be deprecated in the future. See the [Use the External Ping Sweep Utility](#use-the-external-ping-sweep-utility) section below for information on using the standalone tool.
 
 ## Add or Edit a Ping Sweep Autodiscovery Job
 
@@ -28,7 +28,7 @@ Fill in the job details:
 
 1. Enter a name for the job.
 2. In the **Networks:** field, enter a network range using mask bits in slash notation (for example, `192.168.11.0/24`) or hyphenated IP ranges (`192.168.11.1-254`) in Nmap-style syntax. Multiple ranges can be separated via commas, spaces, or new lines.
-   - By default, the **Add devices by reverse DNS of discovered IP** checkbox is unchecked and unless your DNS setup is perfect, we recommend leaving it unchecked to avoid creating duplicate devices. If you want to use reverse DNS values as device names, check this option.
+   - By default, the **Add devices by reverse DNS of discovered IP** checkbox is unchecked Leave it unchecked unless you have a properly configured DNS environment to avoid creating duplicate devices. If you want to use reverse DNS values as device names, check this option.
    - Other options include **Strip domain name suffix** and an option to **Create new subnet for networks not found**.
 
 <ThemedImage
@@ -61,17 +61,17 @@ Select **Resources > All IP Addresses** from the Device42 menu to display the 
   }}
 />
 
-### General Ping Sweep Usage Considerations
+### Ping Sweep Usage Considerations
 
-Please add the respective subnets in Device42 before discovering and uploading IP information, otherwise, all IPs will go to an "undefined" subnet.
+Add the respective subnets in Device42 before discovering and uploading IP information, otherwise, all IPs will go to an "undefined" subnet.
 
 **Ping Sweep considerations and best practices:**
 
 - MAC address discovery works only for local LANs.
 - If the reverse DNS option is selected, discovery will take longer.
 - Depending on the behavior of your network devices, some subnets or IP addresses will show up as used. For example, as some load balancers reply to pings for every IP on a given range, networks that live behind these load balancers may show up as used.
-- Doing a discovery using a wireless card would only discover itself.
-- Please note that there's both a built-in Ping Sweep tool and a standalone [external Ping Sweep utility](#using-the-external-ping-sweep-utility) version of the tool that runs as a standalone Windows application.
+- Running discovery using a wireless card will only discover the wireless card itself.
+- Device42 provides both a built-in Ping Sweep tool and a standalone [external Ping Sweep utility](#use-the-external-ping-sweep-utility) that runs as a Windows application.
 
 ## Use the External Ping Sweep Utility
 
@@ -88,7 +88,7 @@ The external Ping Sweep utility is a standalone tool that does a ping sweep on s
     - `d42_pingsweep_linux`
     - `ping.cfg.sample`
     - `version.txt`
-3. For Windows, you'll need to download the `.exe` file. For Linux, set the `d42_pingsweep_linux` file as executable by running the command:
+3. For Windows, use the `.exe` file. For Linux, set the `d42_pingsweep_linux` file as executable by running the command:
     ```bash
     $ chmod +x d42_pingsweep_linux
     ``` 
@@ -122,7 +122,7 @@ Below is a sample of the `ping.cfg` file:
   ```
 </details>
 
-1. In the **`[settings]`** section, enter the base URL (FQDN or IP) for the Device42 appliance on your network, including credentials. Make sure the credentials have the required access permissions. The minimum required for the user are:
+1. In the **`[settings]`** section, enter the base URL (FQDN or IP) for the Device42 appliance on your network, including credentials. Make sure the credentials have the required access permissions. The minimum required permissions are:
     - Ping Sweep | Can add Ping Sweep
     - Ping Sweep | Can change Ping Sweep
     - IP Address | Can add IP Address
@@ -134,7 +134,7 @@ Below is a sample of the `ping.cfg` file:
     - Device | Can add Device
     - Device | Can change Device
 
-2. In the **`[targets]`** section, enter a network range using mask bits or you can use hyphen ranges (per Nmap syntax). For example, `192.168.11.0/24` for the subnet range or `192.168.11.1-254` for the hyphenated range. Multiple ranges can be separated by spaces.
+2. In the **`[targets]`** section, enter a network range using mask bits or hyphen ranges (per Nmap syntax). For example, `192.168.11.0/24` for the subnet range or `192.168.11.1-254` for the hyphenated range. Multiple ranges can be separated by spaces.
 3. The **`[options]`** section provides the following options, with explanations in the format
     
     **option_name**: explanation = default value
@@ -159,12 +159,12 @@ Below is a sample of the `ping.cfg` file:
 - **`vrfgroup`**: VRF group for discovered subnets = `String`
 - **`type`**: Static/DHCP/Reserved = `String`
 
-### Run and Schedule Ping Sweep jobs
+### Run and Schedule Ping Sweep Jobs
 
 You can start the process by running the executable from the command line – root or administrator privileges are required. You can also schedule runs using an operating system task scheduler (like `crontab` or `at`).
 
 ### During and After an External Ping Sweep
 
-You'll see a command prompt after you launch the ping sweep. When completed, the status will change to "Finished". If successful, you will see "Success" messages in the status box, and new and updated subnet and IP information in Device42
+You'll see a command prompt after you launch the ping sweep. When completed, the status will change to "Finished". If successful, you will see "Success" messages, and new and updated subnet and IP information in Device42.
 
 ![](/assets/images/WEB_695_PS41.png)

@@ -5,11 +5,13 @@ title: "Resources"
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Resources are items identified and returned by Device42 autodiscovery jobs, and can be both cloud-based and on-premise. Resources include devices, load balancers, pool resources, storage arrays, and more. Select a resource from the list page to view its properties and access its resource map.
+Resources are items identified and returned by Device42 discovery jobs. They can be both cloud-based and on-premises, and include devices, load balancers, pool resources, storage arrays, and more.
+
+This page covers how to view, search, filter, edit, and perform bulk actions on resources.
 
 ## View All Resources
 
-Select **Resources > All Resources** from the Device42 menu to display the **Resources** list page.
+Select **Resources > All Resources** from the main menu to display the **Resources** list page.
 
 <ThemedImage
 alt="Resources menu location"
@@ -21,7 +23,7 @@ sources={{
 
 ### Find Resources
 
-From the **Resources** list page, you can **Search by name, identifier** or filter the list by **Cloud Provider** and **Vendor Resource Type**.
+From the **Resources** list page, you can **Search by name, identifier**, or filter the list by **Cloud Provider** and **Vendor Resource Type**.
 
 <ThemedImage
 alt="Resources search and filter options"
@@ -31,7 +33,7 @@ sources={{
 }}
 />
 
-Click **More Filters** and select from a range of resource properties, including:
+Click **More Filters** and select from a range of resource properties, including:
 
 - Vendor Resource Subtype
 - Region
@@ -50,13 +52,13 @@ sources={{
 }}
 />
 
-Use the **Advanced** search option to construct more specific searches. See the [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) documentation for instructions.
+Use the **Advanced** search option to construct more specific searches. See [Advanced Search Feature](/getstarted/using-device42/advanced-search-feature.mdx) for details.
 
 ### View Resource Details
 
-Click on a resource **Name** to see details about that resource, including sections for the resource-specific CI types. For example, a NetApp storage array includes sections for **Disks** and **Volumes**.
+Click a resource **Name** to see its details, including sections for resource-specific CI types. For example, a NetApp storage array includes sections for **Disks** and **Volumes**.
 
-Click on the links in the sections to view the details of specific items.
+Click the links in each section to view the details of specific items.
 
 <ThemedImage
 alt="View resource details"
@@ -66,6 +68,8 @@ sources={{
 }}
 />
 
+For example, clicking a linked item opens its detail page:
+
 <ThemedImage
 alt="Related resource details"
 sources={{
@@ -74,9 +78,9 @@ sources={{
 }}
 />
 
-### Application Group Calculation 
+### Application Group Calculation
 
-Similar to the Device view, the Resources view includes an **Application Group Calculation** tab, provided you have a license for the [Application Dependency Mapping (ADM)](/apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping/#turning-on-application-discovery) module.
+Similar to the Device view, the Resources view includes an **Application Group Calculation** tab, provided you have a license for the [Application Dependency Mapping (ADM)](/apps/enterprise-application-dependency-mapping/configure-application-dependency-mapping.mdx#turn-on-application-discovery) module.
 
 <ThemedImage
 alt="Application Group Calculation"
@@ -86,11 +90,11 @@ sources={{
 }}
 />
 
-The tab displays a visualization of the Application Group calculation data for the selected resource, with a single [Starting Point](/apps/application-groups/index.mdx), and the resource's related dependencies and impact objects in the diagram.
+The tab displays the Application Group calculation for the selected resource, showing a single [Starting Point](/apps/application-groups/index.mdx) along with the resource's related dependencies and impact objects.
 
 ### Resource Map
 
-Click **Resource Map** in the top left of a resource page to see the topography map for that resource. Use the options in the left panel to highlight and search for related CIs to display on the map.
+Click **Resource Map** in the top left of a resource page to see the topology map for that resource. Use the options in the left panel to highlight and search for related CIs to display on the map.
 
 <ThemedImage
 alt="Resource map"
@@ -102,25 +106,23 @@ sources={{
 
 ## Edit a Resource
 
-Click **Edit** on a resource page to edit that resource. You can add or edit **Notes** or **Tags** for the resource, toggle **Yes** on or off to indicate whether it is **In Service:**, and select or add a **Service Level** value.
+Click **Edit** on a resource page. You can add or edit **Notes** and **Tags**, toggle **In Service** on or off, and select or add a **Service Level** value. Click **Save** to apply your edits or **Cancel** to discard them.
 
 <ThemedImage
-alt="Resource map"
+alt="Edit resource page"
 sources={{
     light: useBaseUrl('/assets/images/autodiscovery-resources/edit-resource-light.png'),
     dark: useBaseUrl('/assets/images/autodiscovery-resources/edit-resource-dark.png'),
 }}
 />
 
-**Save** your edits or click **Cancel** to discard them.
-
 ## Select Resources Across Multiple Pages
 
-Select resources across multiple list pages to run bulk actions on them. Actions include deleting, archiving, or adding the resources to a Business Service.
+You can select resources across multiple list pages to run bulk actions on them, such as deleting, archiving, or adding resources to a Business Service.
 
-- Select the **Resources** list page to view and select resources. The page shows you how many items are selected.
-- Use the numbers and arrows to scroll to different list pages and select more resources on that page. The page updates the selected-items count.
-- You can then make a selection from the **Actions** dropdown.
+1. Select resources on the **Resources** list page. The page shows how many items are selected.
+2. Use the page numbers and arrows to navigate to other list pages and select additional resources. The selected-items count updates as you go.
+3. Choose an action from the **Actions** dropdown.
 
 <ThemedImage
 alt="Select from multiple pages"
@@ -132,16 +134,18 @@ sources={{
 
 ## Bulk Resource Actions
 
-You can perform bulk actions if your user account has permission to edit resources. Check with your administrator to ensure that your account has the ['Resources | Can change Resource' permission](/administration/role-based-access-control/role-based-permissions-and-access.mdx) enabled.
+You can perform bulk actions if your user account has permission to edit resources. Check with your administrator that your account has the [`Resources | Can change Resource` permission](/administration/role-based-access-control/role-based-permissions-and-access.mdx) enabled.
 
-- Export Selected items as CSV
+The following bulk actions are available from the **Actions** dropdown:
+
+- Export selected items as CSV
 - Add tags to selected items
 - Set Service Level
 - Mark selected as In Service
 - Mark selected as Not In Service
 - Set Custom Field Value
 
-You can delete selected resources from list pages and landing pages using **Fast Background Delete** or **Delete with Detailed Confirmation**. Alternatively, you can use **Fast Background Archive** to archive root resources.
+You can also delete selected resources using **Fast Background Delete** or **Delete with Detailed Confirmation**, or archive root resources using **Fast Background Archive**.
 
 <ThemedImage
 alt="Resources bulk actions"
@@ -154,7 +158,7 @@ sources={{
 Confirm the deletion when prompted.
 
 <ThemedImage
-alt="Delete with confirmation"
+alt="Delete confirmation dialog"
 sources={{
     light: useBaseUrl('/assets/images/autodiscovery-resources/delete-with-confirmation-light.png'),
     dark: useBaseUrl('/assets/images/autodiscovery-resources/delete-with-confirmation-dark.png'),
