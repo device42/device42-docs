@@ -6,24 +6,26 @@ sidebar_position: 15
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can create a profile for device names to speed up device creation and help you maintain a consistent naming convention.
+Device name profiles help you maintain a consistent naming convention when creating devices in bulk. A profile defines a prefix, suffix, and number range that automatically generates sequential device names.
 
-## Create New Device Name Profile
+This page explains how to create a device name profile and use it to create devices.
 
-To create a Device Name Profile, go to **Tools > Templates & Bulk Operations > Device Name Profiles**.
+## Create a Device Name Profile
 
-In this example, we will create a device profile that will generate the device names `NH-DC-0001` through to `NH-DC-9999`.
+Navigate to **Tools > Templates and Bulk Operations > Device Name Profiles**.
 
-To create a device name profile, enter:
+The following example creates a profile that generates device names from `NH-DC-0001` through `NH-DC-9999`.
 
-- A required **Name** for the profile
-- An optional **Prefix**, which will cause every name generated to have the prefix at the start (such as `NH-DC-`)
-- An optional **Suffix**, which will cause every name generated to have the suffix at the end (no suffix in the example)
-- A **Number Length** (in the example above, `4` digits is entered, which in combination with the **Start Number** parameter, results in the range `0001` to `9999`)
-- A **Start Number** (usually this will be `1`, but it can be any number)
+Enter the following fields:
+
+- **Name:** A required name for the profile.
+- **Prefix:** An optional string added to the start of each generated name (for example, `NH-DC-`).
+- **Suffix:** An optional string added to the end of each generated name.
+- **Number Length:** The number of digits in the sequential portion. For example, `4` digits with a **Start Number** of `1` produces the range `0001` to `9999`.
+- **Start Number:** The first number in the sequence. Usually `1`, but can be any number.
 
 <ThemedImage
-  alt="New Name Profile"
+  alt="Device name profile form"
   sources={{
     light: useBaseUrl('/assets/images/device-name-profiles/create-profile-light.png'),
     dark: useBaseUrl('/assets/images/device-name-profiles/create-profile-dark.png'),
@@ -31,17 +33,16 @@ To create a device name profile, enter:
 />
 
 <ThemedImage
-  alt="New Name Profile"
+  alt="Device name profile example"
   sources={{
     light: useBaseUrl('/assets/images/device-name-profiles/create-profile-2-light.png'),
     dark: useBaseUrl('/assets/images/device-name-profiles/create-profile-2-dark.png'),
   }}
 />
 
+## Create Devices from a Profile
 
-## Create From Existing Name Profile
-
-You can then create devices directly from the Device Name Profiles list view by clicking the **Create** link next to a profile.
+Create devices directly from the Device Name Profiles list page by clicking the **Create** link next to a profile.
 
 <ThemedImage
   alt="Create links"
@@ -51,8 +52,9 @@ You can then create devices directly from the Device Name Profiles list view by 
   }}
 />
 
+In this example, eight devices will be created from the "US NH Chapel Dev DB Servers" name profile. The name profile has a **Prefix** of `NH-DC-`, so each created device name is in the format `NH-DC-xxxx`, where `xxxx` is the next sequential number for the profile.
 
-In the example, we want to create eight devices. The first created device will be named `NH-DC-xxxx`, where `xxxx` is the next number for the profile. In other words, if no devices have been created, the first device name will be `NH-DC-0001`. If the last device name created was `NH-DC-0051`, then the first of the eight new devices will be `NH-DC-0059`.
+If no devices have been created yet, the first name will be `NH-DC-0001`. If the last created device was `NH-DC-0051`, the next eight devices start at `NH-DC-0052`.
 
 <ThemedImage
   alt="Create from profile"

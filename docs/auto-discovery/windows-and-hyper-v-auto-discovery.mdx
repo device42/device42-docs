@@ -6,15 +6,17 @@ sidebar_position: 38
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 discovery uses multiple protocols to communicate with the target devices. Either WinRM or WMI can be used for Windows discovery. As of 18.10.00, WMI is the default protocol. 
+Windows and Hyper-V discovery collects detailed host information, operating systems, services, software, and virtual machine data from Windows-based targets. Device42 can use either WinRM or WMI to communicate with target devices, with WMI as the default. 
+
+This page covers prerequisites, how to create and run Windows and Hyper-V discovery jobs, device naming options, and the minimum permissions required for WMI and WinRM.
 
 ## Prerequisites
 
-When using WMI, you need to install the Windows Discovery Service (WDS) and connect to your Remote Collectors (RCs) before setting up your Windows discovery job. For WDS installation instructions and information, visit the [Windows Discovery Service Installation](/getstarted/deploy-device42/windows-discovery-service-installation.mdx) documentation.
+When using WMI, install the Windows Discovery Service (WDS) and connect to your Remote Collectors (RCs) before setting up your Windows discovery job. For WDS installation instructions and information, visit the [Windows Discovery Service Installation](/getstarted/deploy-device42/windows-discovery-service-installation.mdx) documentation.
 
 ### WinRM Network Requirements
 
-WinRM uses port 5985 (HTTP) or 5986 (HTTPS), depending on the configuration of the target host. These connections come from the RC selected at the top of the jobs page. For configuration within your environment, please refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management). Note that you must enable WinRM on your Windows machines, which can be configured through a Group Policy Object (GPO).
+WinRM uses port 5985 (HTTP) or 5986 (HTTPS), depending on the configuration of the target host. These connections come from the RC selected at the top of the jobs page. For configuration within your environment, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management). You must enable WinRM on your Windows machines, which can be configured through a Group Policy Object (GPO).
 
 ### WMI Network Requirements
 
@@ -22,11 +24,11 @@ WMI is based on DCOM/RPC. This means a connection is first initiated on port 135
 
 ### Network Issues
 
-Our support team can provide best-effort assistance in resolving issues. However, for both protocols, it is best to reach out to your network or system admin to resolve connection issues.
+The Device42 support team can provide best-effort assistance in resolving issues. However, for both protocols, reach out to your network or system admin to resolve connection issues.
 
 ## Discovered Information
 
-Provided with a successful configuration of the discovery account, and given the data's availability, Device42 will gather the following information:
+With a properly configured discovery account, Device42 gathers the following information:
 
 <table>
     <tbody>
@@ -51,9 +53,9 @@ Provided with a successful configuration of the discovery account, and given the
 
 Within the **Parts** section of device details, the CPU, RAM, and storage entries for the device will be displayed. You may also see additional information such as model number, slot, and location.
 
-## Creating and Running Windows Discovery Jobs
+## Create a Windows or Hyper-V Discovery Job
 
-Navigate to **Discovery > HyperVisors / \*Nix / Windows** to set up and save multiple autodiscovery jobs for Windows, Hyper-V, and other platforms.
+Navigate to **Discovery > HyperVisors / \*Nix / Windows** to set up and save multiple discovery jobs for Windows, Hyper-V, and other platforms.
 
 <ThemedImage
 alt="Windows and Hyper-V menu"
@@ -63,13 +65,13 @@ sources={{
 }}
 />
 
-1. Click the **Create** button to set up a new Windows or Hyper-V autodiscovery job.
+1. Click the **Create** button to set up a new Windows or Hyper-V discovery job.
 2. For Windows or Hyper-V discovery, select **Windows** as the **Platform**.
-    - You can select **Discover Using WinRM** to use the WinRM protocol for discovery, which is fast and Microsoft's preferred protocol. The **URL prefix** and **Port** fields will default accordingly. 
-    :::note 
-    We don't deem it necessary to update existing jobs to use WinRM, as we currently use NTLM, which Microsoft is in the process of deprecating. We'll use Kerberos in the near future.
+    - Select **Discover Using WinRM** to use the WinRM protocol for discovery, which is fast and Microsoft's preferred protocol. The **URL prefix** and **Port** fields will default accordingly.
+    :::note
+    It is not necessary to update existing jobs to use WinRM, as Device42 currently uses NTLM, which Microsoft is in the process of deprecating. Kerberos support is planned for a future release.
     :::
-    - If you're using WinRM, we recommend selecting the **WinRM through WDS** option to run the discovery using the local WDS. Ensure that your WDS service account operates under a domain account and is not set to "Local System", as it doesn't support remote authentication.
+    - If you're using WinRM, select the **WinRM through WDS** option to run the discovery using the local WDS. Ensure that your WDS service account operates under a domain account and is not set to **Local System**, as it doesn't support remote authentication.
 
     <ThemedImage
     alt="Windows and Hyper-V Job"
@@ -79,8 +81,8 @@ sources={{
     }}
     />
 
-3. Click **Add another Username/Password** to add one or more sets of credentials for the autodiscovery targets.
-   
+3. Click **Add another Username/Password** to add one or more sets of credentials for the discovery targets.
+
     <ThemedImage
     alt="Add credentials"
     sources={{
@@ -89,9 +91,13 @@ sources={{
     }}
     />
 
-\***Classic WinRM** is no longer a Platform type as of 18.08.00. Existing Classic WinRM jobs will continue to function.
+:::note
+**Classic WinRM** is no longer a **Platform** type as of 18.08.00. Existing Classic WinRM jobs will continue to function.
+:::
 
-### Windows and Hyper-V discovery Options
+### Windows and Hyper-V Discovery Job Options
+
+The following options are available when configuring a Windows or Hyper-V discovery job.
 
 - **Job Name:** Provide a unique name for the job.
 
@@ -103,21 +109,21 @@ sources={{
 
 - **Use Service Account Credentials:** Use the currently logged-in user of the system running WDS to perform WMI discovery.
 
-- **Query domain controller to obtain a list of discovery devices:** Select this to hide the Discovery Target(s) field. Target(s) discovered in this mode are instead defined by the result of the chosen LDAP Criteria, as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. See the [Query domain controller](#query-domain-controller-to-obtain-list-of-discovery-devices-option) section below.
+- **Query domain controller to obtain a list of discovery devices:** Select this to hide the **Discovery Target(s)** field. Targets discovered in this mode are instead defined by the result of the chosen LDAP Criteria, as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server. See the [Query Domain Controller](#the-query-domain-controller-to-obtain-list-of-discovery-devices-option) section below.
 
-- **Collect database server information:** Select this option to discover Oracle, MSSQL, DB2, and Postgres database servers, and display a **Database Username/Password(s)** field. 
+- **Collect database server information:** Select this option to discover Oracle, MSSQL, DB2, and Postgres database servers. Displays a **Database Username/Password(s)** field.
 
-- **ADM Sampling Interval:** Turn **Off** or add the sampling interval in minutes or hours.
+- **ADM Sampling Interval:** Turn **Off** or set the sampling interval in minutes or hours.
 
-- **Enable Resource Utilization Tracking for Device(s):** Optionally enable the collection of resource utilization metrics from discovered devices.
+- **Enable Resource Utilization Tracking for Device(s):** Enable the collection of resource utilization metrics from discovered devices.
 
-- **Resource Utilization Sampling Interval:** Set the interval for RU data collection (only in effect if RU Tracking is enabled).
+- **Resource Utilization Sampling Interval:** Set the interval for resource utilization data collection. Only takes effect if resource utilization tracking is enabled.
 
-- **Autodiscovery Schedule:** You can [schedule the discovery](#scheduling-autodiscovery-jobs) to run at certain times.
+- **Autodiscovery Schedule:** [Schedule the discovery](#schedule-discovery-jobs) to run at specific times.
 
-### Options To Ignore IPs and MAC Addresses
+### Options to Ignore IPs and MAC Addresses
 
-You can ignore IP and MAC addresses to exclude them from our database during autodiscovery. Devices with these addresses will still be discovered but the detailed information that is typically stored and collected will be ignored.
+You can ignore IP and MAC addresses to exclude them from the database during discovery. Devices with these addresses will still be discovered, but the detailed information that is typically stored and collected will be ignored.
 
 When creating or editing a job, you can configure rules to ignore IP and MAC addresses for that specific job.
 
@@ -153,32 +159,32 @@ The relevant fields when using this discovery mode are as follows:
 
 - **Use FQDN:** Use the fully qualified domain name (FQDN).
 
-- **LDAP Criteria:** Choose an LDAP query to execute against the Active Directory (AD). The resultant list will then be targeted for Windows autodiscovery. Select **Custom** to specify a custom LDAP filter or query.
+- **LDAP Criteria:** Choose an LDAP query to execute against Active Directory (AD). The resultant list will be targeted for Windows discovery. Select **Custom** to specify a custom LDAP filter or query.
 
 
 **LDAP Query Example: Query Domain Controller**
 
-The following query will search the domain server for all computers with DNS hostname `d42sus.pvt` and autodiscover the matches:
+The following query searches the domain server for all computers with DNS hostname `d42sus.pvt` and discovers the matches:
 
 ```
 (&(objectCategory=computer)(dNSHostName=d42sus.pvt))
 ```
 
-### Discovery with Microsoft LAPS 
+### Discovery with Microsoft LAPS
 
-Microsoft Local Admin Password Solution (LAPS) is a method of securing AD member servers that randomly generates a server's local admin password and stores it as an attribute of that server's AD object in AD. 
+Microsoft Local Admin Password Solution (LAPS) secures AD member servers by randomly generating a server's local admin password and storing it as an attribute of that server's AD object.
 
-This password can then be looked up on demand via an AD LDAP query and is often used to support scripted actions that iterate through lists of AD member servers. 
+This password can be looked up on demand via an AD LDAP query and is often used to support scripted actions that iterate through lists of AD member servers.
 
 **Resources:**
 
-- If you want to install LAPS, visit the [Microsoft LAPS download page](https://www.microsoft.com/en-us/download/details.aspx?id=46899). 
-- For more information, see [the Microsoft security advisory article about LAPS](https://support.microsoft.com/en-us/topic/microsoft-security-advisory-local-administrator-password-solution-laps-now-available-may-1-2015-404369c3-ea1e-80ff-1e14-5caafb832f53).
-- If you'd like to deploy LAPS, you might find the [Deploying LAPS guide](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/) helpful.
+- To install LAPS, visit the [Microsoft LAPS download page](https://www.microsoft.com/en-us/download/details.aspx?id=46899).
+- For more information, see the [Microsoft security advisory article about LAPS](https://support.microsoft.com/en-us/topic/microsoft-security-advisory-local-administrator-password-solution-laps-now-available-may-1-2015-404369c3-ea1e-80ff-1e14-5caafb832f53).
+- To deploy LAPS, see the [Deploying LAPS guide](https://flamingkeys.com/deploying-the-local-administrator-password-solution-part-1/).
 
-Device42 supports pulling credentials from LAPS when discovering AD domain member servers that use Microsoft LAPS to manage their local admin passwords. You will see this option **only** when you have checked **Query domain controller to obtain list of discovery devices**. Once checked, you will see **Use LAPS (only Applies to WDS)**.
+Device42 supports pulling credentials from LAPS when discovering AD domain member servers that use Microsoft LAPS to manage their local admin passwords. This option appears only when you select **Query domain controller to obtain list of discovery devices**. Once selected, the **Use LAPS (only Applies to WDS)** option is displayed.
 
-Check the **Use LAPS (only Applies to WDS)** checkbox to enable it: 
+Select the **Use LAPS (only Applies to WDS)** checkbox to enable it.
 
 
 <ThemedImage
@@ -198,11 +204,17 @@ Fields and requirements for using LAPS discovery mode:
 5. Choose **All Computers** or **All Servers** from the **LDAP Criteria** dropdown, or optionally supply your own custom LDAP query by selecting **Custom Filter** from the dropdown.
 6. Run your discovery job.
 
-## Additional Job Options
+### Hyper-V Discovery
 
-After completing the required options for your Windows or Hyper-V discovery, scroll down the discovery job page to see additional job options, including **Exclusions**, **Naming**, **Host Discovery**, **Hypervisor Options**, **Software and Applications**, and **Miscellaneous** options. Click **Show** to expand those options.
+To run a Hyper-V discovery job, set the **Platform** to **Windows** and enable the **Discover VMs** option.
 
-### Host Discovery Options
+The Hyper-V server's hardware details, name, UUID, and MAC addresses are pulled in from the VMs. In the **Server(s)** field, include the Hyper-V servers as hostnames, as IP addresses, or as part of a CIDR or IP range.
+
+### Additional Job Options
+
+After completing the required options for your Windows or Hyper-V discovery job, scroll down to see additional options, including **Exclusions**, **Naming**, **Host Discovery**, **Hypervisor Options**, **Software and Applications**, and **Miscellaneous**. Click **Show** to expand each section.
+
+#### Host Discovery Options
 
 Expand the **Host Discovery** section to configure different types of hosts, what information to collect, and how to handle data during the discovery process.
 
@@ -216,9 +228,9 @@ sources={{
 }}
 />
 
-### Scheduling Autodiscovery Jobs
+### Schedule Discovery Jobs
 
-In the **Autodiscovery Schedule** section, you can set as many different autodiscovery schedules as you need to cover your environment. You can choose specific times and days of the week to run the autodiscovery job.
+In the **Autodiscovery Schedule** section, set as many different discovery schedules as you need to cover your environment. Choose specific times and days of the week to run the discovery job.
 
 <ThemedImage
 alt="Autodiscovery schedule"
@@ -228,11 +240,11 @@ sources={{
 }}
 />
 
-### Job Status and Run Report
+## Job Status and Run Report
 
-The **Job Status** section contains information about the last run status of the autodiscovery job.
+The **Job Status** section contains information about the last run status of the discovery job.
 
-The **Job Run Report** has summary diagnostic details of `stderr` and `stdout` for the last discovery job.
+The **Job Run Report** has summary diagnostic details of `stderr` and `stdout` for the last job run.
 
 <ThemedImage
 alt="Job Status example report"
@@ -246,13 +258,13 @@ sources={{
 
 To prevent or correct any duplicate devices, you can control the format for the names of devices added. For example, if you're running a VMWare discovery in tandem with a Windows discovery, there may be differences in discovered device names. vSphere will often show the short hostname, but a WMI query against the OS will return server FQDNs.
 
-Device42 tries to best match devices by serial number, UUID, and then name. However, if duplicates are added, you can  use the options detailed in the following section to correct them.
+Device42 tries to match devices by serial number, UUID, and then name. However, if duplicates are added, you can use the options detailed in the following section to correct them.
 
-### Configuring Windows Hostname Discovery Details
+### Configure Windows Hostname Discovery Details
 
-From the **Naming Options** section of the autodiscovery job, select the **Strip domain suffix** option to drop everything after the first `.` in the device name.
+From the **Naming Options** section of the discovery job, select the **Strip domain suffix** option to drop everything after the first `.` in the device name.
 
-The **strip domain suffix** setting works in conjunction with the **Device Name Format** setting.
+The **Strip domain suffix** setting works in conjunction with the **Device Name Format** setting.
 
 Under the **Device Name Format** dropdown, you can add or update the **Device Name** of any targets with the hostname format of your choosing. The naming options are as follows:
 
@@ -290,37 +302,31 @@ SELECT DNSHostName, Name, Manufacturer, Model, TotalPhysicalMemory, Domain, Doma
 FROM Win32_ComputerSystem
 ```
 
-We use the results of the query as follows:
+Device42 uses the results of the query as follows:
 
-For the **Device Name**, we first look at the `DNSHostName`, then at the `Name` field (if `DNSHostName` is empty).
+For the **Device Name**, Device42 first checks the `DNSHostName` field, then falls back to the `Name` field if `DNSHostName` is empty.
 
-If the `DomainRole` value is one of the following, we use the `Domain` value for the **Domain Name**:
+If the `DomainRole` value is one of the following, Device42 uses the `Domain` value for the **Domain Name**:
 
 - `WinDomainRoles.MemberWorkstation`
 - `WinDomainRoles.MemberServer`
 - `WinDomainRoles.PrimaryDomainController`
 - `WinDomainRoles.BackupDomainController`
 
-### Hyper-V Discovery
-
-To run a Hyper-V discovery job, set the **Platform** to **Windows**, and enable the **Discover VMs** option.
-
-The Hyper-V server's hardware details, name, UUID, and MAC addresses are pulled in from the VMs. In the **Server(s)** field, be sure to include the Hyper-V servers as hostnames, as IP addresses, or as part of the CIDR/IP Range.
-
 ## Permission Requirements for WMI and Windows
 
-Windows permissions requirements are broken down into two parts that are detailed in the sections below:
+Windows permission requirements are broken down into two parts:
 
-- Minimum required permissions for discovering **Windows hosts/guests information**.
-- Minimum required permissions for discovering the **services and application data** for [Application Dependency Mapping (ADM)](/reports/dbb-cookbook/app-dependency-mapping.mdx) on Windows. 
+- Minimum required permissions for discovering **Windows host and guest information**.
+- Minimum required permissions for discovering **services and application data** for [Application Dependency Mapping (ADM)](/reports/dbb-cookbook/app-dependency-mapping.mdx) on Windows.
 
-WinRM-specific items are listed where applicable, but the permissions themselves must be enabled on the target machine.
+WinRM-specific items are listed where applicable, but the permissions must be enabled on the target machine.
 
-### Windows WMI Autodiscovery Minimum Permissions
+### Windows WMI Discovery Minimum Permissions
 
-The following requirements represent the minimum user account permissions to allow Device42 to connect and discover a Windows host.
+The following requirements represent the minimum user account permissions for Device42 to connect to and discover a Windows host.
 
-1. Ensure that at least **Enable Account**, **Remote Enable**, **Read Security**, and **WMI permissions** are applied to the autodiscovery user account and to the following WMI namespaces and sub-namespaces:
+1. Ensure that at least **Enable Account**, **Remote Enable**, **Read Security**, and **WMI permissions** are applied to the discovery user account and to the following WMI namespaces and sub-namespaces:
 
     <table>
     <tbody>
@@ -348,7 +354,7 @@ The following requirements represent the minimum user account permissions to all
     </table>
 
 :::note 
-For Hyper-V discovery against Windows Server2k12 and newer: Because Microsoft verifies permissions differently on these newer operating systems, you may need to add your Device42 discovery account to the built-in Hyper-V administrators group if discovery fails due to a permissions error.
+For Hyper-V discovery against Windows Server 2012 and newer: Because Microsoft verifies permissions differently on these newer operating systems, you may need to add your Device42 discovery account to the built-in Hyper-V administrators group if discovery fails due to a permissions error.
 :::
 
 2. Enable the following firewall rules:
@@ -369,7 +375,7 @@ For Hyper-V discovery against Windows Server2k12 and newer: Because Microsoft ve
 4. Ensure the discovery user account is a member of the **Performance Monitor Users Group** and **Distributed COM Users Group** on the machines targeted for discovery.
 
 :::info 
-If you discover servers that do not belong to a domain, your User Account Control (UAC) settings may be causing issues. Please refer to this [MSDN article](https://learn.microsoft.com/en-us/windows/win32/wmisdk/user-account-control-and-wmi?redirectedfrom=MSDN) to learn more about the effect of UAC on WMI.
+If you discover servers that do not belong to a domain, your User Account Control (UAC) settings may be causing issues. Refer to this [MSDN article](https://learn.microsoft.com/en-us/windows/win32/wmisdk/user-account-control-and-wmi?redirectedfrom=MSDN) to learn more about the effect of UAC on WMI.
 :::
 
 ### Windows ADM Minimum Permissions
@@ -384,7 +390,7 @@ For the local administrator method:
 
 For the alternate method:
 
-If the `IPC$` and `ADMIN$` shares are inaccessible when setting up the discovery job, you can now use a network share. 
+If the `IPC$` and `ADMIN$` shares are inaccessible when setting up the discovery job, you can use a network share instead.
 
 1. Specify a share. It can be local to the device or a shared location on your network.
 2. Give the scanning account read and write privileges to the new shared location.
@@ -428,14 +434,14 @@ Use the `sc.exe sdset scmanager` command to grant `SC_MANAGER_CONNECT` permissio
 
 ## Best Practices and Limitations
 
-- If you've populated Device42 with devices before your first discovery run (using CSV imports, spreadsheets, or manual entry), be sure to test discovery against a few devices to check that the selected discovery naming options are correct for your naming convention. For example, if you added `nh-linux01` as a device, autodiscovery could find the hostname `nh-linux01.example.com` and add it as a new device because the names don't match. See the [Device Naming and Duplicate Device Prevention](#device-naming-and-duplicate-device-prevention) section.
-- It's best to **run device autodiscovery after running network autodiscovery** or after defining the subnets where your network IPs reside.
-- Floating IPs that logically belong to a cluster but are found on a device during autodiscovery will be assigned to that device and **not** the cluster resource.
-- You can run the WDS from any or multiple network segments. Communication from the autodiscovery client back to the main Device42 instance requires access via port TCP/443 (HTTPS) to be allowed on your network.
+- If you've populated Device42 with devices before your first discovery run (using CSV imports, spreadsheets, or manual entry), test discovery against a few devices to verify that the selected discovery naming options are correct for your naming convention. For example, if you added `nh-linux01` as a device, discovery could find the hostname `nh-linux01.example.com` and add it as a new device because the names don't match. See the [Device Naming and Duplicate Device Prevention](#device-naming-and-duplicate-device-prevention) section.
+- **Run device discovery after running network discovery** or after defining the subnets where your network IPs reside.
+- Floating IPs that logically belong to a cluster but are found on a device during discovery will be assigned to that device and **not** the cluster resource.
+- You can run the WDS from any or multiple network segments. Communication from the discovery client back to the main Device42 instance requires access via port TCP/443 (HTTPS) on your network.
 
 ## Legacy Windows 2000 Discovery Prerequisites
 
-If you are looking to discover a legacy Windows 2000-based operating system, a few OS settings need to be tweaked on the machine hosting your WDS to obtain proper results:
+To discover a legacy Windows 2000-based operating system, adjust the following OS settings on the machine hosting your WDS:
 
 1. Change or create the `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\LmCompatibilityLevel` element so that it has the value `1`.
 2. Change the WDS service user from `System` to one of the host users (like an admin account). You can try to run a discovery job without this step, but users report failure without making this change.

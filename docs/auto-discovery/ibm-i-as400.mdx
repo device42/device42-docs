@@ -6,26 +6,58 @@ sidebar_position: 13
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-:::tip
-Are you looking to discover an IBM z/OS-powered mainframe? [Click here to go the z/OS docs page, instead.](z-os-ibm-mainframe.mdx)
-:::
+This page is for Device42 administrators who need to discover IBM i/AS400 midrange systems. Learn how to configure discovery jobs using FTP or FTPS, set up permissions, and what details are discovered.
 
-## IBM i/AS400 Discovery Updates
+## IBM i/AS400 Discovery Features
 
-Device42 has enhanced IBM i/AS400 discovery with additional capabilities and device results:
+Device42 IBM i/AS400 discovery has the following features and capabilities:
 
 - Choose to **Discover Using FTPS** for secure, encrypted communication with AS/400 systems during discovery.
-- **Discover Using FTP** allows Device42 to pull in additional discovery details and no longer relies on the Telnet method of discovery.
-
+- The **Discover Using FTP** option allows Device42 to pull in additional discovery details and no longer relies on the Telnet method of discovery.
   :::note
   Device42 discovery does not support SFTP for discovery – only FTP and FTPS are supported. 
   :::
-
 - **Discover Software** supports all licensed software that IBM registers as installed. If you use FTP-based discovery, it includes software versions as well. Support encompasses the different programming languages installed, datastore information, and the additional dependencies or tools installed.
 - Disk Space discovery gets the ASPs (Auxiliary Storage Pools) of the machine capacity and space used, and stores the disk information as mount points attached to the device.
-- Tape Drives discovery now brings tape drives in as mount points with tape drive names and model numbers.
-- **Discover Lines of Code** gets the total lines of code, including system files and user files. This information is stored in the extra fields DOQL view in Device42.  Note that this can increase discovery time depending on the number of lines of code.
+- Tape Drives discovery brings tape drives in as mount points with tape drive names and model numbers.
+- The **Discover Lines of Code** options gets the total lines of code, including system files and user files. This information is stored in the extra fields DOQL view in Device42. This may however increase discovery time depending on the number of lines of code.
 - Improved service port collection matches services to specific jobs on the machine.
+
+## AS400 Autodiscovery Items
+
+Discovery gathers the following information on the AS400 midrange compute platform:
+
+- **Hardware Inventory** — including hostname(s), IP & MAC addresses, hardware specifications, and OS information.
+- **Dependencies**
+- **Services**
+- **Service connections**
+
+Sample IBM i/AS400 discovery output:
+
+![IBMi - AS400 discovery output sample data](/assets/images/IBMi-as400_sample_output.png)
+
+
+## Set IBM i/AS400 Permissions
+
+Ask your AS400 admin run the following command to configure IBM i/AS400 permissions requirements:
+
+```
+CRTUSRPRF USRPRF($USERNAME$) PASSWORD($YOURPASSWORD$) USRCLS(*SECOFR) SPCAUT(*ALLOBJ *JOBCTL)
+```
+
+In the above IBM i/AS400 command:
+
+- Substitute `$USERNAME$` with the profile name of your choice.
+- Substitute `$YOURPASSWORD$` with a strong password of your choice.
+- In `USRCLS(*SECOFR)`, `*SECOFR` may be substituted with `*USER` or `*PGMR` if desired. However, if you choose `*USER`, this option will prevent some software from being discovered. For complete discovery access, choose an option higher than `*USER`.
+
+For Telnet discovery, please ensure that the created user has the default initial menu (`MAIN`). Customized menus may cause issues when running the discovery.
+
+:::caution
+Do not set up an autodiscovery scan using critical production account credentials. Create a separate, dedicated account to use only for discovery.
+
+Account lockout could result in an otherwise avoidable outage depending on your permissions and configured password policies.
+:::
 
 ## Create an IBM i/AS400 (Mid-Range) Discovery Job
 
@@ -41,116 +73,60 @@ Create a new discovery job, and select **IBM i/AS400** as the **Platform**.
   }}
 />
 
-:::caution
-Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
-
-Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
-:::
-
-## IBM System i/AS400 Discovery Fields
+### IBM System i/AS400 Discovery Options
 
 The following fields are available for configuration when creating a new i/AS400 autodiscovery job:
 
-- **Job Name:** Enter a name of your choosing to identify the IBM i/AS400 autodiscovery job.
-- **Remote Collector:** Optionally, specify a remote collector from which to run discovery instead of the main appliance.
-- **Platform:** Select **IBM i/AS400**. 
-- **Discovery Target(s):** Specify the FQDN or IP address of the IBM i/AS400 to discover. If using FQDN, ensure Device42 is set up to resolve DNS. Note that you can configure the DNS in your VM console under option **1**. 
-- **Port:** Only change this if you have a custom listening port configuration. IBM i/AS400 discovery uses port 23 by default.
-- **Discovery Target(s) Credential(s):** Specify a username with permissions on your IBM i/AS400 machine.
-- **Debug Level:** Turn debug on for extra troubleshooting output. This is useful for support tickets. 
-- **ADM Sampling Interval:** Leave off or choose an interval in minutes or hours. 
-- **Discover Using FTP:** Run the discovery through FTP instead of Telnet. Selecting this option reveals the FTPS option:
-  - **Discover Using FTPS:** Use FTPS (FTP Secure) to enable secure communication with AS/400 systems.
+| Field | Description |
+|-------|-------------|
+| **Job Name** | Enter a name of your choosing to identify the IBM i/AS400 autodiscovery job. |
+| **Remote Collector** | Optionally, specify a remote collector from which to run discovery instead of the main appliance. |
+| **Platform** | Select **IBM i/AS400**. |
+| **Discovery Target(s)** | Specify the FQDN or IP address of the IBM i/AS400 to discover. If using FQDN, ensure Device42 is set up to resolve DNS. Note that you can configure the DNS in your VM console under option **1**. |
+| **Port** | Only change this if you have a custom listening port configuration. IBM i/AS400 discovery uses port 23 by default. |
+| **Discovery Target(s) Credential(s)** | Specify a username with permissions on your IBM i/AS400 machine. |
+| **Debug Level** | Turn debug on for extra troubleshooting output. This is useful for support tickets. |
+| **ADM Sampling Interval** | Leave off or choose an interval in minutes or hours. |
+| **Discover Using FTP** | Run the discovery through FTP instead of Telnet. Selecting this option reveals the FTPS option. |
+| **Discover Using FTPS** | Use FTPS (FTP Secure) to enable secure communication with AS/400 systems. See image below. |
+| **Timeout** | Specify the maximum time in seconds per command for performing a Telnet discovery. If there are connection issues or slow loading time, increasing the timeout may yield better results. |
+| **Last Job Status** | Displays the status of the last discovery or task run. |
+| **Job Run Report** | Records changes made in the last task. |
+| **Schedule for autodiscovery** | The discovery job can be scheduled to run automatically. |
+| **Discover Lines of Code** | If selected under the **Software and Applications** section, a script will run to collect the total lines of code on the machine. If used, increase the max timeout of the discovery to five minutes or more. |
 
-  <ThemedImage
+**FTPS Option:**
+
+<ThemedImage
   alt="FTPS option"
   sources={{
       light: useBaseUrl('/assets/images/ibm-i-as400/ftps-option-light.png'),
       dark: useBaseUrl('/assets/images/ibm-i-as400/ftps-option-dark.png'),
   }}
-  />   
+/>
 
-- **Timeout:** Specify the maximum time in seconds per command for performing a Telnet discovery. If there are connection issues or slow loading time, increasing the timeout may yield better results. 
+**Timeout Configuration:**
 
-    <ThemedImage
-    alt="Timeout"
-    sources={{
-        light: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-light.png'),
-        dark: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-dark.png'),
-    }}
-    />    
+<ThemedImage
+  alt="Timeout"
+  sources={{
+      light: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/ibm-i-as400/timeout-19.06-dark.png'),
+  }}
+/>
 
-- **Last Job Status:** This displays the status of the last discovery or task run. 
-- **Job Run Report:** This records changes made in the last task. 
-- **Schedule for autodiscovery:** The discovery job can be scheduled to run automatically. 
-- **Discover Lines of Code**: If selected under the **Software and Applications** section, a script will run to collect the total lines of code on the machine. If used, we recommend increasing the max timeout of the discovery to five minutes or more. 
+**Discover Lines of Code Option:**
 
-    <ThemedImage
-    alt="Discover lines of code option"
-    sources={{
-        light: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-light.png'),
-        dark: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-dark.png'),
-    }}
-    />        
+<ThemedImage
+  alt="Discover lines of code option"
+  sources={{
+      light: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-light.png'),
+      dark: useBaseUrl('/assets/images/ibm-i-as400/software-and-applications-19.06-dark.png'),
+  }}
+/>
 
-### How FTP Discovery Works
 
-Using FTP, Device42 creates a directory on the targeted server named **D42TEST**.
-- Device42 then uploads our CL/RPG programs to the server, transfers them to the QTEMP folder, and runs them.
-- After the CL/RPG programs have run, Device42 transfers the output files back to **D42TEST** and parses them on the remote collector.
-- Finally, Device42 removes all files placed or created on the server and disconnects.
-
-**Advantages over Telnet discovery:**
-
-- FTP discovery does not rely on anything other than the permissions to place or delete files. With Telnet, customization could disrupt the flow and end the discovery.
-- FTP discovery requires less total communication with the server, resulting in much faster run times if there is any slowness on the targeted server or the network.
-
-Due to limitations, Device42 discovery needs to be able to create the directory **D42TEST**. Only the items that were placed or created during discovery will be removed. If an unexpected file is in that directory, the discovery will most likely fail. If discovery fails, please work with your AS400 Server administrator to remove the directory.
-
-## Setting IBM i/AS400 Permissions
-
-Have your AS400 admin run the following command to configure IBM i/AS400 permissions requirements:
-
-```
-CRTUSRPRF USRPRF($USERNAME$) PASSWORD($YOURPASSWORD$) USRCLS(*SECOFR) SPCAUT(*ALLOBJ *JOBCTL)
-```
-
-In the above IBM i/AS400 command:
-
-- Substitute `$USERNAME$` with the profile name of your choice.
-- Substitute `$YOURPASSWORD$` with a strong password of your choice.
-
-:::note
-In `USRCLS(*SECOFR)`, `*SECOFR` may be substituted with `*USER` or `*PGMR` if desired. However, if you choose `*USER`, this option will prevent some software from being discovered. For complete discovery access, choose an option higher than `*USER`.
-:::
-
-For Telnet discovery, please ensure that the created user has the default initial menu (`MAIN`). Customized menus may cause issues when running the discovery.
-
-## AS400 Autodiscovery Details
-
-**What information does discovery gather on the AS400 midrange compute platform?**
-
-- **Hardware Inventory** — including hostname(s), IP & MAC addresses, hardware specifications, and OS information.
-- **Dependencies**
-- **Services**
-- **Service connections**
-
-Sample IBM i/AS400 discovery output:
-
-![IBMi - AS400 discovery output sample data](/assets/images/IBMi-as400_sample_output.png)
-
-## AS400 Limitations
-
-AS400 support does _not_ currently include:
-
-- Individual application discovery
-- Parts support
-
-AS400 discovery has been verified and functionality tested with IBM i/AS400 operating system deployments configured with the Spanish language setting. AS400 discovery should also work with other non-English locale configurations. 
-
-Please let us know about your experiences with other foreign language configurations or any issues you encounter; we love hearing from our users. Email [support@device42.com](mailto:support@device42.com).
-
-## Run Now
+### Run Now
 
 To run the job immediately, you can click **Run Now** after saving or editing the job from the job details page that's displayed. 
 
@@ -172,7 +148,7 @@ You can also click **Run Now** from the list page under **Discovery > HyperVisor
   }}
 /> 
 
-## Schedule the Job
+### Schedule the Job
 
 When creating or editing the job, select **Add another Auto Discovery Schedule** to run the job on a schedule.
 
@@ -184,4 +160,29 @@ When creating or editing the job, select **Add another Auto Discovery Schedule**
   }}
 /> 
 
-Newly created jobs will not run on the first day they are created to prevent an unintentionally large amount of jobs from running initially. If you would like to run a job after its initial creation, select the **Run Now** button.
+Device42 does not automatically run newly created jobs on the first day to prevent running a large number of jobs at once. If you would like to run a job after its initial creation, select the **Run Now** button.
+
+## How FTP Discovery Works
+
+Using FTP, Device42 creates a directory on the targeted server named **D42TEST**.
+- Device42 then uploads CL/RPG programs to the server, transfers them to the QTEMP folder, and runs them.
+- After the CL/RPG programs have run, Device42 transfers the output files back to **D42TEST** and parses them on the remote collector.
+- Finally, Device42 removes all files placed or created on the server and disconnects.
+
+**Advantages over Telnet discovery:**
+
+- FTP discovery does not rely on anything other than the permissions to place or delete files. With Telnet, customization could disrupt the flow and end the discovery.
+- FTP discovery requires less total communication with the server, resulting in much faster run times if there is any slowness on the targeted server or the network.
+
+Due to limitations, Device42 discovery needs to be able to create the directory **D42TEST**. Only the items that were placed or created during discovery will be removed. If an unexpected file is in that directory, the discovery will most likely fail. If discovery fails, please work with your AS400 Server administrator to remove the directory.
+
+## AS400 Limitations
+
+AS400 support does not currently include:
+
+- Individual application discovery
+- Parts support
+
+AS400 discovery has been verified and functionality tested with IBM i/AS400 operating system deployments configured with the Spanish language setting. AS400 discovery should also work with other non-English locale configurations. 
+
+Please let us know about your experiences with other foreign language configurations or any issues you encounter; we love hearing from our users. Email [support@device42.com](mailto:support@device42.com).

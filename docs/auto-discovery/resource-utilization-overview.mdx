@@ -6,19 +6,19 @@ sidebar_position: 25
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::note
-You need to have an RU license installed in order to use Device42's Resource Utilization features. See [Licensing](/administration/licensing.mdx) for more details.
-:::
-
-The Resource Utilization (RU) module tracks and stores data on CPU, memory, disk, and network usage, as well as power and environmental sensors. This data is collected at a user-defined interval and stored in a time-series database (TSDB) on the Remote Collector (RC) that discovered the device. RU data is then used to generate reports under **Analytics > Reports**.
+The Resource Utilization (RU) module tracks and stores data on CPU, memory, disk, and network usage, as well as power and environmental sensors. This page covers how to enable RU tracking, understand the data storage architecture, visualize trends, and use the RU API.
 
 RU resource-usage metrics can fuel advanced business and capacity-planning decisions, migration planning, move-group selection (via Application Groups), and cloud-target rightsizing, as well as support a variety of other digital transformation projects.
 
-## Enabling Resource Utilization
+:::note
+You need an RU license installed to use Device42's Resource Utilization features. See [Licensing](/administration/licensing.mdx) for more details.
+:::
 
-Enable RU tracking by checking **Enable Resource Utilization Tracking for Device(s)** on Hypervisor/\*nix/Windows autodiscovery jobs. 
+## Enable Resource Utilization
 
-Select an interval from the **Resource Utilization Sampling Interval** dropdown – the default period is ten minutes (600 seconds). When RU tracking is enabled, you will not be able to save the discovery job unless an interval is specified. 
+Enable RU tracking by checking **Enable Resource Utilization Tracking for Device(s)** on Hypervisor/\*nix/Windows discovery jobs.
+
+Select an interval from the **Resource Utilization Sampling Interval** dropdown. The default period is ten minutes (600 seconds). When RU tracking is enabled, you cannot save the discovery job unless an interval is specified.
 
 <ThemedImage
   alt="Resource Utilization sampling intervals"
@@ -36,37 +36,39 @@ If the checkbox is inactive or missing, the RU licensing module is likely disabl
     light: useBaseUrl('/assets/images/resource-utilization-overview/license-light.png'),
     dark: useBaseUrl('/assets/images/resource-utilization-overview/license-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
 
-### Enabling Tracking on Devices
+### Enable Tracking on Devices
 
-Discovered devices are tracked when **Enable Resource Utilization Tracking for Device(s)** is checked on the discovery job when the job is run. If the option was unselected when the job was run, enable it and it should bring in data the next time the discovery job runs.
+Discovered devices are tracked when **Enable Resource Utilization Tracking for Device(s)** is checked on the discovery job when the job runs. If the option was unselected when the job ran, enable it and the job will bring in data the next time it runs.
 
-On an individual device's details page, you'll see that the **Is Device42 monitoring enabled** option is set to **Yes**.
+On an individual device's details page, the **Is Device42 monitoring enabled** option is set to **Yes**.
 
-    <ThemedImage
-    alt="Device with monitoring enabled"
-    sources={{
-        light: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-light.png'),
-        dark: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-dark.png'),
-    }}
-    />
+<ThemedImage
+  alt="Device with monitoring enabled"
+  sources={{
+    light: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-light.png'),
+    dark: useBaseUrl('/assets/images/resource-utilization-overview/device-monitoring-enabled-dark.png'),
+  }}
+/>
 
 ## Technical Details: RU Data Storage
 
+This section explains how RU data is stored and aggregated.
+
 ### The Time-Series Database (TSDB)
 
-Monitoring data is kept on the RC in a TSDB. A dedicated database called `sensors` is used for this purpose, and it contains the following series:
+Monitoring data is kept on the RC in a TSDB. A dedicated database called `sensors` is used for this purpose and contains the following series:
 
-- **`infeeds`**: Stores infeeds stats
-- **`outlets`**: Stores outlets stats
-- **`banks`**: Stores banks stats
-- **`battery`**: Stores battery stats
-- **`device`**: Stores device sensors - usually load, power factor, etc.
-- **`env_sensor`**: Stores all types of `device_sensors` - humidity, temperature, CPU, etc.
+- **`infeeds`:** Stores infeeds stats
+- **`outlets`:** Stores outlets stats
+- **`banks`:** Stores banks stats
+- **`battery`:** Stores battery stats
+- **`device`:** Stores device sensors (usually load, power factor, and so on)
+- **`env_sensor`:** Stores all types of `device_sensors` (humidity, temperature, CPU, and so on)
 
-You can think about these series as if they were Excel sheets, with the first column always consisting of a timestamp. For example, a memory series looks like this:
+You can think of these series as Excel sheets, with the first column always consisting of a timestamp. For example, a memory series looks like this:
 
 ![A memory series in Device42](/assets/images/sensor_data_series.png)
 
@@ -76,13 +78,13 @@ Aggregation takes multiple data points and converts their values to one data poi
 
 * * *
 
-<table><tbody><tr><td width="50%">As an example, if we were to generate <strong>`AVG`</strong> physical values from 5-minute intervals, with a point every minute, from the table in the screenshot above, we would get:</td><td width="30%">The <strong>`MIN`</strong> setting, instead, would return the smallest value from each set:</td></tr><tr><td width="50%"><ul><li><code>(53.242 + 51.672) / 2</code> = <b>52.457</b></li><li><code>(52.688 + 52.676) / 2</code> = <b>52.682</b></li></ul></td><td width="30%"><ul><li><code>53.242 &lt; <b>51.672</b></code> = <b>51.672</b></li><li><code>52.688 &gt; <b>52.676</b></code> = <b>52.676</b></li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="50%">As an example, if you were to generate <strong>`AVG`</strong> physical values from 5-minute intervals, with a point every minute, from the table in the screenshot above, you would get:</td><td width="30%">The <strong>`MIN`</strong> setting, instead, would return the smallest value from each set:</td></tr><tr><td width="50%"><ul><li><code>(53.242 + 51.672) / 2</code> = <b>52.457</b></li><li><code>(52.688 + 52.676) / 2</code> = <b>52.682</b></li></ul></td><td width="30%"><ul><li><code>53.242 &lt; <b>51.672</b></code> = <b>51.672</b></li><li><code>52.688 &gt; <b>52.676</b></code> = <b>52.676</b></li></ul></td></tr></tbody></table>
 
 * * *
 
 ### Data Capture Intervals
 
-Available intervals:
+The available intervals are:
 
 - SNMP: 1 second
 - Linux: 5 seconds
@@ -92,7 +94,7 @@ Available intervals:
 
 To visualize data, choose the **Trends** option from any device that has RU enabled. This option is not displayed when tracking is not active or the license does not allow it.
 
-Note that for users with power tracking enabled, `device_sensors` is also shown here.
+For users with power tracking enabled, `device_sensors` is also shown here.
 
 <ThemedImage
   alt="Trends button on a device view"
@@ -104,44 +106,46 @@ Note that for users with power tracking enabled, `device_sensors` is also shown 
 
 ## Captured Data Details
 
+This section describes the metrics captured for each resource type.
+
 ### CPU
 
-- **`CPU`**: The mathematical mean of `CPU-1...N` loads, expressed as a percentage
-- **`CPU-1...N`**: The real CPU load as a percentage
+- **`CPU`:** The mathematical mean of `CPU-1...N` loads, expressed as a percentage
+- **`CPU-1...N`:** The real CPU load as a percentage
 
 ### Memory
 
-- **`Total`**: Sum of physical and swap in megabytes
-- **`Physical`**: RAM used in megabytes
-- **`Swap`**: Swap/page file used in megabytes
+- **`Total`:** Sum of physical and swap in megabytes
+- **`Physical`:** RAM used in megabytes
+- **`Swap`:** Swap/page file used in megabytes
 
 ### Disks
 
-- **`Name`**: Name of the HDD
-- **`WriteLatency`**: Latency of the write operations in ms
-- **`WriteIORate`**: Speed of the write operations in MB/s
-- **`WriteIOPS`**: Number of write operations per second
-- **`WriteTransfer`**: Raw number of bytes written to disk
-- **`ReadLatency`**: Latency of the read operations in ms
-- **`ReadIORate`**: Speed of the read operations in MB/s
-- **`ReadIOPS`**: Number of read operations per second
-- **`ReadTransfer`**: Raw number of bytes read from disk
+- **`Name`:** Name of the HDD
+- **`WriteLatency`:** Latency of the write operations in ms
+- **`WriteIORate`:** Speed of the write operations in MB/s
+- **`WriteIOPS`:** Number of write operations per second
+- **`WriteTransfer`:** Raw number of bytes written to disk
+- **`ReadLatency`:** Latency of the read operations in ms
+- **`ReadIORate`:** Speed of the read operations in MB/s
+- **`ReadIOPS`:** Number of read operations per second
+- **`ReadTransfer`:** Raw number of bytes read from disk
 
 ### Network
 
-- **`Name`**: Name of the adapter
-- **`InSpeed`**: Download speed in MB/s
-- **`InTransfer`**: Raw number of bytes received by adapter
-- **`OutSpeed`**: Upload speed in MB/s
-- **`OutTransfer`**: Raw number of bytes transmitted by adapter
+- **`Name`:** Name of the adapter
+- **`InSpeed`:** Download speed in MB/s
+- **`InTransfer`:** Raw number of bytes received by adapter
+- **`OutSpeed`:** Upload speed in MB/s
+- **`OutTransfer`:** Raw number of bytes transmitted by adapter
 
-For the most part, Device42 will display **aggregated values**.
+For the most part, Device42 displays **aggregated values**.
 
-The only exception to this in v1 is for `Transfer` values. They are written as raw numbers and are constantly growing so there is logic behind the display of the values themselves. Instead, the difference for a given interval is displayed:
+The only exception to this in v1 is for `Transfer` values. They are written as raw numbers and are constantly growing, so there is logic behind the display of the values themselves. Instead, the difference for a given interval is displayed:
 
-<table><tbody><tr><td width="40%">So, let’s look at the following example data for <code>ReadTransfer</code>:<ul><li>00:01 – 100 bytes</li><li>00:02 – 123 bytes</li><li>00:03 – 234 bytes</li></ul></td><td width="40%">If a user requests data between <i>00:01 and 00:03</i> with <code>density=3</code> <small>(see API section for density details)</small>, Device42 will print:<ul><li>00:01 – 0 bytes</li><li>00:02 – 23 bytes</li><li>00:03 – 111 bytes</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="40%">For example, the following data for <code>ReadTransfer</code>:<ul><li>00:01 – 100 bytes</li><li>00:02 – 123 bytes</li><li>00:03 – 234 bytes</li></ul></td><td width="40%">If a user requests data between <i>00:01 and 00:03</i> with <code>density=3</code> <small>(see API section for density details)</small>, Device42 prints:<ul><li>00:01 – 0 bytes</li><li>00:02 – 23 bytes</li><li>00:03 – 111 bytes</li></ul></td></tr></tbody></table>
 
-If results cannot be retrieved from an RC (if the RC is down, etc.), an **Inaccessible Remote Collector** message will be displayed on trend reports.
+If results cannot be retrieved from an RC (if the RC is down, for example), an **Inaccessible Remote Collector** message is displayed on trend reports.
 
 * * *
 
@@ -149,18 +153,18 @@ If results cannot be retrieved from an RC (if the RC is down, etc.), an **Inacce
 
 There are three types of RU data reports available via **Analytics > Reports** based on captured RU data.
 
-**Users may select the "Type of Data" they would like to see:**
+**Select the "Type of Data" you want to see:**
 
-- **Minimum**: Report uses data minimums
-- **Maximum**: Report uses data maximums
-- **Average**: Report uses data averages
+- **Minimum:** Report uses data minimums
+- **Maximum:** Report uses data maximums
+- **Average:** Report uses data averages
 
 **Peak (Maximum) calculations:**
 
-- **CPU**: A single number that represents the sum of all (CPU power times percentage peak usage)
-- **Memory**: Total Peak, RAM, Swap, and RAM + Swap
-- **Network**: Peak per card
-- **Disk**: Peak IO across disks and Peak latency
+- **CPU:** A single number that represents the sum of all (CPU power times percentage peak usage)
+- **Memory:** Total Peak, RAM, Swap, and RAM + Swap
+- **Network:** Peak per card
+- **Disk:** Peak IO across disks and Peak latency
 
 * * *
 
@@ -172,15 +176,15 @@ Currently, this API endpoint provides results in CSV format. JSON format may be 
 
 ### General API Parameters
 
-- **`type`**: Type of report, currently supports only device. _Optional_.
-- **`id`**: Device ID
-- **`ids`**: Comma-separated list of IDs. _Optional_.
-- **`metric`**: The aggregation function that will be used. Can be `AVG`, `MIN`, or `MAX`.
-- **`timezoneoffset`**: Your time zone is represented by GMT offset in minutes. For Moscow it is -180 (minus) and for NY 240 (without plus)
-- **`end_date`**: The date of the final data point in US date and 24H time format, 12/31/17 15:16:17.
-- **`timeperiod`**: The number of hours that you want to observe.
+- **`type`:** Type of report, currently supports only device. Optional.
+- **`id`:** Device ID
+- **`ids`:** Comma-separated list of IDs. Optional.
+- **`metric`:** The aggregation function that will be used. Can be `AVG`, `MIN`, or `MAX`.
+- **`timezoneoffset`:** Your time zone represented by GMT offset in minutes. For Moscow it is -180 (minus) and for NY 240 (without plus).
+- **`end_date`:** The date of the final data point in US date and 24H time format, `12/31/17 15:16:17`.
+- **`timeperiod`:** The number of hours that you want to observe.
 
-### Possible Values:
+### Possible Values
 
 Pass an integer, `1-9`, to represent the following values:
 
@@ -196,39 +200,38 @@ Pass an integer, `1-9`, to represent the following values:
 | `8`   | 31 days         |
 | `9`   | 183 days        |
 
-
 ### Data Points Control Parameters
 
-To control the number of data points, use the `interval` or `density` parameter. Choose one or the other, as trying to use both will cause one to override the other.
+To control the number of data points, use the `interval` or `density` parameter. Choose one or the other, as trying to use both causes one to override the other.
 
-- **`interval`**: Specify the number of seconds between data points. For example, if you want to get AVG/MIN/MAX data at 5-minute intervals for the last 24 hours, set `interval=300` and you will receive 288 data points.
-- **`density`**: The number of points to collect per interval. This is similar to `interval`, but you should use it if you want to get an exact number of points for a given interval. For example, if you use a time of `period=6` (24 hours) and `density=100`, you will get 100 points with an interval of approximately 14.5 minutes. With a density of 1000, you will get 1000 points with a 1.5-minute interval.
+- **`interval`:** Specify the number of seconds between data points. For example, if you want to get AVG/MIN/MAX data at 5-minute intervals for the last 24 hours, set `interval=300` and you will receive 288 data points.
+- **`density`:** The number of points to collect per interval. This is similar to `interval`, but you should use it if you want to get an exact number of points for a given interval. For example, if you use a time of `period=6` (24 hours) and `density=100`, you will get 100 points with an interval of approximately 14.5 minutes. With a density of 1000, you will get 1000 points with a 1.5-minute interval.
 
-**Important Limitation**: If the device polling interval is `N` seconds, and `N > interval`, the RC will reset `interval` to `N`. For example, if the polling interval for the device is 15 seconds, and you set `density=1000` and `period=1` (30 min), you will not get 1000 points. Instead, you will get `30 min * 60 seconds = 1800 seconds / 15 seconds polling interval = 120 points`.
+**Important Limitation:** If the device polling interval is `N` seconds, and `N > interval`, the RC resets `interval` to `N`. For example, if the polling interval for the device is 15 seconds, and you set `density=1000` and `period=1` (30 min), you will not get 1000 points. Instead, you will get `30 min * 60 seconds = 1800 seconds / 15 seconds polling interval = 120 points`.
 
-**CSV contains next type-measure combinations of data:**
+**CSV contains the following type-measure combinations of data:**
 
-- **`CPU-load`**: Aggregated CPU load for the selected interval as a percentage (for CPUs without a number, it is averaged across all numbered CPUs)
-- **`Mem-physical`**: Aggregated physical memory used
-- **`Mem-swap`**: Aggregated swap used
-- **`Disk-(total,write,read)_iops`**: Aggregated IOPS for the disk
-- **`Disk-(total,write,read)_iorate`**: Aggregated IORate for the disk
-- **`Disk-(total,write,read)_latency`**: Aggregated latency for the disk
-- **`Disk-(total,write,read)_transfer`**: Raw transfer for the disk at the end of the interval
-- **`Disk-(total,write,read)_transfer_diff`**: Difference between raw transfer at the end and the start of the interval
-- **`Nic-(in,out)_speed`**: Aggregated speed for the interface
-- **`Nic-(in,out)_transfer`**: Raw transfer for the network interface at the end of the interval
-- **`Nic-(in,out)_transfer_diff`**: Difference between raw transfer at the end and at the start of the interval
+- **`CPU-load`:** Aggregated CPU load for the selected interval as a percentage (for CPUs without a number, it is averaged across all numbered CPUs)
+- **`Mem-physical`:** Aggregated physical memory used
+- **`Mem-swap`:** Aggregated swap used
+- **`Disk-(total,write,read)_iops`:** Aggregated IOPS for the disk
+- **`Disk-(total,write,read)_iorate`:** Aggregated IORate for the disk
+- **`Disk-(total,write,read)_latency`:** Aggregated latency for the disk
+- **`Disk-(total,write,read)_transfer`:** Raw transfer for the disk at the end of the interval
+- **`Disk-(total,write,read)_transfer_diff`:** Difference between raw transfer at the end and the start of the interval
+- **`Nic-(in,out)_speed`:** Aggregated speed for the interface
+- **`Nic-(in,out)_transfer`:** Raw transfer for the network interface at the end of the interval
+- **`Nic-(in,out)_transfer_diff`:** Difference between raw transfer at the end and at the start of the interval
 
 ## What If My RC Is Offline?
 
-If your target RC is offline, you will not be able to fetch data from it, as the RC must be responsive to queries for data. All fields will either come back empty or will display the `-` character. Charts and reports will show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which will display the latest values because its data is cached.
+If your target RC is offline, you cannot fetch data from it, as the RC must be responsive to queries for data. All fields either come back empty or display the `-` character. Charts and reports show empty gaps in data for periods when the RC was down. One exception is the PDU main page, which displays the latest values because its data is cached.
 
-## Handling of the Same IP/Machine Instance Across Multiple RCs
+## Handle the Same IP Across Multiple RCs
 
-If an IP is discovered across multiple Remote Collectors (RCs), Device42 will **not** monitor that IP again if it is already being monitored; were this otherwise permitted, unexpected behavior would likely result. We will adjust this and other RU workflows based on user feedback - please do let us know about any ideas or changes you have that would help you!
+If an IP is discovered across multiple Remote Collectors (RCs), Device42 does **not** monitor that IP again if it is already being monitored. Permitting duplicate monitoring would likely result in unexpected behavior.
 
-### Monitoring Management - Example Scenarios
+### Monitoring Management Example Scenarios
 
 Consider the following scenario:
 
@@ -241,35 +244,35 @@ Two discovery jobs are configured:
 
 * * *
 
-You run Job#1 on RC#1 with monitoring enabled. After discovery, you will have:
+You run Job#1 on RC#1 with monitoring enabled. After discovery, you have:
 
 - DeviceA with monitoring on RC#1
 - DeviceB with monitoring on RC#1
 - DeviceC without monitoring
 
-Then you decide to run discovery using Job#2 on RC#2 with monitoring disabled. After this discovery job runs, you will have:
+Then you decide to run discovery using Job#2 on RC#2 with monitoring disabled. After this discovery job runs, you have:
 
 - DeviceA with monitoring on RC#1
 - DeviceB with monitoring on RC#1
 - DeviceC without monitoring
 
-Then you change the settings on Job #2 and run it from RC#2 with monitoring enabled. The end result will be:
+Then you change the settings on Job#2 and run it from RC#2 with monitoring enabled. The end result is:
 
 - DeviceA with monitoring on RC#1
 - DeviceB with monitoring on RC#1
 - DeviceC with monitoring on RC#2
 
-Note that DeviceB does not switch the RC that it's attached to.
+DeviceB does not switch the RC that it's attached to.
 
-## (Legacy) How Can I Switch Device RU Monitoring to Another RC?
+## (Legacy) Switch Device RU Monitoring to Another RC
 
-If you _want_ to move a device to another RC, open the device list, select the device, and select one of the **Disable monitoring for selected devices...** actions. After disabling monitoring, run the job again with monitoring re-enabled on the new target RC.
+If you want to move a device to another RC, open the device list, select the device, and select one of the **Disable monitoring for selected devices...** actions. After disabling monitoring, run the job again with monitoring re-enabled on the new target RC.
 
 ![Disable RU Monitoring on devices](/assets/images/disable_RU_monitoring_device_list_view-1.png)
 
-The options differ according to how they handle the historical data for the device in question. The **...but keep data** action stores data for as long as needed, so that if the same device were rediscovered, the existing data would be automatically utilized. The **...and delete data** option simply deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
+The options differ according to how they handle the historical data for the device. The **...but keep data** action stores data for as long as needed, so that if the same device is rediscovered, the existing data is automatically utilized. The **...and delete data** option deletes all existing data from the server. When a previously existent device is rediscovered with this option selected, its history begins anew.
 
-Now rerun Job#2 on RC#2 with monitoring enabled once again. After that run, you can see the device has moved to RC2:
+Now rerun Job#2 on RC#2 with monitoring enabled once again. After that run, the device has moved to RC2:
 
 - DeviceA with monitoring on RC#1
 - DeviceB with monitoring on RC#2

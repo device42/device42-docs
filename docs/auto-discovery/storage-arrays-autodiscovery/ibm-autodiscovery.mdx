@@ -3,35 +3,37 @@ title: "IBM Autodiscovery"
 sidebar_position: 3
 ---
 
-This page details access protocols and how to configure read-only user accounts with minimum permissions for use in IBM storage array autodiscovery.
+Device42 discovers IBM storage arrays including V7000 and Storwize. This page lists the access protocols and default ports, and provides steps for setting up users with minimum read-only permissions.
 
-## Access Protocols by Array3
+For general storage array discovery job setup, see [Storage Arrays Discovery](index.mdx).
+
+## Access Protocols by Array
 
 | Vendor | Array | Access Mechanism | Default Port |
 |--------|-------|------------------|--------------|
-| IBM    | V7000 / StorWize | REST | 7443 |
+| IBM    | V7000 or Storwize | REST | 7443 |
 
-## Minimum Permissions for Storage Array Autodiscovery
+## Minimum Permissions for Storage Array Discovery
 
-Follow the steps in the sections below to set up users or roles with minimum read-only permissions that you can use when you create storage array autodiscovery jobs.
+Follow the steps below to set up users or roles with minimum read-only permissions for storage array discovery jobs.
 
-### IBM V7000/StoreWize
+### IBM V7000 or Storwize
 
-1. Log into the IBM V7000 Management Console.
-2. Click on _Access → Users_ Panel.
-3. Click on _Create Group_.
-4. Select one of the role from the available roles:
-    - SecurityAdmin
-    - Admin
-    - ExportAdmin
-    - StorageAdmin
-    - SnapAdmin
-    - SystemAdmin
-    - CopyOperator
-    - Monitor
-    - Service
-    - Enahanced  
-          
-        Select the minimum _**Monitor**_ role.
-5. Click **Finish** and save the Group.
-6. Create a new User and add the User to the Group.
+Create a group with the `Monitor` role and add a user to it.
+
+1. Log in to the IBM V7000 Management Console.
+2. Click **Access > Users**.
+3. Click **Create Group**.
+4. Create a group and assign the minimum `Monitor` role. The available roles are:
+    - `SecurityAdmin`
+    - `Admin`
+    - `ExportAdmin`
+    - `StorageAdmin`
+    - `SnapAdmin`
+    - `SystemAdmin`
+    - `CopyOperator`
+    - `Monitor`
+    - `Service`
+    - `Enhanced`
+5. Click **Finish** and save the group.
+6. Create a new user and add the user to the group.

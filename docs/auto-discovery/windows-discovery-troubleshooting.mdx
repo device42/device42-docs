@@ -3,56 +3,62 @@ title: "Windows Discovery Troubleshooting"
 sidebar_position: 39
 ---
 
-Use this checklist when your Device42 Windows Discovery jobs are failing due to authentication, WMI/WinRM, or connectivity issues.
+If your Device42 Windows discovery jobs are failing, use this checklist to systematically diagnose authentication, WMI or WinRM, and connectivity issues.
+
+This page is organized as a step-by-step troubleshooting flow, starting with basic environment checks and progressing through network, authentication, firewall, and permission validation. For general Windows discovery setup, see [Windows and Hyper-V Autodiscovery](windows-and-hyper-v-auto-discovery.mdx).
 
 ## 1. Basic Environment and Discovery Setup
 
+Verify that the fundamental components of your discovery environment are in place.
+
 | Item | Notes |
 |------|-------|
-| Device42 Windows Discovery Job created | Use the correct discovery type (Windows/Hyper-V) |
+| Device42 Windows discovery job created | Use the correct discovery type (Windows or Hyper-V) |
 | At least one **Windows Discovery Service (WDS)** is installed and online | WDS should be registered in Device42 |
-| Correct **WDS** selected in job (if applicable) | Job → Advanced Options |
+| Correct **WDS** selected in job (if applicable) | **Job > Advanced Options** |
 | Target hosts specified (IPs or FQDNs resolve properly) | Use valid DNS names or IPs |
-| Valid **Windows credentials** assigned to job | Either manual, or WDS "Service Account Credentials" |
+| Valid **Windows credentials** assigned to job | Either manual or WDS **Service Account Credentials** |
 | Job logs show which credentials were attempted | Use debug mode if needed |
 
 ## 2. Network Connectivity Checks
 
-Run from WDS or discovery machine:
+Run the following tests from the WDS or discovery machine.
 
 | Test | Command / Notes |
 |------|-----------------|
-| Ping/Netstat Windows host | `ping HOSTNAME` or IP<br/>`netstat HOSTNAME` or IP |
+| Ping or netstat Windows host | `ping HOSTNAME` or IP<br/>`netstat HOSTNAME` or IP |
 | Test port 135 (for WMI) | PowerShell: `Test-NetConnection -ComputerName HOST -Port 135` |
 | If using WinRM, test port 5985 (HTTP) or 5986 (HTTPS) | `Test-NetConnection -ComputerName HOST -Port 5985` |
 | Hostname resolves correctly | `nslookup HOSTNAME` |
-| If using IPs, DNS isn't required | Ensure IPs are pingable |
+| If using IPs, DNS is not required | Ensure IPs are pingable |
 
 ## 3. Authentication Validation
 
+Confirm that the credentials used by the discovery job are valid and correctly configured.
+
 | Check | Notes |
 |-------|-------|
-| Credentials are valid and **not expired/locked** | Try login via RDP to confirm |
+| Credentials are valid and **not expired or locked** | Try logging in via RDP to confirm |
 | Domain credentials are fully qualified (e.g. `DOMAIN\user`) | Required for remote auth |
-| If using gMSA, WDS service is running as the gMSA | Check Windows Service "Log On As" |
-| For gMSA, discovery job set to "Use Service Account Credentials" | Only works with WDS |
+| If using gMSA, WDS service is running as the gMSA | Check Windows Service **Log On As** |
+| For gMSA, discovery job set to **Use Service Account Credentials** | Only works with WDS |
 
 ## 4. Firewall and Port Configuration
 
-On **target** Windows host:
+Check the following firewall rules and port settings on the **target** Windows host.
 
 | Item | Command / Notes |
 |------|-----------------|
-| Port 135 allowed (for WMI/DCOM) | Windows Firewall inbound rule: "WMI (DCOM-In)" |
-| WMI rule enabled | "Windows Management Instrumentation (WMI-In)" |
+| Port 135 allowed (for WMI and DCOM) | Windows Firewall inbound rule: **WMI (DCOM-In)** |
+| WMI rule enabled | **Windows Management Instrumentation (WMI-In)** |
 | Ephemeral port range not blocked | Allow dynamic ports or set custom port range for WMI |
 | WinRM enabled and allowed (if using WinRM) | Run: `winrm quickconfig` on target |
 | WinRM listener exists | `winrm enumerate winrm/config/listener` |
-| WinRM firewall rule enabled | "Windows Remote Management (HTTP-In)" |
+| WinRM firewall rule enabled | **Windows Remote Management (HTTP-In)** |
 
-## 5. WMI / WinRM Functionality Tests
+## 5. WMI and WinRM Functionality Tests
 
-From WDS or discovery system:
+Run these commands from the WDS or discovery system to verify that WMI and WinRM are functioning correctly.
 
 ### WMI Test
 
@@ -66,41 +72,47 @@ Get-WmiObject -Class Win32_OperatingSystem -ComputerName TARGET -Credential (Get
 Test-WSMan TARGET
 ```
 
-Or:
+Or use the `winrm` command directly:
 
 ```powershell
 winrm id -r:TARGET
 ```
 
-| Result | Expect |
+| Result | Expected Outcome |
 |--------|--------|
-| WMI command succeeds | Returns OS info |
-| WinRM test returns 200 OK | WinRM properly set up |
+| WMI command succeeds | Returns OS information |
+| WinRM test returns 200 OK | WinRM is properly configured |
 
-## 6. Permission / Namespace Access
+## 6. Permission and Namespace Access
+
+Verify that the discovery account has the required permissions on the target host.
 
 | Item | Notes |
 |------|-------|
-| Account has remote WMI permissions | Can use Device42 WMI Tester |
-| Can connect to `\\TARGET\root\cimv2` | Use Device42 WMI Tester |
+| Account has remote WMI permissions | Use the Device42 WMI Tester to verify |
+| Can connect to `\\TARGET\root\cimv2` | Use the Device42 WMI Tester to verify |
 | Account is in **Distributed COM Users** | Or granted DCOM launch permissions manually |
 | Account is in **Performance Monitor/Log Users** (optional) | For perf counters |
 | Account is in **Event Log Readers** (optional) | For Windows events |
 
 ## 7. Device42 Job-Specific Settings
 
+Review the following settings within your Device42 discovery job.
+
 | Check | Notes |
 |-------|-------|
 | Discovery job set to correct **protocol** (WMI or WinRM) | WinRM recommended where possible |
-| Selected WDS is online and has connectivity | Test from same system |
-| Job runs with **Debug** enabled for verbose logs | Review log output in Job History |
-| Device42 not behind proxy blocking outbound port 443 | For job report / updates |
+| Selected WDS is online and has connectivity | Test from the same system |
+| Job runs with **Debug** enabled for verbose logs | Review log output in **Job History** |
+| Device42 not behind proxy blocking outbound port 443 | For job report and updates |
 
 ## 8. If the Job Still Fails
 
+If you have completed the checks above and the job still fails, try the following additional steps.
+
 | Step | Notes |
 |------|-------|
-| Use Device42 **WMI Test Tool** | [Download from Device42](/how-to-videos/wmi-authentication-testing-tool-how-to.mdx) |
+| Use the Device42 **WMI Test Tool** | [Download from Device42](/how-to-videos/wmi-authentication-testing-tool-how-to.mdx) |
 | Use WBEMTest locally | Connect to `\\TARGET\root\cimv2` with credentials |
-| Review Device42 job logs for authentication errors | Check for "Access Denied" vs "RPC Unavailable" vs other |
-| [Open support ticket with Device42](https://support.device42.com/hc/en-us)| Include logs, test results, account details, and network path info |
+| Review Device42 job logs for authentication errors | Check for `Access Denied` vs `RPC Unavailable` vs other errors |
+| [Open a support ticket with Device42](https://support.device42.com/hc/en-us) | Include logs, test results, account details, and network path info |

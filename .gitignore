@@ -16,9 +16,7 @@
 .env.production.local
 *.swp
 .vscode/
-CLAUDE.md
-/scripts
-.claude
+.claude/
 
 npm-debug.log*
 yarn-debug.log*

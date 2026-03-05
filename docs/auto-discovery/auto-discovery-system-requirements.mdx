@@ -3,33 +3,51 @@ title: "Autodiscovery System Requirements"
 sidebar_position: 6
 ---
 
-The following are prerequisites and other general requirements and guidelines for successful discovery and optimum performance:
+This page is for Device42 administrators who need to prepare their environment for autodiscovery. It covers system prerequisites, resource requirements, and configuration guidelines for successful discovery.
 
-- Create users with the required access.
-- Identify the IP discovery scope (ranges) of interest. 
-- If you aren't using IPv6, it's advisable to choose the **Ignore IPv6** option when configuring discovery jobs.
-- The minimum system resource configuration for the Device42 appliance is 4 CPUs and 8 GB of memory. 
-- Ensure a 1 Gbps minimum network connection, a dedicated resource pool for the Device42 VM, and that there are no resource contention issues. 
-- Placing the Device42 Appliance's (Virtual Machine) VHD on an SSD is ideal but not required.
-- WinRM Windows discovery can be run from the Main Appliance or a Remote Collector. Deploy remote collector(s) to the desired network segments and select them when configuring your discovery jobs where appropriate.
-- To _(optionally)_ exclude known service port ranges from discovery, go to **Tools > Settings > Global Settings > Win/\*nix Exclusions** and add your exclusions to the autodiscovery application. This limits the scope and volume of data that is discovered, helping to reduce noise and overhead while shortening the overall discovery time.
-- Ignore certain IP and MAC addresses for all jobs by creating an exclusion for it under **Tools > Settings > Global Settings > Win/\*nix Exclusions**. The devices will still be discovered, but the details are dropped from ingestion.
+## System Resource Requirements
+
+The Device42 appliance requires adequate system resources for optimal discovery performance:
+
+- **Minimum configuration:** 4 CPUs and 8 GB of memory for the Device42 appliance.
+- **Network connection:** Ensure a 1 Gbps minimum network connection.
+- **Resource allocation:** Use a dedicated resource pool for the Device42 VM to avoid resource contention issues.
+- **Storage:** Placing the Device42 Appliance virtual machine VHD on an SSD is ideal but not required.
+
+## Network and Discovery Scope
+
+Configure your network environment and define the scope of discovery:
+
+- **IP ranges:** Identify the IP discovery ranges of interest.
+- **IPv6 configuration:** If you aren't using IPv6, choose the **Ignore IPv6** option when configuring discovery jobs.
+- **Remote collectors:** You can run WinRM Windows discovery from the Main Appliance or a Remote Collector. Deploy remote collectors to the desired network segments and select them when configuring your discovery jobs where appropriate.
+
+## Access and Security
+
+Create user accounts with the required access permissions.
 
 :::caution
-Do not set up an autodiscovery scan using critical production account credentials! Please create a separate, dedicated account to use only for discovery.
+Do not set up an autodiscovery scan using critical production account credentials. Create a separate, dedicated account to use only for discovery.
 
-Account lock-out could result in an otherwise avoidable outage depending on your permissions and configured password policies. You as a customer are responsible for any such behavior.
+Account lockout could result in an otherwise avoidable outage depending on your permissions and configured password policies.
 :::
+
+## Discovery Scope and Exclusions
+
+Optimize discovery performance by limiting the scope of data collection:
+
+- **Service port exclusions:** To exclude known service port ranges from discovery, go to **Tools > Settings > Global Settings > Win/\*nix Exclusions** and add your exclusions to the autodiscovery application. This limits the scope and volume of data that is discovered, helping to reduce noise and overhead while shortening the overall discovery time.
+- **IP and MAC exclusions:** Ignore certain IP and MAC addresses for all jobs by creating an exclusion under **Tools > Settings > Global Settings > Win/\*nix Exclusions**. The devices will still be discovered, but the details are dropped from ingestion.
 
 ## Platform-Specific Permissions
 
 See detailed permission information for OS platforms:
 
-- Windows and WMI namespace: [Windows and HyperV Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx) page.
-- Linux and Sudo usage details: [Linux and Unix Server Discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx) page.
+- Windows and WMI namespace: [Windows and HyperV Discovery](/auto-discovery/windows-and-hyper-v-auto-discovery.mdx).
+- Linux and Sudo usage details: [Linux and Unix Server Discovery](/auto-discovery/linux-unix-server-auto-discovery.mdx).
 
-Contact [support@device42.com](mailto:support@device42.com) with any questions regarding specific privilege level requirements for WMI Namespaces and *nix commands run with or without Sudo.
+Contact [support@device42.com](mailto:support@device42.com) with questions regarding specific privilege level requirements for WMI Namespaces and \*nix commands run with or without Sudo.
 
-## Ports and Protocols Used By Discovery
+## Ports and Protocols Used by Discovery
 
 See [Discovery Port Configurations](/getstarted/deploy-device42/discovery-port-configurations.mdx) for a complete list. 

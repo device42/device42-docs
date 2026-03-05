@@ -6,66 +6,68 @@ sidebar_position: 100
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This section demonstrates how to disable the data Normalization and Enrichment Service, the Device42 service that enhances data from device discoveries.
+You can disable the data Normalization and Enrichment Service if you no longer want Device42 to enrich data from device discoveries. This page walks through the steps to opt out and opt back in.
 
 :::note
-Please note that if you rediscover previously enriched data, you will lose that data until you opt back in to the Enriched Data cloud service.
+If you rediscover previously enriched data, you will lose that data until you opt back in to the Enriched Data cloud service.
 :::
 
-Take the following steps to opt out of the Enriched Data service:
+## Disable the Enriched Data Service
 
-Select **Tools > Cloud Services** to display the Cloud Services page.
+To opt out of the Enriched Data service:
 
-<ThemedImage
-  alt="Cloud Services Button"
-  sources={{
-    light: useBaseUrl('/assets/images/enrichai-opt-out/cloud-services-button-light.png'),
-    dark: useBaseUrl('/assets/images/enrichai-opt-out/cloud-services-button-dark.png'),
-  }}
-  style={{ width: '90%' }} 
-/>
+1. Select **Tools > Cloud Services** to display the Cloud Services page. This page shows the status of your cloud services.
 
-This page shows the status of your cloud services. 
+   <ThemedImage
+     alt="Cloud Services page"
+     sources={{
+       light: useBaseUrl('/assets/images/enrichai-opt-out/cloud-services-button-light.png'),
+       dark: useBaseUrl('/assets/images/enrichai-opt-out/cloud-services-button-dark.png'),
+     }}
+     style={{ width: '90%' }}
+   />
 
-- In the example below, **EnrichAI** has been **Enabled**. To disable this feature, click **Edit**.
+2. Find the **EnrichAI** entry showing **Enabled** and click **Edit**.
 
-  <ThemedImage
-    alt="View integrations page"
-    sources={{
-      light: useBaseUrl('/assets/images/enrichai-opt-out/view-integration-light.png'),
-      dark: useBaseUrl('/assets/images/enrichai-opt-out/view-integration-dark.png'),
-    }}
-  />
+   <ThemedImage
+     alt="View integrations page"
+     sources={{
+       light: useBaseUrl('/assets/images/enrichai-opt-out/view-integration-light.png'),
+       dark: useBaseUrl('/assets/images/enrichai-opt-out/view-integration-dark.png'),
+     }}
+   />
 
-- In the Edit view, you are presented with the option to opt out of the Enriched Data service, as highlighted below. Click **disable** to do so.
+3. In the Edit view, click **Disable**.
 
-  <ThemedImage
-    alt="Disable Button"
-    sources={{
-      light: useBaseUrl('/assets/images/enrichai-opt-out/disable-button-light.png'),
-      dark: useBaseUrl('/assets/images/enrichai-opt-out/disable-button-dark.png'),
-    }}
-  />
+   <ThemedImage
+     alt="Disable button"
+     sources={{
+       light: useBaseUrl('/assets/images/enrichai-opt-out/disable-button-light.png'),
+       dark: useBaseUrl('/assets/images/enrichai-opt-out/disable-button-dark.png'),
+     }}
+   />
 
-- The **Disable EnrichAI** dialog gives you the option to **Disable** or **Cancel**. Select **Disable** to opt out of the Enriched Data service and return to the Edit view.
+4. In the **Disable EnrichAI** dialog, select **Disable** to confirm. Select **Cancel** to return without changes.
 
-  <ThemedImage
-    alt="Disable prompt"
-    sources={{
-      light: useBaseUrl('/assets/images/enrichai-opt-out/prompt-light.png'),
-      dark: useBaseUrl('/assets/images/enrichai-opt-out/prompt-dark.png'),
-    }}
-    style={{ width: '65%' }} 
-  />
+   <ThemedImage
+     alt="Disable prompt"
+     sources={{
+       light: useBaseUrl('/assets/images/enrichai-opt-out/prompt-light.png'),
+       dark: useBaseUrl('/assets/images/enrichai-opt-out/prompt-dark.png'),
+     }}
+     style={{ width: '65%' }}
+   />
 
-- The **EnrichAI** is now **Disabled**. You can **Save** your changes in the bottom-right corner of the page.
+5. The **EnrichAI** status is now **Disabled**. Click **Save** in the bottom-right corner of the page.
 
-  <ThemedImage
-    alt="Save button"
-    sources={{
-      light: useBaseUrl('/assets/images/enrichai-opt-out/disabled-save-light.png'),
-      dark: useBaseUrl('/assets/images/enrichai-opt-out/disabled-save-dark.png'),
-    }}
-  />
+   <ThemedImage
+     alt="Save button"
+     sources={{
+       light: useBaseUrl('/assets/images/enrichai-opt-out/disabled-save-light.png'),
+       dark: useBaseUrl('/assets/images/enrichai-opt-out/disabled-save-dark.png'),
+     }}
+   />
 
-You can follow the same steps to opt back in to the Enriched Data service. After re-enabling, we recommend rerunning your discovery jobs to ensure your data is enriched.
+## Re-Enable the Enriched Data Service
+
+Follow the same steps to opt back in to the Enriched Data service. After re-enabling, rerun your discovery jobs to ensure your data is enriched.

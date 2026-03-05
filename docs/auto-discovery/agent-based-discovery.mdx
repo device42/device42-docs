@@ -180,7 +180,7 @@ The agent can be run from the command line or can be scheduled using the relevan
 
 ## Schedule the Agent With Crontab on Linux
 
-For best results, run the command with `sudo`. Make sure that `/home/system_dev42/bin/d42agent` is owned by `root` with `-rwx—— (0700)` permissions. This prevents the non-root user `system_dev42` from overwriting the agent or adding it to `root`’s crontab (or `cron.daily/hourly`) while allowing root to execute it.
+For best results, run the command with `sudo`. Make sure that `/home/system_dev42/bin/d42agent` is owned by `root` with `-rwx--- (0700)` permissions. This prevents the non-root user `system_dev42` from overwriting the agent or adding it to `root`’s crontab (or `cron.daily/hourly`) while allowing root to execute it.
 
 ### Use a Limited Account
 

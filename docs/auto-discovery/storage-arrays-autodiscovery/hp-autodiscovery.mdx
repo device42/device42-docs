@@ -3,52 +3,55 @@ title: "HP Autodiscovery"
 sidebar_position: 2
 ---
 
-Follow the steps below to set up read-only users for HP Storage Array autodiscovery.
+Device42 discovers HP and HPE storage arrays including Nimble, 3PAR, and StoreEasy. This page lists the access protocols and default ports for each array, and provides steps for setting up users with minimum read-only permissions.
+
+For general storage array discovery job setup, see [Storage Arrays Discovery](index.mdx).
 
 ## Access Protocols by Array
 
 | Vendor | Array | Access Mechanism | Default Port |
 |--------|-------|------------------|--------------|
 | HP     | Nimble     | REST | 5392 |
-| HP     | 3PAR       | SMIS | 5988 / 5989 |
+| HP     | 3PAR       | SMIS | 5988 or 5989 |
 | HPE    | StoreEasy  | REST | 49258 |
 
-## Minimum Permissions for Storage Array Autodiscovery
+## Minimum Permissions for Storage Array Discovery
 
-The sections below guide you through how to set up users or roles with minimum read-only permissions that you can use when you create storage array autodiscovery jobs.
+Follow the steps below to set up users or roles with minimum read-only permissions for storage array discovery jobs.
 
 ### HP Nimble
 
+Create a user with `operator` permissions on the Nimble console.
+
 1. Log in to the Nimble console.
-2. Select **Administration → Security** from the menu.
-3. Click on **Users and Groups** in the left panel.
-4. Click on the **+USER** button to open the Create User panel.
-5. Create a user and assign them one of the available roles:
-
-    - administrator
-    - power-user
-    - operator
-    - guest  
-
-6. Select the minimum **operator** role.
-8. Click **OK** and save the user.
+2. Select **Administration > Security** from the menu.
+3. Click **Users and Groups** in the left panel.
+4. Click the **+USER** button to open the Create User panel.
+5. Create a user and assign the minimum `operator` role. The available roles are:
+    - `administrator`
+    - `power-user`
+    - `operator`
+    - `guest`
+6. Click **OK** and save the user.
 
 ### HPE StoreEasy
 
-The StoreEasy platform relies on local users created at the server level. Currently, Admin access is required to run a successful discovery.
+The StoreEasy platform relies on local users created at the server level. Admin access is required to run a successful discovery.
 
 1. Create a local user on the HPE StoreEasy host server.
-2. Add that user to the admin group.
+2. Add that user to the `admin` group.
 
 ### HP 3PAR
 
+Create a user with the `browse` role on the HP 3PAR Management Console.
+
 1. Log in to the HP 3PAR Management Console.
-2. Click on the **Actions** menu.
-3. Select the **Security & Domains** submenu
-4. Select **Users** and then **Create User**.
-5. Enter a username and password and click **Next**.
-6. Grant the user the **browse** role on the appropriate domain.
-7. Click **Finish** and save the user.
+2. Click the **Actions** menu.
+3. Select the **Security & Domains** submenu.
+4. Select **Users** and then **Create User**.
+5. Enter a username and password, and click **Next**.
+6. Grant the user the `browse` role on the appropriate domain.
+7. Click **Finish** and save the user.
 
 **Example CLI user creation:**
 

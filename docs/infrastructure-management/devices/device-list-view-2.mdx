@@ -6,10 +6,12 @@ sidebar_position: 18
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The device list view offers an at-a-glance view of all your devices:
+The device list view provides an overview of all your devices, with options for filtering, bulk actions, and custom views.
+
+Select **Resources > Compute > All Devices** to display the device list page.
 
 <ThemedImage
-  alt="Device list UI"
+  alt="Device list view page"
   sources={{
     light: useBaseUrl('/assets/images/device-list/device-list-view-light.png'),
     dark: useBaseUrl('/assets/images/device-list/device-list-view-dark.png'),
@@ -18,21 +20,21 @@ The device list view offers an at-a-glance view of all your devices:
 
 ## List View Features
 
-From the Devices list page under **Resources > Compute > All Devices**, you can:
+From the list page, you can:
 
 1. **Create** a new device, **Clone** an existing device, or configure a **Report**.
 2. Search for partial and exact matches to device names and aliases.
-3. Perform **Actions** that modify, delete, and manage your device data.
-4. Filter data categorically using the dropdown menus or by adding **More Filters**
+3. Perform **Actions** to modify, delete, and manage your device data.
+4. Filter data using the dropdown menus or by adding **More Filters**.
 5. Open the **Advanced** search box to use SQL-like queries to find devices.
-6. Modify the default column layout or create a new view by clicking on the **gear icon**.
-7. Order the column data and resize columns by dragging the edge of a column header.
+6. Modify the default column layout or create a new view by clicking the **gear icon**.
+7. Reorder and resize columns by dragging the edge of a column header.
 
 ## Custom Filters
 
-The system default list view has dropdown menus you can use to filter your device list page. Click **+ More** to add dropdown menus and refine your list view. 
+The default list view has dropdown menus for filtering devices. Click **+ More** to add additional filter dropdowns.
 
-To save you from repeatedly selecting the same combination of filters each time you visit the page, you can customize the default view with a custom set of dropdown filters. Enter edit mode by clicking on the **gear icon** next to the default **System Column List** dropdown menu. The custom filter will be saved if the **Custom Filters** checkbox is selected when saving.
+To save a custom set of filters, click the **gear icon** next to the **System Column List** dropdown menu. Select the **Custom Filters** checkbox before saving to preserve your filter configuration.
 
 <ThemedImage
   alt="Custom filters"
@@ -44,7 +46,7 @@ To save you from repeatedly selecting the same combination of filters each time 
 
 When you apply a saved custom filter, you'll see the "filters have been replaced in order to apply saved filters on the custom view" notification.
 
-If you've made changes to the filter that you don't want to keep, click the **Reset** option to revert to the original saved filter.
+Click **Reset** to revert to the original saved filter.
 
 <ThemedImage
   alt="Reset filters option"
@@ -56,13 +58,11 @@ If you've made changes to the filter that you don't want to keep, click the **Re
 
 ## List View Bulk Actions
 
-From the list view, you can also select multiple devices and apply bulk actions against selected devices. 
+Select multiple devices from the list view and apply bulk actions using the **Actions** dropdown menu.
 
 ### Add or Remove Tags
 
-From the Devices list page, you can add or remove multiple tags for one or more devices at a time.
-
-Select one or more devices and choose either **Add tags to selected items** or **Remove tags from selected items** from the **Actions** dropdown menu. 
+To add or remove tags, select one or more devices and choose **Add tags to selected items** or **Remove tags from selected items**.
 
 <ThemedImage
   alt="Add or remove tags Actions"
@@ -72,7 +72,7 @@ Select one or more devices and choose either **Add tags to selected items** or *
   }}
 />
 
-Start typing in the textbox to search for specific tags you want to add or remove.
+Start typing in the text box to search for specific tags.
 
 <ThemedImage
   alt="Search tags"

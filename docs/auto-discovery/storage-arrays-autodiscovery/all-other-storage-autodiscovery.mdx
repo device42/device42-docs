@@ -3,90 +3,93 @@ title: "All Other Storage Autodiscovery"
 sidebar_position: 4.5
 ---
 
-Configure discovery credentials for Infinidat, NetApp, Nutanix, Oracle ZFS, and Pure Storage arrays.
+This page covers discovery configuration for Infinidat, NetApp, Nutanix, Oracle ZFS, and Pure Storage arrays. It lists the access protocols and default ports for each array, and provides steps for setting up users with minimum read-only permissions.
+
+For general storage array discovery job setup, see [Storage Arrays Discovery](index.mdx).
 
 ## Access Protocols by Array
 
-Table showing supported storage arrays and access methods.
+The following table lists the supported storage arrays and their access methods:
 
 | Vendor | Array | Access Mechanism | Default Port |
 |--------|-------|------------------|--------------|
 | Infinidat | Infinidat | REST | 443 |
-| NetApp | FAS Series | Vendor API | 80/443 |
+| NetApp | FAS Series | Vendor API | 80 or 443 |
 | Nutanix | Nutanix | REST | 9440 |
-| Oracle | ZFS | REST | 80/443 |
-| Pure Storage | Pure Storage | REST | 80/443 |
+| Oracle | ZFS | REST | 80 or 443 |
+| Pure Storage | Pure Storage | REST | 80 or 443 |
 
-## Minimum Permissions for Storage Array Autodiscovery
+## Minimum Permissions for Storage Array Discovery
 
-Follow the steps in the sections below to set up users or roles with minimum read-only permissions that you can use when you create storage array autodiscovery jobs.
+Follow the steps below to set up users or roles with minimum read-only permissions for storage array discovery jobs.
 
 ### Infinidat
 
 1. Log in to the Infinidat console.
-2. Select **Settings** from the left panel.
-3. Click on **Users** from the tab.
-4. Click the **Create User** button to open the Create User panel.
-5. Create a user and assign it one of the available roles:
-    - ADMIN
-    - POOL\_ADMIN
-    - READ\_ONLY  
+2. Select **Settings** from the left panel.
+3. Click **Users** from the tab.
+4. Click **Create User** to open the Create User panel.
+5. Create a user and assign it the minimum **READ\_ONLY** role. The available roles are:
+    - `ADMIN`
+    - `POOL_ADMIN`
+    - `READ_ONLY`
+6. Click **OK** and save the user.
 
-6. Select the minimum **READ\_ONLY** role
-7. Click **OK** and save the user.
+### NetApp Filers
 
-### Netapp Filers
-
-- Connect to your Netapp via SSH.
-- Create a monitoring role with the necessary permissions.
+1. Connect to your NetApp filer via SSH.
+2. Create a monitoring role with the necessary permissions.
 
   ```shell
-  _useradmin role add -a api-system-get-version,login-http-admin,security-api-vfiler,api-system-get-info,api-fcp-adapter-list-info,api-iscsi-initiator-list-info,api-iscsi-adapter-list-info,api-disk-list-info,api-aggr-list-info,api-volume-list-info,api-lun-list-info,api-qtree-list,api-quota-list-entries,api-cifs-share-list-iter-start,api-perf-object-get-instances,api-lun-map-list-info,api-cifs-share-list-iter-next,api-lun-get-serial-number_
+  useradmin role add -a api-system-get-version,login-http-admin,security-api-vfiler,api-system-get-info,api-fcp-adapter-list-info,api-iscsi-initiator-list-info,api-iscsi-adapter-list-info,api-disk-list-info,api-aggr-list-info,api-volume-list-info,api-lun-list-info,api-qtree-list,api-quota-list-entries,api-cifs-share-list-iter-start,api-perf-object-get-instances,api-lun-map-list-info,api-cifs-share-list-iter-next,api-lun-get-serial-number
   ```
 
-  **Permissions contained in the above command:**
+  <details>
+    <summary>Permissions contained in the above command</summary>
 
-  - `api-system-get-version` 
-  - `login-http-admin`  
-  - `security-api-vfiler`  
-  - `api-system-get-info`  
-  - `api-fcp-adapter-list-info`  
-  - `api-iscsi-initiator-list-info`  
-  - `api-iscsi-adapter-list-info`  
-  - `api-disk-list-info`  
-  - `api-aggr-list-info`  
-  - `api-volume-list-info`  
-  - `api-lun-list-info`  
-  - `api-qtree-list`  
-  - `api-quota-list-entries`  
-  - `api-cifs-share-list-iter-start`  
-  - `api-perf-object-get-instances`  
-  - `api-lun-map-list-info`  
-  - `api-cifs-share-list-iter-next`  
-  - `api-lun-get-serial-number`
+    - `api-system-get-version`
+    - `login-http-admin`
+    - `security-api-vfiler`
+    - `api-system-get-info`
+    - `api-fcp-adapter-list-info`
+    - `api-iscsi-initiator-list-info`
+    - `api-iscsi-adapter-list-info`
+    - `api-disk-list-info`
+    - `api-aggr-list-info`
+    - `api-volume-list-info`
+    - `api-lun-list-info`
+    - `api-qtree-list`
+    - `api-quota-list-entries`
+    - `api-cifs-share-list-iter-start`
+    - `api-perf-object-get-instances`
+    - `api-lun-map-list-info`
+    - `api-cifs-share-list-iter-next`
+    - `api-lun-get-serial-number`
 
-- Create a monitoring group, attaching the monitoring role created above.
+  </details>
+
+3. Create a monitoring group, attaching the monitoring role created above.
 
   ```
   useradmin group add -r
   ```
 
-- Create a monitoring user and assign it to the monitoring group created in the step above.
+4. Create a monitoring user and assign it to the monitoring group created above.
 
   ```
   useradmin user add -g
   ```
 
-**Cluster Mode**
+### NetApp Cluster Mode
 
 1. Connect to your NetApp cluster via SSH.
-2. Create a user with the following config:
+2. Create a user with the following configuration:
 
-    - **VServer to discover:** `<vserver\_name>`
-    - **Discovery User name:** `<user\_name>`
-    - **Role:** readonly (existing system role)
-    - **Application:** ontapi
-    - **Auth Method:** Password
+    - **VServer to discover:** `<vserver_name>`
+    - **Discovery User name:** `<user_name>`
+    - **Role:** `readonly` (existing system role)
+    - **Application:** `ontapi`
+    - **Auth Method:** `password`
 
     ```
     security login create -vserver -user-or-group-name -application ontapi -authentication-method password -role readonly
@@ -95,34 +98,32 @@ Follow the steps in the sections below to set up users or roles with minimum rea
 ### Nutanix
 
 1. Log in to the Nutanix console.
-2. Click the gear icon or select **Settings** from the main menu.
-3. Select **Local User Management** under **Users and Groups**.
-4. Click on the **+ New User** button.
+2. Click the **gear icon** or select **Settings** from the main menu.
+3. Select **Local User Management** under **Users and Groups**.
+4. Click the **+ New User** button.
 5. Do not select any roles, so that the user is assigned a viewer role by default.
-6. Click **OK** and save the user.
+6. Click **OK** and save the user.
 
 ### Oracle ZFS
 
 1. Log in to the Oracle ZFS console.
-2. Select **Configuration** from the main menu.
-3. Click on the **+** button next to **Roles** to create a new role.
-    - Add the following Authorizations to the role (leave Domain as “\*”):
-        - **Analytics:** Read
-        - **Worksheet:** Read
-4. Click on the **+** button next to **Users** to create a new user.
-    - Select the Role created in step 3 for the user.
-    - “Kiosk User” must **NOT** be selected.
-
+2. Select **Configuration** from the main menu.
+3. Click the **+** button next to **Roles** to create a new role. Add the following authorizations to the role (leave Domain as `*`):
+    - **Analytics:** Read
+    - **Worksheet:** Read
+4. Click the **+** button next to **Users** to create a new user.
+    - Select the role created in step 3 for the user.
+    - **Kiosk User** must **NOT** be selected.
 5. Click **Finish** to save the user.
 
 ### Pure Storage
 
-Pure Storage does not allow for multiple local users, and relies on an LDAP provider to supply user authentication and group membership for a non-root user.
+Pure Storage does not allow multiple local users and relies on an LDAP provider for user authentication and group membership for non-root users.
 
 1. Log in to the Pure Storage console.
-2. Click on **System Menu**.
-3. Click on **Configuration**.
-4. Click on **Directory Service**.
+2. Click **System Menu**.
+3. Click **Configuration**.
+4. Click **Directory Service**.
 5. Connect your Pure Array to your LDAP provider, making sure to map the Read Only Group to the appropriate OU within your LDAP environment.
 6. Create a discovery user account in your LDAP environment.
 7. Add that LDAP user account to the OU associated with the Pure Storage Read Only Group.

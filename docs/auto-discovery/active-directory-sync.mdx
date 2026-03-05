@@ -6,15 +6,17 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+This page is for Device42 administrators who need to synchronize Active Directory or LDAP users with Device42. Learn how to configure AD/LDAP settings and create discovery jobs to import and sync users as end users or administrators.
+
 The AD/LDAP auto-discovery tool performs one-way synchronization of your Active Directory (AD) and Lightweight Directory Access Protocol (LDAP) domain users to Device42.
 
-You can add AD/LDAP users to Device42 as regular end users or administrators. To keep your Device42 users up to date with your directory, it's a good idea to schedule your AD/LDAP syncs using the Device42 scheduling option.
+Add AD/LDAP users as regular end users or administrators. Schedule regular syncs to keep users up to date with your directory.
 
 :::note
-Changes to user accounts made in Device42 will not be sent to the AD/LDAP as the sync is one-way; from AD/LDAP to Device42 only.
+Changes to user accounts made in Device42 will not be sent to AD/LDAP. The sync is one-way from AD/LDAP to Device42.
 :::
 
-## Prerequisites - The Settings Config
+## Configure Active Directory Settings
 
 Before you create and run your AD/LDAP discovery jobs, configure the **Active Directory Settings** in Device42. These settings control authentication to AD, the servers to authenticate against, base DNs, and how to add discovered users to Device42. 
 
@@ -28,12 +30,14 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
   }}
   />
 
-2. Click the **Create** button and enter values specific to your Active Directory (or LDAP) domain. 
+2. Click the **Create** button and enter values specific to your Active Directory (or LDAP) domain.
 
-**Explanation of the fields**
+### Configuration Options
 
-- **LDAP Type**: Choose either **Active Directory** or **Open LDAP** for Lightweight directory access protocol for non-Microsoft directory servers.
-- **Server**: Enter the AD or LDAP server IP address. Only use FQDN if your DNS can resolve it. Rather enter an IP address if your Device42 server doesn't use AD-Aware DNS servers, as it may not be able to resolve your domain name if it hasn't been configured across all your DNS servers
+Configure the following settings to connect Device42 to your AD or LDAP server.
+
+- **LDAP Type**: Choose either **Active Directory** or **OpenLDAP** for Lightweight directory access protocol for non-Microsoft directory servers.
+- **Server**: Enter the AD or LDAP server IP address. You can use the fully qualified domain name (FQDN) if your DNS can resolve it. Use an IP address if your Device42 server doesn't use AD-aware DNS servers, as the FQDN may not resolve correctly.
 - **Backup Server**: Add a secondary AD or LDAP server to use if the primary one isn't available.
 
   <ThemedImage
@@ -44,7 +48,7 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
   }}
   />  
 
-- **Port**: Port for auth requests to your LDAP or Active Directory server. Note that **389** is the non-SSL default and **636** is the default SSL port. Ensure you change the port if you decide to enable SSL or run a non-standard port.
+- **Port**: Port for authentication requests to your LDAP or Active Directory server. Note that `389` is the non-SSL default and `636` is the default SSL port. Ensure you change the port if you decide to enable SSL or run a non-standard port.
 - **Base**: Enter the Base DN that points to your users.
 
   <ThemedImage
@@ -55,15 +59,15 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
   }}
   />
 
-- **SSL**: Check this box if you want to query AD or LDAP using SSL. Please change the port to **636** or your configured SSL port if you check this box.
-- **Username/Password**: This is the username a password that will be used for authentication against AD.
+- **SSL**: Check this box if you want to query AD or LDAP using SSL. Please change the port to `636` or your configured SSL port if you check this box.
+- **Username/Password**: The username and password for AD authentication.
 - **Username login style**: Choose how Device42 accounts created for AD users will be formatted both in Device42 and for login. 
 
     :::caution
-    Changes to this setting only affects users imported after the change. To change the account and login format for all users, delete the existing Device42 accounts, change the login style setting, and then re-sync the accounts from AD.
+    Changes to the **Username login style** setting only affect users imported after the change. To change the account and login format for all users, delete the existing Device42 accounts, change the login style setting, and then re-sync the accounts from AD.
     :::
 
-- **Netbios name**: NetBIOS name is an up-to-15-character representation of your domain name, and may actually be entirely different from the domain name. Visit the [Microsoft Disjoint namespace scenarios](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help) article for help locating domain NetBIOS names.
+- **NetBIOS name**: NetBIOS name is an up-to-15-character representation of your domain name, and may be entirely different from the domain name. Visit the [Microsoft Disjoint namespace scenarios](https://learn.microsoft.com/en-us/exchange/disjoint-namespace-scenarios-exchange-2013-help) article for help locating domain NetBIOS names.
 
   <ThemedImage
   alt="Active Directory Settings example values"
@@ -72,6 +76,7 @@ Before you create and run your AD/LDAP discovery jobs, configure the **Active Di
       dark: useBaseUrl('/assets/images/active-directory-sync/active-directory-username-dark.png'),
   }}
   />
+
 ## Configure an AD/LDAP User Discovery Job
 
 When you've configured the AD/LDAP settings, create an AD/LDAP sync job. From the main menu, go to **Discovery > AD/LDAP Users** and click **Create**.
@@ -88,7 +93,7 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
   }}
 />
 
-- If you choose **End Users** as the user type, you may optionally choose AD/LDAP attributes to populate end user contact information, location, and notes. You'll also be able to choose and create **Departments**.
+- If you choose **End Users** as the user type, you can choose AD/LDAP attributes to populate end user contact information, location, and notes. You'll also be able to choose and create **Departments**.
 
     <ThemedImage
     alt="User type attribute options"
@@ -100,7 +105,7 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
 
 - If you choose **Administrator** as the user type, you'll be able to choose and create **Permission Groups**, and the following options will become available:
   - **Add username in lowercase:** Convert all characters to lowercase when adding discovered users to Device42. 
-  - **Recursively search nested groups:** Select this option to add groups that are members of another group's users. By default, a group that already belongs to another group's users will not be added. 
+  - **Recursively search nested groups:** Select this option to add nested groups (groups that are members of other groups). By default, nested groups will not be added. 
   - **Ignore existing Administrators:** Uncheck this option if you'd like administrators to continue to inherit permissions from multiple LDAP sync jobs. 
   - **Clear any existing Administrator Permissions Groups:** Check to remove all group memberships from existing admins before adding newly discovered memberships.
 
@@ -114,7 +119,7 @@ Name the AD/LDAP sync job. Then choose the Device42 user **Type** to create from
   
 ### Specify a Custom LDAP Filter
 
-Specify a Custom LDAP Filter in the **Custom Filter** field to define which objects are synced. 
+Use the **Custom Filter** field to define which objects are synced. 
 
 <ThemedImage
   alt="Custom Filter field"
@@ -127,24 +132,24 @@ Specify a Custom LDAP Filter in the **Custom Filter** field to define which obje
 By default, the LDAP filter is set to retrieve objects of type `group` or `user`, and is denoted by:
 
 ```
-(|(objectCategory=group)(|objectCategory=user))
+(|(objectCategory=group)(objectCategory=user))
 ```
 
-Similarly, the default LDAP filter for Open LDAP sync is `(objectClass=inetOrgperson)`, which gets the `inetOrgperson` object type.
+Similarly, the default LDAP filter for OpenLDAP sync is `(objectClass=inetOrgperson)`, which gets the `inetOrgperson` object type.
 
-You can specify your own LDAP filter as follows to fetch all active users and groups as follows:
+You can specify your own LDAP filter to fetch all active users and groups:
 
 ```
-(&(|(objectCategory=group)(|objectCategory=user))(!(userAccountControl:1.2.840.113556.1.4.803:=2)))
+(&(|(objectCategory=group)(objectCategory=user))(!(userAccountControl:1.2.840.113556.1.4.803:=2)))
 ```
 
-The `userAccountControl` attribute uses a bitwise filter to look for specific flags and is set to `2` for disabled accounts. The preceding exclamation point `!` in the command excludes such accounts.
+The `userAccountControl` attribute uses a bitwise filter to look for specific flags and is set to `2` for disabled accounts. The preceding exclamation point (`!`) in the command excludes such accounts.
 
-Now, disabled accounts will be ignored when Active Directory accounts are synced. You can use similar commands of LDAP attributes to filter which objects get synced.
+Now, disabled accounts will be ignored when Active Directory accounts are synced. You can use similar LDAP attribute filters to control which objects get synced.
 
 ### Select Config Settings and Add Credentials
 
-Next, choose the settings configuration you created in the [Prerequisites section](#prerequisites---the-settings-config) and provide the AD/LDAP **Username** and **Password** to use for authentication.
+Next, choose the settings configuration you created in the [Prerequisites section](#configure-active-directory-settings) and provide the AD/LDAP **Username** and **Password** to use for authentication.
 
 <ThemedImage
   alt="Settings and credential fields"
@@ -156,7 +161,7 @@ Next, choose the settings configuration you created in the [Prerequisites sectio
 
 ### Select Permission Groups for Administrators
 
-If you chose **Administrators** as the **Type**, you'll have the option to grant Device42 permissions to selected admin groups. Note that the groups are not Active Directory groups, but Device42 admin groups. 
+If you chose **Administrators** as the **Type**, you'll have the option to grant Device42 permissions to selected admin groups. Note that these permission groups are Device42 admin groups, not Active Directory groups. 
 
 Select from the available **Permission Groups** on the left and use the arrow button to move them to the **Chosen Permission Groups** side. 
 
@@ -168,7 +173,7 @@ Select from the available **Permission Groups** on the left and use the arrow bu
   }}
 />
 
-To create a new Admin group, click the **plus icon**, and in the popup that opens, name the new group, select the permissions, and click **Save**.
+To create a new Admin group, click the **plus icon**. In the dialog box, name the new group, select the permissions, and click **Save**.
 
 <ThemedImage
   alt="Create new Admin Groups"
@@ -202,6 +207,8 @@ Click the **plus icon** to add a new customer, department, or end user that's no
 
 ## Example: Find a Group DN in Active Directory
 
+To find the Distinguished Name (DN) of a group in Active Directory, use the attribute editor in Active Directory Users and Computers.
+
 ![](/assets/images/wpid5372-AD-group-DN.png)
 
-Under the group properties with "Advanced features" enabled in Active Directory Users and Computers, go to the attribute editor and copy the "distinguishedName" as shown in the image above.
+Under the group properties with "Advanced features" enabled in Active Directory Users and Computers, go to the attribute editor and copy the `distinguishedName` as shown in the image above.

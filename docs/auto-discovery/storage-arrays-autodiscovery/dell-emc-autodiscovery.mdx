@@ -3,109 +3,110 @@ title: "Dell/EMC Autodiscovery"
 sidebar_position: 1
 ---
 
-This page details access protocols and configuring read-only user accounts with minimum permissions for use in Dell or EMC storage array autodiscovery.
+Device42 discovers Dell and EMC storage arrays including Compellent, VNX/VMAX, Data Domain, Unity, and Isilon. This page lists the access protocols and default ports for each array, and provides steps for setting up users with minimum read-only permissions.
+
+For general storage array discovery job setup, see [Storage Arrays Discovery](index.mdx).
 
 ## Access Protocols by Array
 
 | Vendor | Array | Access Mechanism | Default Port |
 |--------|-------|------------------|--------------|
 | Dell   | Compellent | REST | 3033 |
-| Dell   | VNX/VMAX | SMIS | 5988 / 5989 |
-| EMC    | Data Domain | REST / SSH | 3009 / 22 |
+| Dell   | VNX or VMAX | SMIS | 5988 or 5989 |
+| EMC    | Data Domain | REST or SSH | 3009 or 22 |
 | EMC    | Unity | REST | 443 |
 | Dell   | Isilon (Gen 6) | Vendor API | 8080 |
 
-## Minimum Permissions for Storage Array Autodiscovery
+## Minimum Permissions for Storage Array Discovery
 
-Follow the steps in the sections below to set up users or roles with minimum read-only permissions that you can use when you create storage array autodiscovery jobs.
+Follow the steps below to set up users or roles with minimum read-only permissions for storage array discovery jobs.
 
 ### Dell Compellent
 
-Compellent discovery requires use of an associated Dell Storage Manager appliance.
+Compellent discovery requires an associated Dell Storage Manager (DSM) appliance.
 
 1. Log in to your DSM deployment’s web UI.
 2. Select **Data Collector** settings.
 3. Go to the **Users** tab.
 4. Go to the **Users & User Groups** tab.
-5. Create a user and assign it the **Reporter** role.
+5. Create a user and assign it the **Reporter** role.
 6. Select your new user and connect it to your target **Storage Center** via the **Select Storage Center Mappings** menu.
 
 ### VNX or VMAX Using EMC SMIS Provider
 
-Log in to SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `https://<SMIS-Provider-IP>:5989/ECOMConfig`.
+Log in to the SMIS provider using `http://<SMIS-Provider-IP>:5988/ECOMConfig` or `https://<SMIS-Provider-IP>:5989/ECOMConfig`.
 
-- Click **Add User** and create a user with the **monitor** role.
+1. Click **Add User** and create a user with the **monitor** role.
 
-![Add User](/assets/images/dell-emc-autodiscovery/smis-add-user.png)
+   ![Add User](/assets/images/dell-emc-autodiscovery/smis-add-user.png)
 
-- Use the **Dynamic Settings** shown below.
+2. Use the **Dynamic Settings** shown below.
 
-![Dynamic Settings](/assets/images/dell-emc-autodiscovery/smis-dynamic-settings.png)
+   ![Dynamic Settings](/assets/images/dell-emc-autodiscovery/smis-dynamic-settings.png)
 
 ### EMC Data Domain
 
 1. Log in to the Data Domain console.
-2. Select **Administration → Access** on the left panel.
-3. Go to the **Local Users** tab.
-4. Create a user and assign one of the available roles:
-
-    - admin
-    - limited-admin
-    - security
-    - user
-    - back-operator
-    - none  
-          
-6. Select the minimum **user** role.
-7. Click **OK** and save the user.
+2. Select **Administration > Access** on the left panel.
+3. Go to the **Local Users** tab.
+4. Create a user and assign it the minimum **user** role. The available roles are:
+    - `admin`
+    - `limited-admin`
+    - `security`
+    - `user`
+    - `back-operator`
+    - `none`
+5. Click **OK** and save the user.
 
 ### EMC Unity
 
-1. Log in to the EMC Unity Console console.
-2. Click on the gear icon in the tool bar to open the **Settings** window.
-3. Click on the **Users and Groups** tab.
-4. Click on the **+** button to add a user. This will launch the **Create User** wizard.
-5. Select type of user on first page, and click **Next**.
-6. Enter username and password, and click **Next**.
-7. Assign one of the available roles:
-
+1. Log in to the EMC Unity console.
+2. Click the **gear icon** in the toolbar to open the **Settings** window.
+3. Click the **Users and Groups** tab.
+4. Click the **+** button to add a user. This launches the **Create User** wizard.
+5. Select the type of user and click **Next**.
+6. Enter a username and password, and click **Next**.
+7. Assign the minimum **Operator** role. The available roles are:
     - Administrator
     - Storage Administrator
     - Operator
-    - VM Administrator  
-          
-8. Select the minimum **Operator** role.
-9. Click **Finish** and save the user.
+    - VM Administrator
+8. Click **Finish** and save the user.
 
 ### Isilon
 
 Create a new role and add the following read-only permissions:
 
-- ISI_PRIV_LOGIN_CONSOLE
-- ISI_PRIV_LOGIN_PAPI
-- ISI_PRIV_LOGIN_SSH
-- ISI_PRIV_SYS_SHUTDOWN
-- ISI_PRIV_SYS_SUPPORT
-- ISI_PRIV_AUTH
-- ISI_PRIV_AUDIT
-- ISI_PRIV_CLUSTER
-- ISI_PRIV_DEVICES
-- ISI_PRIV_FTP
-- ISI_PRIV_HDFS
-- ISI_PRIV_HTTP
-- ISI_PRIV_MONITORING
-- ISI_PRIV_NDMP
-- ISI_PRIV_NETWORK
-- ISI_PRIV_NFS
-- ISI_PRIV_NS_TRAVERSE
-- ISI_PRIV_NS_IFS_ACCESS
-- ISI_PRIV_QUOTA
-- ISI_PRIV_REMOTE_SUPPORT
-- ISI_PRIV_SMARTPOOLS
-- ISI_PRIV_SMB
-- ISI_PRIV_STATISTICS
+<details>
+  <summary>Isilon read-only permissions</summary>
 
-**You can also use CLI commands to create such roles:**
+- `ISI_PRIV_LOGIN_CONSOLE`
+- `ISI_PRIV_LOGIN_PAPI`
+- `ISI_PRIV_LOGIN_SSH`
+- `ISI_PRIV_SYS_SHUTDOWN`
+- `ISI_PRIV_SYS_SUPPORT`
+- `ISI_PRIV_AUTH`
+- `ISI_PRIV_AUDIT`
+- `ISI_PRIV_CLUSTER`
+- `ISI_PRIV_DEVICES`
+- `ISI_PRIV_FTP`
+- `ISI_PRIV_HDFS`
+- `ISI_PRIV_HTTP`
+- `ISI_PRIV_MONITORING`
+- `ISI_PRIV_NDMP`
+- `ISI_PRIV_NETWORK`
+- `ISI_PRIV_NFS`
+- `ISI_PRIV_NS_TRAVERSE`
+- `ISI_PRIV_NS_IFS_ACCESS`
+- `ISI_PRIV_QUOTA`
+- `ISI_PRIV_REMOTE_SUPPORT`
+- `ISI_PRIV_SMARTPOOLS`
+- `ISI_PRIV_SMB`
+- `ISI_PRIV_STATISTICS`
+
+</details>
+
+You can also use CLI commands to create roles:
 
 1. Log in to the cluster using SSH.
 
@@ -114,65 +115,70 @@ Create a new role and add the following read-only permissions:
    - To create a read-only role:
   
        ```
-       isi auth roles create –name readonly_role –description “Read-only role for D42”
+       isi auth roles create --name readonly_role --description “Read-only role for D42”
        ```
    
-   - To give permissions to this role add all the permissions from above:
+   - To give permissions to this role, add all the permissions from above:
    
        ```
-       isi auth roles modify readonly_role –add-priv-ro=ISI_PRIV_LOGIN_PAPI
+       isi auth roles modify readonly_role --add-priv-ro=ISI_PRIV_LOGIN_PAPI
        ```
    
-   - To create a USER:
+   - To create a user:
 
       ```
-       isi auth users create readonly_user –enabled yes –password xxxxxx
+       isi auth users create readonly_user --enabled yes --password xxxxxx
        ```
    
    - To add a user to the role:
 
        ```
-       isi auth roles modify readonly_role –add-user=readonly_user
+       isi auth roles modify readonly_role --add-user=readonly_user
        ```
 
-**Alternatively, you can create the Role/User via the web UI**
+Alternatively, you can create the role and user via the web UI:
 
 1. Log in to the cluster web UI.
-2. Select **Access Tab → Membership & Roles**.
-3. Select the **Users** tab.
+2. Select **Access Tab > Membership & Roles**.
+3. Select the **Users** tab.
 4. Select **LOCAL: System** for the provider.
-5. Create user:
+5. Create a user:
 
     - Set the username and password.
     - Select **Users** as the primary group.
     - Enable the account.
 
-7. Select the **Roles** tab.
-8. Create a role:
+6. Select the **Roles** tab.
+7. Create a role:
 
     - Set the **Role Name**.
     - Add the member (the user created above).
     - Add the following privileges as read-only:
 
-        - Console  
-        - Platform API  
-        - SSH  
-        - Shutdown  
-        - Support  
-        - Auth  
-        - Audit  
-        - Cluster  
-        - Devices  
-        - FTP  
-        - HDFS  
-        - HTTP  
-        - Monitoring  
-        - NDMP  
-        - Network  
-        - NFS  
-        - Remote Support  
-        - SmartPools  
-        - SMB  
-        - Statistics  
-        - Namespace Traverse  
-        - Namespace Acces_s
+    <details>
+        <summary>Isilon web UI privileges</summary>
+
+    - Console
+    - Platform API
+    - SSH
+    - Shutdown
+    - Support
+    - Auth
+    - Audit
+    - Cluster
+    - Devices
+    - FTP
+    - HDFS
+    - HTTP
+    - Monitoring
+    - NDMP
+    - Network
+    - NFS
+    - Remote Support
+    - SmartPools
+    - SMB
+    - Statistics
+    - Namespace Traverse
+    - Namespace Access
+
+    </details>

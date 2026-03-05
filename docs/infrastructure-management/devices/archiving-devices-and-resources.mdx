@@ -1,16 +1,18 @@
 ---
-title: "Archiving Devices and Resources"
+title: "Archive Devices and Resources"
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can archive devices and other resources to retire them or to take them out of service but still keep a record of the archived object. Device42 displays a list view of archived objects, and you can view and edit individual archived objects. The instructions below show how to archive a device and archive a resource.
+Archiving lets you retire devices and resources from active service while keeping a record of the object. Archived objects are stored on a separate list page where you can view, edit, or delete them.
+
+This page explains how to archive devices and resources individually or in bulk, and how to manage archived objects.
 
 ## Archive a Device
 
-- Go to **Resources > Compute > All Devices** to display the Devices list page.
-- Click the name of the device you want to archive to display its view page, then click **Archive**.
+1. Navigate to **Resources > Compute > All Devices** to display the Devices list page.
+2. Click the name of the device you want to archive to display its view page, then click **Archive**.
 
     <ThemedImage
     alt="Archive device button"
@@ -19,9 +21,8 @@ You can archive devices and other resources to retire them or to take them out o
         dark: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-button-dark.png'),
     }}
     />
- 
 
-- Device42 displays an archive device prompt page. Click **Yes, I'm sure** to archive the device. Click your browser's **Back** button to return to the device's view page.
+3. Click **Yes, I'm sure** to confirm. The device is added to the Archived Objects list page.
 
     <ThemedImage
     alt="Archive confirmation prompt"
@@ -39,11 +40,9 @@ You can archive devices and other resources to retire them or to take them out o
     }}
     />
 
-Device42 adds the device to the Archived Objects list page.
+### Bulk Archive Devices
 
-### Bulk Device Archive Option
-
-You can archive multiple devices simultaneously using the **Fast Background Archive** command in the **Actions** menu on the Devices list page, rather than having to archive the devices individually. Select the devices you want to archive, and then select the command. Note that this command does not display a confirmation prompt.
+To archive multiple devices at once, select the devices from the Devices list page and choose **Fast Background Archive** from the **Actions** menu. This command does not display a confirmation prompt.
 
 <ThemedImage
   alt="Bulk archive option"
@@ -55,8 +54,9 @@ You can archive multiple devices simultaneously using the **Fast Background Arc
 
 ## Archive a Resource
 
-- Go to **Resources > Resources > All Resources** to display the Resources list page.
-- Click the name of the resource you want to archive to display the resource view page.
+1. Navigate to **Resources > Resources > All Resources** to display the Resources list page.
+2. Click the name of the resource you want to archive to display the resource view page.
+3. Click **Archive** at the top right of the view page.
 
     <ThemedImage
     alt="Resource archive button"
@@ -65,10 +65,7 @@ You can archive multiple devices simultaneously using the **Fast Background Arc
         dark: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-resources-button-dark.png'),
     }}
     />
-
-
-- Click **Archive** at the top right of the view page.
-- Device42 displays an **Archive Object** pop-up with information about the resource. Click **Show** to see additional information; you can also add optional notes.
+4. An **Archive Object** pop-up displays information about the resource. Click **Show** to see additional details, and add optional notes if needed.
 
     <ThemedImage
     alt="Archive resource popup"
@@ -78,72 +75,70 @@ You can archive multiple devices simultaneously using the **Fast Background Arc
     }}
     />
 
-- Click **Archive** to archive the resource.
-- Device42 adds the resource to the Archived Objects list page.
+5. Click **Archive** to confirm. The resource is added to the Archived Objects list page.
 
-## View and Edit Archived Objects
+## View Archived Objects
 
-- Go to **Analytics > Audit Logs > Archived Objects** to display the list page.
+Navigate to **Analytics > Audit Logs > Archived Objects** to display the list page.
 
-    <ThemedImage
-    alt="Archived objects list"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-objects-list-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-objects-list-dark.png'),
-    }}
-    />
+<ThemedImage
+  alt="Archived objects list"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-objects-list-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/archive-objects-list-dark.png'),
+  }}
+/>
 
-- You can sort the objects list by **Object Type** or by **Archive Date**.
+Sort the list by **Object Type** or **Archive Date**.
 
-    <ThemedImage
-    alt="Archive filter options"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/filter-archive-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/filter-archive-dark.png'),
-    }}
-    />
+<ThemedImage
+  alt="Archive filter options"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/filter-archive-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/filter-archive-dark.png'),
+  }}
+/>
 
-- Click on the name of an archived object to view it.
+Click the name of an archived object to view it. The left side of the page shows the object's child elements.
 
-    <ThemedImage
-    alt="Archived object view"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/view-archived-object-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/view-archived-object-dark.png'),
-    }}
-    />
-     
+<ThemedImage
+  alt="Archived object view"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/view-archived-object-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/view-archived-object-dark.png'),
+  }}
+/>
 
-- Information about the archived object’s child elements appears on the right of the page. Hover over the links next to the child elements to display pop-ups with additional information about the element.
+Hover over the links to display pop-ups with additional details.
 
-    <ThemedImage
-    alt="Hover details popup"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/hover-details-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/hover-details-dark.png'),
-    }}
-    />
- 
-- Click **Edit** at the top right to add or edit notes about the archived object. (Note that all the other information on the page is read-only.) Click **Save** when done.
+<ThemedImage
+  alt="Hover details popup"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/hover-details-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/hover-details-dark.png'),
+  }}
+/>
 
-    <ThemedImage
-    alt="Edit note interface"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/edit-note-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/edit-note-dark.png'),
-    }}
-    />
- 
+## Edit an Archived Object
+
+Click **Edit** at the top right to add or edit notes about the archived object. All other information on the page is read-only. Click **Save** when done.
+
+<ThemedImage
+  alt="Edit note interface"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/edit-note-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/edit-note-dark.png'),
+  }}
+/>
 
 ## Delete an Archived Object
 
-- On the Archived Objects list page, click the check box next to the object you want to delete.
-- Select either **Delete with Detailed Confirmation** or **Fast Background Delete** from the **Actions** menu.
+From the Archived Objects list page, select the checkbox next to the object you want to delete. Choose **Delete with Detailed Confirmation** or **Fast Background Delete** from the **Actions** menu.
 
-    <ThemedImage
-    alt="Delete archived object"
-    sources={{
-        light: useBaseUrl('/assets/images/archiving-devices-and-resources/delete-archived-object-light.png'),
-        dark: useBaseUrl('/assets/images/archiving-devices-and-resources/delete-archived-object-dark.png'),
-    }}
-    />
+<ThemedImage
+  alt="Delete archived object"
+  sources={{
+    light: useBaseUrl('/assets/images/archiving-devices-and-resources/delete-archived-object-light.png'),
+    dark: useBaseUrl('/assets/images/archiving-devices-and-resources/delete-archived-object-dark.png'),
+  }}
+/>

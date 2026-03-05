@@ -6,11 +6,15 @@ sidebar_position: 4.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-To install the signed Mac Agent, do the following:
+The signed Mac Agent is a notarized binary for running agent-based discovery on macOS machines. Use it when you need a signed executable that can be deployed via MDM solutions like JAMF.
 
-1. Download the **Signed Mac Agent for Discovery** from [https://www.device42.com/autodiscovery/](https://www.device42.com/autodiscovery/) for Intel or Apple Silicon macOS machines. 
+This page covers how to install and run the signed Mac Agent.
 
-2. Download the **Encrypted config file for Agent** from the agent screen on the Device42 Main Appliance, under **Discovery > Agent Based Scans**.
+## Install the Signed Mac Agent
+
+1. Download the **Signed Mac Agent for Discovery** from [https://www.device42.com/autodiscovery/](https://www.device42.com/autodiscovery/) for Intel or Apple Silicon macOS machines.
+
+2. Download the **Encrypted config file for Agent** from the Device42 Main Appliance under **Discovery > Agent Based Scans**.
 
 <ThemedImage
   alt="Get the encrypted config file"
@@ -20,26 +24,29 @@ To install the signed Mac Agent, do the following:
   }}
 />
 
-This will be an encrypted URL and a public key with some other data needed for discovery. It uses AES-256-bit encryption.
+The config file contains an encrypted URL and a public key with other data needed for discovery. It uses AES-256-bit encryption.
 
-Run the agent as:
+## Run the Agent
+
+To run the signed Mac Agent:
+
+1. Unzip the notarized binary file.
+2. Store the config file on the file system.
+3. Run the binary with the config file:
+
 ```
 (sudo) <executable name> --config-file=<path>/d42_agent_config
 ```
 
-To run the above:
+Enterprise customers can deploy the agent via JAMF or other MDM solutions.
 
-- Unzip the notarized binary file.
-- Store the config file somewhere on the file system.
-- Run the binary calling the config file.
+## Usage Notes
 
-Enterprise customers should be able to do this via JAMF or other MDM solutions.
+Keep the following in mind when using the signed Mac Agent:
 
-## Notes
-
-- The `-config-file` switch only works for this executable, and won’t work for any agent executable downloaded from the Main Appliance.
-- All other switches, like for overriding the host, will work for this executable and any agent downloaded from the Main Appliance.
-- It won't auto-update (as that would break the signing) and needs to be manually updated or updated via MDM solutions.
+- The `--config-file` switch only works for this executable and does not work for agent executables downloaded from the Main Appliance.
+- All other switches, such as overriding the host, work for both this executable and agents downloaded from the Main Appliance.
+- The signed Mac Agent does not auto-update, as that would break the signing. Update it manually or via MDM solutions.
 
 ## Troubleshooting
 

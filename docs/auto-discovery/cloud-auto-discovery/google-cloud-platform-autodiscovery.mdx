@@ -6,19 +6,21 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Use Device42's Google Cloud Platform (GCP) autodiscovery to automatically inventory your GCP infrastructure, including virtual machines, Kubernetes clusters, databases, networks, and load balancers.
+Device42 Google Cloud Platform (GCP) discovery provides automated inventory of your GCP infrastructure, including virtual machines, Kubernetes clusters, databases, networks, and load balancers.
+
+This page covers the GCP discovery items, permission requirements, and how to configure and run a GCP discovery job in Device42.
 
 ## Google Cloud Platform Discovery Items
 
-The following table outlines the Google Cloud Platform (GCP) items that Device42 automatically discovers, the types of information generated for each item, and where that information can be found in Device42.
+The following table lists the GCP items that Device42 discovers, the information generated for each item, and where to find it in Device42.
 
-| Cloud Service/Object Name | Device42 Location | Accessed API | Information Generated |
+| Cloud Service or Object Name | Device42 Location | Accessed API | Information Generated |
 |----------------------------|------------------------------|--------------|-----------------------|
-| K8s (GKE) Discovery         | Devices -> Unknown           | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest), [Container API](https://www.googleapis.com/discovery/v1/apis/container/v1/rest) | Containers, pods, clusters |
-| Networks (as VRF Groups)    | Network -> VRF Groups        | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Name |
-| Subnets                     | Networks -> Subnets          | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Mask, name, VRF Group |
-| SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, etc. |
-| VMs                         | Devices -> All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, Name, RAM, OS, CPU, cores, etc. |
+| K8s (GKE) Discovery         | Devices > Unknown           | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest), [Container API](https://www.googleapis.com/discovery/v1/apis/container/v1/rest) | Containers, pods, clusters |
+| Networks (as VRF Groups)    | Network > VRF Groups        | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Name |
+| Subnets                     | Networks > Subnets          | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Mask, name, VRF Group |
+| SQL DB                      |                              | [SQL Admin API](https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) | Tables, instances, and so on |
+| VMs                         | Devices > All Devices       | [Compute API](https://www.googleapis.com/discovery/v1/apis/compute/v1/rest) | Type, name, RAM, OS, CPU, cores, and so on |
 
 Device42 also discovers the following GCP items:
 
@@ -57,7 +59,7 @@ Device42 also discovers the following GCP items:
 
 ## GCP Permission Requirements
 
-The following permissions are required to perform a GCP discovery job. You can create a custom IAM role with these permissions or ensure they are included in existing roles granted to your account or service account.
+The following permissions are required for a GCP discovery job. Create a custom IAM role with these permissions, or ensure they are included in existing roles assigned to your account or service account.
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -105,11 +107,11 @@ resourcemanager.projects.get
 
 </details>
 
-## GCP Discovery Job Configuration
+## Create a GCP Discovery Job
 
 You need a user account with the built-in GCP "Viewer" role before you can begin a GCP discovery job.
 
-### Create a New GCP Discovery Job
+### Set Up the Discovery Job
 
 To create a new GCP discovery job, go to **Discovery > Cloud** and click **+ Add Cloud Autodiscovery**. Choose **Google Cloud** as the discovery **Type**.
 
@@ -125,6 +127,8 @@ sources={{
 
 ### Provide JSON Credentials
 
+Add your Google Cloud Engine JSON key to the discovery job as a secret:
+
 1. Locate and save your [Google Cloud Engine JSON key](https://cloud.google.com/iam/docs/keys-create-delete) to your local machine.
 2. Open the key in a text editor and copy its contents:
   ![Google Cloud Engine JSON key](/assets/images/google-cloud-platform-autodiscovery/google-json-key.png)
@@ -138,11 +142,11 @@ sources={{
     }}
   />
 
-### Determine Configuration Options
+### GCP Discovery Job Options
 
-The following configuration options are available for GCP:
+The following configuration options are available for GCP discovery jobs:
 
-- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on your GCP.
+- Select **Kubernetes Discovery** to discover Kubernetes clusters hosted on GCP.
 
 <ThemedImage
 alt="Kubernetes Discovery option"
@@ -157,11 +161,11 @@ sources={{
 - Select **Overwrite existing object categories** to replace previously assigned categories with the current selection.
 - Set a job **Service Level** (for example, "Development", "Deployment", or "Production") to apply to the discovered items. See [Service Level and Object Category Options](index.mdx#service-level-and-object-category-options) for details.
 
-### Locate GCP Account Tags
+## GCP Account Tags
 
 Navigate to **Infrastructure > Cloud Infrastructure > Cloud Accounts** and select your GCP account from the **Cloud Accounts** list page.
 
-The available discovered account-level tags will be listed under the **Vendor Custom Fields** section.
+Discovered account-level tags are listed under the **Vendor Custom Fields** section.
 
 <ThemedImage
 alt="GCP vendor custom fields"
