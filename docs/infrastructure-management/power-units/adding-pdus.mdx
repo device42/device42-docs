@@ -1,14 +1,16 @@
 ---
-title: "Adding PDUs"
+title: "Add PDUs"
 sidebar_position: 2
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Add a new PDU by heading to **DataCenter > Power Units > Power Units**. Relevant PDU-related fields are listed and defined below. 
+Use this page to add a new PDU in Device42 and understand the fields available during setup.
 
-Note that PDUs (like almost all Device42 CIs) can also be added and manipulated [via the API](https://api.device42.com/#pdu).
+The sections below explain the main PDU fields, show how automatic port creation works, and outline how to map a PDU to a device when you want to track asset and lifecycle details. You can also add and manage PDUs [via the API](https://api.device42.com/#pdu).
+
+To add a PDU from the UI, go to **DataCenter > Power Units > Power Units**.
 
 <ThemedImage
   alt="Add new PDU"
@@ -21,19 +23,21 @@ Note that PDUs (like almost all Device42 CIs) can also be added and manipulated 
 
 ## PDU Field Descriptions
 
-- **Name:** Name your PDU (required).
+Use these fields to define the new power unit:
+
+- **Name:** Enter a name for the PDU (required).
 - **Type:** Choose between **PDU**, **UPS**, **ATS**, and **Environmental Monitor** (required).
-- **Power Unit Model:** Choose the PDU model (required if the PDU is rack-mounted or used to track individual ports on the PDU).
-- **Is Device42 PDU monitoring enabled:** Flag this PDU as being monitored by Device42.
-- **Storage Room:** If the power unit is not stored in a rack or server room, provide the storage room where the PDU is located. Note that selecting a storage room will remove existing rack and server room information.
-- **Object Category:** Select an object category to which this PDU belongs. This field is visible if **Role-Based Access Control** (RBAC) is enabled under **Tools > Settings > Global Settings**.
+- **Power Unit Model:** Select the PDU model. This field is required if the PDU is rack-mounted or if you want to track individual PDU ports.
+- **Is Device42 PDU Monitoring Enabled:** Enable this option to have Device42 monitor the PDU.
+- **Storage Room:** If the power unit is not stored in a rack or server room, specify the storage room where it is located. Selecting a storage room removes any existing rack and server room information.
+- **Object Category:** Select the object category for this PDU. This field is visible only if **Role-Based Access Control** (RBAC) is enabled under **Tools > Settings > Global Settings**.
   :::note
   The **Set Object Category** option on the **Actions** menu of the Power Units list page is only visible if RBAC is enabled.
   :::
 - **Tags:** Include a comma-separated list of tags to categorize this power unit.
-- **Notes:** Optionally add notes regarding this power unit.
+- **Notes:** Optionally add notes about this power unit.
 
-## Device Mapping Section
+## Configure Device Mapping
 
 <ThemedImage
   alt="Add new PDU Rack info & Infeeds"
@@ -44,26 +48,27 @@ Note that PDUs (like almost all Device42 CIs) can also be added and manipulated 
   style={{ width: '110%' }}
 />
 
-**Device:** Associating your PDU with a device is required only if you want to track IP address, life cycle, or other asset information for the PDU; IP and asset info is tracked via the chosen device (optional).
+Use the Device Mapping section when you want to track IP address, lifecycle, or other asset details for the PDU through an associated device.
 
-- **Serial #:** If PDU is mapped to a device, the serial number of the mapped device is shown here.
-- **Asset #:** If PDU is mapped to a device, the asset number of the mapped device is shown here.
+- **Device:** Associate the PDU with a device. This is optional unless you want to track IP address, lifecycle, or other asset information for the PDU.
+- **Serial #:** If the PDU is mapped to a device, the mapped device's serial number appears here.
+- **Asset #:** If the PDU is mapped to a device, the mapped device's asset number appears here.
 
-## Gateway PDU Mapping Section
+## Configure Gateway PDU and Other Fields
 
-**Gateway PDU:** If this PDU is plugged into another PDU (aka daisy chained), identify the "Gateway PDU" it is plugged in to, if any (optional).
+These additional fields appear in the lower part of the form:
 
-**Infeeds:** Power infeed information will display here (n/a; auto-discovered).
+- **Gateway PDU:** If this PDU is plugged into another PDU, identify the gateway PDU it is connected to. Use this field for daisy-chained PDUs.
+- **Infeeds:** Power infeed information appears here when available. This information is auto-discovered.
+- **Custom Fields:** Any custom fields you created for PDUs appear here.
 
-**Custom Fields:** Any custom fields you have created for PDUs will display here (optional).
-
-Upon saving your new PDU, Device42 will automatically add ports based on the selected PDU model. **Note that ports can only be added at the time of PDU creation and cannot be altered later!**
+When you save the new PDU, Device42 automatically adds ports based on the selected PDU model. Ports can be added only during PDU creation and cannot be changed later.
 
 * * *
 
 ## Automatically Created Ports
 
-When you click **Save**, the new PDU is created and PDU ports are automatically generated based on the port layout defined by the chosen PDU model. For information on defining your PDU model(s), see the [Defining PDU Models](infrastructure-management/power-units/defining-pdu-models.mdx) section of the Device42 Docs.
+When you click **Save**, Device42 creates the new PDU and automatically generates ports based on the layout defined by the selected PDU model. For information about defining PDU models, see [Defining PDU Models](defining-pdu-models.mdx).
 
 <ThemedImage
   alt="Automatically Created PDU Ports"
@@ -74,10 +79,10 @@ When you click **Save**, the new PDU is created and PDU ports are automatically 
   style={{ width: '110%' }}
 />
 
-## Map PDUs to a Device
+## Map a PDU to a Device
 
 <ThemedImage
-  alt="Add device type other to associate with PDU"
+  alt="Create a device to associate with a PDU"
   sources={{
     light: useBaseUrl('/assets/images/power-units/create_associated_device_for_PDU-hl-light.png'),
     dark: useBaseUrl('/assets/images/power-units/create_associated_device_for_PDU-hl-dark.png'),
@@ -85,17 +90,16 @@ When you click **Save**, the new PDU is created and PDU ports are automatically 
   style={{ width: '110%' }}
 />
 
+To track details such as the PDU's serial number, asset number, IP address, purchase information, and lifecycle information, map the PDU to a device. Create a device for PDU mapping as follows:
 
-To track details about a PDU (for example, its serial number, asset number, IP address, purchase information, and life-cycle management), map the PDU to a device. Create a device for the purpose of PDU mapping as follows:
-
-1. Create a new device, setting its **Type** to **unknown** (see image above). For better organization, we recommend (but do not require) that you give the device the same name as the PDU that you will be mapping it to.
-2. Set the new device's subtype to **PDU** (see the above image). There is no need to define hardware, and all other fields are optional.
+1. Create a new device and set its **Type** to **unknown** (see the image above). For easier organization, you can give the device the same name as the PDU you plan to map.
+2. Set the new device's subtype to **PDU** (see the image above). You do not need to define hardware, and all other fields are optional.
 3. **Save** the new device.
-4. Head back to the PDU CI that will be linked to the device you just created. Edit the PDU by clicking the edit button, and click the magnifying glass on the Device Mapping option (see the image below). Choose the device you created in Steps 1-3 by clicking on its name in the **Select Device** popup.
+4. Return to the PDU CI that will be linked to the device you just created. Edit the PDU, then click the magnifying glass next to **Device** in the Device Mapping section (see the image below). In the **Select Device** window, click the device you created in steps 1 through 3.
 5. **Save** the changes to the PDU.
 
 <ThemedImage
-  alt="PDU mapped to Device"
+  alt="PDU mapped to a device"
   sources={{
     light: useBaseUrl('/assets/images/power-units/mapped_device_PDU-HL-light.png'),
     dark: useBaseUrl('/assets/images/power-units/mapped_device_PDU-HL-dark.png'),
@@ -105,10 +109,10 @@ To track details about a PDU (for example, its serial number, asset number, IP a
     
 ### View and Navigate Between a Mapped PDU and Device
 
-You can easily navigate from a device to the PDU it's plugged into or from a PDU to the device page of the device that's plugged into it. The PDU mapping page links to the device details page (see the above image) and the device mapping page links back to the PDU details page (see the image below).
+After mapping is complete, you can navigate between the PDU and the related device. The PDU page links to the device details page (see the image above), and the device page links back to the PDU details page (see the image below).
 
 <ThemedImage
-  alt="Device w mapped PDU"
+  alt="Device with a mapped PDU"
   sources={{
     light: useBaseUrl('/assets/images/power-units/Device_mapped_PDU-hl-light.png'),
     dark: useBaseUrl('/assets/images/power-units/Device_mapped_PDU-hl-dark.png'),
