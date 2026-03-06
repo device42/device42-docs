@@ -5,6 +5,8 @@ sidebar_position: 3
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import fsAdminImage from '/assets/images/freshservice-integration/fs-admin.png'
+import fsInventoryMenuImage from '/assets/images/freshservice-integration/fs-inventory-menu.png'
 
 :::tip
 This page covers advanced data mapping customization and XML file editing. 
@@ -777,27 +779,39 @@ If you want Device42 to update `asset_state` values, set `skip-update` to `"fals
 
 ### Example 4: How To Sync Buildings, Rooms, and Racks From Device42 to Freshservice
 
-By default, the `mapping.xml` file does not sync building, room, or rack data from Device42 to Freshservice. The following steps are based on version 6.0 of the default `mapping.xml` file and cover how to:
+By default, the `mapping.xml` file does not sync Building, Room, or Rack data from Device42 to Freshservice. The following steps, based on version 6.0 of the default `mapping.xml` file, walk you through how to set this up:
 
-1. Create `Building`, `Room`, and `Rack` as custom asset types in Freshservice
-2. Sync buildings
-3. Sync rooms
-4. Sync racks
-5. Sync relationships between rooms and buildings
-6. Sync relationships between racks and rooms
-7. Delete buildings that no longer exist in Device42
-8. Delete rooms that no longer exist in Device42
-9. Delete racks that no longer exist in Device42
-10. Delete relationships between rooms and buildings that no longer exist in Device42
-11. Delete relationships between racks and rooms that no longer exist in Device42
+- Create Building and Room as custom asset types in Freshservice (Rack is available by default)
+- Sync buildings, rooms, and racks
+- Sync relationships between rooms and buildings, and between racks and rooms
+- Delete buildings, rooms, and racks that no longer exist in Device42
+- Delete relationships that no longer exist in Device42
 
-**Step 1:** Create `Building`, `Room`, and `Rack` as custom asset types in Freshservice.
+**Step 1:** Create Building and Room as custom asset types in Freshservice. Rack is already available by default under the **DataCenter** parent asset type and does not need to be created.
 
-<!-- TODO: Add steps for creating asset types in Freshservice -->
+1. Go to **Admin** in the ellipses menu (left panel).
 
-**Step 2:** Add the following `<task>` element to your `mapping.xml` file before the `Delete assets from Freshservice that do not exist in Device42` cleanup task to sync buildings. 
+    <img src={fsAdminImage} style={{ width: "50%" }} />
 
-The DOQL query fetches data from `view_building_v1`. The [`<mapping>` element](#the-task-element-elements) maps the returned fields to the `Building` asset type in Freshservice, grouping them under the **General** and **Building** sections.
+2. Search for "Asset Types & Fields"
+
+    ![Asset Types & Fields](/assets/images/freshservice-integration/fs-search-asset.png)
+
+3. Find the **DataCenter** parent asset type and click the **plus symbol** to add the asset types.
+
+    ![Add new asset types](/assets/images/freshservice-integration/fs-parent.png)
+
+4. Verify that the new asset types are added by going to **Inventory** and clicking **Add New**.
+
+    <img src={fsInventoryMenuImage} style={{ width: "50%" }} />
+
+    The **Asset Type** dropdown will display the new asset types.
+
+    ![New asset type dropdown](/assets/images/freshservice-integration/fs-dropdown.png)
+
+**Step 2:** To sync buildings, add the following `<task>` element to your `mapping.xml` file before the `Delete assets from Freshservice that do not exist in Device42` cleanup task.
+
+The DOQL query fetches data from `view_building_v1`. The [`<mapping>` element](#the-task-element-elements) maps the returned data to the `Building` asset type in Freshservice, grouping them under the **General** and **Building** sections.
 
 <details>
   <summary>Click to expand the Building task</summary>
@@ -840,9 +854,7 @@ The DOQL query fetches data from `view_building_v1`. The [`<mapping>` element](#
 
 </details>
 
-**Step 3:** Add the following `<task>` element after the Building task to sync rooms. 
-
-The DOQL query fetches data from `view_room_v1`. The `<mapping>` element maps the returned fields to the `Room` asset type in Freshservice, grouping them under the **General** and **Room** sections.
+**Step 3:** Add the following `<task>` element after the Building task to sync rooms. Similarly, the DOQL query fetches the room data, and the `<mapping>` element maps the returned data to the `Room` asset type in Freshservice, grouping them under the **General** and **Room** sections.
 
 <details>
   <summary>Click to expand the Room task</summary>
@@ -877,9 +889,7 @@ The DOQL query fetches data from `view_room_v1`. The `<mapping>` element maps th
 
 </details>
 
-**Step 4:** Add the following `<task>` element after the Room task to sync racks.
-
-The DOQL query fetches data from `view_rack_v1`. The `<mapping>` element maps the returned fields to the `Rack` asset type in Freshservice, grouping them under the **General** and **Rack** sections.
+**Step 4:** To sync racks, add the following `<task>` element after the Room task.
 
 <details>
   <summary>Click to expand the Rack task</summary>
@@ -916,11 +926,7 @@ The DOQL query fetches data from `view_rack_v1`. The `<mapping>` element maps th
 
 </details>
 
-:::note
-Before syncing relationships, confirm that the **Located In** and **Houses** relationship types are available in your Freshservice instance. <!-- TODO: SME to verify whether these relationship types exist by default in Freshservice or need to be created manually -->
-:::
-
-**Step 5:** Add the following `<task>` element after the three asset tasks above to sync relationships between rooms and buildings. The DOQL query joins `view_room_v1` and `view_building_v1`. The `<mapping>` element uses `downstream-relationship` and `upstream-relationship` attributes to define the **Located In / Houses** relationship type between each room and its parent building.
+**Step 5:** Add the following `<task>` element after the three asset tasks above to sync relationships between rooms and buildings. The DOQL query joins `view_room_v1` and `view_building_v1`. The `<mapping>` element uses `downstream-relationship` and `upstream-relationship` attributes to define the **Located In** – **Houses** relationship type between each room and its parent building.
 
 <details>
   <summary>Click to expand the Room to Building relationship task</summary>
@@ -978,7 +984,9 @@ Before syncing relationships, confirm that the **Located In** and **Houses** rel
 
 </details>
 
-**Steps 7–9:** To delete buildings, rooms, and racks that no longer exist in Device42, locate the `Delete assets from Freshservice that do not exist in Device42` cleanup task near the bottom of your `mapping.xml` file (see [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) for an overview of how cleanup tasks work). Add the following `UNION` clauses to the end of its DOQL query, before the closing `"`. Each clause selects the Device42 IDs of all existing buildings, rooms, and racks so Freshservice can identify and remove any that have been deleted.
+**Steps 7–9:** To delete buildings, rooms, and racks that no longer exist in Device42, locate the `Delete assets from Freshservice that do not exist in Device42` cleanup task near the bottom of your `mapping.xml` file (see [The `mapping.xml` File Tasks](#the-mappingxml-file-tasks) for an overview of how cleanup tasks work). 
+
+Add the following `UNION` clauses to the end of its DOQL query, before the closing `"`. Each clause selects the Device42 IDs of all existing buildings, rooms, and racks so Freshservice can identify and remove any that have been deleted.
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -1005,7 +1013,9 @@ from view_rack_v1 r
 
 </details>
 
-**Steps 10–11:** To delete relationships between rooms and buildings, and between racks and rooms, that no longer exist in Device42, update both `Delete asset relationships from Freshservice that do not exist in Device42` tasks. The `mapping.xml` file contains two versions of this task for [version compatibility](#the-task-element-attributes) — one with `d42_min_version="19.05.00"` and one with `d42_max_version="19.04.99"`. Add the following `UNION` clauses to the end of each task's DOQL query, before the closing `"`. Each clause selects the current room-to-building and rack-to-room relationships in Device42 so Freshservice can identify and remove any that no longer exist.
+**Steps 10–11:** To delete relationships between rooms and buildings, and between racks and rooms, that no longer exist in Device42, update both `Delete asset relationships from Freshservice that do not exist in Device42` tasks. The `mapping.xml` file contains two versions of this task for [version compatibility](#the-task-element-attributes) — one with `d42_min_version="19.05.00"` and one with `d42_max_version="19.04.99"`. 
+
+Add the following `UNION` clauses to the end of each task's DOQL query, before the closing `"`. Each clause selects the current room-to-building and rack-to-room relationships in Device42 so Freshservice can identify and remove any that no longer exist.
 
 <details>
   <summary>Click to expand the code block</summary>
