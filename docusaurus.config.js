@@ -1078,8 +1078,8 @@ const config = {
             from: ['/parts-and-parts-slots/part-model-templates/', '/spare-parts-management/models-and-parts/'],
           },
           {
-            to: '/infrastructure-management/parts-and-parts-slots/parts-slots/',
-            from: ['/parts-and-parts-slots/parts-slots/'],
+            to: '/infrastructure-management/parts-and-parts-slots/',
+            from: ['/parts-and-parts-slots/parts-slots/', '/infrastructure-management/parts-and-parts-slots/parts-slots/'],
           },
           {
             to: '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/',
