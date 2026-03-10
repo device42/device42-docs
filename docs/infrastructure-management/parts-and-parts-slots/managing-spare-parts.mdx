@@ -30,7 +30,7 @@ In this example, the parts model has one part.
   }}
 />
 
-Part assignments can be tracked — you can record where a part is located or in use. A part can be assigned to a storage room, device, port, or asset, or given a status of **In RMA**, **In Transit**, or **Storage Rack (or Cabinet)**. Before adding a part, a part model must exist first.
+Part assignments can be tracked so you can record where a part is located or in use. Before adding a part, a part model must exist first. For the full list of assignment options, see [Add Parts to Inventory](#add-parts-to-inventory).
 
 ### Parts Counts
 
@@ -58,7 +58,11 @@ The management features for parts and parts models are located under **Infrastru
       }}
     />
 
-2. Choose a part **Type** or create a custom type by clicking the **plus sign icon** (to the right of the dropdown). The available selections for the **Type** field include **CPU**, **RAM**, **Hard Disk**, **Disk Drive**, **Physical Memory**, **NIC**, **HBA**, **SCSI**, **Serial Bus**, **Riser Card**, **FPGA**, **Cable**, and **PSU**. Options like **CPU**, **RAM**, and **Hard Disk** have custom attributes (see example below), while **NIC**, **HBA**, **SCSI**, **Serial Bus**, and custom types have a **Connectivity** attribute.
+2. Choose a part **Type** or create a custom type by clicking the **plus sign icon** (to the right of the dropdown). The available types are **CPU**, **RAM**, **Hard Disk**, **Disk Drive**, **Physical Memory**, **NIC**, **HBA**, **SCSI**, **Serial Bus**, **Riser Card**, **FPGA**, **Cable**, and **PSU**.
+
+    :::note
+    **CPU**, **RAM**, and **Hard Disk** types have custom type-specific attributes (see [CPU, RAM, and Hard Disk Attributes](#cpu-ram-and-hard-disk-attributes) below). **NIC**, **HBA**, **SCSI**, **Serial Bus**, and custom types have a **Connectivity** attribute.
+    :::
 
     <ThemedImage
       alt="Parts model type dropdown menu"
@@ -188,7 +192,7 @@ To set up an alert, navigate to the main menu, **Analytics > Setup Alerts**, and
   }}
 />
 
-In the example below, the rule will trigger if the inventory count of Intel XEON machines falls below 10. (For rules that apply to parts, leave the **Seconds Before Action** at the default of `0`.) 
+In the example above, the rule will trigger if the inventory count of Intel XEON machines falls below 10. (For rules that apply to parts, leave the **Seconds Before Action** at the default of `0`.) 
 
 In this case, an email will be sent to `hal@device42.com` when the rule triggers. You can add multiple emails separated by commas or semicolons. You can also set the rule up so that an email is sent if enough parts are added to bring the inventory count back above the trigger level or so that escalation emails are sent if no one acknowledges the alert.
 
