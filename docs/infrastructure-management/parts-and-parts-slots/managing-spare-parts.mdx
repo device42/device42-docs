@@ -6,11 +6,11 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Manage and track spare parts and inventories across your entire IT operation with the powerful spare parts management capabilities built into Device42.
+This page explains the part model and parts structure in Device42 and how to create and manage parts manually. It also covers part assignments, inventory counts, and setting up low-stock alerts.
 
 ## Parts Overview
 
-Below is an example of a **Parts Model** view screen. A parts model is a **template** of sorts, where each parts model represents one or more physical, real-world parts. Once a parts model has been created, the inventory of that parts model can then be tracked and managed: 
+A parts model is a template where each parts model represents one or more physical, real-world parts. Once a parts model has been created, its inventory can be tracked and managed.
 
 <ThemedImage
   alt="View Parts Model detail page"
@@ -30,11 +30,11 @@ In this example, the parts model has one part.
   }}
 />
 
-## Parts Model vs. Parts 
+## Parts Model vs. Parts
 
 **What is a parts model?**
 
-A parts model is a template that devices are deployed from. Parts model templates hold information that describes each unique part, such as the model number, size, type (for HDD or RAM), and number of cores (for CPU).
+A parts model is a template that parts are created from. Parts model templates hold information that describes each unique part, such as the model number, size, type (for HDD or RAM), and number of cores (for CPU).
 
 **What is a part?**
 
@@ -50,7 +50,7 @@ A parts model is a template that devices are deployed from. Parts model template
 
 ### Parts Counts
 
-Every part has a specific "count" which tracks the part inventory, also known as the number of units of that part "in stock". When assigning parts (or spare parts) to specific devices, each part assigned will subtract one unit (or the number used if greater than 1) from the parts count inventory for that part. Ensure your part has a sufficient parts count inventory (greater than 0) before attempting to assign it. Should you have trouble, verify the part has sufficient inventory, and if needed, increase the inventory as appropriate.
+Every part has a **count** that tracks the number of units in stock. When you assign a part to a device, the count decreases by one (or more, if multiple units are used). Before assigning a part, ensure the count is greater than 0. If you have trouble assigning a part, verify the inventory count and increase it if needed.
 
 ## Parts Menu
 
@@ -64,11 +64,9 @@ The management features for parts and parts models are located in the Device42 m
   }}
 />
 
-### Adding a Parts Model
+### Add a Parts Model
 
-Add a new parts model or type by adding a **Parts Model**. As an example, let's add a new parts model.
-
-1. From the main menu, navigate to **Infrastructure > Hardware > Parts > Model List** and, at the top right of the list, choose **Create**.
+1. From the main menu, navigate to **Infrastructure > Hardware > Parts > Model List** and click **Create** in the top right.
 
     <ThemedImage
       alt="Add Parts Model button"
@@ -89,11 +87,11 @@ Add a new parts model or type by adding a **Parts Model**. As an example, let's 
     />
     
 3. Give the parts model a **Name** and fill in any appropriate information you have, such as the **Model Number**, the **Part Number**, and the **Manufacturer**.
-4. Click **Save** to finish adding your part. If you would like to add inventory of this part type, see the **Adding Parts to Inventory** section below.
+4. Click **Save**. To add inventory for this part type, see [Add Parts to Inventory](#add-parts-to-inventory).
 
 ### CPU, RAM, and Hard Disk Attributes
 
-It is important to note that each part type contains type-specific attributes. For example, the CPU, RAM, and Hard Disk types each have their own specific attributes:
+Each part type has type-specific attributes. The CPU, RAM, and Hard Disk types each have their own fields:
 
 **CPU**
 
@@ -125,7 +123,7 @@ It is important to note that each part type contains type-specific attributes. F
   }}
 />
 
-### Adding Parts to Inventory
+### Add Parts to Inventory
 
 After creating a parts model, the actual parts can be added via **Add New Part**.
 
@@ -149,7 +147,7 @@ After creating a parts model, the actual parts can be added via **Add New Part**
     }}
     />
 
-**A few notes about the Add Part screen:**
+Note the following about the **Add Part** form:
 
 - Each line item added can contain an inventory of one or more of a given part, and must have an **Assignment** (specifying where the part is checked out or stored).
 - All the parts in a given line item must share the same **Assignment**.
@@ -180,7 +178,7 @@ Click any entry to view the details of that part.
   }}
 />
 
-The Parts List can be thought of as the "master inventory", which shows each part being tracked by Device42. The list is similar to other lists in Device42, including an **Actions** menu and the ability to search, sort, and filter for specific list items.
+The Parts List is the master inventory view, showing each part being tracked by Device42. The list is similar to other lists in Device42, including an **Actions** menu and the ability to search, sort, and filter for specific list items.
 
 You can also add parts from the Parts List by clicking **Create** in the top-right corner.
 
@@ -196,7 +194,7 @@ As shown below, parts associated with a device can be viewed from the **Parts** 
   }}
 />
 
-### Setting Up Alerts for Low Inventory Levels
+### Set Up Alerts for Low Inventory Levels
 
 To set up an alert, navigate to the main menu, **Analytics > Setup Alerts**, and click the **Create** button in the upper right. You can set up alerting rules for either an individual part model (as in the example below) or against any parts model (that is, the rule will trigger if any parts model has an inventory level that meets the rule condition).
 
