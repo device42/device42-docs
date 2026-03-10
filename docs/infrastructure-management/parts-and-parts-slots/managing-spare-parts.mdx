@@ -10,7 +10,7 @@ This page explains the part model and parts structure in Device42 and how to cre
 
 ## Parts Overview
 
-A parts model is a template where each parts model represents one or more physical, real-world parts. Once a parts model has been created, its inventory can be tracked and managed.
+A part model is a template that holds information describing a type of hardware component, such as the model number, size, and type (for example, HDD or RAM). Parts are specific instances created from that template — for example, an individual hard disk with a serial number and a storage room assignment.
 
 <ThemedImage
   alt="View Parts Model detail page"
@@ -30,31 +30,15 @@ In this example, the parts model has one part.
   }}
 />
 
-## Parts Model vs. Parts
-
-**What is a parts model?**
-
-A parts model is a template that parts are created from. Parts model templates hold information that describes each unique part, such as the model number, size, type (for HDD or RAM), and number of cores (for CPU).
-
-**What is a part?**
-
-- A part is added as an actual CI created from a parts model (template).
-    
-- A part is a specific instance of a CI, like a hard disk, memory chip, or NIC card.
-    
-- A part may be placed into a **part slot** on a hardware chassis.
-    
-- Part assignments can be tracked. For example, you can track where a part is located or being used. A part can be assigned to a storage room or device, or assigned a status of **In RMA**, **In Transit**, or **Storage Rack (or Cabinet)**.
-    
-- Before an actual part can be added to Device42, a model must first be created. Then, parts can be added as line items.
+Part assignments can be tracked — you can record where a part is located or in use. A part can be assigned to a storage room, device, port, or asset, or given a status of **In RMA**, **In Transit**, or **Storage Rack (or Cabinet)**. Before adding a part, a part model must exist first.
 
 ### Parts Counts
 
 Every part has a **count** that tracks the number of units in stock. When you assign a part to a device, the count decreases by one (or more, if multiple units are used). Before assigning a part, ensure the count is greater than 0. If you have trouble assigning a part, verify the inventory count and increase it if needed.
 
-## Parts Menu
+## Add a Part Model
 
-The management features for parts and parts models are located in the Device42 main menu under **Infrastructure > Hardware > Parts**, as shown below.
+The management features for parts and parts models are located under **Infrastructure > Hardware > Parts**.
 
 <ThemedImage
   alt="Parts menu item in main navigation"
@@ -63,8 +47,6 @@ The management features for parts and parts models are located in the Device42 m
     dark: useBaseUrl('/assets/images/managing-spare-parts/parts-menu-dark.png'),
   }}
 />
-
-### Add a Parts Model
 
 1. From the main menu, navigate to **Infrastructure > Hardware > Parts > Model List** and click **Create** in the top right.
 
