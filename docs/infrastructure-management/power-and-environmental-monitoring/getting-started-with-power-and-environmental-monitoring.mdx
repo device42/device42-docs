@@ -54,11 +54,6 @@ Select **Enable monitoring for discovered PDU devices**. You can also set the po
 
 Environmental sensors attached to PDUs are discovered automatically during the SNMP discovery run. See [Environmental Monitoring](/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring.mdx) for details.
 
-### Geist PDU Serial Number Discovery
-
-As of version 19.08, Device42 uses a different OID to discover power unit serial numbers for Geist PDUs, which now match the physical serial numbers on the devices.
-
-If a Geist power unit was discovered before this change and the [device matching level](/auto-discovery/unprocessed-device-records.mdx#device-matching-level) is not set to **Moderate**, a separate device record will be created. If matching is set to **Moderate** and the **Give precedence to hostname** option is not selected, the serial number will be updated but not the name of the device or power unit.
 
 ## Capacity Considerations
 
