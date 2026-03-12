@@ -1082,8 +1082,8 @@ const config = {
             from: ['/parts-and-parts-slots/parts-slots/', '/infrastructure-management/parts-and-parts-slots/parts-slots/'],
           },
           {
-            to: '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/',
-            from: ['/energy-monitoringmanagement/environmental-monitoring/', '/energy-monitoringmanagement/'],
+            to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
+            from: ['/energy-monitoringmanagement/environmental-monitoring/', '/energy-monitoringmanagement/', '/infrastructure-management/power-and-environmental-monitoring/environmental-monitoring/'],
           },
           {
             to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
