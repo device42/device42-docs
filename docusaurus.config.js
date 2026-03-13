@@ -1098,8 +1098,8 @@ const config = {
             from: ['/energy-monitoringmanagement/power-monitoring-and-control/'],
           },
           {
-            to: '/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration/',
-            from: ['/energy-monitoringmanagement/power-rc-setup-job-migration/'],
+            to: '/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring/',
+            from: ['/energy-monitoringmanagement/power-rc-setup-job-migration/', '/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration/'],
           },
           {
             to: '/infrastructure-management/power-and-environmental-monitoring/unit-display-settings/',
