@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 A subnet can be any Layer 3 network (IPv4 or IPv6) in your organization, and it can optionally be part of a VLAN. All IP addresses in Device42 must belong to a subnet.
 
-You can create nested subnets automatically and relocate manually created subnets as nested subnets. The subnet must be part of a [VRF group](vrf-groups.mdx) to create nested subnets.
+You can create nested subnets automatically and relocate manually created subnets as nested subnets. The subnet must be part of a [VRF group](vrf-groups.mdx) to create nested subnets. When you add an overlapping subnet within a VRF group, it is automatically positioned with the correct parent-child relationship.
 
 ## Subnet List Page
 
@@ -118,10 +118,6 @@ A VRF group is required if you want to further subnet this subnet.
 The **Subnet Category** field can be used to categorize your subnets. If you use the Multitenancy feature, you can restrict subnet permissions based on these categories.
 
 If you mark the network or broadcast addresses as usable for a subnet, these IPs will appear as usable on the IP address list page.
-
-## VRF Groups and Overlapping Subnet Ranges
-
-When you add an overlapping subnet within a VRF group, the subnet is automatically positioned with the correct parent-child relationship.
 
 ## Add Nested Subnets
 
