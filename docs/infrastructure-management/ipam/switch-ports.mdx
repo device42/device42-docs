@@ -6,7 +6,7 @@ sidebar_position: 10
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Switch ports can be discovered automatically using SNMP network discovery. You can also bulk add switch ports via [switch templates](switch-templates.mdx), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) to programmatically add or edit switch ports.
+Switch ports can be discovered automatically using SNMP network discovery. You can also bulk add switch ports via [switch templates](/infrastructure-management/ipam/switch-templates), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) to programmatically add or edit switch ports.
 
 ## Ports List Page
 
@@ -56,7 +56,7 @@ Switch ports include the following properties:
 - **Asset:** If the port is part of a FEX or similar asset connected to the switch, that association can be made here. You can assign a port to either a module or an asset.
 - **Network Switch 2nd:** For stacked switches, this is the clustered switch. For paired switches, this is the second switch through which the port can be managed.
 
-The **Module**, **Asset**, and **Network Switch 2nd** associations can be configured efficiently using [switch templates](switch-templates.mdx).
+The **Module**, **Asset**, and **Network Switch 2nd** associations can be configured efficiently using [switch templates](/infrastructure-management/ipam/switch-templates).
 
 - **Up:** Whether the port is up.
 - **Up Admin:** Whether the port is administratively up.
@@ -153,7 +153,7 @@ To add a new stacked switch hardware model, navigate to **Infrastructure > Hardw
 
 ## Represent FEX Modules
 
-FEX modules can be added as an asset and then associated with a switch using asset device relations. This is easier to configure using [switch templates](switch-templates.mdx).
+FEX modules can be added as an asset and then associated with a switch using asset device relations. This is easier to configure using [switch templates](/infrastructure-management/ipam/switch-templates).
 
 To add a new asset, navigate to **Resources > All Assets** and click **+ Create**. Name the asset and set **Type** to **Fabric Extender**.
 
