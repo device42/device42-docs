@@ -62,15 +62,17 @@ Device42 AWS deployments are supported in the following regions:
 
 Launch your Device42 instance using the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) one-click feature and follow the on-screen instructions.
 
-When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and allow incoming access from your external IP address:
+When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and configure incoming access for the appropriate administrative source:
 
 - Click **Create a key pair in EC2** to generate a key. See the [Generating a New AWS Key Pair](#generating-a-new-aws-key-pair-for-ssh-access) section for more help with this step.
     
   ![Select SSH key pair to use for console access to Device42 on AWS](/assets/images/choose_SSH_keypair_AWSd42-hl.png)
 
 - Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and allowing access from the appropriate administrative source for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
-  
+
   These ports are part of the default Device42 AMI security group settings for incoming SSH, Appliance Manager, and web UI access.
+
+- For ports `404`, `4242`, and `4343`, select **Custom TCP** as the rule type and enter the port number manually. Port `443` can use the standard **HTTPS** rule type.
     
   ![security group settings for access to Device42 on AWS](/assets/images/security_group_settings_CORRECT-hl.png)
 
