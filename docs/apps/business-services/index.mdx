@@ -5,12 +5,6 @@ title: "Business Services"
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-:::info
-Business Applications are now named **Business Services**. Affinity Groups have also been renamed **Application Groups**. See [**Calculation Rules**](/apps/application-groups/calculation-rules.mdx) (previously AppFocus Filters) for details on the new ADM flow.
-:::
-
-## Overview
-
 Business Services let you build custom maps of your business-critical functions. Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically as new data is found, Business Services are static and designed entirely by you. They provide a stable, referenceable representation of your applications that only changes when you edit them manually or configure [alerts](#alerts) to respond to dependency changes. Business Services can include any combination of devices, resources, application components, and other Business Services that you identify as critical to your operations.
 
 Building Business Services is typically the final step in the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/index.mdx) workflow: after discovery has populated your devices, services, and Application Groups, you assemble them into Business Services that represent how your organization delivers value.
@@ -122,7 +116,7 @@ The **Info** form includes the following fields:
 
 From the **Info** form, you can associate the following items with your Business Service (in addition to File Attachments and Custom Fields):
 
-- **Business Services:** Link other Business Services to model service-to-service relationships. For example, a "Human Resources" Business Service might include "Payroll," "Benefits," and "PTO" as associated Business Services.
+- **Business Services:** Link other Business Services to model [service-to-service relationships](#business-service-relationships).
 - **Devices:** Add the physical or virtual machines that support the service.
 - **Resources:** Add cloud or infrastructure resources such as databases and storage.
 - **Application Components:** Add the application layers (web servers, databases, load balancers) that make up the service.
@@ -177,11 +171,9 @@ The following sections show examples of adding each item to the canvas.
 
 ### Add Business Services
 
-Adding a Business Service to another Business Service lets you model how higher-level services depend on smaller, reusable services. For example, a company-wide "Human Resources" service might reference separate "Payroll," "Benefits," and "PTO" Business Services, each with their own devices and application components. This makes it easier to maintain and understand complex service hierarchies without duplicating infrastructure details across multiple Business Services.
+Add existing Business Services to model service-to-service relationships on the canvas. See [Business Service Relationships](#business-service-relationships) for more on this feature.
 
-Drag the **Business Service** block to the canvas to open the **Add Business Service** box.
-
-Search for a Business Service by typing its name in the search box. You can also click the **+** button to add a new Business Service.
+Drag the **Business Service** block to the canvas to open the **Add Business Service** box. Search for a Business Service by name, or click the **+** button to create a new one.
 
 <ThemedImage
   alt="Business Service add box"
@@ -292,6 +284,24 @@ You can modify objects and connections directly on the canvas.
 :::note
 Removing or deleting objects and connections on the canvas does not affect data stored in Application Groups.
 :::
+
+## Business Service Relationships
+
+You can add one Business Service to another to model how higher-level services are composed of smaller, reusable services. This lets you build service hierarchies without duplicating infrastructure details across multiple Business Services.
+
+For example, a "Human Resources" Business Service might contain "Payroll," "Benefits," and "PTO" as child services. A more complex hierarchy might have a "Customer Order Portal" that flows through a "Payment Processing" sub-parent to a "Payment Gateway Service."
+
+Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The Sankey chart below shows parent to child and parent to sub-parent to child relationships, using a custom dashboard imported into [Insights+](/reports/reports/insights-plus.mdx).
+
+<ThemedImage
+  alt="Sankey chart showing parent to child Business Service relationships"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/bs-dashboard-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-dashboard-dark.png'),
+  }}
+/>
+
+To set up this dashboard in your own instance, see [Visualize Business Service Relationships in Insights+](#visualize-business-service-relationships-in-insights).
 
 ## Edit Business Service Values
 
@@ -532,3 +542,15 @@ You can query Business Services data using the Device42 Object Query Language (D
 - `view_businessapplication_v1`
 - `view_businessapplicationelement_v1`
 - `view_businessapplicationconnection_v1`
+
+## Visualize Business Service Relationships in Insights+
+
+You can visualize the [Business Service relationships](#business-service-relationships) described above using a Sankey chart in [Insights+](/reports/reports/insights-plus.mdx). Download the pre-built dashboard and import it into your instance:
+
+<a href="/assets/downloads/Business-Service-Relationships.zip" download className="button button--primary">Download Business Service Relationships Dashboard</a>
+
+To import, navigate to **Insights+** and use the import option to upload the ZIP file. The dashboard uses a custom dataset that queries `view_businessserviceelement_v2` and `view_businessservice_v2` to map parent-child and multi-level associations between Business Services.
+
+## Business Services vs Business Applications
+
+Business Services were previously called "Business Applications," and Application Groups were previously called "Affinity Groups." If you encounter these older terms in the UI or in existing documentation, they refer to the same features. See [Calculation Rules](/apps/application-groups/calculation-rules.mdx) (previously AppFocus Filters) for details on the updated Application Dependency Mapping flow.
