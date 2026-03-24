@@ -11,19 +11,19 @@ Business Applications are now named **Business Services**. Affinity Groups have 
 
 ## Overview
 
-Device42 Business Services offers a powerful method for building custom maps of business-critical functions. Business Services differ from [Application Groups](/apps/application-groups/index.mdx) in appearance and design. Business Services are not automatically built out based solely on discovered connections and devices, they can be designed and customized entirely by you, and can _include any and all of the resources that you identify as critical to your business!_
+Business Services let you build custom maps of your business-critical functions. Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically as new data is found, Business Services are static and designed entirely by you. They provide a stable, referenceable representation of your applications that only changes when you edit them manually or configure [alerts](#alerts) to respond to dependency changes. Business Services can include any combination of devices, resources, application components, and other Business Services that you identify as critical to your operations.
 
-Using Business Services, you'll be able to catalog all of your business and mission-critical applications. All of the following are possible:
+Building Business Services is typically the final step in the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/index.mdx) workflow: after discovery has populated your devices, services, and Application Groups, you assemble them into Business Services that represent how your organization delivers value.
 
-- Creating Business Services from scratch or from existing Application Groups.
-- Adding and removing devices and connectivity.
-- Customizing the resource layout, connections, and their labels.
-- Saving customized layout(s) and returning to edit them at any time.
-- Migrating Business Services.
+Use Business Services to:
 
-* * *
+- Create services from scratch or from existing Application Groups.
+- Relate Business Services to other Business Services, breaking large services into smaller, reusable components.
+- Add and remove devices, resources, and application components.
+- Customize the layout, connections, and labels on the visualization canvas.
+- Migrate Business Services to third-party platforms like Microsoft Azure.
 
-Navigate to **Applications > Business Services** from the Device42 menu to display the Business Services list page.
+Navigate to **Applications > Business Services** from the Device42 menu to display the Business Services list page.
 
 <ThemedImage
   alt="Business Services list page"
@@ -35,107 +35,123 @@ Navigate to **Applications > Business Services** from the Device42 menu to disp
 
 ## Create a Business Service
 
-Business Services are created in two steps:
+From the Business Services list page, click **Create** to define a new Business Service, or clone an existing one to use as a starting point. See [Clone a Business Service](#clone-a-business-service).
 
-- First, you need to fill out the **Info** form.
-- Then, you can add Devices, Application Groups, and Application Components to your Business Service from the visualization canvas.
+<ThemedImage
+  alt="Business Services Create and Clone buttons"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/bs-buttons-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-buttons-dark.png'),
+  }}
+/>
 
-Alternatively, you can work from an existing layout by cloning an existing Business Service and making changes to the cloned Business Service.
+To create a new Business Service, fill out the **Info** form. After saving, you'll have access to the **Application Layout** canvas to visualize dependencies and relationships between items.
 
-Select **Applications > Business Services** from the Device42 menu to display the applications list, and then click **Create**.
+The **Info** form includes the following fields:
+
+- Enter the application **Name** and select the **Service Type** (COTS, COTS with Customization, or Custom).
 
 <ThemedImage
   alt="Business Services Info"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/edit-business-service-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/edit-business-service-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/bs-info-form-light-1.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-1.png'),
   }}
 />
 
-- Enter the application **Name** and select the **Service Type** (COTS, COTS with Customization, or Custom). Optionally, add a **Service Level**. You can also define the **Vendor** and **Version** of the service.
-
-   - You can add a new Service Type by clicking the **+** button next to the Service Type field. See [Edit or Delete a Service Type](#edit-or-delete-a-service-type) below to edit or delete the Service Type itself.
+- Add new values if they are not yet available in a dropdown. For example, define a new Service Type by clicking the **+** button next to the **Service Type** field. See [Edit or Delete a Service Type](#edit-or-delete-a-service-type) for more details.
 
     <ThemedImage
       alt="Service Type"
       sources={{
-        light: useBaseUrl('/assets/images/business-services/add-service-type-light.png'),
-        dark: useBaseUrl('/assets/images/business-services/add-service-type-dark.png'),
+        light: useBaseUrl('/assets/images/business-services/bs-new-service-type-light.png'),
+        dark: useBaseUrl('/assets/images/business-services/bs-new-service-type-dark.png'),
       }}
     />
 
 
-- Use the magnifying glass icons to select or enter the **Technical Application Owner**, **Business Application Owner**, and **Responsible Customer or Department**.
-- For **DR Recovery Point Objective** and **DR Recovery Time Objective**, use the format **1w 2d 3h 4m 5s** (1 week, 2 days, 3 hours, 4 minutes, and 5 seconds) to denote the time period. The individual terms are optional and all numbers must be integers. For example, you can enter **2d 6h** to define a period of two days and six hours.
+- Select the **Technical Application Owner**, **Business Service Owner**, and **Responsible Customer or Department**.
+- For **DR Recovery Point Objective** and **DR Recovery Time Objective**, use the format **1w 2d 3h 4m 5s** (1 week, 2 days, 3 hours, 4 minutes, and 5 seconds). Each term is optional, and all numbers must be integers. For example, enter **2d 6h** for a period of two days and six hours.
+- Select the **Migration Group** and **Criticality**, and add any **Notes** or **Tags**.
   
 <ThemedImage
   alt="Business Services Info"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/add-details-2-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-details-2-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/bs-info-form-light-2.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-2.png'),
   }}
 />
 
-- Select or enter the **Migration Group** and **Criticality**, and add any **Notes** or **Tags** you want.
-- Click **Save** at the bottom right of the page to save the Business Service and add it to the applications list page.
+### Add and Remove Items
 
-You'll be directed to a summary page for the new Business Service. Now it's time to work from the visualization canvas to add items to your new Business Service.
+From the **Info** form, you can associate the following items with your Business Service (in addition to File Attachments and Custom Fields):
 
-### Adding and Removing Items
+- **Business Services:** Link other Business Services to model service-to-service relationships. For example, a "Human Resources" Business Service might include "Payroll," "Benefits," and "PTO" as associated Business Services.
+- **Devices:** Add the physical or virtual machines that support the service.
+- **Resources:** Add cloud or infrastructure resources such as databases and storage.
+- **Application Components:** Add the application layers (web servers, databases, load balancers) that make up the service.
 
-There are two methods of adding items to Business Services: inline and via the Application Layout canvas. Currently, Application Groups can only be added using the canvas. See the [Add Application Groups](#add-application-groups) section below.
+Currently, Application Groups can only be added from the canvas. See [Add Application Groups](#add-application-groups) below.
 
-You can add, edit, and remove devices, resources, and application components as inline items from a Business Service details view page. 
 
 <ThemedImage
-  alt="Add Resources, Devices, and App Comps"
+  alt="Add Resources, Devices, Business Services, and App Comps"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/add-inline-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-inline-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/add-form-items-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-form-items-dark.png'),
   }}
 />
 
-Remove inline items by clicking the **Tashcan** icon. The item to be removed will be grayed out, giving you the option to restore the item in this session by clicking the **Restore** icon.
+Remove inline items by clicking the **trash can icon**. If the item was previously saved, you can click the **Restore** button to undo the removal during the current session.
 
 <ThemedImage
   alt="Restore button"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/restore-button-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/restore-button-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/bs-restore-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-restore-dark.png'),
   }}
 />
 
 ## The Application Layout Canvas
 
-Click the **Application Layout** button from the Business Services details page to display the visualization canvas.
+After saving a Business Service, you can open its **Application Layout** to build and edit dependencies on the visualization canvas. Any items added through the form will already be visible on the canvas.
+
+Click the **Edit** button on the top right of the canvas to activate edit mode.
 
 <ThemedImage
   alt="View Application Layout button"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/view-application-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/view-application-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/app-layout-initial-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/app-layout-initial-dark.png'),
   }}
 />
 
-Click the **Edit** button on the top right of the canvas to activate the **Edit** mode.
 
-<ThemedImage
-  alt="Blank visualization canvas"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/blank-canvas-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/blank-canvas-dark.png'),
-  }}
-/>
-
-From the left panel, drag the **Device**, **Resource**, **Application Group**, and **Application Component** boxes onto the canvas to open the dialog that allows you to search for specific items to add to the canvas.
-
-For efficiency, you can add multiple items of each item type at a time. 
+From the left panel, drag the **Business Service**, **Device**, **Resource**, **Application Group**, or **Application Component** blocks onto the canvas to open a dialog where you can search for and select items to add. You can add multiple items of each type at a time.
 
 <ThemedImage
   alt="Add Device button"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/canvas-left-panel-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/canvas-left-panel-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/bs-left-panel-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-left-panel-dark.png'),
+  }}
+/>
+
+The following sections show examples of adding each item to the canvas.
+
+### Add Business Services
+
+Adding a Business Service to another Business Service lets you model how higher-level services depend on smaller, reusable services. For example, a company-wide "Human Resources" service might reference separate "Payroll," "Benefits," and "PTO" Business Services, each with their own devices and application components. This makes it easier to maintain and understand complex service hierarchies without duplicating infrastructure details across multiple Business Services.
+
+Drag the **Business Service** block to the canvas to open the **Add Business Service** box.
+
+Search for a Business Service by typing its name in the search box. You can also click the **+** button to add a new Business Service.
+
+<ThemedImage
+  alt="Business Service add box"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/bs-add-bs-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/bs-add-bs-dark.png'),
   }}
 />
 
@@ -148,42 +164,42 @@ Search for a component by typing its name in the search box. You can also click 
 <ThemedImage
   alt="Application Component add box"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/add-app-comp-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-app-comp-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/add-app-comps-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-app-comps-dark.png'),
   }}
 />
 
 ### Add Application Groups
 
-Efficiently keep track of changes and additions to devices by setting up an Application Group. After adding an Application Group to an application, configure an alert to send notifications when devices change within or are added to the Application Group. First, add a new Application Group as follows: 
+[Application Groups](/apps/application-groups/index.mdx) are automatically generated sets of devices and services that share discovered communication dependencies. Adding an Application Group to a Business Service brings in its discovered infrastructure, so you don't need to manually add each device. As discovery finds new dependencies, the Application Group updates automatically.
 
-- Drag an **Application Group** block to the canvas to bring up the Add Application Group box. Search for an Application Group by typing the name of the Application Group in the search box. You can also click the **+** button to add a new Application Group.
+You can also configure [alerts](#alerts) to receive notifications when devices are added to or removed from an Application Group linked to your Business Service.
+
+Drag an **Application Group** block to the canvas to open the **Add Application Group** dialog. Search for a group by name, or click the **+** button to create a new one.
 
 <ThemedImage
   alt="Application Group add box"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/add-app-group-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-app-group-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/add-application-group.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-application-group-dark.png'),
   }}
 />
 
 ### Add Devices
 
-To add a device to a Business Service, drag a **Device** block to the canvas – this will open the **Add Device** box. You can search for a device by typing the name of the device in the search box.
-
-Select a device from the list, and then click **Add**. Device42 adds the device to the canvas. Additionally, you can click the **+** button to add a new device.
+Drag a **Device** block to the canvas to open the **Add Device** dialog. Search for a device by name, select it from the list, and click **Add**. You can also click the **+** button to create a new device.
 
 <ThemedImage
   alt="Device add box"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/add-device-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-device-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/add-devices-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-devices-dark.png'),
   }}
 />
 
 ### Draw Connections
 
-Hover over items to reveal a green circle, then click the circle and drag your cursor to draw the line to the item you want the first item to connect to. You can change the line's appearance using the line options dropdown in the toolbar.
+Hover over an item to reveal a green connection point. Click the point and drag to another item to draw a connection line. You can change the line's appearance using the line options dropdown in the toolbar.
 
 <ThemedImage
   alt="Draw connections"
@@ -211,7 +227,7 @@ To label connection lines, click on a connection line and type the description o
 
 ### Save the Visualization
 
-Click the **File** menu at the top of the canvas and select **Save**.
+Click the **File** menu at the top of the canvas and select **Save**.
 
 <ThemedImage
   alt="Save option"
@@ -224,7 +240,7 @@ Click the **File** menu at the top of the canvas and select **Save**.
 
 ## Edit Business Service Values
 
-Click the **Edit** button on a Business Service's view page, make your changes, and click **Save**.
+To update a Business Service, click the **Edit** button on its view page, make your changes, and click **Save**.
 
 <ThemedImage
   alt="Edit Business Services"
@@ -236,9 +252,9 @@ Click the **Edit** button on a Business Service's view page, make your changes, 
 
 ### Edit or Delete a Service Type
 
-Navigate to the Business Service's view page and click on the name of the Service Type to access the Service Type's edit and delete options. 
+From a Business Service's view page, click the name of the Service Type to access its edit and delete options.
 
-- Click **Edit** and make your changes.
+- Click **Edit** to modify the Service Type.
 
   <ThemedImage
     alt="Edit Business Service Type name"
@@ -248,7 +264,7 @@ Navigate to the Business Service's view page and click on the name of the Servic
     }}
   />
 
-- Deleting a Service Type will delete the Business Services that use that Service Type.
+- Deleting a Service Type also deletes all Business Services that use it.
 
   <ThemedImage
     alt="Delete Business Service Type"
@@ -261,9 +277,9 @@ Navigate to the Business Service's view page and click on the name of the Servic
 
 ## Clone a Business Service
 
-From the Business Services list page, you can easily clone an existing Business Service. You might want to do this to experiment without editing the original, as the base of a new Business Service, or even to plan out a future deployment or migration. Cloning a Business Service will also clone its Custom Field values. 
+Clone an existing Business Service to experiment without editing the original, use it as the base of a new service, or plan a future deployment or migration. Cloning also copies the Custom Field values.
 
-From the Business Services list page, select the checkbox for the application you want to clone, and then click **Clone Business Service**.
+From the Business Services list page, select the checkbox for the service you want to clone and click **Clone Business Service**.
 
 <ThemedImage
   alt="Clone button"
@@ -273,8 +289,8 @@ From the Business Services list page, select the checkbox for the application yo
   }}
 />
 
-- Click the **Business Services to clone** magnifying glass to select (or search for) the application you want to clone.
-- Enter the **# of Business Services** to make and the name or names (**Comma separated names**) to give the newly cloned Business Services and click **Clone**.
+- Click the **Business Services to clone** magnifying glass to select or search for the service you want to clone.
+- Enter the **# of Business Services** to create and provide names as **Comma separated names**. Click **Clone**.
 
 <ThemedImage
   alt="Clone form"
@@ -286,11 +302,9 @@ From the Business Services list page, select the checkbox for the application yo
 
 ## Custom Fields
 
-Store more information about your Business Services by configuring custom fields.
+Custom fields let you store additional information about your Business Services beyond the default form fields.
 
-Navigate to **Tools > Custom Fields**, select **Business Services** from the list to go to the Business Services Custom Fields list page, and click **Create**.
-
-Select the relevant object type metadata option:
+To create a custom field, navigate to **Tools > Custom Fields**, select **Business Services** from the list, and click **Create**. Select one of the following field types:
 - **Text**
 - **Number**
 - **Date**
@@ -301,7 +315,7 @@ Select the relevant object type metadata option:
 - **Markup**
 - **Related Field:** Use this option to link the custom field to an existing CI type within Device42.
 
-**Cloud Accounts** are now available as a related field for custom fields, allowing you to effectively link a Business Service to a Cloud Account.
+**Cloud Accounts** are available as a related field type, allowing you to link a Business Service to a Cloud Account.
 
 <ThemedImage
   alt="Cloud Account option in Add Custom Fields"
@@ -314,12 +328,12 @@ Select the relevant object type metadata option:
 ## Alerts
 
 :::note
-To ensure you continue getting alerts for your existing Business Services, you need to edit each Business Service and add the relevant Application Group (previously known as "Affinity Group") to it.
+To continue receiving alerts for existing Business Services, edit each Business Service and add the relevant Application Group (previously known as "Affinity Group").
 :::
 
-Business Services are now linked to Application Groups so that you can set up alerts to notify you when a new Application Group dependency is found. 
+You can set up alerts to receive notifications when Application Group dependencies are added to or removed from a Business Service.
 
-Select **Analytics > Setup Alerts** from the Device42 main menu and click **Create**.
+To create an alert, select **Analytics > Setup Alerts** from the Device42 main menu and click **Create**.
 
 <ThemedImage
   alt="Setup Alert menu"
@@ -330,10 +344,10 @@ Select **Analytics > Setup Alerts** from the Device42 main menu and click **Crea
 />
 
 
-- Enter a **Name** for the alert, and then select **Business Service** for the alert **Rule Type**. Each Rule Type has associated Triggers, which define the conditions that will generate an alert.
+- Enter a **Name** for the alert and select **Business Service** as the **Rule Type**.
 - For the **Trigger**, select **New Application Group Dependency Found** or **Application Group Dependency Removed**.
 - Select the **Alert Type**.
-    - If you select **D42 Notification**, select or add the **Escalation Profile** to use for the alert. You can use Escalation Profiles to set up email notification escalation tiers. Select **Tools > Admins & Permissions > Escalation Profiles** to add or edit Escalation Profiles.
+    - If you select **D42 Notification**, choose an **Escalation Profile** to configure email notification tiers. Manage Escalation Profiles at **Tools > Admins & Permissions > Escalation Profiles**.
 
 
 <ThemedImage
@@ -344,19 +358,19 @@ Select **Analytics > Setup Alerts** from the Device42 main menu and click **Crea
   }}
 />
 
-As you construct your alert, Device42 displays the alert definition based on the options you select and enter. For example:
+As you configure the alert, Device42 displays the alert definition based on your selections. For example:
 
 > When the individual Business Service Jupiter service app has reported New Application Group Dependency Found then send notification to users assigned to Main profile.
 
 ### Auto Apply Changes
 
-Make maintaining Business Services easier by automatically adding and removing connections. Check the **Auto Apply changes** box when configuring the alert. Connections to a newly found AG dependency will be made automatically, and if an AG dependency is removed, the Business Service connection will be automatically removed. You will receive a notification of these events as part of the alert.
+Check the **Auto Apply changes** box to automatically add or remove connections when Application Group dependencies change. You will still receive a notification for each change.
 
-The **Auto Apply changes** option is unchecked by default. If left disabled, you'll receive a notification with the Add or Remove connection option for manually making changes to the Business Service.
+The **Auto Apply changes** option is unchecked by default. When disabled, you receive a notification with the option to manually add or remove the connection.
 
-### Apply To Selected Objects
+### Apply to Selected Objects
 
-Depending on which alert Rule Type you select, you may also see an **Apply To:** option, which you will use to select the objects you want to apply the alert to. Use the **Available objects** list on the left to select the objects you want to add to the **Chosen objects** list on the right.
+Depending on the **Rule Type**, you may see an **Apply To** option. Use the **Available objects** list on the left to select objects and move them to the **Chosen objects** list on the right.
 
 <ThemedImage
   alt="Choose objects"
@@ -368,9 +382,9 @@ Depending on which alert Rule Type you select, you may also see an **Apply To:**
 
 ### More Alert Options
 
-- **Priority**: Choose between Critical, High Priority, Medium Priority, and Low Priority.
-- **Resend Notification**: Number of seconds to wait before sending an email notification for the alert. Leave this field blank to send the email only once.
-- **Seconds Before Action**: Number of seconds that the alert condition (the trigger) exists before Device42 generates the alert.
+- **Priority:** Choose between Critical, High Priority, Medium Priority, and Low Priority.
+- **Resend Notification:** Number of seconds to wait before resending the email notification. Leave blank to send only once.
+- **Seconds Before Action:** Number of seconds the trigger condition must persist before Device42 generates the alert.
 
 <ThemedImage
   alt="Alert options"
@@ -380,7 +394,7 @@ Depending on which alert Rule Type you select, you may also see an **Apply To:**
   }}
 />
 
-- **Notification Template**: Customize the alert notification and **Save** the alert.
+- **Notification Template:** Customize the alert notification and click **Save**.
 
 <ThemedImage
   alt="Alert options"
@@ -394,13 +408,11 @@ See [Alert Rule Types and Triggers](/reports/reports/setup-alerts-and-notificati
 
 ### View Alert Notifications
 
-If you select **D42 Notification** as the **Alert Type** when you create an alert, Device42 generates a notification when the alert condition triggers the alert. 
-
-Select **Analytics > Notifications** from the menu bar.
+Alerts configured with the **D42 Notification** type generate notifications visible at **Analytics > Notifications**.
 
 ![](/assets/images/WEB-219_Alerts_Banner-Bell-icon-1.jpg)
 
-The page displays notifications for all the triggered alerts that have the **Alert Type** set to **Device42 Notification**. Click **My Notifications** or **All Notifications** to see the notification lists.
+Click **My Notifications** or **All Notifications** to filter the notification list.
 
 ![](/assets/images/WEB-219_Alerts_Notifications-page-1.jpg)
 
@@ -408,33 +420,33 @@ See the [Notifications](/reports/reports/setup-alerts-and-notifications/#notific
 
 ## Edit the Visualization
 
-### Delete a Device
+You can modify objects and connections directly on the canvas.
 
-To delete a device (or other objects on the canvas), either select the device and press the **Delete** key, or right-click on a selected device and select **Delete** from the context menu.
+### Delete an Object
+
+To delete a device or other object on the canvas, select it and press the **Delete** key, or right-click and select **Delete** from the context menu.
 
 ![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-3-PopupMenu.png)
 
 :::note
-Removing a device does not remove connections on the canvas, nor does it affect the calculated information stored in Application Groups.
+Removing an object does not remove its connections on the canvas or affect data stored in Application Groups.
 :::
 
-### Rename a Device
+### Rename an Object
 
-To rename a device (or other objects on the canvas), select the device, double-click the device name, and type a new name.
+To rename an object on the canvas, select it, double-click the name, and type a new name.
 
 :::note
-The name change does not change the device record and is only for display in this specific Business Service visualization.
+The renamed label is only for display in this Business Service visualization. It does not change the underlying record.
 :::
 
-### Add or Edit Connections in a Visualization
+### Add or Edit Connections
 
-You can add and edit connections between objects on the canvas.
-
-1. Hover over a device object to display the object’s connection points (green dots). Click a green dot and drag the connection to a point on any other object. 
+1. Hover over an object to display its connection points (green dots). Click a green dot and drag to connect it to another object.
 
    ![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-4-ConnectorPoint.png)
 
-2. To delete a connection, select the connection and press the **Delete** key, or right-click and select **Delete** from the context menu.
+2. To delete a connection, select the connection and press the **Delete** key, or right-click and select **Delete** from the context menu.
 
 :::note
 Deleting a connection does not affect the calculated information stored in Application Groups.
@@ -442,7 +454,7 @@ Deleting a connection does not affect the calculated information stored in Appli
 
 ## Delete a Business Service
 
-From the **Applications > Business Services** page, select the Business Service(s) you want to delete and choose one of the delete options from the **Actions** dropdown. 
+From the **Applications > Business Services** page, select the Business Service(s) you want to delete and choose one of the delete options from the **Actions** dropdown. 
 
 <ThemedImage
   alt="Delete actions"
@@ -454,13 +466,13 @@ From the **Applications > Business Services** page, select the Business Servic
 
 ## View a Device's Business Service
 
-To view which Business Services a device belongs to without running a custom report or opening multiple tabs, open the device's **Info** tab.
+You can quickly check which Business Services a device belongs to from the device record itself. Open the device's **Info** tab to see the associated Business Services.
 
 ![Device with Business Service](/assets/images/business-services/device-business-service.png)
 
 ## Migrate Business Services
 
-You can export Business Services directly for migration to third-party migration software suites. Device42 currently supports export to Microsoft Azure, RiverMeadow, and Carbonite.
+You can export Business Services for migration to third-party platforms. Device42 currently supports export to Microsoft Azure, RiverMeadow, and Carbonite.
 
 - From **Applications > Business Services**, select the applications you want to migrate and choose the **Create Migration for Selected Objects** action from the **Actions** dropdown.
 
@@ -486,7 +498,7 @@ You can export Business Services directly for migration to third-party migration
 
 Device42 can export one or more of your Business Services directly to the [Microsoft Azure](https://portal.azure.com/#home) cloud platform via [Azure Migrate](https://azure.microsoft.com/en-us/products/azure-migrate/).
 
-For detailed instructions on [how to export a business service to the Azure cloud](/integration/external-integrations/azure-migrate.mdx), go to the [Azure Migrate](/integration/external-integrations/azure-migrate.mdx) integration page.
+For detailed instructions, see the [Azure Migrate integration page](/integration/external-integrations/azure-migrate.mdx).
 
 ### Export to RiverMeadow 
 
@@ -495,28 +507,22 @@ Click the **Export** button to export a CSV file with the IP address(es) and cre
 Save the exported CSV and then open it using RiverMeadow to perform your migration.
 
 :::tip
-We're currently adding support for more migration software, which will be released shortly. Should you have any questions, please contact [support@device42.com](mailto:support@device42.com).
+Support for additional migration platforms is being added. Contact [support@device42.com](mailto:support@device42.com) with questions.
 :::
 
-* * *
+## Access Business Services Through DOQL
 
-## Accessing Business Services Through DOQL
-
-You can access further Business Services information using the Device42 Object Query Language (DOQL).
-
-The following views support the applications and relationships in Business Services:
+You can query Business Services data using the Device42 Object Query Language (DOQL). The following views expose Business Service applications and relationships:
 
 - `view_businessapplication_v1`
 - `view_businessapplicationelement_v1`
 - `view_businessapplicationconnection_v1`
 
-***
-
 ## Explore Existing Business Services
 
-Business Services display information about the Devices and Application Components associated with each Business Service. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other. Application Component information also appears on the Business Service visualization canvas (see below).
+The Business Services list page shows all your Business Services along with their associated Devices and Application Components. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other.
 
-Select **Applications > Business Services** from the Device42 menu to display a list of the existing Business Services.
+Select **Applications > Business Services** from the Device42 menu to display the list.
 
 <ThemedImage
   alt="Business Services list page"
@@ -526,7 +532,7 @@ Select **Applications > Business Services** from the Device42 menu to display a
   }}
 />
 
-- Click on a Business Service to open the info panel. The left **Object List** panel allows you to select other Business Services, and the right **Breakdown** panel displays information about the selected Business Service.
+- Click a Business Service to open the info panel. The left **Object List** panel lets you select other Business Services, and the right **Breakdown** panel displays details about the selected service.
 
     <ThemedImage
     alt="Business Services panel view"
@@ -546,10 +552,10 @@ Select **Applications > Business Services** from the Device42 menu to display a
     }}
     />
 
-- Click the **View Application** button to see the visualization of the application. Hover over **Application Details** to see more information about the application. The left panel contains icons for adding Devices, Application Groups, or Application Components to your Business Service and a menu bar above the icons. You can now also run a **Service Dependencies Report** for the Business Service, which will detail all the communications for the devices within that Business Service.
+- Click **View Application** to open the visualization canvas. Hover over **Application Details** for more information. The left panel provides options for adding items to the Business Service. You can also run a **Service Dependencies Report** to view all communications between devices in the Business Service.
     
     ![](/assets/images/D42-23306_biz-app-canvas.png)
 
-- Click a Device, Application Group, or Application Component object on the canvas to see more details about the selected item. Links in the details box or below the object redirect you to the view pages for those items.
+- Click any object on the canvas to see its details. Links in the details panel take you to the full view page for that item.
 
     ![](/assets/images/D42-23306_biz-app-object-details.png)
