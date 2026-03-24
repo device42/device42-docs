@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Business Services let you build custom maps of your business-critical functions. They can include any combination of devices, resources, application components, and other Business Services that you identify as critical to your operations.
 
-Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically, Business Services are static and designed entirely by you. They provide a stable, referenceable representation of your applications that only changes when you edit them manually or configure [alerts](#alerts) to respond to dependency changes.
+Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically, Business Services are static and designed entirely by you. They serve as referenceable documentation of your applications — a stable representation that only changes when you edit it manually or configure [alerts](#alerts) to respond to dependency changes.
 
 Building Business Services is typically the final step in the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/index.mdx) workflow: after discovery has populated your devices, services, and Application Groups, you assemble them into Business Services that represent how your organization delivers value.
 
@@ -43,7 +43,7 @@ Once you have Business Services set up, you can browse and inspect them from the
     }}
     />
 
-- Any Application Groups included in the Business Service are displayed under **Info**.
+- Any associated Business Services and Application Groups are displayed under **Info** in the Breakdown panel.
 
     <ThemedImage
     alt="Business Service with Application Group"
@@ -67,7 +67,9 @@ You can also check which Business Services a device belongs to from the device r
 
 ## Create a Business Service
 
-From the Business Services list page, click **Create** to define a new Business Service, or clone an existing one to use as a starting point. See [Clone a Business Service](#clone-a-business-service).
+From the Business Services list page, click **Create** to define a new Business Service, or clone an existing one to use as a starting point. See [Clone a Business Service](#clone-a-business-service). You can also create a Business Service directly from an [Application Group](/apps/application-groups/index.mdx) view.
+
+{/* TODO: Add screenshot showing BS creation from Application Group view (light/dark) */}
 
 <ThemedImage
   alt="Business Services Create and Clone buttons"
@@ -77,9 +79,7 @@ From the Business Services list page, click **Create** to define a new Business 
   }}
 />
 
-To create a new Business Service, fill out the **Info** form. After saving, you'll have access to the **Application Layout** canvas to visualize dependencies and relationships between items.
-
-Fill out the **Info** form with the following details:
+To create a new Business Service, fill out the **Info** form with the following details. After saving, you'll have access to the **Application Layout** canvas to visualize dependencies and relationships between items.
 
 - Enter the application **Name** and select the **Service Type** (COTS, COTS with Customization, or Custom).
 
@@ -293,7 +293,7 @@ You can add one Business Service to another to model how higher-level services a
 
 For example, a "Human Resources" Business Service might contain "Payroll," "Benefits," and "PTO" as child services. A more complex hierarchy might have a "Customer Order Portal" that flows through a "Payment Processing" sub-parent to a "Payment Gateway Service."
 
-Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The flow diagram (Sankey chart) below shows parent to child and parent to sub-parent to child relationships, using a custom dashboard imported into [Insights+](/reports/reports/insights-plus.mdx).
+Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The flow diagram (Sankey chart) below shows parent to child and parent to sub-parent to child relationships, using a [custom dashboard](#visualize-business-service-relationships-in-insights) imported into [Insights+](/reports/reports/insights-plus.mdx).
 
 <ThemedImage
   alt="Sankey chart showing parent to child Business Service relationships"
