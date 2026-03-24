@@ -5,7 +5,9 @@ title: "Business Services"
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Business Services let you build custom maps of your business-critical functions. Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically as new data is found, Business Services are static and designed entirely by you. They provide a stable, referenceable representation of your applications that only changes when you edit them manually or configure [alerts](#alerts) to respond to dependency changes. Business Services can include any combination of devices, resources, application components, and other Business Services that you identify as critical to your operations.
+Business Services let you build custom maps of your business-critical functions. They can include any combination of devices, resources, application components, and other Business Services that you identify as critical to your operations.
+
+Unlike [Application Groups](/apps/application-groups/index.mdx), which are automatically generated from discovered connections and update dynamically, Business Services are static and designed entirely by you. They provide a stable, referenceable representation of your applications that only changes when you edit them manually or configure [alerts](#alerts) to respond to dependency changes.
 
 Building Business Services is typically the final step in the [Application Dependency Mapping](/apps/enterprise-application-dependency-mapping/index.mdx) workflow: after discovery has populated your devices, services, and Application Groups, you assemble them into Business Services that represent how your organization delivers value.
 
@@ -29,7 +31,7 @@ Navigate to **Applications > Business Services** from the Device42 menu to displ
 
 ## Explore Existing Business Services
 
-The Business Services list page shows all your Business Services along with their associated Devices and Application Components. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other.
+Once you have Business Services set up, you can browse and inspect them from the list page. The page shows all your Business Services along with their associated Devices and Application Components. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other.
 
 - Click a Business Service to open the info panel. The left **Object List** panel lets you select other Business Services, and the right **Breakdown** panel displays details about the selected service.
 
@@ -77,7 +79,7 @@ From the Business Services list page, click **Create** to define a new Business 
 
 To create a new Business Service, fill out the **Info** form. After saving, you'll have access to the **Application Layout** canvas to visualize dependencies and relationships between items.
 
-The **Info** form includes the following fields:
+Fill out the **Info** form with the following details:
 
 - Enter the application **Name** and select the **Service Type** (COTS, COTS with Customization, or Custom).
 
@@ -291,7 +293,7 @@ You can add one Business Service to another to model how higher-level services a
 
 For example, a "Human Resources" Business Service might contain "Payroll," "Benefits," and "PTO" as child services. A more complex hierarchy might have a "Customer Order Portal" that flows through a "Payment Processing" sub-parent to a "Payment Gateway Service."
 
-Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The Sankey chart below shows parent to child and parent to sub-parent to child relationships, using a custom dashboard imported into [Insights+](/reports/reports/insights-plus.mdx).
+Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The flow diagram (Sankey chart) below shows parent to child and parent to sub-parent to child relationships, using a custom dashboard imported into [Insights+](/reports/reports/insights-plus.mdx).
 
 <ThemedImage
   alt="Sankey chart showing parent to child Business Service relationships"
@@ -367,96 +369,26 @@ From the Business Services list page, select the checkbox for the service you wa
 
 ## Alerts
 
-:::note
-To continue receiving alerts for existing Business Services, edit each Business Service and add the relevant Application Group (previously known as "Affinity Group").
-:::
+You can set up alerts to receive notifications when Application Group dependencies change within a Business Service. To create an alert, navigate to **Analytics > Setup Alerts**, click **Create**, and select **Business Service** as the **Rule Type**. The available triggers are:
 
-You can set up alerts to receive notifications when Application Group dependencies are added to or removed from a Business Service.
-
-To create an alert, select **Analytics > Setup Alerts** from the Device42 main menu and click **Create**.
+- **New Application Group Dependency Found**
+- **Application Group Dependency Removed**
 
 <ThemedImage
-  alt="Setup Alert menu"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/alerts-menu-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/alerts-menu-dark.png'),
-  }}
-/>
-
-
-- Enter a **Name** for the alert and select **Business Service** as the **Rule Type**.
-- For the **Trigger**, select **New Application Group Dependency Found** or **Application Group Dependency Removed**.
-- Select the **Alert Type**.
-    - If you select **D42 Notification**, choose an **Escalation Profile** to configure email notification tiers. Manage Escalation Profiles at **Tools > Admins & Permissions > Escalation Profiles**.
-
-
-<ThemedImage
-  alt="Business Service alert"
+  alt="Business Service alert configuration"
   sources={{
     light: useBaseUrl('/assets/images/business-services/add-alert-light.png'),
     dark: useBaseUrl('/assets/images/business-services/add-alert-dark.png'),
   }}
 />
 
-As you configure the alert, Device42 displays the alert definition based on your selections. For example:
-
-> When the individual Business Service Jupiter service app has reported New Application Group Dependency Found then send notification to users assigned to Main profile.
-
 ### Auto Apply Changes
 
 Check the **Auto Apply changes** box to automatically add or remove connections when Application Group dependencies change. You will still receive a notification for each change.
 
-The **Auto Apply changes** option is unchecked by default. When disabled, you receive a notification with the option to manually add or remove the connection.
+When **Auto Apply changes** is disabled (the default), you receive a notification with the option to manually add or remove the connection.
 
-### Apply to Selected Objects
-
-Depending on the **Rule Type**, you may see an **Apply To** option. Use the **Available objects** list on the left to select objects and move them to the **Chosen objects** list on the right.
-
-<ThemedImage
-  alt="Choose objects"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/alert-objects-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/alert-objects-dark.png'),
-  }}
-/>
-
-### More Alert Options
-
-- **Priority:** Choose between Critical, High Priority, Medium Priority, and Low Priority.
-- **Resend Notification:** Number of seconds to wait before resending the email notification. Leave blank to send only once.
-- **Seconds Before Action:** Number of seconds the trigger condition must persist before Device42 generates the alert.
-
-<ThemedImage
-  alt="Alert options"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/add-alert-priority-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-alert-priority-dark.png'),
-  }}
-/>
-
-- **Notification Template:** Customize the alert notification and click **Save**.
-
-<ThemedImage
-  alt="Alert options"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/add-alert-template-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/add-alert-template-dark.png'),
-  }}
-/>
-
-See [Alert Rule Types and Triggers](/reports/reports/setup-alerts-and-notifications/#alert-rule-types-and-triggers) for more information.
-
-### View Alert Notifications
-
-Alerts configured with the **D42 Notification** type generate notifications visible at **Analytics > Notifications**.
-
-![](/assets/images/WEB-219_Alerts_Banner-Bell-icon-1.jpg)
-
-Click **My Notifications** or **All Notifications** to filter the notification list.
-
-![](/assets/images/WEB-219_Alerts_Notifications-page-1.jpg)
-
-See the [Notifications](/reports/reports/setup-alerts-and-notifications/#notifications) and [Customizing Alerts with Notification Variables](/reports/reports/setup-alerts-and-notifications/#customizing-alerts-with-notification-variables) sections of the Alerts and Notifications documentation for more details.
+For full details on configuring alert options, escalation profiles, and notification templates, see [Alerts and Notifications](/reports/reports/setup-alerts-and-notifications/).
 
 ## Custom Fields
 
@@ -543,14 +475,14 @@ You can query Business Services data using the Device42 Object Query Language (D
 - `view_businessapplicationelement_v1`
 - `view_businessapplicationconnection_v1`
 
+## Business Services vs Business Applications
+
+Business Services were previously called "Business Applications," and Application Groups were previously called "Affinity Groups." If you encounter these older terms in the UI or in existing documentation, they refer to the same features. See [Calculation Rules](/apps/application-groups/calculation-rules.mdx) (previously AppFocus Filters) for details on the updated Application Dependency Mapping flow.
+
 ## Visualize Business Service Relationships in Insights+
 
-You can visualize the [Business Service relationships](#business-service-relationships) described above using a Sankey chart in [Insights+](/reports/reports/insights-plus.mdx). Download the pre-built dashboard and import it into your instance:
+You can visualize the [Business Service relationships](#business-service-relationships) described above using a flow diagram (Sankey chart) in [Insights+](/reports/reports/insights-plus.mdx). Download the pre-built dashboard and import it into your instance:
 
 <a href="/assets/downloads/Business-Service-Relationships.zip" download className="button button--primary">Download Business Service Relationships Dashboard</a>
 
 To import, navigate to **Insights+** and use the import option to upload the ZIP file. The dashboard uses a custom dataset that queries `view_businessserviceelement_v2` and `view_businessservice_v2` to map parent-child and multi-level associations between Business Services.
-
-## Business Services vs Business Applications
-
-Business Services were previously called "Business Applications," and Application Groups were previously called "Affinity Groups." If you encounter these older terms in the UI or in existing documentation, they refer to the same features. See [Calculation Rules](/apps/application-groups/calculation-rules.mdx) (previously AppFocus Filters) for details on the updated Application Dependency Mapping flow.
