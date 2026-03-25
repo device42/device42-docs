@@ -19,7 +19,9 @@ Use Business Services to:
 - Customize the layout, connections, and labels on the visualization canvas.
 - Migrate Business Services to third-party platforms like Microsoft Azure.
 
-Navigate to **Applications > Business Services** from the Device42 menu to display the Business Services list page.
+## Explore Existing Business Services
+
+Navigate to **Applications > Business Services** to view the list page. It shows all your Business Services along with their associated Devices and Application Components. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other.
 
 <ThemedImage
   alt="Business Services list page"
@@ -29,11 +31,7 @@ Navigate to **Applications > Business Services** from the Device42 menu to displ
   }}
 />
 
-## Explore Existing Business Services
-
-Once you have Business Services set up, you can browse and inspect them from the list page. The page shows all your Business Services along with their associated Devices and Application Components. Device42 automatically categorizes Application Components as Database, Application Layer, Web Server, Load Balancer, or Other.
-
-- Click a Business Service to open the info panel. The left **Object List** panel lets you select other Business Services, and the right **Breakdown** panel displays details about the selected service.
+- Click a Business Service to open its info panel. The left **Object List** panel lets you select other Business Services, and the right **Breakdown** panel links to sections within the selected Business Service.
 
     <ThemedImage
     alt="Business Services panel view"
@@ -43,7 +41,7 @@ Once you have Business Services set up, you can browse and inspect them from the
     }}
     />
 
-- Any associated Business Services and Application Groups are displayed under **Info** in the Breakdown panel.
+- Any associated Business Services, Application Groups, Application Components, Resources, Devices, and more are displayed under **Info** or are accessible from the Breakdown panel.
 
     <ThemedImage
     alt="Business Service with Application Group"
@@ -53,43 +51,61 @@ Once you have Business Services set up, you can browse and inspect them from the
     }}
     />
 
-- Click **View Application** to open the visualization canvas. Hover over **Application Details** for more information. The left panel provides options for adding items to the Business Service. You can also run a **Service Dependencies Report** to view all communications between devices in the Business Service.
+- Click **View Application** to open the visualization canvas. The left panel provides options for adding items to the Business Service. You can also run a **Service Dependencies Report** to view all communications between devices in the Business Service.
 
-    ![](/assets/images/D42-23306_biz-app-canvas.png)
+    <ThemedImage
+    alt="Business Service canvas with report button"
+    sources={{
+        light: useBaseUrl('/assets/images/business-services/canvas-report-button-light.png'),
+        dark: useBaseUrl('/assets/images/business-services/canvas-report-button-dark.png'),
+    }}
+    />
 
 - Click any object on the canvas to see its details. Links in the details panel take you to the full view page for that item.
 
-    ![](/assets/images/D42-23306_biz-app-object-details.png)
+    <ThemedImage
+    alt="Business Service canvas object details"
+    sources={{
+        light: useBaseUrl('/assets/images/business-services/canvas-details-light.png'),
+        dark: useBaseUrl('/assets/images/business-services/canvas-details-dark.png'),
+    }}
+    />
 
 You can also check which Business Services a device belongs to from the device record itself. Open the device's **Info** tab to see the associated Business Services.
 
-![Device with Business Service](/assets/images/business-services/device-business-service.png)
+<ThemedImage
+  alt="Device Info tab showing linked Business Services"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/devices-linked-bs-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/devices-linked-bs-dark.png'),
+  }}
+/>
 
 ## Create a Business Service
 
-From the Business Services list page, click **Create** to define a new Business Service, or clone an existing one to use as a starting point. See [Clone a Business Service](#clone-a-business-service). You can also create a Business Service directly from an [Application Group](/apps/application-groups/index.mdx) view.
-
-{/* TODO: Add screenshot showing BS creation from Application Group view (light/dark) */}
+From **Applications > Business Services**, click **Create** to define a new Business Service or [**Clone** an existing one](#clone-a-business-service) to use as a starting point.
 
 <ThemedImage
   alt="Business Services Create and Clone buttons"
   sources={{
-    light: useBaseUrl('/assets/images/business-services/bs-buttons-light.png'),
-    dark: useBaseUrl('/assets/images/business-services/bs-buttons-dark.png'),
+    light: useBaseUrl('/assets/images/business-services/create-clone-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/create-clone-dark.png'),
   }}
 />
+
+### Fill out the Business Service Form
 
 To create a new Business Service, fill out the **Info** form with the following details. After saving, you'll have access to the **Application Layout** canvas to visualize dependencies and relationships between items.
 
 - Enter the application **Name** and select the **Service Type** (COTS, COTS with Customization, or Custom).
 
-<ThemedImage
-  alt="Business Services Info"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/bs-info-form-light-1.png'),
-    dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-1.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Business Services Info"
+    sources={{
+      light: useBaseUrl('/assets/images/business-services/bs-info-form-light-1.png'),
+      dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-1.png'),
+    }}
+  />
 
 - Add new values if they are not yet available in a dropdown. For example, define a new Service Type by clicking the **+** button next to the **Service Type** field. See [Edit or Delete a Service Type](#edit-or-delete-a-service-type) for more details.
 
@@ -106,17 +122,17 @@ To create a new Business Service, fill out the **Info** form with the following 
 - For **DR Recovery Point Objective** and **DR Recovery Time Objective**, use the format **1w 2d 3h 4m 5s** (1 week, 2 days, 3 hours, 4 minutes, and 5 seconds). Each term is optional, and all numbers must be integers. For example, enter **2d 6h** for a period of two days and six hours.
 - Select the **Migration Group** and **Criticality**, and add any **Notes** or **Tags**.
 
-<ThemedImage
-  alt="Business Services Info"
-  sources={{
-    light: useBaseUrl('/assets/images/business-services/bs-info-form-light-2.png'),
-    dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-2.png'),
-  }}
-/>
+  <ThemedImage
+    alt="Business Services Info"
+    sources={{
+      light: useBaseUrl('/assets/images/business-services/bs-info-form-light-2.png'),
+      dark: useBaseUrl('/assets/images/business-services/bs-info-form-dark-2.png'),
+    }}
+  />
 
-### Add and Remove Items
+### Add and Remove Form Items
 
-From the **Info** form, you can associate the following items with your Business Service (in addition to File Attachments and Custom Fields):
+From the **Info** form or the [Application Layout canvas](#the-application-layout-canvas), you can associate the following items with your Business Service (in addition to File Attachments and Custom Fields):
 
 - **Business Services:** Link other Business Services to model [service-to-service relationships](#business-service-relationships).
 - **Devices:** Add the physical or virtual machines that support the service.
@@ -215,6 +231,16 @@ Drag an **Application Group** block to the canvas to open the **Add Application 
   }}
 />
 
+Alternatively, from the **Applications > Application Groups** list page, select an Application Group and use the **Add to Business Service** action to link it to an existing Business Service.
+
+<ThemedImage
+  alt="Add Application Group to Business Service action"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/add-bs-action-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/add-bs-action-dark.png'),
+  }}
+/>
+
 ### Add Devices
 
 Add the physical or virtual machines that power the service to map the underlying infrastructure for capacity planning and impact analysis.
@@ -227,6 +253,7 @@ Drag a **Device** block to the canvas to open the **Add Device** dialog. Search 
     light: useBaseUrl('/assets/images/business-services/add-devices-light.png'),
     dark: useBaseUrl('/assets/images/business-services/add-devices-dark.png'),
   }}
+  style={{ width: '70%' }} 
 />
 
 ### Draw Connections
@@ -239,7 +266,7 @@ Hover over an item to reveal a green connection point. Click the point and drag 
     light: useBaseUrl('/assets/images/business-services/draw-line-light.png'),
     dark: useBaseUrl('/assets/images/business-services/draw-line-dark.png'),
   }}
-  style={{ width: '40%' }}
+  style={{ width: '35%' }}
 />
 
 ### Include Text
@@ -275,13 +302,27 @@ You can modify objects and connections directly on the canvas.
 
 **Delete an object:** Select it and press the **Delete** key, or right-click and select **Delete** from the context menu.
 
-![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-3-PopupMenu.png)
+<ThemedImage
+  alt="Delete object from canvas context menu"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/delete-object-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/delete-object-dark.png'),
+  }}
+  style={{ width: '70%' }} 
+/>
 
 **Rename an object:** Select it, double-click the name, and type a new name. The renamed label is only for display in this visualization and does not change the underlying record.
 
-**Add or edit connections:** Hover over an object to display its connection points (green dots). Click a green dot and drag to connect it to another object. To delete a connection, select it and press the **Delete** key, or right-click and select **Delete**.
+**Add or edit connections:** Hover over an object to display its connection points (green dots). Click a green dot and drag to connect it to another object.
 
-   ![](/assets/images/WEB-542_BusinessApps-Canvas-Ex-4-ConnectorPoint.png)
+<ThemedImage
+  alt="Hover over object to show connection points"
+  sources={{
+    light: useBaseUrl('/assets/images/business-services/hover-light.png'),
+    dark: useBaseUrl('/assets/images/business-services/hover-dark.png'),
+  }}
+  style={{ width: '50%' }} 
+/>
 
 :::note
 Removing or deleting objects and connections on the canvas does not affect data stored in Application Groups.
@@ -293,7 +334,7 @@ You can add one Business Service to another to model how higher-level services a
 
 For example, a "Human Resources" Business Service might contain "Payroll," "Benefits," and "PTO" as child services. A more complex hierarchy might have a "Customer Order Portal" that flows through a "Payment Processing" sub-parent to a "Payment Gateway Service."
 
-Add Business Services to each other from the [Info form](#add-and-remove-items) or the [Application Layout canvas](#add-business-services). The flow diagram (Sankey chart) below shows parent to child and parent to sub-parent to child relationships, using a [custom dashboard](#visualize-business-service-relationships-in-insights) imported into [Insights+](/reports/reports/insights-plus.mdx).
+Link Business Services from the [Info form](#add-and-remove-form-items) or the [Application Layout canvas](#add-business-services). The flow diagram (Sankey chart) below shows parent to child and parent to sub-parent to child relationships, using a [custom dashboard](#visualize-business-service-relationships-in-insights) imported into [Insights+](/reports/reports/insights-plus.mdx).
 
 <ThemedImage
   alt="Sankey chart showing parent to child Business Service relationships"
@@ -413,6 +454,7 @@ To create a custom field, navigate to **Tools > Custom Fields**, select **Busine
     light: useBaseUrl('/assets/images/business-services/cloud-account-option-light.png'),
     dark: useBaseUrl('/assets/images/business-services/cloud-account-option-dark.png'),
   }}
+  style={{ width: '80%' }} 
 />
 
 ## Delete a Business Service
@@ -481,8 +523,6 @@ Business Services were previously called "Business Applications," and Applicatio
 
 ## Visualize Business Service Relationships in Insights+
 
-You can visualize the [Business Service relationships](#business-service-relationships) described above using a flow diagram (Sankey chart) in [Insights+](/reports/reports/insights-plus.mdx). Download the pre-built dashboard and import it into your instance:
+You can visualize the [Business Service relationships](#business-service-relationships) described above using a flow diagram (Sankey chart) in [Insights+](/reports/reports/insights-plus.mdx). Import the pre-built dashboard into **Insights+** by uploading the ZIP file. The dashboard includes a pre-configured dataset and chart for mapping parent-child and multi-level Business Service associations.
 
 <a href="/assets/downloads/Business-Service-Relationships.zip" download className="button button--primary">Download Business Service Relationships Dashboard</a>
-
-To import, navigate to **Insights+** and use the import option to upload the ZIP file. The dashboard uses a custom dataset that queries `view_businessserviceelement_v2` and `view_businessservice_v2` to map parent-child and multi-level associations between Business Services.
