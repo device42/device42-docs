@@ -6,16 +6,16 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Cloud Recommendation Engine is a powerful feature that can provide you with exactly the details you need to plan your next cloud migration, compare costs between Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS cloud platforms, and right-size your next cloud deployment.
+The Cloud Recommendation Engine provides the details you need to plan a cloud migration, compare costs between Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS, and right-size your cloud deployment.
 
 Select **Analytics > Reports > Cloud Recommendation Engine** and get clear recommendations for sizing cloud instances to suit your physical or virtual workloads.
 
 **CRE Feature Overview**
 
-- The Cloud Recommendation Engine leverages Device42's industry-leading autodiscovery and resource utilization data to understand your workloads. You can now also select Business Applications you have created as an option when you run a CRE report. This simplifies moving devices in groups, waves, or by logical groupings defined by applications.
+- The Cloud Recommendation Engine leverages Device42's industry-leading discovery and resource utilization data to understand your workloads. You can also select Business Applications as an option when running a CRE report, which simplifies moving devices in groups, waves, or by logical groupings defined by applications.
 - Cloud instance recommendations are provided for Amazon AWS, Microsoft Azure, Google Cloud Platform, Oracle, and VMware Cloud on AWS cloud platforms (including instance sizing recommendations and pricing information).
 - Instance recommendations are calculated based on a combination of your observed workloads (CPU, RAM, HDD, NIC, and so on) and Resource Utilization data (if available), plus a user-selected **Safety Factor** that you can set via the slider. For example, if your current instance peaked at 16GB RAM usage and you chose a 50% safety factor, CRE would size the cloud instance at 24GB.
-- CRE reports now include the following monthly and annual cost information for all vendors:
+- CRE reports include the following monthly and annual cost information for all vendors:
 
     - On-Demand Instance Cost 
     - 1-Year Reserved Instance Cost – Prorated 3-Year Reserved Instance Cost 
@@ -38,16 +38,16 @@ Select **Analytics > Reports > Cloud Recommendation Engine** and get clear recom
   }}
 />
 
-## How Does the Cloud Recommendation Engine Work?
+## How the Cloud Recommendation Engine Works
 
 1. It creates a summary of CPU, memory, and OS info based on autodiscovered inventory data.
 2. If you have the resource utilization feature enabled, peak CPU and memory usage over the last month is factored in.
-3. When you click the **Send to Cloud and Analyze Data** button, Device42 anonymizes your data and sends it to our cloud servers, finding matching AWS, Azure, GCP, Oracle, or VMware Cloud on AWS workloads.
+3. When you click the **Send to Cloud and Analyze Data** button, Device42 anonymizes your data and sends it to Device42's cloud servers, finding matching AWS, Azure, GCP, Oracle, or VMware Cloud on AWS workloads.
 4. Device42’s bots do the hard work, returning workload recommendations that have been best-matched to each particular device in your Main Appliance. The anonymized data is then re-matched with your actual device names, and an output sheet is generated that contains both your device names and matched workloads for the following scenarios:
 
-    - AWS based on inventory data
-    - AWS based on resource utilization
-    - Azure based on inventory data
+    - AWS based on inventory data
+    - AWS based on resource utilization
+    - Azure based on inventory data
     - Azure based on resource utilization
     - GCP based on inventory data
     - GCP based on resource utilization
@@ -93,10 +93,10 @@ connect-eu.device42.io https/443
 
 ## Global Cloud Recommendation Engine Settings and Scheduling
 
-You can use Global Cloud Recommendation Engine Settings to select settings and options for your CRE report and schedule the report to run on a daily basis. Changes you make to the Global CRE Settings are reflected on the **Analytics > Reports > Cloud Recommendation Engine** page.
+You can use Global Cloud Recommendation Engine Settings to select settings and options for your CRE report and schedule the report to run on a daily basis. Changes you make to the Global CRE Settings are reflected on the **Analytics > Reports > Cloud Recommendation Engine** page.
 
-- Select **Tools > Settings > Global Settings** to display the settings page and then click **Edit** at the top right of the page.
-- Scroll down to the bottom of the page, click **Show** to expand the CRE settings section.
+- Select **Tools > Settings > Global Settings** to display the settings page and then click **Edit** at the top right of the page.
+- Scroll down to the bottom of the page, click **Show** to expand the CRE settings section.
 
     <ThemedImage
     alt="CRE global settings tab"
@@ -124,7 +124,7 @@ You can use Global Cloud Recommendation Engine Settings to select settings and o
     }}
     />
 
-- To schedule the CRE report, check the **Run CRE on schedule** box and select the **Scheduled time window** for the report.
+- To schedule the CRE report, check the **Run CRE on schedule** box and select the **Scheduled time window** for the report.
 
     <ThemedImage
     alt="CRE schedule fields"
@@ -134,4 +134,4 @@ You can use Global Cloud Recommendation Engine Settings to select settings and o
     }}
     />
 
-- Click **Save** to save the CRE settings.
+- Click **Save** to save the CRE settings.

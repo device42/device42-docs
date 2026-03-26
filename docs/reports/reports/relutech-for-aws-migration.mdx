@@ -6,17 +6,11 @@ sidebar_position: 13
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Relutech and Device42 have teamed up to ease migrations to AWS. Device42's deep discovery provides Relutech with the information required to price your on-premise physical assets for purchase and leaseback, as well as third-party maintenance. Relutech then purchases those assets and provides them back to the customer on a leasing schedule. As you migrate those workloads to AWS, the workload is then rolled off of your lease, thereby reducing your on-premises costs as you increase consumption in AWS.
+Relutech and Device42 have teamed up to ease migrations to AWS. Device42's deep discovery provides Relutech with the information required to price your on-premises physical assets for purchase and leaseback, as well as third-party maintenance. Relutech then purchases those assets and provides them back to the customer on a leasing schedule. As you migrate those workloads to AWS, the workload is then rolled off of your lease, thereby reducing your on-premises costs as you increase consumption in AWS.
 
-## Getting Started
+## Set Up Discovery Jobs
 
-The instructions below provide a recommended approach to capture your Physical (bare metal) server inventory.  Using Device42's Operating System-level discovery, you will be able to collect inventory data relating to each server targeted on the network. Subsequent SNMP scans against a BMC (for example, iDRAC, HP iLO, and so on) will augment the data collected from OS-level scanning by identifying management MACs and IPs, as well as by discovering the parts installed on each targeted server. Please follow the steps below to create and execute these inventory jobs.
-
-The initial recommended approach starts by performing OS-level scans, followed by SNMP scans against a BMC, then by the Warranty sync (if applicable).
-
-1. **Hypervisor/\*nix/Windows:** Ensure that these sets of OS-level jobs are configured and run first. This discovery process will create the device record and capture parts that include CPU and HBA Card information.
-2. **SNMP:** Once the OS-level scans have been completed, create and execute SNMP scans against the management IPs of the targeted servers.  These jobs will update the existing devices by adding additional parts, as well as the management MAC Address and IP Address. The SNMP scan captures part information such as RAM, Disk(s), and PSU.
-3. **Warranty:** Depending on the vendor, these particular jobs will retrieve service contracts associated with each server from the vendor system. If the vendor system is unavailable, the warranty data can be added manually via the UI or via spreadsheet imports. Please see the referenced link below for documentation on this discovery in Device42.
+The recommended approach to capturing your physical (bare metal) server inventory involves three types of discovery jobs, run in the following order: OS-level scans first, then SNMP scans against the BMC, then the Warranty sync. Each job type builds on the data collected by the previous one.
 
 <ThemedImage
   alt="Discovery menu interface"
@@ -29,11 +23,10 @@ The initial recommended approach starts by performing OS-level scans, followed b
 
 ## Hypervisor/*nix/Windows Job Creation
 
-- Set up Discovery jobs for device inventory discovery with the [Hypervisor / *nix / Windows](/auto-discovery/linux-unix-server-auto-discovery.mdx) jobs. Set up a standard discovery scan for each type of device, focusing on the physical devices (Hypervisors, *nix, and Windows).
-    - For the Windows and *nix jobs, in the **Host Discovery** section, ensure that **Discover Parts** is checked. 
-    - For the Hypervisor jobs, the **Discover Parts** option is enabled as default and is not changeable.
+Set up [Hypervisor / *nix / Windows](/auto-discovery/linux-unix-server-auto-discovery) discovery jobs for each type of physical device. These OS-level scans create the device record and capture parts including CPU and HBA card information.
 
-
+- For the Windows and *nix jobs, ensure that **Discover Parts** is checked in the **Host Discovery** section.
+- For Hypervisor jobs, **Discover Parts** is enabled by default and cannot be changed.
 
 <ThemedImage
   alt="Host discovery settings"
@@ -45,10 +38,9 @@ The initial recommended approach starts by performing OS-level scans, followed b
 
 ## SNMP Job Creation
 
+Create [SNMP](/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery) discovery jobs to scan the management IPs of your targeted servers. These jobs augment the OS-level data by adding management MACs, IPs, and additional parts such as RAM, disks, and PSUs.
 
-For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.mdx) autodiscovery job:
-
-- First, enter the IP/FQDN of all the devices that the credentials and access apply to under **Server(s)**.
+- Enter the IP or FQDN of all the devices that the credentials and access apply to under **Server(s)**.
 
     <ThemedImage
     alt="SNMP server configuration"
@@ -58,7 +50,7 @@ For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-
     }}
     />
 
-- Then keep the **Port** and **ICMP/TCP Port Check** settings as standard access settings. 
+- Keep the **Port** and **ICMP/TCP Port Check** settings as the standard defaults.
 
     <ThemedImage
     alt="Port settings"
@@ -80,17 +72,23 @@ For the [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-
 
 ## Warranty Job Creation
 
-- See the [Warranty Sync](auto-discovery/warranty-autodiscovery.mdx) documentation for instructions on setting up the Warranty Sync autodiscovery.
+Depending on the vendor, warranty jobs retrieve service contracts associated with each server. If the vendor system is unavailable, warranty data can be added manually via the UI or spreadsheet imports.
+
+See the [Warranty Sync](/auto-discovery/warranty-autodiscovery) documentation for setup instructions.
 
 ## Recommended Automated Scheduling
 
-- For the Hypervisor/*nix/Windows scan jobs, the jobs should be scheduled to run **daily**.
-- For the SNMP scan jobs, the jobs should be scheduled to run **weekly**.
-- For the Warranty Sync, the jobs should be scheduled to run **weekly**.
+Set up automated schedules to keep your inventory data current for the Relutech report.
+
+| Job type | Recommended schedule |
+|----------|---------------------|
+| Hypervisor/\*nix/Windows | **Daily** |
+| SNMP | **Weekly** |
+| Warranty Sync | **Weekly** |
 
 ## Run the Relutech Report
 
-After the discovery jobs have been completed, navigate to **Insights+** to extract the data for Relutech. The Relutech report is located under **Advanced Reporting** > **Integrations** > **IT Asset Disposition** > **Relutech**. 
+After the discovery jobs have been completed, navigate to **Insights+** to extract the data for Relutech. The Relutech report is located under **Advanced Reporting** > **Integrations** > **IT Asset Disposition** > **Relutech**. 
 
 <ThemedImage
   alt="Relutech insights report"
@@ -100,4 +98,4 @@ After the discovery jobs have been completed, navigate to **Insights+** to extra
   }}
 />
 
-For more information about Relutech, click [here](https://relutech.com/request-a-quote/).
+For more information, visit the [Relutech website](https://relutech.com/request-a-quote/).

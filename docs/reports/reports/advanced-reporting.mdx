@@ -6,15 +6,15 @@ sidebar_position: 2
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+Device42's Advanced Reporting engine is a schedulable reporting platform that lets you create reports with visualizations and export the output in different formats. A selection of predefined reports is included, and you can add an unlimited number of user-defined reports.
+
 :::caution
-We are primarily invested in **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)** and encourage customers to use those first.
+We are primarily invested in **[Standard Reports](/reports/reports/standard-reports)** and **[Insights+](/reports/reports/insights-plus)** and encourage customers to use those first.
 :::
 
 ## Advanced Reporting Engine Overview
 
-Device42's Advanced Reporting engine is a quantum leap forward in functionality. It is a fully incorporated, schedulable BI or reporting platform that lets you create both ad-hoc reports that may include visualizations, and export the output in different formats as desired. A changing selection of predefined reports is included with Advanced Reporting, while an unlimited number may be added under **User-Defined** reports, exported, imported, and shared!
-
-Head to **Analytics > Reports > Advanced Reporting** to get started:
+Navigate to **Analytics > Reports > Advanced Reporting** to get started.
 
 <ThemedImage
   alt="Advanced reporting screen"
@@ -24,15 +24,11 @@ Head to **Analytics > Reports > Advanced Reporting** to get started:
   }}
 />
 
-Device42's Advanced Reporting engine is extremely flexible, and you can use it to take your reporting to the next level, extracting insight and business intelligence from your infrastructure data.
+This page covers how to run, customize, schedule, and build advanced reports. For a video walkthrough, see [this advanced reporting blog post](https://www.device42.com/blog/2018/04/25/advanced-reporting-video-walk-through/).
 
-In this section, you'll learn how to select data and build reports in advanced reporting. If you prefer a video, see [this advanced reporting blog post](https://www.device42.com/blog/2018/04/25/advanced-reporting-video-walk-through/) for a quick advanced reporting walkthrough!
+### Run an Existing Report
 
-### Running an existing report
-
-Running an existing report in advanced reporting is fast and easy.
-
-Head to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined reports** on the left by clicking the arrow to show the list of existing reports.
+Navigate to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined reports** on the left by clicking the arrow to show the list of existing reports.
 
 1. Choose a report from the list, highlight it, and click the **play icon** to run the report.
 
@@ -64,9 +60,9 @@ Head to **Analytics > Reports > Advanced Reporting** and expand **Pre-defined re
     }}
     />
 
-### Customizing an existing report
+### Customize an Existing Report
 
-Customizing an existing report is easy! Simply make a copy and edit the copy, or double-click any user-created report to edit it directly.
+To customize an existing report, make a copy and edit the copy, or double-click any user-created report to edit it directly.
 
 1. To customize an existing report, either right-click or click on the hamburger menu and choose **Duplicate** to make a copy: 
 
@@ -80,7 +76,7 @@ Customizing an existing report is easy! Simply make a copy and edit the copy, or
 
 2. Now, double-click the report you just copied, make your desired edits, and run as before.
 
-### Scheduling Advanced Reports
+### Schedule Advanced Reports
 
 Click the hamburger menu, select **Schedule**, and define the report to send out.
 
@@ -112,8 +108,6 @@ To edit the schedule of a report, click the **pencil icon** on the far right of 
   }}
 />
 
-* * *
-
 ## Building a Custom Advanced Report
 
 The following is the basic flow for building an advanced report.
@@ -129,7 +123,7 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-3. Next, head to the **Filter and sort** tab to configure your sorting and to filter your data. 
+3. Go to the **Filter and sort** tab to configure sorting and filtering for your data.
 
     <ThemedImage
     alt="Filter and sort data"
@@ -169,9 +163,9 @@ The following is the basic flow for building an advanced report.
     }}
     />
 
-### Sorting and Ordering Report Data
+### Sort and Order Report Data
 
-Device42 uses joins to handle sorting in Advanced Reporting by matching primary and foreign keys. Note that Advanced Reporting does a pretty good job attempting to set these for you, but for complicated reports, you will have to set or customize the joins yourself. You'll want to create joins that result in the data you care about, consulting the Device42 data dictionary when necessary. Note that each primary key should almost always have a matching foreign key, from being a primary key matching to a foreign key. If you are seeing data that you didn't expect, there may still be joins that need to be modified. Access joins by clicking the **gear icon** and selecting **Joins**.
+Device42 uses joins to handle sorting in Advanced Reporting by matching primary and foreign keys. Advanced Reporting attempts to set these automatically, but for complex reports, you may need to set or customize the joins yourself. Consult the Device42 data dictionary when necessary. Each primary key should almost always have a matching foreign key. If you are seeing unexpected data, check whether any joins need to be modified. Access joins by clicking the **gear icon** and selecting **Joins**.
 
 ## Use a DOQL Query To Create a Report Dataset
 
@@ -179,9 +173,7 @@ With Device42's Advanced Reporting, you can use DOQL (a SQL derivative) to creat
 
 To create a report based on a DOQL query, name the report, and then choose **Add SQL** during the **Category** selection step of report creation instead of choosing any categories.
 
-For a full set of steps in more detail, with pictures, see the dedicated [Use Custom SQL in Advanced Report](reports/reports/use-custom-sql-advanced-report.mdx) page.
-
-* * *
+For detailed steps, see [Use Custom SQL in Advanced Report](/reports/reports/use-custom-sql-advanced-report).
 
 ## Reporting Data Categories
 
@@ -209,7 +201,7 @@ You can browse all available categories:
 
 ### The Viewer Entity Relationship Diagram (ERD)
 
-The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerful way to navigate the Device42 database schema. It's useful for visualizing relationships and writing DOQL queries. You can quickly navigate to the ERD from the Advanced Reporting page: 
+The Viewer Entity Relationship Diagram (ERD) is a visual way to navigate the Device42 database schema. It is useful for understanding relationships and writing DOQL queries. Navigate to the ERD from the Advanced Reporting page.
 
 <ThemedImage
   alt="ERD button highlight"
@@ -219,7 +211,7 @@ The Viewer Entity Relationship Diagram, or ERD for short, is a handy and powerfu
   }}
 />
 
-Clicking the **Entity Relationship Diagram** button brings up the ERD. Here is an example screenshot of the ERD. For more information, check out the dedicated [Device42 ERD/Viewer Schema page](reports/device42-doql/db-viewer-schema.mdx). 
+Clicking the **Entity Relationship Diagram** button brings up the ERD. For more information, see [Device42 ERD/Viewer Schema](/reports/device42-doql/db-viewer-schema).
 
 In this example, the **Find** field contains the search keyword `affinity`, and therefore much of the ERD has been greyed out, while the items that match the `affinity` search query are visible: 
 
