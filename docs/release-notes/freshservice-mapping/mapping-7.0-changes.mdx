@@ -1,0 +1,849 @@
+---
+title: "Changes in Version 7.0 (CC 5.3.0)"
+sidebar_position: 0
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.3.0 release (CC 5.3.0).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## Interface Components Task
+
+A [comment](#comment-added) was added and [`WHERE` condition updated](#where-condition-updated) within this `Copy Interface Component from Device42 to Freshservice using DOQL` task:
+
+```xml
+<task enable="true" name="Interface Components" type="component" description="Copy Interface Component from Device42 to Freshservice using DOQL" d42_min_version="19.04.00">
+```
+
+### Comment Added
+
+The following comment was added after the `target` element to document the device type determination rules:
+
+```xml
+<!--
+     Below are the rules for determining the device type in the Interface Components task:
+     1. Check the physical subtype FIRST (highest priority)
+     2. Check the fw_device_type checks SECOND
+     3. Check the network_device flag (consistent with Devices task which maps network_device=true to Switch)
+-->
+```
+
+### WHERE Condition Updated
+
+The `WHERE` condition in the DOQL query was changed from:
+
+```sql
+and dev.details->>'fw_device_type' IN ('Switch', 'Router', 'Firewall', 'Router', 'Access Point')
+```
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+and (
+    (lower(dev.type) = 'physical' AND lower(dev.physicalsubtype) IN ('network printer', 'router', 'firewall', 'access point'))
+    OR
+    lower(dev.details->>'fw_device_type') IN ('printer', 'router', 'firewall', 'access point', 'switch')
+    OR
+    dev.network_device = true
+)
+```
+
+</details>
+
+## AWS Network Interface Task
+
+A [duplicate field element was removed](#duplicate-field-element-removed) and [length constraints were added](#length-constraints-added) to three field elements within this `D42 AWS Network Interface to Freshservice AWS Network Interface` task:
+
+```xml
+<task enable="true" name="D42 AWS Network Interface to Freshservice AWS Network Interface" type="asset" description="Copy AWS Network Interface from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+### Duplicate Field Element Removed
+
+The first `resource=secondary_ips` field element was deleted because it was a duplicate:
+
+```xml
+<field resource="secondary_ips" source-type="string" target="secondary_private_ip_addresses" target-type="string" target-header="AWS Network Interface"/>
+```
+
+### Length Constraints Added
+
+The following three field elements had `min-length="1"` and `max-length="255"` attributes added.
+
+Changed from:
+
+```xml
+<field resource="secondary_dns_names" source-type="string" target="secondary_private_dns_names" target-type="string" target-header="AWS Network Interface"/>
+<field resource="secondary_ips" source-type="string" target="secondary_private_ip_addresses" target-type="string" target-header="AWS Network Interface"/>
+<field resource="ipv6_ips" source-type="string" target="ipv6_addresses" target-type="string" target-header="AWS Network Interface"/>
+```
+
+To the following:
+
+```xml
+<field resource="secondary_dns_names" source-type="string" target="secondary_private_dns_names" target-type="string" target-header="AWS Network Interface" min-length="1" max-length="255"/>
+<field resource="secondary_ips" source-type="string" target="secondary_private_ip_addresses" target-type="string" target-header="AWS Network Interface" min-length="1" max-length="255"/>
+<field resource="ipv6_ips" source-type="string" target="ipv6_addresses" target-type="string" target-header="AWS Network Interface" min-length="1" max-length="255"/>
+```
+
+## Copy Server Devices Tasks
+
+The `last_login_by` DOQL logic was updated in three versions of the `Copy Servers from Device42 to Freshservice` task:
+
+- [DOQL v2 for Device42 19.04.00 and later](#doql-v2-for-device42-190400-and-later) 
+- [DOQL v2 for Device42 16.19.00 to 19.03.99](#doql-v2-for-device42-161900-to-190399)
+- [DOQL v1 for Device42 up to 16.18.02](#doql-v1-for-device42-up-to-161802).
+
+### DOQL v2 for Device42 19.04.00 and Later
+
+The following changes were made within the `Copy Servers from Device42 to Freshservice using DOQL v2` task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.04.00">
+```
+
+- The **`devicelastlogin` CTE** was changed from:
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, dll.sid, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC, dll.devicelastlogin_pk DESC) AS rank FROM view_devicelastlogin_v1 dll )
+      SELECT sub.*, (select email from view_enduser_v1 enduser where enduser.details->>'sid' = sub.sid limit 1) as enduser_email  FROM sub  WHERE rank = 1 )
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, dll.sid, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC, dll.devicelastlogin_pk DESC) AS rank FROM view_devicelastlogin_v1 dll )
+      SELECT sub.*,
+      CASE
+        WHEN sub.sid IS NOT NULL AND sub.sid <> ''
+        THEN (
+          SELECT enduser.email
+          FROM view_enduser_v1 enduser
+          WHERE enduser.details ->> 'sid' = sub.sid
+          ORDER BY enduser.enduser_pk DESC
+          LIMIT 1
+        )
+        ELSE NULL
+      END AS enduser_email
+      FROM sub
+      WHERE rank = 1
+  )
+  ```
+
+  </details>
+
+- The **`last_login_by` field** in the `SELECT` statement was changed from:
+
+  ```sql
+  case when devicelastlogin.enduser_email is not null then devicelastlogin.enduser_email
+        else devicelastlogin.username end as last_login_by,
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  CASE
+  WHEN devicelastlogin.enduser_email IS NOT NULL AND devicelastlogin.enduser_email <> ''
+    THEN devicelastlogin.enduser_email
+  WHEN devicelastlogin.domain IS NOT NULL
+    THEN devicelastlogin.username || '@' || devicelastlogin.domain
+  ELSE devicelastlogin.username
+  END AS last_login_by,
+  ```
+
+  </details>
+
+### DOQL v2 for Device42 16.19.00 to 19.03.99
+
+The following changes were made within this `Copy Servers from Device42 to Freshservice using DOQL v2` task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+```
+
+- The **`devicelastlogin` CTE** was changed from:
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC) AS rank FROM view_devicelastlogin_v1 dll )
+      SELECT *   FROM sub  WHERE rank = 1 )
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC) AS rank FROM view_devicelastlogin_v1 dll )
+      SELECT sub.*,
+      (
+          SELECT enduser.email
+          FROM view_enduser_v1 enduser
+          WHERE enduser.name = sub.username
+          ORDER BY enduser.enduser_pk DESC
+          LIMIT 1
+      ) AS enduser_email
+      FROM sub
+      WHERE rank = 1 )
+  ```
+
+  </details>
+
+- The **`last_login_by` field** in the `SELECT` statement was changed from:
+
+  ```sql
+  devicelastlogin.username as last_login_by,
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  CASE
+    WHEN devicelastlogin.enduser_email IS NOT NULL AND devicelastlogin.enduser_email <> ''
+      THEN devicelastlogin.enduser_email
+    WHEN devicelastlogin.domain IS NOT NULL
+      THEN devicelastlogin.username || '@' || devicelastlogin.domain
+    ELSE devicelastlogin.username
+      END AS last_login_by,
+  ```
+
+  </details>
+
+### DOQL v1 for Device42 Up to 16.18.02
+
+The same changes as the DOQL v2 (16.19.00 to 19.03.99) variant were made within this `Copy Servers from Device42 to Freshservice using DOQL v1` task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v1" d42_max_version="16.18.02">
+```
+
+- The **`devicelastlogin` CTE** was changed from:
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC) AS rank FROM view_devicelastlogin_v1 dll )
+      SELECT *   FROM sub  WHERE rank = 1 )
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  devicelastlogin AS (
+      with sub as ( SELECT dll.device_fk, dll.username, dll.domain, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC) AS rank FROM view_devicelastlogin_v1 dll )
+    SELECT sub.*,
+      (
+        SELECT enduser.email
+        FROM view_enduser_v1 enduser
+        WHERE enduser.name = sub.username
+        ORDER BY enduser.enduser_pk DESC
+        LIMIT 1
+      ) AS enduser_email
+      FROM sub
+      WHERE rank = 1 )
+  ```
+
+  </details>
+
+- The **`last_login_by` field** in the `SELECT` statement was changed from:
+
+  ```sql
+  devicelastlogin.username as last_login_by,
+  ```
+
+  To the following:
+
+  <details>
+    <summary>Click to expand the code block</summary>
+
+  ```sql
+  CASE
+    WHEN devicelastlogin.enduser_email IS NOT NULL AND devicelastlogin.enduser_email <> ''
+      THEN devicelastlogin.enduser_email
+    WHEN devicelastlogin.domain IS NOT NULL
+      THEN devicelastlogin.username || '@' || devicelastlogin.domain
+    ELSE devicelastlogin.username
+      END AS last_login_by,
+  ```
+
+  </details>
+
+## Printer Tasks
+
+The `WHERE` conditions were updated in three printer-related tasks to use `nullif(trim(...), '')` instead of `is not null` checks.
+
+### Printer Input Task
+
+```xml
+<task enable="true" name="Printer Input" type="component" description="Copy Printer Input Parts from Device42 to Freshservice using DOQL">
+```
+
+Changed from:
+
+```sql
+and pt.details ->> 'input_name' is not null and pt.details ->> 'input_type' is not null
+```
+
+To the following:
+
+```sql
+and nullif(trim(pt.details ->> 'input_name'), '') is not null and nullif(trim(pt.details ->> 'input_type'), '') is not null
+```
+
+### Printer Output Task
+
+```xml
+<task enable="true" name="Printer Output" type="component" description="Copy Printer Output Parts from Device42 to Freshservice using DOQL">
+```
+
+Changed from:
+
+```sql
+and pt.details ->> 'output_name' is not null and pt.details ->> 'output_type' is not null
+```
+
+To the following:
+
+```sql
+and nullif(trim(pt.details ->> 'output_name'), '') is not null and nullif(trim(pt.details ->> 'output_type'), '') is not null
+```
+
+### Printer Marker Task
+
+```xml
+<task enable="true" name="Printer Marker" type="component" description="Copy Printer Marker Parts from Device42 to Freshservice using DOQL">
+```
+
+Changed from:
+
+```sql
+and pt.details ->> 'marker_name' is not null and pt.details ->> 'marker_type' is not null
+```
+
+To the following:
+
+```sql
+and nullif(trim(pt.details ->> 'marker_name'), '') is not null and nullif(trim(pt.details ->> 'marker_type'), '') is not null
+```
+
+## Task Description Typo Fixes
+
+The `FreshService` typo was corrected to `Freshservice` in the `description` attribute of the following seven tasks:
+
+```xml
+<task enable="true" name="D42 AWS Public IP to Freshservice AWS Public IP" type="asset" description="Copy AWS Public IP from Device42 to FreshService" d42_min_version="19.04.10">
+<task enable="true" name="D42 Azure Public IP to Freshservice Azure Public IP" type="asset" description="Copy Azure Public IP from Device42 to FreshService" d42_min_version="19.04.10" d42_max_version="19.04.99">
+<task enable="true" name="D42 Azure Public IP to Freshservice Azure Public IP" type="asset" description="Copy Azure Public IP from Device42 to FreshService" d42_min_version="19.05.00">
+<task enable="true" name="D42 GCP BigQuery Table to Freshservice GCP BigQuery Table" type="asset" description="Copy GCP BigQuery Table from Device42 to FreshService" d42_min_version="19.04.10">
+<task enable="true" name="D42 AWS K8 Pod to Freshservice AWS K8 Pod" type="asset" description="Copy AWS K8 Pod from Device42 to FreshService" d42_min_version="19.04.10">
+<task enable="true" name="D42 AWS K8s Replica Set to Freshservice AWS K8s Replica Set" type="asset" description="Copy AWS K8s Replica Set from Device42 to FreshService" d42_min_version="19.04.10">
+<task enable="true" name="D42 AWS K8s Job to Freshservice AWS K8s Cron Job" type="asset" description="Copy AWS K8s Cron Job from Device42 to FreshService" d42_min_version="19.04.10">
+```
+
+## CIDR Block Field Length Constraints Added
+
+The `cidr_block` field elements had `min-length="1"` and `max-length="255"` attributes added across six subnet and VPC tasks.
+
+- The following field element of the `D42 AWS Subnet to Freshservice AWS Subnet` task was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet" min-length="1" max-length="255"/>
+    ```
+
+- The following field element of the `D42 AWS VPC to Freshservice AWS VPC` task was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="VPC"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="VPC" min-length="1" max-length="255"/>
+    ```
+
+- The following field element of the `D42 AZURE Subnet to Freshservice AZURE Subnet` task was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet" min-length="1" max-length="255"/>
+    ```
+
+- The following field element of the `D42 Azure VPC to Freshservice Azure VPC` task was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="VPC"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="VPC" min-length="1" max-length="255"/>
+    ```
+
+- Two field elements of the `D42 GCP Subnet to Freshservice GCP Subnet` task were updated. The first was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="cidr_block" target-type="string" target-header="Subnet" min-length="1" max-length="255"/>
+    ```
+
+    The second was changed from:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="ip_cidr_range" target-type="string" target-header="GCP Subnet"/>
+    ```
+
+    To the following:
+
+    ```xml
+    <field resource="cidr_block" source-type="string" target="ip_cidr_range" target-type="string" target-header="GCP Subnet" min-length="1" max-length="255"/>
+    ```
+
+## Asset Relationship Tasks
+
+The DOQL queries in the `Delete asset relationships from Freshservice that do not exist in Device42` tasks were refactored to use materialized CTEs.
+
+### Delete Asset Relationships (Device42 Up to 19.04.99)
+
+Regarding this `Delete asset relationships from Freshservice that do not exist in Device42` task:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_max_version="19.04.99">
+```
+
+The **Service Communication Query** was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+select distinct
+   d1.name as dependent_device_name,
+   format('Device-%s', sc.client_device_fk) as dependent_device_device42_id,
+   'Connected to' as downstream_relationship,
+   d2.name as dependency_device_name,
+   format('Device-%s', sc.listener_device_fk) as dependency_device_device42_id,
+   'Connected to' as upstream_relationship
+from view_servicecommunication_v2 sc
+inner join view_device_v1 d1 on sc.client_device_fk = d1.device_pk
+inner join view_device_v1 d2 on sc.listener_device_fk = d2.device_pk
+where (now() - sc.last_updated) <= interval '30 days'
+   and client_device_fk is not null
+   and listener_device_fk is not null
+   and client_device_fk <> listener_device_fk
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH unique_pairs AS MATERIALIZED (
+    SELECT DISTINCT client_device_fk, listener_device_fk
+    FROM   view_servicecommunication_v2
+    WHERE  last_updated >= NOW() - interval '30 days'
+    AND    client_device_fk IS NOT NULL
+    AND    listener_device_fk IS NOT NULL
+    AND    client_device_fk <> listener_device_fk
+ )
+ SELECT d1.name                                         AS dependent_device_name,
+       format('Device-%s', up.client_device_fk)        AS dependent_device_device42_id,
+       'Connected to'                                  AS downstream_relationship,
+       d2.name                                         AS dependency_device_name,
+       format('Device-%s', up.listener_device_fk)      AS dependency_device_device42_id,
+       'Connected to'                                  AS upstream_relationship
+ FROM   unique_pairs up
+ INNER JOIN view_device_v1 d1
+       ON d1.device_pk = up.client_device_fk
+ INNER JOIN view_device_v1 d2
+       ON d2.device_pk = up.listener_device_fk
+```
+
+</details>
+
+### Delete Asset Relationships (Device42 19.05.00 and Later)
+
+Regarding this `Delete asset relationships from Freshservice that do not exist in Device42` task:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00">
+```
+
+- **Service Communication Query** changed from:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT DISTINCT d1.NAME                                  AS dependent_device_name,
+                 Format('Device-%s', sc.client_device_fk)   AS dependent_device_device42_id,
+                 'Connected to'                             AS downstream_relationship,
+                 d2.NAME                                    AS dependency_device_name,
+                 Format('Device-%s', sc.listener_device_fk) AS dependency_device_device42_id,
+                 'Connected to'                             AS upstream_relationship
+    FROM            view_servicecommunication_v2 sc
+    INNER JOIN      view_device_v1 d1
+    ON              sc.client_device_fk = d1.device_pk
+    INNER JOIN      view_device_v1 d2
+    ON              sc.listener_device_fk = d2.device_pk
+    WHERE           (Now() - sc.last_updated) <= interval '30 days'
+    AND             client_device_fk IS NOT NULL
+    AND             listener_device_fk IS NOT NULL
+    AND             client_device_fk <> listener_device_fk
+    ```
+
+    </details>
+
+    To the following:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    WITH unique_pairs AS MATERIALIZED (
+      SELECT DISTINCT client_device_fk, listener_device_fk
+      FROM   view_servicecommunication_v2
+      WHERE  last_updated >= NOW() - interval '30 days'
+      AND    client_device_fk IS NOT NULL
+      AND    listener_device_fk IS NOT NULL
+      AND    client_device_fk <> listener_device_fk
+    )
+    SELECT d1.name                                         AS dependent_device_name,
+         format('Device-%s', up.client_device_fk)        AS dependent_device_device42_id,
+         'Connected to'                                  AS downstream_relationship,
+         d2.name                                         AS dependency_device_name,
+         format('Device-%s', up.listener_device_fk)      AS dependency_device_device42_id,
+         'Connected to'                                  AS upstream_relationship
+    FROM   unique_pairs up
+    INNER JOIN view_device_v1 d1
+         ON d1.device_pk = up.client_device_fk
+    INNER JOIN view_device_v1 d2
+         ON d2.device_pk = up.listener_device_fk
+    ```
+
+    </details>
+
+- **Microsoft Azure Public IP Query** changed from:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT
+          CASE
+                 WHEN position('/' IN device.NAME) > 0 THEN substring(device.NAME FROM position('/' IN device.NAME) + 1)
+                 ELSE
+                        CASE
+                               WHEN cloud_instance.instance_name IS NULL
+                               OR     cloud_instance.instance_name = '' THEN device.NAME
+                               ELSE cloud_instance.instance_name
+                        END
+          END                                   AS dependent_device_name,
+          format('Device-%s', device.device_pk) AS dependent_device_device42_id,
+          'Has'                                                               AS downstream_relationship,
+          COALESCE(NULLIF(ip.details ->> 'ip_name', ''), host(ip.ip_address)) AS dependency_device_name,
+          format('IP-%s', ip.ipaddress_pk)                                    AS dependency_device_device42_id,
+          'Is Attached To'                      AS upstream_relationship
+    FROM   view_ipaddress_v2 ip
+    JOIN   view_device_v2 AS device
+    ON     device.device_pk = ANY(ip.device_fks)
+    JOIN   view_cloudinstance_v1 cloud_instance
+    ON     cloud_instance.device_fk = device.device_pk
+    JOIN   view_cloudinfrastructure_v2 infra
+    ON     ip.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+    JOIN   view_vendor_v1 vendor
+    ON     infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE  ip.cloudinfrastructure_fk IS NOT NULL
+    AND    ip.is_public = true
+    AND    vendor.NAME = 'Microsoft'
+    ```
+
+    </details>
+
+    To the following:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT * FROM (
+         WITH ms_infra AS MATERIALIZED (
+            SELECT infra.cloudinfrastructure_pk
+            FROM   view_cloudinfrastructure_v2 infra
+            JOIN   view_vendor_v1 vendor
+                   ON infra.cloud_vendor_fk = vendor.vendor_pk
+            WHERE  vendor.name = 'Microsoft'
+         ),
+         all_public_ips AS MATERIALIZED (
+            SELECT ip.ipaddress_pk,
+                   ip.ip_address,
+                   ip.details,
+                   ip.cloudinfrastructure_fk
+            FROM   view_ipaddress_v2 ip
+            WHERE  ip.is_public = true
+            AND    ip.cloudinfrastructure_fk IS NOT NULL
+         )
+         SELECT CASE
+                   WHEN position('/' IN device.name) > 0
+                       THEN substring(device.name FROM position('/' IN device.name) + 1)
+                   ELSE COALESCE(NULLIF(cloud_instance.instance_name, ''), device.name)
+               END                                                                   AS dependent_device_name,
+               format('Device-%s', device.device_pk)                                 AS dependent_device_device42_id,
+               'Has'                                                                 AS downstream_relationship,
+               COALESCE(NULLIF(ip.details ->> 'ip_name', ''), host(ip.ip_address))   AS dependency_device_name,
+               format('IP-%s', ip.ipaddress_pk)                                      AS dependency_device_device42_id,
+               'Is Attached To'                                                      AS upstream_relationship
+         FROM   all_public_ips ip
+         INNER JOIN ms_infra mi
+               ON ip.cloudinfrastructure_fk = mi.cloudinfrastructure_pk
+         INNER JOIN view_ipaddress_device_v2 ipd
+               ON ipd.ipaddress_fk = ip.ipaddress_pk
+         INNER JOIN view_device_v1 device
+               ON device.device_pk = ipd.device_fk
+         INNER JOIN view_cloudinstance_v1 cloud_instance
+               ON cloud_instance.device_fk = device.device_pk
+      )
+    ```
+
+    </details>
+
+- **Google Cloud Public IP Query** changed from:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT
+           coalesce(NULLIF(netport.vendor_custom_fields -> 'Name', ''), netport.port)   AS dependent_device_name,
+           format('Netport-%s', netport.netport_pk)                         AS dependent_device_device42_id,
+           'Has'                                                            AS downstream_relationship,
+           ip.details ->> 'name'                                            AS dependency_device_name,
+           format('IP-%s', ip.ipaddress_pk)                                AS dependency_device_device42_id,
+           'Is Attached To'                                                 AS upstream_relationship
+    FROM
+           view_ipaddress_v2 ip
+    INNER JOIN
+           view_netport_v1 netport on netport.port = ip.details ->> 'port'
+           AND netport.details ->> 'nat_ip' = host(ip.ip_address)
+    LEFT JOIN
+           view_cloudinfrastructure_v2 infra ON netport.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+    LEFT JOIN
+           view_vendor_v1 vendor ON infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE infra.account_id is not null and ip.is_public = TRUE and vendor.name = 'Google'
+    ```
+
+    </details>
+
+    To the following:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT * FROM (
+        WITH public_ips AS MATERIALIZED (
+            SELECT
+                ip.ipaddress_pk,
+                ip.details ->> 'name' AS ip_name,
+                ip.details ->> 'port' AS port_id,
+                host(ip.ip_address) AS ip_host
+            FROM view_ipaddress_v2 ip
+            WHERE ip.is_public = TRUE
+        ),
+        google_netports AS MATERIALIZED (
+            SELECT
+                netport.netport_pk,
+                netport.port,
+                netport.details ->> 'nat_ip' AS nat_ip,
+                coalesce(NULLIF(netport.vendor_custom_fields -> 'Name', ''), netport.port) AS display_name
+            FROM view_netport_v1 netport
+            JOIN view_cloudinfrastructure_v2 infra
+                ON netport.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+            JOIN view_vendor_v1 vendor
+                ON infra.cloud_vendor_fk = vendor.vendor_pk
+            WHERE infra.account_id IS NOT NULL
+            AND vendor.name = 'Google'
+        )
+        SELECT
+            np.display_name AS dependent_device_name,
+            format('Netport-%s', np.netport_pk) AS dependent_device_device42_id,
+            'Has' AS downstream_relationship,
+            ip.ip_name AS dependency_device_name,
+            format('IP-%s', ip.ipaddress_pk) AS dependency_device_device42_id,
+            'Is Attached To' AS upstream_relationship
+        FROM public_ips ip
+        INNER JOIN google_netports np
+            ON np.port = ip.port_id
+            AND np.nat_ip = ip.ip_host
+    )
+    ```
+
+    </details>
+
+- **VMware Datacenter-Datastore Relationship Query** changed from:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT
+          datacenter.resource_name                         AS dependent_device_name,
+          format('Resource-%s', datacenter.resource_pk)    AS dependent_device_device42_id,
+          'Contains'                                       AS downstream_relationship,
+          datastore.resource_name                          AS dependency_device_name,
+          format('Resource-%s', datastore.resource_pk)     AS dependency_device_device42_id,
+          'Contained By'                                   AS upstream_relationship
+    FROM
+          view_resourcerelationship_v2 rel
+    LEFT JOIN
+          view_resource_v2 datacenter
+          ON rel.from_resource_fk = datacenter.resource_pk
+    LEFT JOIN
+          view_resource_v2 datastore
+          ON rel.to_resource_fk = datastore.resource_pk
+    WHERE
+          rel.relation = 'datacenter_datastore'
+          AND datacenter.category @> ARRAY['vmware', 'datacenter', 'vcenter']
+          AND datastore.category @> ARRAY['vmware', 'ds', 'vcenter']
+    ```
+
+    </details>
+
+    To the following:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT * FROM (
+         WITH rels AS MATERIALIZED (
+            SELECT from_resource_fk, to_resource_fk
+            FROM  view_resourcerelationship_v2
+            WHERE  relation = 'datacenter_datastore'
+         ),
+         datacenters AS MATERIALIZED (
+            SELECT resource_pk, resource_name
+            FROM  view_resource_v2
+            WHERE  category @> ARRAY['vmware', 'datacenter', 'vcenter']
+         ),
+         datastores AS MATERIALIZED (
+            SELECT resource_pk, resource_name
+            FROM  view_resource_v2
+            WHERE  category @> ARRAY['vmware', 'ds', 'vcenter']
+         )
+         SELECT dc.resource_name                      AS dependent_device_name,
+               format('Resource-%s', dc.resource_pk)  AS dependent_device_device42_id,
+               'Contains'                             AS downstream_relationship,
+               ds.resource_name                       AS dependency_device_name,
+               format('Resource-%s', ds.resource_pk)  AS dependency_device_device42_id,
+               'Contained By'                         AS upstream_relationship
+         FROM   rels
+         INNER JOIN datacenters dc ON rels.from_resource_fk = dc.resource_pk
+         INNER JOIN datastores ds  ON rels.to_resource_fk = ds.resource_pk
+      )
+    ```
+
+    </details>
+
+- **VMware Datacenter-Network Relationship Query** changed from:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT
+          datacenter.resource_name                         AS dependent_device_name,
+          format('Resource-%s', datacenter.resource_pk)    AS dependent_device_device42_id,
+          'Contains'                                       AS downstream_relationship,
+          network.resource_name                            AS dependency_device_name,
+          format('Resource-%s', network.resource_pk)       AS dependency_device_device42_id,
+          'Contained By'                                   AS upstream_relationship
+    FROM
+          view_resourcerelationship_v2 rel
+    LEFT JOIN
+          view_resource_v2 datacenter
+          ON rel.from_resource_fk = datacenter.resource_pk
+    LEFT JOIN
+          view_resource_v2 network
+          ON rel.to_resource_fk = network.resource_pk
+    WHERE
+          rel.relation = 'datacenter_network'
+          AND datacenter.category @> ARRAY['vmware', 'datacenter', 'vcenter']
+          AND network.category @> ARRAY['vmware', 'network', 'vcenter']
+    ```
+
+    </details>
+
+    To the following:
+
+    <details>
+      <summary>Click to expand the code block</summary>
+
+    ```sql
+    SELECT * FROM (
+         WITH rels AS MATERIALIZED (
+            SELECT from_resource_fk, to_resource_fk
+            FROM  view_resourcerelationship_v2
+            WHERE  relation = 'datacenter_network'
+         ),
+         datacenters AS MATERIALIZED (
+            SELECT resource_pk, resource_name
+            FROM  view_resource_v2
+            WHERE  category @> ARRAY['vmware', 'datacenter', 'vcenter']
+         ),
+         networks AS MATERIALIZED (
+            SELECT resource_pk, resource_name
+            FROM  view_resource_v2
+            WHERE  category @> ARRAY['vmware', 'network', 'vcenter']
+         )
+         SELECT dc.resource_name                      AS dependent_device_name,
+               format('Resource-%s', dc.resource_pk)  AS dependent_device_device42_id,
+               'Contains'                             AS downstream_relationship,
+               net.resource_name                      AS dependency_device_name,
+               format('Resource-%s', net.resource_pk) AS dependency_device_device42_id,
+               'Contained By'                         AS upstream_relationship
+         FROM   rels
+         INNER JOIN datacenters dc ON rels.from_resource_fk = dc.resource_pk
+         INNER JOIN networks net   ON rels.to_resource_fk = net.resource_pk
+     )
+    ```
+
+    </details>
