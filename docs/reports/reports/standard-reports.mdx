@@ -6,9 +6,7 @@ sidebar_position: 15.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The traditional "Classic Reports" menu option has been renamed **Standard Reports** under the **Analytics** menu. Standard reports are generally the quickest and easiest way to query and report on information within Device42. 
-
-The standard reporting feature is the first place to go to answer difficult business questions with system data. These reports integrate this powerful tabular reporting functionality with DOQL queries, MA object tables, and the catalog of existing reports.
+Standard Reports (under **Analytics** in the main menu) are the recommended option for tabular reporting in Device42. They provide a quick way to query and report on information by integrating with DOQL queries, MA object tables, and the catalog of existing reports. For interactive dashboards and visual analytics, see [Insights+](/reports/reports/insights-plus).
 
 <ThemedImage
   alt="Standard reports menu"
@@ -18,18 +16,16 @@ The standard reporting feature is the first place to go to answer difficult busi
   }}
 />
 
-Use the standard reporting options to create tabular reports directly from an existing report or from a list within the UI, or use a custom DOQL to retrieve and populate the data. These reports can then be exported or scheduled to email, providing recipients with data-rich tabular exports from the system that are easy to configure and digest.
-
-## Creating a Standard Report
+## Create a Standard Report
 
 You can create a standard report in several ways:
 
-- Using DOQL
-- From a pre-defined report
-- From a list page
-- As a guided report
+- **DOQL query:** Write a custom query against the Device42 database.
+- **Pre-defined report:** Use an existing report as a tab in a multi-tab report.
+- **List page:** Generate a report from any object list page with filters applied.
+- **Guided report:** Select an object type and configure filters through the UI.
 
-### Creating a Report Using DOQL
+### Create a Report Using DOQL
 
 A DOQL statement, or Device42 Object Query Language statement, is a query that can be run against the Device42 database in the **Insights+** interface, through the application, or using the RESTful API. DOQLs can be used in Standard Reporting to generate the data to display in the results table.
 
@@ -47,7 +43,7 @@ To create reports using DOQL, you should be familiar with and consult the **Data
 
 To use DOQL to create or edit a standard report, name the report and then select **DOQL Query** from the report-type dropdown. Enter the DOQL commands in the text box. The start of a sample select statement is displayed in the DOQL text box. If an error is encountered during parsing (for example, due to invalid syntax or referencing a table or field that does not exist), an error message will show at the bottom of the text box.
 
-### Creating a Report From a Pre-Defined Report
+### Create a Report From a Pre-Defined Report
 
 Create a multi-tab standard report with one tab containing the results of a previous existing report. Select the **Pre-Defined Report** option and choose from a set of existing reports to be included as a separate tab.
 
@@ -60,7 +56,7 @@ Create a multi-tab standard report with one tab containing the results of a prev
   }}
 />
 
-### Creating a Report From a Guided Report 
+### Create a Report From a Guided Report
 
 Select the **Guided Report** option and the object to create the report on. Filters can be added and set to alter the report.
 
@@ -80,7 +76,7 @@ Select the **Guided Report** option and the object to create the report on. Filt
   }}
 />
 
-### Creating a Report From a List Page
+### Create a Report From a List Page
 
 You can create a new standard report from any of the object list pages. A standard report can be emailed and scheduled. For example, you can create a standard report from the following list pages under the **Resources** menu:
 
@@ -97,7 +93,7 @@ You can create a new standard report from any of the object list pages. A standa
 - Software In Use
 - Secrets 
 
-From the object list page, apply filters to a list, then create a standard report using the **Report** button at the top of the table. 
+From the object list page, apply filters to narrow the data, then click the **Report** button at the top of the table. The filters you applied carry over to the report.
 
 <ThemedImage
   alt="Devices report button"
@@ -117,11 +113,11 @@ Configure the report. Reduce the report data to include only the essential colum
   }}
 />
 
-## Exporting Standard Reports 
+## Export Standard Reports
 
-As with the previous classic reports, you can view the report output on the screen or export the results in tab-separated values (TSV) or Excel formats.
+You can view the report output on the screen or export the results in tab-separated values (TSV) or Excel formats.
 
-## Scheduling Standard Reports
+## Schedule Standard Reports
 
 Toggle **Report Schedule** on and include a comma-separated list of recipients to send the report to.
 
