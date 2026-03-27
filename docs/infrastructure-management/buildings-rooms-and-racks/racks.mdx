@@ -6,7 +6,9 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-To get a list of your racks, go to **Infrastructure > DataCenter > Racks** to display the Racks list page. 
+Device42 lets you track the physical location of devices by assigning them to racks within rooms. This page covers how to create and manage racks, add devices and assets to racks, visualize rack layouts, and perform bulk operations.
+
+Navigate to **Infrastructure > DataCenter > Racks** to view the Racks list page.
 
 <ThemedImage
   alt="Racks list page with Actions menu"
@@ -16,7 +18,7 @@ To get a list of your racks, go to **Infrastructure > DataCenter > Racks** to di
   }}
 />
 
-Like the list view pages for other objects, you'll see your racks and several sortable columns of information. Use the available filters and search box to narrow down the list of racks displayed.
+The list displays your racks with sortable columns. Use the available filters and search box to narrow down the list.
 
 Get a quick look at where there is available space in the racks with the **Available Us** column that displays the availability heatmap of each rack.
 
@@ -52,7 +54,7 @@ The **Details** section includes the following fields:
     style={{ width: '80%' }} 
     />
 
-- **Row**: If you have a name for the row, put it here. Please note that the row name is for information only and won't affect the layout of the room. In the visual room layout, rows are initially created automatically and won't use this setting. You can then drag and drop racks to create rows. If all racks in a given row in the visual layout have the same **Row** value, the value will appear to the left of the row. The same applies to columns in the visual layout – if all the racks in a given column have the same **Row** value, the value will appear at the top of the column.
+- **Row**: Enter a name for the row if you have one. The row name is for informational purposes only and does not affect the room layout. In the visual room layout, rows are created automatically — this setting is not used initially. You can drag and drop racks to arrange them into rows. If all racks in a row share the same **Row** value, that value appears to the left of the row. The same applies to columns: if all racks in a column share the same **Row** value, the value appears at the top of the column.
 - **Room**: The Room the rack belongs to is displayed on the Rack view page and is a clickable link. You can assign an existing Room, or create a new Room from this page by clicking **+** (the plus sign icon).
 
     <ThemedImage
@@ -85,7 +87,7 @@ You can easily add devices, assets, and PDUs to the rack directly from the rack 
 There are three other ways to add devices, assets, and PDUs to racks:
 
 1. From the device, asset, or PDU edit pages
-2. By uploading Excel spreadsheets under [**Tools > Import/Export (xls)**](/integration/imports/spreadsheet-imports-and-exports.mdx)
+2. By uploading Excel spreadsheets under [**Tools > Import/Export (xls)**](/integration/imports/spreadsheet-imports-and-exports)
 3. [Via the Device42 API](https://api.device42.com)
 4. [From the Rack Layout screen](#visually-add-assets-to-the-rack).
 
@@ -99,7 +101,7 @@ There are three other ways to add devices, assets, and PDUs to racks:
 
 - **Where**: Indicate where the device is.
 
-  Devices must have a [Hardware Model](/infrastructure-management/devices/hardware-models-templates.mdx) with a defined size to give them the **Rack Mounted** designation. You can add devices to the **Left**, **Right**, **Top**, or **Bottom** without a Hardware Model.
+  Devices must have a [Hardware Model](/infrastructure-management/devices/hardware-models-templates) with a defined size to give them the **Rack Mounted** designation. You can add devices to the **Left**, **Right**, **Top**, or **Bottom** without a Hardware Model.
 
 - **Start at**: Enter a starting U location for the device. 
 - **Orientation**: Choose the orientation of the mounted device. Device depth is determined by the Hardware Model properties.
@@ -131,7 +133,7 @@ Drag and drop the device from the sidebar onto the rack layout.
 
 ### Rack Unit Numbering Layout Options
 
-By default, the option to display rack unit **Numbers between the U's** is toggled on when creating a new rack. To rather display the rack unit numbers at the Us, turn this option off.
+By default, the option to display rack unit **Numbers between the U's** is toggled on when creating a new rack. To display rack unit numbers at the Us instead, turn this option off.
 
 <ThemedImage
   alt="Number between U's option in Rack view"
@@ -213,9 +215,11 @@ Click the **Add New Asset Template** button or navigate to **Resources > Racked 
 
 ### Rack Elevations: Physical Connections With Drag-and-Drop
 
+From the Rack Layout page, you can go to **Physical Connections** to visualize power and network connectivity.
+
 ![Rack elevations physical connections with drag and drop](/assets/images/wpid6444-media_1424466162974.png)
 
-From the Rack Layout page, you can go to **Physical Connections** and visualize power and network connectivity from this page. You can optionally turn off either of the connections to see only the power cables or only the network cables. In edit mode, drag-and-drop is also available for PDU ports and network ports (between patch panel ports or switch ports).
+ You can optionally turn off either of the connections to see only the power cables or only the network cables. In edit mode, drag-and-drop is also available for PDU ports and network ports (between patch panel ports or switch ports).
 
 ![](/assets/images/wpid6447-media_1424515989100.png)
 
@@ -225,13 +229,13 @@ When you view the physical connections, you will see outlets that resemble the o
 
 ### Highlighted Paths and Port Label Display
 
-![Selected/highlighted paths and port label display in physical connectivity layouts](/assets/images/wpid6452-media_1424517266968.png)
+In the physical connection layout, you can select a port for a device to highlight the full path.
 
-In the physical connection layout, you can select a port for a device, and the display will highlight the path.
+![Selected/highlighted paths and port label display in physical connectivity layouts](/assets/images/wpid6452-media_1424517266968.png)
 
 ### Add PDUs to the Rack
 
-You can add PDUs in and around the rack. The steps for adding and displaying PDUs are discussed in detail on the [PDU Rack Display](/infrastructure-management/power-units/pdu-rack-display.mdx) page.
+You can add PDUs in and around the rack. The steps for adding and displaying PDUs are discussed in detail on the [PDU Rack Display](/infrastructure-management/power-units/pdu-rack-display) page.
 
 ## Rack Actions
 
@@ -303,7 +307,9 @@ Choose the **Clone selected Racks** action to clone the selected racks as well a
 
 You can choose which room the cloned racks go to, select a device naming profile, specify a prefix for rack and PDU names, and fill in some other optional fields, as shown below.
 
-Note: The **Rack name prefix** will be prepended to each rack name, whereas the **Rack name prefix to ignore** will be removed from the rack name.
+:::note
+The **Rack name prefix** is prepended to each rack name. The **Rack name prefix to ignore** is removed from the rack name.
+:::
 
 <ThemedImage
   alt="Clone selection field options"
@@ -315,7 +321,7 @@ Note: The **Rack name prefix** will be prepended to each rack name, whereas the 
 
 ### Export Rack Audit Data
 
-Looking to audit your racks in a jiffy? Download the ready-to-go Audit Excel file for selected racks to inventory or audit all assets, like PDUs, devices, and assets in the rack.
+Download an Audit Excel file for selected racks to inventory or audit all items in the rack, including PDUs, devices, and assets.
 
 Choose the **Export Selected Items** action and select **Audit Export for Selected Racks**
 
@@ -387,7 +393,7 @@ Add and update racks in bulk [using the Device42 API](https://api.device42.com/)
 
 Additional information can be found here: 
 - [The Device42 API reference website](https://api.device42.com) 
-- [The Device42 guide to importing data from existing spreadsheets](/getstarted/using-device42/importing-data-from-existing-spreadsheets.mdx)
+- [The Device42 guide to importing data from existing spreadsheets](/getstarted/using-device42/importing-data-from-existing-spreadsheets)
 
 ### Bulk Add Devices, Assets, and PDUs to Racks
 
@@ -398,4 +404,4 @@ Do a text search (`Ctrl + F` or `Cmd + F`) on the Import/Export page to download
 - **Devices - Add Devices to Racks**
 - **Power Units - Add Power Units to Racks**
 
-Watch [API Imports](how-to-videos/api-imports-adding-devices-to-racks.mdx), the how-to video for adding devices to racks via the Device42 API.
+Watch [API Imports](/how-to-videos/api-imports-adding-devices-to-racks), the how-to video for adding devices to racks via the Device42 API.
