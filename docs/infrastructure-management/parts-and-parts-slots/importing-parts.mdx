@@ -1,16 +1,14 @@
 ---
-title: "Importing Parts"
-sidebar_position: 2
+title: "Import Parts"
+sidebar_position: 4
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This document explains how to import parts using the Spreadsheets Import tool found under **Tools > Imports/Exports (xls)**.
+This page explains how to import parts using the spreadsheet import tool under **Tools > Imports/Exports (xls)**. It builds on the part models imported in [Import Part Models](/infrastructure-management/parts-and-parts-slots/importing-part-models) and shows how to add parts with serial numbers and room assignments.
 
-## Importing Part Models vs. Importing Parts
-
-Please see [Managing Spare Parts](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx) for an explanation of part models vs. parts in Device42.
+## Import Options
 
 Both parts and part models can be created using the **Parts - Create/Update Parts** import, whereas the **Part Models - Create/Update Part Models** import only creates models.
 
@@ -24,9 +22,7 @@ Both parts and part models can be created using the **Parts - Create/Update Part
 
 ## Download Current Data
 
-This document demonstrates how to add parts to existing part models, building on the imported models covered in the [Importing Part Models document](infrastructure-management/parts-and-parts-slots/importing-part-models.mdx).
-
-Go to **Tools > Imports/Exports (xls)** and download the current data for spare part models as highlighted below.
+Go to **Tools > Imports/Exports (xls)** and download the current data for spare part models. The export includes the part model IDs you need when creating parts — keep this sheet open to reference them when populating the import file.
 
 <ThemedImage
   alt="Download current parts data"
@@ -35,8 +31,6 @@ Go to **Tools > Imports/Exports (xls)** and download the current data for spare 
     dark: useBaseUrl('/assets/images/importing-parts/part-models-export-dark.png'),
   }}
 />
-
-A current data export sheet is shown below. Creating parts from existing part models requires the part model ID. Keep this sheet open.
 
 ![Current data export spreadsheet](/assets/images/importing-parts/current-part-model-data-3.png)
 
@@ -58,13 +52,13 @@ Use the data from the current data export to help populate the parts import.
 
 ## Populate the Sample Sheet
 
-Add a column for `partmodel_id` and populate the sample spreadsheet to add new parts to two of the existing part models you created. Add the serial numbers manually or using a laser handheld scanner (see below).
+Add a column for `partmodel_id` and populate the sample spreadsheet to add new parts to existing part models. Add the serial numbers manually or using a handheld scanner (see the [Handheld Scanner](#handheld-scanner) section).
 
-This import creates the following:
+For example, this import creates the following:
 
 - For `partmodel_id` `211` (name `3.5" 2TB Dell Drives`): Four line items with assignments and serial numbers (unique line items are required to track serial numbers)
 
-- For `partmodel_id` `219` (name `4GB PC3 8500R`): Two line items with assignments (since you don't need to track serial numbers for these items, you are only tracking room assignment and count)
+- For `partmodel_id` `219` (name `4GB PC3 8500R`): Two line items with assignments (serial numbers are not tracked for these items — only room assignment and count)
 
 Save the file and import it.
 
@@ -72,11 +66,11 @@ Save the file and import it.
 
 ## Handheld Scanner
 
-You can use a DBPOWER scanner purchased on Amazon, which works well for this purpose. It comes with a USB receiver and can be programmed to automatically go to the next row in Excel, making it very quick and easy to capture serial numbers or other bar codes.
+You can use a barcode scanner with a USB receiver to capture serial numbers directly into the spreadsheet. The scanner can be programmed to automatically advance to the next row in Excel after each scan, making it quick to capture serial numbers or other barcodes.
 
 ## Import Results
 
-Go to **Tools > Imports/Exports (.xls)**, choose your file, and click **Import**. The results of the import are shown below.
+Go to **Tools > Imports/Exports (xls)**, choose your file, and click **Import**.
 
 <ThemedImage
   alt="Import results success message"
@@ -86,9 +80,7 @@ Go to **Tools > Imports/Exports (.xls)**, choose your file, and click **Import**
   }}
 />
 
-Let's look at these new parts in the UI.
-
-The new parts appear on separate line items, as these are the unique line items needed for tracking serial numbers.
+The new parts for `partmodel_id` `211` appear on separate line items, as unique line items are required to track serial numbers.
 
 <ThemedImage
   alt="Parts list showing imported serial numbered parts"
@@ -98,7 +90,7 @@ The new parts appear on separate line items, as these are the unique line items 
   }}
 />
 
-The new parts appear on two lines. Since you're not tracking serial numbers, you only need two lines to track the room assignments for these RAM modules.
+The new parts for `partmodel_id` `219` appear on two lines. Since serial numbers are not being tracked, two lines are sufficient to record the room assignments for these RAM modules.
 
 <ThemedImage
   alt="Parts list showing imported RAM modules by room"

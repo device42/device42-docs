@@ -6,25 +6,25 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This section describes Device42's power monitoring capabilities. If you are just getting started, you'll want to first set up one or more [Remote collectors (RCs)](auto-discovery/remote-collector-rc.mdx).
+This page describes Device42's power monitoring capabilities, including power heatmaps, rack-level charts, and PDU-level power data. The visualizations on this page are only populated after PDUs have been discovered and monitoring has been enabled. See [Getting Started with Power and Environmental Monitoring](/infrastructure-management/power-and-environmental-monitoring/getting-started-with-power-and-environmental-monitoring) if you haven't set this up yet.
 
 ## Power Heatmaps
 
 ![Power Heatmaps](/assets/images/media_1424599764800.png)
 
-When you navigate to a room layout view, for example, by navigating to **DataCenter > Rooms**, choosing a room, and clicking **Show**, the racks are color-coded to show both space and power availability. Each power-enabled rack displays a rectangular bar graph representing each infeed of each PDU in the rack. These bars are color-coded, representing the amount of power currently in use over the infeed divided by the power capacity of that infeed.
+When you navigate to a room layout view by going to **Rooms**, selecting a room, and clicking **Show**, the racks are color-coded to show both space and power availability. Each power-enabled rack displays a bar graph representing each infeed of each PDU in the rack. The bars are color-coded to show the amount of power in use on the infeed relative to its capacity.
 
 ![](/assets/images/media_1424600582457.png)
 
-If you hover over a rack, you will see a popup. The **Power/Utilization Charts** hyperlink takes you to a display showing the power history for each infeed and outlet.
+If you hover over a rack, a popup appears. The **Power/Utilization Charts** link shows the power history for each infeed and outlet.
 
 ## Rack-Level Power Visualization
 
-You can view the visualizations under the **Power Charts** tab from any rack with a power unit that has discovered data. 
+View power visualizations under the **Power Charts** tab from any rack with a power unit that has discovered data.
 
 ![Rack-level power visualization](/assets/images/media_1416079634123.png)
 
-Here you can see the last 24 hours of power data for each infeed and outlet for each PDU in the rack. If you want to look at a different time (for example, the last week, month, or year), click the **Show Settings** button.
+The chart shows the last 24 hours of power data for each infeed and outlet for each PDU in the rack. To view a different time range (for example, the last week, month, or year), click **Show Settings**.
 
 <ThemedImage
   alt="Rack settings"
@@ -34,23 +34,25 @@ Here you can see the last 24 hours of power data for each infeed and outlet for 
   }}
 />
 
-In the dialog box above, you can move sliders for the period (set for the past day in the example above).
+Use the sliders to set the time period and data density. A higher data density returns more data points but may take longer to load.
 
-You can also specify the data density. A higher data density brings back more data points but may also take a little longer to retrieve.
+You can also specify the data type. When you configure a discovery job for a set of PDUs, one option is the polling interval. For example, if polling is set to every minute, the database stores minute-by-minute data. When you request a week's worth of data, Device42 aggregates the data points based on the selected type:
 
-Last, you can specify the type of data to retrieve. This option requires some explanation: When you define an autodiscovery spec for a set of PDUs, one option is the polling interval in minutes. For example, if you set it to poll every minute, the database will hold minute-by-minute data. But if you request a week's data, Device42 will not bring back every individual data point; instead, it will aggregate the data points based on the data type. The **Average** setting brings back average data points, the **Maximum** setting brings back the maximum value observed for each set of data points, and the **Minimum** setting brings back the minimum value.
+- **Average:** Returns the average value for each set of data points.
+- **Maximum:** Returns the maximum value observed for each set of data points.
+- **Minimum:** Returns the minimum value observed for each set of data points.
 
 ![](/assets/images/media_1416079778471.png)
 
-As you observe the data, you may see spikes or observe other data patterns that cause you to want to inspect the data in more detail. You can do this by highlighting the period you want to investigate.
+To inspect a specific period in more detail, click and drag to highlight the time range you want to investigate.
 
 ![](/assets/images/media_1416079871175.png)
 
-After you release the mouse button, the view expands to the highlighted period.
+After releasing the mouse button, the view expands to the highlighted period.
 
 ![](/assets/images/media_1416079930654.png)
 
-Rack-level power charts are also available from the Rack View page if you click the **Power** button at the top right of the page.
+Rack-level power charts are also available from the Rack View page by clicking the **Power** button in the top right.
 
 ## PDU-Level Power Data
 
@@ -70,7 +72,7 @@ Rack-level power charts are also available from the Rack View page if you click 
   }}
 />
 
-When you drill into a PDU, you can see power details for both **Infeeds** and **Ports** (outlets). In the example, the PDU has three infeeds and 24 outlets as visualized under the **Connectivity** tab:
+When you open a PDU, you can see power details for both **Infeeds** and **Ports** (outlets), shown under the **Connectivity** tab.
 
 <ThemedImage
   alt="Connectivity tab example"
@@ -80,9 +82,7 @@ When you drill into a PDU, you can see power details for both **Infeeds** and **
   }}
 />
 
-For each infeed and each outlet, you can see a **Power Draw**. This is the amount of power that was drawn by the infeed or outlet the last time the PDU was polled via SNMP. As mentioned earlier, you can set the polling interval via the Device42 main menu, **Discovery > SNMP**.
-
-For the infeeds, the **Rated Power** is autodiscovered.
+For each infeed and outlet, **Power Draw** shows the amount of power drawn the last time the PDU was polled via SNMP. You can set the polling interval under **Discovery > SNMP**. For infeeds, **Rated Power** is discovered automatically.
 
 <ThemedImage
   alt="Connectivity ports example"
@@ -92,12 +92,12 @@ For the infeeds, the **Rated Power** is autodiscovered.
   }}
 />
 
-For each outlet, you can see the **Override Watts** and the **Bootstrap Power**, in addition to the **Power Draw.** The Bootstrap Power column shows the power required for this outlet at boot time. In the PDU header section at the top, the Bootstrap Power for the PDU is the sum of the Bootstrap Power for each of the outlets.
+For each outlet, you can also see **Override Watts** and **Bootstrap Power**. **Bootstrap Power** is the power required for the outlet at boot time. The PDU's total Bootstrap Power is the sum of all outlet Bootstrap Power values.
 
-By default, the **Bootstrap Power** column will be empty if there is no device connected. If there is a device connected, by default, the Bootstrap Power will show the nameplate watts of the hardware model of the device. Sometimes, however, you may wish to use a different number for the Bootstrap Power. If so, you would enter that number in the **Override Watts** field. In the example above, the user has entered 30 watts as the Override Watts for each of the outlets above. There are no connected devices in the above example; however, even if there were connected devices, Override Watts would still be the value used for the Bootstrap Power column. You can also have a mix of outlets, where some outlets get their Bootstrap Power from the device hardware model and some have an Override Watts value.
+By default, **Bootstrap Power** is empty if no device is connected. If a device is connected, Bootstrap Power defaults to the nameplate watts of the device's hardware model. To use a different value, enter it in the **Override Watts** field — this overrides the hardware model value even if a device is connected. You can have a mix of outlets, where some use the hardware model value and some use an Override Watts value.
 
-If you click the **Power** tab for the PDU, you will see tables and graphs showing the historical power details for the in-feeds and outlets.
+Clicking the **Power** tab on a PDU shows tables and graphs of historical power data for infeeds and outlets.
 
 ![](/assets/images/media_1416823791271.png)
 
-For the rack detail power page discussed above, you can click **Show Settings** to see historical charts and the minimum, maximum, and average calculations.
+From the rack detail power page, click **Show Settings** to view historical charts and minimum, maximum, and average calculations.

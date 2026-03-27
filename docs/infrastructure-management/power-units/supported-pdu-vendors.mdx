@@ -53,6 +53,12 @@ Please note that we may not support all models from each listed vendor. We recom
 </table>
 
 
-We're always happy to add support for a customer's specific make, model, or iPDU. Simply [generate an SNMPWALK](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.mdx) for your particular device model, and send that SNMP walk to us (along with your request is best!). 
+We're always happy to add support for a customer's specific make, model, or iPDU. Simply [generate an SNMPWALK](/administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.mdx) for your particular device model and send it to us along with your request.
 
-Our development team is happy to add support to Device42 within the next few releases _(we'll work with you to let you know a specific timeframe, but we release often!)_.
+Our development team is happy to add support to Device42 within the next few releases.
+
+## Geist PDU Serial Number Discovery
+
+As of version 19.08, Device42 uses a different OID to discover power unit serial numbers for Geist PDUs, which now match the physical serial numbers on the devices.
+
+If a Geist power unit was discovered before this change and the [device matching level](/auto-discovery/unprocessed-device-records.mdx#device-matching-level) is not set to **Moderate**, a separate device record will be created. If matching is set to **Moderate** and the **Give precedence to hostname** option is not selected, the serial number will be updated but not the name of the device or power unit.

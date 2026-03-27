@@ -1,18 +1,20 @@
 ---
-title: "Importing Part Models"
-sidebar_position: 1
+title: "Import Part Models"
+sidebar_position: 3
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This document explains how to import part models using API Imports. For a detailed explanation of part models and parts, see the [Part Model Templates](infrastructure-management/parts-and-parts-slots/part-model-templates.mdx).
+This page explains how to import part models using the spreadsheet import tool under **Tools > Imports/Exports (xls)**. The process involves downloading a sample template, populating it with your data, and uploading it back to Device42.
 
-## Data Example
+For information on port layouts and port templates for part models, see [Part Model Templates](/infrastructure-management/parts-and-parts-slots/part-model-templates).
 
-The sample data in the spreadsheet below is our starting point for this import. This data was exported from a legacy system into CSV format.
+## Sample Data
 
-![Sample parts data spreadsheet](/assets/images/importing-part-models/sample-parts-data.png)
+The example below shows a spare parts inventory exported from a legacy system into CSV format, including columns for type, part name, quantity, location, and vendor. This is the source data you will map to the Device42 import template.
+
+![Sample parts data spreadsheet showing spare parts inventory](/assets/images/importing-part-models/sample-parts-data.png)
 
 ## Download Sample Spreadsheet
 
@@ -26,7 +28,7 @@ Navigate to **Tools > Imports/Exports (xls)**, find **Part Models - Create/Updat
   }}
 />
 
-## Understanding Column Comments
+## Column Comments
 
 Hover over the upper-right corner of the heading cell in each column to see details about the field. These tooltips indicate whether fields are required, optional, or provide additional context.
 
@@ -40,9 +42,9 @@ The spreadsheet includes additional part model type parameters specific to CPU, 
 
 Update the sample spreadsheet with your part model data from the CSV export. Since these are new part models, only the `type` field is required. You can delete unused parameters from the sheet or leave them blank.
 
-![Populated sample spreadsheet with part model data](/assets/images/importing-part-models/populated-sample-sheet.png)
+Note the additional parameters added for CPU and RAM models.
 
-Notice the additional parameters that have been added for CPU and RAM models. 
+![Populated sample spreadsheet with part model data](/assets/images/importing-part-models/populated-sample-sheet.png)
 
 ## Choose File and Import
 
@@ -58,7 +60,7 @@ Navigate to **Tools > Imports/Exports (xls)**, browse to your populated file, an
 
 ## Import Results
 
-Device42 displays the status of the import. If there are any issues, the results will show "The following were not added..." with specific error details. Review the results carefully, as any problems (such as missing required parameters) are usually clearly stated.
+Device42 displays the status of the import. If there are any issues, the results will show `The following were not added...` with specific error details. Review the results carefully, as any problems such as missing required parameters are usually clearly stated.
 
 <ThemedImage
   alt="Part models import results success message"
@@ -68,9 +70,9 @@ Device42 displays the status of the import. If there are any issues, the results
   }}
 />
 
-## Verifying Imported Parts Models
+## Verify Imported Part Models
 
-Navigate to **Datacenter > Parts > Model List** to view all the parts models that were imported in the previous step.
+Navigate to **Infrastructure > Parts > Model List** to view all the part models that were imported.
 
 <ThemedImage
   alt="Parts Model List showing imported models"
@@ -80,7 +82,7 @@ Navigate to **Datacenter > Parts > Model List** to view all the parts models tha
   }}
 />
 
-To validate the import, examine a few of the imported items:
+You can click into individual models to validate the imported data:
 
 **Hard Disk Drive (HDD) Model:**
 
@@ -111,3 +113,5 @@ To validate the import, examine a few of the imported items:
     dark: useBaseUrl('/assets/images/importing-part-models/patch-cable-part-model-detail-dark.png'),
   }}
 />
+
+To add actual parts to the inventory for these models, see [Import Parts](/infrastructure-management/parts-and-parts-slots/importing-parts).

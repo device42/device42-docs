@@ -6,15 +6,17 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+This page explains how to set up power monitoring for PDUs in Device42 using SNMP discovery. It covers prerequisites, discovery job configuration, and capacity recommendations.
+
 :::note
-To access the functionality described in this section, you need a **Power and Environmental Monitoring** license. Visit the [Device42 pricing page](https://www.device42.com/pricing/) to request a pricing quote based on your needs.
+The features described in this section require a **Power and Environmental Monitoring** license. Visit the [Device42 pricing page](https://www.device42.com/pricing/) to request a quote.
 :::
 
-## Power Unit Autodiscovery
+## Set Up Power Unit Discovery
 
-Install and set up a [Remote Collector](https://www.device42.com/autodiscovery/) if you have not already done so. See the [Remote Collector page](/auto-discovery/remote-collector-rc/#installation-and-configuration) for information.
+Install and configure a Remote Collector before proceeding. See [Remote Collector](/auto-discovery/remote-collector-rc/#installation-and-configuration) for instructions.
 
-The process of discovering power-enabled PDUs is similar to [Device42 Network Autodiscovery](auto-discovery/network-auto-discovery.mdx). Begin by navigating to **Discovery > SNMP**. You can then enter an IP address range and a port if not using the default `161`.
+The process of discovering power-enabled PDUs is similar to [Device42 Network Discovery](/auto-discovery/network-auto-discovery). Navigate to **Discovery > SNMP** and enter an IP address range and a port if not using the default `161`.
 
 <ThemedImage
   alt="Add SNMP discovery job"
@@ -24,7 +26,7 @@ The process of discovering power-enabled PDUs is similar to [Device42 Network Au
   }}
 />
 
-Add any SNMP authentication information, depending on whether you are using v1, v2c, or v3: 
+Add SNMP authentication information depending on whether you are using v1, v2c, or v3.
 
 <ThemedImage
   alt="Add credentials"
@@ -36,7 +38,7 @@ Add any SNMP authentication information, depending on whether you are using v1, 
 
 ### Power Monitoring Options
 
-The Power (SNMP) discovery options will not be visible if the power module is not licensed or if no Remote Collector is available to collect data. Once these are registered in Device42, the **Power/Environmental options** section will be visible:
+The Power (SNMP) discovery options are only visible if the power module is licensed and a Remote Collector is registered in Device42. Once both are in place, the **Power/Environmental options** section appears at the bottom of the SNMP discovery job setup screen.
 
 <ThemedImage
   alt="Power monitoring options"
@@ -46,21 +48,23 @@ The Power (SNMP) discovery options will not be visible if the power module is no
   }}
 />
 
-You'll see these options towards the bottom of the SNMP discovery job setup screen. Be sure to check ***Enable monitoring for discovered PDU devices**, and you may also set the polling interval for any PDUs discovered by this job by choosing the appropriate value from the Polling Interval dropdown. This value controls the frequency at which monitoring will poll each PDU.
+Select **Enable monitoring for discovered PDU devices**. You can also set the polling interval for PDUs discovered by this job using the **Polling Interval** dropdown, which controls how frequently monitoring polls each PDU.
 
+### View Discovered Sensors
 
-### Viewing Discovered Sensors
+Environmental sensors attached to PDUs are discovered automatically during the SNMP discovery run. When sensors are discovered, they are created with asset records in Device42. Navigate to **Resources > Assets > All Assets** and filter by `Type="Sensor"` to see all PDU-attached sensors.
 
-When sensors are discovered, they are created with Asset records in Device42. Navigate to **Resources > Assets > All Assets** to see a list of all assets. Filter the list by `Type="Sensor"` to see a list of all the PDU-attached sensors discovered.
+<ThemedImage
+  alt="View discovered sensors"
+  sources={{
+    light: useBaseUrl('/assets/images/environmental-monitoring/view-discovered-sensors-light.png'),
+    dark: useBaseUrl('/assets/images/environmental-monitoring/view-discovered-sensors-dark.png'),
+  }}
+/>
 
-### Geist Power Unit Serial Number Discovery
-
-As of version 19.08, Device42 uses a different OID to discover power unit serial numbers for Geist PDUs, which now match the physical serial numbers on the devices.
-
-If a Geist power unit was discovered before this change and the [device matching level](/auto-discovery/unprocessed-device-records.mdx#device-matching-level) is not set to **Moderate**, a separate device record will be created. If matching is set to **Moderate** and the **Give precedence to hostname** option is not selected, the serial number will be updated but not the name of the device or power unit. 
 
 ## Capacity Considerations
 
-Monitoring is a fairly resource-intensive process, and as a result, each individual monitoring appliance is limited in the number of PDUs, infeeds, and outlets it can handle. When you set up each autodiscovery job, you will choose a polling interval. The primary resource limitation is the number of SNMP polls that can be done in the selected polling. So, if you select 5-minute polling intervals, you monitor 5x the number of PDUs in one monitoring appliance that you could if you selected 1-minute polling intervals.
+Monitoring is resource-intensive, and each monitoring appliance is limited in the number of PDUs, infeeds, and outlets it can handle. The primary constraint is the number of SNMP polls that can be completed within the selected polling interval.
 
-At 5-minute intervals (default), Device42 recommends having one monitoring appliance per 200 PDUs. At 1-minute intervals, assume 40 PDUs. If your network is at all sluggish, reduce the number of PDUs per monitoring appliance. Remember, you can deploy as many monitoring appliances as you need with no additional license cost.
+For example, at 5-minute intervals (default), Device42 recommends one monitoring appliance per 200 PDUs. At 1-minute intervals, assume 40 PDUs per appliance. If your network is slow, reduce the number of PDUs per appliance. You can deploy as many monitoring appliances as needed with no additional license cost.
