@@ -1,24 +1,26 @@
 ---
 title: "IP NAT/Map"
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-IP Nat/Map functions are used for routing, such as routing external IPs to internal IPs or routing traffic within different network segments. You define IP Nat/Maps as they are not found during discovery.
+IP NAT/Map entries define network address translation (NAT) mappings, such as routing external IPs to internal IPs or routing traffic between different network segments. NAT mappings are not found during discovery and must be defined manually.
 
-- To create an IP Nat/Map, go to **Resources > IPs > IP NAT** to display Nat/Map list page, and then click **Create** at the top right.
+## Create an IP NAT/Map
+
+Navigate to **Resources > IPs > IP NAT** to display the NAT/Map list page, then click **Create**.
 
 <ThemedImage
-  alt="IP NAT/Map menu"
+  alt="IP NAT/Map list page"
   sources={{
     light: useBaseUrl('/assets/images/ip-nat-map/WEB-597_ip-nat-map-menu-1-700x351-light.png'),
     dark: useBaseUrl('/assets/images/ip-nat-map/WEB-597_ip-nat-map-menu-1-700x351-dark.png'),
   }}
 />
 
-Device42 displays the Nat/Map add page.
+Enter a **Name** for the NAT/Map, then enter the **Source IP Address Start** and **Target IP Address Start**. You can also use the **plus icon** to select an IP address.
 
 <ThemedImage
   alt="IP NAT/Map add page"
@@ -28,8 +30,6 @@ Device42 displays the Nat/Map add page.
   }}
 />
 
-- Enter a **Name** for the Nat/Map, and then enter the **Source IP Address Start** and **Target IP Address Start**. You can also use the plus icon to select an IP address.
-
 <ThemedImage
   alt="Select IP address"
   sources={{
@@ -38,15 +38,15 @@ Device42 displays the Nat/Map add page.
   }}
 />
 
-- You can also select or enter these options:
+The following optional fields are also available:
 
-    - **Two way relation**
-    - **Protocol**
-    - **Source IP Address End**
-    - **Source Port Stat**
-    - **Source Port End**
-    - **Target IP Address End**
-    - **Target Port Start**
-    - **Target Port End**
+- **Two Way Relation**
+- **Protocol**
+- **Source IP Address End**
+- **Source Port Start**
+- **Source Port End**
+- **Target IP Address End**
+- **Target Port Start**
+- **Target Port End**
 
-- When done, click **Save**. The IP Nat/Map is added to the list.
+Click **Save** to add the IP NAT/Map to the list.

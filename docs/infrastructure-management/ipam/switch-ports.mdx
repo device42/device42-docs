@@ -1,20 +1,18 @@
 ---
 title: "Switch Ports"
-sidebar_position: 8
+sidebar_position: 10
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Switch ports can be autodiscovered using SNMP network discovery. 
-
-You can bulk add switch ports via [switch templates](switch-templates.mdx), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) for an easy way to programmatically add or edit many switch ports at once.
+Switch ports can be discovered automatically using SNMP network discovery. You can also bulk add switch ports via [switch templates](/infrastructure-management/ipam/switch-templates), or use the [Device42 RESTful APIs](https://api.device42.com/#/IPAM) to programmatically add or edit switch ports.
 
 ## Ports List Page
 
-From the main menu, navigate to **Resources > Network Devices > Ports**. 
+Navigate to **Resources > Network Devices > Ports** to view the ports list page.
 
-From the Ports list page, you can view and edit existing switch ports by clicking on any port ID. Add one or more new ports by clicking the **+ Create** button on the upper right:
+Click on any port ID to view and edit an existing switch port, or click **+ Create** to add a new port.
 
 <ThemedImage
   alt="Ports list page"
@@ -24,10 +22,10 @@ From the Ports list page, you can view and edit existing switch ports by clickin
   }}
 />
 
-You can also see a list of associated Ports via the **Ports** section on the device page:
+You can also see associated ports via the **Ports** section on a device page.
 
 <ThemedImage
-  alt="Switch Ports button on device page"
+  alt="Switch ports on device page"
   sources={{
     light: useBaseUrl('/assets/images/switch-ports/switch-ports-button-light.png'),
     dark: useBaseUrl('/assets/images/switch-ports/switch-ports-button-dark.png'),
@@ -48,30 +46,30 @@ Discovered ports use the **Is Default** property to indicate whether a port is t
 
 Switch ports include the following properties:
 
-**Port:** Name of the switch port as found during autodiscovery, or user-generated.  
-**Name:** As found in autodiscovery or user-generated.  
-**Description:** As found in autodiscovery or user-generated.  
-**Type:** Add the type of port. Use the **+ button** to add a new type.  
-**Network Device:** A device with network switch value as checked.  
-**VLANs:** All the VLANs this port belongs to. 
-**Module:** If this port is part of a module in a chassis-based switch, the module association can be made here.  
-**Asset:** If the port is part of FEX or a similar asset connected to the switch, that association can be made here. You can either assign it to a module or asset.  
-**Network Switch 2nd:** For stacked switches, this is the clustered switch. For paired switches, this is the second switch through which port can be managed.
+- **Port:** Name of the switch port as found during discovery, or user-generated.
+- **Name:** As found during discovery or user-generated.
+- **Description:** As found during discovery or user-generated.
+- **Type:** The type of port. Use the **+ button** to add a new type.
+- **Network Device:** A device with the network switch value checked.
+- **VLANs:** All the VLANs this port belongs to.
+- **Module:** If this port is part of a module in a chassis-based switch, the module association can be made here.
+- **Asset:** If the port is part of a FEX or similar asset connected to the switch, that association can be made here. You can assign a port to either a module or an asset.
+- **Network Switch 2nd:** For stacked switches, this is the clustered switch. For paired switches, this is the second switch through which the port can be managed.
 
-The associations for the Module, Asset, and the Network Switch 2nd fields can be done efficiently using [switch templates](switch-templates.mdx).
+The **Module**, **Asset**, and **Network Switch 2nd** associations can be configured efficiently using [switch templates](/infrastructure-management/ipam/switch-templates).
 
-**Up:** Whether the port is up or not.  
-**Up admin:** Whether the port is administratively up or not. 
-**Count:** Count in the number of ports. 
-**Discovered type:** The port type as discovered during autodiscovery. This field is read-only. The discovered type value can be used to mark certain ports as uncounted, delete ports, or ignore certain port types in autodiscovery.  
-**Remote Port:** If the port is connected to another switch port, you can make that association here. This can be autodiscovered as well.  
-**Don't change via API:** If you override remote port connectivity manually, check this so autodiscovery or an API doesn't make this change automatically.  
-**Tags:** A comma-separated list of tags you would like attributed to the switch port. 
-**HW Address:** Any MAC addresses and devices connected to the switch port and the VLAN associated with the MAC address.
+- **Up:** Whether the port is up.
+- **Up Admin:** Whether the port is administratively up.
+- **Count:** Whether to count this port in the total.
+- **Discovered Type:** The port type as found during discovery. This field is read-only. The discovered type value can be used to mark certain ports as uncounted, delete ports, or ignore certain port types during discovery.
+- **Remote Port:** If the port is connected to another switch port, that association can be made here. This can also be discovered automatically.
+- **Don't Change Via API:** Check this if you override remote port connectivity manually, to prevent discovery or API calls from overwriting the change.
+- **Tags:** A comma-separated list of tags for the switch port.
+- **HW Address:** MAC addresses and devices connected to the switch port, and the VLAN associated with each MAC address.
 
 ## Add a New Switch Port
 
-Click the **+ Add Port** button on the upper right of the Ports list page and fill in the details of the port:
+Click **+ Add Port** on the ports list page and fill in the port details.
 
 <ThemedImage
   alt="Add new switch port"
@@ -81,20 +79,18 @@ Click the **+ Add Port** button on the upper right of the Ports list page and fi
   }}
 />
 
-Add more port details:
-
 <ThemedImage
-  alt="Add new switch port"
+  alt="Switch port additional details"
   sources={{
     light: useBaseUrl('/assets/images/switch-ports/add-port-2-light.png'),
     dark: useBaseUrl('/assets/images/switch-ports/add-port-2-dark.png'),
   }}
 />
 
-Scroll down to add **Port Aliases**, **Parts**, and see **Custom Fields**:
+Scroll down to add **Port Aliases**, **Parts**, and view **Custom Fields**.
 
 <ThemedImage
-  alt="Add new switch port"
+  alt="Port aliases and custom fields"
   sources={{
     light: useBaseUrl('/assets/images/switch-ports/add-port-3-light.png'),
     dark: useBaseUrl('/assets/images/switch-ports/add-port-3-dark.png'),
@@ -103,9 +99,9 @@ Scroll down to add **Port Aliases**, **Parts**, and see **Custom Fields**:
 
 ## Switch Port Bulk Operations
 
-Perform bulk operations by selecting ports from the table and choosing an action in the dropdown menu. Click the **icon hammer** to execute the action.
+Select ports from the table, choose an action from the dropdown menu, and click the **hammer icon** to execute it.
 
-For example, you can filter ports by up/down status, network switch, or discovered type, and select the ports to be not be counted in the total:
+For example, you can filter ports by up/down status, network switch, or discovered type, then select the ports to exclude from the count.
 
 <ThemedImage
   alt="Switch port action menu"
@@ -117,9 +113,9 @@ For example, you can filter ports by up/down status, network switch, or discover
 
 ## Switch Port Count
 
-In the rack layout view, the hover-over popup shows the total "counted" ports and up ports for that switch.  
+In the rack layout view, the hover-over popup shows the total counted ports and up ports for that switch.
 
-Also, from the switch port list page, you can filter by switch and up/down status to show the count of filtered ports.
+From the switch port list page, you can filter by switch and up/down status to show the count of filtered ports.
 
 <ThemedImage
   alt="Switch port count"
@@ -131,21 +127,21 @@ Also, from the switch port list page, you can filter by switch and up/down statu
 
 ## Switch Port Visualization
 
-For physical switches, click **Impact Chart** to see all the ports with connectivity, including each MAC-to-device relationship. Virtual devices are shown as 2nd layer devices that are connected to their vHost or marked with a '?' character if the vHost is unknown. 
+For physical switches, click **Impact Chart** to see all ports with connectivity, including each MAC-to-device relationship. Virtual devices are shown as second-layer devices connected to their vHost, or marked with `?` if the vHost is unknown.
 
 <ThemedImage
-  alt="Switch port impact chart example"
+  alt="Switch port impact chart"
   sources={{
     light: useBaseUrl('/assets/images/switch-ports/impact-chart-light.png'),
     dark: useBaseUrl('/assets/images/switch-ports/impact-chart-dark.png'),
   }}
 />
 
-## How Do I Represent a Stacked Switch?
+## Represent a Stacked Switch
 
-All switches, stacked or not, are represented according to their underlying hardware model. Stacked switches are represented by configuring their hardware model. To add an instance of a stacked switch, select the underlying hardware model that you created previously.
+All switches, stacked or not, are represented according to their underlying hardware model. To add an instance of a stacked switch, select the hardware model that you created previously.
 
-To add a new stacked switch, head to **Infrastructure > Hardware Models** and click **+ Create **. Create a new device hardware model by supplying a **Name**, **Physical Subtype**, and other basic information, and checking the **Network Device** checkbox. 
+To add a new stacked switch hardware model, navigate to **Infrastructure > Hardware Models** and click **+ Create**. Enter a **Name**, **Physical Subtype**, and other basic information, and check the **Network Device** checkbox.
 
 <ThemedImage
   alt="Add new hardware model"
@@ -157,9 +153,9 @@ To add a new stacked switch, head to **Infrastructure > Hardware Models** and cl
 
 ## Represent FEX Modules
 
-FEX modules can be added as an asset and then associated with the switch using asset device relations. This is easier to add using [switch templates](switch-templates.mdx).
+FEX modules can be added as an asset and then associated with a switch using asset device relations. This is easier to configure using [switch templates](/infrastructure-management/ipam/switch-templates).
 
-To add a new asset, navigate to **Resources > All Assets** and click **+ Create**. Name the asset and under **Type** select **Fabric Extender**.  
+To add a new asset, navigate to **Resources > All Assets** and click **+ Create**. Name the asset and set **Type** to **Fabric Extender**.
 
 <ThemedImage
   alt="Add asset with Fabric Extender type"

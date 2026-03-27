@@ -1,22 +1,20 @@
 ---
 title: "IP Addresses"
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-IP Addresses in the Device42 database must be unique per VRF group. So, you can have two subnets with overlapping IP ranges as long as they are in different VRF groups. The only issue with overlapping subnet ranges is that autodiscovery and import will add or modify the IP into first subnet it finds in the list.
+IP addresses in Device42 must be unique per VRF group. You can have two subnets with overlapping IP ranges as long as they are in different VRF groups. With overlapping subnet ranges, discovery and import will add or modify the IP in the first matching subnet found in the list.
 
-Device42 can return information about IP addresses that are associated with multiple devices. The IP list page now includes a **Devices** column displaying the device or devices associated with an IP (in comma-separated format). You can also use the IP edit page to add or delete devices associated with an IP address as shown in the [Add/Edit Page](#addedit-page) section below.
+The IP list page includes a **Devices** column displaying all devices associated with an IP in comma-separated format. You can also add or remove device associations from the IP edit page.
 
 ## IP Addresses List Page
 
-Navigate to the IP Addresses list page by going to **Resources > IPs > All IP Addresses**.
+Navigate to **Resources > IPs > All IP Addresses** to view the IP addresses list page.
 
-The list page shows IPv4 and IPv6 addresses that you can sort by any field. You can also filter by type, availability, updated time stamp, subnet, VRF group, and tags.
-
-You can search for IPs with full or partial entries right here. Clicking on an IP takes you to its view page.
+The list page shows IPv4 and IPv6 addresses that you can sort by any field. You can also filter by type, availability, updated time stamp, subnet, VRF group, and tags. Search for IPs with full or partial entries, and click on any IP to view its details.
 
 <ThemedImage
   alt="IP Addresses list page"
@@ -28,7 +26,7 @@ You can search for IPs with full or partial entries right here. Clicking on an I
 
 ### Bulk Actions for IP Addresses
 
-To perform a bulk action, check the IP addresses to affect from the list and select an action from the **Select an action** dropdown menu. Then confirm the action in the dialog to perform the selected bulk action.
+Select IP addresses from the list, choose an action from the **Select an action** dropdown menu, and confirm in the dialog.
 
 <ThemedImage
   alt="Bulk actions menu"
@@ -37,22 +35,21 @@ To perform a bulk action, check the IP addresses to affect from the list and sel
     dark: useBaseUrl('/assets/images/ipam-ip-addresses/bulk-actions-menu-dark.png'),
   }}
 />
-<br/><br/>
 
-The following bulk actions are available for IP addresses:
+The following bulk actions are available:
 
-- **Export selected items to CSV**: Create CSV export file. 
-- **Do a re-importable export for selected items**: Create an export file that you can re-import.
-- **Delete with Detailed Confirmation:** Displays prompt before deleting. 
-- **Fast Background Delete**: Delete without prompt. 
-- **Mark selected IP as available:** Will only mark those IPs available that have no device association. 
-- **Mark selected IPs as not available**: Will mark selected IPs as not available. 
-- **Clear ALL fields and Mark selected IPs as available**: This command will clear all device associations for the selected IPs and mark those IPs as available. 
-- **Relocate Selected IPs**: This will bring up a matching subnets page based on the first selected IPs. You can choose to move IPs to another subnet with this. Only IPs that are within the range will be moved. 
-- **Add tags to selected items**: add a comma-separated list of tags. 
-- **Check/Fix selected IPs Subnet assignment**: Displays a page to check or fix the Subnet assignment.
+- **Export selected items to CSV:** Create a CSV export file.
+- **Do a re-importable export for selected items:** Create an export file that you can re-import.
+- **Delete with Detailed Confirmation:** Display a prompt before deleting.
+- **Fast Background Delete:** Delete without a prompt.
+- **Mark selected IP as available:** Mark IPs as available only if they have no device association.
+- **Mark selected IPs as not available:** Mark selected IPs as not available.
+- **Clear ALL fields and Mark selected IPs as available:** Clear all device associations for the selected IPs and mark them as available.
+- **Relocate Selected IPs:** Display a matching subnets page based on the selected IPs. Only IPs within the target subnet range will be moved.
+- **Add tags to selected items:** Add a comma-separated list of tags.
+- **Check/Fix selected IPs Subnet assignment:** Display a page to check or fix the subnet assignment.
 
-### View IP Address Page
+### View an IP Address
 
 Click on an IP address to view its details.
 
@@ -63,19 +60,18 @@ Click on an IP address to view its details.
     dark: useBaseUrl('/assets/images/ipam-ip-addresses/view-ip-address-dark.png'),
   }}
 />
-<br/><br/>
 
-You can see the history of changes for that IP address from the **History (Audit Logs)** tab at the top of the page (similar to all other view pages in the application). If you have appropriate permissions, the **Edit** button will be available. All DNS records that use this IP are shown in the view page as well.
+View the history of changes from the **History (Audit Logs)** tab at the top of the page. If you have appropriate permissions, the **Edit** button is available. All DNS records that use this IP are shown on the view page as well.
 
-Clicking on the link in the **Resource** field will take you to the K8s cluster that is currently holding that IP.
+The **Resource** field links to the Kubernetes cluster that is currently holding that IP.
 
 :::note
-Entries in the **Configuration Resource** and **Configuration Resource Item** fields make sense only in the context of a Kubernetes cloud discovery job ([cloud platforms autodiscovery](auto-discovery/cloud-auto-discovery/index.mdx)) and are filled in automatically. These fields should not be populated for a regular IP address.
+The **Configuration Resource** and **Configuration Resource Item** fields apply only to Kubernetes cloud discovery jobs (see [cloud platforms discovery](/auto-discovery/cloud-auto-discovery/index)) and are populated automatically. Do not populate these fields for a regular IP address.
 :::
 
 ### Add an IP Address
 
-Click on the **Create** button on the view page to add an IP address.
+Click **Create** on the list page to add a new IP address.
 
 <ThemedImage
   alt="Add IP address button"
@@ -84,9 +80,8 @@ Click on the **Create** button on the view page to add an IP address.
     dark: useBaseUrl('/assets/images/ipam-ip-addresses/add-ip-button-dark.png'),
   }}
 />
-<br/><br/>
 
-When adding or editing an IP, the Subnet field is required. Device42 will automatically check if the IP falls within the allowed IP range in the subnet and will not allow duplicate IPs to be added in that VRF group or subnet (if not a VRF group). You can choose an existing device and port or add new ones from this page.
+The **Subnet** field is required. Device42 automatically checks that the IP falls within the allowed range in the subnet and prevents duplicate IPs within the same VRF group or subnet. You can choose an existing device and port or add new ones from this page.
 
 <ThemedImage
   alt="Add IP address form"
@@ -95,25 +90,23 @@ When adding or editing an IP, the Subnet field is required. Device42 will automa
     dark: useBaseUrl('/assets/images/ipam-ip-addresses/add-ip-address-form-dark.png'),
   }}
 />
-<br/><br/>
 
 ## Associate Devices With an IP Address
 
-To enter additional device(s) to associate with an already-created IP address, click on the **Edit** button of the IP address from its view page. Then click on the **+ Add New** button.
+To associate additional devices with an existing IP address, click **Edit** on the IP address view page, then click **+ Add New**.
 
 <ThemedImage
-  alt="Add device from editing view"
+  alt="Add device association"
   sources={{
     light: useBaseUrl('/assets/images/ipam-ip-addresses/add-device-association-light.png'),
     dark: useBaseUrl('/assets/images/ipam-ip-addresses/add-device-association-dark.png'),
   }}
 />
-<br/><br/>
 
 :::tip
-Select **Resources > DNS > All DNS Records** from the main menu to add DNS A/AAAA records for the IP and they will be updated on the IP address.
+Navigate to **Resources > DNS > All DNS Records** to add DNS A or AAAA records for the IP. The records will be reflected on the IP address view page.
 :::
 
-## IP Address Management from the Command Line
+## Manage IP Addresses from the Command Line
 
-With Device42, you can find if an IP is already in a D42 instance, suggest the next available IP, and add an IP from the command line using the REST APIs. Here is a post discussing this: [https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/](https://www.device42.com/blog/2013/03/27/ip-address-management-from-the-command-line/)
+You can check whether an IP exists, suggest the next available IP, and add an IP from the command line using the [Device42 REST APIs](https://api.device42.com/).

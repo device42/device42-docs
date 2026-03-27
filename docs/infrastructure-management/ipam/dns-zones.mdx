@@ -1,34 +1,34 @@
 ---
 title: "DNS Zones"
-sidebar_position: 2
+sidebar_position: 7
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-DNS zones can be added manually or (preferrably) via DNS auto-discovery as discussed at: [discovery/setup-dns-autodiscovery.mdx](auto-discovery/setup-dns-autodiscovery.mdx)
+DNS zones represent sections of the domain name space managed by a specific nameserver. Zones can be added manually or populated via [DNS discovery](/auto-discovery/setup-dns-autodiscovery).
 
-## DNS Zone Add/Edit page
+## Add a DNS Zone
 
-The DNS Zones add or edit page can be reached via the main menu, under **Resources > DNS Zones**. Click the **Create** button in the upper right to add a new zone. Give your zone a name, and specify the **Nameserver** for that zone. Optionally, you can specify the **VRF Group** that your new Zone belongs to, add **Tags** relevant to your new zone, and add any relevant **Notes**. Click **Save** in the bottom right when finished, and you'll be brought back to the DNS Zones list page, where you will see your new zone along with any others that exist.
+Navigate to **Resources > DNS > DNS Zones** and click **Create** to add a new zone.
+
+Enter a name and specify the **Nameserver** for the zone. Optionally, specify the **VRF Group** the zone belongs to, add **Tags**, and add any relevant **Notes**. Click **Save** when finished.
 
 <ThemedImage
-  alt="Add DNS Zone"
+  alt="Add DNS zone"
   sources={{
     light: useBaseUrl('/assets/images/dns-zones/add_DNS_zone-light.png'),
     dark: useBaseUrl('/assets/images/dns-zones/add_DNS_zone-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '70%' }}
 />
 
-To define a DNS Zone, add or edit the zone specific fields show above.
+## Edit an Existing DNS Zone
 
-## Editing existing records
-
-To edit an existing DNS Zone record (under under **Resources > DNS Zones**), click the name of the DNS Zone record you want to edit and click the **Edit** button in the upper right.
+Navigate to **Resources > DNS > DNS Zones**, click the name of the DNS zone you want to edit, then click **Edit**.
 
 <ThemedImage
-  alt="Edit DNS Zone Record"
+  alt="DNS zone records list"
   sources={{
     light: useBaseUrl('/assets/images/dns-zones/DNS_Zone_Records_List-light.png'),
     dark: useBaseUrl('/assets/images/dns-zones/DNS_Zone_Records_List-dark.png'),
