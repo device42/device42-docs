@@ -1,18 +1,18 @@
 ---
 title: "Auto Assign Asset Numbers"
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-You can create Asset Number Profiles that facilitate the automatic creation and assignment of asset numbers. You can auto-assign asset numbers individually and in bulk.
+Asset Number Profiles let you automatically generate and assign consistent, sequential asset numbers to devices and assets, eliminating manual numbering. You can auto-assign asset numbers individually or in bulk.
 
 ## Create an Asset Number Profile
 
 Create the Asset Number Profile to be assigned to objects (devices or assets). The profile will generate the next available asset number when it's selected under the **Profile to auto assign asset #** field of an object and that object is saved.
 
-Navigate to **Tools > Templates & Bulk Operations > Asset Number Profile**
+Navigate to **Tools > Templates & Bulk Operations > Asset Number Profile**.
 
 <ThemedImage
   alt="Creating asset number profiles"
@@ -32,7 +32,7 @@ All the fields labeled with bolded text in the UI are required.
 
 **Start #:** Where do you want the asset numbering to begin? This is useful if you already have existing asset numbers. For example, if you have already assigned asset numbers up to 0155, you can instruct Device42 to start numbering with 0156.
 
-**Last used:** Do not change this value except in the special case discussed. The system will display the last asset number used and use this value to determine the next value to be generated. That is, if the last asset number generated were `0156`, this field would automatically change to `0156`. Change this only if you want to change the value that the asset number counter automatically starts from.
+**Last Used:** Only change this value if you want to reset the starting point for the asset number counter. The system displays the last asset number used and uses it to determine the next number to generate. For example, if the last asset number generated was `0156`, this field automatically updates to `0156`.
 
 ### Assign the Asset Number Profile 
 
@@ -68,7 +68,7 @@ All the fields labeled with bolded text in the UI are required.
     }}
     />
 
-- Select which profile the system will use to assign asset numbers to the selected items. Please note that the system will assign asset numbers to items that do not already have one assigned.
+- Select which profile the system will use to assign asset numbers to the selected items. The system only assigns asset numbers to items that do not already have one.
 
     <ThemedImage
     alt="Asset profile selection"
