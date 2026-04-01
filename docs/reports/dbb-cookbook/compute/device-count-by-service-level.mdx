@@ -9,8 +9,8 @@ Count of Devices by service level.
     <summary>Click to expand the code block</summary>
     ```sql
     select
-         lower(dc.service_level)
-         ,count(1) as "count"
+         lower(dc.service_level)
+         ,count(1) as "count"
     from view_dbb_compute_v2 dc
     group by 1
     order by "count" desc

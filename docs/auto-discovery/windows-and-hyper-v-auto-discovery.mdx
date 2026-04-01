@@ -318,7 +318,7 @@ If the `DomainRole` value is one of the following, Device42 uses the `Domain` va
 Windows permission requirements are broken down into two parts:
 
 - Minimum required permissions for discovering **Windows host and guest information**.
-- Minimum required permissions for discovering **services and application data** for [Application Dependency Mapping (ADM)](/reports/dbb-cookbook/app-dependency-mapping.mdx) on Windows.
+- Minimum required permissions for discovering **services and application data** for [Application Dependency Mapping (ADM)](/reports/dbb-cookbook/app-dependency-mapping/) on Windows.
 
 WinRM-specific items are listed where applicable, but the permissions must be enabled on the target machine.
 
@@ -445,4 +445,3 @@ To discover a legacy Windows 2000-based operating system, adjust the following O
 
 1. Change or create the `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\LmCompatibilityLevel` element so that it has the value `1`.
 2. Change the WDS service user from `System` to one of the host users (like an admin account). You can try to run a discovery job without this step, but users report failure without making this change.
-
