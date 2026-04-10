@@ -45,9 +45,9 @@ To catch the webhooks Device42 produces, configure an [HTTP Event Collector (HEC
 
 Define a webhook endpoint in Device42 to receive the audit log events and forward them to the HEC configured in Splunk.
 
-1. Navigate to Tools > Webhooks > Endpoints > Add Webhook Endpoint.
-2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, http or https may need to be defined. The `services/collector/raw` REST API endpoint receives raw JSON data from Device42.
-3. Leave the Endpoint value as the default "Custom", define credentials if required (not used in this demonstration), set a Retry interval, and Ignore SSL Certificate Errors if necessary.
+1. Navigate to **Tools > Webhooks > Endpoints > Add Webhook Endpoint**.
+2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, HTTP or HTTPS may need to be defined. The `services/collector/raw` REST API endpoint receives raw JSON data from Device42.
+3. Leave the Endpoint value as the default **Custom**, define credentials if required (not used in this example), set a **Retry** interval, and check **Ignore SSL Certificate Errors** if necessary.
 4. Two Webhook Headers also need to be defined, the first has a Header Name of "Authorization", with a Header Token of `Splunk <HEC Token>`, where `<HEC Token>` is replaced by the HEC token value created earlier in Splunk.
 5. The second has a Header Name of "X-Splunk-Request-Channel" with a Header Token of a randomly generated UUID. This can be created with a Linux utility such as `uuidgen`. The X-Splunk-Request-Channel header field is required because the request sent to the HEC includes raw data.
 
@@ -59,15 +59,17 @@ Define a webhook endpoint in Device42 to receive the audit log events and forwar
 
 Create a Webhook Action to define which Device42 audit events are sent to Splunk, then verify in Splunk that the data is being received.
 
-1. Navigate to Tools > Webhooks > Actions > Add Webhook Action.
-2. Give the Webhook Action a Name, select the categories to create Webhooks for, then define whether add/delete/change/view/login events are delivered. Alternatively, "Process All Categories" can be selected to deliver all webhook types.
-3. Select the Webhook Action Endpoint created in the previous step. The example here processes Add, Delete, and Change events for the Device object in Device42.
+1. Navigate to **Tools > Webhooks > Actions > Add Webhook Action**.
+2. Give the Webhook Action a name, select the categories to create webhooks for, then define whether add, delete, change, view, or login events are delivered. Alternatively, select **Process All Categories** to deliver all webhook types.
+3. Select the Webhook Action Endpoint created in the previous step. This example processes **Add**, **Delete**, and **Change** events for the Device object in Device42.
 
     ![](/assets/images/WebhookAction.png)
 
 ## Search for Webhook Events in Splunk
 
-1. After webhooks have been processed and sent to Splunk, search for them via **Settings > Knowledge > Searches, Reports, and Alerts > New Report**.
+After webhooks have been processed and sent to Splunk, search for them by creating a report.
+
+1. Navigate to **Settings > Knowledge > Searches, Reports, and Alerts > New Report**.
 2. Title your report, enter search parameters, and configure any optional settings. The example here uses `source="http:d42_webhooks"` as input to look for events caught by the HEC configured earlier.
 
     ![](/assets/images/Splunk_Search.png)
