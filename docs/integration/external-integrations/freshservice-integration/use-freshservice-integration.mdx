@@ -1,5 +1,5 @@
 ---
-title: "Using the Freshservice Integration"
+title: "Use the Freshservice Integration"
 sidebar_position: 2
 ---
 
@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 :::tip
 This page covers the usage and operations of the Freshservice integration. 
-- For initial setup and installation instructions, see [Setting Up the Device42 Freshservice Integration](index.mdx). 
-- See [Advanced Freshservice Mapping and Customization](customize-freshservice.mdx) for instructions and examples on modifying the default sync.
+- For initial setup and installation instructions, see [Set Up the Freshservice Integration](/integration/external-integrations/freshservice-integration). 
+- See [Advanced Freshservice Mapping and Customization](/integration/external-integrations/freshservice-integration/customize-freshservice) for instructions and examples on modifying the default sync.
 :::
 
-## Using the Integration App
+## Use the Integration App
 
 Configure the **Device42 for Freshservice** app to sync data from Device42 to Freshservice.
 
@@ -38,7 +38,7 @@ The **Update asset type for existing assets** checkbox controls whether asset ty
 
 ### Run the Data Synchronization
 
-The sync imports new CIs and updates the existing ones within Freshservice. We recommend running a full sync after installing the integration app. Configure the following options [from the **Settings** tab](#find-the-settings-tab):
+The sync imports new CIs and updates existing ones within Freshservice. Running a full sync after installing the integration app is recommended. Configure the following options [from the **Settings** tab](#find-the-settings-tab):
 
 To schedule the sync and automatically fetch data from Device42 daily, check the **Use Schedule** checkbox and enter a **Sync Time (UTC)** at which to perform the sync.
 
@@ -93,7 +93,7 @@ When Device42 deploys a new Cloud Connector server as part of its usual maintena
 
 ## View Mapped and Unmapped Data for Specific Assets
 
-We understand that some fields within Device42 may not easily translate to fields within Freshservice. We've added the ability to view these fields from one location, eliminating the need to navigate between applications. To view the mapped and unmapped data for a device within Freshservice, follow the steps below.
+Some fields in Device42 may not directly translate to fields in Freshservice. The integration provides the ability to view these fields from one location, eliminating the need to navigate between applications. To view the mapped and unmapped data for a device in Freshservice, follow the steps below.
 
 1. Navigate to **Assets > Inventory** from the Freshservice dashboard. On the Inventory screen, select the asset (imported from Device42) for which you want to view mapped and unmapped data.
 
@@ -337,7 +337,7 @@ The **Contract Type** dropdown in Freshservice displays the available contract t
 | Maintenance             | Purchase Line Item types: Service, In-Service, Subscription, (none)   |
 | Software License        | Software Licensing                  |
 
-### Sync Purchase Line Items Types to Contracts
+### Sync Purchase Line Item Types to Contracts
 
 In Device42, a **Purchase Line Item** is an individual entry associated with a larger purchase (located under **Infrastructure > Purchases**). Contract purchase line item subtypes include **Lease**, **Warranty**, **Subscription**, **Service**, and **In-Service**. The subtype **(None)** is used for unspecified types:
 
@@ -391,7 +391,7 @@ Warranty information from Device42 is brought into Freshservice, with **Warranty
 
 ![Software Licensing in Freshservice](/assets/images/freshservice-integration/fs-software-license.png)
 
-## Syncing Business Services to Freshservice
+## Sync Business Services to Freshservice
 
 Using the default mapping, **Business Services** in Device42 are synced to Freshservice as the **Business Service** asset type. The business service relationships are also synced.
 
@@ -417,6 +417,6 @@ The example business service in Freshservice above looks like this in Device42:
     }}
     />
 
-## Deleting the Freshservice External Integration
+## Delete the Freshservice External Integration
 
 Before deleting the Freshservice external integration in Device42 or making changes to your Cloud Services configuration, first uncheck the **Enable Freshworks SSO** option in the Appliance Manager, under **Global Settings > SAML/SSO Settings**.
