@@ -31,10 +31,15 @@ The following sections walk through setting up this integration using a lab inst
 
 To catch the webhooks Device42 produces, configure an [HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in Splunk:
 
-1. Navigate to Settings > Data > Data Inputs > HTTP Event Collector.
-2. Click Global Settings in the upper-right corner and select "Enabled" for All Tokens, determine if SSL needs to be enabled, and define the HEC’s listening port number (8088 is used in this demonstration), then Save. ![](/assets/images/GlobalSettings.png)
-3. Create a new HEC token by clicking New Token in the upper-right corner. Give it a Name and optional Description or Source Name Override (D42\_Webhooks is the example created here). Clicking Next displays the Input Settings to define optional input parameters for source type and index; change Source type to the "Select" option, enter "json" in the filter, and select "\_json".
-4. Review and Submit to create the HEC. This will provide a token value, note this value as you will need it later.![](/assets/images/HEC_Token.png)
+1. Navigate to **Settings > Data > Data Inputs > HTTP Event Collector**.
+2. Click **Global Settings** in the upper-right corner, select **Enabled** for All Tokens, determine if SSL needs to be enabled, and define the HEC’s listening port number (`8088` is used in this example). Click **Save**.
+
+    ![](/assets/images/GlobalSettings.png)
+
+3. Create a new HEC token by clicking **New Token** in the upper-right corner. Give it a name and optional description or Source Name Override (`D42_Webhooks` is used in this example). Click **Next** to display the Input Settings. Change **Source Type** to the **Select** option, enter `json` in the filter, and select `_json`.
+4. Click **Review** and **Submit** to create the HEC. Note the token value — you will need it later.
+
+    ![](/assets/images/HEC_Token.png)
 
 ## Configure a Webhook Endpoint in Device42
 
@@ -56,13 +61,20 @@ Create a Webhook Action to define which Device42 audit events are sent to Splunk
 
 1. Navigate to Tools > Webhooks > Actions > Add Webhook Action.
 2. Give the Webhook Action a Name, select the categories to create Webhooks for, then define whether add/delete/change/view/login events are delivered. Alternatively, "Process All Categories" can be selected to deliver all webhook types.
-3. Select the Webhook Action Endpoint, which should be the endpoint(s) created in the step above. The example here processes Add, Delete, and Change events for the Device object in Device42. As a test, a "Splunk Logging Device" was created, changed, and deleted.![](/assets/images/WebhookAction.png)
+3. Select the Webhook Action Endpoint created in the previous step. The example here processes Add, Delete, and Change events for the Device object in Device42.
+
+    ![](/assets/images/WebhookAction.png)
 
 ## Search for Webhook Events in Splunk
 
-1. After webhooks have been processed and sent to Splunk, they can be searched for through Settings > Knowledge > Searches, Reports, and Alerts > New Report.
-2. Title your Report, enter search parameters, and configure any optional settings as needed. The example here uses source="http:d42\_webhooks" as input and looks only for events caught by the HEC configured earlier.![](/assets/images/Splunk_Search.png)
-3. Save the report and then Run from the resulting Searches, Reports, and Alerts list view. The 3 events below indicates that the "Splunk Logging Device" was inserted (created), updated (changed), and deleted via the I, U, and D actions respectively.![](/assets/images/Report_Details.png)
+1. After webhooks have been processed and sent to Splunk, search for them via **Settings > Knowledge > Searches, Reports, and Alerts > New Report**.
+2. Title your report, enter search parameters, and configure any optional settings. The example here uses `source="http:d42_webhooks"` as input to look for events caught by the HEC configured earlier.
+
+    ![](/assets/images/Splunk_Search.png)
+
+3. Save the report and click **Run** from the Searches, Reports, and Alerts list view. The three events below show that the "Splunk Logging Device" was inserted (I), updated (U), and deleted (D).
+
+    ![](/assets/images/Report_Details.png)
 
 ## Configure Log Storage Duration
 
