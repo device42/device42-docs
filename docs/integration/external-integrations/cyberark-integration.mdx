@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import account from '/assets/images/cyberark-integration/create_account_for_d42_cyberark.png'
 
-Each Device42 autodiscovery job is configured to use one or more sets of system credentials. If you already use CyberArk to manage passwords and other secrets, or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
+Each Device42 discovery job is configured to use one or more sets of system credentials. If you already use CyberArk to manage passwords and other secrets, the Device42 CyberArk integration allows Device42 to securely retrieve these credentials from CyberArk as your primary secret management solution.
 
 CyberArk offers useful features such as automatic password rotation, which can be configured to rotate secrets per your specific corporate policies and industry guidelines.
 
@@ -19,13 +19,10 @@ Passwords retrieved from CyberArk are not viewable in Device42.
 
 The CyberArk AIMWebService API is needed for the integration. To use the API, purchase and install the [Central Credential Provider (CCP) plugin](https://docs.cyberark.com/credential-providers/latest/en/content/ccp/installation.htm) on CyberArk.
 
-**Configuring CyberArk:**
-
-- Log in to CyberArk as an administrator.
-- Select the **Applications** tab, then click **Add Application**.
-- Create an account for Device42.
-- Click **Add**.
-- Check the box to **Allow extended authentication restrictions**.
+1. Log in to CyberArk as an administrator.
+2. Select the **Applications** tab, then click **Add Application**.
+3. Create an account for Device42 and click **Add**.
+4. Check the box to **Allow Extended Authentication Restrictions**.
 
 <img alt="Create an account for Device42 CyberArk" src={account} width="60%"/>
 
@@ -81,15 +78,14 @@ sources={{
 style={{ width: '70%' }} 
 />
 
-## Note on Password Matching
+## Password Matching
 
-The following note in the UI describes how passwords are retrieved and matched between CyberArk and Device42 systems:
+By default, passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided, the username is matched directly.
 
-> By default, passwords are looked up by name in CyberArk by matching the Password label in Device42. If no label is provided then the username will be matched directly.
-You may also customize the Folder or Safe from which the password is retrieved by utilizing the Password Custom fields named Folder and Safe.
+You can also customize the Folder or Safe from which the password is retrieved using the Password Custom fields named `Folder` and `Safe`.
 
 ### Long and Short Account Names
 
-If your CyberArk account uses a long account name, enter it in the Secret label field for matching purposes.  
+If your CyberArk account uses a long account name, enter it in the **Secret Label** field for matching purposes.
 
-If your CyberArk account uses a short username, enter it in the Secret username field for the discovery job.
+If your CyberArk account uses a short username, enter it in the **Secret Username** field for the discovery job.
