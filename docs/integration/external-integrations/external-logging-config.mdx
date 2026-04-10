@@ -11,7 +11,7 @@ You will need an HTTP plugin for Logstash or Splunk to send data to the SIEM or 
 
 **Splunk:** [https://dev.splunk.com/view/event-collector/SP-CAAAE6M](https://dev.splunk.com/view/event-collector/SP-CAAAE6M) 
 
-**Logstash:**[https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
+**Logstash:** [https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
 
 ## Configure External Logging
 
@@ -29,34 +29,30 @@ The following sections walk through setting up this integration using a lab inst
 
 ## Configure an HTTP Event Collector (HEC) in Splunk
 
-In order to catch the webhooks Device42 produces, an [HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) needs to be configured within Splunk, the below steps will walk through this process:
+To catch the webhooks Device42 produces, configure an [HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in Splunk:
 
 1. Navigate to Settings > Data > Data Inputs > HTTP Event Collector.
 2. Click Global Settings in the upper-right corner and select "Enabled" for All Tokens, determine if SSL needs to be enabled, and define the HEC’s listening port number (8088 is used in this demonstration), then Save. ![](/assets/images/GlobalSettings.png)
 3. Create a new HEC token by clicking New Token in the upper-right corner. Give it a Name and optional Description or Source Name Override (D42\_Webhooks is the example created here). Clicking Next displays the Input Settings to define optional input parameters for source type and index; change Source type to the "Select" option, enter "json" in the filter, and select "\_json".
-4. Review and Submit to create the HEC. This will provide a token value, take note of this but it will be available later if needed.![](/assets/images/HEC_Token.png)
+4. Review and Submit to create the HEC. This will provide a token value, note this value as you will need it later.![](/assets/images/HEC_Token.png)
 
 ## Configure a Webhook Endpoint in Device42
 
-In Device42, a webhook endpoint needs to be defined that can catch the audit log events Device42 delivers- the newly-configured HEC in Splunk will do this. This section will detail the endpoint creation process, and a screenshot of successful settings will be included at the bottom.
+Define a webhook endpoint in Device42 to receive the audit log events and forward them to the HEC configured in Splunk.
 
 1. Navigate to Tools > Webhooks > Endpoints > Add Webhook Endpoint.
-2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, http or https may need to be defined. The services/collector/raw REST API endpoint is where Device42 is sending the raw json data to the HEC.
+2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, http or https may need to be defined. The `services/collector/raw` REST API endpoint receives raw JSON data from Device42.
 3. Leave the Endpoint value as the default "Custom", define credentials if required (not used in this demonstration), set a Retry interval, and Ignore SSL Certificate Errors if necessary.
 4. Two Webhook Headers also need to be defined, the first has a Header Name of "Authorization", with a Header Token of `Splunk <HEC Token>`, where `<HEC Token>` is replaced by the HEC token value created earlier in Splunk.
-5. The second has a Header Name of "X-Splunk-Request-Channel" with a Header Token of a randomly generated UUID. This can be created with a Linux utility such as _uuidgen._ The X-Splunk-Request-Channel header field is required because the request sent to the HEC includes raw data.
+5. The second has a Header Name of "X-Splunk-Request-Channel" with a Header Token of a randomly generated UUID. This can be created with a Linux utility such as `uuidgen`. The X-Splunk-Request-Channel header field is required because the request sent to the HEC includes raw data.
 
 ![](/assets/images/uuidgen.png)
 
 ![Webhook endpoint Splunk logging configuration](/assets/images/external-logging-config/webhook-endpoint-splunk-logging.png)
 
- 
-
-## Validate Splunk Webhook Collection
-
-This section will describe creating a Webhook Action in Device42, in order to define the data sent to Splunk. This will then be validated in Splunk to verify that it is collecting the raw json webhoook data by utilizing Splunk’s search functionality.
-
 ## Create a Webhook Action in Device42
+
+Create a Webhook Action to define which Device42 audit events are sent to Splunk, then verify in Splunk that the data is being received.
 
 1. Navigate to Tools > Webhooks > Actions > Add Webhook Action.
 2. Give the Webhook Action a Name, select the categories to create Webhooks for, then define whether add/delete/change/view/login events are delivered. Alternatively, "Process All Categories" can be selected to deliver all webhook types.
