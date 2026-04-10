@@ -13,19 +13,13 @@ You will need an HTTP plugin for Logstash or Splunk to send data to the SIEM or 
 
 **Logstash:** [https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
 
-## Configure External Logging
-
-Webhooks are the best way to get your logs from Device42 to your external logging platform. Begin by setting up a webhook endpoint:
-
-Navigate to **Tools > Webhooks > Endpoints** (your Splunk or Logstash instance is the endpoint). Click **Add Webhook Action** in the upper right:
-
-![Add webhook endpoint for logging](/assets/images/add_webhook_endpoint-splunklogstash.png)
-
 ## Integration with External Logging Systems
 
-Device42 can be integrated with external logging or SIEM systems, such as Splunk or Logstash, with the use of webhooks. [Webhooks](https://codeburst.io/what-are-webhooks-b04ec2bf9ca2) are a methodology of sending server-side details or events to a receiving client-side application, and are also known as "Reverse APIs". Device42 can send audit log events in the form of webhooks to these other platforms for external analysis.
+Device42 can be integrated with external logging or SIEM systems, such as Splunk or Logstash, using [webhooks](https://codeburst.io/what-are-webhooks-b04ec2bf9ca2). Webhooks send server-side events to a receiving client-side application (also known as "Reverse APIs"). Device42 sends audit log events as webhooks to these platforms for external analysis.
 
-The following sections walk through setting up this integration using a lab instance of Splunk Enterprise.
+The following sections walk through setting up this integration using Splunk Enterprise as an example. To get started, navigate to **Tools > Webhooks > Endpoints** (your Splunk or Logstash instance is the endpoint) and click **Add Webhook Endpoint**.
+
+![Add webhook endpoint for logging](/assets/images/add_webhook_endpoint-splunklogstash.png)
 
 ## Configure an HTTP Event Collector (HEC) in Splunk
 
@@ -48,10 +42,12 @@ Define a webhook endpoint in Device42 to receive the audit log events and forwar
 1. Navigate to **Tools > Webhooks > Endpoints > Add Webhook Endpoint**.
 2. Name the endpoint and define the endpoint URL like `https://ENDPOINT-URL:HEC-PORT/services/collector/raw`. The endpoint used in this example is `https://10.42.2.239:8088/services/collector/raw`. Depending on the HEC settings, HTTP or HTTPS may need to be defined. The `services/collector/raw` REST API endpoint receives raw JSON data from Device42.
 3. Leave the Endpoint value as the default **Custom**, define credentials if required (not used in this example), set a **Retry** interval, and check **Ignore SSL Certificate Errors** if necessary.
-4. Two Webhook Headers also need to be defined, the first has a Header Name of "Authorization", with a Header Token of `Splunk <HEC Token>`, where `<HEC Token>` is replaced by the HEC token value created earlier in Splunk.
-5. The second has a Header Name of "X-Splunk-Request-Channel" with a Header Token of a randomly generated UUID. This can be created with a Linux utility such as `uuidgen`. The X-Splunk-Request-Channel header field is required because the request sent to the HEC includes raw data.
+4. Define two Webhook Headers. The first has a **Header Name** of `Authorization` and a **Header Token** of `Splunk <HEC Token>`, where `<HEC Token>` is the token value created earlier in Splunk.
+5. The second has a **Header Name** of `X-Splunk-Request-Channel` and a **Header Token** set to a randomly generated UUID. You can generate one with a Linux utility such as `uuidgen`. This header is required because the request sent to the HEC includes raw data.
 
-![](/assets/images/uuidgen.png)
+    ![](/assets/images/uuidgen.png)
+
+The following screenshot shows a completed webhook endpoint configuration:
 
 ![Webhook endpoint Splunk logging configuration](/assets/images/external-logging-config/webhook-endpoint-splunk-logging.png)
 
