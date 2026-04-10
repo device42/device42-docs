@@ -8,19 +8,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 :::tip
 This page covers advanced data mapping customization and XML file editing. 
-- For initial setup and installation, see [Setting Up the Device42 Freshservice Integration](index.mdx). 
-- For usage and operations, see [Using the Freshservice Integration](use-freshservice-integration.mdx).
+- For initial setup and installation, see [Set Up the Freshservice Integration](/integration/external-integrations/freshservice-integration). 
+- For usage and operations, see [Use the Freshservice Integration](/integration/external-integrations/freshservice-integration/use-freshservice-integration).
 :::
 
 ## Manage Customization with Newer Releases
 
-The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements to Freshservice (such as assets, devices, CIs, and metadata). We share these new additions in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/mapping-4.0-changes).
+The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements to Freshservice (such as assets, devices, CIs, and metadata). These new additions are documented in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/mapping-4.0-changes).
 
 If you make an adjustment and use a custom XML file, Device42 will not update the custom XML during updates.
 
 If you want to incorporate updates, you need to do so manually: Download the current XML file, compare it to your customized XML file, and add in the new items as needed.
 
-We recommend keeping track of your customizations so they can be added to the latest default mapping file. 
+Keep track of your customizations so they can be added to the latest default mapping file.
 
 ## Get Started with Custom Data Mapping
 
@@ -28,7 +28,7 @@ To get started, download the default mapping XML file and view the current mappi
 
 ### Download the `mapping.xml` File
 
-- [From the **Settings** tab of the **Configuration** page](index.mdx#find-the-settings-tab), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the custom mapping buttons.
+- [From the **Settings** tab of the **Configuration** page](/integration/external-integrations/freshservice-integration#find-the-settings-tab), scroll down to the **Schedule Synchronization** section and click the **Data Mapping** button to reveal the custom mapping buttons.
 
 - Click the **Download Default Mapping** button to download the `mapping.xml` file. Customize the mapping between fields in Device42 and Freshservice by downloading, editing, and [reuploading](#reupload-the-mappingxml-file) the `mapping.xml` file. 
 
@@ -71,7 +71,7 @@ For example, the following `<task>` element copies software information from Dev
     ```
 </details>
 
-Let's take a closer look at the attributes and elements of the `<task>` elements so you can understand what to adapt or emulate to suit your particular case.
+The following sections describe the attributes and elements of `<task>` elements so you can understand what to adapt or emulate.
 
 ### The `<task>` Element Attributes
 
@@ -81,7 +81,7 @@ Let's take a closer look at the attributes and elements of the `<task>` elements
     <task enable="false" name="Products" type="product" description="Copy Product info from Device42 to Freshservice" d42_min_version="16.19.00">
     ```
 
-    Note that if you turn off a task that has `asset` or `asset_relationship` as its corresponding Freshservice type (for example, devices, business services, and resources in Device42), you'll need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-prevent-a-relationship-between-two-device42-asset-types-from-syncing-to-freshservice).
+    Note that if you turn off a task that has `asset` or `asset_relationship` as its corresponding Freshservice type (for example, devices, business services, and resources in Device42), you need to find and remove its corresponding query snippet in the `Delete` cleanup tasks. For an example, see [this answer in the FAQ section](#how-do-i-prevent-a-relationship-between-two-device42-asset-types-from-syncing-to-freshservice).
 
 - `name`: You can edit the task name. Task names appear in the integration app's **Data Mapping Chart**.
 - `type`: Holds the [Freshservice classification](https://api.freshservice.com/) of the data. The valid types are:
@@ -120,11 +120,11 @@ Typically, the first `<field>` represents the Device42 data returned from the qu
 
 - `resource`: The same as the `target` value.
 - `source-type`: Not functionally critical; this provides the data type displayed on the integration app's **Data Mapping Chart**.
-- `target`: The Device42 field to be mapped to Freshservice. The Freshservice convention is to use the display name in snake case, occasionally with the ID of the asset type as a suffix. For example, `memory_max_usage` and `memory_reservation_used`. The sync process determines the ID. Please look up which target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
+- `target`: The Device42 field to be mapped to Freshservice. The Freshservice convention is to use the display name in snake case, occasionally with the ID of the asset type as a suffix. For example, `memory_max_usage` and `memory_reservation_used`. The sync process determines the ID. Look up which target field names to use in the [Freshservice API documentation](https://api.freshservice.com/). 
 - `escape`: This is used on field elements where `target="name"`. Some characters used in Device42 names aren't supported in Freshservice and need to be substituted. When creating a new task, you can set this to `true`, but disable it if mismatching issues occur.
 
 :::tip
-Use our InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query snippets quickly in the context of the Device42 data tables.
+Use the InsightsAI chat under **Analytics > InsightsAI** to interpret DOQL query snippets quickly in the context of the Device42 data tables.
 :::
 
 ### Additional Matching Criteria for Updating Existing Items
@@ -154,7 +154,7 @@ Some `<task>` elements in `mapping.xml` have a helper `<matching>` element for u
 
 ### Reupload the `mapping.xml` File
 
-Save the file and reupload it to Freshservice, using the **Upload Custom Mapping** button [in the **Settings** tab of the **Configuration** page](index.mdx#find-the-settings-tab).
+Save the file and reupload it to Freshservice, using the **Upload Custom Mapping** button [in the **Settings** tab of the **Configuration** page](/integration/external-integrations/freshservice-integration#find-the-settings-tab).
 
     ![Custom mapping options in the Freshservice UI](/assets/images/freshservice-integration/freshservice-custom-mapping.png)
 
@@ -310,7 +310,7 @@ Field names in Freshservice are automatically generated according to the followi
 - Replacing spaces with underscores 
 - Appending the asset type ID to the end of the field name (this suffix provides a means of verifying the field name, and is visible in the Freshservice interface but not required in the XML file)
 
-For example, the custom field with the `Used By` label in Freshservice is represented internally as `used_by_12345467`, but you'll use `used_by` in the `mapping.xml` file.
+For example, the custom field with the `Used By` label in Freshservice is represented internally as `used_by_12345467`, but you would use `used_by` in the `mapping.xml` file.
 
 Use the following steps to verify that the field name is correct:
 
@@ -338,7 +338,7 @@ Control whether changes made to Device42 asset types and contracts will update t
 
 ### Control Asset Type Updates
 
-When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](use-freshservice-integration.mdx#asset-type-update-behavior) for more details about the **Update asset type for existing assets**  setting.
+When you customize asset type mappings in the `mapping.xml` file, you can control whether your changes update existing assets in Freshservice. See [Asset-Type Update Behavior](/integration/external-integrations/freshservice-integration/use-freshservice-integration#asset-type-update-behavior) for more details about the **Update asset type for existing assets**  setting.
 
 ### Control Contract Updates
 
@@ -542,7 +542,7 @@ You can map existing Device42 contract data to custom fields in Freshservice con
 
     ![Data Mapping Chart with custom field](/assets/images/freshservice-integration/fs-cancel-policy-mapping.png)
 
-6. Run the [sync](index.mdx#run-the-data-synchronization).
+6. Run the [sync](/integration/external-integrations/freshservice-integration#run-the-data-synchronization).
 
 ### How Do I Change an Existing Mapping to Pull From a Different Device42 Field?
 
@@ -652,7 +652,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
 
     ![Data Mapping Chart](/assets/images/freshservice-integration/upload-custom-mapping.png)
 
-5. Run a [partial sync](index.mdx#run-the-data-synchronization) to confirm that contract items are no longer being synced, or wait until the scheduled sync runs.
+5. Run a [partial sync](/integration/external-integrations/freshservice-integration#run-the-data-synchronization) to confirm that contract items are no longer being synced, or wait until the scheduled sync runs.
 
 ### Example 2: How Do I Prevent Software Imports From Syncing to Freshservice?
 
@@ -703,7 +703,7 @@ Set the `enable` attribute to `false` on those `<task>` elements:
     ```
 
 4. Save the file and reupload it to Freshservice with the [**Upload Custom Mapping** button](#reupload-the-mappingxml-file).
-5. Run a [partial sync](index.mdx#run-the-data-synchronization) to confirm that software items are no longer being synced, or wait until the scheduled sync runs.
+5. Run a [partial sync](/integration/external-integrations/freshservice-integration#run-the-data-synchronization) to confirm that software items are no longer being synced, or wait until the scheduled sync runs.
 
     - Go to **Assets > Software** in the integration app. The page is populated before you disable software imports:
 
