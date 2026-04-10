@@ -3,7 +3,7 @@ title: "Compute Devices"
 sidebar_position: 9
 ---
 
-Detailed Inventory of Compute Devices
+Returns a detailed inventory of all compute devices, including hardware specs, OS, cloud metadata, location, storage, and cost data. Use this to audit your assets for missing or incomplete information.
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -17,7 +17,7 @@ Detailed Inventory of Compute Devices
          ,dc.service_level
          ,dc.device_type
          ,dc.device_subtype
-         ,dc.virtual_subtype 
+         ,dc.virtual_subtype 
          ,dc.device_serial
          ,dc.virtual_host
          ,dc.network_device
@@ -27,9 +27,9 @@ Detailed Inventory of Compute Devices
          ,dc.cpu_speed
          ,dc.total_cores
          ,dc.is_hyperthreaded
-         ,round((dc.ram_mb/1024)::numeric ,0)  ram_gb
+         ,round((dc.ram_mb/1024)::numeric ,0)  ram_gb
          ,dc.os_vendor
-         ,dc.os_category   
+         ,dc.os_category   
          ,dc.os_name
          ,dc.os_version
          ,dc.os_version_number
@@ -79,7 +79,7 @@ Detailed Inventory of Compute Devices
          ,dc.dns_A_records
          ,dc.dns_AAAA_records
          ,dc.local_used_space_gb
-         ,dc.remote_used_space_gb   
+         ,dc.remote_used_space_gb   
          ,dc.local_total_space_gb
          ,dc.remote_total_space_gb
          ,dc.local_free_space_gb
@@ -91,6 +91,3 @@ Detailed Inventory of Compute Devices
   ```
 </details>
 
-**NOTES**
-
-Gives the ability to manage your assets to see if you have any missing data.

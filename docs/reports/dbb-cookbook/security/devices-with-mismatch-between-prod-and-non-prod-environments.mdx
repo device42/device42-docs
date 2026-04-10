@@ -3,17 +3,17 @@ title: "Devices with Mismatch Between Prod and Non-Prod Environments"
 sidebar_position: 25
 ---
 
-Compute Devices with Listener / Client mismatch of Prod and Non-Prod Service Levels.
+Returns devices where production and non-production service levels are communicating with each other. Note that service levels are defined manually and are not directly discovered.
 
 <details>
     <summary>Click to expand the code block</summary>
     ```sql
     select distinct
-         ds.device_fk
-         ,ds.device_name
-         ,ds.device_service_level
-         ,ds.mismatched_listener_devices
-         ,ds.mismatched_client_devices
+         ds.device_fk
+         ,ds.device_name
+         ,ds.device_service_level
+         ,ds.mismatched_listener_devices
+         ,ds.mismatched_client_devices
     from view_dbb_security_v2 ds
     where ds.mismatched_listener_devices is not null
     or ds.mismatched_client_devices is not null
@@ -21,6 +21,3 @@ Compute Devices with Listener / Client mismatch of Prod and Non-Prod Service Lev
     ```
 </details>
 
-**NOTES**
-
-Service Levels are defined by customer and not directly discovered.

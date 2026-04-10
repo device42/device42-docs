@@ -1,0 +1,29 @@
+---
+title: "Physical Devices by Customer Department"
+sidebar_position: 15
+---
+
+Returns physical devices grouped by customer department, including location and discovery data. Note that asset number (asset tag) is set manually by your team and is not directly discovered. Use this to assist with physical inventory tracking by department or for chargeback reporting.
+
+<details>
+    <summary>Click to expand the code block</summary>
+    ```sql
+    select
+         dc.customer_department  
+         ,dc.asset_number
+         ,dc.last_discovered
+         ,dc.device_name
+         ,dc.device_type
+         ,dc.device_serial
+         ,dc.in_service
+         ,dc.building_name
+         ,dc.room_name
+         ,dc.row_name
+         ,dc.rack_name
+         ,dc.u_position
+    from view_dbb_compute_v2 dc
+    where lower(dc.device_type)= 'physical'
+    order by 1,2,4
+    ```
+</details>
+
