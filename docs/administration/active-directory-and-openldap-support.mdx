@@ -6,7 +6,7 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 can now be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory-based logins and AD synchronization.
+Device42 can be configured to work with multiple Active Directory (AD) servers. AD servers can be used for both Active Directory-based logins and AD synchronization.
 
 AD settings can be found and configured under **Tools > Settings > Active Directory Settings** and are only accessible to Device42 superusers. Multiple Active Directory settings and up to one OpenLDAP server setting can be configured at a time to properly describe your environment. Each Active Directory setting can also specify multiple domains.
 
@@ -22,10 +22,10 @@ From the Active Directory/LDAP Settings list page, click **Create**.
   }}
 />
 
-Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
+Under **LDAP Type**, choose **Active Directory** or **OpenLDAP**.
 
 <ThemedImage
-    alt="Active Directory/LDAP Settings list page"
+    alt="LDAP Type and server name fields"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-name-server-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-name-server-dark.png'),
@@ -34,68 +34,68 @@ Under **LDAP Type**, choose **Active Directory** or **Open LDAP**.
 
 For the **Active Directory** type, choosing **Domain\Username** as your **Username login Style** reveals the **Get Referral NetBIOS** option, which returns usernames in the format `ReferralNetbios/Username`.
 
-    <ThemedImage
-    alt="Active Directory/LDAP Settings list page"
+<ThemedImage
+    alt="Username login style and Get Referral NetBIOS option"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-style-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-style-dark.png'),
     }}
-    />
+/>
 
 If you select **Domain\Username** as your **Username login Style**, users will be required to enter both their domain and username to log in to Device42.
 
-    <ThemedImage
+<ThemedImage
     alt="AD credentials in login form"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-login-dark.png'),
     }}
-    />
+/>
 
-For the **Open LDAP** type, you can choose an **OpenLDAP group attribute** to identify group members. The available options are **memberUid**, **uniqueMember**, **members**, and **member**.
+For the **OpenLDAP** type, you can choose an **OpenLDAP group attribute** to identify group members. The available options are **memberUid**, **uniqueMember**, **members**, and **member**.
 
-    <ThemedImage
-    alt="Active Directory/LDAP Settings list page"
+<ThemedImage
+    alt="OpenLDAP group attribute options"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/openldap-attributes-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/openldap-attributes-dark.png'),
     }}
-    />
+/>
 
 You can add multiple **AD/LDAP Domains** and mark them as **Default**.
 
-    <ThemedImage
-    alt="Active Directory/LDAP Settings list page"
+<ThemedImage
+    alt="AD/LDAP Domains configuration"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-domains-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/ad-domains-dark.png'),
     }}
-    />
+/>
 
-### Test Connections
+### Test a Connection
 
-Test a user account for permission to query AD:
+To verify that a user account has permission to query AD, test the connection from the settings details page.
 
-- Save your settings to display the settings details page, then open the **ellipsis** (...) menu and select **Test Connection**. 
+- Save your settings to display the settings details page, then open the **ellipsis** (...) menu and select **Test Connection**.
 
-    <ThemedImage
-    alt="Active Directory/LDAP Settings list page"
+<ThemedImage
+    alt="Test Connection option in ellipsis menu"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-connection-button-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-connection-button-dark.png'),
     }}
-    />
+/>
 
 - You will be prompted to provide credentials for initiating the test. Leave the credentials blank to use the currently selected username and password.
 
-    <ThemedImage
-    alt="Test Connections settings prompt"
+<ThemedImage
+    alt="Test connection credentials prompt"
     sources={{
         light: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-auth-prompt-light.png'),
         dark: useBaseUrl('/assets/images/active-directory-and-openldap-support/test-auth-prompt-dark.png'),
     }}
-    />
+/>
 
-## Configuring an Active Directory User Sync / Discovery Job
+## Configure an Active Directory User Sync or Discovery Job
 
-You may now configure an AD Sync Job to pull AD users in bulk and/or keep them synced. Proceed to [the Active Directory Discovery Job docs page](auto-discovery/active-directory-sync.mdx) to view the AD discovery process.
+You can configure an AD sync job to pull AD users in bulk and keep them synced. See the [Active Directory Discovery Job](/auto-discovery/active-directory-sync) page for details on the AD discovery process.
