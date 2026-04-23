@@ -148,6 +148,12 @@ When you are done, click one of the **Save** options at the bottom of the page.
 - Any Remote Collector Disconnected
 - Any WDS Disconnected
 
+**ITSM Integration**
+
+- Sync Failed
+- Sync Started
+- Sync Completed
+
 **UPS**
 
 - Battery % Capacity Remaining
@@ -376,6 +382,19 @@ Device42 supports the following variables for embedding within alert emails when
       <tr>
          <td valign="top"><span>Any WDS Disconnected</span></td>
          <td valign="top"><span><br />%(wds_ip)s</span></td>
+      </tr>
+      <tr>
+         <td rowspan="3" valign="top">
+            <p align="center"><span>ITSM Integration</span></p>
+         </td>
+         <td valign="top"><span>Sync Failed</span></td>
+         <td rowspan="3" valign="top"><span><br />%(itsm_url)s - integration URL <br />%(itsm_type)s - integration type <br />%(status)s - sync status <br />%(msg)s - details <br />%(priority)s - priority</span></td>
+      </tr>
+      <tr>
+         <td valign="top"><span>Sync Started</span></td>
+      </tr>
+      <tr>
+         <td valign="top"><span>Sync Completed</span></td>
       </tr>
       <tr>
          <td rowspan="9" valign="top">
