@@ -6,7 +6,7 @@ sidebar_position: 15
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Tags are useful for filtering and grouping objects. For example, you could define a "Project X" tag and associate that tag with all the devices, IP addresses, and other items associated with Project X.
+Tags let you filter and group objects in Device42 — for example, you can define a "Project X" tag and associate it with all the devices, IP addresses, and other items related to that project. This page covers how to create, edit, merge, and remove tags.
 
 Main objects in Device42 can be tagged, such as Software Components, Assets, and Devices, but not lower-order related objects like Vendor or User.
 
@@ -22,11 +22,9 @@ Navigate to the Tags list page under **Infrastructure > Organization > Tags** to
 
 ## Create Tags
 
-Click the **Create** button on the Tags list page. You can also create tags using the **Tags** field on discovery job configuration pages. 
+Click the **Create** button on the Tags list page. You can also create tags directly from an object or a discovery job configuration page using the **Tags** field.
 
-Tag names can contain spaces. The **Slug** is a unique resource identifier for each tag and is automatically filled in.
-
-You can also create new tags directly from an object or an autodiscovery job configuration page, under the **Tags** field.
+Tag names can contain spaces. The **Slug** is a unique resource identifier for each tag and is filled in automatically.
 
 <ThemedImage
   alt="Add a new tag"
@@ -38,10 +36,10 @@ You can also create new tags directly from an object or an autodiscovery job con
 
 ## View and Edit Tags
 
-On the Tags list page, you can click on a tag name to view the objects with that tag. To remove an association, click **Edit**, check the **Delete?** checkbox, and click **Save**.
+On the Tags list page, click a tag name to view the objects associated with that tag. To remove an association, click **Edit**, check the **Delete?** checkbox, and click **Save**.
 
 <ThemedImage
-  alt="Add a new tag"
+  alt="Tagged items list"
   sources={{
     light: useBaseUrl('/assets/images/tags/tagged-items-19.06-light.png'),
     dark: useBaseUrl('/assets/images/tags/tagged-items-19.06-dark.png'),
@@ -50,7 +48,7 @@ On the Tags list page, you can click on a tag name to view the objects with that
 
 ## Tag Objects
 
-Add a tag to a device by filling in the **Tag** field when creating or editing a device. When configuring an autodiscovery job, you can specify tags for discovered objects . 
+Add a tag to a device by filling in the **Tag** field when creating or editing a device. When configuring a discovery job, you can specify tags for discovered objects.
 
 <ThemedImage
   alt="Tagging a device"
@@ -62,12 +60,10 @@ Add a tag to a device by filling in the **Tag** field when creating or editing a
 
 ## Merge Tags
 
-Due to misspellings or duplication, you may end up with multiple similar tags. You can merge them as follows:
-
-From the Tags list page, select two or more tags, and choose **Merge selected tags** from the **Actions** dropdown.
+Due to misspellings or duplication, you may end up with multiple similar tags. To merge them, select two or more tags from the Tags list page and choose **Merge selected tags** from the **Actions** dropdown.
 
 <ThemedImage
-  alt="Merge action"
+  alt="Merge selected tags action"
   sources={{
     light: useBaseUrl('/assets/images/tags/merge-tags-19.06-light.png'),
     dark: useBaseUrl('/assets/images/tags/merge-tags-19.06-dark.png'),
@@ -76,41 +72,39 @@ From the Tags list page, select two or more tags, and choose **Merge selected ta
 
 ## Remove Unused Tags
 
-You can find and remove tags that are not associated with any objects.
+You can find and remove tags that are not associated with any objects. There are several ways to find tags with no associations:
 
-There are several ways to find tags that aren't associated with any objects: 
-
-- The quickest option is to click the **Tagged Object Count** column heading to sort the list and display tags with a zero count at the top.
+- **Sort by count:** Click the **Tagged Object Count** column heading to sort the list and display tags with a zero count at the top.
 
   <ThemedImage
-    alt="Tagged object count"
+    alt="Sort by tagged object count"
     sources={{
       light: useBaseUrl('/assets/images/tags/object-count-light.png'),
       dark: useBaseUrl('/assets/images/tags/object-count-dark.png'),
     }}
   />
 
-- You can also use the basic **Tagged Object Count #** filter to find tags that are **Equal to** `0`.
-  
+- **Basic filter:** Use the **Tagged Object Count #** filter and set it to **Equal to** `0`.
+
   <ThemedImage
-    alt="Tagged object count"
+    alt="Basic tagged object count filter"
     sources={{
       light: useBaseUrl('/assets/images/tags/basic-object-count-light.png'),
       dark: useBaseUrl('/assets/images/tags/basic-object-count-dark.png'),
     }}
   />
 
-- Another option is to use the **Advanced** query filter to find tags with a `tagged_object_count` of `0`.
-  
+- **Advanced filter:** Use the **Advanced** query filter to find tags with a `tagged_object_count` of `0`.
+
   <ThemedImage
-    alt="Tagged object count"
+    alt="Advanced tagged object count filter"
     sources={{
       light: useBaseUrl('/assets/images/tags/advanced-object-count-light.png'),
       dark: useBaseUrl('/assets/images/tags/advanced-object-count-dark.png'),
     }}
   />
 
-Then, select the tags with a count of `0` and choose **Delete with Detailed Confirmation** or **Fast Background Delete** from the **Action** dropdown.
+Select the tags with a count of `0` and choose **Delete with Detailed Confirmation** or **Fast Background Delete** from the **Action** dropdown.
 
 <ThemedImage
   alt="Delete tags"
