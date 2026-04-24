@@ -3,45 +3,63 @@ title: "Webhooks - Generic Integration"
 sidebar_position: 28
 ---
 
-Webhooks are used to initiate an external action in another part of your IT environment when some "event", based on rules you define, occurs. Also known as _HTTP callbacks_, webhooks are "fired" at HTTP endpoints (URLs) when a configured "Webhook Action" criteria is met. Within Device42, anything that produces an audit-log entry can also be configured to "fire" a webhook.
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-For example, when a Device42 auto-discovery job finds a new device, when details about an existing device change, or when an existing device is deleted are three simple examples of actions that can be configured to trigger webhooks from Device42. An IT Administrator might configure a webhook to deliver a "message" to one or more IT employees via a webhook-compatible endpoint _(like Slack or Skype)_, letting them know that this action took place.
+Webhooks initiate an external action in another part of your IT environment when an event, based on rules you define, occurs. Also known as HTTP callbacks, webhooks are sent to HTTP endpoints (URLs) when a configured Webhook Action criteria is met. Within Device42, anything that produces an audit-log entry can be configured to fire a webhook.
+
+For example, you can configure webhooks to trigger when a Device42 discovery job finds a new device, when details about an existing device change, or when a device is deleted. An IT administrator might configure a webhook to deliver a message to one or more IT employees via a webhook-compatible endpoint (like Slack or Zapier), letting them know that an action took place.
+
+<ThemedImage
+  alt="Webhook menu"
+  sources={{
+    light: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-menu-light.png'),
+    dark: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-menu-dark.png'),
+  }}
+/>
 
 ## Create a Webhook Action in Device42
 
-Configuring Device42 to send a webhook is a simple two-step process:
+Configuring Device42 to send a webhook requires two things: a **Webhook Endpoint** and a **Webhook Action**.
 
-1. Define one or more **Webhook Endpoints:** the HTTP URLs Device42 should send your webhooks to via **Tools -> Webhooks -> Endpoints -> Add Webhook Endpoint**.
+## Add a Webhook Endpoint
 
-![](/assets/images/WEB-806_1.png)
+A webhook endpoint is the HTTP URL that Device42 sends webhook events to. Navigate to **Tools > Webhooks > Endpoints > Add Webhook Endpoint**.
 
-2. Define a **Webhook Action:** the Device42 action(s) that will trigger your webhook, and the endpoints they should go to via **Tools -> Webhooks -> Actions -> Add Webhook Actions**. 
+<ThemedImage
+  alt="Add Webhook Endpoint screen"
+  sources={{
+    light: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-endpoint-light.png'),
+    dark: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-endpoint-dark.png'),
+  }}
+/>
 
-![](/assets/images/WEB-806_2.png)
+- **Name:** A name to identify this endpoint.
+- **URL:** The URL that Device42 will send webhook events to.
+- **Endpoint:** Select **Slack** or **Zapier** to see fields specific to that service, or **Custom** for any other endpoint.
+- **Channel:** Slack only. The Slack channel to post the message to.
+- **Username:** Slack only. The name the message will appear to come from.
+- **Icon:** Slack only. A custom icon for the message sender.
+- **Webhook Header:** Optional headers to include with the request. Each header has a **Name** and a **Token** field.
 
-## Webhook Options
+## Add a Webhook Action
 
-### Webhook Action Screen options
+A webhook action defines which Device42 events trigger the webhook and which endpoints receive it. Navigate to **Tools > Webhooks > Actions > Add Webhook Action**.
 
-- **Name:** User-defined name for webhook action 
-- **Process All Categories:** Hides "Available Categories" choices; webhooks fired on changes in all categories 
-- **Available Categories:** Specify the CI categories you'd like to trigger the webhook on 
-- **Process Add Events:** Trigger a webhook if a new CI is added to a _Chosen Categories_ 
-- **Process Delete Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is deleted 
-- **Process Change Events:** Trigger a webhook if a CI in any of _Chosen Categories_ is Changed 
-- **Process View Events:** Trigger a webhook if a "View event" is logged on a CI in _Chosen Categories_ 
-- **Process Login Events:** Trigger a webhook if a "Login event" is recorded on a CI in _Chosen Categories_ 
-- **Destination:** Choose the defined endpoint(s) to receive triggered webhook events
+<ThemedImage
+  alt="Add Webhook Action screen"
+  sources={{
+    light: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-action-light.png'),
+    dark: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-action-dark.png'),
+  }}
+/>
 
-### Webhook Endpoint Screen options
-
-![](/assets/images/WEB-806_3.png)
-
-
-- **Name:** User-defined name for webhook endpoint 
-- **URL:** URL destination for webhook 
-- **Endpoint:** Choose Slack or Zapier to reveal fields specific to those endpoints; Choose custom if targeting anything else 
-- **Channel:** _Slack Endpoint only_; Specify Slack channel that should receive message when webhook is received 
-- **Username:** _Slack Endpoint only_; Specify the Slack username the message will originate "From" 
-- **Icon:** _Slack Endpoint only_; Specify a custom "From" icon 
-- **Webhook Header:** Define custom Header payloads; each includes a user-defined 'Name' and 'Token' field.
+- **Name:** A name to identify this action.
+- **Process All Categories:** When checked, webhooks fire for changes across all CI categories, hiding the category picker.
+- **Available Categories:** The specific CI categories to monitor for changes.
+- **Process Add Events:** Fire the webhook when a new CI is added.
+- **Process Delete Events:** Fire the webhook when a CI is deleted.
+- **Process Change Events:** Fire the webhook when a CI is updated.
+- **Process View Events:** Fire the webhook when a CI in a chosen category is viewed.
+- **Process Login Events:** Fire the webhook when a login event is recorded on a CI in a chosen category.
+- **Destination:** The endpoint or endpoints that should receive the webhook.

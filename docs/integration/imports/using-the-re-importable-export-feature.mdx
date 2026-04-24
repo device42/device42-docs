@@ -1,16 +1,18 @@
 ---
-title: "Using the re-importable export feature"
+title: "Using the Re-Importable Export Feature"
 sidebar_position: 2
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The re-importable export option can be used to make bulk changes to devices.
+Use the re-importable export feature to make bulk changes to devices by exporting selected records, editing them in a spreadsheet, and importing the updated data back into Device42.
+
+This page walks through a bulk device renaming example and points to the related API documentation for additional update options.
 
 ## Example: Renaming Multiple Devices
 
- In this example, we will use this feature to rename multiple devices.
+This example shows how to rename multiple devices with a re-importable export.
 
 Select the devices you want to rename from any device list view, like the one located under **Resources > Compute > All Devices**.
 
@@ -24,7 +26,7 @@ From the **Actions** dropdown menu, choose the **Export selected items** option.
   }}
 />
 
-Choose the **Re-importable Export** option and click **Export**. Note that as of Device42 19.06, the re-importable export feature will generate a spreadsheet in a new browser tab for each 1,000,000 records generated.
+Choose **Re-importable Export**, and then click **Export**. The export opens in a new browser tab for each 1,000,000 generated records.
 
 <ThemedImage
   alt="Export type options"
@@ -34,13 +36,13 @@ Choose the **Re-importable Export** option and click **Export**. Note that as of
   }}
 />
 
-Download the spreadsheet and change the device names. If you're using a naming convention that includes numbers, you can allow Excel to auto-fill the device names by typing in the first two names, selecting the cells, and dragging the selection down the column. 
+Download the spreadsheet and update the device names. If your naming convention includes numbers, Excel can auto-fill the names after you enter the first two values, select both cells, and drag the selection down the column.
 
 ![Add new name column](/assets/images/re-importable-export-feature/excel-new-name.png)
 
-Back in Device42, go to **Tools > Imports/Exports (xls)** to upload the spreadsheet and then click **Import**.
+After you update the spreadsheet, go to **Tools > Imports/Exports (xls)** in Device42, upload the file, and click **Import**.
 
-When the import is complete, you will see the confirmation, "The following lines from worksheet Current were added or updated successfully".
+When the import is complete, you will see the confirmation message stating that the lines from worksheet `Current` were added or updated successfully.
 
 <ThemedImage
   alt="Export type options"
@@ -50,7 +52,7 @@ When the import is complete, you will see the confirmation, "The following lines
   }}
 />
 
-To confirm the success of the bulk device renaming, search for the new device names from the device list page search bar.
+To confirm the bulk device rename, search for the new device names from the search bar on the device list page.
 
 <ThemedImage
   alt="Device list page"
@@ -60,11 +62,11 @@ To confirm the success of the bulk device renaming, search for the new device na
   }}
 />
 
-Renaming devices is just one example of how the **Re-importable Export** feature can be used. For example, the re-importable export sheet includes almost 30 device parameters that can be edited and imported back into the system.
+Renaming devices is just one example of how you can use **Re-importable Export**. The re-importable export sheet includes nearly 30 device parameters that you can edit and import back into Device42.
 
 ## More Information
 
-For more details on the options available using API / API Imports:
+For more information about the available API import options, see the following references:
 
 [https://api.device42.com/#update-device-by-serial-or-asset](https://api.device42.com/#update-device-by-serial-or-asset)
 
