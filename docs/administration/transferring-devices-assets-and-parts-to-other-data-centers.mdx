@@ -6,11 +6,11 @@ sidebar_position: 16
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Sometimes it is necessary to ship devices, assets, and spare parts from one building to another. Device42's Transfer Between Locations feature provides a means of keeping track of which devices, assets, and parts are in transit and of keeping a log of the receipt data and the receiving party.
+The Transfer Between Locations feature lets you track devices, assets, PDUs, and spare parts shipped between buildings, keeping a log of transit status, receipt data, and the receiving party. This page covers how to create a transfer and record its receipt.
 
-## The Transfers List Page
+## View the Transfers List Page
 
-Navigate to the Transfers list page under **Tools > Templates & Bulk Operations > Transfer Between Locations**. 
+Navigate to the Transfers list page under **Tools > Templates & Bulk Operations > Transfer Between Locations**.
 
 <ThemedImage
   alt="Transfer Between Locations menu location"
@@ -20,7 +20,7 @@ Navigate to the Transfers list page under **Tools > Templates & Bulk Operations 
   }}
 />
 
-The list view shows all pending and completed transfers. For each transfer, you can see the user who initiated the transfer, as well as the devices, assets, PDUs, and parts that are being transferred.
+The list view shows all pending and completed transfers, including the user who initiated each transfer and the devices, assets, PDUs, and parts being transferred.
 
 <ThemedImage
   alt="Transfer Between Locations list page"
@@ -32,46 +32,46 @@ The list view shows all pending and completed transfers. For each transfer, you 
 
 ## Add a New Transfer
 
-Click the **Add Transfer Button** on the list page.
+Click the **Add Transfer** button on the list page.
 
 <ThemedImage
-  alt="Add Transfer Details"
+  alt="Add transfer details"
   sources={{
     light: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-transfer-details-light.png'),
     dark: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-transfer-details-dark.png'),
   }}
 />
 
-To initiate a transfer, fill in the form:
+Fill in the transfer form with the following details:
 
-- Select the **Initiation Date** and **Time** that the transfer will start.
-- Upon saving, the **User** field will be populated automatically with the currently logged-in Device42 user.
+- Select the **Initiation Date** and **Time** for the transfer.
+- The **User** field is populated automatically with the currently logged-in Device42 user on saving.
 - Optionally, select or add the **Shipper** performing the transfer.
-- Optionally, pick a room for the object while it is in transit. For example, you might want to define a dummy room named "In Transit".  
+- Optionally, select a room for the object while it is in transit — for example, a placeholder room named "In Transit".
 - Choose or add the **Devices**, **Assets**, **PDUs**, and **Parts** to be transferred.
 
     <ThemedImage
-    alt="Add Transfer objects"
+    alt="Add transfer objects"
     sources={{
         light: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-transfer-objects-light.png'),
         dark: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-transfer-objects-dark.png'),
     }}
     />
 
-- Add any useful **Notes** about the transfer for reference.
+- Add any **Notes** about the transfer for reference.
 
-Then, click **Save and add another** or click **Save** to view a summary of the transfer details.
+Click **Save and add another** or **Save** to view a summary of the transfer details.
 
-The **Transfer Devices Status** section will be populated with the object(s) you just selected. The **Transfer Assets Status**, **Transfer PDUs Status**, and **Transfer Parts Status** sections will also be populated.
+The **Transfer Devices Status** section will be populated with the objects you selected. The **Transfer Assets Status**, **Transfer PDUs Status**, and **Transfer Parts Status** sections will also be populated.
 
 ## Receive the Transfer
 
-In each section of the transfer, there is a **Received Date** entry and a **Receipt Room** entry that the receiving party will use to record full or partial completion of the transfer. 
+Each section of the transfer includes a **Received Date** and **Receipt Room** field for the receiving party to record full or partial completion.
 
-Click **Edit** and add or update the **Received Date** and **Receipt Room**. On saving the changes, the devices, assets, PDUs, and parts will be placed in the **Receipt Room** in Device42.
+Click **Edit** and update the **Received Date** and **Receipt Room**. On saving, the devices, assets, PDUs, and parts will be placed in the **Receipt Room** in Device42.
 
 <ThemedImage
-  alt="Add Receipt room and date"
+  alt="Add receipt room and date"
   sources={{
     light: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-receipt-date-room-light.png'),
     dark: useBaseUrl('/assets/images/transferring-devices-assets-and-parts/add-receipt-date-room-dark.png'),
