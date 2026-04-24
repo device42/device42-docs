@@ -1,0 +1,154 @@
+---
+title: "Changes in Version 8.0 (CC 5.4.0)"
+sidebar_position: 1
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.4.0 release (CC 5.4.0).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## AWS Network Interface to AWS Public IP Task
+
+The DOQL query was refactored to use CTEs within this `Create Relationship from AWS Network Interface to AWS Public IP` task:
+
+```xml
+<task enable="true" name="AWS Network Interface to AWS Public IP" type="asset_relationship" description="Create Relationship from AWS Network Interface to AWS Public IP" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+select
+       coalesce(NULLIF(network.vendor_custom_fields -> 'Name', ''), network.port)   AS network_name,
+       format('Netport-%s', network.netport_pk)                                     AS network_device42_id,
+       COALESCE(NULLIF(ip.label, ''), host(ip.ip_address))                          AS ip_name,
+       format('IP-%s', ip.ipaddress_pk)                                             AS ip_device42_id
+FROM
+       view_ipaddress_v2 ip
+INNER JOIN 
+       view_netport_v1 network on network.port = ip.details ->> 'network_interface_id' 
+LEFT JOIN
+       view_cloudinfrastructure_v2 infra ON network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN 
+       view_vendor_v1 vendor ON infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE ip.is_public = true and infra.account_id is not null and vendor.name = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH amazon_infra AS (
+                          SELECT infra.cloudinfrastructure_pk
+                          FROM view_cloudinfrastructure_v2 infra
+                          INNER JOIN view_vendor_v1 vendor
+                              ON infra.cloud_vendor_fk = vendor.vendor_pk
+                          WHERE vendor.name = 'Amazon'
+                            AND infra.account_id IS NOT NULL
+                      ),
+                      amazon_networks AS (
+                          SELECT
+                              network.port,
+                              network.netport_pk,
+                              network.vendor_custom_fields
+                          FROM view_netport_v1 network
+                          INNER JOIN amazon_infra
+                              ON network.cloudinfrastructure_fk = amazon_infra.cloudinfrastructure_pk
+                      )
+                      SELECT
+                          coalesce(NULLIF(an.vendor_custom_fields -> 'Name', ''), an.port) AS network_name,
+                          format('Netport-%s', an.netport_pk)                              AS network_device42_id,
+                          COALESCE(NULLIF(ip.label, ''), host(ip.ip_address))              AS ip_name,
+                          format('IP-%s', ip.ipaddress_pk)                                 AS ip_device42_id
+                      FROM view_ipaddress_v2 ip
+                      INNER JOIN amazon_networks an
+                          ON an.port = ip.details ->> 'network_interface_id'
+                      WHERE ip.is_public = true
+```
+
+</details>
+
+## Delete Asset Relationships Task
+
+Within this `Delete asset relationships from Freshservice that do not exist in Device42` task:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     
+      COALESCE(NULLIF(network.vendor_custom_fields -> 'Name', ''), network.port) AS dependent_device_name,
+      format('Netport-%s', network.netport_pk)                       AS dependent_device_device42_id,
+      'Has'                                                          AS downstream_relationship,
+      COALESCE(NULLIF(ip.label, ''), host(ip.ip_address))            AS dependency_device_name,
+      format('IP-%s', ip.ipaddress_pk)                               AS dependency_device_device42_id,
+      'Is Attached To'                                               AS upstream_relationship
+FROM       view_ipaddress_v2 ip
+INNER JOIN view_netport_v1 network
+ON         network.port = ip.details ->> 'network_interface_id'
+LEFT JOIN  view_cloudinfrastructure_v2 infra
+ON         network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN  view_vendor_v1 vendor
+ON         infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE      ip.is_public = true
+AND        infra.account_id IS NOT NULL
+AND        vendor.NAME = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT *
+  FROM   ( WITH amazon_netports AS MATERIALIZED (
+                  SELECT network.netport_pk,
+                         network.port,
+                         network.vendor_custom_fields
+                  FROM   view_netport_v1 network
+                  INNER JOIN view_cloudinfrastructure_v2 infra
+                      ON network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+                  INNER JOIN view_vendor_v1 vendor
+                      ON infra.cloud_vendor_fk = vendor.vendor_pk
+                  WHERE  infra.account_id IS NOT NULL
+                  AND    vendor.NAME = 'Amazon'
+                ),
+                public_ip_with_network_id AS MATERIALIZED (
+                  SELECT ip.ipaddress_pk,
+                         ip.label,
+                         ip.ip_address,
+                         ip.details ->> 'network_interface_id' AS network_interface_id
+                  FROM   view_ipaddress_v2 ip
+                  WHERE  ip.is_public = true
+                  AND    ip.details ->> 'network_interface_id' IS NOT NULL
+                )
+                SELECT
+                       COALESCE(NULLIF(anp.vendor_custom_fields -> 'Name', ''), anp.port) AS dependent_device_name,
+                       format('Netport-%s', anp.netport_pk)                               AS dependent_device_device42_id,
+                       'Has'                                                               AS downstream_relationship,
+                       COALESCE(NULLIF(pip.label, ''), host(pip.ip_address))               AS dependency_device_name,
+                       format('IP-%s', pip.ipaddress_pk)                                   AS dependency_device_device42_id,
+                       'Is Attached To'                                                    AS upstream_relationship
+                FROM   public_ip_with_network_id pip
+                INNER JOIN amazon_netports anp
+                    ON anp.port = pip.network_interface_id
+         )
+```
+
+</details>
