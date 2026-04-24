@@ -6,11 +6,13 @@ sidebar_position: 6
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can customize the column views of all list pages in Device42. You can create and save multiple custom column views for each list page, then set a global default view or set specific custom column views as the default views for particular users.
+Custom column views let you control which columns appear on any list page in Device42, along with their order, width, and filter settings. This page explains how to create and save custom column views and set them as defaults for yourself or other users.
+
+## Create a Custom Column View
 
 To add a custom column view, navigate to a list page, such as **Resources > Compute > All Devices**.
 
-Click the **gear icon** on the far right of the screen - to right of the current view name. The default view is **System Column List**. 
+Click the **gear icon** on the far right of the screen, to the right of the current view name. The default view is **System Column List**.
 
 <ThemedImage
   alt="Gear icon on Devices list page"
@@ -20,47 +22,49 @@ Click the **gear icon** on the far right of the screen - to right of the current
   }}
 />
 
-- In the pop-up screen, name the new view (1), click the **Table Columns** dropdown, and select (2) and deselect the columns you want.
+In the dialog, name the new view (1), click the **Table Columns** dropdown, and select (2) and deselect the columns you want. 
 
-    <ThemedImage
-    alt="Table Columns dropdown"
-    sources={{
-        light: useBaseUrl('/assets/images/custom-column-views/table-columns-light.png'),
-        dark: useBaseUrl('/assets/images/custom-column-views/table-columns-dark.png'),
-    }}
-    />
+Check the **System Default** checkbox to set this view as the default for all users, or check **User Default** to set it as the default for your own account only.
 
-- You can reorder the columns by clicking and dragging column headings and moving them to a new position. Adjust column widths by dragging the column edges, and save the desired column widths to the view by checking the **Custom Column Sizes** checkbox.
+<ThemedImage
+  alt="Table Columns dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-column-views/table-columns-light.png'),
+    dark: useBaseUrl('/assets/images/custom-column-views/table-columns-dark.png'),
+  }}
+/>
 
-    <ThemedImage
-    alt="Reorder columns"
-    sources={{
-        light: useBaseUrl('/assets/images/custom-column-views/reorder-columns-light.png'),
-        dark: useBaseUrl('/assets/images/custom-column-views/reorder-columns-dark.png'),
-    }}
-    />
+Reorder the columns by clicking and dragging column headings to a new position. Adjust column widths by dragging the column edges, and save the desired column widths to the view by checking the **Custom Column Sizes** checkbox.
 
-- Check the **Custom Filters** checkbox to save the currently configured filters. You can filter the records for this view using the basic dropdown filters or the **Advanced** search feature for more fine-grained control. 
+<ThemedImage
+  alt="Reorder columns"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-column-views/reorder-columns-light.png'),
+    dark: useBaseUrl('/assets/images/custom-column-views/reorder-columns-dark.png'),
+  }}
+/>
 
-    <ThemedImage
-    alt="Type filter dropdown"
-    sources={{
-        light: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-light.png'),
-        dark: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-dark.png'),
-    }}
-    />
+Check the **Custom Filters** checkbox to save the currently configured filters. Filter the records for this view using the basic dropdown filters or the **Advanced** search feature for more fine-grained control.
 
-- Clicking the **Advanced** button reveals a text box where you can query specific field values using conditionals and equality selectors. See the [Advanced Search Feature page](/getstarted/using-device42/advanced-search-feature.mdx) for details.
+<ThemedImage
+  alt="Type filter dropdown"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-light.png'),
+    dark: useBaseUrl('/assets/images/custom-column-views/basic-type-filter-dark.png'),
+  }}
+/>
 
-    <ThemedImage
-    alt="Advanced filter text box"
-    sources={{
-        light: useBaseUrl('/assets/images/custom-column-views/advanced-filter-light.png'),
-        dark: useBaseUrl('/assets/images/custom-column-views/advanced-filter-dark.png'),
-    }}
-    />
+Clicking the **Advanced** button reveals a text box where you can query specific field values using conditionals and equality selectors. See the [Advanced Search Feature page](/getstarted/using-device42/advanced-search-feature) for details.
 
-- Click the **Save As New** button to return to the list page with the new view applied.
+<ThemedImage
+  alt="Advanced filter text box"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-column-views/advanced-filter-light.png'),
+    dark: useBaseUrl('/assets/images/custom-column-views/advanced-filter-dark.png'),
+  }}
+/>
+
+Click the **Save As New** button to return to the list page with the new view applied.
 
 ## Customizable List Pages
 
