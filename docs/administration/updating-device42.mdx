@@ -9,7 +9,7 @@ import vmConsole from '/assets/images/updating-device42/vm-menu-options.png'
 
 Updating to the latest version of Device42 ensures you get the most out of your CMDB and benefit from the newest features, integrations, and security and performance improvements.
 
-## How to Update the Device42 Main Appliance
+## Update the Device42 Main Appliance
 
 To update your Main Appliance, follow these steps:
 
@@ -21,10 +21,10 @@ To update your Main Appliance, follow these steps:
 6. Verify the update from the Main Appliance.
 
 :::tip
-Watch the quick [How To Update the Device42 Main Appliance](how-to-videos/update-device42-appliance-how-to.mdx) walkthrough video of the process.
+Watch the quick [How To Update the Device42 Main Appliance](/how-to-videos/update-device42-appliance-how-to) walkthrough video of the process.
 :::
 
-### 1. Obtain the Upgrade File or URL 
+### 1. Obtain the Update File or URL
 
 To update the Main Appliance, you need to download the update file. In some cases, technical support may have emailed you an update URL to use instead of the update file. If you've received an email with an update URL, proceed to the next step: [Back Up Your Data](#back-up-your-data).
 
@@ -44,7 +44,7 @@ To update the Main Appliance, you need to download the update file. In some case
 
     ![Website form](/assets/images/updating-device42/website-form-19.06.png)
 
-- You'll receive an automated email with several links to download the `.zip.enc` file. If your Main Appliance has already been updated to the latest [major](https://semver.org/) version and you're applying a minor or patch-release update, or if your MA's latest update was to a major version, choose the first link (in bold).
+- You will receive an automated email with several links to download the `.zip.enc` file. If your Main Appliance has already been updated to the latest [major](https://semver.org/) version and you're applying a minor or patch-release update, or if your MA's latest update was to a major version, choose the first link (in bold).
 
     If your Main Appliance is one or several releases behind the current major version, choose the second or third link, depending on your version, to first update it to the major version. When you've updated to the latest major version, you may need to perform a second update to the current minor or patch-release version afterward. 
 
@@ -60,13 +60,13 @@ The default credentials for the Appliance Manager are `d42admin / default`, or f
 
 Navigate to **Backup/Restore > Backup Now** and select the **Main Appliance** checkbox. If you want to include users and settings, select the **Backup Meta Data** option. **Run** the backup.
 
-For an explanation of the backup options, see the [Backup via the Appliance Manager](appliance-manager/setting-up-backup-device42-appliance-manager.mdx) page.
+For an explanation of the backup options, see the [Backup via the Appliance Manager](/administration/appliance-manager/setting-up-backup-device42-appliance-manager) page.
 
 ![Backup settings on the Appliance Manager](/assets/images/updating-device42/backup-appliance-19.06.png)
 
 ### 3. Upload the Update File
 
-From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the [`.zip.enc` file](#obtain-the-update-file-or-url) **or** enter the update URL.
+From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the `.zip.enc` file **or** enter the update URL.
 
 ![Upload file or enter URL in the Appliance Manager](/assets/images/updating-device42/upload-file-19.06.png)
 
@@ -109,12 +109,12 @@ sources={{
 }}
 />
 
-## Updating the Remote Collectors
+## Update the Remote Collectors
 
 Device42 RCs are updated automatically as long as they are connected to a Device42 MA. Updates to the MA instance include updates to your RC(s), which are pushed out automatically as part of the regular Device42 update process. By keeping your main Device42 instance up to date, you ensure that your RCs are also up to date.
 
-## Migrating Existing Power Appliance Jobs to a Remote Collector
+## Migrate Existing Power Appliance Jobs to a Remote Collector
 
-It is possible to use existing tools to migrate jobs that were created for the original, standalone power appliance to RCs.
+You can use existing tools to migrate jobs that were created for the original, standalone power appliance to RCs.
 
-Follow the [Power Job Migration Guide](/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration.mdx) to migrate jobs to your choice of RC(s).
+Follow the [Power Job Migration Guide](/infrastructure-management/power-and-environmental-monitoring/power-rc-setup-job-migration) to migrate jobs to your choice of RCs.

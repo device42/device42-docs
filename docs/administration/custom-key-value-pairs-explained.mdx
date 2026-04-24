@@ -6,16 +6,14 @@ sidebar_position: 7
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Device42 offers users the ability to define their own fields.
+Custom Fields let you define your own attributes for Device42 objects such as Buildings, Rooms, Racks, Customers, Devices, Assets, Application Components, Circuits, and Passwords. This page explains how to create and configure Custom Fields, set them in bulk, and use them via the API.
 
-You can add custom fields to buildings, rooms, racks, customers, devices, assets, application components, circuits, and passwords as discussed below. This feature enables you to store any custom attributes you need to store in Device42. You can also display custom fields and filter on custom fields in Reports.
+## Add Custom Fields
 
-## Adding Custom Fields
-
-Navigate to the Custom Fields list page under **Tools > Custom Fields** and click on a custom field object type (for example, **Assets** or **Devices**).
+Navigate to the Custom Fields list page under **Tools > Custom Fields** and click on a Custom Field object type (for example, **Assets** or **Devices**).
 
 <ThemedImage
-  alt="Custom fields menu"
+  alt="Custom Fields menu"
   sources={{
     light: useBaseUrl('/assets/images/custom-fields/custom-fields-menu-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-fields-menu-dark.png'),
@@ -23,33 +21,30 @@ Navigate to the Custom Fields list page under **Tools > Custom Fields** and clic
   style={{ width: '80%' }} 
 />
 
-- From the list page for the selected custom field type, you can either edit an existing custom field or click the **Create** button to add a new one.
-
-  <ThemedImage
-    alt="Custom fields device list view"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/create-device-custom-field-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/create-device-custom-field-dark.png'),
-    }}
-  />
-
-- Input the name for the custom field and choose its data **Type**. Certain custom field types, when selected, will present more options specific to that field type. The available types are listed below.
-
-  - **Text:** These fields use character-based values.
-  - **Number:** These fields use numeric values.
-  - **Date:** These fields use calendar date formatting.
-  - **Related Field:** These fields use the values of other fields (for example, if **Rack** is chosen, then rack names are possible values).
-  - **Yes/No:** These fields use yes or no values.
-  - **URL:** These fields use URL values.
-  - **Picklist:** These fields use values chosen from a picklist.
-    - You can create either single-select or multi-select picklists.
-    - After creation, you can adjust the picklist parameters without needing to recreate and reassign custom fields.
-    
-  - **JSON:** These fields use JSON formatting.
-  - **Markup:** These fields use markup formatting.
+From the list page for the selected Custom Field type, you can either edit an existing Custom Field or click the **Create** button to add a new one.
 
 <ThemedImage
-  alt="Create a new custom field"
+  alt="Custom Fields device list view"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/create-device-custom-field-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/create-device-custom-field-dark.png'),
+  }}
+/>
+
+Enter a name for the Custom Field and choose its data **Type**. Selecting certain types will reveal additional options specific to that field type. The available types are:
+
+- **Text:** Character-based values.
+- **Number:** Numeric values.
+- **Date:** Calendar date formatting.
+- **Related Field:** Values from another field (for example, if **Rack** is chosen, then Rack names are the possible values).
+- **Yes/No:** Yes or no values.
+- **URL:** URL values.
+- **Picklist:** Values chosen from a picklist. You can create either single-select or multi-select picklists, and adjust the picklist parameters after creation without needing to recreate and reassign Custom Fields.
+- **JSON:** JSON formatting.
+- **Markup:** Markup formatting.
+
+<ThemedImage
+  alt="Create a new Custom Field"
   sources={{
     light: useBaseUrl('/assets/images/custom-fields/custom-field-type-light.png'),
     dark: useBaseUrl('/assets/images/custom-fields/custom-field-type-dark.png'),
@@ -57,91 +52,89 @@ Navigate to the Custom Fields list page under **Tools > Custom Fields** and clic
   style={{ width: '90%' }}
 />
 
-- If you check the **Filterable** box, the list view page for the object type (for example, Devices) will contain the custom field as a filter option, which allows you to filter the list view by the custom field value. You can find the filterable custom field in the **More Filters** dropdown.
+Check the **Filterable** box to add the Custom Field as a filter option on the list view page for the object type (for example, Devices). You can find filterable Custom Fields in the **More Filters** dropdown.
 
-  <ThemedImage
-    alt="Filterable custom fields"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/custom-fields-filter-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-filter-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Filterable Custom Fields"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/custom-fields-filter-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-filter-dark.png'),
+  }}
+/>
 
-- If a custom field is marked as **Mandatory**, the device (or other object) record can only be saved once a custom field value has been entered, as shown below. Please note that the field is only enforced as mandatory when objects are edited or added via the UI. The field is not mandatory when objects are edited or added via the API.
+If a Custom Field is marked as **Mandatory**, the object record can only be saved once a value has been entered for that field. Note that the mandatory requirement is only enforced when objects are edited or added via the UI, not via the API.
 
-  <ThemedImage
-    alt="Custom field with mandatory field"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/custom-fields-mandatory-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-mandatory-dark.png'),
-    }}
-  />  
+<ThemedImage
+  alt="Custom Field with mandatory setting"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/custom-fields-mandatory-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-mandatory-dark.png'),
+  }}
+/>
 
 ## Bulk Set Custom Field Values
 
-Set custom field values in bulk using the **Set Custom Field Value** action, which is available on most list pages from the **Actions** dropdown.
+Set Custom Field values in bulk using the **Set Custom Field Value** action, available on most list pages from the **Actions** dropdown.
 
-  <ThemedImage
-    alt="Custom field bulk actions"
-    sources={{ 
-      light: useBaseUrl('/assets/images/custom-fields/custom-fields-06-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-06-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Set Custom Field Value action in the Actions dropdown"
+  sources={{ 
+    light: useBaseUrl('/assets/images/custom-fields/custom-fields-06-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-06-dark.png'),
+  }}
+/>
 
-- Search for the custom field you want to set values for and input the necessary value(s). You can also add a note if desired.   
+Search for the Custom Field you want to set values for, enter the necessary values, and optionally add a note.
 
-  <ThemedImage
-    alt="Custom field bulk actions"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/custom-fields-07-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/custom-fields-07-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Custom Field value entry form"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/custom-fields-07-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/custom-fields-07-dark.png'),
+  }}
+/>
 
 ## Create a Custom Field for Secrets
 
 You can add a Custom Field to the Secrets form to store additional values.
 
-- Navigate to **Tools > Custom Fields** and click on the **Secrets** link.
+Navigate to **Tools > Custom Fields** and click the **Secrets** link.
 
-  <ThemedImage
-    alt="Secrets link on Custom Fields page"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/secrets-link-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/secrets-link-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Secrets link on Custom Fields page"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/secrets-link-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/secrets-link-dark.png'),
+  }}
+/>
 
-- Name the custom field, choose its data **Type**, whether it is **Filterable**, and whether it is **Mandatory**. By default, the custom field is set to **Log for API**, which means any changes made to this custom field via the Device42 API will be recorded in the history log.
+Name the Custom Field and choose its data **Type**, whether it is **Filterable**, and whether it is **Mandatory**. By default, the **Log for API** option is enabled, which means any changes made to this Custom Field via the Device42 API will be recorded in the history log.
 
-  <ThemedImage
-    alt="Add a new Secret custom field"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Add a new Secret Custom Field"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/add-secret-custom-field-dark.png'),
+  }}
+/>
 
-- You can now assign a value to the newly created custom field when creating a new Secret, and add a note if desired.
+You can assign a value to the newly created Custom Field when creating a new Secret, and add a note if desired.
 
-  <ThemedImage
-    alt="Custom field on Secret form"
-    sources={{
-      light: useBaseUrl('/assets/images/custom-fields/secret-custom-field-light.png'),
-      dark: useBaseUrl('/assets/images/custom-fields/secret-custom-field-dark.png'),
-    }}
-  />
+<ThemedImage
+  alt="Custom Field on Secret form"
+  sources={{
+    light: useBaseUrl('/assets/images/custom-fields/secret-custom-field-light.png'),
+    dark: useBaseUrl('/assets/images/custom-fields/secret-custom-field-dark.png'),
+  }}
+/>
 
-## REST APIs for Custom Values
+## REST APIs for Custom Fields
 
-You can find the documentation for adding Custom Fields to various objects using the API in the [API Documentation](https://api.device42.com). 
+The [API documentation](https://api.device42.com) covers adding Custom Fields to various objects. For example, to see the API documentation for adding Custom Fields to Devices, navigate to **Devices > Custom fields**.
 
-For example, to see the API documentation for adding custom fields to Devices, navigate to **Devices > Custom fields**.
+### Assign Related Field Values by Object ID
 
-### Assigning Related Field Values by Object ID
-
-You can populate a **related** custom field by sending the *object ID* instead of its name.
+You can populate a **Related Field** Custom Field by sending the *object ID* instead of its name.
 
 Add two form parts to your `POST` or `PUT` request:
 
@@ -164,10 +157,10 @@ Add two form parts to your `POST` or `PUT` request:
   ```
 </details>
 
-The call above sets **End User Details** to the end user whose object ID is **6**.
+The call above sets **End User Details** to the end user whose object ID is `6`.
 
-For full parameter details, read the documentation for the [Customers](https://api.device42.com/#!/Customers) endpoint.
+For full parameter details, see the [Customers](https://api.device42.com/#!/Customers) endpoint documentation.
 
-## Exago Reports Note
+## Exago Reports Compatibility
 
-For Exago reports (which are not enabled by default), we've made changes to a couple of custom field data types that may affect existing queries. Custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`, which might affect existing queries. Queries containing `TEXT`-related builtins, like `SUBSTRING`, may fail and need to be updated using the updated data type. Queries with basic operators in the `WHERE` clause, like `=` and `<>`, should all continue without issues. 
+For Exago reports, which are not enabled by default, some Custom Field data types have changed in a way that may affect existing queries. Custom numeric and date fields are now represented as `DATE` and `BIGINT` instead of `TEXT`. Queries that use `TEXT`-related functions such as `SUBSTRING` may fail and need to be updated to use the new data type. Queries with basic operators in the `WHERE` clause, such as `=` and `<>`, should continue to work without changes.

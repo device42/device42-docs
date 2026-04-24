@@ -6,15 +6,13 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Auto Clean rules help you manage old and possibly stale data in Device42, automatically. Should an object (like a device or an IP address) not be found by a subsequent autodiscovery job, or modified by a manual effort, it may be out of service. This is especially true of servers and other objects in public clouds, but can also apply to objects that are behind the corporate firewall.
+Auto Clean rules help you automatically manage old or stale data in Device42. If an object (like a device or an IP address) isn't found by a subsequent discovery job or updated manually, it may be out of service — this is especially common for servers and other objects in public clouds, but can also apply to objects behind a corporate firewall.
 
-The rules for when a particular type of object should be considered and the rules for what to do about such objects vary from organization to organization. This feature enables you to define your own rules and tell Device42 what actions should be taken.
-
-Device42 includes several system-defined disabled Auto Clean rules (related to ADM data) as suggested examples you can use to base your own rules on. You can also enable these example rules to keep your ADM data cleaner.
+This page covers the CI types that Auto Clean rules can target, how to view existing rules, and how to create new ones. Device42 includes several system-defined disabled Auto Clean rules (related to ADM data) that you can enable or use as templates for your own rules.
 
 ## Auto Clean Supported CIs
 
-Auto Clean rules can target a wide variety of Configuration Items (CIs), from Assets to Users to VLANs, and everything in between. 
+Auto Clean rules can target a wide variety of Configuration Items (CIs), from Assets to Users to VLANs, and everything in between.
 
 You can select the following object types as Auto Clean rule targets:
 
@@ -41,12 +39,11 @@ You can select the following object types as Auto Clean rule targets:
 - Subnets
 - VLANs
 
-
 ## View Auto Clean Rules
 
 Navigate to the Auto Clean Rules list page under **Tools > Templates & Bulk Operations > Auto Clean Rules**.
 
-Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days** option instead of the **Modify Search** option
+Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days** option instead of the **Modify Search** option.
 
 <ThemedImage
   alt="Auto Clean Rules menu location"
@@ -58,11 +55,11 @@ Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days
 
 ## Create New Auto Clean Rules
 
-Navigate to **Tools > Templates & Bulk Operations > Auto Clean Rules** and then click **Create**.
+Navigate to **Tools > Templates & Bulk Operations > Auto Clean Rules** and then click **Create**.
 
-The combination of object types and the search criteria you select for those object types defines the Auto Clean rule. As you build your search criteria, the **Preview** list shows the objects that the Auto Clean rule will be applied to.
+The combination of object types and search criteria you select defines the Auto Clean rule. As you build your search criteria, the **Preview** list shows the objects that the rule will be applied to.
 
-- Name the rule and click the **pencil icon**. 
+- Name the rule and click the **pencil icon**.
 
     <ThemedImage
     alt="Add Search Criteria icon"
@@ -72,7 +69,7 @@ The combination of object types and the search criteria you select for those obj
     }}
     />
 
-- Select an **Object Type** for the rule to target – for example, **Devices**. 
+- Select an **Object Type** for the rule to target (for example, **Devices**).
 
     <ThemedImage
     alt="Object Type dropdown"
@@ -82,7 +79,7 @@ The combination of object types and the search criteria you select for those obj
     }}
     />
 
-Build search criteria for the selected object type using the basic dropdown filters and the advanced search option. 
+Build search criteria for the selected object type using the basic dropdown filters and the advanced search option.
 
 - For the Devices object type, for example, you could select **physical** under the **Type** dropdown. Click **More Filters** to display more basic dropdown filters to select values from.
 
@@ -94,7 +91,7 @@ Build search criteria for the selected object type using the basic dropdown filt
     }}
     />
 
-- You can also use the [Advanced Search](/getstarted/using-device42/advanced-search-feature.mdx) feature to include search criteria.
+- You can also use the [Advanced Search](/getstarted/using-device42/advanced-search-feature) feature to include search criteria.
 
     <ThemedImage
     alt="Advanced Search option"
@@ -104,7 +101,7 @@ Build search criteria for the selected object type using the basic dropdown filt
     }}
     />
 
-- Click **Add** to apply the search for the object type. You can click the **pencil icon** again to add another device and define search criteria for it.
+- Click **Add** to apply the search for the object type. Click the **pencil icon** again to add another device and define search criteria for it.
 
     <ThemedImage
     alt="Added Devices object with Advanced criteria"
@@ -116,7 +113,7 @@ Build search criteria for the selected object type using the basic dropdown filt
 
 ### Auto Clean Rule Options
 
-Select the actions to perform on CIs matching added object types and its criteria. The available Auto Clean Rule **Action** options vary depending on which **Object type** you select for the rule. The example below shows the action options for Device objects.
+Select the actions to perform on CIs matching the added object types and their criteria. The available **Action** options vary depending on which **Object type** you select for the rule. The example below shows the action options for Device objects.
 
 <ThemedImage
   alt="Auto Clean Rules Action options for Devices"
@@ -126,23 +123,23 @@ Select the actions to perform on CIs matching added object types and its criteri
   }}
 />
 
-- **Delete the data:** Delete the object. 
+- **Delete the data:** Delete the object.
 - **Archive and delete the data:** Create an archive record for the object and delete the object. You can find archived records under **Analytics > Archived Objects**.
-- **Clear all IPs:** Remove IPs from the Device. 
-- **Clear all IPs for this subnet:** Clear all device IPs from the entered or selected subnet. 
-- **Clear all Connectivity:** Clear all connectivity to the device. 
-- **Change to not in service:** Set the device status as not in service. 
+- **Clear all IPs:** Remove IPs from the device.
+- **Clear all IPs for this subnet:** Clear all device IPs from the entered or selected subnet.
+- **Clear all Connectivity:** Clear all connectivity to the device.
+- **Change to not in service:** Set the device status to not in service.
 
 <ThemedImage
-  alt="Auto Clean Rules Action options for Devices"
+  alt="Service level and email notification options"
   sources={{
     light: useBaseUrl('/assets/images/auto-clean-feature/service-level-emails-light.png'),
     dark: useBaseUrl('/assets/images/auto-clean-feature/service-level-emails-dark.png'),
   }}
 />
 
-- **Change device service level to:** Choose a service level that the device will be set to when the rule is triggered. 
-- **Send email to:** Send notification when the rule is triggered. 
+- **Change device service level to:** Choose the service level to assign when the rule is triggered.
+- **Send email to:** Send a notification when the rule is triggered.
 
 <ThemedImage
   alt="Webhook Auto Clean Endpoints box"
@@ -154,7 +151,6 @@ Select the actions to perform on CIs matching added object types and its criteri
 
 - **Webhook AutoClean Endpoints:** Add or delete webhooks that will be sent when the rule is triggered.
 
-:::info 
-The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
+:::info
+Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
 :::
-
