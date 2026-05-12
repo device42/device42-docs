@@ -57,14 +57,14 @@ info:
     errors and will display an error code e.g.: 400, 401, 403, 405, 410, 500, 503. These are explained
     in each call.<br><br>Please let us know if you notice something odd with a response and we will fix it! :)
     <h2><a id = 'Get_Limits_Offsets'><b>API Get Limits and Offsets</b></a></h2>In
-    Device42â€™s global settings we have the option to enforce API GET limits and
+    Device42’s global settings we have the option to enforce API GET limits and
     this setting is recommended for better performance. To set this value from
     Device42, go to Tools>Settings>Global Settings and the click Edit in the top
     right. Toward the bottom of the screen you will see the API section. First
-    check the â€œEnforce API GET Limitsâ€ checkbox, then enter a value for API GET
+    check the “Enforce API GET Limits” checkbox, then enter a value for API GET
     Limit. A good limit to start with is 500 or 1000, depending on the
     performance you experience.<br><br>After setting this limit all GET calls
-    below can have the results augmented via â€œoffsetâ€ and â€œlimitâ€ parameters to
+    below can have the results augmented via “offset” and “limit” parameters to
     tell Device42 which value to start returning results from, and how many
     results to return at maximum.<br>Examples:<br><br>'/?limit=50' returns the
     first 50 results.<br><br> '/?offset=100' will start at the 101st result.
@@ -2861,7 +2861,7 @@ paths:
             The serial number of the device. If a device with a matching serial number is
             found, that device is updated. Serial numbers with fewer than 3 characters
             in length are ignored. Also, certain generic serial numberss like
-            123456789 or â€˜not specifiedâ€™ are ignored.
+            123456789 or ‘not specified’ are ignored.
           in: formData
         - name: name
           type: string
@@ -2885,7 +2885,7 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates the device is a virtual host
+          description: ‘yes’ indicates the device is a virtual host
         - name: in_service
           type: string
           in: formData
@@ -2893,7 +2893,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type_id
           type: string
@@ -3360,7 +3360,7 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates the device is a virtual host
+          description: ‘yes’ indicates the device is a virtual host
         - name: in_service
           type: string
           in: formData
@@ -3368,7 +3368,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type_id
           type: string
@@ -4229,7 +4229,7 @@ paths:
             the serial # of the device. If a device with matching serial # is
             found - that device is updated. Serial # with less than 3 characters
             in length are ignored. Also, certain generic serial #s like
-            123456789 or â€˜not specifiedâ€™ are ignored.
+            123456789 or ‘not specified’ are ignored.
           in: formData
         - name: uuid
           type: string
@@ -4266,21 +4266,21 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a network switch
+          description: ‘yes’ indicates if device is a network switch
         - name: is_it_virtual_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a virtual host
+          description: ‘yes’ indicates if device is a virtual host
         - name: is_it_blade_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a blade host
+          description: ‘yes’ indicates if device is a blade host
         - name: in_service
           type: string
           in: formData
@@ -4288,7 +4288,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type
           type: string
@@ -4301,8 +4301,8 @@ paths:
             - cluster
             - other
           description: >-
-            is the type for device. Valid values are â€˜unknownâ€™, â€˜physicalâ€™, â€˜virtualâ€™,
-            â€˜bladeâ€™, â€˜clusterâ€™, or â€˜otherâ€™.
+            is the type for device. Valid values are ‘unknown’, ‘physical’, ‘virtual’,
+            ‘blade’, ‘cluster’, or ‘other’.
         - name: service_level
           type: string
           in: formData
@@ -4451,13 +4451,13 @@ paths:
           type: integer
           in: formData
           description: >-
-            ID for the contract. Available via GET /api/api/1.0/contracts/ â€“
+            ID for the contract. Available via GET /api/api/1.0/contracts/ –
             DEPRECATED in v550.
         - name: contract
           type: string
           in: formData
           description: >-
-            Name of the contract. Used only if contract name is unique. â€“
+            Name of the contract. Used only if contract name is unique. –
             DEPRECATED in v550.
         - name: aliases
           type: string
@@ -4601,21 +4601,21 @@ paths:
           type: string
           in: formData
           description: >-
-            Updates the device found with that name. Otherwise returns â€œdevice
+            Updates the device found with that name. Otherwise returns “device
             not found"
         - name: serial
           type: string
           in: formData
           description: >-
             If the serial number is provided, it must be a unique serial number
-            or a â€œdevice not foundâ€ error will result. If it is a unique serial
+            or a “device not found” error will result. If it is a unique serial
             number, then the device that has that serial number will be updated.
         - name: asset
           type: string
           in: formData
           description: >-
             If the asset number is provided, it must be a unique asset number or
-            a â€œdevice not foundâ€ error will result. If it is a unique asset
+            a “device not found” error will result. If it is a unique asset
             number, then the device that has that asset number will be updated.
         - name: device_id
           type: string
@@ -4633,7 +4633,7 @@ paths:
             the serial # of the device. If a device with matching serial # is
             found - that device is updated. Serial # with less than 3 characters
             in length are ignored. Also, certain generic serial #s like
-            123456789 or â€˜not specifiedâ€™ are ignored.
+            123456789 or ‘not specified’ are ignored.
           in: formData
         - name: uuid
           type: string
@@ -4670,21 +4670,21 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a network switch
+          description: ‘yes’ indicates if device is a network switch
         - name: is_it_virtual_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a virtual host
+          description: ‘yes’ indicates if device is a virtual host
         - name: is_it_blade_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a blade host
+          description: ‘yes’ indicates if device is a blade host
         - name: in_service
           type: string
           in: formData
@@ -4692,7 +4692,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type
           type: string
@@ -4851,13 +4851,13 @@ paths:
           type: integer
           in: formData
           description: >-
-            ID for the contract. Available via GET /api/api/1.0/contracts/ â€“
+            ID for the contract. Available via GET /api/api/1.0/contracts/ –
             DEPRECATED in v550.
         - name: contract
           type: string
           in: formData
           description: >-
-            Name of the contract. Used only if contract name is unique. â€“
+            Name of the contract. Used only if contract name is unique. –
             DEPRECATED in v550.
         - name: aliases
           type: string
@@ -5048,7 +5048,7 @@ paths:
             the serial # of the device. If a device with matching serial # is
             found - that device is updated. Serial # with less than 3 characters
             in length are ignored. Also, certain generic serial #s like
-            123456789 or â€˜not specifiedâ€™ are ignored.
+            123456789 or ‘not specified’ are ignored.
           in: formData
         - name: uuid
           type: string
@@ -5085,18 +5085,18 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a network switch
+          description: ‘yes’ indicates if device is a network switch
         - name: is_it_virtual_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a virtual host
+          description: ‘yes’ indicates if device is a virtual host
         - name: is_it_blade_host
           type: string
           in: formData
-          description: â€˜yesâ€™ indicates if device is a blade host
+          description: ‘yes’ indicates if device is a blade host
         - name: in_service
           type: string
           in: formData
@@ -5104,7 +5104,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type
           type: string
@@ -5116,8 +5116,8 @@ paths:
             - cluster
             - other
           description: >-
-            is the type for device. Valid values are â€˜physicalâ€™, â€˜virtualâ€™,
-            â€˜bladeâ€™, â€˜clusterâ€™, or â€˜otherâ€™.
+            is the type for device. Valid values are ‘physical’, ‘virtual’,
+            ‘blade’, ‘cluster’, or ‘other’.
         - name: service_level
           type: string
           in: formData
@@ -5265,13 +5265,13 @@ paths:
           type: integer
           in: formData
           description: >-
-            ID for the contract. Available via GET /api/api/1.0/contracts/ â€“
+            ID for the contract. Available via GET /api/api/1.0/contracts/ –
             DEPRECATED in v550.
         - name: contract
           type: string
           in: formData
           description: >-
-            Name of the contract. Used only if contract name is unique. â€“
+            Name of the contract. Used only if contract name is unique. –
             DEPRECATED in v550.
         - name: aliases
           type: string
@@ -5406,7 +5406,7 @@ paths:
             the serial # of the device. If a device with matching serial # is
             found - that device is updated. Serial # with less than 3 characters
             in length are ignored. Also, certain generic serial #s like
-            123456789 or â€˜not specifiedâ€™ are ignored.
+            123456789 or ‘not specified’ are ignored.
           in: formData
         - name: uuid
           type: integer
@@ -5443,21 +5443,21 @@ paths:
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a network switch
+          description: ‘yes’ indicates if device is a network switch
         - name: is_it_virtual_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a virtual host
+          description: ‘yes’ indicates if device is a virtual host
         - name: is_it_blade_host
           type: string
           in: formData
           enum:
             - 'yes'
             - 'no'
-          description: â€˜yesâ€™ indicates if device is a blade host
+          description: ‘yes’ indicates if device is a blade host
         - name: in_service
           type: string
           in: formData
@@ -5465,7 +5465,7 @@ paths:
             - 'yes'
             - 'no'
           description: >-
-            â€˜yesâ€™ indicates if device is in service, â€˜noâ€™ indicates not in
+            ‘yes’ indicates if device is in service, ‘no’ indicates not in
             service
         - name: type
           type: string
@@ -5624,13 +5624,13 @@ paths:
           type: integer
           in: formData
           description: >-
-            ID for the contract. Available via GET /api/api/1.0/contracts/ â€“
+            ID for the contract. Available via GET /api/api/1.0/contracts/ –
             DEPRECATED in v550.
         - name: contract
           type: string
           in: formData
           description: >-
-            Name of the contract. Used only if contract name is unique. â€“
+            Name of the contract. Used only if contract name is unique. –
             DEPRECATED in v550.
         - name: aliases
           type: string
@@ -6147,13 +6147,13 @@ paths:
           in: formData
           description: >-
             if there is more than 1 device with the same asset #, this will
-            return â€œdevice not foundâ€, or
+            return “device not found”, or
           type: string
         - name: serial
           in: formData
           description: >-
             if there is more than 1 device with the same serial #, this will
-            return â€œdevice not foundâ€
+            return “device not found”
           type: string
         - $ref: '#/parameters/key'
         - $ref: '#/parameters/custom_field_type'
@@ -6604,7 +6604,7 @@ paths:
         - name: url_suffix
           in: formData
           description: >-
-            url suffix if any. e.g. it is â€œawesomeâ€ based on example given
+            url suffix if any. e.g. it is “awesome” based on example given
             above.
           type: string
         - name: notes
@@ -6670,7 +6670,7 @@ paths:
         - name: url_suffix
           in: formData
           description: >-
-            url suffix if any. e.g. it is â€œawesomeâ€ based on example given
+            url suffix if any. e.g. it is “awesome” based on example given
             above.
           type: string
         - name: notes
@@ -6765,14 +6765,14 @@ paths:
         - name: hw_model
           in: formData
           description: >-
-            If the hw_model doesnâ€™t exist or doesnâ€™t have a type, we will add it
-            as type â€œregular (rack mountable)â€ (changed in v6.6.0)
+            If the hw_model doesn’t exist or doesn’t have a type, we will add it
+            as type “regular (rack mountable)” (changed in v6.6.0)
           type: string
         - name: size
           in: formData
           description: >-
             size of the hardware model, only for new hardware model or if
-            hardware model doesnâ€™t have size. required for new hardware model
+            hardware model doesn’t have size. required for new hardware model
             (added in v6.6.0)
           type: number
           format: float
@@ -6811,15 +6811,15 @@ paths:
           in: formData
           description: >-
             This is the starting U location for the device in the rack. Starting
-            with v535, you can use â€œautoâ€ as value to automatically mount the
+            with v535, you can use “auto” as value to automatically mount the
             device in next available slot.
           type: string
           required: true
         - name: where
           in: formData
           description: >-
-            location in rack, one of â€˜aboveâ€™, â€˜belowâ€™, â€˜leftâ€™, â€˜rightâ€™,
-            â€˜mountedâ€™. Note: If mounted a size must be provided or available
+            location in rack, one of ‘above’, ‘below’, ‘left’, ‘right’,
+            ‘mounted’. Note: If mounted a size must be provided or available
             from the hardware model.
           type: string
         - name: x_pos
@@ -13479,7 +13479,7 @@ paths:
       parameters:
         - name: query
           in: query
-          description: enter â€œipâ€
+          description: enter “ip”
           type: string
           required: true
         - name: string
@@ -21016,7 +21016,7 @@ paths:
           in: formData
           description: >-
             Admin groups to assign user to. Note: groups with commas need to be
-            wrapped in quotes. ie: â€œSystem Generated Read, Add, Edit and Deleteâ€
+            wrapped in quotes. ie: “System Generated Read, Add, Edit and Delete”
         - name: new_username
           type: string
           in: formData
@@ -21346,7 +21346,7 @@ paths:
                 example:
                   - custom key pair values added or updated
                   - 220
-                  - â€œNetworkServiceâ€
+                  - “NetworkService”
                   - true,
                   - true
               code:
@@ -21502,7 +21502,7 @@ paths:
       parameters:
         - name: days
           in: formData
-          description: Events older than â€œdaysâ€ will be deleted
+          description: Events older than “days” will be deleted
           type: integer
           required: true
         - name: chunk_size
@@ -26330,7 +26330,7 @@ paths:
         - name: header
           in: query
           description: >-
-            If â€˜yesâ€™ specifies that the file contains a header line with the names of each column in the file. 
+            If ‘yes’ specifies that the file contains a header line with the names of each column in the file. 
             On output, the first line contains the column names from the table
           type: string
         - name: quote
@@ -26395,7 +26395,7 @@ paths:
         - name: header
           in: formData
           description: >-
-            If â€˜yesâ€™ specifies that the file contains a header line with the names of each column in the file. 
+            If ‘yes’ specifies that the file contains a header line with the names of each column in the file. 
             On output, the first line contains the column names from the table
           type: string
         - name: quote
@@ -26762,17 +26762,17 @@ parameters:
       - 3
       - 4
       - 5
-    description: Application Component Category ID can be 1-Database, 2-Application Layer, 3-Web Server, 4-Load Balancer, 5-Other. â€˜category_idâ€™ is used by discovery to initially set the category of an application component and cannot be used to change the category once set. If you would like to change the category of an Application Component, use â€˜categoryâ€™ parameter.
+    description: Application Component Category ID can be 1-Database, 2-Application Layer, 3-Web Server, 4-Load Balancer, 5-Other. ‘category_id’ is used by discovery to initially set the category of an application component and cannot be used to change the category once set. If you would like to change the category of an Application Component, use ‘category’ parameter.
   at_logon:
     name: at_logon
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   at_startup:
     name: at_startup
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   appcomps:
     name: appcomps
     type: string
@@ -26949,7 +26949,7 @@ parameters:
     enum:
       - 'yes'
       - 'no'
-    description: â€˜yesâ€™ if assigned. â€˜noâ€™ (default) if unassigned.
+    description: ‘yes’ if assigned. ‘no’ (default) if unassigned.
     type: string
   assignment:
     name: assignment
@@ -26962,7 +26962,7 @@ parameters:
     enum:
       - 'yes'
       - 'no'
-    description: â€˜yesâ€™ if allocated. â€˜noâ€™ (default) if unallocated.
+    description: ‘yes’ if allocated. ‘no’ (default) if unallocated.
     type: string
   alternate_sudo:
     name: alternate_sudo
@@ -26979,7 +26979,7 @@ parameters:
       - 'yes'
       - 'no'
     description: >-
-      If â€˜yesâ€™, addresses within subnet will be automatically added to Device42.
+      If ‘yes’, addresses within subnet will be automatically added to Device42.
       (Only available in POST)
     type: string
   auth_type:
@@ -27201,8 +27201,8 @@ parameters:
     in: query
     type: string
     description: >-
-      If this parameter is â€˜xlsâ€™ or is not present, an Excel file(.xlsx) will be
-      produced. If this parameter is â€˜tabâ€™, a tab-delimited file(.txt) will be
+      If this parameter is ‘xls’ or is not present, an Excel file(.xlsx) will be
+      produced. If this parameter is ‘tab’, a tab-delimited file(.txt) will be
       created.
   customer_id:
     name: customer_id
@@ -27254,7 +27254,7 @@ parameters:
     enum:
       - 'yes'
       - 'no'
-    description: â€œyesâ€ will clear front connection for port
+    description: “yes” will clear front connection for port
     type: string
   clear_back:
     name: clear_back
@@ -27262,7 +27262,7 @@ parameters:
     enum:
       - 'yes'
       - 'no'
-    description: â€œyesâ€ will clear back connection on port
+    description: “yes” will clear back connection on port
     type: string
   clear_customer:
     name: clear_customer
@@ -27412,7 +27412,7 @@ parameters:
     name: cable_length_units
     type: string
     in: formData
-    description: Units for Cable Length (â€œmâ€ or â€œftâ€)
+    description: Units for Cable Length (“m” or “ft”)
   contact:
     name: contact
     type: string
@@ -27464,7 +27464,7 @@ parameters:
     name: days
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   device_connection_ids:
     name: device_connection_ids
     type: string
@@ -27479,12 +27479,12 @@ parameters:
     name: day_of_month
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   day_of_week:
     name: day_of_week
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   debug_level:
     name: debug_level
     type: string
@@ -27758,7 +27758,7 @@ parameters:
     name: event_based
     in: query
     type: string
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   end_point_type:
     name: end_point_type
     in: query
@@ -28110,7 +28110,7 @@ parameters:
     name: hours
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   horizontal_grid_numbering:
     name: horizontal_grid_numbering
     type: string
@@ -28195,7 +28195,7 @@ parameters:
     name: idle_time
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   is_it_switch:
     name: is_it_switch
     type: string
@@ -28584,7 +28584,7 @@ parameters:
     name: line_service_type
     in: formData
     type: string
-    description: 'new service type will be created, if it doesnâ€™t exist (added in v9.0.2)'
+    description: 'new service type will be created, if it doesn’t exist (added in v9.0.2)'
   line_contract_id:
     name: line_contract_id
     in: formData
@@ -28746,7 +28746,7 @@ parameters:
   macaddress:
     name: macaddress
     in: formData
-    description: MAC address â€“ can be new or existing
+    description: MAC address – can be new or existing
     type: string
   mapped_service:
     name: mapped_service
@@ -28798,7 +28798,7 @@ parameters:
   minutes:
     name: minutes
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
     type: string
   mtu:
     name: mtu
@@ -28808,7 +28808,7 @@ parameters:
   month_of_year:
     name: month_of_year
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
     type: string
   monitor_direction:
     name: monitor_direction
@@ -29047,12 +29047,12 @@ parameters:
     name: other_trigger
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   other_type:
     name: other_type
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   offset:
     name: offset
     type: string
@@ -29064,11 +29064,11 @@ parameters:
     name: override
     in: formData
     description: >-
-      smart â€“ will detect if the port_name passed exist or not, if not â€“ it is
+      smart – will detect if the port_name passed exist or not, if not – it is
       added to the current port name. Helpful, if you want to track all the port
-      names for that mac address (e.g. eth0 & bond0).<br>yes â€“ change the port
-      name. This is default behavior even if you donâ€™t pass this parameter<br>no
-      â€“ will not change the port name
+      names for that mac address (e.g. eth0 & bond0).<br>yes – change the port
+      name. This is default behavior even if you don’t pass this parameter<br>no
+      – will not change the port name
     type: string
     enum:
       - smart
@@ -30169,7 +30169,7 @@ parameters:
     enum:
       - 'yes'
       - 'no'
-    description: Could be â€œyesâ€ or â€œnoâ€. Yes if ports are numbered starting from 1.
+    description: Could be “yes” or “no”. Yes if ports are numbered starting from 1.
   skip_vlan_indexing:
     name: skip_vlan_indexing
     type: string
@@ -30185,15 +30185,15 @@ parameters:
     in: query
     type: string
     description: >-
-      The current running state of this service. Valid values are â€˜Runningâ€™,
-      â€˜Startedâ€™, â€˜Pausedâ€™, â€˜Stoppedâ€™ and â€˜Unknownâ€™
+      The current running state of this service. Valid values are ‘Running’,
+      ‘Started’, ‘Paused’, ‘Stopped’ and ‘Unknown’
   startmode:
     name: startmode
     in: query
     type: string
     description: >-
-      The start mode of this service - valid values are â€˜Automaticâ€™, â€˜Manualâ€™,
-      â€˜Disabledâ€™ and â€˜Unknownâ€™
+      The start mode of this service - valid values are ‘Automatic’, ‘Manual’,
+      ‘Disabled’ and ‘Unknown’
   subnet_id:
     name: subnet_id
     in: query
@@ -30633,7 +30633,7 @@ parameters:
     name: vm_name_to_use
     type: string
     in: formData
-    description: â€œfound from vm toolsâ€ or â€œas named on vserverâ€
+    description: “found from vm tools” or “as named on vserver”
   vm_not_found:
     name: vm_not_found
     type: string
@@ -30895,13 +30895,13 @@ parameters:
     name: weeks
     type: string
     in: query
-    description: only for schedule based services where startmode = â€˜Scheduledâ€™
+    description: only for schedule based services where startmode = ‘Scheduled’
   wall:
     name: wall
     type: string
     in: query
     description: >-
-      Can be one of â€˜leftâ€™, â€˜rightâ€™, â€˜topâ€™, â€˜bottomâ€™, â€˜middleâ€™. Choose â€˜middleâ€™
+      Can be one of ‘left’, ‘right’, ‘top’, ‘bottom’, ‘middle’. Choose ‘middle’
       if you do not want the object placed along one of the 4 walls.
   where:
     name: where
@@ -35034,7 +35034,7 @@ definitions:
   InternalServerError:
     description: >-
       Internal Server Error (Some parameter missing or issue with the
-      server. Check with returned â€œmsgâ€ from the call.)
+      server. Check with returned “msg” from the call.)
     examples:
       errors:
         - code: 500
@@ -35042,7 +35042,7 @@ definitions:
           title: Internal Server Error
           detail: >-
             Some parameter missing or issue with the server. Check with
-            returned â€œmsgâ€ from the call.
+            returned “msg” from the call.
   ServiceUnavailable:
     description: >-
       Service Unavailable (Please check if your Device42 instance is
