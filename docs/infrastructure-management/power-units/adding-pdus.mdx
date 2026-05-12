@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 Use this page to add a new PDU in Device42 and understand the fields available during setup.
 
-The sections below explain the main PDU fields, show how automatic port creation works, and outline how to map a PDU to a device when you want to track asset and lifecycle details. You can also add and manage PDUs [via the API](https://api.device42.com/#pdu).
+The sections below explain the main PDU fields, show how automatic port creation works, and outline how to map a PDU to a device when you want to track asset and lifecycle details. PDUs (like almost all Device42 CIs) can also be added and managed [via the API](https://api.device42.com/#pdu).
 
 To add a PDU from the UI, go to **DataCenter > Power Units > Power Units**.
 
@@ -59,7 +59,7 @@ Use the Device Mapping section when you want to track IP address, lifecycle, or 
 These additional fields appear in the lower part of the form:
 
 - **Gateway PDU:** If this PDU is plugged into another PDU, identify the gateway PDU it is connected to. Use this field for daisy-chained PDUs.
-- **Infeeds:** Power infeed information appears here when available. This information is auto-discovered.
+- **Infeeds:** Power infeed information displays here (n/a; auto-discovered).
 - **Custom Fields:** Any custom fields you created for PDUs appear here.
 
 When you save the new PDU, Device42 automatically adds ports based on the selected PDU model.
