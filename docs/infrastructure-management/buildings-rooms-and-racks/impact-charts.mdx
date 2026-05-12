@@ -18,9 +18,9 @@ Click the **Impact Chart** button at the top of the screen:
   }}
 />
 
-Device42's agentless discovery uses native WMI and SSH, along with other platform-dependent technologies, to identify running services, listening ports, and the relationships between them. This provides a clear picture of which services or executables are listening on which ports on a machine.
+Device42's agentless autodiscovery uses native WMI and SSH, along with other platform-dependent technologies, to identify running services, listening ports, and the relationships between those services and ports or executables and ports. This provides a clear picture of which services or executables are listening on which ports on a machine.
 
-Device42 also captures a point-in-time snapshot of the IP addresses connected to each listening port. If those IP addresses already exist in Device42 and are mapped to a device, the system automatically includes that device when drawing impact charts.
+Device42 also captures a point-in-time snapshot of the IP addresses connected to each listening port. If those IP addresses already exist in Device42 and are mapped to a device, the system automatically includes that device when drawing the dynamic impact charts.
 
 ## Impact Charts for Buildings, Rooms, and Racks
 
@@ -336,7 +336,7 @@ Nearly all the dependencies shown in the charts above are automatically created 
 
 It should be fairly obvious how all the physical dependencies are created: buildings have rooms, which have racks, which have devices. The blades in a chassis are dependent on their blade host, while virtual machines (VMs) are dependent on their virtual host(s).
 
-Software and services that are discovered on a virtual or physical machine are dependent on that machine. Many service-to-service dependencies and software relationships are discovered automatically.
+Nearly all the dependencies shown in the charts above are automatically created by autodiscovery in combination with internal Device42 correlation processes.
 
 Only some application components need to be manually entered. If a service is defined to be an application component, then the application component dependencies are all known.
 
