@@ -336,7 +336,7 @@ Nearly all the dependencies shown in the charts above are automatically created 
 
 It should be fairly obvious how all the physical dependencies are created: buildings have rooms, which have racks, which have devices. The blades in a chassis are dependent on their blade host, while virtual machines (VMs) are dependent on their virtual host(s).
 
-Nearly all the dependencies shown in the charts above are automatically created by autodiscovery in combination with internal Device42 correlation processes.
+Software and services that are discovered on a virtual or physical machine are dependent on that machine. Many of the service-to-service dependencies and software dependencies are autodiscovered.
 
 Only some application components need to be manually entered. If a service is defined to be an application component, then the application component dependencies are all known.
 
