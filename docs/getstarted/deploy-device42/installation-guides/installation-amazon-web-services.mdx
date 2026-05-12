@@ -58,37 +58,44 @@ Device42 AWS deployments are supported in the following regions:
 
 ## Deploying Device42 from the AWS Marketplace
 
+The following steps walk you through deploying Device42 from the AWS Marketplace, configuring security groups, and connecting to your instance.
+
 ### Configuring Instance and Communication Settings
 
 Launch your Device42 instance using the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) one-click feature and follow the on-screen instructions.
 
-When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and allow incoming access from your external IP address:
+When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and configure incoming access for the appropriate administrative source:
 
 - Click **Create a key pair in EC2** to generate a key. See the [Generating a New AWS Key Pair](#generating-a-new-aws-key-pair-for-ssh-access) section for more help with this step.
     
   ![Select SSH key pair to use for console access to Device42 on AWS](/assets/images/choose_SSH_keypair_AWSd42-hl.png)
 
-- Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and adding your external IP address as an allowed IP for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
-  
+- Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and allowing access from the appropriate administrative source for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
+
   These ports are part of the default Device42 AMI security group settings for incoming SSH, Appliance Manager, and web UI access.
+
+- For ports `404`, `4242`, and `4343`, select **Custom TCP** as the rule type and enter the port number manually. Port `443` can use the standard **HTTPS** rule type.
     
   ![security group settings for access to Device42 on AWS](/assets/images/security_group_settings_CORRECT-hl.png)
 
 :::note
-This allows traffic from your PC and local network to facilitate communication with the deployed Device42 instance **directly over the internet**. This is not considered best practice and should only be used for testing. Set up a VPN or other secure means of communication for production AWS use.
+If you allow direct access from your PC or local network, the deployed Device42 instance will be reachable **directly over the internet**. This is not considered best practice and should only be used for testing. Set up a VPN or other secure means of communication for production AWS use.
 :::
 
-SSH to the public endpoint of your new Device42 MA using the public DNS name or the IP address found in the AWS UI, ensuring your SSH client is configured to connect on port 404:
+### Connect to the Instance
 
-- Use `device42` as the username.
-- Instead of a password, use the SSH key file you selected on the **Launch this software** screen for SSH authentication.
-- Configure your instance's [security group settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) to allow SSH access from your PC's IP address.
+SSH to your Device42 MA on port `404` using one of the following methods:
 
-  ![Instance ID, public ip, DNS address on EC2 dash](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
+- **Public subnet (test/dev only — see the note above):** Connect directly using the public DNS name or IP address from the AWS console.
+- **Private subnet:** Connect via a bastion host, AWS Systems Manager Session Manager, or your VPN.
+
+Use `device42` as the username and the SSH key file you selected on the **Launch this software** screen for authentication (not a password). Ensure your instance's [security group settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) allow SSH access from your connection source.
+
+![Instance ID, public IP, and DNS address on the EC2 dashboard](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
 
 Navigate to the Device42 login screen by visiting `https://Device42_AWS_address` **(1)**:
 
-- `Device42_AWS_address` is the DNS name (preferred) or IP address found on the AWS UI.
+- `Device42_AWS_address` is the DNS name (preferred) or IP address you used to connect via SSH.
 - Log in to the Device42 web UI using `admin` as your username and your AWS instance ID **(2)** as your temporary password.
 
   It's a good idea to change these credentials to something more secure as soon as you log in!

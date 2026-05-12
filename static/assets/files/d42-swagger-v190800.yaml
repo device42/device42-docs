@@ -10,6 +10,8 @@ info:
     entered with POST/PUT calls from this page will be lost.<br><br>If you have
     any questions/suggestions, please send us a note to support at device42.com
     below.
+    <br><br> NOTE: Secrets/Password passphrase has been disabled on the swagger demo instance. 
+    When you use <b>Try It</b> functionality with API method that provides or modifies a secret, you will receive an error.
     <br><h2><a id = 'API_Authentication'><b>API Authentication</b></a></h2>
     The RESTful API's enforce the role-based security that is created with the
     Device42 app and support two HTTP authentication schemes: Basic Authentication and Token 
@@ -23,7 +25,7 @@ info:
     <br><b>Token Authentication</b>
     <br>Token authentication uses a digitally signed token, called a Bearer token, to provide secure, 
     credential-less API call authorizations. When using Bearer tokens, the API consumer sends an Authorization 
-    header that contains the string 'Bearer ' followed by the Bearer token data returned by Devic42.
+    header that contains the string 'Bearer ' followed by the Bearer token data returned by Device42.
     <br><br>Device42 Bearer tokens are secure JWT tokens using an RSA SHA256 encrypted signature.
     The RSA encryption keys used to encrypt the tokens are unique to each Device42 installation.
     Bearer tokens are time limited, and, once expired, cannot be used again.<br>
@@ -866,6 +868,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -1217,6 +1220,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -1831,6 +1835,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -2571,6 +2576,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -2857,11 +2863,13 @@ paths:
             Update a device by its D42 device ID.
         - name: serial_no
           type: string
-          description: >-
-            The serial number of the device. If a device with a matching serial number is
-            found, that device is updated. Serial numbers with fewer than 3 characters
-            in length are ignored. Also, certain generic serial numberss like
-            123456789 or ‘not specified’ are ignored.
+          description: |-
+            The serial number of the device. 
+            
+            Update Behavior:  
+            If you pass a new serial number for an existing device, its serial number will be updated to the new value.  
+            - To clear the serial number, pass `serial_no=d42null`.
+            - Serial numbers with fewer than 3 characters, or certain generic values like `123456789` or `not specified`, are ignored and not saved.
           in: formData
         - name: name
           type: string
@@ -3232,6 +3240,23 @@ paths:
           in: formData
           description: >-
             Comma-separated tags to remove.
+        - name: bios_version
+          type: string
+          in: formData
+          description: Basic Input/Output system version
+        - name: bios_release_date
+          type: string
+          in: formData
+          description: Basic Input/Output system release date
+        - name: bios_revision
+          type: string
+          in: formData
+        - name: bios_fw_revision
+          type: string
+          in: formData
+        - name: bios_vendor
+          type: string
+          in: formData
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -3999,7 +4024,7 @@ paths:
        -H 'Authorization: Basic YWRtaW46YWRtIW5kNDI='<br>
        -H 'Content-Type: multipart/form-data; boundary=--------------------------216746989913126372322897' \<br>
        -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \<br>
-       -F 'some test pdf.pdf=@/C:/path/to/attachment/Some test pdf.pdf' \<br>
+       -F 'name=@/C:/path/to/attachment/Some test pdf.pdf' \<br>
        -F 'file_attachment_details={"some test pdf.pdf":"hello world! I'\''m a pdf description!"}'
       tags:
         - Devices
@@ -4110,7 +4135,7 @@ paths:
           schema:
             properties:
               attachment_id:
-                example: '34'
+                example: 34
               success:
                 example: 'true'
         '400':
@@ -4985,6 +5010,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -6165,6 +6191,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'  
@@ -6910,6 +6937,82 @@ paths:
           $ref: '#/definitions/InternalServerError'
         '503':
           $ref: '#/definitions/ServiceUnavailable'
+  /api/1.0/device/cpu/:
+    post:
+      operationId: postDeviceCPU
+      summary: Add/update cpu for a device
+      description: >-
+        This API will add or update CPU for a device 
+        <br><br>Required parameters: <ul><li> cpu_id <b>or</b> cores <b>or</b> speed </li> <li> device </li></ul>
+      tags:
+        - Devices
+      parameters:
+        - name: name
+          type: string
+          in: formData
+          description: Name of the device CPU.
+        - name: description
+          type: string
+          in: formData
+          description: Description of device CPU 
+        - name: threads
+          in: formData
+          description: number of threads
+          type: string
+        - name: cores
+          type: string
+          in: formData
+          description: >-
+            Number of cores/CPU.
+        - name: speed
+          in: formData
+          type: string
+          description: 'CPU Speed enter in MHZ, e.g.: 3.5 GHZ use 3500'
+        - name: cpu_id
+          type: string
+          description: Use for updating existing CPU 
+          in: formData
+        - name: device
+          in: formData
+          description: name of the new or existing device
+          type: string
+          required: true
+        - name: manufacturer
+          in: formData
+          description: 'Manufacturer'
+          type: string
+        - name: count
+          in: formData
+          type: string
+          description: 'Count #'
+        - name: part_no
+          in: formData
+          type: string
+          description: 'Part #'       
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              msg:
+                example:
+                  - device cpu successfully added/updated
+                  - 28
+                  - 'cpu1 : Hard Disk sda 10 GB, storage'
+              code:
+                example: 0
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'        
   /api/1.0/device/layout/{id}/:
     get:
       operationId: getDeviceLayout
@@ -8304,6 +8407,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -10453,6 +10557,38 @@ paths:
           $ref: '#/definitions/InternalServerError'
         '503':
           $ref: '#/definitions/ServiceUnavailable'
+
+  '/api/1.0/patch_panel_port/{ID}':
+    get:
+      operationId: getPatchPanelPortInfo
+      summary: Get specific 
+      description: >-
+        Retrieve detailed information about a specific Patch Panel port by patch panel port ID.
+      tags:
+        - Patch Panels
+      parameters:
+        - name: port_id
+          in: path
+          description: ID of the port
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+              $ref: '#/definitions/Patch_panel_port'          
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
   '/api/1.0/patch_panel_ports/{patch_panel_id}/':
     get:
       operationId: getPatch_panel_portsPatch_panel_id
@@ -11114,6 +11250,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -11168,6 +11305,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -11422,6 +11560,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -11918,6 +12057,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -11981,6 +12121,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -12040,6 +12181,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -12101,6 +12243,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -13425,6 +13568,42 @@ paths:
           $ref: '#/definitions/InternalServerError'
         '503':
           $ref: '#/definitions/ServiceUnavailable'
+  '/api/1.0/clear_ip/':
+    post:
+      operationId: getIPAM_clearIp
+      summary: Clear IP address
+      description: >-
+        This API is used to clear an IP Address attached to the devices with the IP Address ID supplied
+        as the required argument
+      tags:
+        - IPAM
+      parameters:
+        - name: ip_id
+          in: formData
+          description: D42 ID of the IP
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              cleared:
+                example: 'true'
+              id:
+                example: '1'
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
   '/api/1.0/ips/subnet_id/{subnet_id}/':
     get:
       operationId: getIPAM_ips_subnet_id
@@ -13491,6 +13670,7 @@ paths:
         '200':
           description: 'The above command returns results like this:'
           schema:
+            type: object
             properties:
               ips:
                 type: array
@@ -13501,6 +13681,16 @@ paths:
                       example: 'No'
                     device:
                       example: openstack-dev2
+                    device_ids:
+                      type: array
+                      items:
+                        type: integer
+                      example: [177, 176]
+                    device_names:
+                      type: array
+                      items:
+                        type: string
+                      example: ['fed33uq01tp9211', 'xenuq01tp9211']
                     ip:
                       example: 10.0.0.3
                     label:
@@ -14665,6 +14855,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -14901,6 +15092,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -15417,6 +15609,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/show_on_chart'
@@ -15595,6 +15788,8 @@ paths:
                       example: Windows
                     application_category_name:
                       example: Application Layer
+                    associated_software_id:
+                       example: 53,   
                     related_services_ids:
                       example: 55,
                     service_listening_port:
@@ -15666,6 +15861,10 @@ paths:
           type: integer
           in: formData
           description: ID of the associated service used by the template to create the app component. Provide either service_id or service.
+        - name: associated_software_id
+          type: integer
+          in: formData  
+          description: ID of the associated software used by the template to create the app component.
         - name: service
           type: string
           in: formData
@@ -15973,6 +16172,49 @@ paths:
           $ref: '#/definitions/InternalServerError'
         '503':
           $ref: '#/definitions/ServiceUnavailable'
+  /api/2.0/application_group/{id}/items:
+    get:
+      operationId: getappgroupitems
+      description:  This call will get the items associated with the provided Application Group ID
+      summary: Get Application Group items
+      tags:
+        - Application Groups
+      parameters:
+        - name: id
+          type: integer
+          in: path
+          required: true
+          description: ID of the Application Group
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            type: object
+            properties:
+              devices:
+                type: object
+                $ref: '#/definitions/groupItemDevice'
+              resources:
+                type: object
+                $ref: '#/definitions/groupItemResource'  
+              appcomponents:
+                type: object
+                $ref: '#/definitions/groupItemappcomponents'
+              services:
+                type: object
+                $ref: '#/definitions/groupItemServices'  
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'         
   /api/2.0/app_group_calc_rule/:
     get:
       operationId: getappgroupcalcrule
@@ -16473,6 +16715,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/show_on_chart'
@@ -16492,6 +16735,185 @@ paths:
                   - 'App update target'
               code:
                 example: 0
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+  '/api/1.0/businessapps/id/{businessservice-id}/attachments/':             
+    get:
+      operationId: getAllBusinessAppAttachments
+      summary: Get attachments by business service ID
+      description: >-
+       Retrieve all file attachments for a specific business service using business service id.<br>
+       Returns a zip file of all the attachments associated with the business service with the specified ID in URL.<br>
+       Note that this implementation of Swagger does not support file download - use another mechanism such as CURL.<br>
+       <br>cURL example:<br>
+       curl -X GET \<br>
+       URL/api/1.0/businessapps/id/3/attachments \<br>
+       -H 'Authorization: Basic YWRtaW46YWRtIW5kNDI='
+      tags:
+        - Business Services
+      parameters:
+        - name: businessservice-id
+          type: integer
+          in: formData
+          required: true
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              file_download:
+                example: attachments_archive.6646-2020-01-24.zip
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+    post:
+      operationId: uploadBusinessappAttachments
+      summary: Upload a business service attachment
+      description: >-
+       Uploads a file attachment for a specific business service using business service id and a selected file.<br>
+       Note that this implementation of Swagger does not support file upload - use another mechanism such as CURL.<br>
+       <br>cURL example:<br>
+       curl -X POST \<br>
+       URL/api/1.0/businessapps/id/3/attachments/17 \<br>
+       -H 'Accept-Encoding: gzip, deflate' \<br>
+       -H 'Authorization: Basic YWRtaW46YWRtIW5kNDI='<br>
+       -H 'Content-Type: multipart/form-data; boundary=--------------------------216746989913126372322897' \<br>
+       -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \<br>
+       -F 'name=@/C:/path/to/attachment/testpdf.pdf' \<br>
+       -F 'file_attachment_details={"testpdf.pdf":"hello world! I'\''m a pdf description!"}'
+      tags:
+        - Business Services
+      parameters:
+        - name: businessservice-id
+          type: integer
+          in: formData
+          required: true
+        - name: name
+          type: string
+          in: formData
+          required: True
+          description: >-
+           The name of the file attachment you select for upload.<br>
+           This filename is also required for the file_attachment_details parameter.
+        - name: file_attachment_details
+          type: string
+          in: formData
+          required: true
+          description: >-
+           The name of the file to upload and a description.<br>Example: {"TEST_Attachment-3.txt": "test attachment-3"} 
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              testpdf.pdf:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  attachment_id:
+                    type: integer
+                    example: 17
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+  '/api/1.0/businessapps/id/{businessservice-id}/attachments/{attachment_id}/':             
+    get:
+      operationId: getaBusinessAppAttachment
+      summary: Get a business service attachment
+      description: >-
+       Retrieves a specific file attachment for a specific business service using business service id and attachment id.<br>
+       Note that this implementation of Swagger does not support file download - use another mechanism such as CURL.<br>
+       <br>cURL example:<br>
+       curl -X GET \<br>
+       URL/api/1.0/businessapps/id/3/attachments/17 \<br>
+       -H 'Authorization: Basic YWRtaW46YWRtIW5kNDI=' 
+      tags:
+        - Business Services
+      parameters:
+        - name: businessservice-id
+          type: integer
+          in: formData
+          required: true
+        - name: attachment_id
+          type: integer
+          in: formData
+          required: true
+          description: ID of the attachment to get.
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              file_download:
+                example: attachment_1.txt
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+  '/api/1.0/businessapps/id/{businessservice-id}/attachments/{id}/':             
+    delete:
+      operationId: deleteBusinessAppAttachment
+      summary: Delete business service attachment
+      description: Delete a file attachment for a specific business service using business service ID and the attachment ID
+      tags:
+        - Business Services
+      parameters:
+        - name: businessservice-id
+          type: integer
+          in: formData
+          required: true
+        - name: id
+          type: integer
+          in: path
+          required: true
+          description: ID of the attachment to delete.
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              attachment_id:
+                example: 34
+              success:
+                example: 'true'
         '400':
           $ref: '#/definitions/BadRequest'
         '401':
@@ -16533,6 +16955,35 @@ paths:
         '500':
           $ref: '#/definitions/InternalServerError'
         '503':
+          $ref: '#/definitions/ServiceUnavailable'
+    delete:              
+      operationId: businessAppsElements_uuid
+      description: This call will delete a business service element
+      summary: Delete an element
+      tags:
+        - Business Services
+      parameters:
+        - name: uuid
+          type: string
+          in: path
+          required: true
+          description: The UUID of the single element to delete.
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            $ref: '#/definitions/businessapps_element_delete'
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
           $ref: '#/definitions/ServiceUnavailable'                 
   /api/1.0/businessapps/elements/:
     post:
@@ -16551,12 +17002,16 @@ paths:
         <b>appcomp_id</b> OR <b>appcomp_name</b> parameters. ID will be used before the name.
         <p>To add multiple elements (application component) to a Business Service, use the<br>
         <b>appcomp_ids</b> OR <b>appcomp_names</b> parameters. ID will be used before the name
+        <p>To add a single element (business service) to a Business Service, use the<br>
+        <b>associated_businessservice_id</b> OR <b>associated_businessservice_name</b> parameters. ID will be used before the name.
+        <p>To add multiple elements (business service) to a Business Service, use the<br>
+        <b>associated_businessservice_ids</b> OR <b>associated_businessservice_names</b> parameters. ID will be used before the name
       summary: Add element
       tags:
         - Business Services
       parameters:
         - name: businessapp_id
-          required: truw
+          required: true
           type: integer
           in: formData
           description: The ID of an existing Business Service to add elements (devices) to.
@@ -16616,6 +17071,22 @@ paths:
           type: string
           in: formData
           description: CSV list of names of the elements (application components) to add to the business service.
+        - name: associated_businessservice_id
+          type: integer
+          in: formData
+          description: ID of an element (business service) to add to the business service.
+        - name: associated_businessservice_name
+          type: string
+          in: formData
+          description: Name of an element (business service) to add to the business service.
+        - name: associated_businessservice_ids
+          type: string
+          in: formData
+          description: CSV list of the IDs of elements (business services) to add to the business service.
+        - name: associated_businessservice_names
+          type: string
+          in: formData
+          description: CSV list of names of the elements (business services) to add to the business service.
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -16667,6 +17138,10 @@ paths:
           type: integer
           description: appcomp id of business element
           in: query
+        - name: associated_businessservice_id
+          type: integer
+          description: associated business service id of business element
+          in: query  
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -16720,6 +17195,8 @@ paths:
                       example: 5
                     name:
                       example: 'test device'
+                    orphaned:
+                      example: 'no'
         '400':
           $ref: '#/definitions/BadRequest'
         '401':
@@ -18521,6 +18998,7 @@ paths:
           description: Software vendor
         - $ref: '#/parameters/licensing_model_get'
         - $ref: '#/parameters/software_type'
+        - $ref: '#/parameters/deployment_type'
         - $ref: '#/parameters/tags'
         - $ref: '#/parameters/tags_and'
       responses:
@@ -18596,6 +19074,17 @@ paths:
           default: Managed
           description: Default software type is Managed.
           required: true
+        - name: deployment_type
+          enum:
+            - SaaS
+            - Mobile
+            - Desktop
+            - Server
+            - D42_NULL
+          type: string
+          in: formData
+          description: Deployment Type. The default value is empty. To clear the deployment type, use <b>D42_NULL</b>.
+          required: false
         - name: tags
           in: formData
           type: string
@@ -18729,6 +19218,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/show_on_chart'
@@ -18946,6 +19436,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -19280,6 +19771,7 @@ paths:
           type: string
           in: formData
           description: Custom Value
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -19310,13 +19802,213 @@ paths:
           $ref: '#/definitions/InternalServerError'
         '503':
           $ref: '#/definitions/ServiceUnavailable'
+  /api/1.0/certificate_instances/:
+    get:
+      operationId: getCertificateInstances
+      summary: Get
+      description: >-
+        This API is used to return the certificate instances you have added or discovered
+        in Device42
+      tags:
+        - Certificate Instances
+      parameters:
+        - name: certificate_id
+          type: integer
+          in: query
+          description: filter by certificate_id          
+        - name: device_id
+          type: integer
+          in: query
+          description: filter by device_id       
+        - name: device
+          type: string
+          in: query
+          description: filter by device name       
+        - name: fqdn
+          type: string
+          in: query
+          description: filter by fqdn
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              total_count:
+                example: '1'
+              certificate_details:
+                type: array
+                items:
+                  $ref: '#/definitions/Get_certificate_instances'
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+    post:
+      operationId: postUpdateCertificateInstances
+      summary: Create/update
+      description: >-
+        This API is used to update or add new certificate instances in bulk. 
+      tags:
+        - Certificate Instances
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          description: ID is only required if updating an existing certificate instance
+        - name: device_id
+          in: formData
+          type: integer
+          description: The ID of the device associated with the certificate instance. Required if device is not provided.         
+        - name: device
+          in: formData
+          type: string
+          description: The device name or alias associated with the certificate instance. Required if device_id is not provided.
+        - name: certificate_id
+          in: formData
+          type: integer
+          description: The ID of the certificate associated with the certificate instance. Required if certificate is not provided. 
+        - name: certificate
+          in: formData
+          type: string
+          description: The name of the certificate associated with the certificate instance. Required if certificate_id is not provided.        
+        - name: fqdn
+          in: formData
+          type: string
+          description: Fully qualified domain name
+        - name: ip
+          in: formData
+          type: string
+          description: IP address    
+        - name: valid_from
+          in: formData
+          type: string
+          description: >-
+            The start date of the certificate. Only filled if different than associated certificate. YYYY-MM-DD format        
+        - name: valid_to
+          in: formData
+          type: string
+          description: >-
+            The expiration date of the certificate. Only filled if different than associated certificate. YYYY-MM-DD format
+        - name: serial_number
+          in: formData
+          type: string
+          description: Serial Number    
+        - name: ssl_version
+          in: formData
+          type: string
+          description: SSL version
+        - name: cipher_suites
+          in: formData
+          type: string
+          description: Cipher suites supported by the certificate in json format. e.g. - {'TLSv1.0':'["TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA","TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"]'}         
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              msg:
+                example:
+                  - Certificate instance added/updated successfully
+                  - 1
+                  - example.com - DEVICEA2Z001
+                  - true
+                  - true
+              code:
+                example: 0
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+  '/api/1.0/certificate_instances/{ID}/':
+    get:
+      operationId: getCertificateInstancesById
+      summary: Get
+      description: >-
+        This API is used to return the certificate instances you have added or discovered
+        in Device42
+      tags:
+        - Certificate Instances
+      parameters:
+        - name: id
+          type: integer
+          in: path
+          description: certificate instance id
+          required: true
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            $ref: '#/definitions/Get_certificate_instances'
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'
+    delete:
+      operationId: deleteCertificateInstanceById
+      summary: Delete
+      description: >-
+        This API is used to delete the certificate instance with the certificate instance id supplied as
+        the required argument
+      tags:
+        - Certificate Instances
+      parameters:
+        - name: ID
+          type: integer
+          in: path
+          description: certificate instance id
+          required: true
+      responses:
+        '200':
+          description: 'The above command returns results like this:'
+          schema:
+            properties:
+              deleted:
+                example: 'true'
+              id:
+                example: '114'
+        '400':
+          $ref: '#/definitions/BadRequest'
+        '401':
+          $ref: '#/definitions/Unauthorized'
+        '403':
+          $ref: '#/definitions/Forbidden'
+        '404':
+          $ref: '#/definitions/NotFound'
+        '500':
+          $ref: '#/definitions/InternalServerError'
+        '503':
+          $ref: '#/definitions/ServiceUnavailable'                    
   /api/1.0/passwords/:
     get:
       operationId: getPassword
       description: Retrieve usernames and passwords. You must be a superuser to access the API.
       summary: Get accounts
       tags:
-        - Passwords
+        - Secrets
       parameters:
         - $ref: '#/parameters/category'
         - $ref: '#/parameters/label'
@@ -19364,22 +20056,23 @@ paths:
       operationId: post_Update_Passwords
       summary: Create/update
       description: >-
-        Create / Update Passwords. Use id if updating existing password - else,
-        username and password are required. You must be a superuser to access the API
+        Create / Update Secrets (Passwords). Use id if updating existing secret - else,
+        username and password are required. You must be a superuser to access the API <br>
+        NOTE: Secrets/Password passphrase has been disabled on the swagger demo instance. When you use <b>Try It</b> functionality with API method that provides or modifies a secret, you will receive an error.
       tags:
-        - Passwords
+        - Secrets
       parameters:
         - name: id
           type: string
           in: formData
-          description: Required to modify existing password
+          description: Required to modify an existing secret
         - $ref: '#/parameters/username_post'
         - $ref: '#/parameters/password'
         - $ref: '#/parameters/label_post'
         - name: category
           type: string
           in: formData
-          description: A password category. If it doesn't exist a new one will be created.
+          description: The secret's category. If it doesn't exist a new one will be created.
         - name: storage_id
           type: string
           in: formData
@@ -19389,7 +20082,7 @@ paths:
             - 3
             - 4
             - 5
-          description: A password storage type. 1=Normal 2=Burnt 3=CyberArk 4=Delinea 5=HashiCorp Vault
+          description: The secret's storage type. 1=Normal 2=Burnt 3=CyberArk 4=Delinea 5=HashiCorp Vault
         - name: devices
           type: string
           in: formData
@@ -19434,15 +20127,15 @@ paths:
       operationId: delete_Password
       summary: Delete
       description: >-
-        This API is used to delete the password with the password id supplied as
+        This API is used to delete the secret with the secret id supplied as
         the required argument. Note: You will only be able to delete the
-        password if the supplied username has the correct permissions. You must be a superuser to access the API
+        secret if the supplied username has the correct permissions. You must be a superuser to access the API
       tags:
-        - Passwords
+        - Secrets
       parameters:
         - name: id
           in: path
-          description: password id
+          description: id of the secret
           type: integer
           required: true
       responses:
@@ -19472,13 +20165,13 @@ paths:
       summary: Custom fields
       description: Custom fields. You must be a superuser to access the API
       tags:
-        - Passwords
+        - Secrets
       parameters:
         - name: username
           type: string
           in: formData
           required: true
-          description: Name of the password
+          description: Name of the secret
         - $ref: '#/parameters/key'
         - $ref: '#/parameters/custom_field_type'
         - $ref: '#/parameters/mandatory'
@@ -19488,6 +20181,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -19767,6 +20461,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -19949,6 +20644,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -20341,6 +21037,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -20414,12 +21111,18 @@ paths:
       tags:
         - Power Circuits
       parameters:
-        - $ref: '#/parameters/breakerpanel_id'
+        - name: id
+          in: formData
+          description: Power circuit ID. Required if breakerpanel_id and number is not provided.
+          type: integer
+        - name: breakerpanel_id
+          in: formData
+          description: Breaker panel ID. Required if id is not provided.Used to identify the power circuit when the ID is not provided and to update the breaker panel association when the ID is provided.
+          type: string
         - name: number
           type: string
           in: formData
-          description: Number of the circuit on the breaker panel
-          required: true
+          description: Number of the circuit on the breaker panel. Required if id is not provided.
         - name: label
           type: string
           in: formData
@@ -21331,6 +22034,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -21691,6 +22395,7 @@ paths:
         - $ref: '#/parameters/discover_parts'
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -22247,6 +22952,7 @@ paths:
         - $ref: '#/parameters/module_not_found'
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -22562,6 +23268,7 @@ paths:
         - $ref: '#/parameters/clear_existing_schedule'
         - $ref: '#/parameters/schedule_time'
         - $ref: '#/parameters/schedule_days'
+        - $ref: '#/parameters/remove_password_ids'
 
       responses:
         '200':
@@ -22748,6 +23455,7 @@ paths:
         - $ref: '#/parameters/module_not_found'
         - $ref: '#/parameters/name_to_use_for_newly_discovered_pdu'
         - $ref: '#/parameters/polling_interval'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -23075,6 +23783,26 @@ paths:
             1: Tag as key, description as value 2: Category as key, tag as value
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - name: ignore_disc_nics
+          type: string
+          in : formData
+          description: Ignore the following interfaces (* for all or name(s) that starts with entered text as CSV)
+        - name: ignore_disc_ips
+          type: string
+          in : formData
+          description: Ignore the following IPs (can be IP(s), CIDR(s) and/or range(s).
+        - name: ignore_disc_macs
+          type: string
+          in : formData
+          description: Ignore the following MACs (* for all or MAC(s) that starts with entered text as CSV)
+        - $ref: '#/parameters/remove_password_ids'
+        - name: prioritize_dns_name
+          type: string
+          enum:
+            - 'yes'
+            - 'no'
+          in: formData
+          description: yes or no
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -23178,6 +23906,12 @@ paths:
                       example: []
                     db_password_ids:
                       example: []
+                    add_tags_to_device:
+                      example: 2
+                    add_tags_as_custom_fields:
+                      example: 3
+                    vendor_metadata_source:
+                      example: 2
         '400':
           $ref: '#/definitions/BadRequest'
         '401':
@@ -23408,6 +24142,16 @@ paths:
           description: >-
             Metadata source ( For Google Cloud Only ).<br>
             1: Labels 2: Custom Metadata
+        - $ref: '#/parameters/remove_password_ids'
+        - name: add_tags_to_device
+          type: integer
+          in: formData
+          enum:
+            - 1
+            - 2
+          description: >-
+            Add tags to device ( For Google Cloud Only ).<br>
+            1: Do nothing 2: Import Tags
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -23644,6 +24388,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -23905,6 +24650,7 @@ paths:
         - $ref: '#/parameters/add_to_picklist'
         - $ref: '#/parameters/remove_from_picklist'
         - $ref: '#/parameters/delete_in_use'
+        - $ref: '#/parameters/related_field_value_by_id'
         - $ref: '#/parameters/value'
         - $ref: '#/parameters/clear_value'
         - $ref: '#/parameters/notes_post'
@@ -24126,7 +24872,10 @@ paths:
         - $ref: '#/parameters/snmpv3_privacy_protocol_password'
         - $ref: '#/parameters/snmpv3_context'
         - $ref: '#/parameters/debug_level'
-        - $ref: '#/parameters/service_level_post'
+        - name: service_level
+          type: string
+          in: formData
+          description: service level of discovered devices
         - name: snmp_timeout
           type: integer
           in: formData
@@ -24149,6 +24898,147 @@ paths:
           in: formData
           type: string
           description: D42 ID of customer or department name.
+        - name: customer
+          type: string
+          in: formData
+          description: Name of customer/department.
+        - $ref: '#/parameters/remove_password_ids'
+        - $ref: '#/parameters/autodiscover_cdp_devices'
+        - $ref: '#/parameters/delete_older_mac_association_after'
+        - $ref: '#/parameters/delete_switch_port_not_found'
+        - $ref: '#/parameters/discover_parts'
+        - $ref: '#/parameters/exclude_servers'
+        - $ref: '#/parameters/get_all_switch_ports'
+        - $ref: '#/parameters/hostname_precedence'
+        - $ref: '#/parameters/module_not_found'
+        - $ref: '#/parameters/name_to_use_for_newly_discovered_module'
+        - $ref: '#/parameters/polling_interval'
+        - $ref: '#/parameters/port_name_prefix_to_ignore_macs'
+        - $ref: '#/parameters/skip_vlan_indexing'
+        - $ref: '#/parameters/toggle_in_service_on_module_power_state'
+        - $ref: '#/parameters/use_name_alias_port_descr'
+        - $ref: '#/parameters/vlans_to_ignore'
+        - $ref: '#/parameters/vrfgroup'
+        - name: category
+          in: formData
+          description: name of the category
+          type: string
+        - name: port_name_prefix_to_mark_as_uplink
+          type: string
+          in: formData
+          description: Port name prefix to mark as uplink. Marks discovered ports with these switch port prefix names (comma separated) as uplinks.
+        - name: query_device_advertised_contexts
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Query device advertised contexts
+        - name: Secondary Contexts
+          type: string
+          in: formData
+          description: Comma separated values of secondary contexts.
+        - name: ignore_oids
+          type: string
+          in: formData
+          description: Ignore the following OIDs
+        - name: vlans_to_include
+          type: string
+          in: formData
+          description: Comma separated or range values of VLAN to include.
+        - name: dont_add_new_device_on_remote_port
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Ignore remote port device information
+        - name: enable_pdu_monitoring
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Enable PDU monitoring - yes/no.
+        - name: overwrite_object_categories
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Overwrite the object categories for existing discovered devices.<br><br>Note - this is equivalent to the 'Overwrite existing object categories' parameter shown in the D42 Nmap UI.
+        - name: overwrite_subnet_categories
+          type: string
+          enum:
+            - 'yes'
+            - 'no'
+          description: >-
+            If a subnet is discovered that exists and already has a subnet
+            category, the category will be overwritten and all child subnets of
+            the discovered subnet will also get the new category.
+        - name: send_sfp_as_parts
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Add SFP ports as Parts
+        - name: include_unit_name
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Include the power unit name in the Device42 name assigned to the power unit
+        - name: include_serial_in_name
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Include the serial number in the Device42 name assigned to the power unit
+        - name: include_ip_in_name
+          type: string
+          in: formData
+          enum:
+            - 'yes'
+            - 'no'
+          description: Include the serial number in the Device42 name assigned to the power unit
+        - name: service_level_module
+          type: string
+          in: formData
+          description: Service Level for Module not found
+        - name: device_category
+          type: string
+          in: formData
+          description: Object Category for discovered devices.Existing object category will not be overwritten.
+        - name: ignore_os
+          type: string
+          in: formData
+          description: Ignore the following OS(s)
+        - name: discovered_port_types_to_ignore
+          type: string
+          in: formData
+          description: Discovered port types to ignore separated by commas.
+        - name: remove_discovered_port_types_to_ignore
+          type: string
+          in: formData
+          description: Remove from Discovered port types to ignore list separated by commas.
+        - name: discovered_port_types_not_to_count
+          type: string
+          in: formData
+          description: Discovered port types not to count separated by commas.
+        - name: remove_discovered_port_types_not_to_count
+          type: string
+          in: formData
+          description: Remove from Discovered port types not to count list separated by commas.
+        - name: scan_all_protocols
+          type: string
+          enum:
+            - 'yes'
+            - 'no'
+          in: formData
+          description: yes or no
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -24367,6 +25257,7 @@ paths:
         - $ref: '#/parameters/schedule_days'
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -24565,6 +25456,7 @@ paths:
         - $ref: '#/parameters/schedule_days'
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -24771,6 +25663,7 @@ paths:
             - 'Debug On'
         - $ref: '#/parameters/tags_post'
         - $ref: '#/parameters/tags_remove_generic'
+        - $ref: '#/parameters/remove_password_ids'
       responses:
         '200':
           description: 'The above command returns results like this:'
@@ -26884,6 +27777,14 @@ parameters:
       - 'yes'
       - 'no'
     description: Applies only to Picklist fields. Is custom field multi select? yes/no
+  related_field_value_by_id:
+    name: related_field_value_by_id
+    type: string
+    in: formData
+    enum:
+      - 'yes'
+      - 'no'
+    description: Select yes if you want to set the related field value by ID. 
   clear_notes:
     name: clear_notes
     type: string
@@ -27677,7 +28578,7 @@ parameters:
     name: days_before_expiry
     type: string
     in: formData
-    description: number of days before password is set as expired
+    description: number of days before secret is set as expired
   dns_zone:
     name: dns_zone
     in: query
@@ -29538,7 +30439,7 @@ parameters:
     name: password
     type: string
     in: formData
-    description: The password.
+    description: The password for the given username.
   phone:
     name: phone
     type: string
@@ -30323,6 +31224,11 @@ parameters:
     type: string
     in: query
     description: 'Filter by software type (managed, unmanaged, prohibited or ignored)'
+  deployment_type:
+    name: deployment_type
+    type: string
+    in: query
+    description: 'Filter by deployment type (saas, mobile, desktop or server)'
   size:
     name: size
     in: formData
@@ -30598,7 +31504,7 @@ parameters:
   username:
     name: username
     in: query
-    description: Retrieve all the passwords for a specified username. ?username=
+    description: Retrieve all the secrets with the specified username. ?username=
     type: string
   username_post:
     name: username
@@ -30846,21 +31752,21 @@ parameters:
     in: formData
     description: >-
       A comma separated list of users that have permission to view this
-      password.
+      secret.
   view_edit_users:
     name: view_edit_users
     type: string
     in: formData
     description: >-
       A comma separated list of users that have permission to view and edit this
-      password.
+      secret.
   view_groups:
     name: view_groups
     type: string
     in: formData
     description: >-
       A comma separated list of user groups that have permission to view this
-      password.
+      secret.
   view_users_remove:
     name: view_users_remove
     type: string
@@ -30973,6 +31879,11 @@ parameters:
     type: string
     description: name of the zone
     required: true
+  remove_password_ids:
+    name: remove_password_ids
+    type: string
+    in: formData
+    description: Comma separated list of D42 IDs of existing secret records to be removed from the job.
 definitions:
   devices:
     type: array
@@ -31468,6 +32379,129 @@ definitions:
               example: 'April 22, 2022, 5:51 p.m.'
       offset:
         example: '0'
+  groupItemDevice:
+    type: object
+    properties:
+      cdeviceid_6:
+        type: object
+        properties:
+          name:
+            example: 'Device_Name'
+          type_id:
+            example: 2
+          serial_no:
+            example: 'FOC1252W6EW'
+          asset_no:
+            example: '123456'
+          device_url:
+            example: '/api/2.0/devices/64/'
+          device_id:
+            example: '64'
+          type:
+            example: 'physical'
+          uuid:
+            example: ''   
+  groupItemResource:
+    type: object
+    properties:
+      cresourceid_9:
+        type: object
+        properties:
+          category:
+            example: Device
+          zones:
+            example: usa-east-2a
+          identifier:
+            example: i-0d90158f3cf3e7e19
+          tags:
+            example: ""
+          name:
+            example: d42-internal
+          notes:
+            example: oracle cloud
+          last_changed:
+            example: 2020-06-19T16:13:18.225Z
+          subtype:
+            example: []
+          cloud_infra_id:
+            example: 2
+          region:
+            example: usa-east-2
+          root_resource_id:
+            example: 2
+          root_resource:
+            example: wbd42pstgr1
+          last_edited:
+            example: 2020-06-19T16:13:18.229Z
+          first_added:
+            example: 2020-06-19T16:13:18.229Z
+          id:
+            example: 3
+          resource_storage:
+            example: []
+  groupItemappcomponents:
+    type: object
+    properties:
+      cppcomponents_1:
+        type: object
+        properties:
+          traverse_subdirectories:
+            example: yes
+          config_file_location:
+            example: /opt/atlassian/jira/conf/
+          id:
+            example: 13
+          application_category_id:
+            example: 2
+          what:
+            example: Services
+          rule_type_id:
+            example: 1
+          rule_type:
+            example: Windows
+          application_category_name:
+            example: Application Layer
+          related_services_ids:
+            example: 55,
+          service_listening_port:
+            example: 8080
+          app_name_pattern:
+            example: "%(device_name)s - %(app_template_name)s"
+          customer:
+            example: ABC LLC
+          name:
+            example: App-Comp-Template-T2
+          enabled:
+            example: yes
+          service_cmd_arg_match:
+            example: service
+          match_type:
+            example: Text
+          match_type_id:
+            example: 0  
+  groupItemServices:
+    type: object
+    properties:
+      cservices_1:
+        type: object
+        properties:
+          name:
+            example: 'Device_Name'
+          type_id:
+            example: 2
+          serial_no:
+            example: 'FOC1252W6EW'
+          asset_no:
+            example: '123456'
+          device_url:
+            example: '/api/2.0/devices/64/'
+          device_id:
+            example: '64'
+          type:
+            example: 'physical'
+          uuid:
+            example: ''
+                       
   devicesAllv2:
     type: object
     properties:
@@ -31497,7 +32531,7 @@ definitions:
             uuid:
               example: ''
       offset:
-        example: '0'
+        example: '0'      
   deviceAllAliase:
     type: array
     items:
@@ -33339,6 +34373,68 @@ definitions:
         example: 36
       where:
         example: Rack Mounted
+  Patch_panel_port:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 123
+      color:
+        type: string
+        example: "#666B61"
+      object_id:
+        type: integer
+        example: 1235
+      content_type:
+        type: string
+        example: "patch_panel_port"
+      Pp_port_end:
+        type: string
+        example: "good"
+      obj_label:
+        type: string
+        example: "label"
+      number:
+        type: integer
+        example: 24
+      panel_name:
+        type: string
+        example: "Patch3"
+      pp_port:
+        type: integer
+        example: 1
+      connection_id:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: boolean
+              example: false
+            id:
+              type: integer
+              example: 1234
+            patch_panel_name:
+              type: string
+              example: "Patch4"
+            type_name:
+              type: string
+              example: "patch_panel_port"
+            name:
+              type: string
+              example: "Patch4 1 (To Patch3)"
+            patch_panel_id:
+              type: integer
+              example: 891
+      module_id:
+        type: integer
+        example: 12
+      full_path:
+        type: string
+        example: "None <->  <a href=\"/admin/rackraj/patch_panel_port/123\" target=\"_blank\">AC Unit-AC101-None : 12</a> <-> None"
+      cable_color:
+        type: string
+        example: "black"
   Parts:
     properties:
       asset_no:
@@ -33744,6 +34840,8 @@ definitions:
         example: 2pay
       software_type:
         example: prohibited
+      deployment_type:
+        example: mobile
       id:
         example: '583'
   Get_Software_License_Keys:
@@ -33818,6 +34916,72 @@ definitions:
         example: ''
       version:
         example: 2
+  Get_certificate_instances:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+        description: The unique ID of the certificate instance.    
+      ip:
+        type: string
+        example: '192.168.1.1'
+        description: The IP address associated with the certificate instance.
+      valid_from:
+        type: string
+        format: date
+        example: '2024-01-01'
+        description: The date when the certificate becomes valid.        
+      valid_to:
+        type: string
+        format: date
+        example: '2025-12-31'
+        description: The certificate's expiration date.
+      device_id:
+        type: integer
+        example: 1
+        description: The device ID associated with the certificate.
+      device:
+        type: string
+        example: 'example-device'
+        description: The device name associated with the certificate instance.          
+      certificate_id:
+        type: integer
+        example: 1
+        description: The unique ID of the certificate.
+      certificate:
+        type: string
+        example: 'example.com'
+        description: The domain associated with the certificate.        
+      cipher_suites:
+        type: object
+        additionalProperties:
+          type: string
+        example:
+          TLSv1.2: "TLS_RSA_WITH_AES_256_CBC_SHA"
+        description: Supported cipher suites for the certificate.
+      fqdn:
+        type: string
+        example: 'example.com'
+        description: Fully Qualified Domain Name.
+      serial_number:
+        type: string
+        example: 'ABC1234567890'
+        description: The certificate's serial number.
+      ssl_version:
+        type: string
+        example: 'TLSv1.2'
+        description: SSL version used.
+      last_added:
+        type: string
+        format: date-time
+        example: 'null'
+        description: The date and time when the certificate instance was last added.
+      first_added:
+        type: string
+        format: date-time
+        example: '2024-01-01T00:00:00Z'
+        description: The date and time when the certificate instance was first added.  
   Get_All_Password_Accounts:
     type: object
     properties:
@@ -34959,6 +36123,15 @@ definitions:
         example: 4
       name:
         example: "test device"
+      orphaned:
+        example: "no"
+  businessapps_element_delete:
+    type: object
+    properties:
+      businessapp_element_uuid:
+        example: "344316e2-409d-4bbf-b994-f4e3f152947a"
+      deleted:
+        example: "true"
   businessapps_connection:
     type: object
     properties:
