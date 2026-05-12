@@ -1,0 +1,208 @@
+---
+title: "19.08.10 Release"
+sidebar_position: 1
+---
+
+:::info
+The following release notes were taken from [the blog](https://www.device42.com/blog/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+:::
+
+*Release Date: February 25, 2026.*
+
+## Updating Device42 to Version 19.08.10
+
+Upgrading to 19.08.10 is possible from 19.05.10 or above. If you need to first upgrade to Version 19.05.10, please see those release notes for details. A link will also be provided when requesting an upgrade. We recommend making a backup of your system before any upgrades.
+
+For up-to-date information, notifications of outages or maintenance, visit the status page at: [https://device42.freshstatus.io/](https://device42.freshstatus.io/).
+
+The 19.08.10 MA release contains the following features:
+
+## Business Service Enhancements
+
+It is now possible to link business services to other related business services within the business service editor.
+
+![Business service linking example](/assets/images/release-notes/business-service-example.png)
+
+Application component templates can now be associated with software components.
+
+![Application component and software component association](/assets/images/release-notes/app-comp-software-comp-example.png)
+
+- Improved IIS application modeling and connection creation on servers with multiple w3wp processes.
+- Improved agent-based application component updates from a template.
+
+## Enrichment Service Enhancements
+
+Enrich will now upload more records for enrichment, as the accuracy threshold for which software is enriched was too high. This will lead to significantly more software records being enriched over time.
+
+## Security Updates
+
+Across many aspects of Device42, security has been enhanced, including updating core OS dependencies, used libraries, and appliance configuration.
+
+- D42-43372: Updated spring libraries
+- D42-42612: Cert imports now support pfx/p12 files instead of only pem files
+- D42-44233: Updated DOMPurify
+- D42-42666: Fixed an unquoted service path vulnerability in the Windows service wrapper
+- D42-38731: Fixed a discrepancy between discovery scores view and edit pages
+
+## Minor UX Enhancements and Usability Improvements
+
+- D42-44980: Software calculations now calculate unmanaged or prohibited software in addition to managed software. Ignored items are not calculated.
+- D42-42287: Fixed an issue with some devices missing power and environmental monitoring data
+- D42-40534: Added MAC addresses as netport objects on devices
+- D42-44515: The Mac agent can now gather logged-in user information
+- D42-44202: Increased the character limit for customer names to 256
+- D42-39038: Added tags and better logging to SaaS discoveries
+- D42-37739: Added permanent and loaner usage types to devices, assets, and part models
+- D42-37682: Added Asset Impact field to Devices, Resources, Business Services, and Assets
+- D42-37556: Added Asset State field to Devices, Assets, and Resources
+- D42-45061: Improved the performance of the software in use page
+- D42-44663: Improved the performance of JAMF integration (~500x)
+- D42-42286: Improved the performance of SaaS discoveries
+- D42-43956: Fixed an issue that would prevent removal of large tags
+- D42-43926: Fixed an issue when dragging and dropping physical connections on racks
+- D42-43559: Fixed a bug in the SNMP code that may cause jobs to never finish
+- D42-43349: Discovery score numeric sorting will now place blank entries at the end of the list
+- D42-43070: Updated Arista discovery to use newer APIs
+- D42-43025: Fixed a permissions error in restore functionality
+- D42-42908: Intune discovery will now import more than just managed software
+- D42-42404: Google Cloud discovery will now collect the OrgID
+- D42-42672: Fixed a bug that would prevent the system from correctly killing tasks
+- D42-42651: Fixed a bug that may prevent database discovery scores from being collected
+- D42-42580: Fixed a bug that prevented bulk asset profile updates from being applied
+- D42-42433: Fixed a dark mode widget display error
+- D42-42432: Fixed a permissions error when querying mount points via DOQL
+- D42-42295: Improved cluster detection for Aruba devices
+- D42-42225: Fixed an issue where the agent would ignore the global "Ignore Interfaces/IPs/MAC" setting
+- D42-42209: Fixed an issue where the default port was not properly set on some devices
+- D42-42182: Fixed an issue where the backup process may time out after an hour
+- D42-42174: Fixed an issue with proxy communication when no http(s) was input
+- D42-42110: Fixed an issue where the Linux agent may fail to gather memory information
+- D42-42108: Fixed a missing icon in the UI for Insights+
+- D42-42081: Added a link to Client Service instances on the Service communications list page
+- D42-42067: Improved the performance of the Telco circuits page when using RBAC
+- D42-41997: Improved the logic for Windows discoveries with many credentials and limited access
+- D42-41892: Added network share discovery to the Linux agent
+- D42-41730: Fixed a permissions issue with editing parts on limited roles
+- D42-41697: Improved the success messaging when completing backups
+- D42-41574: Added VLAN discovery for Juniper devices
+- D42-41522: It's now possible to search both the available and chosen permissions on admin groups
+- D42-41359: Fixed a bug where ACI discovery could error if port check failed
+- D42-41355: Fixed a bug where UI and API search could provide different results
+- D42-41218: Fixed an issue saving device records with more than 7000 fields
+- D42-41212: Fixed a bug preventing port layouts from being correctly saved on devices
+- D42-41167: Fixed a bug preventing the audit trail from being trimmed based on the days set
+- D42-41138: Fixed a bug when deleting periodic jobs
+- D42-41126: VMware discovery will now propagate tags to clustered devices
+- D42-40785: Fixed a bug that would sometimes prevent devices from being merged
+- D42-39015: Fixed an upgrade issue that may cause SAML authentication to fail
+- D42-32091: Improved failure messaging on appliance manager SNMP checks
+
+## Discovery Enhancements
+
+- D42-42280: Fixed a bug where Redfish discovery would create too many objects
+- D42-42079: Enhanced discovery of PowerLok PDUs
+- D42-42048: Added SNMP support for OKI printers
+- D42-42046: Added SNMP support for Tally printers
+- D42-42164: Added SNMP support for Silicom switches
+- D42-41992: Enhanced connectivity data from Fortigate firewalls
+- D42-41990: Added SNMP support for NetInsight Nimbra devices
+- D42-41623: Added iLO parts discovery
+- D42-41535: Enhanced SNMP discovery for Enlogic PDUs
+- D42-41493: Added SNMP support for HP Tipping Point devices
+- D42-40934: Added SNMP support for Spectracom Secure Sync devices
+- D42-42431: Added port connections when discovering NetApp devices
+- D42-42377: Improved the memory usage and performance of SaaS discoveries
+- D42-42286: Improved the performance of large SaaS discoveries
+- D42-41183: Fixed an error when discovering NVR devices via SNMP
+- D42-41039: Added SNMP support for Perle devices
+- D42-40085: Fixed an error when discovering Nutanix devices
+- D42-31315: Fixed an error when discovering APC PDUs
+- D42-43144: Fixed an error when discovering Arista switches
+- D42-43070: Fixed an issue preventing F5 devices from properly creating service communication
+- D42-42856: Fixed an issue with Nutanix discovery that would fail if certain values were blank
+- D42-42589: Fixed an error with DHCP discovery getting hung on blank IPs
+- D42-42547: Fixed an error with Redfish discovery crashing with blank IPs
+- D42-42469: Fixed an AS400 discovery error when the system has a custom banner
+- D42-42408: Fixed an error with HPE OneView discovery using a domain account
+- D42-42370: Fixed a Nutanix discovery error when using a proxy
+- D42-42361: Fixed a bug that caused F5 Load Balancer discovery to fail
+- D42-42343: Fixed an issue with IBM Power VMs not gathering accurate disk information
+- D42-42280: Fixed an issue with Redfish discovery creating too many devices
+- D42-42276: Improved the logic on Nutanix Prism discovery with more than 400 VMs
+- D42-42251: Fixed a bug that may cause some VCenter devices to not get discovered
+- D42-42142: Fixed a SQL discovery bug when the password starts with a semicolon
+- D42-42137: Added 'Noproxy' handling to VMware discovery jobs
+- D42-42109: Fixed an issue that may prevent Kubernetes clusters from being properly discovered in AWS scans
+- D42-42078: Fixed an error with Cisco Prime discovery when the model is blank
+- D42-42063: Fixed an AWS discovery error without `organizations:ListRoots` read rights
+- D42-42057: Fixed an RC crash error when more than 150 RCs start multiple jobs at the same time
+- D42-41961: Fixed a timeout error in IBM/Lenovo warranty sync when requesting many devices at the same time
+- D42-41922: Fixed a bug when discovering Cisco ASA devices with custom banners
+- D42-41736: AWS discovery will now gather more Lambda functions
+- D42-41711: AWS discovery will now gather more security groups
+- D42-41494: Added VIP to backend service relationships for Netscaler devices
+- D42-41377: Fixed an issue preventing Cisco virtualized firewalls showing as virtual
+- D42-41253: Fixed a bug preventing some VIPs from being discovered on load balancers
+- D42-41252: Fixed a bug preventing more than 12 characters from showing on subnet filters
+- D42-41186: Improved SNMP detection for Rubrik devices
+- D42-41137: Fixed a bug that prevented functions from being discovered in Azure GovCloud
+- D42-41107: Fixed a bug in Intune discovery that would cause VMs to be detected as physical devices
+- D42-40802: Fixed a bug setting the status of services on CentOS devices
+- D42-39929: Improved cluster discovery of Meraki devices
+
+## API Enhancements
+
+The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).
+
+- D42-40984: Added BIOS fields to the Device API
+- D42-42640: Fixed a bug when trying to set admin group permissions via API
+- D42-41518: Fixed a bug creating custom subnet picklist fields via API
+- D42-41251: Fixed hostname detection on Overland Tape Library devices
+- D42-41077: Fixed a bug with uploading attachments via API
+- D42-40875: Added `view_businessservice_custom_fields_v2` to the dictionary
+
+## Other Enhancements and Customer-Requested Fixes
+
+- D42-42838: Fixed a bug with the object selector from the device hardware model list
+- D42-42820: When associating ports, you can now use either port name or HW address instead of requiring both
+- D42-42646: Fixed an error when creating an asset from the rack editor edit page
+- D42-42580: Fixed a bug preventing bulk assignment of asset profiles
+- D42-42469: Fixed a bug where AS/400 scans may fail when using a custom welcome banner
+- D42-42433: Fixed a visual dark mode bug in the statistics widget
+- D42-42343: Fixed two bugs related to IBM Power VM discovery of disk space
+- D42-42287: Fixed a bug that caused SNMP discovery to not properly collect power and environment monitoring data
+- D42-45126: Fixed a bug that may cause resource maps to not load
+- D42-44658: Fixed a bug where the last status in LDAP and Warranty sync was editable
+- D42-44467: Fixed a German calendar translation and display issue
+- D42-43766: Fixed an issue where devices were created in the vendors list from SaaS discovery
+- D42-43272: Removed the rackable attribute on power devices
+- D42-42983: Fixed an issue with Workspace One discovery not removing uninstalled software
+- D42-42838: Fixed an issue with hardware models list pagination
+- D42-42897: Fixed an issue preventing subnet imports when certain service levels were set
+- D42-42272: Fixed a bug in the appliance manager that prevented SNMP passwords with an exclamation mark
+- D42-41663: Fixed a bug displaying admin group permissions in Firefox
+- D42-41652: Fixed a bug with Intune sync that caused some objects to not be created
+- D42-41637: Fixed hardware vendor detection for Workspace One discovery
+- D42-41630: Fixed device name detection for Workspace One discovery
+- D42-41627: Added power detection for TrippLite PDUs
+- D42-41624: Fixed a bug with power unit serial number values
+- D42-41609: Fixed OpenStack discovery parsing to be more reliable
+- D42-41523: Fixed a database discovery issue where DB counts and connections would sometimes be blank
+- D42-41496: Fixed a bug in the standard device report filtering on `os.name`
+- D42-41421: Fixed a bug that may error when searching for customers or departments
+- D42-41401: Fixed a bug in subnet exports and the % used column
+- D42-41395: Fixed a bug allowing non-numeric values for longitude and latitude
+- D42-41390: Fixed an issue with "Strip domain suffix" not working for virtual machines
+- D42-41027: Fixed a bug when trying to clear out connections to TAP ports
+- D42-40923: Invalid login attempts now correctly capture local and domain failures
+- D42-40886: Fixed a bug that may cause RAM to get added repeatedly on Windows scans
+- D42-37688: Fixed a bug preventing non-superusers from seeing failed discovery jobs
+- D42-46235: Fixed an upgrade issue that could cause a failure
+
+## Latest Device42 Update
+
+Download the current update for Device42 [here](https://www.device42.com/update).
+
+Depending on the version you are upgrading from, you may have to install an incremental update first: 18.14 > 19.00 > 19.05 > 19.08.
+
+If you haven't tried Device42 yet, [download a 14-day free trial](https://www.device42.com/try-device42/)!
