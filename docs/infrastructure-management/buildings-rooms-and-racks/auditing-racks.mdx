@@ -3,16 +3,43 @@ title: "Auditing Racks"
 sidebar_position: 1
 ---
 
-To create a list of all devices on a number of racks in Device42 to allow easy auditing, we will first browse to the Racks list view in Device42:
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
 
-![Browse to Racks](/assets/images/2016-02-26-rack-audit-01.png)
+You can export rack data from Device42 to an Excel spreadsheet and use a barcode reader to audit physical devices against the records in Device42.
 
-From the Racks list view we will pick the racks we would like to audit against the actual equipment, and from the Action dropdown menu, select "Audit Export for Selected Racks":
+1. Navigate to **Infrastructure > DataCenter > Racks**:
 
-![Audit Export Racks](/assets/images/2016-02-26-rack-audit-03.png)
+<ThemedImage
+  alt="Racks menu navigation"
+  sources={{
+    light: useBaseUrl('/assets/images/auditing-racks/racks-menu-light.png'),
+    dark: useBaseUrl('/assets/images/auditing-racks/racks-menu-dark.png'),
+  }}
+/>
 
-Save the spreadsheet when prompted and open in Excel.
+2. Select the racks you want to audit, then choose **Export Selected Items** from the **Actions** menu:
+
+<ThemedImage
+  alt="Export Selected Items action"
+  sources={{
+    light: useBaseUrl('/assets/images/auditing-racks/export-action-light.png'),
+    dark: useBaseUrl('/assets/images/auditing-racks/export-action-dark.png'),
+  }}
+/>
+
+3. Select **Audit Export for Selected Racks** and click **Export**:
+
+<ThemedImage
+  alt="Audit Export for Selected Racks option"
+  sources={{
+    light: useBaseUrl('/assets/images/auditing-racks/audit-export-light.png'),
+    dark: useBaseUrl('/assets/images/auditing-racks/audit-export-dark.png'),
+  }}
+/>
+
+4. Save the spreadsheet when prompted and open it in Excel.
 
 ![Audit Spreadsheet](/assets/images/2016-02-26-rack-audit-04.png)
 
-With this spreadsheet open, you will be able to use a barcode reader and scan the devices in a rack by asset tag and compare to the information you have in Device42, updating to reflect changes as you move through the racks!
+5. With the spreadsheet open, use a barcode reader to scan devices in the rack by asset tag. Compare the scanned data to the records in Device42 and update the spreadsheet to reflect any changes as you move through the racks.
