@@ -128,41 +128,40 @@ Pinning a service will make it a focus point and build an Application Group for 
 
 There are two common options for Pinning, Starring, and Hiding services:
 
-**Option 1 (UI):** Navigate to **Resources > Services > Services Instances** to view a list of ALL the service instances.
+- **Option 1 (UI):** Navigate to **Resources > Services > Services Instances** to view a list of ALL the service instances.
 
-Search for a name of one of the recorded services you want to Star, select one or more service instances by selecting their check box, and then use the drop-down **Action** menu to set their **Topology status** to Starred or Hidden (the example below shows a service instance search for _Java_).
+  Search for a name of one of the recorded services you want to Star, select one or more service instances by selecting their check box, and then use the drop-down **Action** menu to set their **Topology status** to Starred or Hidden (the example below shows a service instance search for _Java_).
 
-![](/assets/images/Web_732_7.png)
+  ![](/assets/images/Web_732_7.png)
 
- 
 
-To **Pin** or **Unpin** a service instance, select the corresponding option from the same drop-down **Action** menu.
+  To **Pin** or **Unpin** a service instance, select the corresponding option from the same drop-down **Action** menu.
 
-![](/assets/images/Web_732_8.png)
+  ![](/assets/images/Web_732_8.png)
 
-Option 2 (Excel): Navigate to **Tools > Imports/Exports (xls)**, scroll down to **Create or update Service Instances**, and select **Download Current Data** to the right.
+- **Option 2 (Excel):** Navigate to **Tools > Imports/Exports (xls)**, scroll down to **Create or update Service Instances**, and select **Download Current Data** to the right.
 
-Add a column at the end named `topology\status`.  Set the column **Service\_display\_name** to be filterable, then locate the services you recorded from the Service Dependency Report you generated above, and enter a value of either **Starred** or **Hidden** for their **topology \_status.**
+  Add a column at the end named `topology\status`.  Set the column **Service\_display\_name** to be filterable, then locate the services you recorded from the Service Dependency Report you generated above, and enter a value of either **Starred** or **Hidden** for their **topology \_status.**
 
-![](/assets/images/WEB-519_bus-apps-10-Service-Instance-Impt-Expt.png)
+  ![](/assets/images/WEB-519_bus-apps-10-Service-Instance-Impt-Expt.png)
 
-For any service instances you would like **pinned**, enter a value of **yes** under the **pinned** column.
+  For any service instances you would like **pinned**, enter a value of **yes** under the **pinned** column.
 
-After editing the Service Instances file, navigate back to **Tools > Imports/Exports (xls)** and import the XLS file back into Device42.
+  After editing the Service Instances file, navigate back to **Tools > Imports/Exports (xls)** and import the XLS file back into Device42.
 
-Once you have completed the process above, navigate back to **Apps > Application Groups**, select **Configure** then select **Process Now**.
+  Once you have completed the process above, navigate back to **Apps > Application Groups**, select **Configure** then select **Process Now**.
 
-After your Application Groups have been processed, select the **Chart** button next to an Impact or Dependency to see the view.
+  After your Application Groups have been processed, select the **Chart** button next to an Impact or Dependency to see the view.
 
-![](/assets/images/WEB-519_bus-apps-11-Affinity-Groupd-View.png)
+  ![](/assets/images/WEB-519_bus-apps-11-Affinity-Groupd-View.png)
 
-You should see a **Global View** to highlight the relationships and arrows to represent the direction of communication.  By selecting any of the lines, a **Local View** will display the services and any Application Components that exist in that relationship.
+  You should see a **Global View** to highlight the relationships and arrows to represent the direction of communication.  By selecting any of the lines, a **Local View** will display the services and any Application Components that exist in that relationship.
 
-![](/assets/images/WEB-519_bus-apps-12-Affinity-Groupd-Chart.png)
+  ![](/assets/images/WEB-519_bus-apps-12-Affinity-Groupd-Chart.png)
 
-Hovering over the timeline above the view will allow you to identify changes to this Application Group.  This process runs every night to calculate connections that take place each day. As changes are detected, blue checkpoints are created to demonstrate a change has occurred to better understand the changes that occur in your environment.
+  Hovering over the timeline above the view will allow you to identify changes to this Application Group.  This process runs every night to calculate connections that take place each day. As changes are detected, blue checkpoints are created to demonstrate a change has occurred to better understand the changes that occur in your environment.
 
-![](/assets/images/WEB-519_bus-apps-13-Affinity-Group-Chart-Timeline.png)
+ ![](/assets/images/WEB-519_bus-apps-13-Affinity-Group-Chart-Timeline.png)
 
 ### For versions prior to 19.05: Refactoring Application Groups
 
