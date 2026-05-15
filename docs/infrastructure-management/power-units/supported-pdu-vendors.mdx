@@ -51,3 +51,9 @@ Not all models from each vendor are guaranteed to be supported. Verify compatibi
 </table>
 
 Device42 can add support for additional PDU makes and models. To request support, [generate an SNMPWALK](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.mdx) for your device model and send it to [Device42 Support](mailto:support@device42.com) along with your request. Support is typically added within the next few releases.
+
+## Geist PDU Serial Number Discovery
+
+As of version 19.08, Device42 uses a different OID to discover power unit serial numbers for Geist PDUs, which now match the physical serial numbers on the devices.
+
+If a Geist power unit was discovered before this change and the [device matching level](auto-discovery/unprocessed-device-records.mdx#device-matching-level) is not set to **Moderate**, a separate device record will be created. If matching is set to **Moderate** and the **Give precedence to hostname** option is not selected, the serial number will be updated but not the name of the device or power unit.
