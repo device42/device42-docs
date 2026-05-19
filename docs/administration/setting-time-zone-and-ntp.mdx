@@ -1,18 +1,18 @@
 ---
-title: "Setting Time Zone and NTP"
+title: "Set Time Zone and NTP"
 sidebar_position: 14
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Here is a brief run-down on setting or changing your time zone in Device42. This is probably one of the first steps you should take so that autodiscovery scheduling and log history work correctly. The virtual appliance takes the clock from the virtual host, so make sure the time is correct on the host. It's also a good idea to set up an NTP time source to ensure the time stays correct.
+Configuring the correct time zone and NTP source in Device42 ensures that discovery scheduling and log history work correctly. The virtual appliance takes its clock from the virtual host, so make sure the time is correct on the host before proceeding.
+
+This page covers how to set the time zone via the Device42 UI and how to configure OS-level time and NTP settings via the console.
 
 ## Set the Time Zone
 
-In the Device42 main menu, go to **Tools > Settings > Time Settings**.
-
-Here, you can select the correct time zone for your location and click **Apply**.
+In the Device42 main menu, go to **Tools > Settings > Time Settings**. Select the correct time zone for your location and click **Apply**.
 
 <ThemedImage
   alt="Time zone settings"
@@ -22,22 +22,22 @@ Here, you can select the correct time zone for your location and click **Apply**
   }}
 />
 
-## OS-Level Time Settings
+## Configure OS-Level Time Settings
 
-After you've selected the correct new time zone and received confirmation that it has been applied, go to the Device42 console and restart the Device42 application. When it restarts, the console menu will show the new time zone.
+After selecting the new time zone and receiving confirmation that it has been applied, go to the Device42 console and select **Restart Services**. When the services restart, the console menu will show the new time zone.
 
-- Use the VM console menu options, **NTP Settings** and **Set Timezone**, to set time at the OS level.
+Use the VM console menu options **NTP Settings** and **Set Timezone** to set the time at the OS level.
 
-    ![NTP and Time Zone settings d42 Console](/assets/images/setting-time-zone-and-ntp/console-main-menu.png)
+![NTP and Time Zone settings in D42 Console](/assets/images/setting-time-zone-and-ntp/console-main-menu.png)
 
-- Select **NTP Settings** from the main menu and enter the IP or FQDN of the NTP server. Toggle on the **Daily sync** option to add the NTP server to the daily scheduled jobs.
+Select **NTP Settings** from the main menu and enter the IP address or FQDN of the NTP server. Enable the **Daily sync** option to add the NTP server to the daily scheduled jobs.
 
-    ![Configure new NTP Server ](/assets/images/setting-time-zone-and-ntp/console-ntp-settings.png)
+![Configure new NTP Server](/assets/images/setting-time-zone-and-ntp/console-ntp-settings.png)
 
-- Go back to the main menu and select **Set Timezone** to set the time zone on the OS level. If you don't see your exact location, choose the location closest to you:
+Return to the main menu and select **Set Timezone** to set the time zone at the OS level. If your exact location is not listed, choose the nearest location.
 
-    ![Update OS TZ from D42 console](/assets/images/setting-time-zone-and-ntp/console-set-timezone.png)
+![Update OS time zone from D42 console](/assets/images/setting-time-zone-and-ntp/console-set-timezone.png)
 
-- Select **Restart Services** for the new time zone settings to take effect immediately.
+Select **Restart Services** for the new time zone settings to take effect immediately.
 
-    ![Update OS TZ from D42 console](/assets/images/setting-time-zone-and-ntp/console-restart-services.png)
+![Restart services in D42 console](/assets/images/setting-time-zone-and-ntp/console-restart-services.png)
