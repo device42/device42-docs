@@ -20,7 +20,7 @@ If you have local accounts, you can use them to log in after the restore and add
 
 ## Restore the MA and RC Backup Files
 
-From the [Appliance Manager](/administration/appliance-manager/device42-appliance-manager-login), navigate to **Backup/Restore > Restore**.
+From the [Appliance Manager](administration/appliance-manager/device42-appliance-manager-login.mdx), navigate to **Backup/Restore > Restore**.
 
 Select **Main Appliance** or **Remote Collector**. You need separate backup `.enc` files for the MA and RC.
 
@@ -28,7 +28,7 @@ To restore the MA or RC, enter the passphrase you used for the backup. If you ha
 
 - Click **Set Passphrase** in the left menu panel, click **Clear Passphrase**, enter a new passphrase, and create a new backup.
 
-Select the **Restore Meta Data** option. If you did not select **Backup Meta Data** [when creating the backup](/administration/appliance-manager/setting-up-backup-device42-appliance-manager#run-backup-now), re-enter the following settings after restoring the appliance:
+Select the **Restore Meta Data** option. If you did not select **Backup Meta Data** [when creating the backup](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx#run-backup-now), re-enter the following settings after restoring the appliance:
 
 - Passphrases for backups and password encryption
 - Language
@@ -54,5 +54,5 @@ Restart the application once the restore is complete by navigating to **Applicat
 
 For a test restore, use one of these two approaches:
 
-1. Spin up a new Device42 virtual appliance and restore your backup there. Having a second instance is useful for disaster recovery or business continuity, as described in the [Warm HA Configuration](/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups) page. Your license allows one production and one backup instance.
+1. Spin up a new Device42 virtual appliance and restore your backup there. Having a second instance is useful for disaster recovery or business continuity, as described in the [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) page. Your license allows one production and one backup instance.
 2. Take a VM snapshot first, then run a test restore.

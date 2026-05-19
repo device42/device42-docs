@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 The Device42 Appliance Manager lets you create one-time and scheduled backups of the Main Appliance and Remote Collectors, with destinations including SFTP, NFS, and Amazon S3. This page covers how to set the backup passphrase, configure backup options, schedule backups, and limit backup retention.
 
-For login instructions, see [Device42 Appliance Manager Login](/administration/appliance-manager/device42-appliance-manager-login).
+For login instructions, see [Device42 Appliance Manager Login](administration/appliance-manager/device42-appliance-manager-login.mdx).
 
 ## Set the Passphrase
 
@@ -42,7 +42,7 @@ Configure the backup options for the Main Appliance and Remote Collectors (RCs).
 
 Select **Backup Meta Data** when creating a Device42 instance for recovery or failover. The metadata option copies all system identifiers, passphrases, certificates, and configuration settings, preparing the standby instance to fully replace your production instance when needed.
 
-The standby instance will share system identifiers with the production instance and will connect as the primary. For this reason, only one instance with the identifier data should be active at a time. See the [Warm HA Setup documentation](/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups) for failover procedures.
+The standby instance will share system identifiers with the production instance and will connect as the primary. For this reason, only one instance with the identifier data should be active at a time. See the [Warm HA Setup documentation](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) for failover procedures.
 
 ### For Test Instances
 
@@ -147,7 +147,7 @@ Check your time settings to avoid potential issues with AWS services. From the D
 
 ### Important Note for Scheduled Backups
 
-If you intend to use a backup schedule for auto-restore to a standby appliance, as described in the [Warm HA Configuration](/administration/appliance-manager/warm-ha-setup-failover-and-automated-backups) documentation, you must select **Backup Meta Data** for the backup schedule.
+If you intend to use a backup schedule for auto-restore to a standby appliance, as described in the [Warm HA Configuration](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx) documentation, you must select **Backup Meta Data** for the backup schedule.
 
 Without the metadata, the restore and passphrase settings are not included in the backup archive, and the appliance will have no reference for how to use the data on restore.
 
@@ -180,4 +180,4 @@ For Windows servers, use the following PowerShell script to delete files older t
 
 ## Restore the Backup
 
-See [Device42 Restore](/administration/appliance-manager/device42-restore).
+See [Device42 Restore](administration/appliance-manager/device42-restore.mdx).
