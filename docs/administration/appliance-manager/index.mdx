@@ -2,25 +2,12 @@
 title: "Appliance Manager"
 ---
 
-The Device42 Appliance Manager runs on port 4242 (HTTP by default, with HTTPS available to enable from inside) and provides administrative functions such as backups and restores, HTTPS certificate management, application restart and stop controls, and log or SNMPwalk generation for support. This section covers the topics below.
+The Device42 Appliance Manager is a separate administrative interface that runs on port 4242 (HTTP) or 4343 (HTTPS). It provides low-level controls that are not available in the main Device42 UI, including backup and restore, certificate management, network configuration, and log generation for troubleshooting. Use the sidebar to navigate to specific topics.
 
-## Table of Contents
+**Backup and recovery** — Set up scheduled or on-demand backups to local storage, SFTP, NFS, or Amazon S3. Restore the appliance from a backup file, and configure Warm HA for automatic standby failover. See [Set Up Backup](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx), [Device42 Restore](administration/appliance-manager/device42-restore.mdx), and [Warm HA Setup](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx).
 
-- [Add Multiple Network Interface Cards (NICs) to a Device42 VM](administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.mdx)
-- [API Limits](administration/appliance-manager/api-limits.mdx)
-- [Change the Device42 Appliance Hostname](administration/appliance-manager/changing-device42-appliance-hostname.mdx)
-- [Collect SNMPwalk Output for Troubleshooting](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.mdx)
-- [Delete History Logs](administration/appliance-manager/delete-history-logs.mdx)
-- [Device42 Appliance Manager Login](administration/appliance-manager/device42-appliance-manager-login.mdx)
-- [Device42 Restore](administration/appliance-manager/device42-restore.mdx)
-- [Enable or Disable TLS Versions from Appliance Manager](administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager.mdx)
-- [Enable SSL in Appliance Manager](administration/appliance-manager/enabling-ssl-in-appliance-manager.mdx)
-- [Generate a Log Bundle](administration/appliance-manager/generate-log-bundle.mdx)
-- [Generate IPMI Output for Troubleshooting](administration/appliance-manager/generating-ipmi-output-for-troubleshooting.mdx)
-- [Global and Password Manager Session Timeout](administration/appliance-manager/global-and-password-manager-session-timeout.mdx)
-- [Install VMware or XenServer Tools](administration/appliance-manager/installing-vmware-or-xenserver-tools.mdx)
-- [Pendo Guided Tours and Usage Information Collection](administration/appliance-manager/pendo-guided-tours-and-usage-information-collection.mdx)
-- [Set FQDN for Web Access](administration/appliance-manager/set-fqdn-for-web-access.mdx)
-- [Set Up HTTPS Certificate](administration/appliance-manager/set-up-https-cert.mdx)
-- [Set Up Backup via Device42 Appliance Manager](administration/appliance-manager/setting-up-backup-device42-appliance-manager.mdx)
-- [Warm HA Setup, Failover, and Automated Backups](administration/appliance-manager/warm-ha-setup-failover-and-automated-backups.mdx)
+**Security and network** — Enable HTTPS, manage TLS versions, upload SSL certificates, set the FQDN for web access, configure an HTTP or HTTPS proxy, and add additional network interfaces to the VM. See [Enable SSL](administration/appliance-manager/enabling-ssl-in-appliance-manager.mdx), [Set Up HTTPS Certificate](administration/appliance-manager/set-up-https-cert.mdx), [TLS Versions](administration/appliance-manager/enable-or-disable-tls-versions-from-appliance-manager.mdx), and [Add NICs](administration/appliance-manager/adding-multiple-network-interface-cardsnic-to-device42-vm.mdx).
+
+**Troubleshooting and support** — Generate log bundles or SNMPwalk output to send to Device42 Support, generate IPMI output for hardware-level diagnostics, and delete history logs to free up space. See [Generate Log Bundle](administration/appliance-manager/generate-log-bundle.mdx), [Collect SNMPwalk Output](administration/appliance-manager/collecting-snmpwalk-output-for-troubleshooting.mdx), and [Generate IPMI Output](administration/appliance-manager/generating-ipmi-output-for-troubleshooting.mdx).
+
+**Appliance settings** — Change the appliance hostname, configure session timeouts, install VMware or XenServer tools, set API rate limits, and manage Pendo guided tours and usage data collection. See [Change Hostname](administration/appliance-manager/changing-device42-appliance-hostname.mdx), [Session Timeout](administration/appliance-manager/global-and-password-manager-session-timeout.mdx), and [API Limits](administration/appliance-manager/api-limits.mdx).
