@@ -3,27 +3,31 @@ title: "Updating Device42"
 sidebar_position: 18.5
 ---
 
-When you [log in to the Appliance Manager](device42-appliance-manager-login.mdx) and go to **Application > Update Software**, you'll see two methods for updating your Device42 Main Appliance. You only need to complete one of the options:
+You can update the Device42 Main Appliance from the Appliance Manager using either a download URL or a manually uploaded upgrade package. This page covers both methods and how to apply the update from the VM console.
 
-![](/assets/images/update-device42/updgrade-options-AM-19.06.png)
+## Download the Update
 
-- **Enter URL:** Enter the provided URL from the update notification and click **Download**.
-- **Upload D42 upgrade package:** 
-  - Click the **Check for latest version** link or visit the [Device42 update page](https://www.device42.com/update) and enter your name, surname, and email address.
+[Log in to the Appliance Manager](administration/appliance-manager/device42-appliance-manager-login.mdx) and go to **Application > Update Software**. You will see two methods for updating — only one is required.
+
+![Update options in the Appliance Manager](/assets/images/update-device42/updgrade-options-AM-19.06.png)
+
+- **Enter URL:** Enter the URL from the update notification and click **Download**.
+- **Upload D42 upgrade package:**
+  - Click the **Check for latest version** link or visit the [Device42 update page](https://www.device42.com/update) and enter your details.
   - Download the update package using the "Device42 MA Update File" link emailed to you.
-  - Head back to the Appliance Manager and **Browse** your machine for the downloaded package file.
+  - Return to the Appliance Manager, click **Browse**, and select the downloaded package file.
   - Click **Upload** and wait for the progress bar to complete.
 
-The URL option automates the process of downloading and uploading the upgrade package. The manual upload option is available for when you have already downloaded the package file or when you are using an instance without internet access.
+The URL option automates downloading and uploading the upgrade package. The manual upload option is intended for cases where you have already downloaded the package or your instance has no internet access.
 
 In both cases, a green status message will appear instructing you to complete the upgrade from the VM console.
 
 ## Apply the Update
 
-From the VM console, enter option **(a) Apply Update**:
+From the VM console, select option `(a) Apply Update`.
 
-- Click **Yes** to confirm the upgrade process.
+- Click **Yes** to confirm the upgrade.
 - Wait for the process to complete.
-- Once the update is applied, you can log in to the Device42 Main Appliance and go to **Tools > Settings > Update** to verify the new version number. 
+- Once the update is applied, log in to the Device42 Main Appliance and go to **Tools > Settings > Update** to verify the new version number.
 
-![](/assets/images/update-device42/vm-console-options-19.06.png)
+![VM console with Apply Update option](/assets/images/update-device42/vm-console-options-19.06.png)

@@ -6,9 +6,11 @@ sidebar_position: 10
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-If you are experiencing issues with discovery, you can generate a log bundle and send it to support for further analysis.
+When you encounter issues with discovery or other Device42 functionality, you can generate a log bundle and send it to support for analysis. This page covers how to generate the Main Appliance log bundle and the Remote Collector log bundle.
 
-1. Edit the discovery job and set the debug mode to **Debug On**. For issues unrelated to autodiscovery, you can keep debug mode off and proceed to Step 3.
+## Generate the Main Appliance Log Bundle
+
+1. Edit the discovery job and set the debug mode to **Debug On**. For issues unrelated to discovery, leave debug mode off and skip to step 3.
 
     <ThemedImage
     alt="Enable debug by editing discovery job settings"
@@ -16,21 +18,23 @@ If you are experiencing issues with discovery, you can generate a log bundle and
         light: useBaseUrl('/assets/images/generate-log-bundle/edit-debug-level-light.png'),
         dark: useBaseUrl('/assets/images/generate-log-bundle/edit-debug-level-dark.png'),
     }}
-    />    
+    />
 
-2. If the issue is discovery-related, rerun the failing discovery job now that you've enabled the debug flag.
-3. Log in to the Appliance Manager via the main menu, **Tools > Appliance Manager**, or by following the [Device42 Appliance Manager Login](device42-appliance-manager-login.mdx) directions.
-4. Generate the log bundle via the Appliance Manager. Navigate to **Application > Generate Log Bundle** and click **Run**.
-    
-    ![Generate Log Bundle via Appliance Manager](/assets/images/generate-log-bundle/generate-log-bundle-19.06.png)
+2. If the issue is discovery-related, rerun the failing discovery job with the debug flag enabled.
+
+3. Log in to the Appliance Manager via **Tools > Appliance Manager** in the main menu, or follow the [Device42 Appliance Manager Login](administration/appliance-manager/device42-appliance-manager-login.mdx) directions.
+
+4. In the Appliance Manager, navigate to **Application > Generate Log Bundle** and click **Run**.
+
+    ![Generate Log Bundle in the Appliance Manager](/assets/images/generate-log-bundle/generate-log-bundle-19.06.png)
 
 5. Upload the generated log file at [upload.device42.com](https://upload.device42.com/).
 
 ## Remote Collector Log Bundle
 
-If you were also using the Remote Collector (RC) for the job, please get and upload the RC logs using the [same upload link](https://upload.device42.com/) above. 
+If you were also using a Remote Collector (RC) for the job, upload the RC logs at the [same upload link](https://upload.device42.com/).
 
-Navigate to **Discovery > Remote Collectors** and click on the **Logs** link for the corresponding RC under the **Actions** column. Let us know when the file has been uploaded, and we'll continue investigating the issue.
+Navigate to **Discovery > Remote Collectors** and click the **Logs** link for the corresponding RC in the **Actions** column. Notify support once the file has been uploaded so they can continue investigating the issue.
 
 <ThemedImage
   alt="Download RC logs button"
