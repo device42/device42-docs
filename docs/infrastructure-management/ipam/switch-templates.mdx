@@ -6,7 +6,7 @@ sidebar_position: 9
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Switch templates can be used to create switches and switch ports using templates. Once you create the templates, you can either add/edit switch and switch ports using the UI or REST APIs.
+Switch templates let you define switch configurations as reusable blueprints for creating switches and their ports. Once you create a template, you can add or edit switches and switch ports using the UI or REST APIs.
 
 <ThemedImage
   alt="Switch template menu"
@@ -16,92 +16,94 @@ Switch templates can be used to create switches and switch ports using templates
   }}
 />
 
-**Switch Templates – Legacy:** Create new switches and ports, or edit existing switches and ports.
-
-**Switch Templates 2.0:** Similar to Legacy, but port information is discovered from hardware models to auto-create ports. You can select the hardware models that you want to generate switches from and it will create them for you.  If your hardware model also has parts slots (for modular switches) then you will be able to populate the part models that you want to prepopulate those switches with. This is typically used when manually adding these hardware types and not relying on auto-discovery of switches.
+- **Switch Templates – Legacy:** Create new switches and ports, or edit existing switches and ports.
+- **Switch Templates 2.0:** Similar to Legacy, but port information is derived from hardware models to auto-create ports. Select the hardware models you want to generate switches from and Device42 creates them for you. If a hardware model has parts slots (for modular switches), you can populate the part models to prepopulate those switches. This is typically used when manually adding hardware types rather than relying on discovery.
 
 ## Switch Port Properties
 
+The template defines extended properties for each port.
+
 <ThemedImage
-  alt="Switch template extended properties for switch port"
+  alt="Switch template port properties"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-extended-props-for-switch-port-1-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-extended-props-for-switch-port-1-dark.png'),
   }}
 />
 
-Module or Asset to show if a port belongs to a blade or fabric extender. Network switch 2nd would represent cluster switch in case of stacked switches or 2nd switch in case of paired switches.
+- **Module** or **Asset:** Indicates whether a port belongs to a blade or fabric extender.
+- **Network Switch 2nd:** Represents the cluster switch for stacked switches, or the second switch for paired switches.
 
 ## Switch Types
 
+Templates support singular, modular, distributed, stacked, and paired switch configurations.
+
 <ThemedImage
-  alt="Catering to different switch types in the templates"
+  alt="Switch type options"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/Catering_to_different_switch_types_in_the_templates-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/Catering_to_different_switch_types_in_the_templates-dark.png'),
   }}
-  style={{ width: '50%' }} 
+  style={{ width: '50%' }}
 />
-
-Whether the switch is singular, modular and/or distributed, you can add any type from the templates. Also, stacked switches and paired switches can be added. All different options are discussed below.
 
 ### Singular Switch
 
+For a simple switch, choose or add a hardware model and define the ports with port prefixes and counts. After saving, the list page displays a create/edit link next to the switch. Click it to choose an existing switch or enter a name for a new one, and the ports are created automatically.
+
 <ThemedImage
-  alt="Switch template singular switch"
+  alt="Singular switch template"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-singular-switch-2-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-singular-switch-2-dark.png'),
   }}
 />
 
-For a simple switch, you can choose (or add) the hardware module and add the ports in that switch with port prefixes. In example shown above, ports gbe/ 24 gig0/ and fiber/ 2 Fiber would be created (you can choose port starting number for each port template). Once you save this, on the list page it displays a create/edit link next to the switch. Once you click that you can choose an existing switch or add name for new one and rest is done automatically for you.
-
 ### Stacked Switches
 
+Stacked switches (for example, Cisco 3750s) let you add multiple singular switches to a stack. The stack is represented by a cluster device in Device42. All physical switches belong to the cluster device, and all ports have the cluster switch set as their **Network Switch 2nd** value.
+
 <ThemedImage
-  alt="Switch template stacked switch"
+  alt="Stacked switch template"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-stacked-switch-3-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-stacked-switch-3-dark.png'),
   }}
 />
 
-Taking a page from Cisco's 3750 switches, you can add multiple singular switches to the stack. Stack itself is represented by a cluster device in device42. All physical switches would belong to the cluster device and all ports would have switch2 as the cluster switch. Once you click on create switches, you would be presented with following screen.
+Click **Create Switches** to enter a name for the cluster device (or choose an existing one) and enter values for the switches in the stack. Switch ports and switches are created based on the template.
 
 <ThemedImage
-  alt="Switch template create/edit switch"
+  alt="Create stacked switches"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-createedit-switch-4-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-createedit-switch-4-dark.png'),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '70%' }}
 />
 
-Here you can enter a name for the cluster device(or choose an existing one) and similarly enter values for switches in the stack. Switch ports (and switches) are created based on the template.
+### Modular or Distributed Switch
 
-### Modular/Distributed Switch
+Use this type for modular or distributed switches, such as a Cisco 6509 with modules, or a Nexus 7K or 5K with fabric extender modules. Define modules with a hardware model, slot number, port prefixes, and port count. You can also add asset templates for fabric extenders. Device42 creates the switch, modules, assets, and switch ports based on the template values.
 
 <ThemedImage
-  alt="Switch template modular/distributed switch"
+  alt="Modular or distributed switch template"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-modulardistributed-switch-5-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-modulardistributed-switch-5-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
 
-This type can be used to represent modular and/or distributed switches, e.g., a single 6509 switch with modules, Nexus 7k or Nexus 5k with fabric extender modules. Modules with hardware model, slot #, port prefixes and # of ports can be added here. You can also add asset templates( for Fabric Extenders) on this screen. Based on template values, you would be asked for switch/asset name etc. and it would create the switch, modules, assets(Fabric extenders) and switch ports based on the template.
+### Paired Modular or Distributed Switches
 
-### Paired Modular/Distributed Switches
+This template type covers paired switch configurations, such as Cisco VSS paired 6509s or two Nexus 5Ks running in active/active mode. Define port information and Device42 creates the modules, assets, and switch ports. Ports on the fabric extender can be marked to indicate whether they are connected to both switches or just one.
 
 <ThemedImage
-  alt="Switch template modular/paired switch"
+  alt="Paired modular switch template"
   sources={{
     light: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-modularpaired-switch-6-light.png'),
     dark: useBaseUrl('/assets/images/switch-templates/WEB-599_switch-template-modularpaired-switch-6-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
-
-This template can serve few different use case scenarios. For example, Cisco VSS paired 6509s or 2 Nexus 5k running in active/active mode. You can add various port info, etc., and it will create modules/assets/switch ports. Ports on the fabric extender can be marked to show if they are connected to both the switches or just one.

@@ -1,121 +1,105 @@
 ---
 title: "Subnet Tree View"
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-A subnet tree view is available under **Resources > Networks > Subnet Tree**.
+The subnet tree view provides a visual, hierarchical display of your subnets organized by VRF group. From the tree view, you can add, edit, nest, and relocate subnets and IPs without navigating away from the page.
 
-## Subnet Tree View
+Navigate to **Resources > Networks > Subnet Tree** to open the tree view.
 
 <ThemedImage
-  alt="Subnet Tree View"
+  alt="Subnet tree view"
   sources={{
     light: useBaseUrl('/assets/images/subnet-tree-view/subnet_tree_view-1512-light.png'),
     dark: useBaseUrl('/assets/images/subnet-tree-view/subnet_tree_view-1512-dark.png'),
   }}
 />
 
-Subnets in the tree view are grouped into VRF groups. Because VRF groups have building associations, VRF group display also contains the building name.
+Subnets in the tree view are grouped into VRF groups. Because VRF groups have building associations, the VRF group display also includes the building name.
 
-New subnets can be added to a VRF group by hovering over a VRF group and clicking the **+ New Subnet** button.
+Add new subnets to a VRF group by hovering over it and clicking the **+ New Subnet** button.
 
-## Hover for details pop-up
+## Hover for Details
+
+Hover your mouse over any VRF group, subnet, or IP to see more details. The subnet details include a small graph showing the percentage of IP addresses used.
 
 <ThemedImage
-  alt="subnet tree hover details"
+  alt="Subnet tree hover details"
   sources={{
     light: useBaseUrl('/assets/images/subnet-tree-view/hover_subnet_tree-light.png'),
     dark: useBaseUrl('/assets/images/subnet-tree-view/hover_subnet_tree-dark.png'),
   }}
-  style={{ width: '80%' }} 
+  style={{ width: '80%' }}
 />
 
-You can hover your mouse over any VRF groups, subnet, or IP and get more details on each. The subnet details includes a small graph that indicates the Percentage (%) of IP addresses used.
+Each subnet and VRF group has an **Edit** button next to it for making changes directly from the tree view.
 
-Each subnet and VRF group has an **Edit** button next to it. Click it to make changes from the subnet tree view.
+## Add or Edit IPs
 
-## Add / edit IPs per subnet
-
-<ThemedImage
-  alt="Add / edit IPs per subnet"
-  sources={{
-    light: useBaseUrl('/assets/images/subnet-tree-view/wpid6691-media_1424648468104-light.png'),
-    dark: useBaseUrl('/assets/images/subnet-tree-view/wpid6691-media_1424648468104-dark.png'),
-  }}
-/>
-
-Using the **+ New IP** button after each subnet, you can add a new IP. If the subnet is smaller than 24 mask bits, you will see a list of all IPs that don’t exist yet in that subnet and you can just pick one for the list.  For larger subnets you will be presented with a dialog to let you enter the information directly.
-
-Also, next to each IP, you will see an **Edit** button that will enable you to edit the IP right from this page.
-
-## Nest subnets right from the tree view
+Use the **+ New IP** button next to each subnet to add a new IP. For subnets smaller than `/24`, a list of all unused IPs in that subnet is displayed for selection. For larger subnets, you are presented with the **Add IP Address** dialog to enter the details directly.
 
 <ThemedImage
-  alt="Nest subnets right from the tree view"
-  sources={{
-    light: useBaseUrl('/assets/images/subnet-tree-view/wpid6689-media_1424645974037-light.png'),
-    dark: useBaseUrl('/assets/images/subnet-tree-view/wpid6689-media_1424645974037-dark.png'),
-  }}
-/>
-
-You can also nest subnets right from the tree view using the **+ New Subnet** button after each subnet. If you click this button, you get a tree like view of available subnets within that subnet that you can click on and choose. You can also drag and drop subnets into another subnet or another VRF group.
-
-:::info
-Please note that the drag and drop functionality is disabled for trees with over 2000 subnets.
-:::
-
-## View Available Subnets
-
-When adding subnets, you can view used and available subnets at a glance by clicking the **Subnet Usage Tree** button:
-
-<ThemedImage
-  alt="View available subnets from the tree view"
-  sources={{
-    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-1-light.png'),
-    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-1-dark.png'),
-  }}
-/>
-
-In the example above, you see the available subnets for the selected parent subnet. You will see the available subnets in green and the used (or partially used subnets) in red. You can drill further into the subnet tree by clicking **Expand All**:
-
-<ThemedImage
-  alt="View available subnets from the tree view"
-  sources={{
-    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-2-light.png'),
-    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-2-dark.png'),
-  }}
-  style={{ width: '80%' }} 
-/>
-
-These views will help you decide which subnet to assign.
-
-## Suggest a Subnet
-
-When you choose a subnet to assign, the subnet you choose will have a big impact on future subnets choices. If you choose a subnet that is much bigger than you need, then many of its subnet are in effect wasted. If you choose a subnet that is near another subnet but not directly adjacent, the available subnets in between may be too small to be used and are effectively wasted. The goal is always to choose subnets that maximize future flexibility in subnet selection and assignment.
-
-Device42 offers a patent-pending recommendation engine for choosing subnets. Just enter the desired **Mask Bits** and click the **Suggest Subnet** button and Device42 will calculate the optimal subnet. You will be presented with two options to ignore parent subnets that are merged as Assigned or Allocated even if they are still empty. Once you click the **Run** button, Device42 will present its suggestion for you to accept or decline.
-
-<ThemedImage
-  alt="Recommend a subnet from the tree view"
-  sources={{
-    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-suggest-1-light.png'),
-    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-suggest-1-dark.png'),
-  }}
-/>
-
-## Add new IPs from the tree view
-
-<ThemedImage
-  alt="Add new IPs from the tree view"
+  alt="Add or edit IPs per subnet"
   sources={{
     light: useBaseUrl('/assets/images/subnet-tree-view/wpid6690-media_1424646022240-light.png'),
     dark: useBaseUrl('/assets/images/subnet-tree-view/wpid6690-media_1424646022240-dark.png'),
   }}
 />
 
-Using the **+ New IP** button after each subnet, you can add a new IP. If the subnet is smaller than 24 mask bits, then you will see a list of all IPs that don’t exist yet in that subnet and you can just pick one for the list.  If the subnet is larger, you will go directly to the **Add IP Address** dialog where you can enter all the details directly.
+Each IP also has an **Edit** button next to it for making changes from this page.
 
-Also, next to each IP, you will see a **Edit** button that will enable you to edit the IP right from this page.
+## Nest Subnets
+
+Use the **+ New Subnet** button next to each subnet to create a nested subnet. Clicking this button displays a tree-like view of available subnets within that subnet to choose from. You can also drag and drop subnets into another subnet or another VRF group.
+
+<ThemedImage
+  alt="Nest subnets from tree view"
+  sources={{
+    light: useBaseUrl('/assets/images/subnet-tree-view/wpid6689-media_1424645974037-light.png'),
+    dark: useBaseUrl('/assets/images/subnet-tree-view/wpid6689-media_1424645974037-dark.png'),
+  }}
+/>
+
+:::info
+Drag-and-drop functionality is disabled for trees with over 2,000 subnets.
+:::
+
+## View Available Subnets
+
+Click the **Subnet Usage Tree** button to view used and available subnets at a glance.
+
+<ThemedImage
+  alt="View available subnets"
+  sources={{
+    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-1-light.png'),
+    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-1-dark.png'),
+  }}
+/>
+
+Available subnets are shown in green and used (or partially used) subnets are shown in red. Click **Expand All** to drill further into the subnet tree.
+
+<ThemedImage
+  alt="Expanded available subnets"
+  sources={{
+    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-2-light.png'),
+    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-availability-2-dark.png'),
+  }}
+  style={{ width: '80%' }}
+/>
+
+## Suggest a Subnet
+
+Choosing the right subnet size and position matters. A subnet that is much bigger than needed wastes address space. A subnet that is near but not adjacent to another can leave unusable gaps. The goal is to maximize future flexibility in subnet selection and assignment.
+
+Device42 offers a recommendation engine for choosing subnets. Enter the desired **Mask Bits** and click the **Suggest Subnet** button. You can optionally ignore parent subnets marked as Assigned or Allocated even if they are still empty. Click **Run** and Device42 will present its suggestion for you to accept or decline.
+
+<ThemedImage
+  alt="Suggest a subnet"
+  sources={{
+    light: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-suggest-1-light.png'),
+    dark: useBaseUrl('/assets/images/subnet-tree-view/subnet-tree-suggest-1-dark.png'),
+  }}
+/>
