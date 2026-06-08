@@ -89,3 +89,9 @@ main {
   text-decoration: none;
   opacity: 0.85;
 }
+
+/* Make the gap before the theme toggle (Company → sun icon) match the
+   gap after it (sun icon → search bar). */
+.toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+  margin-left: 0.85em;
+}
