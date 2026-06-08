@@ -92,6 +92,6 @@ main {
 
 /* Make the gap before the theme toggle (Company → sun icon) match the
    gap after it (sun icon → search bar). */
-.toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+.navbar__items--right .clean-btn {
   margin-left: 0.85em;
 }
