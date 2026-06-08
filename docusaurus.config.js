@@ -19,13 +19,14 @@ const config = {
 
   // Load the Feedback Rocket SDK on every page
   scripts: [
-    {
-      async: true,
-      src: 'https://www.feedbackrocket.io/sdk/v1.1.js',
-      'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
-      'data-fr-reply': "",
-      'data-fr-theme': 'dynamic',
-    },
+    // Temporarily disabled: Feedback Rocket SDK
+    // {
+    //   async: true,
+    //   src: 'https://www.feedbackrocket.io/sdk/v1.1.js',
+    //   'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
+    //   'data-fr-reply': "",
+    //   'data-fr-theme': 'dynamic',
+    // },
     {
       src: 'https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js',
       'data-domain-script': '018fa3d5-077b-79ba-acca-d22007888127',
@@ -1310,14 +1311,15 @@ const config = {
             label: 'Company',
             position: 'right',
           },
-          {
-            type: 'html',
-            position: 'right', value:
-              `<a href=# class=navbar__button data-fr-widget>
-                Page feedback
-              </a>`,
-
-          },
+          // Temporarily disabled: Feedback Rocket "Page feedback" button
+          // {
+          //   type: 'html',
+          //   position: 'right', value:
+          //     `<a href=# class=navbar__button data-fr-widget>
+          //       Page feedback
+          //     </a>`,
+          //
+          // },
          ],
       },
       prism: {
