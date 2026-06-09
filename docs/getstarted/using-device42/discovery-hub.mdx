@@ -193,3 +193,4 @@ From the **Settings** tab of completed Discovery Hub scans, you can see the link
 - We recommend running one scan at a time, at least initially, to prevent inundating the network.
 - If a scan is stopped, it cannot be resumed. A new scan needs to be created to finish scanning those remaining targets.
 - Scans are completed with Nmap data, so there could be some variability in the data as it fingerprints the OS.
+- Discovery Hub skips the network and broadcast address of each scanned subnet (for example, `.0` and `.255` in a `/24` range), so these addresses are not targeted.
