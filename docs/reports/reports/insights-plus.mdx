@@ -264,6 +264,22 @@ WHERE DATE(first_added) = CURRENT_DATE AND tags IS NULL
 - Select **Email** as the **Notification method**, and then enter the recipient email addresses (separated by commas or semicolons).
 - Click **Save** to save the alert.
 
+### Change the Emailed Report URL
+
+Emailed reports and alerts include links back to the dashboard or chart in Device42. To change the URL used in these links, navigate to **Tools > Cloud Services**, click **Edit**, and update the **D42 URL for SaaS apps** field with the URL or IP address you want.
+
+<ThemedImage
+  alt="Cloud Services D42 URL setting"
+  sources={{
+    light: useBaseUrl('/assets/images/insights-plus/cloud-services-light.png'),
+    dark: useBaseUrl('/assets/images/insights-plus/cloud-services-dark.png'),
+  }}
+/>
+
+:::caution
+**D42 URL for SaaS apps** is a global setting used by your external and SaaS integrations. Changing it affects how those integrations reference your Device42 instance, not just the links in emailed Insights+ reports and alerts. See [Cloud Services Settings](integration/external-integrations/cloud-services-settings.mdx) for details.
+:::
+
 ## DCIM Dataset, Chart, and Alert Example
 
 This section provides examples of how to take existing Device42 datasets and transform them into analytics of your own. For these datasets, you will first need to clone the dataset into one that you own and manage, so that our system dashboards are not affected by any analysis you want to do. This is most easily done by exploring the dataset and viewing it in the SQL Editor. Here, you can save it as a new dataset and label it something meaningful.
