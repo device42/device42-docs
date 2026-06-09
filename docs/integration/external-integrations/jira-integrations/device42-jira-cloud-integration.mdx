@@ -6,12 +6,12 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
 :::warning
-Please note that [the JSM Assets app](https://marketplace.atlassian.com/search?query=device42) is the currently supported Device42-Jira integration app. It is available on the Atlassian Marketplace.
+The integration described on this page uses the external JSM Assets app, which was deprecated on December 30, 2024. The setup steps below may no longer reflect the current UI or behavior.
 
-Support for the 'external' JSM Assets integration app [ended on December 30, 2024](https://community.developer.atlassian.com/t/shutdown-notice-update-on-deprecation-of-the-external-assets-platform/81193), as Atlassian has implemented asset capabilities that are 'internal' (native) to its premium Jira platform. 
+The currently supported integration is the [Device42 for Jira Service Management Assets app](https://marketplace.atlassian.com/search?query=device42). See the [Jira Service Management Assets Integration](/integration/external-integrations/jira-integrations/device42-jira-assets-integration) page for setup instructions.
 :::
 
-Integrate your Device42 instance with Jira Service Management (JSM) to manage your team's tasks, linking them directly to the impacted assets. 
+This page covers the installation, configuration, and usage of the now-deprecated external JSM integration between Device42 and Jira Service Management (JSM) Cloud.
 
 ## Installation and Configuration
 
@@ -34,7 +34,7 @@ Prepare your Device42 instance for cloud service integration by navigating to **
   }}
 />
 
-### Configuring Device42
+### Configure Device42
 
 1. From the Device42 menu, go to **Tools > Integrations > External Integrations** and click on the **Add External Integration** button.
 
@@ -56,7 +56,7 @@ Prepare your Device42 instance for cloud service integration by navigating to **
         }}
     />
 
-3. Copy the Device42 **Verification Token**, which you'll use to configure the JSM app in the next section. 
+3. Copy the Device42 **Verification Token**, which you will use to configure the JSM app in the next section.
 
     <ThemedImage
         alt="Add external integration url and type"
@@ -66,7 +66,7 @@ Prepare your Device42 instance for cloud service integration by navigating to **
         }}
     />
 
-### Configuring Jira
+### Configure Jira
 
 To install and configure the Jira-side integration, log in to your Jira Cloud account and proceed as follows:
 
@@ -82,7 +82,7 @@ To install and configure the Jira-side integration, log in to your Jira Cloud ac
 
     ![Linked Issues field configuration](/assets/images/jsm-integration/external-asset-platform.png)
 
-### Configuring, Uninstalling, or Verifying the Installation of the JSM App
+### Manage the JSM App
 
 1. You can view and manage the JSM app from your Jira instance. Go to **Apps > Manage your apps** and click on the **Device42 Jira Service Management** app under the "User-installed apps" heading.
 2. Click on **Configure** to link your Device42 instance as detailed in the [previous section](#configuring-jira).
@@ -166,7 +166,7 @@ The new issue is now attached to the CI.
 
 ### Customizing Which Assets Sync
 
-By default, syncs run daily at 2 AM and only sync "Devices". You can customize the data synced from Device42 by adding new Sync [DOQL queries](reports/device42-doql/index.mdx), customizing existing queries, or writing your own.
+By default, syncs run daily at 2 AM and only sync "Devices". You can customize the data synced from Device42 by adding new Sync [DOQL queries](/reports/device42-doql), customizing existing queries, or writing your own.
 
 Edit the DOQL selection for sync by going to  **Tools > Integrations > External Integrations** and selecting the JSM external integration.
 

@@ -3,94 +3,42 @@ title: "SaltStack Integration"
 sidebar_position: 27
 ---
 
-Salt (aka SaltStack) is a Python-based open source configuration management software and remote execution engine. Salt supports the Software-Defined Datacenter, allowing configuration of your Infrastructure as Code (IaC). With the Device42 Salt Integration, you can now gather information about your devices from the same tool you use to provision them. The Device42-Salt Integration can gather the following from Salt:
+Salt (also known as SaltStack) is a Python-based open source configuration management tool and remote execution engine that supports Infrastructure as Code (IaC). The Device42 Salt integration lets you gather information about your devices from the same tool you use to provision them.
+
+The integration collects the following data from Salt:
 
 - Name
-- Node Type
-- CPU Power
+- Node type
+- CPU power
 - Customer
-- Virtual or Physical
-- Virtual Sub-type
-- CPU Core Count
+- Virtual or physical
+- Virtual sub-type
+- CPU core count
 - Manufacturer
-- Operating System & OS Version
-- Total Memory
-- HDD Count
-- Service Level
+- Operating system and OS version
+- Total memory
+- HDD count
+- Service level
 
-## Assumptions & Pre-Requisites
+## Prerequisites
 
-Working Salt & Device42 installations. Tested against Salt Master 2016.11.1 Carbon To allow connections, sign your minions certificate on your Salt Master and run the script on your Salt Master server.
+The following are required before setting up the integration:
 
+- Working Salt and Device42 installations. Tested against Salt Master 2016.11.1 Carbon.
+- To allow connections, sign your minion certificates on your Salt Master and run the script on your Salt Master server.
+- Python v2.7.x
 
-Python v2.7.x
-- PyYAML  
-	```
-	$ easy_install pyyaml or $ pip install pyyaml
-	```
-- appdirs  
-	```
-	$ easy_install appdirs or $ pip install appdirs
-	```
-- futures  
-	```
-	$ easy_install futures or $ pip install futures
-	```
-- jinja2  
-	```
-	$ easy_install jinja2 or $ pip install jinja2
-	```
-- tornado  
-	```
-	$ easy_install tornado or $ pip install tornado
-	```
-- requests  
-	```
-	$ easy_install requests or $ pip install requests
-	```
-- salt  
-	```
-	$ easy_install salt or $ pip install salt
-	```
-- markupsafe  
-	```
-	$ easy_install markupsafe or $ pip install markupsafe
-	```
-- msgpack-python  
-	```
-	$ easy_install msgpack-python or $ pip install msgpack-python
-	```
-- packaging  
-	```
-	$ easy_install packaging or $ pip install packaging
-	```
-- pycrypto  
-	```
-	$ easy_install pycrypto or $ pip install pycrypto
-	```
-- pyparsing  
-	```
-	$ easy_install pyparsing or $ pip install pyparsing
-	```
-- pyzmq  
-	```
-	$ easy_install pyzmq or $ pip install pyzmq
-	```
-- singledispatch  
-	```
-	$ easy_install singledispatch or $ pip install singledispatch
-	```
-- six  
-	```
-	$ easy_install six or $ pip install six
-	```
+Install the required Python dependencies:
 
+```
+pip install PyYAML appdirs futures jinja2 tornado requests salt markupsafe msgpack-python packaging pycrypto pyparsing pyzmq singledispatch six
+```
 
-## Configuration and Usage
+## Configure and Use the Integration
 
-1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository to it.
-2. Copy (or move/rename) the settings file settings.yaml.example to `settings.yaml`.
-3. Populate the `settings.yaml` file you created in the last step with your Device42 instance info (host, user, pss):
+1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository into it.
+2. Copy `settings.yaml.example` to `settings.yaml`.
+3. Populate `settings.yaml` with your Device42 instance details (`host`, `user`, `pass`):
 
 <details>
     <summary>Click to expand the code block</summary>
@@ -115,11 +63,11 @@ Python v2.7.x
     ```
 </details>
 
-Consult `README.md` and `requirements.txt` for more details
+Consult `README.md` and `requirements.txt` for more details.
 
-1. Configure node filtering, if desired. Details regarding configuration options can be found in `NodeFilter.md`. Filter settings are added following the `Options:` section of `settings.yaml`.
-2. Run the script: `$ python saltexplore.py` (`-c /path/to/settings.yaml`)
+4. Configure node filtering if desired. Configuration options are documented in `NodeFilter.md`. Add filter settings after the `Options:` section of `settings.yaml`.
+5. Run the script: `python saltexplore.py` (optionally with `-c /path/to/settings.yaml`)
 
-If you run into any unexpected behavior, bugs, or otherwise have questions, comments, or feature requests, feel free to reach out to support@device42.com.
+For questions, bug reports, or feature requests, contact [support@device42.com](mailto:support@device42.com).
 
-**Download the Salt integration script for Device42 today!**
+To download the Salt integration script, visit the [Device42 GitHub page](https://github.com/device42).

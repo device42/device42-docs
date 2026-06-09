@@ -3,9 +3,7 @@ title: "Jira (self-managed) Integration"
 sidebar_position: 3
 ---
 
-:::info
-Atlassian Server is in the process of being [discontinued](https://www.atlassian.com/blog/platform/atlassian-server-is-going-away-next-steps) and the future of self-managed products is via the [Atlassian Data Center](https://www.atlassian.com/enterprise/data-center).
-:::
+Use the Device42 - CMDB with REST APIs for Jira app to integrate Device42 with a self-hosted (Data Center) Jira instance. This page covers installation, configuration, custom fields, CI filters, and workflow automation.
 
 ## Integration Prerequisites
 
@@ -14,9 +12,9 @@ To use the self-hosted Device42-Jira integration, users must have:
 * A running **Device42** virtual appliance, populated with configuration items (CIs) to sync to Jira.
 * A properly configured **self-hosted Jira instance** with administrator access.
 
-_*If you are looking to integrate Device42 with Jira Service Management and/or Jira Cloud, see the [Device42-Jira Service Management/Cloud integration page.](device42-jira-cloud-integration.mdx)_
+If you are looking to integrate Device42 with Jira Service Management or Jira Cloud, see the [Jira Service Management Integration](/integration/external-integrations/jira-integrations/device42-jira-cloud-integration) page.
 
-## Device42-jira Self-hosted Integration Features
+## Device42-Jira Self-Hosted Integration Features
 
 The Device42-Jira integration offers users the following functionality:
 
@@ -32,10 +30,10 @@ The Device42-Jira integration offers users the following functionality:
 
 The **Device42 - CMDB with REST APIs for Jira** app is the part of Atlassian Marketplace, so you can easily install it using the Universal Plugin Manager (UPM). The app's search capability is provided by Jira from the Jira search box. 
 
-If you have some specific environment that blocks Jira from accessing the internet, you can install Device42 plugin manually. Download the latest version of the app from this [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter) link. Or copy and paste the following URL into your browser:
+If you have some specific environment that blocks Jira from accessing the internet, you can install Device42 plugin manually. Download the latest version of the app from this [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira) link. Or copy and paste the following URL into your browser:
 
 ```
-https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhttps://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira?tab=overviewhosting=datacenter
+https://marketplace.atlassian.com/apps/1213601/device42-cmdb-with-rest-apis-for-jira
 ```
 
 :::info
@@ -310,7 +308,9 @@ Create filter templates to use as preset settings for the the Device42 Custom Fi
 
     ![Save or reset](/assets/images/jira-self-managed/save-or-reset.png)
 
-**Note:** if you haven't selected any CIs under general settings you will see an error message.
+:::note
+If you haven't selected any CIs under **General Settings**, you will see an error message.
+:::
 
 ### Load a Filter Template
 
@@ -329,9 +329,9 @@ Project administrators can load filter templates to any project. The filter temp
 
 ## Work With Jira Issues
 
-### View issue
+### View an Issue
 
-On view screens a Device42 Custom Field looks so:
+On view screens, a Device42 Custom Field looks like this:
 
 ![View issue](/assets/images/jira-self-managed/view-task.png)
 
@@ -371,7 +371,9 @@ If you don't see your custom field, you can add it by clicking on the **Configur
 
 ![Add custom fields to issue](/assets/images/jira-self-managed/edit-issue-configure-fields.png)
 
-> For the large scope of CIs plugin uses ajax to request the data for the CI selection list, so the CIs are loaded by portions. It is possible to search the custom field by the term. The search scope is the display name of the CI. In the future, we plan to extend this functionality and use the smart search of data.
+:::note
+For large sets of CIs, the plugin uses AJAX to load CI data in portions. You can filter the list by typing part of a CI's display name into the search field.
+:::
 
 * * *
 
@@ -379,7 +381,7 @@ If you don't see your custom field, you can add it by clicking on the **Configur
 
 Device42 custom fields allow full-text search on the CI IDs and parameters. Almost all parameters are available for search, however, users cannot specify exact parameters to search. For example, if you search for the word '_Device_' you will find the issues with a custom field containing devices and custom fields with other CI types that contain the word 'device' in their name.
 
-### Simple search
+### Simple Search
 
 1. Open the issue navigator. Select 'Simple' search mode
 2. Click the 'More' selection list. Search for the custom field by name
@@ -387,7 +389,7 @@ Device42 custom fields allow full-text search on the CI IDs and parameters. Almo
 4. Add the search criteria in the text box under the filter
 5. Click the 'Update' button. You will see the issues filtered by the custom field inside the issue navigator![Simple Search](/assets/images/4199241721-17_custom_field_simple_search.png)
 
-### Advanced search
+### Advanced Search
 
 1. Open the issue navigator. Select 'Advanced' search mode
 2. Type the search request using JQL query language. Supported operators for the field: '~', '!~', 'IS EMPTY', 'IS NOT EMPTY'.

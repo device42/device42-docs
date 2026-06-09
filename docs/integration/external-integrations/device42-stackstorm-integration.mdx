@@ -6,7 +6,7 @@ sidebar_position: 28.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-[StackStorm](https://docs.stackstorm.com/overview.html#about) is well suited to automate a range of IT-management workflows. In response to a trigger event, you can get the StackStorm-Device42 integration to update device details, set user permissions, send Device42 data to other systems, and more. 
+[StackStorm](https://docs.stackstorm.com/overview.html#about) is well suited for automating a range of IT management workflows. In response to a trigger event, the StackStorm-Device42 integration can update device details, set user permissions, send Device42 data to other systems, and more.
 
 ## Set Up the Integration
 
@@ -17,7 +17,7 @@ The steps for setting up the StackStorm integration are:
 - Configure the plugin using your Device42 credentials.
 - Test the integration by querying for a specific device using a StackStorm action.
 
-Before creating a fully automated workflow, we'll set up the StackStorm-Device42 integration. First, we'll run StackStorm in a Docker container and install the integration plugin (named "Device42 Package" in StackStorm). We'll configure the plugin using our Device42 credentials. Finally, we'll test the integration by querying for a specific device using a StackStorm action.
+Before creating a fully automated workflow, set up the StackStorm-Device42 integration by running StackStorm in a Docker container, installing the integration plugin (named "Device42 Package" in StackStorm), configuring the plugin with your Device42 credentials, and testing the integration by querying for a specific device using a StackStorm action.
 
 ### Install StackStorm Using Docker
 
@@ -63,9 +63,9 @@ st2 login st2admin -p 'Ch@ngeMe'
 
 
 
-Log in to the StackStorm web UI using the default username `st2admin` and password `Ch@ngeMe`. 
+Log in to the StackStorm web UI using the default username `st2admin` and password `Ch@ngeMe`.
 
-Even if you're using the CLI, it's handy to have the StackStorm web UI open for quick feedback on communication attempts and to see the available actions under the **Actions** tab. Later, we'll use the `get_device_by_id` action to test the StackStorm-Device42 setup.
+Even if you're using the CLI, it's useful to have the StackStorm web UI open for quick feedback on communication attempts and to see the available actions under the **Actions** tab. Later, you'll use the `get_device_by_id` action to test the StackStorm-Device42 setup.
 
 ![UI package actions](/assets/images/stackstorm-integration/ss-ui-d42-actions.png)
 
@@ -146,24 +146,24 @@ st2 run device42.get_device_by_id device_id=113
 
 ![get_device_by_id results](/assets/images/stackstorm-integration/ss-cli-get-device-id.png)
 
-## Example Automation 
+## Example Automation
 
-Let's create an example automation to dynamically set user permissions for a device depending on the device's current lifecycle stage in Device42. The purpose of the automation is to assign which devices each user has access to at a given time, so permissions are granted and revoked as the device moves along the workflow.
+This section walks through an example automation that dynamically sets user permissions for a device based on its current lifecycle stage in Device42. The automation assigns which devices each user can access at a given time, granting and revoking permissions as the device moves along the workflow.
 
 :::tip
-For an overview of the architecture of this integration and additional information, see our in-depth [Dynamic User Permissions with Device42 and StackStorm](https://www.device42.com/blog/2017/11/30/dynamic-user-permissions-with-device42-and-stackstorm/) blog post.
+For an overview of the architecture of this integration and additional information, see the [Dynamic User Permissions with Device42 and StackStorm](https://www.device42.com/blog/2017/11/30/dynamic-user-permissions-with-device42-and-stackstorm/) blog post.
 :::
 
-In Device42, we will create the following lifecycle stages with matching permission groups, also known as admin groups, and a user for each group:
+In Device42, create the following lifecycle stages with matching permission groups (also known as admin groups) and a user for each group:
 
 - Purchasing
 - Mounting
 - Deployment
 - Production
 
-We'll also create an [object category](https://docs.device42.com/administration/role-based-access-control/) for each lifecycle stage. It's the object category property that will grant role-based permissions when assigned to a device. 
+Also create an [object category](https://docs.device42.com/administration/role-based-access-control/) for each lifecycle stage. The object category property grants role-based permissions when assigned to a device.
 
-In total, we'll add the following four items each to the User, Permission Group, Lifecycle Event, and Object Category components in Device42:
+In total, add the following four items to each of the User, Permission Group, Lifecycle Event, and Object Category components in Device42:
 
 | User             | Permission Group     | Lifecycle Event | Object Category  |
 |------------------|----------------------|------------------|------------------|
@@ -173,7 +173,7 @@ In total, we'll add the following four items each to the User, Permission Group,
 | production       | production_group    | production      | production_cat   |
 
 
-Let's break down the automation using an example of adding the "mounting" lifecycle event to a device that's in the "purchasing" stage:
+Here is a breakdown of the automation using an example of adding the "mounting" lifecycle event to a device that's in the "purchasing" stage:
 
 1. The "purchasing" user updates the lifecycle event from "purchasing" to "mounting".
 2. A webhook is triggered in Device42, and sends data about the update to StackStorm.
@@ -185,7 +185,7 @@ Let's break down the automation using an example of adding the "mounting" lifecy
 
 ### Configure Device42 
 
-To set up an automation, we need to do the following in Device42: 
+To set up an automation, complete the following steps in Device42:
 
 1. Enable role-based permissions.
 2. Create four permission groups (also called admin groups).
@@ -199,7 +199,7 @@ Navigate to **Tools > Settings > Global Settings**. Click on **Edit**, and chang
 
 #### 2. Create Four Permission Groups
 
-Navigate to **Tools > Admin Groups** and click **+ Add Admin Group**. Name the group "purchasing_group" and select the permissions for the user. For this demonstration, we granted all permissions with the **Choose all** button. Create the mounting, deploying, and production groups in the same way.
+Navigate to **Tools > Admin Groups** and click **+ Add Admin Group**. Name the group `purchasing_group` and select the permissions for the user. For this example, grant all permissions using the **Choose all** button. Create the mounting, deploying, and production groups in the same way.
 
 <ThemedImage
 alt="Add admin group"
@@ -222,11 +222,11 @@ sources={{
 }}
 />
 
-Do this for each of the four users we need, "purchasing", "mounting", "deployment", and "production", and add each new user to their respective permission group.
+Do this for each of the four users — `purchasing`, `mounting`, `deployment`, and `production` — and add each user to their respective permission group.
 
 #### 4. Link Permission Groups to Object Categories
 
-For each of the four object categories, go to **Infrastructure > Organization > Object Categories** and click **Add Object Category**. Name the category and link it to its respective admin group by clicking *** Add another Group** and selecting the group from the dropdown menu.
+For each of the four object categories, go to **Infrastructure > Organization > Object Categories** and click **Add Object Category**. Name the category and link it to its respective admin group by clicking **+ Add another Group** and selecting the group from the dropdown menu.
 
 <ThemedImage
 alt="Add object category"
@@ -252,7 +252,7 @@ sources={{
 
 ### Set Up the Automation
 
-Now we'll configure the Device42 webhook to send data to StackStorm about updates to device lifecycle events. We'll use an [API Key](https://docs.stackstorm.com/authentication.html#api-keys) rather than the temporary token for authentication. 
+Configure the Device42 webhook to send data to StackStorm about updates to device lifecycle events. Use an [API key](https://docs.stackstorm.com/authentication.html#api-keys) rather than a temporary token for authentication.
 
 The steps for setting up an automation are:
 
@@ -270,7 +270,7 @@ Log in to the `st2` command line in StackStorm and enter the following command t
 st2 apikey create -k -m ‘{“used_by”: “device42 webhook”}’
 ```
 
-The API key will only be displayed once, so make sure you copy and save it in a password manager.
+The API key is only displayed once, so copy and save it in a password manager.
 
 #### 2. Create a Device42 Webhook Endpoint
 
@@ -320,9 +320,9 @@ First, you'll need the lifecycle IDs assigned to the lifecycle event items we pr
 
 ![Lifecycle ID in URL](/assets/images/stackstorm-integration/d42-lifecycle-url.png)
 
-A more efficient way to retrieve all the IDs at once is to make a [DOQL](https://docs.device42.com/reports/device42-doql/) to query the [Device42 API](https://api.device42.com/#resource_Asset-Device_Life_Cycle) for the lifecycle IDs.
+A more efficient way to retrieve all the IDs at once is to use a [DOQL query](https://docs.device42.com/reports/device42-doql/) against the [Device42 API](https://api.device42.com/#resource_Asset-Device_Life_Cycle).
 
-Once you have all the lifecycle event IDs, create a JSON file to map each event to its corresponding Object Category. For each key-value pair, use the lifecycle event ID as the "name" and the Object Category name as the "value", as in the code below. You can leave out the `lc_` in front of the ID number if you prefer. 
+Once you have all the lifecycle event IDs, create a JSON file to map each event to its corresponding object category. For each key-value pair, use the lifecycle event ID as the `name` and the object category name as the `value`, as in the example below. You can omit the `lc_` prefix from the ID number if you prefer.
 
 ```json
 [
@@ -345,9 +345,9 @@ Once you have all the lifecycle event IDs, create a JSON file to map each event 
 ]
 ```
 
-For this example, we named the file `mydata.json`.
+For this example, the file is named `mydata.json`.
 
-Add the JSON file to the StackStorm directory and [load the key-value pairs](https://docs.stackstorm.com/datastore.html#storing-and-retrieving-key-value-pairs-via-cli) to the StackStorm datastore using the command (remember to change the filename to the name you used):
+Add the JSON file to the StackStorm directory and [load the key-value pairs](https://docs.stackstorm.com/datastore.html#storing-and-retrieving-key-value-pairs-via-cli) into the StackStorm datastore (update the filename to match yours):
 
 ```
 st2 key load mydata.json
@@ -398,7 +398,7 @@ sources={{
 }}
 />
 
-If you log in to Device42 as the "mounting" user, you should see the updated device. This confirms that the StackStorm-Device42 integration is working to create dynamic user permissions. 
+If you log in to Device42 as the "mounting" user, you should see the updated device. This confirms that the StackStorm-Device42 integration is working to create dynamic user permissions.
 
 <ThemedImage
 alt="Mounting user device list"

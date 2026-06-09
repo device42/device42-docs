@@ -3,133 +3,139 @@ title: "Azure Migrate"
 sidebar_position: 2
 ---
 
-You can get to Azure Migrate directly @ [https://portal.azure.com/#create/Microsoft.AzureMigrate](https://portal.azure.com/#create/Microsoft.AzureMigrate)
+The Azure Migrate integration lets you assess and migrate servers to Azure using Device42 as the assessment tool. This page covers how to set up Device42 from the Azure Migrate portal, register an Azure Active Directory user, and export your business applications to Azure.
 
-## Setting up Device42 from the Azure Migrate Portal
+You can access Azure Migrate directly at [portal.azure.com](https://portal.azure.com/#create/Microsoft.AzureMigrate).
 
-1\. Begin by signing up for an Azure account if you don’t already have one. You’ll have to provide a credit card to verify your identity, and agree to the conditions to continue: 
+## Set Up Device42 From the Azure Migrate Portal
 
-![Microsoft Azure Migrate](/assets/images/azure_migrate_start_free.png)
+1. Begin by signing up for an Azure account if you don't already have one. You will have to provide a credit card to verify your identity and agree to the conditions to continue.
 
-2\. Click the button to continue to the Azure portal, and once there, choose “Assess and Migrate servers” as pictured below: 
+    ![Microsoft Azure Migrate](/assets/images/azure_migrate_start_free.png)
 
-![Sign up for Azure](/assets/images/agree_step_2b.png) 
+2. Click the button to continue to the Azure portal, and once there, choose **Assess and Migrate Servers**.
 
-![Continue to Azure Portal](/assets/images/Continue_to_Azure_Portal-3.png) 
+    ![Sign up for Azure](/assets/images/agree_step_2b.png)
 
-![Assess and Migrate Servers](/assets/images/Assess_and_migrate_servers-4.png) 3. Next, you’ll want to begin adding migration tools; click “Add a tool.” 
+    ![Continue to Azure Portal](/assets/images/Continue_to_Azure_Portal-3.png)
 
-![Add a tool](/assets/images/add_tool-5.png)
+    ![Assess and Migrate Servers](/assets/images/Assess_and_migrate_servers-4.png)
 
-4\. Choose an existing Resource Group, or click the “Create new” link (highlighted) to create a new one. The “Resource Group” name represents the group of machines you’ll be migrating, and can be a name of your choosing, but should be descriptive. Then click“OK.” 
+3. Click **Add a Tool** to begin adding migration tools.
 
-![Name your Migration Project](/assets/images/add_a_tool-5.1.png) 
+    ![Add a tool](/assets/images/add_tool-5.png)
 
-![Create resource group](/assets/images/add_a_tool-create-resource-group-5.2.png)
+4. Choose an existing Resource Group, or click **Create New** to create a new one. The resource group name represents the group of machines you will be migrating and should be descriptive. Then click **OK**.
 
-5\. Give your migration project a name, and when finished, click“Next” to continue. 
+    ![Name your Migration Project](/assets/images/add_a_tool-5.1.png)
 
-![Name the project](/assets/images/name_migration_project_5.3.png)
+    ![Create resource group](/assets/images/add_a_tool-create-resource-group-5.2.png)
 
-6\. Select Device42 as your Azure Migration assessment tool by clicking on it so it is selected as shown below. Click “Next” to choose Device42. 
+5. Give your migration project a name and click **Next** to continue.
 
-![Select Device42 as assessment tool](/assets/images/add_tool_select_D42-6.png)
+    ![Name the project](/assets/images/name_migration_project_5.3.png)
 
-7\. You can add a migration tool at this point if know which you want to use, but the default is to skip adding a migration tool for now (you can choose a tool when you are ready to migrate). Make sure the “Skip adding a migration tool for now” checkbox is checked, and click “Next” to continue. 
+6. Select Device42 as your Azure Migration assessment tool by clicking on it, then click **Next**.
 
-![Skip adding a migration tool](/assets/images/add_tool_skip_migration-6.1.png)
+    ![Select Device42 as assessment tool](/assets/images/add_tool_select_D42-6.png)
 
-8\. Review your tool choice(s) and then click “Add tool(s)” to continue. 
+7. You can add a migration tool at this point if you know which one you want to use. Otherwise, leave **Skip adding a migration tool for now** checked and click **Next**.
 
-![Review tool choices](/assets/images/review_add_tool-6.2.png)
+    ![Skip adding a migration tool](/assets/images/add_tool_skip_migration-6.1.png)
 
-You’ll see confirmation the deployment has been initialized.
+8. Review your tool choices and click **Add Tool(s)** to continue.
 
-9\. Click “Learn more” to head to the Device42 information page. 
+    ![Review tool choices](/assets/images/review_add_tool-6.2.png)
 
-![Intializing tool deployment](/assets/images/initializing_deployment-7.png)
+    You will see confirmation that the deployment has been initialized.
 
-10\. From the Device42 information page, click the orange “Try it now, free” button to jump over to the Device42 download page. 
+    ![Initializing tool deployment](/assets/images/initializing_deployment-7.png)
 
-![Learn more to install D42](/assets/images/Install_d42_trial-8.png)
+9. Click **Learn More** to go to the Device42 information page.
 
-11\. Fill out the form and click “Start your Free Trial” to download Device42. Your download should be e-mailed to you immediately. 
+    ![Learn more to install D42](/assets/images/Install_d42_trial-8.png)
 
-![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
+10. From the Device42 information page, click the orange **Try It Now, Free** button to go to the Device42 download page.
 
-For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The [Getting Started with Installation section is a great place to begin! [installation](getstarted/deploy-device42/index.mdx).
+11. Fill out the form and click **Start Your Free Trial** to download Device42. Your download link will be emailed to you.
 
-2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [getstarted/getting-started-with-auto-discovery.mdx](/getstarted/getting-started-with-auto-discovery.mdx).
+    ![Device42 download page](/assets/images/Click_for_D42_Download_FINAL.png)
 
-3\. When you’ve finished with discovery and assessment, you can export your discovered data back to Microsoft Azure. Instructions on exporting can be found here: [applications/business-services/building-business-services-in-device42.md#section-15](apps/business-services/building-business-services-in-device42.mdx#section-15).
+Once Device42 is installed, start discovering your environment:
+
+- For installation help, see the [Getting Started with Installation](/getstarted/deploy-device42) section of the documentation.
+- To begin discovering your environment, see [Getting Started with Discovery](/getstarted/getting-started-with-auto-discovery).
+- To export discovered data back to Microsoft Azure, see [Building Business Services in Device42](/apps/business-services/building-business-services-in-device42).
 
 * * *
 
-## Exporting your Business Apps to Azure for Migration
+## Export Your Business Apps to Azure for Migration
 
-### Register an Azure Active Directory user
+Complete the following steps to register an Azure Active Directory user, collect the required credentials, and export your business applications from Device42.
 
-1\. Login to Azure Portal, and create an "App Registration" in Azure Active Directory. You'll need this user to authenticate to Azure when uploading your export. Create a User:
+### Register an Azure Active Directory User
 
-![Create a new Azure User](/assets/images/register_an_application.png)
+1. Log in to the Azure portal and create an **App Registration** in Azure Active Directory. You will need this user to authenticate to Azure when uploading your export.
 
-2\. Create Client Secret and Save the value for Device42.
+    ![Create a new Azure User](/assets/images/register_an_application.png)
 
-![Create a Client Secret](/assets/images/certificates_and_secrets.png)
+2. Create a client secret and save the value for Device42.
 
-3\. Create a new Migration Project _(if you haven't already; see the prior section on this page)_.
+    ![Create a Client Secret](/assets/images/certificates_and_secrets.png)
 
-![Search for Azure Migrate](/assets/images/search_azure_migrate.png)
+3. Create a new migration project if you haven't already (see the [prior section](#set-up-device42-from-the-azure-migrate-portal) on this page).
 
-4\. Under Subscriptions > Subscription > Access Control (IAM), click "Add" under Add a role assignment.
+    ![Search for Azure Migrate](/assets/images/search_azure_migrate.png)
 
-5\. Select a "Contributor" role and type the name of the app registration in the "Select" text box (in this case, the name of our app was _dev\_device42_).
+4. Under **Subscriptions > Subscription > Access Control (IAM)**, click **Add** under **Add a Role Assignment**.
 
-6\. Select the app registration and Save. This gives the correct permissions to export data from Device42 to Azure.
+5. Select the **Contributor** role and type the name of the app registration in the **Select** text box.
 
-![](/assets/images/Azure-Migrate_Add-Role-Assignment_App-Name.png)
+6. Select the app registration and click **Save**. This grants the correct permissions to export data from Device42 to Azure.
 
-### Collect required information from Azure
+    ![](/assets/images/Azure-Migrate_Add-Role-Assignment_App-Name.png)
 
-**Collect the following information from Azure:**
+### Collect Required Information From Azure
 
-1\. **Tenant ID:** Azure Active Directory -> Properties
+Collect the following information from Azure before exporting:
 
-![Azure Tenant ID](/assets/images/Tenant_ID.png)
+1. **Tenant ID:** **Azure Active Directory > Properties**
 
-2\. **Subscription ID:** Subscriptions
+    ![Azure Tenant ID](/assets/images/Tenant_ID.png)
 
-![Azure Subscription ID](/assets/images/subscription_ID.png)
+2. **Subscription ID:** **Subscriptions**
 
-3\. **Client ID:** Azure Active Directory -> App registrations
+    ![Azure Subscription ID](/assets/images/subscription_ID.png)
 
-![Azure Client ID](/assets/images/Client_ID.png)
+3. **Client ID:** **Azure Active Directory > App Registrations**
 
-4\. **Client Secret:** Saved from app registration creation.
+    ![Azure Client ID](/assets/images/Client_ID.png)
 
-5\. **Migrate Project Name:** The name you chose when creating the project.
+4. **Client Secret:** Saved from app registration creation.
 
-### Export your Business Application(s) from Device42
+5. **Migrate Project Name:** The name you chose when creating the project.
 
-1\. Login to Device42 and go to Business Apps. Select one or more Business App(s) to export by checking the check-boxes next to them, and Choose ‘Create Migration for Selected Objects’.
+### Export Your Business Applications From Device42
 
-![Select business apps to export](/assets/images/Business_app_selection.png)
+1. Log in to Device42 and go to **Business Apps**. Select one or more business apps to export by checking the checkboxes next to them, then choose **Create Migration for Selected Objects**.
 
-2\. Select ‘Azure’ as your _Target_ from the drop-down.
+    ![Select business apps to export](/assets/images/Business_app_selection.png)
 
-![Export to Azure selection](/assets/images/Export_Business_Apps.png)
+2. Select **Azure** as your target from the dropdown.
 
-3\. Enter Migrate Project information from Azure collected in the last step.
+    ![Export to Azure selection](/assets/images/Export_Business_Apps.png)
 
-![Enter collected Azure prjoect details](/assets/images/Enter_project_Details.png)
+3. Enter the migration project information collected in the previous step.
 
-4\. Click Export. Go back to the Azure Migrate Hub, and click 'Refresh.' You should now see your exported data in Azure!
+    ![Enter collected Azure project details](/assets/images/Enter_project_Details.png)
 
-![Refresh the Azure Migrate Hub window](/assets/images/Azure_Hub_REFRESH.png)
+4. Click **Export**. Go back to the Azure Migrate Hub and click **Refresh**. Your exported data should now be visible in Azure.
 
-## Reviewing your Device42 exports in Azure Migrate
+    ![Refresh the Azure Migrate Hub window](/assets/images/Azure_Hub_REFRESH.png)
 
-After exporting your Business Applications from Device42 _(__as explained in the prior section)_ to the Azure Migrate portal, log back into the Azure Migrate portal, or refresh if you are already logged in. You should see something similar to the following example _(but with your data, of course)_.
+## Review Your Device42 Exports in Azure Migrate
+
+After exporting your business applications to the Azure Migrate portal, log back in (or refresh if already logged in). You should see your data displayed similarly to the following examples.
 
 ![Device42 Assessment details in Azure Example](/assets/images/Assessment_details_1.png)
 
@@ -137,4 +143,4 @@ After exporting your Business Applications from Device42 _(__as explained in the
 
 ![Device42 Assessment details in Azure Example](/assets/images/Assessment_details_3.png)
 
-**If you need help with steps or processes discussed on this page and haven't found the answer here, please don’t hesitate to reach out to [support@device42.com](mailto:support@device42.com)!**
+Contact [support@device42.com](mailto:support@device42.com) if you need help with any steps on this page.

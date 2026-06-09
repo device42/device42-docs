@@ -6,11 +6,9 @@ sidebar_position: 23
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Use the PagerDuty integration to notify on-call responders when an alert is triggered in Device42. PagerDuty allows you to set up escalation profiles to ensure a response to critical IT events if the designated on-call staff do not respond in time. 
+The PagerDuty integration notifies on-call responders when an alert is triggered in Device42. PagerDuty lets you set up escalation profiles to ensure a response to critical IT events if the designated on-call staff do not respond in time.
 
-Connect your Device42 CMDB using the Device42 integration in PagerDuty, then configure an alert in Device42 to log an incident in PagerDuty when a violating condition is met.
-
-This guide walks you through creating a PagerDuty Service, setting up the integration and alert in Device42, testing the integration, and uninstalling the integration in PagerDuty and Device42.
+This page walks you through creating a PagerDuty Service, setting up the integration and alert in Device42, testing the integration, and uninstalling the integration.
 
 ## Alert Types
 
@@ -63,7 +61,7 @@ When a Device42 metric falls outside of a designated range or meets a given crit
 
 ## Support
 
-If you need help with this integration, please contact **Device42 Support** using any of our listed contact methods.
+If you need help with this integration, contact **Device42 Support** using any of the following:
 
 - **Hours of Operation:** Monday-Friday, 9 am–6 pm EST
 - **Phone:** 1 (844) 424-2422
@@ -72,18 +70,16 @@ If you need help with this integration, please contact **Device42 Support** usin
 
 ## PagerDuty Configuration
 
-You need a new or existing PagerDuty Service to add the Device42 integration to. 
-
-The Device42 integration in PagerDuty will generate a key that you'll use in Device42's External Integration.
+You need a new or existing PagerDuty Service to add the Device42 integration to. The Device42 integration in PagerDuty generates a key that you'll use in Device42's External Integration.
 
 ### Create a New Service with Integration
 
 To create a new service, go to **Services > Service Directory** and click the **+ New Service** button.
 
-Follow the guided setup until you reach the [fourth **Integration** step](#select-the-device42-integration). 
+Follow the guided setup until you reach the [fourth **Integration** step](#select-the-device42-integration).
 
 :::tip
-Please refer to PagerDuty's [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) docs page for details on the service options.
+Refer to PagerDuty's [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) page for details on the service options.
 :::
 
 ![Create a PagerDuty Service](/assets/images/pagerduty-integration/pagerduty-create-service.png)
@@ -108,11 +104,11 @@ An **Integration Key** will be generated. Keep this key saved in a safe place,
 
 ## Device42 Configuration
 
-The Device42 setup includes configuring your [Cloud Services](/integration/external-integrations/cloud-services-settings.mdx) (if you haven't already), an [External Integration](#create-an-external-integration), and an [Alert](#configure-an-alert). To ensure that the integration is working as expected, you can manually trigger the alert condition as described below under [Test the Integration](#test-the-integration).
+The Device42 setup includes configuring your [Cloud Services](/integration/external-integrations/cloud-services-settings) (if you haven't already), an [External Integration](#create-the-pagerduty-external-integration), and an [Alert](#configure-an-alert). To verify that the integration is working, you can manually trigger the alert condition as described under [Test the Integration](#test-the-integration).
 
 ### Configure Cloud Services
 
-The [Cloud Connector](/integration/external-integrations/device42-cloud-connector-overview.mdx) provides a secure and reliable way to route external integration communication. 
+The [Cloud Connector](/integration/external-integrations/device42-cloud-connector-overview) provides a secure and reliable way to route external integration communication.
 
 - From the Device42 Dashboard, go to **Tools > Integrations > Cloud Services** and click **Edit** at the top right of the page.
 - Enter your Device42 instance URL in the **D42 URL for SaaS apps** field, for example, `https://192.168.92.130/`.
@@ -190,7 +186,7 @@ To test that the condition triggers the alert as expected, designate a Software 
   }}
 />
 
-Next, manually associate (without running a discovery job) the prohibited software with a device. You can do this in multiple ways, such as by creating a new Software In Use record or a new device with the prohibited software. In this example, we'll edit an existing device to include the prohibited software:
+Next, manually associate the prohibited software with a device (without running a discovery job). You can do this in multiple ways, such as by creating a new Software In Use record or a new device with the prohibited software. This example edits an existing device to include the prohibited software:
 
 - Go to **Resources > Compute > All Devices** and select a device.
 - Click **Edit** and scroll down to **Software In Use**.
@@ -215,7 +211,7 @@ You can view incident details in PagerDuty.
 
 Remember to undo the changes you made in Device42 when testing the instance: Change the prohibited software type on the Software Component you used and remove the Software In Use entry from the device.
 
-## How to Uninstall the Integration
+## Uninstall the Integration
 
 To uninstall the integration, delete the Device42 integration in PagerDuty or disable its associated service. Then, in Device42, delete the External Integration.
 
@@ -224,7 +220,7 @@ To uninstall the integration, delete the Device42 integration in PagerDuty or di
 In PagerDuty, navigate to **Services > Service Directory** and click on the service with the Device42 integration:
 
 - Go to the **Integrations** tab and click the black **gear icon**.
-- Select **Delete Integration**
+- Select **Delete Integration**.
 - Confirm the deletion when prompted.
 
 ![Delete Device42 integration](/assets/images/pagerduty-integration/pagerduty-delete-integration.png)

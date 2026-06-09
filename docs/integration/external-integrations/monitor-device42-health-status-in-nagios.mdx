@@ -3,16 +3,18 @@ title: "Nagios Integration"
 sidebar_position: 19
 ---
 
-Device42 offers a [Nagios plugin for Device42](https://github.com/device42/Device42-Nagios-Health-Check). It is available for download via Github, and allows easy monitoring of the health status of your Device42 appliance. Data returned includes:
+The Device42 Nagios plugin lets you monitor the health status of your Device42 appliance from within Nagios. This page covers how to install and configure the plugin, add Device42 to Nagios, and view health status data.
 
-- Device42 Database Size
-- Appliance Disk space usage
+The plugin is [available on GitHub](https://github.com/device42/Device42-Nagios-Health-Check) and returns the following data:
+
+- Device42 database size
+- Appliance disk space usage
 - Memory usage
 - CPU usage
 
-## Install the Nagios Add-On
+## Install the Nagios Plugin
 
-Prior to installing the plugin, there are a couple prerequisites we should make sure are installed.
+Before installing the plugin, ensure the following prerequisites are installed.
 
 On Ubuntu:
 
@@ -20,48 +22,48 @@ On Ubuntu:
 apt-get install libnagios-plugin-perl libjson-perl libwww-perl
 ```
 
-On Redhat:
+On Red Hat:
 
 ```
 yum install perl-JSON.noarch perl-Nagios-Plugin.noarch
 ```
 
-To install the Nagios plugin, clone the repository to your nagios server, e.g.:
+To install the plugin, clone the repository to your Nagios server:
 
 ```
 git clone https://www.github.com/device42/nagios
 ```
 
-Copy the check\_d42\_health.pl file to your Nagios plugin directory:
+Copy the `check_d42_health.pl` file to your Nagios plugin directory:
 
 ```
 cp check_d42_health.pl /usr/local/nagios/libexec/
 ```
 
-And make it executable:
+Make it executable:
 
 ```
 chmod +x /usr/local/nagios/libexec/check_d42_health.pl
 ```
 
-Next, copy the d42.cfg file to your Nagios configuration path, (e.g. /usr/local/nagios/etc/objects):
+Copy the `d42.cfg` file to your Nagios configuration path (for example, `/usr/local/nagios/etc/objects`):
 
 ```
 cp d42.cfg /usr/local/nagios/etc/objects
 ```
 
-Edit d42.cfg in your favorite editor and customize the following lines, starting on line 30:
+Edit `d42.cfg` and customize the following lines, starting on line 30:
 
 ```
 define host{
-  host_name           device42 # if you edit the hostname, be sure to edit the hostname in the services defined as well
-  alias               device42
-  address               192.168.11.211
+  host_name  device42 # if you edit the hostname, be sure to edit the hostname in the services defined as well
+  alias      device42
+  address    192.168.11.211
 ```
 
 ### Use SSL with the Integration
 
-To enable checking over SSL, in the Health Check Command section of d42.cfg, add the port number with the -P option and --ssl to enable ssl, e.g:
+To enable checking over SSL, add the port number with the `-P` option and `--ssl` in the Health Check Command section of `d42.cfg`:
 
 ```
 command_line    /usr/bin/perl $USER1$/check_d42_health.pl -H $HOSTADDRESS$ -I $ARG1$ -w $ARG2$ -c $ARG3$ -P 4343 --ssl
@@ -69,31 +71,29 @@ command_line    /usr/bin/perl $USER1$/check_d42_health.pl -H $HOSTADDRESS$ -I $A
 
 ## Add Device42 to Nagios
 
-With the scripts in place and configured, the last step is to edit your nagios.cfg file and add a line to add the Device42 configuration:
+With the scripts in place and configured, edit your `nagios.cfg` file and add a line to include the Device42 configuration:
 
 ```
 cfg_file=/usr/local/nagios/etc/objects/d42.cfg
 ```
 
-Be sure to change the path to reflect where you've place the d42.cfg file.
-
-After this, restart Nagios:
+Update the path to match where you placed the `d42.cfg` file, then restart Nagios:
 
 ```
 service nagios restart
 ```
 
-Now when you browse to Nagios, you should see your Device42 instance start to report information:
+After restarting, browse to Nagios to see your Device42 instance reporting health information.
 
-## View Device42's Health Status in Nagios
+## View Device42 Health Status in Nagios
 
-When you select the Device42 host from Nagios, you will now be able to see the appliance's current status via the various health checks:
+When you select the Device42 host from Nagios, you can see the appliance's current status via the various health checks:
 
 ![Device42 Health Status in Nagios](/assets/images/2016-03-26-Nagios-01.png)
 
-The Backup Status will report an error if any one of your backup jobs has failed. The Free disk space, memory, and swap statuses have thresholds that can be set in d42.cfg. When setting the thresholds “50” will trigger the flag if the value is greater than 50 while “50:” will trigger the flag if the value is less than 50.
+Backup Status reports an error if any backup job has failed. The free disk space, memory, and swap statuses have thresholds that can be set in `d42.cfg`. A threshold of `50` triggers the flag if the value is greater than 50, while `50:` triggers the flag if the value is less than 50.
 
-The following are suggested 'sane' thresholds for the default Device42 disk size and default allotted memory. Note if your appliance is using difference settings, you'll want to configure these appropriately: 50GB HDD, and 4GB RAM:
+The following are suggested thresholds for the default Device42 disk size (50 GB HDD) and default allotted memory (4 GB RAM). If your appliance uses different settings, configure these values accordingly:
 
 * * *
 
@@ -113,8 +113,8 @@ The following are suggested 'sane' thresholds for the default Device42 disk size
 
 ![Device42 Trending Stats](/assets/images/2016-03-26-Nagios-02.png)
 
-You can also view the trending data for any health stat by clicking the service and then "View Trending Data for this Service"
+You can view trending data for any health stat by clicking the service and then **View Trending Data for this Service**.
 
 ![Device42 Health Log](/assets/images/2016-03-26-Nagios-03.png)
 
-A log of all statuses is available for the host by clicking "View Notifications for this Host".
+A log of all statuses is available for the host by clicking **View Notifications for this Host**.
