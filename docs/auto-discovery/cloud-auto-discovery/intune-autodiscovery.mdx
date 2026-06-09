@@ -126,6 +126,18 @@ After clicking **Save**, the job details page is displayed. Click **Run Now** to
 
 Intune OS data has lower precedence than data from more authoritative sources, like OS-level discovery. For example, the Device42 agent will pick up "Microsoft Windows 10 Enterprise" more quickly than the generic Intune name "Windows". The lower precedence ensures more detailed OS names are collected, enhancing the data-filtering capability of the agent.
 
+## Intune BIOS Version
+
+Intune discovery maps the System Management BIOS version (the `systemManagementBIOSVersion` value from Intune) to the **Version** field in the **BIOS Info** section of the device detail view.
+
+<ThemedImage
+  alt="BIOS Info section on the device detail view"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/bios-info-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/bios-info-dark.png'),
+  }}
+/>
+
 ## Rename Intune Devices
 
 Devices within Intune are renamed during the build process. If a device name is not updated as expected following Device42 discovery, or after being renamed and updated in Intune, ensure the **Overwrite existing device hostname with discovered hostname** option is enabled.
