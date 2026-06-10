@@ -7,8 +7,40 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
 :::caution
-We are primarily invested in **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)** and encourage customers to use those first.
+Advanced Reporting will be removed from the product in a future release. Device42 is in the process of adding all of its capabilities to **[Standard Reports](standard-reports.mdx)** and **[Insights+](insights-plus.mdx)**, so no reporting capabilities will be lost. Use those features for any new reports.
 :::
+
+## Hide the Advanced Reporting Menu
+
+This setting is for on-premise installations only.
+
+You can hide the **Advanced Reporting** menu for all users of your instance, even when the feature is enabled by your license. This lets you direct users to [Standard Reports](standard-reports.mdx) and [Insights+](insights-plus.mdx) instead.
+
+Navigate to **Tools > Settings > Global Settings** and select the **Hide Advanced Reporting** option. The menu is shown by default.
+
+<ThemedImage
+  alt="Hide Advanced Reporting setting"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/hide-advanced-reporting-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/hide-advanced-reporting-dark.png'),
+  }}
+/>
+
+After you select this option, going to **Analytics > Reports > Advanced Reporting** initially displays a reporting-disabled notice. The **Advanced Reporting** menu item is then removed.
+
+<ThemedImage
+  alt="Reporting disabled notice"
+  sources={{
+    light: useBaseUrl('/assets/images/advanced-reporting/reporting-disabled-notice-light.png'),
+    dark: useBaseUrl('/assets/images/advanced-reporting/reporting-disabled-notice-dark.png'),
+  }}
+/>
+
+### Toggle Advanced Reporting in the Appliance Manager
+
+You can also enable and disable Advanced Reporting from the the Appliance Manager under **Application > Exago Reports**.
+
+![Exago Reports settings](/assets/images/advanced-reporting/exago-reports.png)
 
 ## Advanced Reporting Engine Overview
 
