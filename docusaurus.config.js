@@ -23,6 +23,8 @@ const config = {
       src: 'https://docs-feedback.ritza.co/static/widget.js',
       defer: true,
       'data-site': '7594492c91e22d9f',
+      // The navbar "Feedback" item is the trigger; no floating button.
+      'data-button': 'none',
     },
     {
       src: 'https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js',
@@ -1308,15 +1310,12 @@ const config = {
             label: 'Company',
             position: 'right',
           },
-          // Temporarily disabled: Feedback Rocket "Page feedback" button
-          // {
-          //   type: 'html',
-          //   position: 'right', value:
-          //     `<a href=# class=navbar__button data-fr-widget>
-          //       Page feedback
-          //     </a>`,
-          //
-          // },
+          {
+            type: 'html',
+            position: 'right',
+            className: 'navbar-feedback-item',
+            value: `<a href="#" class="navbar__button" data-docs-feedback>Feedback</a>`,
+          },
          ],
       },
       prism: {
