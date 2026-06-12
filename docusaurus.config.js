@@ -17,16 +17,13 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
 
-  // Load the Feedback Rocket SDK on every page
   scripts: [
-    // Temporarily disabled: Feedback Rocket SDK
-    // {
-    //   async: true,
-    //   src: 'https://www.feedbackrocket.io/sdk/v1.1.js',
-    //   'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
-    //   'data-fr-reply': "",
-    //   'data-fr-theme': 'dynamic',
-    // },
+    // Docs feedback widget — submissions viewable at https://docs-feedback.ritza.co
+    {
+      src: 'https://docs-feedback.ritza.co/static/widget.js',
+      defer: true,
+      'data-site': '7594492c91e22d9f',
+    },
     {
       src: 'https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js',
       'data-domain-script': '018fa3d5-077b-79ba-acca-d22007888127',
