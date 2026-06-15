@@ -17,16 +17,15 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
 
-  // Load the Feedback Rocket SDK on every page
   scripts: [
-    // Temporarily disabled: Feedback Rocket SDK
-    // {
-    //   async: true,
-    //   src: 'https://www.feedbackrocket.io/sdk/v1.1.js',
-    //   'data-fr-id': 'ZGuyxqZHGoYVrmt3nYmF2',
-    //   'data-fr-reply': "",
-    //   'data-fr-theme': 'dynamic',
-    // },
+    // Docs feedback widget — submissions viewable at https://docs-feedback.ritza.co
+    {
+      src: 'https://docs-feedback.ritza.co/static/widget.js',
+      defer: true,
+      'data-site': '7594492c91e22d9f',
+      // The navbar "Feedback" item is the trigger; no floating button.
+      'data-button': 'none',
+    },
     {
       src: 'https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js',
       'data-domain-script': '018fa3d5-077b-79ba-acca-d22007888127',
@@ -1311,15 +1310,12 @@ const config = {
             label: 'Company',
             position: 'right',
           },
-          // Temporarily disabled: Feedback Rocket "Page feedback" button
-          // {
-          //   type: 'html',
-          //   position: 'right', value:
-          //     `<a href=# class=navbar__button data-fr-widget>
-          //       Page feedback
-          //     </a>`,
-          //
-          // },
+          {
+            type: 'html',
+            position: 'right',
+            className: 'navbar-feedback-item',
+            value: `<a href="#" class="navbar__button" data-docs-feedback>Feedback</a>`,
+          },
          ],
       },
       prism: {
