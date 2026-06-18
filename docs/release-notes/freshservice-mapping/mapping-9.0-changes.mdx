@@ -7,7 +7,11 @@ The following changes to the `mapping.xml` file are part of the Cloud Connector 
 
 If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
 
-## CPU Core Calculation Updated in Devices Tasks
+## Devices Tasks
+
+The DOQL v2 `Devices` tasks that copy servers from Device42 to Freshservice received two changes to the `doql` attribute of their `<resource>` elements.
+
+### CPU Core Calculation Updated
 
 The `total_cpucore` calculation no longer multiplies by `threads_per_core`. This change was applied to both DOQL v2 `Devices` tasks.
 
@@ -35,7 +39,7 @@ To the following:
 view_device_v2.core_per_cpu * view_device_v2.total_cpus as total_cpucore,
 ```
 
-## MDM Device Flag Added to Devices Task
+### MDM Device Flag Added
 
 A new `is_mdm_device` expression was added to the `doql` attribute of the `<resource>` element in this task:
 
@@ -61,7 +65,7 @@ EXISTS(
 
 </details>
 
-## Azure Disk Task Name Corrected
+## Azure Disk Task
 
 The `name` attribute of this task was changed from `D42 Azure Disk to Freshservice Azure Security Group` to `D42 Azure Disk to Freshservice Azure Disk`.
 
@@ -69,7 +73,7 @@ The `name` attribute of this task was changed from `D42 Azure Disk to Freshservi
 <task enable="true" name="D42 Azure Disk to Freshservice Azure Security Group" type="asset" description="Copy Azure Disk from Device42 to Freshservice" d42_min_version="19.04.00">
 ```
 
-## AWS K8s Cron Job Task Name Corrected
+## AWS K8s Cron Job Task
 
 The `name` attribute of this task was changed from `D42 AWS K8s Job to Freshservice AWS K8s Cron Job` to `D42 AWS K8s Cron Job to Freshservice AWS K8s Cron Job`.
 
@@ -151,11 +155,11 @@ WHERE ip.is_public = true
 
 </details>
 
-## Description Attributes Added to Field Mappings
+## Field Mapping Descriptions
 
 For tasks that create or update assets, components, software, or contracts, `resource-description` and `target-description` attributes were added to mapping `<field>` elements. To some `<field>` elements, `resource-description-manual` and `target-description-manual` attributes were also added.
 
-## Application Group Relationship Tasks Replaced
+## Application Group Relationship Tasks
 
 The topology-based device-to-device relationship task was replaced with application-group-based tasks.
 
