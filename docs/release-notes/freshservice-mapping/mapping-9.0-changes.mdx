@@ -1,0 +1,452 @@
+---
+title: "Changes in Version 9.0 (CC 5.5.0)"
+sidebar_position: 1
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.5.0 release (CC 5.5.0).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## CPU Core Calculation Updated in Devices Tasks
+
+The `total_cpucore` calculation no longer multiplies by `threads_per_core`. This change was applied to both DOQL v2 `Devices` tasks.
+
+The `doql` attribute of the `<resource>` element in this task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.04.00">
+```
+
+And this task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+```
+
+Was changed from:
+
+```sql
+view_device_v2.core_per_cpu * view_device_v2.total_cpus * coalesce(view_device_v2.threads_per_core, 1) as total_cpucore,
+```
+
+To the following:
+
+```sql
+view_device_v2.core_per_cpu * view_device_v2.total_cpus as total_cpucore,
+```
+
+## MDM Device Flag Added to Devices Task
+
+A new `is_mdm_device` expression was added to the `doql` attribute of the `<resource>` element in this task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.04.00">
+```
+
+The following was added:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+EXISTS(
+    SELECT 1
+    FROM view_discoveryscores_v1 ds
+    JOIN view_jobscore_v2 js ON ds.jobscore_fk = js.jobscore_pk
+    JOIN view_clouddiscovery_v1 cd ON js.clouddiscovery_fk = cd.clouddiscovery_pk
+    WHERE ds.device_fk = view_device_v2.device_pk
+      AND cd.cloud_type_id IN (14, 16)
+) AS is_mdm_device,
+```
+
+</details>
+
+## Azure Disk Task Name Corrected
+
+The `name` attribute of this task was changed from `D42 Azure Disk to Freshservice Azure Security Group` to `D42 Azure Disk to Freshservice Azure Disk`.
+
+```xml
+<task enable="true" name="D42 Azure Disk to Freshservice Azure Security Group" type="asset" description="Copy Azure Disk from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+## AWS K8s Cron Job Task Name Corrected
+
+The `name` attribute of this task was changed from `D42 AWS K8s Job to Freshservice AWS K8s Cron Job` to `D42 AWS K8s Cron Job to Freshservice AWS K8s Cron Job`.
+
+```xml
+<task enable="true" name="D42 AWS K8s Job to Freshservice AWS K8s Cron Job" type="asset" description="Copy AWS K8s Cron Job from Device42 to Freshservice" d42_min_version="19.04.10">
+```
+
+## GCP Network Interface to GCP Public IP Task
+
+The DOQL query was refactored to use CTEs within this `Create Relationship from GCP Network Interface to GCP Public IP` task:
+
+```xml
+<task enable="true" name="GCP Network Interface to GCP Public IP" type="asset_relationship" description="Create Relationship from GCP Network Interface to GCP Public IP" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+    coalesce(NULLIF(network.vendor_custom_fields -> 'Name', ''), network.port)   AS network_name,
+    format('Netport-%s', network.netport_pk)                         AS network_device42_id,
+    ip.details ->> 'name'                                            AS ip_name,
+    format('IP-%s', ip.ipaddress_pk)                                AS ip_device42_id
+FROM
+    view_ipaddress_v2 ip
+INNER JOIN
+    view_netport_v1 network ON network.port = ip.details ->> 'port'
+    AND  network.details ->> 'nat_ip' = host(ip.ip_address)
+LEFT JOIN
+    view_cloudinfrastructure_v2 infra ON network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN
+    view_vendor_v1 vendor ON infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE
+    ip.is_public = true
+    AND infra.account_id is not null
+    AND vendor.name = 'Google'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH google_infra AS (
+    SELECT infra.cloudinfrastructure_pk
+    FROM view_cloudinfrastructure_v2 infra
+    INNER JOIN view_vendor_v1 vendor
+        ON infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE vendor.name = 'Google'
+      AND infra.account_id IS NOT NULL
+),
+google_networks AS (
+    SELECT
+        network.port,
+        network.netport_pk,
+        network.vendor_custom_fields,
+        network.details
+    FROM view_netport_v1 network
+    INNER JOIN google_infra
+        ON network.cloudinfrastructure_fk = google_infra.cloudinfrastructure_pk
+)
+SELECT
+    coalesce(NULLIF(gn.vendor_custom_fields -> 'Name', ''), gn.port) AS network_name,
+    format('Netport-%s', gn.netport_pk)                              AS network_device42_id,
+    ip.details ->> 'name'                                            AS ip_name,
+    format('IP-%s', ip.ipaddress_pk)                                 AS ip_device42_id
+FROM view_ipaddress_v2 ip
+INNER JOIN google_networks gn
+    ON gn.port = ip.details ->> 'port'
+    AND gn.details ->> 'nat_ip' = host(ip.ip_address)
+WHERE ip.is_public = true
+```
+
+</details>
+
+## Description Attributes Added to Field Mappings
+
+For tasks that create or update assets, components, software, or contracts, `resource-description` and `target-description` attributes were added to mapping `<field>` elements. To some `<field>` elements, `resource-description-manual` and `target-description-manual` attributes were also added.
+
+## Application Group Relationship Tasks Replaced
+
+The topology-based device-to-device relationship task was replaced with application-group-based tasks.
+
+The following task was deleted:
+
+```xml
+<task enable="true" name="Topology Device To Device Relationships" type="asset_relationship" description="Create Relationship from Service Communication">
+```
+
+The following two tasks were added:
+
+```xml
+<task enable="true" name="Application Group Device To Device Relationships" type="asset_relationship" description="Create Relationship from Application Groups" d42_max_version="19.04.99">
+<task enable="true" name="Application Group Device To Device Relationships" type="asset_relationship" description="Create Relationship from Application Groups" d42_min_version="19.05.00">
+```
+
+## Delete Asset Relationships Tasks
+
+The DOQL queries in the `Delete asset relationships from Freshservice that do not exist in Device42` tasks were updated to derive device-to-device relationships from device affinity and application groups instead of service communication.
+
+### Delete Asset Relationships (Device42 Up to 19.04.99)
+
+Regarding this `Delete asset relationships from Freshservice that do not exist in Device42` task:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_max_version="19.04.99">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH unique_pairs AS MATERIALIZED (
+    SELECT DISTINCT client_device_fk, listener_device_fk
+    FROM   view_servicecommunication_v2
+    WHERE  last_updated >= NOW() - interval '30 days'
+    AND    client_device_fk IS NOT NULL
+    AND    listener_device_fk IS NOT NULL
+    AND    client_device_fk <> listener_device_fk
+ )
+ SELECT d1.name                                         AS dependent_device_name,
+       format('Device-%s', up.client_device_fk)        AS dependent_device_device42_id,
+       'Connected to'                                  AS downstream_relationship,
+       d2.name                                         AS dependency_device_name,
+       format('Device-%s', up.listener_device_fk)      AS dependency_device_device42_id,
+       'Connected to'                                  AS upstream_relationship
+ FROM   unique_pairs up
+ INNER JOIN view_device_v1 d1
+       ON d1.device_pk = up.client_device_fk
+ INNER JOIN view_device_v1 d2
+       ON d2.device_pk = up.listener_device_fk
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT DISTINCT
+       d1.name                                         AS dependent_device_name,
+       format('Device-%s', df1.dependent_device_fk)    AS dependent_device_device42_id,
+       'Connected to'                                  AS downstream_relationship,
+       d2.name                                         AS dependency_device_name,
+       format('Device-%s', df1.dependency_device_fk)   AS dependency_device_device42_id,
+       'Connected to'                                  AS upstream_relationship
+ FROM   view_deviceaffinity_v2 df1
+ INNER JOIN view_device_v1 d1
+       ON d1.device_pk = df1.dependent_device_fk
+ INNER JOIN view_device_v1 d2
+       ON d2.device_pk = df1.dependency_device_fk
+ WHERE  df1.dependent_device_fk IS NOT NULL
+ AND    df1.dependent_device_fk <> df1.dependency_device_fk
+ AND    df1.effective_to IS NULL
+```
+
+</details>
+
+### Delete Asset Relationships (Device42 19.05.00 and Later)
+
+Regarding this `Delete asset relationships from Freshservice that do not exist in Device42` task:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH unique_pairs AS MATERIALIZED (
+    SELECT DISTINCT client_device_fk, listener_device_fk
+    FROM   view_servicecommunication_v2
+    WHERE  last_updated >= NOW() - interval '30 days'
+    AND    client_device_fk IS NOT NULL
+    AND    listener_device_fk IS NOT NULL
+    AND    client_device_fk <> listener_device_fk
+ )
+ SELECT d1.name                                         AS dependent_device_name,
+       format('Device-%s', up.client_device_fk)        AS dependent_device_device42_id,
+       'Connected to'                                  AS downstream_relationship,
+       d2.name                                         AS dependency_device_name,
+       format('Device-%s', up.listener_device_fk)      AS dependency_device_device42_id,
+       'Connected to'                                  AS upstream_relationship
+ FROM   unique_pairs up
+ INNER JOIN view_device_v1 d1
+       ON d1.device_pk = up.client_device_fk
+ INNER JOIN view_device_v1 d2
+       ON d2.device_pk = up.listener_device_fk
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH RECURSIVE
+     allrels AS (
+         SELECT
+             rel.applicationgrouprelationship_pk AS rel_id,
+             rel.is_dependency,
+             from_ci.applicationgroupconfigitem_pk AS from_ci_id,
+             from_ci.configitem_type AS from_ci_type,
+             from_ci.device_fk AS from_device_fk,
+             fp.applicationgroupconfigitem_pk AS from_parent_ci_id,
+             fp.configitem_type AS from_parent_ci_type,
+             fp.device_fk AS from_parent_device_fk,
+             to_ci.applicationgroupconfigitem_pk AS to_ci_id,
+             to_ci.configitem_type AS to_ci_type,
+             to_ci.device_fk AS to_device_fk,
+             tp.applicationgroupconfigitem_pk AS to_parent_ci_id,
+             tp.configitem_type AS to_parent_ci_type,
+             tp.device_fk AS to_parent_device_fk
+         FROM view_applicationgrouprelationship_v2 rel
+         JOIN view_applicationgroup_v2 ag
+             ON ag.applicationgroup_pk = rel.applicationgroup_fk AND ag.status_id = 1
+         JOIN view_applicationgroupconfigitem_v2 from_ci
+             ON from_ci.applicationgroupconfigitem_pk = rel.from_applicationgroupconfigitem_fk
+         LEFT JOIN view_applicationgroupconfigitem_v2 fp
+             ON fp.applicationgroupconfigitem_pk = from_ci.parent_applicationgroupconfigitem_fk
+         JOIN view_applicationgroupconfigitem_v2 to_ci
+             ON to_ci.applicationgroupconfigitem_pk = rel.to_applicationgroupconfigitem_fk
+         LEFT JOIN view_applicationgroupconfigitem_v2 tp
+             ON tp.applicationgroupconfigitem_pk = to_ci.parent_applicationgroupconfigitem_fk
+         WHERE rel.effective_to IS NULL
+     ),
+     global_nonapp_device_rels AS (
+         SELECT DISTINCT ON (
+             COALESCE(from_parent_ci_id, from_ci_id),
+             COALESCE(to_parent_ci_id, to_ci_id),
+             is_dependency
+         )
+             COALESCE(from_parent_ci_id, from_ci_id) AS from_ci_id,
+             COALESCE(from_parent_device_fk, from_device_fk) AS from_device_fk,
+             COALESCE(to_parent_ci_id, to_ci_id) AS to_ci_id,
+             COALESCE(to_parent_device_fk, to_device_fk) AS to_device_fk,
+             is_dependency
+         FROM allrels
+         WHERE (is_dependency = true OR to_ci_type <> 'appcomp')
+           AND COALESCE(from_parent_ci_type, from_ci_type) = 'device'
+           AND COALESCE(to_parent_ci_type, to_ci_type) = 'device'
+           AND COALESCE(from_parent_ci_id, from_ci_id)
+            <> COALESCE(to_parent_ci_id, to_ci_id)
+     ),
+     all_appcomp_rels AS (
+         SELECT * FROM allrels
+         WHERE is_dependency = false AND to_ci_type = 'appcomp'
+     ),
+     appcomp_chain AS (
+         SELECT
+             aar.rel_id,
+             ARRAY[aar.rel_id] AS path_ids,
+             aar.is_dependency,
+             aar.from_ci_id, aar.from_ci_type, aar.from_device_fk,
+             aar.from_parent_ci_id, aar.from_parent_ci_type, aar.from_parent_device_fk,
+             aar.to_ci_id, aar.to_ci_type, aar.to_device_fk,
+             aar.to_parent_ci_id, aar.to_parent_ci_type, aar.to_parent_device_fk,
+             (aar.from_ci_type = 'appcomp' AND aar.to_ci_type = 'appcomp') AS app_to_app,
+             (aar.to_parent_ci_id IS NOT NULL) AS stop_chain
+         FROM all_appcomp_rels aar
+         UNION ALL
+         SELECT
+             ac.rel_id,
+             ac.path_ids || dep.rel_id,
+             CASE WHEN ac.from_ci_type <> 'appcomp' AND dep.from_ci_type <> 'appcomp'
+                  THEN true ELSE ac.is_dependency END,
+             ac.from_ci_id, ac.from_ci_type, ac.from_device_fk,
+             ac.from_parent_ci_id, ac.from_parent_ci_type, ac.from_parent_device_fk,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_ci_id ELSE dep.to_ci_id END,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_ci_type ELSE dep.to_ci_type END,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_device_fk ELSE dep.to_device_fk END,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_parent_ci_id ELSE dep.to_parent_ci_id END,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_parent_ci_type ELSE dep.to_parent_ci_type END,
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN dep.from_parent_device_fk ELSE dep.to_parent_device_fk END,
+             ac.app_to_app OR (dep.from_ci_type = 'appcomp' AND dep.to_ci_type = 'appcomp'),
+             CASE WHEN ac.app_to_app AND dep.from_ci_type <> 'appcomp' THEN true
+                  WHEN dep.to_parent_ci_id IS NOT NULL THEN true
+                  ELSE false END
+         FROM all_appcomp_rels dep, appcomp_chain ac
+         WHERE NOT ac.stop_chain
+           AND NOT dep.rel_id = ANY(ac.path_ids)
+           AND (
+               (dep.from_ci_type = 'appcomp' AND dep.to_ci_type = 'appcomp' AND dep.from_ci_id = ac.to_ci_id)
+               OR (ac.app_to_app AND dep.to_ci_id = ac.to_ci_id AND dep.from_ci_type <> 'appcomp')
+           )
+     ),
+     appcomp_chain_device_rels AS (
+         SELECT DISTINCT ON (
+             COALESCE(from_parent_ci_id, from_ci_id),
+             COALESCE(to_parent_ci_id, to_ci_id)
+         )
+             COALESCE(from_parent_ci_id, from_ci_id) AS from_ci_id,
+             COALESCE(from_parent_device_fk, from_device_fk) AS from_device_fk,
+             COALESCE(to_parent_ci_id, to_ci_id) AS to_ci_id,
+             COALESCE(to_parent_device_fk, to_device_fk) AS to_device_fk,
+             is_dependency
+         FROM appcomp_chain
+         WHERE from_ci_id <> to_ci_id
+           AND COALESCE(from_parent_ci_type, from_ci_type) = 'device'
+           AND COALESCE(to_parent_ci_type, to_ci_type) = 'device'
+           AND COALESCE(from_parent_ci_id, from_ci_id)
+            <> COALESCE(to_parent_ci_id, to_ci_id)
+     ),
+     appcomp_internal_device_rels AS (
+         SELECT DISTINCT ON (
+             COALESCE(dep.from_parent_ci_id, dep.from_ci_id),
+             COALESCE(aar.from_parent_ci_id, aar.from_ci_id)
+         )
+             COALESCE(dep.from_parent_ci_id, dep.from_ci_id) AS from_ci_id,
+             COALESCE(dep.from_parent_device_fk, dep.from_device_fk) AS from_device_fk,
+             COALESCE(aar.from_parent_ci_id, aar.from_ci_id) AS to_ci_id,
+             COALESCE(aar.from_parent_device_fk, aar.from_device_fk) AS to_device_fk,
+             false AS is_dependency
+         FROM all_appcomp_rels aar
+         JOIN all_appcomp_rels dep ON aar.to_ci_id = dep.to_ci_id
+         WHERE aar.from_ci_type <> 'appcomp' AND dep.from_ci_type <> 'appcomp'
+           AND aar.rel_id < dep.rel_id
+           AND COALESCE(dep.from_parent_ci_type, dep.from_ci_type) = 'device'
+           AND COALESCE(aar.from_parent_ci_type, aar.from_ci_type) = 'device'
+           AND COALESCE(dep.from_parent_ci_id, dep.from_ci_id)
+            <> COALESCE(aar.from_parent_ci_id, aar.from_ci_id)
+     )
+     SELECT DISTINCT
+         d1.name                              AS dependent_device_name,
+         format('Device-%s', d1.device_pk)    AS dependent_device_device42_id,
+         'Connected to'                       AS downstream_relationship,
+         d2.name                              AS dependency_device_name,
+         format('Device-%s', d2.device_pk)    AS dependency_device_device42_id,
+         'Connected to'                       AS upstream_relationship
+     FROM (
+         SELECT from_device_fk, to_device_fk FROM global_nonapp_device_rels
+         UNION
+         SELECT ac.from_device_fk, ac.to_device_fk
+         FROM appcomp_chain_device_rels ac
+         WHERE ac.from_ci_id <> ac.to_ci_id
+           AND NOT EXISTS (
+               SELECT 1 FROM global_nonapp_device_rels g
+               WHERE g.from_ci_id = ac.from_ci_id AND g.to_ci_id = ac.to_ci_id
+           )
+           AND NOT EXISTS (
+               SELECT 1 FROM global_nonapp_device_rels g
+               WHERE ac.is_dependency = false
+                 AND g.from_ci_id = ac.to_ci_id AND g.to_ci_id = ac.from_ci_id
+           )
+         UNION
+         SELECT ai.from_device_fk, ai.to_device_fk
+         FROM appcomp_internal_device_rels ai
+         WHERE NOT EXISTS (
+             SELECT 1 FROM appcomp_chain_device_rels ac
+             WHERE ac.from_ci_id = ai.to_ci_id AND ac.to_ci_id = ai.from_ci_id
+         )
+         AND NOT EXISTS (
+             SELECT 1 FROM global_nonapp_device_rels g
+             WHERE g.from_ci_id = ai.from_ci_id AND g.to_ci_id = ai.to_ci_id
+         )
+         AND NOT EXISTS (
+             SELECT 1 FROM global_nonapp_device_rels g
+             WHERE g.from_ci_id = ai.to_ci_id AND g.to_ci_id = ai.from_ci_id
+         )
+     ) combined
+     JOIN view_device_v1 d1 ON d1.device_pk = combined.from_device_fk
+     JOIN view_device_v1 d2 ON d2.device_pk = combined.to_device_fk
+```
+
+</details>
