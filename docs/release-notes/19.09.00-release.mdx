@@ -3,6 +3,9 @@ title: "19.09.00 Release"
 sidebar_position: 1
 ---
 
+import itsmAlertImage from '/assets/images/release-notes/19.09-itsm-integration-alert.png';
+import itsmAlertDetailImage from '/assets/images/release-notes/19.09-itsm-integration-alert-2.png';
+
 :::info
 The following release notes were taken from [the blog](https://www.device42.com/blog/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
 :::
@@ -39,9 +42,9 @@ Improved the performance of the time it takes to upgrade the local collector on 
 
 D42-44925 – Added an alert when an ITSM integration fails to successfully complete
 
-![ITSM integration failure alert](/assets/images/release-notes/19.09-itsm-integration-alert.png)
+<img src={itsmAlertImage} alt="ITSM integration alert rule configuration" width="100%"/>
 
-![ITSM integration failure alert detail](/assets/images/release-notes/19.09-itsm-integration-alert-2.png)
+<img src={itsmAlertDetailImage} alt="ITSM integration alerts list" width="100%"/>
 
 D42-47469 – Increased timeout for a websocket connection to 20 seconds to prevent sync failures
 
