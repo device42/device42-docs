@@ -15,7 +15,7 @@ If you like this integration, check out the [Device42 integration page](https://
 
 ![Jenkins](/assets/images/Jenkins-logo-butler-transparent.png)
 
-### Build he Jenkins plugin from source (optional)
+## Build the Jenkins Plugin From Source (Optional)
 
 _Note: **Maven** is required to build the plugin._
 
@@ -24,7 +24,7 @@ _Note: **Maven** is required to build the plugin._
 3. Call Maven install to build the plugin: `mvn install -DskipTests`
 4. Follow "Configuring Jenkins" section below to install the plugin you just built into Jenkins.
 
-### Configuring Jenkins
+## Configuring Jenkins
 
 1. Login to your Jenkins instance.
 2. Select the 'Manage Jenkins' Gear icon from the menu on the left, and then choose ‘Manage Plugins’ (green puzzle piece) --> 'Advanced' tab.
@@ -33,7 +33,7 @@ _Note: **Maven** is required to build the plugin._
 
  
 
-### Configuring Device42
+## Configuring Device42
 
 Device42 doesn't require any specific configuration for the integration other than having your D42 Main appliance up and running & its API accessible.
 
@@ -41,7 +41,7 @@ New passwords and Secrets are created & managed within Device42 (no changes from
 
  
 
-### Using the Device42-Jenkins credentials integration
+## Using the Device42-Jenkins Credentials Integration
 
 The Device42-Jenkins credentials integration allows you to use passwords/secrets stored in Device42 within Jenkins automations by pulling them via the Device42 API when Jenkins automations run. Credentials stored within Device42 are made available in Jenkins as _variables_, the names of which are user-customizable. Each D42 credential variable may be referenced as many times as desired within a Jenkins automation.
 

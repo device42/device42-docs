@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 One method for documenting the connection path from a patch panel to a wall jack to a switch and its devices is to create a **patch panel model** for the wall jack.
 
+## Create the Wall Jack Model and Asset
+
 Navigate to **Resources > Assets > Patch Panel Models** and create a model with the appropriate **Port Type** and desired **Number of ports** on the panel of the wall jack.
 
 <ThemedImage
@@ -21,11 +23,15 @@ Navigate to **Resources > Assets > Patch Panel Models** and create a model with 
 
 Once you've created the model, create assets for the wall jacks via **Resources > All Assets > Create**. When creating the asset, select the type **Patch Panel**, then select the wall jack model as the patch panel model. Set the **Back connection** type to either **Patch Panel** or **Switch**, depending on whether it connects to the patch panel or the unmanaged switch you are documenting.
 
+## Create an Unmanaged Switch
+
 Next, create an unmanaged switch:
 
 - Navigate to **Tools > Templates & Bulk Operations > Switch Templates** and create a template that reflects your switches. Select a switch type and add a ports switch template with the desired ports prefix, type, and number of ports.
 
 - Once you've created the switch template, select the template and click the **Create/Edit** option under the **Ellipsis menu** in the top right corner of the template's details page. Here, you can add the desired amount of unmanaged switches needed.
+
+## Create the Connections
 
 Once you've created assets for the wall jacks and created switches from the template, you can start creating the connections:
 
