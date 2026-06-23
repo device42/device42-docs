@@ -18,7 +18,7 @@ You will need three separate files to install the service.
 
 There are multiple ways to install and start the service. For your convenience, we have added a PowerShell script (option 1). Below that we include detailed steps for installing with `sc` if needed (option 2).
 
-### Option 1: Using the PowerShell Script
+## Option 1: Using the PowerShell Script
 
 - Download the combined zip file and extract it to your local file system.
 - Ensure that PowerShell remote execution is enabled (`Set-ExecutionPolicy RemoteSigned`).
@@ -34,7 +34,7 @@ There are multiple ways to install and start the service. For your convenience, 
 
 - **Optional:** Revert the execution policy.
 
-### Option 2: Using `sc` Commands
+## Option 2: Using `sc` Commands
 
 - By default, the service wrapper looks for an agent named `d42winagent.exe` under `C:\Program Files\Device42` on the end machine. Check that you've saved the agent using the correct name and location.
 
@@ -98,15 +98,15 @@ On Windows, `sc create` and `sc start`  read from `%windir%/system32` by default
 If you don't have `C:` or don't want to use `C:\ProgramData\Device42`, you can place `d42config.json` in the `system32` directory.
 :::
 
-### Arguments for the Config Files
+## Arguments for the Config Files
 
 As shown in the example above, each argument should be enclosed in double quotes and separated by a comma.
 
-### Log Output
+## Log Output
 
 The `agent_local.log` file will be created under the current working directory.
 
-### Handling Errors
+## Handling Errors
 
 ![Windows service wrapper error](/assets/images/windows-service-wrapper-error.png)
 
