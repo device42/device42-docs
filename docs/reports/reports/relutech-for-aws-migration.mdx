@@ -23,7 +23,7 @@ The recommended approach to capturing your physical (bare metal) server inventor
 
 ## Hypervisor/*nix/Windows Job Creation
 
-Set up [Hypervisor / *nix / Windows](/auto-discovery/linux-unix-server-auto-discovery) discovery jobs for each type of physical device. These OS-level scans create the device record and capture parts including CPU and HBA card information.
+Set up [Hypervisor / *nix / Windows](auto-discovery/linux-unix-server-auto-discovery.mdx) discovery jobs for each type of physical device. These OS-level scans create the device record and capture parts including CPU and HBA card information.
 
 - For the Windows and *nix jobs, ensure that **Discover Parts** is checked in the **Host Discovery** section.
 - For Hypervisor jobs, **Discover Parts** is enabled by default and cannot be changed.
@@ -38,7 +38,7 @@ Set up [Hypervisor / *nix / Windows](/auto-discovery/linux-unix-server-auto-disc
 
 ## SNMP Job Creation
 
-Create [SNMP](/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery) discovery jobs to scan the management IPs of your targeted servers. These jobs augment the OS-level data by adding management MACs, IPs, and additional parts such as RAM, disks, and PSUs.
+Create [SNMP](auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-discovery.mdx) discovery jobs to scan the management IPs of your targeted servers. These jobs augment the OS-level data by adding management MACs, IPs, and additional parts such as RAM, disks, and PSUs.
 
 - Enter the IP or FQDN of all the devices that the credentials and access apply to under **Server(s)**.
 
@@ -74,7 +74,7 @@ Create [SNMP](/auto-discovery/storage-arrays-autodiscovery/snmp-san-server-auto-
 
 Depending on the vendor, warranty jobs retrieve service contracts associated with each server. If the vendor system is unavailable, warranty data can be added manually via the UI or spreadsheet imports.
 
-See the [Warranty Sync](/auto-discovery/warranty-autodiscovery) documentation for setup instructions.
+See the [Warranty Sync](auto-discovery/warranty-autodiscovery.mdx) documentation for setup instructions.
 
 ## Recommended Automated Scheduling
 

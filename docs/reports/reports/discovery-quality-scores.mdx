@@ -39,7 +39,7 @@ The score list includes the following columns.
 | **Auth** | Status of authentication using the credentials in the job settings. Green check (success) or red X (failure). |
 | **Discovery Successful** | Green check when both Port Check and Auth succeed. Red X if either fails. Marked as PARTIAL or OK if the device is added but some scores failed. |
 | **Sudo Access** | Whether sudo access is allowed. Green check if allowed, red cross if not, dash if not applicable. |
-| **Ignored** | A [Device Ignore Rule](/infrastructure-management/devices/device-ignore-rules) was applied and the device was excluded. |
+| **Ignored** | A [Device Ignore Rule](infrastructure-management/devices/device-ignore-rules.mdx) was applied and the device was excluded. |
 | **Ignore Rule** | The text entered in the **Ignored text contains** field when the Device Ignore Rule was created. |
 | **Success** | Whether the device was successfully discovered (and ignored if applicable). |
 | **Object** | The discovered device. |
@@ -89,7 +89,7 @@ Click an item in the **Job Name** column to open the View Discovery Job page. Th
 
 ## Discovery Score Permissions
 
-If you use [Role-Based Access Control](/administration/role-based-access-control/role-based-permissions-and-access) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select **Allow non-superusers to see other orphaned objects**, non-superusers can see all discovery scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
+If you use [Role-Based Access Control](administration/role-based-access-control/role-based-permissions-and-access.mdx) (RBAC), one of its settings affects which Discovery Scores non-superusers can view. If you select **Allow non-superusers to see other orphaned objects**, non-superusers can see all discovery scores. If this setting is disabled, non-superusers can only see scores that contain objects for which they have permission.
 
 <ThemedImage
   alt="Global Permissions"
