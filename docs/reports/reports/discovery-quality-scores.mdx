@@ -37,7 +37,7 @@ The score list includes the following columns.
 | **Sub Type** | The chosen subtype for the job. |
 | **Port Check** | Status of the first step of discovery: connecting to the target port (for example, port 22 for Linux SSH). Green check (success) or red X (failure). |
 | **Auth** | Status of authentication using the credentials in the job settings. Green check (success) or red X (failure). |
-| **Discovery Successful** | Green check when both Port Check and Auth succeed. Red X if either fails. Marked as PARTIAL or OK if the device is added but some scores failed. |
+| **Discovery Successful** | Green check when both Port Check and Auth succeed. If either fails, this is marked as a failure (red X) only when the device is not added. Otherwise, based on the scores, it is marked as PARTIAL or OK. |
 | **Sudo Access** | Whether sudo access is allowed. Green check if allowed, red cross if not, dash if not applicable. |
 | **Ignored** | A [Device Ignore Rule](infrastructure-management/devices/device-ignore-rules.mdx) was applied and the device was excluded. |
 | **Ignore Rule** | The text entered in the **Ignored text contains** field when the Device Ignore Rule was created. |
@@ -58,6 +58,8 @@ The score list includes the following columns.
 Click any item in the **Discovery Target** column to open the View Discovery Score details page for that item.
 
 **Partial Failure** indicates that some of the discovery was successful, but not all components were. The detailed view helps narrow down what could not succeed.
+
+Device pages display the five latest discovery scores, and you can scroll down to see more.
 
 <ThemedImage
   alt="Discovery score list"
