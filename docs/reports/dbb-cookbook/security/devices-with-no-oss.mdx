@@ -3,14 +3,14 @@ title: "Devices with No OSs"
 sidebar_position: 26
 ---
 
-Compute Devices with no OS captured.
+Returns devices with no OS captured — use this to identify opportunities to enrich your data with a full device discovery.
 
 <details>
      <summary>Click to expand the code block</summary>
      ```sql
      select
           ds.device_name
-          ,device_fk
+          ,device_fk
           ,ds.device_type
           ,ds.physicalsubtype_name
           ,ds.serial_number
@@ -21,10 +21,7 @@ Compute Devices with no OS captured.
           ,ds.is_missing_os
           ,ds.ip_address
      from view_dbb_security_v2 ds
-     where ds.is_missing_os = 'Yes' and ds.device_fk  is not null
+     where ds.is_missing_os = 'Yes' and ds.device_fk  is not null
      ```
 </details>
 
-**NOTES**
-
-Opportunities to enrich your data by doing a full discovery of devices.
