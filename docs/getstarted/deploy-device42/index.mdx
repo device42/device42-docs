@@ -4,6 +4,16 @@ title: "Deploy Device42"
 
 This page is for administrators responsible for installing and configuring Device42 in your organization. It covers the first phase of the implementation process (Deploy), which includes installing the Main Appliance, Remote Collectors, and Windows Discovery Service, and configuring the network access Device42 needs to discover your infrastructure. See [Implementation Overview](../how-is-device42-implemented.mdx) for a summary of all four phases.
 
+## Prerequisites
+
+Before starting the Deploy phase, make sure you have:
+- A valid Device42 license file obtained from Device42
+- Access to a supported hypervisor or cloud platform (VMware vCenter, Hyper-V, Citrix, AWS, or Azure) to host the Main Appliance
+- Network admin access to open the five required ports (80, 443, 4242, 4343, 404) to the Main Appliance
+- A Windows server available for Windows Discovery Service (WDS) installation, if Windows discovery is in scope
+
+Review the [resource and deployment architecture overview](resource-and-deployment-architecture-overview.mdx), [discovery port configurations](discovery-port-configurations.mdx), [security posture and permissions](security-posture-and-high-level-permissions.mdx), and [sizing recommendations](sizing-recommendations.mdx) before continuing.
+
 The Deploy phase contains a series of tasks, and each of these tasks requires steps to complete.
 
 ## About the Deploy Tasks

@@ -8,6 +8,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 This page is for implementers who have completed the Deploy phase and are ready to start populating Device42 with data. It covers the second phase of the implementation process (Discover), where you configure, execute, and schedule jobs that scan your IT landscape and collect the associated data. See [Implementation Overview](/getstarted/how-is-device42-implemented.mdx) for a summary of all four phases.
 
+## Prerequisites
+
+Before starting the Discover phase, make sure you have:
+- Completed the [Deploy phase](/getstarted/deploy-device42/index.mdx): Main Appliance and at least one Remote Collector deployed and connected
+- Windows Discovery Service (WDS) installed and connected to a Remote Collector, if Windows discovery is in scope
+- Discovery credentials on hand: SNMP community strings, SSH credentials, and Windows service accounts as applicable
+- Target IP ranges and subnets identified
+- Required discovery ports open between Remote Collectors and targets (see [discovery port configurations](/getstarted/deploy-device42/discovery-port-configurations.mdx))
+
 These discovery jobs systematically scan and inventory your IT infrastructure, using Device42's automatic discovery capabilities to populate the database. This includes everything from network devices to software, applications, and storage.
 
 This phase is broken down into four tasks:
