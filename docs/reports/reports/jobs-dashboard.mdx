@@ -2,15 +2,15 @@
 title: "Jobs Dashboard"
 sidebar_position: 10
 ---
+
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-The Jobs Dashboard provides actionable insight into running discovery jobs. Whether you're running
-network scans, hypervisor discovery, or cloud assessments, this dashboard gives you real-time visibility into job statuses, with the ability to 'kill' jobs and export job details as a CSV file.
+The Jobs Dashboard provides actionable insight into running discovery jobs. Whether you're running network scans, hypervisor discovery, or cloud assessments, this dashboard gives you real-time visibility into job statuses, with the ability to kill jobs and export job details as a CSV file.
 
-## View Running Discovery Jobs on the Jobs Dashboard 
+## View Running Jobs
 
-Via the main menu, navigate to **Analytics > Jobs Dashboard**. The dashboard has three other sub-dashboards: **Completed Jobs**, **Queue Processing Stats**, and **Other Jobs Summary**. 
+Navigate to **Analytics > Jobs Dashboard** from the main menu.
 
 <ThemedImage
   alt="Jobs Dashboard main"
@@ -24,8 +24,8 @@ Via the main menu, navigate to **Analytics > Jobs Dashboard**. The dashboard has
 
 Check the box next to the job name(s) you want to kill, then select one of the **Kill selected job(s)** options from the dropdown menu:
 
-* The first **Allow Pending Jobs to Complete** option will terminate the ongoing discovery but let any payloads in the queue finish processing. 
-* The second **Remove Pending Jobs Immediately** option will terminate the ongoing discovery job and remove any payloads in the queue. If a discovery is half-finished when cancelled, it will be ended, and no further devices will be added or updated. However, if timed correctly, there may be an edge case where payloads are dispatched to the MA after emptying the queue.
+- The first **Allow Pending Jobs to Complete** option will terminate the ongoing discovery but let any payloads in the queue finish processing. 
+- The second **Remove Pending Jobs Immediately** option will terminate the ongoing discovery job and remove any payloads in the queue. If a discovery is half-finished when cancelled, it will be ended, and no further devices will be added or updated. However, if timed correctly, there may be an edge case where payloads are dispatched to the MA after emptying the queue.
 
 <ThemedImage
   alt="Jobs kill options"
@@ -37,7 +37,7 @@ Check the box next to the job name(s) you want to kill, then select one of the *
 
 ## Sub-Dashboards
 
-There are three other [sub-dashboards](#sub-dashboards) tabs on the Jobs Summary list page: **Completed Jobs**, **Queue Processing Stats**, and **Other Jobs Summary**.
+The Jobs Dashboard includes three additional tabs: **Completed Jobs**, **Queue Processing Stats**, and **Other Jobs Summary**.
 
 ### Completed Jobs
 
@@ -51,9 +51,9 @@ The Completed Jobs page lists jobs that have run in the past and are no longer r
   }}
 />
 
-**Delete or Export From Completed Jobs** 
+### Delete or Export Completed Jobs
 
-You can also delete a completed job from the Completed Jobs page or export one or more completed jobs to a CSV. Check the box next to the line(s) you are interested in and choose your desired action from the **Actions** dropdown menu. 
+You can delete a completed job or export one or more completed jobs to a CSV. Check the box next to the job(s) you want to act on and choose your desired action from the **Actions** dropdown menu.
 
 <ThemedImage
   alt="Completed Jobs actions"
@@ -65,7 +65,7 @@ You can also delete a completed job from the Completed Jobs page or export one o
 
 ### Queue Processing Stats
 
-The queue processing stats sub-dashboard allows you to monitor the status of various queues within Device42. 
+The **Queue Processing Stats** tab lets you monitor the status of various queues within Device42.
 
 <ThemedImage
   alt="Queue Processing Stats page"
@@ -77,7 +77,7 @@ The queue processing stats sub-dashboard allows you to monitor the status of var
 
 ### Other Jobs Summary
 
-Jobs that don't utilize the main Jobs Dashboard will be found in the **Other Jobs Summary** sub-dashboard. Other jobs include RU (Resource Utilization) jobs, SP (Service Port) jobs, vserver jobs and others. Job statuses can be monitored and you can also kill any running job from this page by selecting the checkbox next to it and choosing **Kill Selected Jobs** as your action. 
+The **Other Jobs Summary** tab shows jobs that don't appear on the main dashboard, such as RU (Resource Utilization), SP (Service Port), and vserver jobs. You can monitor job statuses and kill any running job by selecting the checkbox next to it and choosing **Kill Selected Jobs** from the **Actions** dropdown menu.
 
 <ThemedImage
   alt="Other Jobs Summary page"

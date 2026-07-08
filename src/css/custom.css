@@ -95,3 +95,13 @@ main {
 .navbar__items--right .clean-btn {
   margin-left: 0.85em;
 }
+/* Place the navbar Feedback button to the right of the search bar (the
+   searchbar renders last in .navbar__items--right, so flex order moves us
+   past it). */
+.navbar-feedback-item {
+  order: 1;
+}
+.navbar-feedback-item .navbar__button {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
