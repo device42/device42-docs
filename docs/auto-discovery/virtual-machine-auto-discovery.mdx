@@ -152,6 +152,7 @@ Configure hypervisor-specific settings for VM discovery.
 - **Toggle service level on VM power state:** If a VM is powered off, marks that VM as "Not in Service".
 - **Get Guest OS Info:** Retrieves the guest OS information for a VM from VMware. Not as detailed as machine-level WMI or SSH discovery.
 - **Ignore Guest UUID:** Do not discover the guest UUID number.
+- **Ignore Powered Off VMs:** Do not discover VMs that are powered off. This setting also applies to logical domains (LDOMs) on Solaris devices. When enabled, inactive LDOMs are not discovered. When disabled, both inactive and active LDOMs are discovered.
 - **Discover vCloud:** Discovers vCloud instances (if using vCloud connector for vSphere, vRealize, and so on) and creates custom fields for any VMware tags.
 
 ### Miscellaneous Options

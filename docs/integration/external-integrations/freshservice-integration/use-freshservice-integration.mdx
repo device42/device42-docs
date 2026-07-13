@@ -51,6 +51,21 @@ To run the sync immediately, click the **Manual sync** button to reveal the opti
 
 Locate the synced data in Freshservice under **Assets > Inventory**.    
 
+### What Counts as a Record Change
+
+A partial sync uses each record's `last_changed` timestamp to decide what to re-sync. Any field change updates `last_changed`, except for the fields below.
+
+| Category | Excluded Fields |
+| --- | --- |
+| Timestamps and run times | `action_time`, `date_updated`, `last_changed`, `last_discovered`, `last_edited`, `last_failure`, `last_login`, `last_scheduled_run`, `last_timeout`, `last_updated`, `record_created`, `start_time` |
+| Status and counters | `discovered_count`, `failure_count`, `last_reported_state`, `last_status`, `number_consecutive_timeouts`, `run_report`, `state`, `stats` |
+| Keys and secrets | `nonce`, `priv_key`, `private_key`, `pub_key`, `public_key`, `rc_priv_key`, `rc_pub_key`, `rc_ru_key` |
+| Normalized values | `normalized_bladeno`, `normalized_number`, `normalized_port`, `normalized_rack` |
+| Location references | `mt_building_id`, `mt_rack_id`, `mt_room_id` |
+| Job and logging | `debug_text`, `delete_date`, `free_capacity`, `job_id`, `json`, `license_hints`, `remote_log`, `remote_port_id` |
+
+For example, a discovery job updates `last_discovered` on every run. Because that field is excluded, the device is not flagged as changed and partial syncs stay limited to meaningful changes.
+
 ### Asset Matching Logic
 
 The integration matches Device42 devices to Freshservice assets during the sync. It updates the existing asset or creates a new asset if no match is found. 
@@ -86,6 +101,10 @@ To download the full logs, use the **Download Full Log** button in the lower-lef
 :::note
 A full sync will be forced during upgrades to get new data from Device42. The sync history type will be listed as a full upgrade instead of an incremental one until a successful sync has been performed.
 :::
+
+### Sync Alerts
+
+You can be notified when a Freshservice sync starts, completes, or fails by setting up an **ITSM Integration** alert. This lets you respond quickly if a sync fails. See [Set Up Alerts and Notifications](reports/reports/setup-alerts-and-notifications.mdx) to configure the alert.
 
 ### Cancelled Syncs
 

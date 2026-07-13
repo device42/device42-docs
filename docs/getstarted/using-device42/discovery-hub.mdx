@@ -32,10 +32,10 @@ To set up a Discovery Hub scan, name the scan and select the [Remote Collector](
 Enter the IP information in the box highlighted in the image below and click on the **up arrow** button. You can enter as many targets as you like, but the more targets you include, the longer the scan will likely take. 
 
 <ThemedImage
-  alt="Discovery Hub menu"
+  alt="Enter scan IP targets"
   sources={{
-    light: useBaseUrl('/assets/images/discovery-hub-onboarding/adm-off-light.png'),
-    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/adm-off-dark.png'),
+    light: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-enter-ip-light.png'),
+    dark: useBaseUrl('/assets/images/discovery-hub-onboarding/scan-enter-ip-dark.png'),
   }}
 />
 <br/><br/>
@@ -106,6 +106,8 @@ The scans you have created will be displayed in the left-hand column. Once start
 <br/><br/>
 
 From the **Network Scan Settings** tab, you can schedule the scan by clicking on the **+ Add schedule** button. 
+
+Leave the **Nameserver** field empty to use the system DNS servers, or enter DNS servers to use specific resolvers.
 
 <ThemedImage
   alt="Network Scan settings tab"
@@ -193,3 +195,4 @@ From the **Settings** tab of completed Discovery Hub scans, you can see the link
 - We recommend running one scan at a time, at least initially, to prevent inundating the network.
 - If a scan is stopped, it cannot be resumed. A new scan needs to be created to finish scanning those remaining targets.
 - Scans are completed with Nmap data, so there could be some variability in the data as it fingerprints the OS.
+- Discovery Hub skips the network and broadcast address of each scanned subnet (for example, `.0` and `.255` in a `/24` range), so these addresses are not targeted.

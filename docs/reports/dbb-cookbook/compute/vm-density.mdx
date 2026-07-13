@@ -1,0 +1,105 @@
+---
+title: "VM Density"
+sidebar_position: 18
+---
+
+Returns vCPU and RAM allocation metrics per hypervisor host, comparing allocated vs. in-service VMs. Use this to manage your physical-to-virtual asset ratios and identify over- or under-utilized hosts.
+
+<details>
+  <summary>Click to expand code example</summary>
+
+```sql
+WITH a AS (
+  SELECT
+    h.last_discovered AS host_last_discovered,
+    dcm.device_name AS vm_manager_name,
+    h.device_name AS host_device_name,
+    h.os_name AS host_os_name,
+    h.total_cores AS host_total_cores,
+    h.ram_mb AS host_ram_mb,
+    dcm.cloud_instance_name,
+    COUNT(1) AS vm_count_allocated,
+    SUM(dc.total_cores) AS total_vcores_allocated,
+    SUM(dc.ram_mb) AS total_ram_mb_allocated,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN 1
+        ELSE 0
+      END
+    ) AS vm_count_in_service,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.total_cpus * COALESCE(dc.core_per_cpu, 1)
+        ELSE 0
+      END
+    ) AS total_vcores_in_service,
+    SUM(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.ram_mb
+        ELSE 0
+      END
+    ) AS total_ram_mb_in_service,
+    STRING_AGG(dc.device_name, ' | ') AS vms_allocated,
+    STRING_AGG(
+      CASE
+        WHEN dc.in_service = TRUE THEN dc.device_name
+        ELSE NULL
+      END,
+      ' | '
+    ) AS vms_in_service
+  FROM view_dbb_compute_v2 dc
+  INNER JOIN view_dbb_compute_v2 h
+    ON h.device_fk = dc.virtual_host_device_fk
+  LEFT JOIN view_dbb_compute_v2 dcm
+    ON dcm.device_fk = dc.vm_manager_device_fk
+  WHERE dc.device_type = 'virtual'
+    AND dc.network_device = 'f'
+  GROUP BY
+    h.device_name,
+    h.os_name,
+    dcm.device_name,
+    h.total_cores,
+    h.ram_mb,
+    h.last_discovered,
+    dcm.cloud_instance_name
+)
+SELECT
+  a.*,
+  ROUND(
+    CASE
+      WHEN a.host_total_cores = 0 THEN NULL
+      ELSE 100.0000 * a.total_vcores_allocated / a.host_total_cores
+    END,
+    2
+  ) AS cores_percent_allocated,
+  ROUND(
+    CASE
+      WHEN a.host_ram_mb = 0 THEN NULL
+      ELSE 100.0000 * a.total_ram_mb_allocated::DECIMAL / a.host_ram_mb::DECIMAL
+    END,
+    2
+  ) AS ram_percent_allocated,
+  ROUND(
+    CASE
+      WHEN a.host_total_cores = 0 THEN NULL
+      ELSE 100.0000 * a.total_vcores_in_service / a.host_total_cores
+    END,
+    2
+  ) AS cores_percent_in_service,
+  ROUND(
+    CASE
+      WHEN a.host_ram_mb = 0 THEN NULL
+      ELSE 100.0000 * a.total_ram_mb_in_service::DECIMAL / a.host_ram_mb::DECIMAL
+    END,
+    2
+  ) AS ram_percent_in_service
+FROM a
+ORDER BY
+  host_device_name,
+  host_os_name,
+  vm_manager_name,
+  vm_count_in_service,
+  host_last_discovered
+```
+</details>
+
