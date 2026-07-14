@@ -6,7 +6,16 @@ sidebar_position: 28.5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+This page is for automation engineers who want to drive Device42 actions from StackStorm workflows. By the end, StackStorm can query and update Device42 in response to trigger events, using the Device42 integration plugin.
+
 [StackStorm](https://docs.stackstorm.com/overview.html#about) is well suited to automate a range of IT-management workflows. In response to a trigger event, you can get the StackStorm-Device42 integration to update device details, set user permissions, send Device42 data to other systems, and more. 
+
+## Prerequisites
+
+Before setting up the integration, make sure you have:
+- A StackStorm instance. This guide runs StackStorm in a [Docker](https://docs.docker.com/get-docker/) container managed with [Docker Compose](https://docs.docker.com/compose/install/), which is suitable for testing but not production. See the [StackStorm installation options](https://docs.stackstorm.com/install/index.html) for production installs.
+- A running Device42 instance, with Device42 credentials to configure the integration plugin
+- Network connectivity between StackStorm and Device42
 
 ## Set Up the Integration
 

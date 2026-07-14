@@ -6,6 +6,8 @@ sidebar_position: 29
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
+This page is for administrators who want to trigger automated actions in other apps whenever a Device42 resource changes. By the end, a change in Device42 fires a webhook that runs a Zapier "Zap" in the app of your choice. This example creates a Google Sheets row each time a device is added.
+
 [Zapier](https://zapier.com/) is a versatile workflow automation tool based on "if-this-then-that" logic. You can create an automation sequence, known as a "Zap", to perform actions in response to changes made to Device42 resources. Zapier supports response actions using features of a [variety of apps](https://zapier.com/apps), including Jira, MySQL Server, and Google products.
 
 In this example, we'll have Zapier create a new row in a Google spreadsheet of the webhook payload whenever a new device is added to the Device42 main appliance. The process consists of the following broad steps:
@@ -14,6 +16,13 @@ In this example, we'll have Zapier create a new row in a Google spreadsheet of t
 - Configure the Device42 trigger action. 
 - Configure the Zapier response action.
 - Test the automation.
+
+## Prerequisites
+
+Before creating the Zap, make sure you have:
+- A Zapier account
+- A Device42 main appliance with access to the webhooks feature (**Tools > Webhooks**)
+- An account for the app you want Zapier to act on (this example uses Google Sheets)
 
 ## Generate the Zapier Endpoint
 
