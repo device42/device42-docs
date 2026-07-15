@@ -2,3 +2,8 @@ position: 3
 label: 'Freshservice Mapping'
 collapsible: true
 collapsed: false
+link:
+  type: generated-index
+  slug: /release-notes/freshservice-mapping/
+  title: Freshservice Mapping Release Notes
+  description: Changes to the Freshservice mapping file by Cloud Connector version.
