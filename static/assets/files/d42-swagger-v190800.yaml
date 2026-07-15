@@ -45,7 +45,7 @@ info:
     The token is then used in subsequent Device42 API calls as the Bearer token.
     <br><br>Tokens can also be extended and deleted using the <b>/tauth/1.0/token/</b> endpoint.
     <br><br>For a walkthrough on setting up Token authentication visit <a href=
-    'https://support.device42.com/hc/en-us/articles/7487267665815-API-Token-Usage-in-Details'>API Token Usage in Details</a>
+    'https://support.device42.com/support/solutions/articles/50000012379-api-token-usage-in-details'>API Token Usage in Details</a>
     <br>
     <h2><a id = 'Response_Status_Messages'><b>Response &
     Status Messages</b></a></h2><b>Responses</b><br>The response to most POST calls
