@@ -3,7 +3,18 @@ title: "Azure Migrate"
 sidebar_position: 2
 ---
 
+This page is for administrators who want to use Device42 as an assessment tool within Azure Migrate and export discovered business applications from Device42 to Azure for migration planning. By the end, your Device42 business application data appears in the Azure Migrate portal for assessment.
+
 You can get to Azure Migrate directly @ [https://portal.azure.com/#create/Microsoft.AzureMigrate](https://portal.azure.com/#create/Microsoft.AzureMigrate)
+
+## Prerequisites
+
+To export data from Device42 to Azure Migrate, make sure you have:
+- An Azure account with access to the Azure portal
+- An Azure Migrate project (created in the [Setting up Device42 from the Azure Migrate Portal](#setting-up-device42-from-the-azure-migrate-portal) section below)
+- An Azure Active Directory app registration with a client secret, assigned the **Contributor** role on the subscription
+- The following details collected from Azure: **Tenant ID**, **Subscription ID**, **Client ID**, **Client Secret**, and the **Migrate Project Name**
+- A running Device42 instance with business applications to export
 
 ## Setting up Device42 from the Azure Migrate Portal
 
@@ -59,7 +70,7 @@ You’ll see confirmation the deployment has been initialized.
 
 For help installing Device42, head over to the Device42 documentation: [https://docs.device42.com](https://docs.device42.com). 1. The [Getting Started with Installation section is a great place to begin! [installation](getstarted/deploy-device42/index.mdx).
 
-2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [getstarted/getting-started-with-auto-discovery.mdx](/getstarted/getting-started-with-auto-discovery.mdx).
+2\. Once you’ve installed, you’ll want to begin discovering your environment. See the “Getting started with autodiscovery” section of the documentation here: [getstarted/getting-started-with-auto-discovery.mdx](getstarted/getting-started-with-auto-discovery.mdx).
 
 3\. When you’ve finished with discovery and assessment, you can export your discovered data back to Microsoft Azure. Instructions on exporting can be found here: [applications/business-services/building-business-services-in-device42.md#section-15](apps/business-services/building-business-services-in-device42.mdx#section-15).
 

@@ -7,6 +7,8 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import account from '/assets/images/cyberark-integration/create_account_for_d42_cyberark.png'
 
+This page is for Device42 administrators who use CyberArk as their secret manager and want Device42 to retrieve discovery credentials from CyberArk instead of storing them locally. By the end, Device42 will securely look up and use CyberArk-managed credentials for your discovery jobs.
+
 Each Device42 autodiscovery job is configured to use one or more sets of system credentials. If you already use CyberArk to manage passwords and other secrets, or simply don't want to use Device42 for this purpose, the Device42 CyberArk integration allows Device42 to securely store and retrieve these credentials externally as your primary secret management solution.
 
 CyberArk offers useful features such as automatic password rotation, which can be configured to rotate secrets per your specific corporate policies and industry guidelines.
@@ -15,9 +17,15 @@ CyberArk offers useful features such as automatic password rotation, which can b
 Passwords retrieved from CyberArk are not viewable in Device42.
 :::
 
-## Configure CyberArk
+## Prerequisites
 
-The CyberArk AIMWebService API is needed for the integration. To use the API, purchase and install the [Central Credential Provider (CCP) plugin](https://docs.cyberark.com/credential-providers/latest/en/content/ccp/installation.htm) on CyberArk.
+Before configuring the integration, make sure you have:
+- Administrator access to both CyberArk and Device42
+- The CyberArk AIMWebService API available, which requires the [Central Credential Provider (CCP) plugin](https://docs.cyberark.com/credential-providers/latest/en/content/ccp/installation.htm) purchased and installed on CyberArk
+- Your **CyberArk URL** and **App Id**
+- Network connectivity between the Device42 appliance and CyberArk
+
+## Configure CyberArk
 
 **Configuring CyberArk:**
 

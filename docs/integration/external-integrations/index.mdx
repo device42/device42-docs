@@ -5,16 +5,122 @@ authors:
   - d42docadmin
 ---
 
-Device42 integrates with many popular 3rd party ITSM, CM, SIEM, or IPAM tools. Use the sidebar on the left for guidance on third-party specific software integration.
+This page is for administrators who want to connect Device42 to the other tools in their IT ecosystem, such as ITSM platforms, secret managers, alerting tools, and BI applications. Use it as your starting point to find the right integration and follow its dedicated setup guide.
+
+Device42 integrates with many popular third-party ITSM, configuration management, SIEM, and IPAM tools. Each integration keeps your infrastructure data consistent across systems, so the CMDB you build through discovery stays useful everywhere your teams work.
+
+## How to Use This Section
+
+Each integration has its own page with setup steps, prerequisites, and configuration options. Find the integration you need in the catalog below, or browse the full list in the sidebar on the left.
+
+Before you start, most integrations require:
+- Administrator access to both Device42 and the third-party system
+- Credentials or API keys for the third-party system
+- Network connectivity between Device42 and the third-party system
+
+Check the individual integration page for its exact prerequisites.
+
+## Integration Catalog
+
+The tables below group the available integrations by purpose.
+
+### ITSM and Service Desk
+
+Sync discovered infrastructure into your service management and collaboration platforms.
+
+| Integration | Description |
+| --- | --- |
+| [ServiceNow](integration/external-integrations/device42-servicenow-connector.mdx) | Sync IT data from Device42 to your ServiceNow CMDB. |
+| [Freshservice](integration/external-integrations/freshservice-integration/index.mdx) | Sync discovered assets and CIs into Freshservice. |
+| [Jira](integration/external-integrations/jira-integrations/index.mdx) | Connect Device42 to Jira Service Management and Jira Assets. |
+| [Cherwell](integration/external-integrations/cherwell-integration.mdx) | Sync discovered infrastructure assets and relationships into Cherwell. |
+| [HP Service Manager](integration/external-integrations/device42-hp-service-manager-integration.mdx) | Add Device42 infrastructure management capabilities to HPSM. |
+| [Zendesk](integration/external-integrations/device42-zendesk-connector.mdx) | Give your help desk access to up-to-date infrastructure documentation. |
+| [Confluence](integration/external-integrations/device42-confluence-connector.mdx) | Surface Device42 data inside your Atlassian Confluence instance. |
+
+### Secret and Credential Management
+
+Pull discovery credentials from your existing secret manager instead of storing them in Device42.
+
+| Integration | Description |
+| --- | --- |
+| [CyberArk](integration/external-integrations/cyberark-integration.mdx) | Use CyberArk-managed credentials for discovery jobs. |
+| [Delinea Secret Server](integration/external-integrations/delinea-secret-server-integration.mdx) | Use Delinea Secret Server-managed credentials for discovery jobs. |
+| [HashiCorp Vault](integration/external-integrations/hashicorp-vault-integration.mdx) | Use HashiCorp Vault-managed credentials for discovery jobs. |
+| [Microsoft LAPS](integration/external-integrations/microsoft-laps-integration.mdx) | Pull local admin passwords from Microsoft LAPS. |
+
+### Alerting and Incident Management
+
+Route Device42 alerts to your on-call and monitoring tools.
+
+| Integration | Description |
+| --- | --- |
+| [PagerDuty](integration/external-integrations/pagerduty-integration.mdx) | Notify on-call responders when a Device42 alert is triggered. |
+| [Opsgenie](integration/external-integrations/opsgenie-integration.mdx) | Route Device42 alerts to your incident management platform. |
+| [Nagios](integration/external-integrations/monitor-device42-health-status-in-nagios.mdx) | Monitor Device42 health status from Nagios. |
+
+### Logging and SIEM
+
+Forward Device42 audit log events to external logging platforms.
+
+| Integration | Description |
+| --- | --- |
+| [External Logging](integration/external-integrations/external-logging-config.mdx) | Send audit log events to platforms like Splunk or Logstash. |
+
+### Migration
+
+Move data into Device42 from other DCIM or migration tools.
+
+| Integration | Description |
+| --- | --- |
+| [Aperture VISTA to Device42](integration/external-integrations/aperture-vista-to-device42-migration.mdx) | Migrate data from Aperture VISTA into Device42. |
+| [Azure Migrate](integration/external-integrations/azure-migrate.mdx) | Work with Device42 data alongside Azure Migrate. |
+| [Carbonite](integration/external-integrations/carbonite-migration.mdx) | Migrate devices using the Device42 Carbonite Migrate feature. |
+
+### Configuration Management and Automation
+
+Connect Device42 to your automation, orchestration, and configuration management tooling.
+
+| Integration | Description |
+| --- | --- |
+| [Puppet and Chef](integration/external-integrations/puppet-and-chef-integrations.mdx) | Sync node data between Device42 and Puppet or Chef. |
+| [SaltStack](integration/external-integrations/device42-saltstack-integration.mdx) | Integrate Device42 with the Salt configuration management engine. |
+| [StackStorm](integration/external-integrations/device42-stackstorm-integration.mdx) | Automate IT-management workflows with StackStorm. |
+| [Jenkins](integration/external-integrations/jenkins-integration.mdx) | Pull Device42-stored credentials into Jenkins jobs. |
+| [Rundeck](integration/external-integrations/collect-node-data-from-device42-for-rundeck.mdx) | Dynamically pull node data from the Device42 CMDB into Rundeck. |
+| [Foreman](integration/external-integrations/foreman-smart-proxy-plugin.mdx) | Integrate Device42 IPAM with the Foreman smart proxy. |
+| [Zapier](integration/external-integrations/zapier-integration.mdx) | Automate workflows using Zapier and webhooks. |
+| [Webhooks](integration/external-integrations/webhooks-generic-integration.mdx) | Trigger external actions from Device42 events. |
+
+### Data Access and Business Intelligence
+
+Query Device42 data directly from external reporting and BI tools.
+
+| Integration | Description |
+| --- | --- |
+| [JDBC Driver](integration/external-integrations/jdbc-driver-integration.mdx) | Connect to Device42 as a JDBC data source. |
+| [ODBC Driver](integration/external-integrations/odbc-driver-integration.mdx) | Connect to Device42 as an ODBC data source. |
+| [PowerBI](integration/external-integrations/powerbi-integration.mdx) | Report on Device42 data in Microsoft PowerBI using the ODBC driver. |
+
+### Cloud Connector and Global Settings
+
+Configure how Device42 sends data to cloud-based integrations.
+
+| Integration | Description |
+| --- | --- |
+| [Cloud Connector](integration/external-integrations/device42-cloud-connector-overview.mdx) | Send data from your Device42 appliance to external applications. |
+| [Cloud Services Settings](integration/external-integrations/cloud-services-settings.mdx) | Configure global external integration settings. |
 
 ## Download Integration Tools
 
 In addition to an extensive API library, Device42 provides connectors that make integrations easy.
 
-**Browse & download integrations:** [https://www.device42.com/integrations/](https://www.device42.com/integrations/)
+**Browse and download integrations:** [https://www.device42.com/integrations/](https://www.device42.com/integrations/)
 
 ## Tools for Custom Integrations
 
-**Bulk Data Management Tools**: [https://www.device42.com/bulk-data-management/](https://www.device42.com/bulk-data-management/) Device42 RESTful API Documentation: [https://api.device42.com/](https://api.device42.com/)
+Use the following resources to build your own integrations:
 
-Various other useful integrations, import, sample scripts, and open source tools we've written can be found on our GitHub site: [https://github.com/device42](https://github.com/device42).
+- **Bulk Data Management Tools:** [https://www.device42.com/bulk-data-management/](https://www.device42.com/bulk-data-management/)
+- **Device42 RESTful API documentation:** [https://api.device42.com/](https://api.device42.com/)
+- **Device42 GitHub:** [https://github.com/device42](https://github.com/device42) for other useful integrations, imports, sample scripts, and open source tools.
