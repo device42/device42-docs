@@ -15,7 +15,7 @@ Go to **Tools > Settings > Mail Server Settings** to configure the connection.
 Device42 supports legacy and modern mail server authentication:
 
 - **Basic Authentication (Legacy):** Device42 authenticates with a username and password.
-- **OAuth2 (Modern Authentication):** Device42 requests an access token from your identity provider and authenticates with that token. No password is stored.
+- **OAuth2 (Modern Authentication):** Device42 requests an access token from your identity provider and authenticates with that token. No mailbox password is stored.
 
 Existing configurations continue to use basic password/username authentication after an upgrade, so your current mail settings keep working.
 
@@ -45,7 +45,7 @@ Click **Save**, then click **Test Mail Server** to confirm the settings.
 
 ## Configure OAuth2 for Microsoft 365
 
-Device42 sends mail through Microsoft 365 using client SMTP submission. To authenticate with OAuth2, register Device42 as an application in your Microsoft Entra ID tenant, then enter the registration values in Device42.
+Device42 sends mail through Microsoft 365 using client SMTP submission and the OAuth 2.0 authorization code flow. Register Device42 as an application in your Microsoft Entra ID tenant, then enter the registration values and Microsoft endpoints in Device42.
 
 Confirm the following before you start:
 
@@ -56,55 +56,41 @@ Confirm the following before you start:
 
 Create the app registration in the same tenant as the Microsoft 365 mailbox that Device42 sends from. Microsoft documents the process in [Authenticate an IMAP, POP, or SMTP connection using OAuth](https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth).
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), register a new application for Device42. Keep the default settings.
-2. Go to **Manage > Certificates and secrets** and create a client secret. Copy its value immediately, as Microsoft shows it only once. Note the expiry date you set.
-3. Go to **Manage > API permissions** and add the **SMTP.SendAsApp** application permission. This permission is on the **Office 365 Exchange Online** API, not the Microsoft Graph API.
-4. Grant admin consent for the permission.
-5. Record the **Application (client) ID**, **Object ID**, and **Directory (tenant) ID** from the application's overview page, along with the secret value from step 2.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), register a new application for Device42. For most deployments, select **Accounts in this organizational directory only**. Record the **Application (client) ID** and **Directory (tenant) ID** from the application's overview page.
+2. Go to **Manage > Authentication**, add the **Web** platform, and add this redirect URI, substituting your Device42 FQDN:
+
+   ```text
+   https://<device42-fqdn>/admin/reporting/mailserver/oauth/callback/
+   ```
+
+3. Go to **Manage > API permissions** and add the **SMTP.Send** delegated permission from the **Office 365 Exchange Online** API. Grant admin consent if your organization's consent policy requires it.
+4. Go to **Manage > Certificates and secrets** and create a client secret. Copy its value immediately, as Microsoft shows it only once. Note the expiry date you set.
 
 Device42 cannot send mail after the client secret expires. Create a new secret and update the mail server settings before that date.
 
-### Register the Service Principal in Exchange Online
-
-Register the application in Exchange Online so it can access the mailbox. Run the following commands in Windows PowerShell as an administrator, substituting the values you recorded:
-
-<details>
-  <summary>Click to expand the code block</summary>
-
-```powershell
-Install-Module -Name ExchangeOnlineManagement -allowprerelease
-Import-Module ExchangeOnlineManagement
-Connect-ExchangeOnline -Organization <tenant-id>
-New-ServicePrincipal -AppId <client-id> -ObjectId <object-id>
-```
-
-</details>
-
-Run `Get-ServicePrincipal | fl` to confirm the service principal exists.
-
-Next, give the service principal access to the mailbox Device42 sends from. This step requires the Microsoft Graph PowerShell module:
-
-<details>
-  <summary>Click to expand the code block</summary>
-
-```powershell
-Install-Module Microsoft.Graph -Scope CurrentUser
-Add-MailboxPermission -Identity "<mailbox-address>" -User <object-id> -AccessRights FullAccess
-```
-
-</details>
-
 ### Enter the OAuth2 Settings in Device42
 
-Select OAuth2 as the authentication type. Device42 then asks for the values from your app registration instead of a password:
+Select **OAuth2** as the authentication type. The Basic Authentication fields remain visible but are disabled. Complete the following OAuth2 fields:
 
-- **Tenant ID:** The Directory (tenant) ID from your app registration.
-- **Client ID:** The Application (client) ID from your app registration.
-- **Client Secret:** The secret value you copied when you created the client secret.
+- **OAuth Client ID:** Enter the Application (client) ID from your app registration.
+- **OAuth Client Secret:** Select a stored secret, or click the **plus icon** to store the client secret you created in Entra ID.
+- **OAuth Authorization URL:** Enter `https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize`, substituting your Directory (tenant) ID.
+- **OAuth Token URL:** Enter `https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token`, substituting your Directory (tenant) ID.
+- **OAuth Scope:** Enter `https://outlook.office.com/SMTP.Send offline_access`.
 
-Set **Mail Server IP or FQDN** to `smtp.office365.com` and **Port** to `587`, and select **Use TLS**. Microsoft requires TLS 1.2 or later for client SMTP submission. Set **Mail Address From** to the mailbox you granted the service principal access to.
+<ThemedImage
+  alt="OAuth2 authentication mail server fields"
+  sources={{
+    light: useBaseUrl('/assets/images/mail-server-settings/oauth2-authentication-light.png'),
+    dark: useBaseUrl('/assets/images/mail-server-settings/oauth2-authentication-dark.png'),
+  }}
+/>
 
-Device42 requests an access token before each SMTP session and requests a new one when the current token expires. You do not need to refresh tokens manually.
+Set **Mail Server IP or FQDN** to `smtp.office365.com` and **Port** to `587`, and select **Use TLS**. Microsoft requires TLS 1.2 or later for client SMTP submission. Set **Mail Address From** to the mailbox you will use to authorize Device42.
+
+Click **Save**, edit the mail server settings again, and click **Connect OAuth**. Sign in to Microsoft with the sending mailbox and consent to the requested access. After Microsoft redirects you to Device42, confirm that **OAuth Connected At** shows the connection time.
+
+Device42 uses the refresh token to request new access tokens when needed. You do not need to refresh tokens manually, but you must reconnect OAuth if Microsoft revokes or expires the authorization.
 
 ## Test the Mail Server
 
@@ -112,8 +98,9 @@ Click **Test Mail Server** to confirm the configuration. This works with both au
 
 If an OAuth2 test fails, check the following in your app registration:
 
-- The **Client Secret** matches a current, unexpired secret in Entra ID.
-- The **Tenant ID** and **Client ID** match the values on the application's overview page.
-- The application has the **SMTP.SendAsApp** permission, and an administrator granted admin consent.
-- The service principal is registered in Exchange Online and has access to the sending mailbox.
+- The **OAuth Client Secret** matches a current, unexpired secret in Entra ID.
+- The tenant ID in both endpoint URLs and the **OAuth Client ID** match the values on the application's overview page.
+- The application has the delegated **SMTP.Send** permission and any required admin consent.
+- The Web redirect URI exactly matches your Device42 callback URL.
+- **OAuth Connected At** shows a connection time. If it does not, click **Connect OAuth** and complete the Microsoft sign-in flow.
 - SMTP AUTH is enabled on the sending mailbox.
