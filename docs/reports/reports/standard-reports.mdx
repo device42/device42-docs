@@ -139,11 +139,18 @@ Device42 saves the selected default with the report definition and restores it w
 
 ### Filter Report Results
 
-Click the filter icon in a column header to open its filter panel. Add or remove rules, select an operator, enter a value, and choose **Match All** (AND) or **Match Any** (OR) logic. Click **Apply** to filter the results. OR logic can also combine rules for different fields. You can use global search together with column filters.
+Click the filter icon in a column header to open its filter panel. Select an operator, enter a value, and click **Apply**.
+
+To add more than one rule for the same column, click **Add Rule** and select how Device42 should combine the rules:
+
+- **Match All** applies the filter when every rule matches (AND).
+- **Match Any** applies the filter when at least one rule matches (OR).
+
+You can apply filters to additional columns and use global search together with column filters.
 
 ![Advanced report filters using Match Any with multiple rules](/assets/images/standard-reports/advanced-filter-match-any.png)
 
-Date fields support **Date is**, **Date is before**, **Date is after**, and **Between** operators. Select **Between** and use the two date fields to enter a start and end date.
+For date columns, select **Date is**, **Date is before**, **Date is after**, or **Between**. Select **Between**, enter the start and end dates, and click **Apply** to show records within that date range.
 
 ![Between date filter on Standard Report results](/assets/images/standard-reports/advanced-filter-date-between.png)
 
