@@ -115,6 +115,10 @@ Configure the report. Reduce the report data to include only the essential colum
 
 ## Clone a Standard Report
 
+:::note
+Cloning Standard Reports is available only on on-premises installations.
+:::
+
 Open an existing report and click **Clone** to create a separate copy. The cloned report retains the original report definition, including its DOQL or SQL query, selected columns, and layout. Device42 appends ` - Clone` to the report name to distinguish the copy from the original.
 
 Edit the cloned report to change its filters and configure an independent schedule. Changes to the clone do not affect the original report.
@@ -158,8 +162,8 @@ Click **Clear Filters** to remove all active filters. Filters remain applied whe
 
 The following additional actions are available from the **Display on Screen** view:
 
-- **Export:** Select the fields to include and export the report in tab-separated values (TSV) or Excel format. The export applies the active data-grid filters and includes every matching row, with no row limit. If **Live Preview** is off, Device42 runs the report with the current filters before creating the export.
-- **Edit:** Open the report details page directly in edit mode.
+- **Export:** Click **Export**, select the fields to include, and choose tab-separated values (TSV) or Excel format. The export applies the active data-grid filters and includes every matching row across all result pages, with no row limit. If **Live Preview** is off, Device42 runs the report with the current filters before creating the export.
+- **Edit:** Click **Edit** to open the report details page directly in edit mode.
 - **Print:** Print the displayed report results.
 
 ## Schedule Standard Reports
