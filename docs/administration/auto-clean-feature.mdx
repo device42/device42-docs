@@ -10,7 +10,7 @@ Auto Clean rules help you manage old and possibly stale data in Device42, automa
 
 The rules for when a particular type of object should be considered and the rules for what to do about such objects vary from organization to organization. This feature enables you to define your own rules and tell Device42 what actions should be taken.
 
-Device42 includes several system-defined disabled Auto Clean rules (related to ADM data) as suggested examples you can use to base your own rules on. You can also enable these example rules to keep your ADM data cleaner.
+Device42 includes system-defined Auto Clean rules that you can use as provided or as the basis for your own rules. Some rules are enabled by default, while others are disabled examples that you can review and enable as needed.
 
 ## Auto Clean Supported CIs
 
@@ -53,6 +53,26 @@ Note that the system rule, **Shared IPs maintenance**, uses a **Number of Days
   sources={{
     light: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-rules-menu-light.png'),
     dark: useBaseUrl('/assets/images/auto-clean-feature/auto-clean-rules-menu-dark.png'),
+  }}
+/>
+
+### Remove Undetected Software Installations
+
+Device42 includes the enabled **Remove Undetected Software Installations** rule. It deletes software-in-use records that have not been discovered or updated for more than 31 days relative to when their devices were last discovered or updated.
+
+The rule has the following configuration:
+
+- **Object Type:** Software In Use
+- **Search Criteria:** Days Undetected is greater than `31`
+- **Action:** Delete the data
+
+You can edit or clone the rule to use a different threshold or other available criteria. If a matching software-in-use record cannot be deleted because it is assigned to a job, Device42 skips that record and continues running the rest of the Auto Clean job.
+
+<ThemedImage
+  alt="Remove Undetected Software Installations Auto Clean rule"
+  sources={{
+    light: useBaseUrl('/assets/images/auto-clean-feature/remove-undetected-software-installations-light.png'),
+    dark: useBaseUrl('/assets/images/auto-clean-feature/remove-undetected-software-installations-dark.png'),
   }}
 />
 
@@ -157,4 +177,3 @@ Select the actions to perform on CIs matching added object types and its criteri
 :::info 
 The Auto Clean rules run once per day. If only an email or webhook is sent but no action is taken, the email or webhook will repeat each day until an action is taken that deletes or changes the object record.
 :::
-
