@@ -55,12 +55,6 @@ The device details page has two panels that you can hide and expand as needed:
   }}
 />
 
-#### View Associated Customers
-
-When a device is associated with multiple customers, the **Customer** field displays a **See all Customers (X)** link, where `X` is the total number of associated customers.
-
-Device42 loads the customer list only after you click the link. The list opens in a pop-out and includes the customers and their custom fields. If more customers are available, click **Load More** to display the next group.
-
 **UI Notes:**
 
 - Columns under the **Asset Lifecycle** subview can be sorted in ascending or descending order.
@@ -82,6 +76,20 @@ Device42 loads the customer list only after you click the link. The list opens i
       dark: useBaseUrl('/assets/images/device-add-edit/certificate-instances-dark.png'),
     }}
   />
+
+### View Associated Customers
+
+The **Customers** section displays the total number of customers associated with the device. Device42 loads the list in groups instead of loading every customer at once.
+
+Click **Load More** to display the next group. Click the open-list icon in the upper-right corner of the section to open the complete customer list filtered to this device.
+
+<ThemedImage
+  alt="Device Customers section showing the customer count and Load More button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/customer-list-load-more-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/customer-list-load-more-dark.png'),
+  }}
+/>
 
 ### Object Category Visibility
 
