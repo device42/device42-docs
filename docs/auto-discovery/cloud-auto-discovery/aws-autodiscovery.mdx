@@ -187,6 +187,16 @@ If you don't want to follow the steps above, you can either:
   - Make the assumable role available in the main account. Dynamic discovery will pull it in if no accounts are listed, or if the main account is included in the manually added list of IDs.
   - Or also attach the Device42 discovery policy to the user directly. Select the **Discover main account** box on the job.
 
+### Route 53 Hosted Zone Types
+
+AWS discovery records whether a Route 53 hosted zone is **Public** or **Private**. If public and private zones share a domain name, Device42 keeps them separate so their DNS records do not overwrite each other. The zone names and **AWS Route53** nameserver values remain unchanged.
+
+The Route 53 hosted zone ID is stored in the zone's vendor metadata as `d42_hosted_zone_id`.
+
+:::note
+After upgrading, the first discovery may split an existing Route 53 zone into separate Public and Private zones. Record counts may increase because Device42 now retains records that previously overwrote each other; they are not duplicates. Device42 reuses the existing zone for one type, preserving its ID, tags, and record history.
+:::
+
 ## Discovered Services and Required Permissions
 
 Note that some Discovery items require enabling the feature and cannot be discovered otherwise.
@@ -207,7 +217,7 @@ Note that some Discovery items require enabling the feature and cannot be discov
 | Kubernetes (EKS)         | Resources --> All Resources       | eks._region_.amazonaws.com              | Containers, nodes, clusters                              | `eks:DescribeCluster`, `eks:DescribeNodegroup`, `eks:DescribeUpdate`, `eks:ListClusters`, `eks:ListNodegroups`, `eks:ListUpdates` |
 | RDS Instances             | Resources --> All Resources       | rds._region_.amazonaws.com              | Account info, status, location                          | `rds:Describe*`, `rds:ListTagsForResource`             |
 | Redshift                 | Resources --> All Resources       | redshift._region_.amazonaws.com         | Backup details, contributor insights, tables, limits    | `redshift:DescribeClusters`, `redshift:DescribeReservedNodes` |
-| Route 53                 | Resources --> All Resources       | route53.amazonaws.com                  | Type, content, tags                                     | `route53:ListHostedZones`, `route53:ListResourceRecordSets`, `route53:ListTagsForResource`, `route53domains:ListDomains` |
+| Route 53                 | Resources --> All Resources       | route53.amazonaws.com                  | Type, content, zone type, tags                          | `route53:ListHostedZones`, `route53:ListResourceRecordSets`, `route53:ListTagsForResource`, `route53domains:ListDomains` |
 | S3                        | Resources --> Storage --> Cloud Storage | *.s3._region_.amazonaws.com s3._region_.amazonaws.com *.s3.amazonaws.com s3.amazonaws.com | Storage utilization, bucket, bucket policies           | `s3:GetAccessPointPolicyStatus`, `s3:GetBucketAcl`, `s3:GetBucketLocation`, `s3:GetBucketPolicyStatus`, `s3:GetBucketPublicAccessBlock`, `s3:GetBucketTagging`, `s3:GetEncryptionConfiguration`, `s3:ListAccessPoints`, `s3:ListAllMyBuckets` |
 | Security Group (AWS)     | Resources --> Cloud Resources | ec2._region_.amazonaws.com | Region, identifier, owner ID, Vpc Id, etc. | `ec2:DescribeSecurityGroups`                           |
 | SNS                       | Resources --> All Resources     | sns._region_.amazonaws.com            | Topic, endpoints, attributes, subscriptions  | `sns:GetTopicAttributes`, `sns:ListTagsForResource`, `sns:ListTopics` |
