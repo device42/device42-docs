@@ -12,6 +12,14 @@ DNS zones represent sections of the domain name space managed by a specific name
 
 Navigate to **Resources > DNS > DNS Zones** to view, search, and filter DNS zones. The **Zone Type** column and filter identify zones as **Public** or **Private**. Zone Type also appears on each zone's details page.
 
+<ThemedImage
+  alt="DNS Zones list showing the Zone Type column and filter"
+  sources={{
+    light: useBaseUrl('/assets/images/dns-zones/dns-zone-type-list-light.png'),
+    dark: useBaseUrl('/assets/images/dns-zones/dns-zone-type-list-dark.png'),
+  }}
+/>
+
 ### Route 53 Zone Types
 
 Device42 sets **Zone Type** automatically for zones discovered from AWS Route 53. It remains blank for other DNS sources. If public and private Route 53 zones share a name, Device42 uses Zone Type to keep the zones and their records separate.
