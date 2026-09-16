@@ -123,6 +123,20 @@ Edit the cloned report to change its filters and configure an independent schedu
 
 Click **Display on Screen** to view the report results. The results grid provides global search, sortable columns, pagination, and a **Table Columns** selector for showing or hiding columns.
 
+### Control Report Updates with Live Preview
+
+Turn off the **Live Preview** toggle on the right to configure multiple filters without refreshing the report after each change. Turn it back on to refresh the results once using all your filters.
+
+Device42 saves the selected default with the report definition and restores it when you reopen the report.
+
+<ThemedImage
+  alt="Standard Report results with the Live Preview toggle"
+  sources={{
+    light: useBaseUrl('/assets/images/standard-reports/standard-report-live-preview-light.png'),
+    dark: useBaseUrl('/assets/images/standard-reports/standard-report-live-preview-dark.png'),
+  }}
+/>
+
 ### Filter Report Results
 
 Click the filter icon in a column header to open its filter panel. Add or remove rules, select an operator, enter a value, and choose **Match All** (AND) or **Match Any** (OR) logic. Click **Apply** to filter the results. OR logic can also combine rules for different fields. You can use global search together with column filters.
@@ -137,7 +151,7 @@ Click **Clear Filters** to remove all active filters. Filters remain applied whe
 
 The following additional actions are available from the **Display on Screen** view:
 
-- **Export:** Select the fields to include and export the report in tab-separated values (TSV) or Excel format. The export applies the active data-grid filters and includes every matching row, with no row limit.
+- **Export:** Select the fields to include and export the report in tab-separated values (TSV) or Excel format. The export applies the active data-grid filters and includes every matching row, with no row limit. If **Live Preview** is off, Device42 runs the report with the current filters before creating the export.
 - **Edit:** Open the report details page directly in edit mode.
 - **Print:** Print the displayed report results.
 
