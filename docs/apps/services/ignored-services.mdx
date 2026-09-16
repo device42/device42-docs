@@ -51,6 +51,8 @@ Click **Create** from the Ignored Services list page to add an ignored service.
 
 Enter the **Ignored Text** and select the **Ignored Level**.  Click **Active** to add the ignored service as active – active ignored services are not captured in discovery. Click **Save** to add the ignored service.
 
+To ignore dynamically named services by **Service Name** or **Display Name**, enter an asterisk (`*`) as a wildcard in **Ignored Text**. For example, `PrintWorkflow*` matches names such as `PrintWorkflowUserSvc_56616f34` and `PrintWorkflow_56db1ef`. Entries without a wildcard continue to use exact matching.
+
 <ThemedImage
   alt="Create an Ignored Service"
   sources={{
