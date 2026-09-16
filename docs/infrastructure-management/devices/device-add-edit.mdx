@@ -38,7 +38,7 @@ The **Latest Life Cycle Event** is a useful column to add to the default view fo
   }}
 />
 
-### Device Details View
+## Device Details View
 
 Click a device's name to open the device details view.
 
@@ -55,7 +55,7 @@ The device details page has two panels that you can hide and expand as needed:
   }}
 />
 
-**UI Notes:**
+### UI Notes
 
 - Columns under the **Asset Lifecycle** subview can be sorted in ascending or descending order.
 
@@ -77,7 +77,21 @@ The device details page has two panels that you can hide and expand as needed:
     }}
   />
 
-### Object Category Visibility
+**View associated customers**
+
+The **Customers** section displays the total number of customers associated with the device. Device42 loads the list in groups instead of loading every customer at once.
+
+Click **Load More** to display the next group. Click the open-list icon in the upper-right corner of the section to open the complete customer list filtered to this device.
+
+<ThemedImage
+  alt="Device Customers section showing the customer count and Load More button"
+  sources={{
+    light: useBaseUrl('/assets/images/device-add-edit/customer-list-load-more-light.png'),
+    dark: useBaseUrl('/assets/images/device-add-edit/customer-list-load-more-dark.png'),
+  }}
+/>
+
+**Object category visibility**
 
 The **Object Category** field is hidden when [Role-Based Access Control](/administration/role-based-access-control/#object-category-field) (RBAC) is turned off globally. To see the field on view pages, use the **Legacy View** button.
 
@@ -88,7 +102,7 @@ The following **Actions** on the Devices list page are hidden when RBAC is off:
 
 You can enable RBAC under **Tools > Settings > Global Settings**.
 
-### Subpage Options
+**Subpage options**
 
 Subpage buttons are displayed at the top of the device details view. Devices with conditional subpages, like Switch Ports and Power Consumption, also appear in this row. Typical subpages include:
   
