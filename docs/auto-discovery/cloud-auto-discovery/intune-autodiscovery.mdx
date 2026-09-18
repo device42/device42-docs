@@ -14,6 +14,12 @@ This page covers the prerequisites, configuration options, and steps to create a
 Intune discovery imports devices individually instead of in one large block that could time out for very large installations.
 :::
 
+## Hardware Model and Physical Subtype
+
+When Intune reports a recognized hardware model, Device42 uses the model name to assign the appropriate **Physical Subtype**, such as **Laptop**, **Mobile**, or **Tablet**. This prevents recognized devices from being classified as **Generic** and improves device-type synchronization with integrations such as Freshservice.
+
+If Device42 does not recognize the reported hardware model, the Physical Subtype remains **Generic** and you can update it on the hardware model.
+
 ## Prerequisites and Permissions
 
 Before creating an Intune discovery job, ensure that you have an active Intune license.

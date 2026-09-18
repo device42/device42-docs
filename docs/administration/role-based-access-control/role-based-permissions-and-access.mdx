@@ -6,7 +6,7 @@ sidebar_position: 1
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Role-based access can be defined at either the group or user level. If you have many users but a smaller number of different permission sets, it would make sense to use admin groups. In the example below, we will create a new group with selected IP address, DNS, and VLAN management permissions.
+Role-based access can be defined at either the group or user level. If you have many users but a smaller number of different permission sets, it makes sense to use admin groups. In the example below, you will create a new group with selected IP address, DNS, and VLAN management permissions.
 
 ## Create a New Admin Group
 
@@ -44,7 +44,7 @@ In the screenshot below, we have added several IP-related permissions and are ab
   }}
 />
 
-And now we'll add some VLAN permissions.
+Next, add some VLAN permissions.
 
 <ThemedImage
   alt="Select VLAN-related permissions"
@@ -60,7 +60,7 @@ Navigate to **Tools > Administrators**, select the user from the list page, and 
 
 When you click **Save**, the user will only have permissions to act on the IP addresses, DNS records, and VLANs defined in the admin group they are assigned to.
 
-Please make sure the **Superuser Status** checkbox is unchecked before saving.
+Make sure the **Superuser Status** checkbox is unchecked before saving.
 
 <ThemedImage
   alt="Assign user to Admin Group"

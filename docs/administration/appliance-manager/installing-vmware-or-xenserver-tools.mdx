@@ -1,25 +1,26 @@
 ---
-title: "Installing VMWare or Xenserver tools"
+title: "Installing VMware or XenServer Tools"
 sidebar_position: 13
 ---
 
-You can install VMware or XenServer tools in the Device42 appliance. Begin by downloading the ISO file from the vendor.
+You can install VMware or XenServer tools in the Device42 appliance to enable better integration with the host hypervisor. This page covers how to attach the tools ISO and install it from the Device42 VM console.
 
-Download the VMware Tools ISO file from the VMware website. See the [VMware documentation](https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/17.0/com.vmware.player.win.using.doc/GUID-D9B1B1D1-A81D-4B1C-AE9C-35EEFAAE2D41.html) for more information.
+## Download the Tools ISO
 
-If you're using XenServer, download the VM Tools from the [XenSever Downloads page](https://www.xenserver.com/downloads).
+Download the VMware Tools ISO from the VMware website. See the [VMware documentation](https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/17.0/com.vmware.player.win.using.doc/GUID-D9B1B1D1-A81D-4B1C-AE9C-35EEFAAE2D41.html) for details.
 
-Then proceed as follows:
+For XenServer, download the VM Tools from the [XenServer Downloads page](https://www.xenserver.com/downloads).
 
-1. Add a **CD/DVD Drive** as additional hardware. The default shipped VM doesn't have this.
-   
-   ![](/assets/images/wpid4571-add-cd.png)
+## Install the Tools
 
-2. Choose the option to install the tools.
-    This is an example from the VMware ESX server:
+1. Add a **CD/DVD Drive** as additional hardware — the default shipped VM does not include one.
 
-    ![](/assets/images/install-tools.png)
+    ![Add CD/DVD drive](/assets/images/wpid4571-add-cd.png)
 
-3. Log in to the Device42 VM console and use option **9**  to install the update. If it doesn't recognize the CD/DVD, please reboot and try step 2 and 3 again.
+2. Choose the option to install the tools. The screenshot below is an example from the VMware ESX server.
 
-    ![](/assets/images/wpid4572-device42-install-vmware-tools.png)
+    ![Install tools option](/assets/images/install-tools.png)
+
+3. Log in to the Device42 VM console and select option `9` to install the update. If the CD/DVD is not recognized, reboot the VM and repeat steps 2 and 3.
+
+    ![Install VMware tools from the Device42 console](/assets/images/wpid4572-device42-install-vmware-tools.png)
