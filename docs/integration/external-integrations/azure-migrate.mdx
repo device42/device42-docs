@@ -3,9 +3,20 @@ title: "Azure Migrate"
 sidebar_position: 2
 ---
 
+This page is for administrators who want to use Device42 as an assessment tool within Azure Migrate and export discovered business applications from Device42 to Azure for migration planning. By the end, your Device42 business application data appears in the Azure Migrate portal for assessment.
+
 The Azure Migrate integration lets you assess and migrate servers to Azure using Device42 as the assessment tool. This page covers how to set up Device42 from the Azure Migrate portal, register an Azure Active Directory user, and export your business applications to Azure.
 
 You can access Azure Migrate directly at [portal.azure.com](https://portal.azure.com/#create/Microsoft.AzureMigrate).
+
+## Prerequisites
+
+To export data from Device42 to Azure Migrate, make sure you have:
+- An Azure account with access to the Azure portal
+- An Azure Migrate project (created in [Set Up Device42 From the Azure Migrate Portal](#set-up-device42-from-the-azure-migrate-portal))
+- An Azure Active Directory app registration with a client secret, assigned the **Contributor** role on the subscription
+- The following details collected from Azure: **Tenant ID**, **Subscription ID**, **Client ID**, **Client Secret**, and the **Migrate Project Name**
+- A running Device42 instance with business applications to export
 
 ## Set Up Device42 From the Azure Migrate Portal
 
