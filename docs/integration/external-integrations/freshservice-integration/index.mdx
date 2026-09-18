@@ -10,6 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 This page covers the initial setup and installation of the Freshservice integration. 
 - For daily usage and operations, see [Using the Freshservice Integration](use-freshservice-integration.mdx). 
 - For advanced data mapping customization, see [Advanced Freshservice Mapping and Customization](customize-freshservice.mdx).
+- For help with sync and connection issues, see [Troubleshoot the Freshservice Integration](mapping-integration-troubleshooting.mdx).
 :::
 
 ## About the Device42 Freshservice Integration
@@ -162,22 +163,7 @@ Now, when you're logged out of both Device42 and Freshservice, clicking the **Fr
 
 ## Troubleshooting
 
-### Secure Tunnel Connection Error
-
-If you see this error:
-
-```
-[ERROR] 2025-06-30T19:06:37Z main.go:327: Connection error, error: websocket: bad handshake, response: Error: secure tunnel already established with same instance ID. Is there another D42 instance running with same settings?
-```
-
-This means multiple Device42 instances are using the same GUID. Each Device42 instance must have a unique GUID. The primary should keep its GUID, and any duplicate GUIDs on other instances should be regenerated to be unique.
-
-To action this:
-
-1. Check the GUID on your primary Device42 instance at **Tools > Integrations > Cloud Services**.
-2. Check the GUID of your other Device42 instances (hot standby, development, and so on).
-3. If the instances have the same GUID, regenerate the GUID on all instances except the primary one.
-4. Restart Device42 services on the instances where you changed the GUID.
+If you run into problems during or after setup, such as sync job errors or Cloud Connector connection issues (including the "secure tunnel already established with same instance ID" error), see [Troubleshoot the Freshservice Integration](mapping-integration-troubleshooting.mdx) for diagnostic steps and solutions.
 
 ## Next Steps
 
@@ -185,3 +171,4 @@ Once you have completed the setup, you can:
 
 - [Use the Freshservice Integration](use-freshservice-integration.mdx) for data synchronization, and understanding data flows.
 - [Customize the Freshservice Integration](customize-freshservice.mdx) for advanced data mapping and XML configuration.
+- [Troubleshoot the Freshservice Integration](mapping-integration-troubleshooting.mdx) for help diagnosing sync and connection errors.

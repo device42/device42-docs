@@ -14,6 +14,12 @@ This page covers the prerequisites, configuration options, and steps to create a
 Intune discovery imports devices individually instead of in one large block that could time out for very large installations.
 :::
 
+## Hardware Model and Physical Subtype
+
+When Intune reports a recognized hardware model, Device42 uses the model name to assign the appropriate **Physical Subtype**, such as **Laptop**, **Mobile**, or **Tablet**. This prevents recognized devices from being classified as **Generic** and improves device-type synchronization with integrations such as Freshservice.
+
+If Device42 does not recognize the reported hardware model, the Physical Subtype remains **Generic** and you can update it on the hardware model.
+
 ## Prerequisites and Permissions
 
 Before creating an Intune discovery job, ensure that you have an active Intune license.
@@ -125,6 +131,18 @@ After clicking **Save**, the job details page is displayed. Click **Run Now** to
 ## Intune OS Names
 
 Intune OS data has lower precedence than data from more authoritative sources, like OS-level discovery. For example, the Device42 agent will pick up "Microsoft Windows 10 Enterprise" more quickly than the generic Intune name "Windows". The lower precedence ensures more detailed OS names are collected, enhancing the data-filtering capability of the agent.
+
+## Intune BIOS Version
+
+Intune discovery maps the System Management BIOS version (the `systemManagementBIOSVersion` value from Intune) to the **Version** field in the **BIOS Info** section of the device detail view.
+
+<ThemedImage
+  alt="BIOS Info section on the device detail view"
+  sources={{
+    light: useBaseUrl('/assets/images/intune-autodiscovery/bios-info-light.png'),
+    dark: useBaseUrl('/assets/images/intune-autodiscovery/bios-info-dark.png'),
+  }}
+/>
 
 ## Rename Intune Devices
 

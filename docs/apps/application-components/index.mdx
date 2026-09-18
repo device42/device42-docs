@@ -52,6 +52,12 @@ Once converted, the process is treated as a full Service and can be used like an
 
 Device42 automatically categorizes Application Components by **Database** or **Web Server**. You can filter the list page based on this **Category**, and can categorize your custom components as well.
 
+:::info
+When Device42 discovers IIS Application Components, it detects passwords in connection strings and replaces them with `<redacted>` before storing the data, so these credentials are not mirrored in Device42.
+
+The sensitive values still exist in plain text in your IIS instance and should ideally be resolved using more secure methods.
+:::
+
 <ThemedImage
   alt="Application components list view"
   sources={{
