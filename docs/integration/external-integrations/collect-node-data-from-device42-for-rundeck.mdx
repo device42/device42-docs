@@ -3,38 +3,40 @@ title: "Rundeck Node Data Integration"
 sidebar_position: 25
 ---
 
-Device42 offers a Rundeck integration plugin that can dynamically pull node data from Device42's CMDB.
+The Device42 Rundeck integration plugin dynamically pulls node data from Device42 into Rundeck, keeping your node inventory up to date for job execution. This page covers how to install and configure the plugin, use filters, and work with Device42 nodes in Rundeck.
 
-## Installation
+## Install the Plugin
 
-To install the Rundeck plugin, Device42 offers a precompiled jar file available at [Device42's Rundeck Integration Page](https://www.device42.com/integrations/rundeck/). Alternatively, you can clone the repository from [Device42's Github page](https://github.com/device42) and build the plugin using Gradle. After downloading or compiling the plugin, it should be placed in Rundeck's plugin folder. On Ubuntu the default location for this is /etc/rundeck/libext.
+Download a precompiled JAR file from the [Device42 Rundeck Integration page](https://www.device42.com/integrations/rundeck/), or clone the repository from [Device42's GitHub page](https://github.com/device42) and build the plugin using Gradle.
 
-- Note, Java 1.8+ is required.
+After downloading or compiling the plugin, place it in Rundeck's plugin folder. On Ubuntu, the default location is `/etc/rundeck/libext`.
 
-## Configuration
+Note: Java 1.8 or later is required.
 
-To set up filters, add a new Rundeck resource to the project you are on through Configuration and select “Devices from D42”. Enter your Device42 url and credentials, and then you can enter filter values.
+## Configure the Plugin
+
+To set up filters, add a new Rundeck resource to your project through **Configuration** and select **Devices from D42**. Enter your Device42 URL and credentials, then enter your filter values.
 
 ![Plugin configuration](/assets/images/rundeck-config-2.gif)
 
 ## Use Filters
 
-We’ve included some common filters: tags, os, service\_level, and customer, but you can also enter any Device42 API endpoint as a filter including custom fields. For a full list please visit [Device42 API Page](https://api.device42.com/#devices).
+The plugin includes common predefined filters: `tags`, `os`, `service_level`, and `customer`. You can also enter any Device42 API endpoint as a filter, including custom fields. For a full list, see the [Device42 API documentation](https://api.device42.com/#devices).
 
-![Predefined filters](/assets/images/rundeck-filters.gif) _Using predefined filters in Rundeck_
+![Predefined filters](/assets/images/rundeck-filters.gif)
 
-If you would like to query nodes from Device42 based on any other information available from Device42's API, including custom fields, you can use the Filter Params section to enter those fields.
+To query nodes based on any other information available from the Device42 API, including custom fields, use the **Filter Params** section.
 
-![custom filter parameters](/assets/images/rundeck-filter-params.gif) _Configuring custom filter parameters based on Device42 API endpoints_
+![Custom filter parameters](/assets/images/rundeck-filter-params.gif)
 
 ## Work with Device42 Nodes in Rundeck
 
-After adding the filters, you will now be able to see which nodes Rundeck is pulling into Device42 by selecting the “Nodes” option in Rundeck.
+After adding your filters, select **Nodes** in Rundeck to see which nodes are being pulled from Device42.
 
 ![Viewing Nodes](/assets/images/rundeck-nodes.gif)
 
-By drilling down to one of the nodes we could also see the synchronized information about node data including building, room and rack information about a device, operating system information, device type, and other information when applicable such as a virtual machine’s host.
+Drilling down into a node shows synchronized details including building, room, rack, operating system, device type, and — where applicable — virtual machine host information.
 
 ![Viewing Device42 details](/assets/images/rundeck-d42-details.gif)
 
-Now when creating Rundeck jobs you no longer have to worry about tracking down your node data to make sure you run it on the proper systems. Device42 will keep your data up-to-date, eliminating one more hurdle form your devops workflow. Furthermore, if you do not set a cache value, scheduled jobs will refresh the list of nodes to run on at the time they run making sure you have the most up-to-date list of nodes. If you wish to use smart filters for the specific jobs feel free to use the default filtering mechanizm of the Rundesk - all collected Device42 attributes are stored as Node properties, tags or attributes.
+When creating Rundeck jobs, Device42 keeps your node data current so you always run jobs on the correct systems. If you do not set a cache value, scheduled jobs refresh the node list at runtime. All collected Device42 attributes are stored as node properties, tags, or attributes, so you can use Rundeck's built-in filtering for specific jobs.

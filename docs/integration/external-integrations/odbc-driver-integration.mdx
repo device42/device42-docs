@@ -3,127 +3,127 @@ title: "ODBC Driver Integration"
 sidebar_position: 20
 ---
 
-The Device42 ODBC driver allows users to connect to Device42 and pull data externally as an ODBC (Open Database Connectivity) data source. The current ODBC driver installs on Microsoft Windows, and Device42 provides instructions to leverage both generic ODBC connectivity, and to connect Microsoft PowerBI to your Device42 ODBC datasource below.
+The Device42 ODBC driver lets you connect to Device42 and pull data externally as an ODBC (Open Database Connectivity) data source. The driver installs on Microsoft Windows and supports generic ODBC connectivity as well as connecting Microsoft PowerBI to your Device42 ODBC data source.
 
-**Download the Device42 ODBC driver** (which should work with many ODBC-compatible consumers) directly from the [Device42 Miscellaneous Tools Download page](https://www.device42.com/miscellaneous-tools/).
+**Download the Device42 ODBC driver** from the [Device42 Miscellaneous Tools Download page](https://www.device42.com/miscellaneous-tools/).
 
 ## ODBC System Requirements
 
-System requirements for connecting to Device42 via ODBC are as follows:
+The following are required to connect to Device42 via ODBC:
 
-- Current Device42 installation, properly configured, licensed, running, and accessible.
-- A host system for the D42 ODBC driver running Microsoft Windows.
-- PowerBI software to follow the tutorial below to connect to the Device42 ODBC data source.
+- A current Device42 installation that is properly configured, licensed, running, and accessible.
+- A host system for the Device42 ODBC driver running Microsoft Windows.
+- PowerBI software, if you want to follow the tutorial below to connect to the Device42 ODBC data source.
 
-### Install the Device42 ODBC Driver
+## Install the Device42 ODBC Driver
 
-To install the Device42 ODBC driver, download the .exe installer from https://device42.com and double-click to install on a Microsoft Windows-based instance. Follow the instructions on the screen, clicking **Next** until you see **Installation Complete**, indicating you have finished installing the Device42 ODBC data source driver:
+To install the Device42 ODBC driver, download the `.exe` installer from https://www.device42.com/miscellaneous-tools/ and double-click to run it on a Microsoft Windows-based system. Follow the on-screen instructions, clicking **Next** until you see **Installation Complete**:
 
 ![ODBC Driver Installation complete Windows](/assets/images/ODBC_driver_install_complete.png)
 
-## Connect PowerBI to the Device42 ODBC Datasource
+## Connect PowerBI to the Device42 ODBC Data Source
 
-Device42's ODBC driver works to connect Microsoft PowerBI directly to your Device42 CMDB. For details on using PowerBI with Device42's ODBC driver, see the [Microsoft PowerBI Integration documentation](integration/external-integrations/powerbi-integration.mdx).
+The Device42 ODBC driver works with Microsoft PowerBI to connect directly to your Device42 CMDB. For details, see the [Microsoft PowerBI Integration documentation](/integration/external-integrations/powerbi-integration).
 
 ## Create a DSN
 
-1. To create or pre-define a DSN (Data Source Name), open the Windows ODBC Data Source Administrator via the Windows Start Menu. **Windows 10:** Click **Start > Windows Administrative Tools > ODBC Data Sources (64-bit)** (note there is also a 32-bit version, which you can ignore). **Windows 7:** Click **Start > All Programs > Administrative Tools > Data Sources (ODBC)**:
+To create or pre-define a DSN (Data Source Name), open the Windows ODBC Data Source Administrator:
+
+- **Windows 10:** Click **Start > Windows Administrative Tools > ODBC Data Sources (64-bit)**.
+- **Windows 7:** Click **Start > All Programs > Administrative Tools > Data Sources (ODBC)**.
 
 ![ODBC Datasource Admin](/assets/images/ODBC_Datasource_Administrator.png)
 
-2. Click the **Add** button to begin adding a new datasource. In the **Create New Data Source** window that is displayed, choose **Device42 ODBC Driver** and click **Finish**:
+1. Click **Add** to begin adding a new data source. In the **Create New Data Source** window, choose **Device42 ODBC Driver** and click **Finish**:
 
 ![Add Device42 ODBC Driver DSN](/assets/images/add_device42_ODBC_driver_source.png)
 
-3. On the **Device42 ODBC Driver DSN Configuration** screen that is displayed, enter values as explained below:
+2. On the **Device42 ODBC Driver DSN Configuration** screen, enter values as described below:
 
 ![Device42 DSN configuration](/assets/images/DSN_Configuration_Screen.png)
 
-- **DSN Name**: The name to identify this DSN.
-- **Server Host**: The host name of the Device42 server.
-- **Port**: The port number that the Device42 server is servicing requests on. The default value is the standard SSL port of 443. If you leave this field blank, it will also default to 443.
-- **Username**: The username you use to login to Device42.
-- **Password**: The password you use to login to Device42.
+- **DSN Name:** The name to identify this DSN.
+- **Server Host:** The host name of the Device42 server.
+- **Port:** The port number that the Device42 server uses for requests. The default is the standard SSL port `443`. If you leave this field blank, it also defaults to `443`.
+- **Username:** The username you use to log in to Device42.
+- **Password:** The password you use to log in to Device42.
 
 :::note
-The ODBC connection requires a valid SSL certificate on your Device42 instance, otherwise the connection will error out. If you're using Device42 for internal use only and don't have a valid certificate, you can upload a self-signed certificate to your Main Appliance and restart the service to get the ODBC connection working. 
+The ODBC connection requires a valid SSL certificate on your Device42 instance, otherwise the connection will fail. If you're using Device42 for internal use only and don't have a valid certificate, you can upload a self-signed certificate to your Main Appliance and restart the service to get the ODBC connection working.
 :::
 
-4. Click the **Test** button to try connecting using the information you specified. You will receive a message if the connection could or could not be made. If the connection could not be made, verify that the information you entered is correct.
-5. Click the **Save** button to save the changes you made to the DSN. Your changes will only be saved if the information entered results in a successful connection. If the connection could not be made, verify that the information you entered is correct.
+3. Click **Test** to try connecting using the information you specified. You will receive a message indicating whether the connection succeeded. If it did not, verify the information you entered.
+4. Click **Save** to save the DSN. Changes are only saved if the connection is successful.
 
-Setup of the Device42 ODBC DSN is complete. You should now be able to utilize the pre-configured DSN throughout PowerBI.
+The Device42 ODBC DSN is now configured and available for use in PowerBI.
 
 ---
 
 ## Import Data Into MS SQL Server
 
-Using the Device42 ODBC driver, it is possible to import data directly into SQL Server. The following procedure will facilitate a data import. (The following instructions are for Windows 10 and may differ from other versions of Windows).
+Using the Device42 ODBC driver, you can import data directly into SQL Server. The following instructions are for Windows 10 and may differ from other versions of Windows.
 
 ### Import Prerequisites
 
-1. Begin by copying the Mapping files (The mapping files control how data types from the Device42 ODBC Driver map to Microsoft SQL Server data types).
-2. Start the **SQL Server Import and Export Wizard**.
-3. Start **Task Manager**.
-4. Browse to the location of the **SQL Server Import and Export Wizard** executable. Right-click on the app executable (it will be named similar to **SQL Server Import and Export Wizard**). Note that the name may end with "32 bit" or "64 bit" and the .exe file extension.
+Before starting the import, copy the mapping files that control how data types from the Device42 ODBC Driver map to Microsoft SQL Server data types:
+
+1. Start **Task Manager**, then browse to the **SQL Server Import and Export Wizard** executable. Right-click the app executable (named similarly to **SQL Server Import and Export Wizard**, possibly ending with "32 bit" or "64 bit").
 
 ![Browse to the SQL import export wizard](/assets/images/DTSWizard.exe-explorer.png)
 
-    1. Click **Open file location** and go up one level to the `DTS` folder.
-    2. Go into the `MappingFiles` folder.
-    3. Open another instance of Windows Explorer.
-    4. Go to `C:\\Program Files\\Device42\\Device42 ODBC Driver\\MS SQL Server Mapping Files`.
-    5. Copy files `D42ODBCToMSSql10.XML` and `D42ODBCToSSIS10.XML` from `C:\\Program Files\\Device42\\Device42 ODBC Driver\\MS SQL Server Mapping Files` and paste them in the `DTS\\MappingFiles` folder of the **SQL Server Import and Export Wizard** that you found earlier.
-    6. Close the **SQL Server Import and Export Wizard**. The mapping files that were just copied will not take effect until the **SQL Server Import and Export Wizard** is restarted.
+2. Click **Open file location** and go up one level to the `DTS` folder, then open the `MappingFiles` folder.
+3. Open another Windows Explorer window and navigate to `C:\Program Files\Device42\Device42 ODBC Driver\MS SQL Server Mapping Files`.
+4. Copy `D42ODBCToMSSql10.XML` and `D42ODBCToSSIS10.XML` into the `DTS\MappingFiles` folder you found in step 2.
+5. Close and restart the **SQL Server Import and Export Wizard** for the mapping files to take effect.
 
 ### SQL Server Data Import Procedure
 
-Note: These instructions are for SQL Server Management Studio v17.9.1 and may differ from other versions of SQL Server Management Studio.
+These instructions apply to SQL Server Management Studio v17.9.1 and may differ from other versions.
 
-1. Start the **SQL Server Import and Export Wizard**. You will see the following screen and can press **Next**:
+1. Start the **SQL Server Import and Export Wizard** and click **Next**:
 
 ![SQL Server import export wizard welcome](/assets/images/welcome_to_SQL_import_export_wizard.png)
 
-2. Select a data source of **.Net Framework Data Provider for ODBC**:
+2. Select **.Net Framework Data Provider for ODBC** as the data source:
 
 ![Choose a Data Source](/assets/images/Choose-data-source.png)
 
-3. Enter a connection string or DSN for the Device42 ODBC Driver and then click the **Next** button.
-4. Select a destination of **SQL Server Native Client 11.0**:
+3. Enter a connection string or DSN for the Device42 ODBC Driver, then click **Next**.
+4. Select **SQL Server Native Client 11.0** as the destination:
 
 ![Choose destination SQL native client](/assets/images/choose-destination.png)
 
-5. Enter the server and database to import the data to, plus appropriate authentication details with proper permissions.
-6. Choose how you'd like to select Device42 data – from a table or view, or using a query, then click **Next**:
+5. Enter the server and database to import data into, along with authentication details with the appropriate permissions.
+6. Choose how to select Device42 data — from a table or view, or using a query — then click **Next**:
 
 ![Copy data from table/view or from a query](/assets/images/specify-table-or-query.png)
 
-7. **If you selected “Write a query to specify the data to transfer”**, then go ahead and enter your query _(otherwise, skip this step)_:
+7. **If you selected "Write a query to specify the data to transfer"**, enter your query:
 
 ![Provide source query](/assets/images/provide-source-query.png)
 
-8. **If you selected “Copy data from one or more tables or views”**, select the views you'd like to copy:
+8. **If you selected "Copy data from one or more tables or views"**, select the views to copy:
 
 ![Select Source Tables and Views](/assets/images/select-source-tables.png)
 
-9. Click the **Edit Mappings** button to review or change which data will be copied (you can select a destination of "" if you do not want to copy a column) and attributes of the destination column such as data type.
+9. Click **Edit Mappings** to review or change which data will be copied and the attributes of the destination columns, such as data type:
 
 ![Column Mappings window](/assets/images/column-mappings.png)
 
-10. Close the **Column Mappings** window, and then click the **Preview** button to see a sample of the data that will be copied:
+10. Close the **Column Mappings** window, then click **Preview** to see a sample of the data that will be copied:
 
 ![Preview data to be copied](/assets/images/preview-data.png)
 
-11. Close the **Preview Data** window, and then click the **Next** button to continue.
-12. Review the selected data type mappings, and then click the **Next** button:
+11. Close the **Preview Data** window, then click **Next**.
+12. Review the selected data type mappings, then click **Next**:
 
 ![Review Data Type Mappings](/assets/images/review-data-type-mapping.png)
 
-13. Select if you want to run the data import immediately and or to save it as an SSIS package:
+13. Choose whether to run the import immediately or save it as an SSIS package:
 
 ![Run now or Create Save and Run Package](/assets/images/save-and-run-package.png)
 
-14. Click the **Next** button, and review the selections made in the **SQL Server Import and Export Wizard**.
-15. Click the **Finish** button to complete the wizard. Your data import should be imported according to your chosen settings.
+14. Click **Next** and review your selections in the wizard.
+15. Click **Finish** to complete the import.
 
-If you have any questions about the Device42 ODBC driver that aren't answered here, please open a ticket at [https://support.device42.com](https://support.device42.com) or email support@device42.com.
+For questions about the Device42 ODBC driver not answered here, open a ticket at [support.device42.com](https://support.device42.com) or email support@device42.com.
