@@ -1,26 +1,28 @@
 ---
 title: "VRF Groups"
-sidebar_position: 11
+sidebar_position: 1
 ---
 
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Virtual routing and forwarding groups (VRF groups) are often used by ISPs and other larger network service providers to organize and track customers' (or their own) logical networks segments, subnets, and VLANs, some of which often overlap with IP ranges in use in other VRF groups - _but never within the same VRF group_. The reason why is quite simple: There are really only three IP address ranges dedicated to private network use: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16; however, there are thousands of end users on these networks that need to route traffic to the internet - and in a few special cases, to each other. VRF groups to the rescue!
+Virtual routing and forwarding groups (VRF groups) are often used by ISPs and other larger network service providers to organize and track their logical network segments, subnets, and VLANs, some of which often overlap with IP ranges in use in other VRF groups — but never within the same VRF group. The reason is straightforward: there are really only three IP address ranges dedicated to private network use (`10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`), yet there are thousands of end users on these networks that need to route traffic to the internet, and in a few special cases, to each other. That's where VRF groups come in.
 
-Most VRF groups are designed so that they can't route between each other by default; however, all are able to route out to a larger network cloud (for example, the internet), thus allowing multiple customers to assign IP addresses to end users on their own networks as they please - without interfering with one another.
+Most VRF groups are designed so that they can't route between each other by default. However, all are able to route out to a larger network cloud (for example, the internet), allowing multiple customers to assign IP addresses to end users on their own networks as they please, without interfering with one another.
 
 <ThemedImage
-  alt="Device42 VRF Group menu item"
+  alt="VRF group menu item"
   sources={{
     light: useBaseUrl('/assets/images/vrf-groups/VRF_Group_menu-light.png'),
     dark: useBaseUrl('/assets/images/vrf-groups/VRF_Group_menu-dark.png'),
   }}
 />
 
-Device42 users can create VRF groups in Device42 to track and manage these overlapping IP Ranges via the main menu, **Network > VRF Group**. Simply assign networks to VRF groups as appropriate, dividing your individual networks into VRF groups. IP addresses must be unique _per VRF group_, but _you can have overlapping subnet ranges_ across VRF groups.
+Create VRF groups in Device42 via **Resources > Networks > VRF Group**. Assign networks to VRF groups as appropriate, dividing your individual networks into VRF groups. IP addresses must be unique per VRF group, but you can have overlapping subnet ranges across VRF groups.
 
-## Add/Edit a VRF Group Page
+## Add or Edit a VRF Group
+
+Click **Create** to add a new VRF group, or click an existing VRF group name and then **Edit** to modify it.
 
 <ThemedImage
   alt="Add new VRF group"
@@ -30,20 +32,20 @@ Device42 users can create VRF groups in Device42 to track and manage these overl
   }}
 />
 
-**Name:** is required and must be unique among VRF groups.  
-**Description:** Free form text to enter any text.  
-**Default:** Select this checkbox to have all subnets auto-discovered added to this VRF group automatically (going forward). This option will not add existing subnets automatically. _Note that subnets are not displayed on the edit page._
+- **Name:** Required and must be unique among VRF groups.
+- **Description:** Free-form text field for any additional details.
+- **Default:** Select this checkbox to have all newly discovered subnets added to this VRF group automatically. This does not apply to existing subnets.
 
-If you make the VRF group the default, then subnets and IPs will be automatically assigned to this default VRF group - unless otherwise specified.
+If you set a VRF group as the default, subnets and IPs are automatically assigned to it unless otherwise specified.
 
 ## View an Existing VRF Group
 
 <ThemedImage
-  alt="Select VRF group to view"
+  alt="VRF group list page"
   sources={{
     light: useBaseUrl('/assets/images/vrf-groups/select_VRF_to_view-light.png'),
     dark: useBaseUrl('/assets/images/vrf-groups/select_VRF_to_view-dark.png'),
   }}
 />
 
-The VRF Group view page shows all of your VRF Groups.
+The list page shows all defined VRF groups with their associated subnets and details.

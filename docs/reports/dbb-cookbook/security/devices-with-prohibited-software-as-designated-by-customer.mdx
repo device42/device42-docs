@@ -1,0 +1,27 @@
+---
+title: "Devices with Prohibited Software (as designated by customer)"
+sidebar_position: 28
+---
+
+Returns devices running software flagged as prohibited. Note that prohibited status is set manually and is not directly discovered — use this to identify compliance violations and clean up devices that don't conform to your business rules.
+
+<details>
+    <summary>Click to expand the code block</summary>
+    ```sql
+    select
+         ds.device_fk
+         ,ds.device_name
+         ,ds.device_type
+         ,ds.serial_number
+         ,ds.asset_number
+         ,ds.uuid
+         ,ds.device_service_level
+         ,ds.tags
+         ,ds.all_software
+         ,ds.all_software_types
+    from view_dbb_security_v2  ds
+    where lower(ds.all_software_types) like '%prohibited%'
+    order by ds.device_name
+    ```
+</details>
+

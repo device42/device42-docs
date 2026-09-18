@@ -12,11 +12,12 @@ import fsInventoryMenuImage from '/assets/images/freshservice-integration/fs-inv
 This page covers advanced data mapping customization and XML file editing. 
 - For initial setup and installation, see [Setting Up the Device42 Freshservice Integration](index.mdx). 
 - For usage and operations, see [Using the Freshservice Integration](use-freshservice-integration.mdx).
+- For help with sync and connection issues, see [Troubleshoot the Freshservice Integration](mapping-integration-troubleshooting.mdx).
 :::
 
 ## Manage Customization with Newer Releases
 
-The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements to Freshservice (such as assets, devices, CIs, and metadata). We share these new additions in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/mapping-4.0-changes).
+The Device42-Freshservice integration ships with a default mapping file. Newer versions of the mapping file may include sending additional elements to Freshservice (such as assets, devices, CIs, and metadata). We share these new additions in the [Freshservice mapping release notes](/release-notes/freshservice-mapping/).
 
 If you make an adjustment and use a custom XML file, Device42 will not update the custom XML during updates.
 
@@ -334,6 +335,44 @@ Use the following steps to verify that the field name is correct:
     />
 
 
+### Map Special Fields Without a Target Header
+
+A few fields are handled specially and must **not** include the `target-header` attribute. These fields are placed at the root level of the asset payload.
+
+The `user_email` field populates the **Used By** dropdown. The value must be an email address matching an existing requester or user in Freshservice:
+
+```xml
+<field resource="used_by" source-type="string" target="user_email" target-type="string"/>
+```
+
+The `product` field holds the product name and requires two field elements:
+
+```xml
+<field resource="hw_model" source-type="string" target="product" target-field="name" target-type="dict" max-length="255"/>
+<field resource="manufacturer" source-type="string" target="product" target-field="manufacturer" target-type="dict" max-length="255"/>
+```
+
+### Use Foreign Key Lookups
+
+Some Freshservice fields expect a numeric ID, not a human-readable name. The `target-foreign` attribute tells the integration to look up the correct ID automatically. The following foreign key types are available:
+
+| Type | Match by | Auto-creates if not found? | Used in default mapping for |
+| --- | --- | --- | --- |
+| `vendors` | `name` | Yes | Devices, Network Devices, Business Applications, Contracts |
+| `agents` | `email` | Yes | Business Applications |
+| `groups` | `name` | Yes | Supported but not used in default mapping |
+| `contract_types` | `name` | No | Contracts |
+| `applications` | `name` | No | Software Licensing |
+
+### Know the Mapping Limitations
+
+Keep the following limitations in mind when customizing the mapping:
+
+- **`location_id` requires a hardcoded value mapping.** The Freshservice channel API has no working endpoint for locations, so `target-foreign` can't be used. Use `value-mapping` with hardcoded IDs instead. Get the IDs via `GET {{freshservice_url}}/api/v2/locations`.
+- **`department_id` likely has the same limitation** as `location_id`.
+- **Asset types must pre-exist in Freshservice.** The integration never creates asset types automatically.
+- **Changing matching criteria is a last resort.** If you later use the Freshservice Discovery Probe or another data source, changed criteria could create duplicate assets. [Contact support](mailto:support@device42.com) to discuss the pros and cons first.
+
 ## Control Updates 
 
 Control whether changes made to Device42 asset types and contracts will update the corresponding items in Freshservice during sync.
@@ -382,6 +421,8 @@ To add a custom field to Freshservice, modify the `mapping.xml` file and reuploa
 Depending on the custom field you want to add, you may have to modify the DOQL query in the `<resource>` element to fetch that data from Device42. If needed, use the InsightsAI chat under **Analytics > InsightsAI** to help you find the tables and fields you need to query.
 
 If you can't find a task related to your custom field, you can create a new `<task>` element in the `mapping.xml` file.
+
+When you add the `<field>` elements, ensure that the mapped field types match. A mismatch between the Device42 source type and the Freshservice target type causes sync errors.
 
 ### How Do I Sync a Device42 Custom Field to Freshservice? (Detailed Steps)
 

@@ -1,0 +1,51 @@
+---
+title: "Changes in Version 5.0 (CC5.1.2)"
+sidebar_position: 5
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.1.2 release (CC 5.1.2).
+
+If you are using a custom mapping.xml file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## Obsolete Field Attributes Removed
+
+The following field element attributes were removed from all field mappings because null and blank values are no longer sent to Freshservice by default.
+
+- `not-null`
+- `skip-if-null`
+- `set-space`
+
+## Examples
+
+The examples below show field elements with these attributes removed.
+
+### Example 1: `set-space` Attribute Removed
+
+- Version 4.0:
+
+       ```xml
+       <field resource="name" source-type="string" target="name" target-type="string" target-header="General"
+              set-space="true" min-length="1" max-length="248" escape="true"/>
+       ```
+
+- Version 5.0:
+
+       ```xml
+       <field resource="name" source-type="string" target="name" target-type="string" target-header="General"
+              min-length="1" max-length="248" escape="true"/>
+       ```
+
+### Example 2: `not-null` and `skip-if-null` Attributes Removed
+
+- Version 4.0:
+
+       ```xml
+       <field resource="used_by" source-type="string" target="user_email" target-type="string"
+              not-null="true" skip-if-null="true"/>
+       ```
+
+- Version 5.0:
+
+       ```xml
+       <field resource="used_by" source-type="string" target="user_email" target-type="string"/>
+       ```

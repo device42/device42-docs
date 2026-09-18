@@ -1,0 +1,37 @@
+---
+title: "Changes in Version 6.0 (CC 5.2.0)"
+sidebar_position: 4
+---
+
+The following two changes to the `mapping.xml` file were made as part of the Cloud Connector 5.2.0 release (CC 5.2.0).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## Change to the Azure Network Interface Task 
+
+Regarding this Azure Network Interface task:
+
+```html
+<task enable="true" name="D42 Azure Network Interface to Freshservice Azure Network Interface" type="asset" description="Copy Azure Network Interface from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+The DOQL `SELECT` statement of the `<resource>` element was changed from:
+
+```sql
+netport.details ->> 'mac_address'               AS mac_address,
+```
+
+To the following:
+
+```sql
+netport.hwaddress                               AS mac_address,
+```
+
+## Additional Tasks Added
+
+Two tasks were added to delete software installations that no longer exist in Device42:
+
+```xml
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_min_version="16.19.00">
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_max_version="16.18.02">
+```
