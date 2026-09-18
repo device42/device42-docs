@@ -11,7 +11,7 @@ When you add or update a secret in Device42, your Jenkins automations instantly 
 
 ![Jenkins](/assets/images/Jenkins-logo-butler-transparent.png)
 
-### Build the Jenkins Plugin From Source (Optional)
+## Build the Jenkins Plugin From Source (Optional)
 
 **Maven** is required to build the plugin.
 
@@ -35,7 +35,7 @@ When you add or update a secret in Device42, your Jenkins automations instantly 
 
 4. Follow the [Configure Jenkins](#configure-jenkins) section below to install the plugin you just built.
 
-### Configure Jenkins
+## Configure Jenkins
 
 1. Log in to your Jenkins instance.
 2. Select the **Manage Jenkins** gear icon from the menu on the left, then choose **Manage Plugins** > **Advanced** tab.
@@ -44,13 +44,13 @@ When you add or update a secret in Device42, your Jenkins automations instantly 
 
     ![Upload Device42 Jenkins Plugin](/assets/images/upload_d42_plugin_hpi_jenkins.png)
 
-### Configure Device42
+## Configure Device42
 
 Device42 does not require any specific configuration for the integration other than having your main appliance running and its API accessible.
 
 Passwords and secrets are created and managed within Device42 as usual. The integration reads those secrets via the Device42 API each time a Jenkins automation runs.
 
-### Use the Device42-Jenkins Credentials Integration
+## Use the Device42-Jenkins Credentials Integration
 
 The integration allows you to use passwords and secrets stored in Device42 within Jenkins automations by pulling them via the Device42 API when Jenkins automations run. Credentials stored in Device42 are made available in Jenkins as variables, the names of which are user-customizable. Each credential variable can be referenced as many times as needed within a Jenkins automation.
 
