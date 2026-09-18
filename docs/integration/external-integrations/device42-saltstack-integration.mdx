@@ -15,20 +15,19 @@ The integration collects the following data from Salt:
 - Virtual sub-type
 - CPU core count
 - Manufacturer
-- Operating system and OS version
-- Total memory
-- HDD count
-- Service level
+- Operating System and OS Version
+- Total Memory
+- HDD Count
+- Service Level
 
 ## Prerequisites
 
-The following are required before setting up the integration:
+Before you configure the integration, make sure you have:
 
-- Working Salt and Device42 installations. Tested against Salt Master 2016.11.1 Carbon.
-- To allow connections, sign your minion certificates on your Salt Master and run the script on your Salt Master server.
-- Python v2.7.x
-
-Install the required Python dependencies:
+- A working Device42 instance and a working Salt installation
+- Accepted keys for the minions on the Salt Master
+- Permission to run the script on the Salt Master as the user that runs the Salt Master
+- The Python packages in the integration repository's [`requirements.txt`](https://github.com/device42/salt_to_device42_sync/blob/master/requirements.txt) file
 
 ```
 pip install PyYAML appdirs futures jinja2 tornado requests salt markupsafe msgpack-python packaging pycrypto pyparsing pyzmq singledispatch six
@@ -36,9 +35,9 @@ pip install PyYAML appdirs futures jinja2 tornado requests salt markupsafe msgpa
 
 ## Configure and Use the Integration
 
-1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository into it.
-2. Copy `settings.yaml.example` to `settings.yaml`.
-3. Populate `settings.yaml` with your Device42 instance details (`host`, `user`, `pass`):
+1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository to it.
+2. Copy or rename the settings file `settings.yaml.example` to `settings.yaml`.
+3. Add your Device42 host, user name, and password to the `settings.yaml` file:
 
 <details>
     <summary>Click to expand the code block</summary>
@@ -65,9 +64,9 @@ pip install PyYAML appdirs futures jinja2 tornado requests salt markupsafe msgpa
 
 Consult `README.md` and `requirements.txt` for more details.
 
-4. Configure node filtering if desired. Configuration options are documented in `NodeFilter.md`. Add filter settings after the `Options:` section of `settings.yaml`.
-5. Run the script: `python saltexplore.py` (optionally with `-c /path/to/settings.yaml`)
+4. Configure node filtering, if required. You can find details about the configuration options in `NodeFilter.md`. Add filter settings after the `Options:` section of `settings.yaml`.
+5. Run the script with `python saltexplore.py`. Use `-c /path/to/settings.yaml` to specify a settings file in another location.
 
-For questions, bug reports, or feature requests, contact [support@device42.com](mailto:support@device42.com).
+Download the script from the [`salt_to_device42_sync` repository](https://github.com/device42/salt_to_device42_sync).
 
-To download the Salt integration script, visit the [Device42 GitHub page](https://github.com/device42).
+If you run into unexpected behavior or bugs, or have questions, comments, or feature requests, contact [support@device42.com](mailto:support@device42.com).

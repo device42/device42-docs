@@ -5,72 +5,61 @@ sidebar_position: 13
 
 The Device42 HP Service Manager (HPSM) Connector syncs asset and CMDB data from Device42 to your HPSM instance, enhancing your ITSM processes, change management workflows, and other operations with Device42's comprehensive discovery data.
 
-This page covers the requirements, configuration, and usage of the Device42-HPSM integration connector.
+With the connector you can use Device42 Continuous Discovery data in HPSM, link service requests to the relevant configuration item (CI), search for issues using CI attributes, and view CI details in HPSM.
 
 ![Device42 Data in HPSM](/assets/images/2017-03-15-hpsm-1.png)
 
-Once Device42 CI data has been synced to HP Service Manager, you can see Device42 CI details (asset tag, assignment, description, IP and MAC, and more) for those CIs in HPSM. You can also link service requests to relevant CIs and search for issues using CI attributes. Synchronization can be manually refreshed at any time or scheduled for automatic refresh at user-defined intervals.
+Using the Device42-HPSM integration connector, you can synchronize Device42 asset management and tracking data to the IP-enabled configuration items (CIs) held in the HPSM Configuration Management Database (CMDB). You can refresh this synchronization manually at any time, or schedule it to refresh automatically at intervals you define.
+
+Once Device42 CI data is synced to HP Service Manager, you can see Device42 CI details for those CIs in HPSM, such as asset tag, assignment, description, IP, and MAC address. CI data is also visible for HPSM-only CIs, and you can view any service requests associated with a CI.
 
 ## Assumptions and Requirements
 
-1. This integration script was tested with HPSM v9.40 and Device42 v12.0.0.
-2. Instructions assume you have a working Device42 and HPSM instance, at least the versions above or newer.
-3. The integration requires Python 2.7.x.
+## Prerequisites
 
-## Integration Steps and Configuration
+Before you configure the integration, make sure you have:
 
-Integrate Device42 data with HPSM using the Device42-HPSM sync script.
+- Working Device42 and HPSM instances
+- Python 2. The script is not compatible with Python 3.
 
-1. Create a working directory and copy the contents of the Device42_HPSM_Sync repository to it.
-2. Copy (or rename) the settings file `conf.sample` to `conf`.
-3. Edit the `conf` file to contain your Device42 and HPSM instance credentials (host, user, password):
+Device42 tested the script with HPSM 9.40 and Device42 12.0.0.
 
-    <details>
-        <summary>Click to expand the code block</summary>
-        ```
-            #========= Device 42 ========= #
-                d42_host = '192.168.1.102'
-                d42_username = 'user'
-                d42_password = 'pass'
-            #========= HPSM ========= #
-                hpsm_host = '10.42.42.46'
-                hpsm_protocol = 'http'
-                hpsm_port = '13080'
-                hpsm_username = 'user'
-                hpsm_password = 'pass'
-                hpsm_api_version = '9'
-            #========= Options ========= #
-                opt_debug = True
-                opt_dry_run = True
-        ```
-    </details>
+## Integration Steps, Configuration, and Usage
+
+Integrate Device42 data into HPSM using the Device42-HPSM sync script.
+
+1. Create a working directory and copy the contents of the Device42 [`Device42_HPSM_Sync`](https://github.com/device42/Device42_HPSM_Sync) repository into it.
+2. Copy or rename the settings file `conf.sample` to `conf`.
+3. Edit the `conf` file to contain the host, user, and password for your Device42 and HPSM instances:
 
 4. Configure HPSM: Open the Database Dictionary and add a field (type `number`, name `device42.id`) to both the `computer` and `networkcomponents` models.
 
-    ![Configure HPSM Database Dictionary](/assets/images/2015-03-15-hpsm-conf-1.png)
+4. Configure HPSM. Open the **Database Dictionary** and add a field of type `number`, named `device42.id`, to both the `computer` and `networkcomponents` models:
 
-    ![Configure HPSM Database Dictionary fields](/assets/images/2015-03-15-hpsm-conf-2.png)
+![Configure HPSM Database Dictionary](/assets/images/2015-03-15-hpsm-conf-1.png)
 
-5. The operator should have access to the REST API:
+![Configure HPSM Database Dictionary fields](/assets/images/2015-03-15-hpsm-conf-2.png)
 
-    ![Configure Operator API Access](/assets/images/2015-03-15-hpsm-3.png)
+5. Give the operator access to the REST API:
 
-6. The API should allow **Computer** and **NetworkDevice** access, with both **add** and **save** actions enabled:
+![Configure Operator API Access](/assets/images/2015-03-15-hpsm-3.png)
 
-    ![Configure Computer API Permissions](/assets/images/2015-03-15-hpsm-conf-4.png)
+6. Allow the API to access **Computer** and **NetworkDevice**, permitting both **add** and **save** actions:
 
-    ![Configure add and save API Permissions](/assets/images/2015-03-15-hpsm-conf-5.png)
+![Configure Computer API Permissions](/assets/images/2015-03-15-hpsm-conf-4.png)
 
-7. Both endpoints must allow access to add and update all of the fields pictured. Exact field names can be found in `README.MD`:
+![Configure add and save API Permissions](/assets/images/2015-03-15-hpsm-conf-5.png)
 
-    ![Allow Add and Update](/assets/images/2015-03-15-hpsm-conf-6.png)
+7. Both endpoints must allow access to add and update all of the fields pictured. You can also find the exact field names in `README.MD`:
+
+![Allow Add and Update](/assets/images/2015-03-15-hpsm-conf-6.png)
 
 8. Set the unique key for both endpoints to `logical.name`:
 
-    ![Set Unique Keys in HPSM](/assets/images/2015-03-15-hpsm-conf-7.png)
+    ![Configure HPSM Database Dictionary fields](/assets/images/2015-03-15-hpsm-conf-2.png)
 
 9. Run `python starter.py`.
 
 ## Access the HPSM Integration Connector
 
-Download the free integration connector script from the [Device42 HPSM integration page](https://www.device42.com/integrations/hpsm/).
+Device42 and HP Service Manager users can access the free integration connector script on the [Device42 HPSM integration page](https://www.device42.com/integrations/hpsm/).

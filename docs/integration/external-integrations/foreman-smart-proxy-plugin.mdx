@@ -3,9 +3,19 @@ title: "Foreman Smart Proxy Integration"
 sidebar_position: 11
 ---
 
-The Device42-Foreman Smart Proxy plugin integrates Device42's IP Address Management (IPAM) features with Foreman. Device42 tracks your subnets and the used and free IP addresses on each, so it can provide the next free IP address automatically. Foreman's Smart Proxies allow your Puppet and Foreman-based configuration scripts and other automation to request the next available IP on your network directly from Device42, transparently, via a standard DHCP request.
+This page is for administrators who want Foreman to request IP addresses from Device42 instead of a separate DHCP server. By the end, Foreman-based automation gets the next available IP address from Device42 through a standard DHCP request, and Device42 records the new object automatically.
 
-From the point of view of the server making the DHCP request, the smart proxy is transparent — it has no idea that it is actually getting an IP address from Device42. As far as Device42 can tell, it received a normal API request for the next available IP. The new CI record (including name, IP, and MAC address) is also created in Device42 automatically.
+Get even more from Device42 by integrating Device42's IP Address Management (IPAM) features with the Foreman. Device42 already knows all about your subnets as well as the used and free IP addresses on each – so let it provide the next free IP address automatically! Foreman's Smart proxies allow your Puppet and Foreman-based configuration scripts and other automation to request the next available IP on your network directly from Device42, transparently, via a standard DHCP request! The Device42-Foreman Smart-proxy plugin handles the transparent passing of DHCP requests to the D42 API!
+
+From the point of view of the server making the DHCP request, the smart proxy is transparent. It has no idea, nor any need to know, that it is actually getting an IP address from Device42. As far as Device42 can tell, it just received a normal API request for the next available IP. The new object, including its name, IP, and MAC address, is also recorded in Device42 automatically. Visit the [Device42-Foreman Smart Proxy Integration page to download](https://www.device42.com/integrations/foreman-smart-proxy/).
+
+## Prerequisites
+
+Before installing the plugin, make sure you have:
+- A running Foreman installation with Smart Proxy 1.16 or later, and root or `sudo` access to install the `foreman-proxy` package and edit its settings files
+- The Device42 server IP address, and an API username and password for the plugin to authenticate with
+- Network connectivity between the smart proxy server and Device42
+- The [Device42-Foreman Smart Proxy plugin](https://www.device42.com/integrations/foreman-smart-proxy/) downloaded
 
 Visit the [Device42-Foreman Smart Proxy Integration page](https://www.device42.com/integrations/foreman-smart-proxy/) to download the plugin.
 
@@ -48,6 +58,6 @@ Once you have installed the Foreman Smart Proxy package, add the following Devic
     ```
   </details>
 
-You can find the above configuration details in the `README.MD` file included with the [Device42-Foreman Smart Proxy plugin download](https://codeload.github.com/theforeman/smart_proxy_dhcp_device42/zip/refs/heads/master) on the [Device42 GitHub](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
+Note that you can find the above configuration details in the README.MD file included with the [Device42-Foreman Smart Proxy plugin download](https://codeload.github.com/theforeman/smart_proxy_dhcp_device42/zip/refs/heads/master) on the [plugin repository](https://github.com/theforeman/smart_proxy_dhcp_device42) page.
 
-If you encounter issues, check whether installation instructions have changed in the Foreman manual linked above. Contact [support@device42.com](mailto:support@device42.com) for further assistance.
+Should you have issues, please check to see installation instructions haven't changed per the Foreman manual (linked above). If they have changed, or if they have not changed and you are still experiencing trouble, email [support@device42.com](mailto:support@device42.com).

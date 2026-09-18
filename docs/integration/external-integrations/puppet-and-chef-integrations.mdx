@@ -3,45 +3,54 @@ title: "Puppet and Chef Integrations"
 sidebar_position: 25
 ---
 
-Device42 integrates with both Puppet and Chef to synchronize discovered system data into Device42's asset inventory, eliminating the need to run redundant discovery processes across your IT infrastructure. This page covers the Chef integration briefly and the Puppet ENC integration in detail.
+This page is for administrators who use Puppet or Chef alongside Device42. It covers two separate integrations: synchronization scripts that populate the Device42 asset inventory from Puppet or Chef node data, and a Puppet External Node Classifier (ENC) that serves Puppet classes from Device42 to your nodes.
 
-## Chef Integration
+Puppet is a free configuration management utility created by Puppet Labs that helps sysadmins automate configuration and management of machines and the software running on them throughout the enterprise IT infrastructure.
 
-Device42 provides an integration connector for Chef, which streamlines provisioning, configuring, and maintaining servers. The connector uses Chef-discovered system information to populate the Device42 asset inventory and works with all Chef-supported versions.
+Device42’s integration connector for Puppet allows Device42 software to utilize discovered system information data stored in Puppet manifests to populate the Device42 asset inventory, eliminating the need to run redundant auto-discovery processes across the IT infrastructure.
 
-For the sync script, see [github.com/device42/chef_to_device42_sync_py](https://github.com/device42/chef_to_device42_sync_py).
+## Prerequisites
 
-## Puppet Integration
+Before setting up either integration, make sure you have:
+- The IP address of your Device42 appliance, and a Device42 username and password for the scripts to authenticate with
+- The relevant integration script from the [Puppet and Chef Integrations](#puppet-and-chef-integrations) section below
 
-Puppet is a configuration management tool that helps system administrators automate the configuration and management of machines and software across enterprise IT infrastructure. The Device42 connector for Puppet uses system information stored in Puppet manifests to populate the Device42 asset inventory.
+The Puppet ENC integration also requires:
+- Puppet v4.8 or later
+- Puppet Server v2.7.2 or later
+- Python 2.7.10 or a later Python 2.7 release. The ENC script is not compatible with Python 3.
+- Access to your Puppet master to place the script and edit `puppet.conf`
+
+The Puppet node synchronization script also requires:
+- `python-devel` installed, and the packages in the script's `requirements.txt`
+- A client certificate signed on the Puppet server, along with its private key, and optionally the CA certificate
+- Permission for the client to reach the Puppet certificate and node API endpoints
+
+The Chef synchronization script also requires:
+- The [`pychef`](https://github.com/coderanger/pychef) Python package
+- A Chef client name and its key file, to connect to the Chef server
+- An `organization` value, for Chef Server 12 and later
 
 ## Puppet ENC (External Node Classifier) Integration
 
 External Node Classifiers accept the name of a node as input and return the class hierarchy for that node as output. Device42 can act as a Puppet ENC, allowing you to manage Puppet classes directly from Device42 instead of managing node definitions in the main site manifest (`site.pp`) on your Puppet master.
 
-An ENC script pipes data between your Puppet master and an ENC source — Device42, in this case.
+An ENC script pipes data between your Puppet master and an ENC source, which is Device42 in this case.
 
-**Requirements:**
+Setting up the Device42-Puppet ENC integration is a four-step process:
 
-- Puppet v4.8 or later
-- Puppet Server v2.7.2 or later
-- Python v2.7.10 or later
-
-Setting up the Puppet ENC integration is a five-step process:
-
-1. Create a JSON custom field in Device42.
-2. Populate the custom field with your desired environment in JSON.
-3. Download and configure the [Device42 Puppet ENC integration script](https://github.com/device42/d42-puppet-enc/).
+1. Create a JSON custom field in Device42, named whatever you like.
+2. Fill the custom field you created in step 1 with your desired environment, in JSON.
+3. Download and configure the Device42-Puppet ENC [integration script](https://github.com/device42/d42-puppet-enc/).
 4. Configure your Puppet master to use Device42 as an ENC.
-5. Restart your Puppet server services.
 
 ### Set Up the Puppet ENC Integration
 
-**Step 1:** Navigate to **Tools > Custom > Devices Fields** in Device42 and click **Add Device Custom Field**. Set the **Type** to **JSON**. For this example, name the field `node_classes`.
+1. Navigate to **Tools > Custom > Device Fields** in Device42, and click **Add Device Custom Field**. Set **Type** to **JSON**. This example calls the field `node_classes`.
 
 ![Add Device42 Custom Field](/assets/images/Puppet_ENC_add_custom_field.png)
 
-**Step 2:** On your target Puppet node's CI (for example, `puppet.device42.pvt`), set the `node_classes` field to the following placeholder value:
+2. Populate the `node_classes` field with a placeholder on your target Puppet node's object in Device42. This example uses `puppet.device42.pvt`. Set the `node_classes` field to the following:
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -59,19 +68,18 @@ Setting up the Puppet ENC integration is a five-step process:
 
 ![Device42 Custom Field JSON](/assets/images/Puppet_ENC_custom_field_JSON.png)
 
-**Step 3:** Set up the integration script:
-
-1. Clone the `d42-puppet-enc` repository onto your Puppet master.
-2. Set executable permissions: `chmod +x {filename}`.
-3. If you don't have the required dependencies installed, run: `pip install -r requirements.txt`
-4. Configure the `settings.yaml` file with the following:
-    - The IP address of your Device42 appliance.
-    - The username and password for your Device42 appliance.
-    - The name of the custom field created in Step 1 (`node_classes`).
+3. Download the script and set it up:
+    1. Clone the `d42-puppet-enc` repository onto your Puppet master.
+    2. Make the script executable with `chmod +x {filename}`.
+    3. If you do not have the requirements in `requirements.txt` installed, install them with `pip install -r requirements.txt`.
+    4. Configure the `settings.yaml` file. It requires:
+        - The IP address of your Device42 appliance
+        - The username and password for your Device42 appliance
+        - The name of the custom field created earlier, `node_classes`
 
 ![Puppet ENC settings.yaml](/assets/images/Puppet_ENC_settings.yaml.png)
 
-**Step 4:** Designate your Puppet master as the ENC authority by editing `puppet.conf` (`/etc/puppetlabs/puppet/puppet.conf`). Add the following two lines, specifying the location of `d42_enc_fetcher.py`:
+4. Designate your Puppet master as the ENC authority by editing `/etc/puppetlabs/puppet/puppet.conf`. Add these two configuration lines, specifying the location of `d42_enc_fetcher.py`:
 
 ```
 [master]
@@ -81,9 +89,17 @@ Setting up the Puppet ENC integration is a five-step process:
 
 **Step 5:** Restart your Puppet server services. The integration is now active.
 
-## Additional IT Infrastructure Capabilities
+Once that is set, restart your Puppet server services. You can now create a class.
 
-Integrating Puppet or Chef with Device42 ensures that Device42 stays aligned with your Puppet or Chef device data, maintaining consistency across Device42's IT infrastructure management capabilities:
+## Chef Integration
+
+Device42 also provides an integration connector for Chef, which streamlines the task of provisioning, configuring, and maintaining servers.
+
+The Device42-Chef integration lets Device42 use Chef-discovered system information to populate the Device42 asset inventory, which removes the need to run redundant discovery processes.
+
+## Device42’s Additional IT Infrastructure Capabilities
+
+Integrating Puppet or Chef with Device42 also keeps Device42 aligned with your Puppet or Chef device data. This gives you consistency between Device42 and either application across the following Device42 capabilities:
 
 - IP address management
 - Cabling management
