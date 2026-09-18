@@ -50,6 +50,20 @@ Note that data will only be populated by the data Normalization and Enrichment S
 Operating System fields that contain Enriched Data cannot be edited or changed.
 :::
 
+### OS Lifecycle Date Priority
+
+Device42 can have OS **End of Life** and **End of Support** dates from manual entry or Enriched Data. When both sources provide a date, the manually entered date takes precedence. The Enriched Data service fills a blank date and can update a date that it previously supplied, but it does not overwrite a manually entered date. This behavior applies to Device42 On-Premise and Cloud.
+
+DOQL returns the prioritized dates through the following views and fields:
+
+| View | Fields |
+|---|---|
+| `view_deviceos_v1` | `eol`, `eos` |
+| `view_dbb_compute_v2` | `os_end_of_life`, `os_end_of_support` |
+| `view_dbb_network_v2` | `os_end_of_life`, `os_end_of_support` |
+
+When a manual date exists, these fields return it. Otherwise, they return the Enriched Data date when available. See the [Data Dictionary](/reports/device42-doql/db-viewer-schema.mdx#data-dictionary) for information about viewing DOQL fields and their descriptions.
+
 ### Disable OS Changes via API, Discovery, or EnrichAI
 
 Use this option to protect OS data from being overwritten by automated processes. On the OS record, click **Edit** and enable the **Don't change via API/Discovery/EnrichAI** option.
