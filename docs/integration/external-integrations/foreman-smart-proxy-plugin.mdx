@@ -17,9 +17,11 @@ Before installing the plugin, make sure you have:
 - Network connectivity between the smart proxy server and Device42
 - The [Device42-Foreman Smart Proxy plugin](https://www.device42.com/integrations/foreman-smart-proxy/) downloaded
 
-## Set Up the Foreman Smart Proxy Plugin by Device42
+Visit the [Device42-Foreman Smart Proxy Integration page](https://www.device42.com/integrations/foreman-smart-proxy/) to download the plugin.
 
-Installing the smart proxy plugin by Device42 is the same as the installation of any smart proxy plugin into the Foreman (there are many). The below instructions were copied from [these instructions in the Foreman user manual](https://theforeman.org/manuals/1.1/index.html#4.3SmartProxies). Please consult the Foreman Manual directly for more details, but installation should be as simple as:
+## Set Up the Foreman Smart Proxy Plugin
+
+Installing the smart proxy plugin is the same as installing any smart proxy plugin in Foreman. The instructions below were adapted from [the Foreman user manual](https://theforeman.org/manuals/1.1/index.html#4.3SmartProxies). Consult the Foreman manual directly for more details.
 
 <details>
   <summary>Click to expand the code block</summary>
@@ -34,9 +36,9 @@ Installing the smart proxy plugin by Device42 is the same as the installation of
   ```
 </details>
 
-Once you've installed the Foreman Smart Proxy package as per Foreman, add the following Device42 specific configuration:
+Once you have installed the Foreman Smart Proxy package, add the following Device42-specific configuration:
 
--  To enable this DHCP provider, edit `/etc/foreman-proxy/settings.d/dhcp.yml` and set:
+- To enable this DHCP provider, edit `/etc/foreman-proxy/settings.d/dhcp.yml` and set:
 
   ```
   :use_provider: dhcp_device42

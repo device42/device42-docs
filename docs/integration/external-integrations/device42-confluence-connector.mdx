@@ -3,250 +3,266 @@ title: "Confluence Integration"
 sidebar_position: 7
 ---
 
-This integration connects Device42 to your Atlassian Confluence instance with the following features:
+The Device42 Confluence integration connects Device42 to your Atlassian Confluence instance, letting you display and sync Device42 CI data directly within Confluence pages. This page covers installation, configuration, synchronization, space filters, and macros.
 
-- Display details of particular Device42 object (devices, racks, PDUs and parts are supported).
-- Display inline link to particular Device42 object (devices, racks, PDUs and parts are supported).
-- Display table of Device42 objects.
+The integration supports the following features:
+
+- Display details of a particular Device42 object (devices, racks, PDUs, and parts are supported).
+- Display an inline link to a particular Device42 object (devices, racks, PDUs, and parts are supported).
+- Display a table of Device42 objects.
 - Synchronize Device42 data with Confluence manually or periodically.
-- Filter set of Device42 CIs to display inside macros for specific space.
+- Filter the set of Device42 CIs to display inside macros for a specific space.
 
 ## Install the Confluence Integration Add-On
 
-Device42's Atlassian Confluence add-on (aka "Device42 CMDB Connector for Confluence") can be found [in the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=server&tab=overview). You can easily install it using the UPM (Universal Plugin Manager) built in to Confluence. However, if you have some special requirements (e.g. an environment that blocks Confluence from access to the internet), it is possible to install the Device42 Confluence integration plugin manually. Please note that the plugin requires a stable connection between the servers hosting your Confluence application and that which is hosting Device42 for successful operation.
+Device42's Atlassian Confluence add-on ("Device42 CMDB Connector for Confluence") can be found [in the Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=server&tab=overview). You can install it using the UPM (Universal Plugin Manager) built in to Confluence. If you have special requirements (for example, an environment that blocks Confluence from accessing the internet), you can install the plugin manually. Note that the plugin requires a stable connection between the servers hosting your Confluence application and the server hosting Device42.
 
 :::info
 The Confluence plugin is now certified for Data Center and is available on the [Atlassian Marketplace](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=datacenter&tab=overview).
 :::
 
-### Automatic installation
+### Install Automatically
 
-**Installing the add-on:**
+1. Log in as a user with **Confluence System Administrators** global permission.
+2. From the Confluence administration console, in the **Atlassian Marketplace** section, select the **Find Add-Ons** menu.
+3. In the search field, type **Device42** and press **Enter**. You should see the following screen:
 
-1. Log in as a user with '**Confluence System Administrators**' global permission.
-2. From the Confluence administration console, int the **Atlassian marketplace** section select **Find add-ons** menu.
-3. In the search field type '**Device42**' and press '**Enter**'.You should see the following screen:![confluence-connector-01.png](/assets/images/confluence-connector-01.png)
-4. Click the '**Install**' buttonA confirmation message appears when the add-on is successfully installed.
+    ![confluence-connector-01.png](/assets/images/confluence-connector-01.png)
 
-You can now manage the add-on from the user-installed add-on list on the **Manage add-ons** page.
+4. Click **Install**. A confirmation message appears when the add-on is successfully installed.
 
-### Manual installation
+You can now manage the add-on from the user-installed add-on list on the **Manage Add-Ons** page.
 
-**To install the add-on manually:**
+### Install Manually
 
-1. Download the latest version of add-on from our github, or download from the [Atlassian Marketplace: Device42 CMDB Connector for Confluence](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=server&tab=overview). If you don't have internet connecton (i.e. you have the secured sandbox environment) you can download the .jar file from a computer outside your network, and bring it using a thumb drive.
-2. Log in as a user with '**Confluence System Administrators**' global permission.
-3. From the Confluence administration console, click the **Add-ons**. Select **Manage add-ons**.
-4. Click the **Upload add-on** link at the top right side of the page.The following dialog appears.![confluence-connector-02.png](/assets/images/confluence-connector-02.png)
-5. Enter the location of the JAR file (from step 1) to upload using the file chooser or by specifying a network location by entering a URL.
-6. Click **Upload**.A confirmation message will appear when the add-on has been successfully installed.
+1. Download the latest version of the add-on from the [Atlassian Marketplace: Device42 CMDB Connector for Confluence](https://marketplace.atlassian.com/apps/1213754/device42-cmdb-connector-for-confluence?hosting=server&tab=overview). If you do not have internet access, download the `.jar` file from a computer outside your network and transfer it manually.
+2. Log in as a user with **Confluence System Administrators** global permission.
+3. From the Confluence administration console, click **Add-Ons** and select **Manage Add-Ons**.
+4. Click the **Upload Add-On** link at the top right of the page. The following dialog appears:
 
-You can now manage the add-on from the add-on list ("user-installed add-ons"), found on the **Manage add-ons** page.
+    ![confluence-connector-02.png](/assets/images/confluence-connector-02.png)
+
+5. Enter the location of the `.jar` file (from step 1) using the file chooser, or specify a network location by entering a URL.
+6. Click **Upload**. A confirmation message appears when the add-on is successfully installed.
+
+You can now manage the add-on from the user-installed add-on list on the **Manage Add-Ons** page.
 
 ## Configure the Device42 Confluence Add-On
 
-To configure the add-on:
+1. Log in as a user with **Confluence Administrators** global permission.
+2. From the Confluence administration console, select **DEVICE42 CONNECTOR > Device42 Connection** to open the configuration page.
 
-1. Log in as a user with '**Confluence Administrators**' global permission.
-2. From the Confluence administration console, Select **DEVICE42 CONNECTOR** > **Device42 Connection** to open the configuration page.
-    
-    > Keyboard shortcut : **g + g +** start typing **Device42**.
-    
+    > Keyboard shortcut: **g + g +** start typing **Device42**.
+
     You will see the configuration screen:
-    
+
     ![confluence-connector-03.png](/assets/images/confluence-connector-03.png)
 
-## Set Up the Device42 - Confluence Connection
+## Set Up the Device42-Confluence Connection
 
-1. On the configuration page click **Edit** to setup connection to Device42 instance.The following page opens.![confluence-connector-04.png](/assets/images/confluence-connector-04.png)
-2. Enter the connection information
-3. Click '**Save**'.
-4. You will see the saved details on the configuration view screen
+1. On the configuration page, click **Edit** to set up the connection to your Device42 instance. The following page opens:
 
-### Synchronize manually
+    ![confluence-connector-04.png](/assets/images/confluence-connector-04.png)
 
-Data from your Device42 instance is cached inside the internal Confluence database. To keep your data updated, you should run a sync periodically. You can do this automatically or manually.
+2. Enter the connection information.
+3. Click **Save**.
+4. The saved details are displayed on the configuration view screen.
 
-**To launch an immediate synchronization:**
+### Synchronize Manually
 
-1. On the configuration information page, click the '**Update**' button
-2. A confirmation dialog will appear. Press the '**Update Data**' button inside that dialog
-3. Wait a couple of seconds until the server requests the new data from Device42
-4. After the synchronization has completed, you will see the following on the synchronization info screen:
+Data from your Device42 instance is cached inside the internal Confluence database. To keep your data updated, run a sync periodically — either automatically or manually.
 
-![confluence-connector-05.png](/assets/images/confluence-connector-05.png) 
-![confluence-connector-06.png](/assets/images/confluence-connector-06.png) 
-![confluence-connector-07.png](/assets/images/confluence-connector-07.png)
+To launch an immediate synchronization:
 
-### Set up automatic synchronization
+1. On the configuration information page, click **Update**.
+2. A confirmation dialog appears. Click **Update Data**.
+3. Wait a few seconds for the server to request new data from Device42.
+4. After synchronization completes, you will see the following on the synchronization info screen:
 
-You can set up the automatic update using the Cron Expressions.
+    ![confluence-connector-05.png](/assets/images/confluence-connector-05.png)
 
-1. On the configuration information click '**Setup Cron**' button
-2. Enter the cron expression rule inside the cron configuration dialog![confluence-connector-08.png](/assets/images/confluence-connector-08.png)![confluence-connector-09.png](/assets/images/confluence-connector-09.png)
-3. Click '**Save**' button
-4. You will see the saved details on the configuration view screen
+    ![confluence-connector-06.png](/assets/images/confluence-connector-06.png)
 
-**Note:** The Device42 Confluence Connector integration uses the default Confluence Scheduler mechanism. Instead of using the "Update Data" dialog or the "Setup Cron" dialog, you can instead use the Scheduled Jobs menu to run Device42 Update jobs directly from that page. You may also set up a cron schedule if desired, and those changes will be automatically reflected on the Device42 Configuration page. By default, the job is scheduled to run on the midnight server time on the daily basis.
+    ![confluence-connector-07.png](/assets/images/confluence-connector-07.png)
+
+### Set Up Automatic Synchronization
+
+You can set up automatic updates using cron expressions.
+
+1. On the configuration information page, click **Setup Cron**.
+2. Enter the cron expression rule in the cron configuration dialog:
+
+    ![confluence-connector-08.png](/assets/images/confluence-connector-08.png)
+
+    ![confluence-connector-09.png](/assets/images/confluence-connector-09.png)
+
+3. Click **Save**.
+4. The saved details are displayed on the configuration view screen.
+
+**Note:** The Device42 Confluence Connector uses the default Confluence Scheduler mechanism. Instead of using the **Update Data** dialog or the **Setup Cron** dialog, you can use the **Scheduled Jobs** menu to run Device42 update jobs directly. You can also set up a cron schedule there, and those changes will be reflected automatically on the Device42 Configuration page. By default, the job runs daily at midnight server time.
 
 ![confluence-connector-11.png](/assets/images/confluence-connector-11.png)
 
 ## Configure Confluence Space Filters
 
+Space filters control which Device42 CIs are visible within specific Confluence spaces and macros.
+
 ### Filter Settings
 
-Each Confluence space can have a space filter configured. There can be multiple filters configured for one or multiple CI types. If you’re configuring multiple filters for one CI type, you can then use these filters separately by adding multiple table macros to the space and selecting each “Space filter” you have created to be able to filter that CIs on multiple values/categories.
+Each Confluence space can have a space filter configured. Multiple filters can be configured for one or more CI types. If you configure multiple filters for one CI type, you can use them separately by adding multiple table macros to the space and selecting each space filter to filter CIs on different values or categories.
 
-**Note:** Pagination is not yet available for the table macro, if you need to view more than the default 50 results in the table, you can change this value on the Device42 plugin connection screen and set the “Dropdown Limit” to a higher value like 100 or 150. Don’t set this value too high as this will might cause significant delays in drop down displays for the plugin:
+**Note:** Pagination is not yet available for the table macro. If you need to view more than the default 50 results, change the **Dropdown Limit** value on the Device42 plugin connection screen to a higher value like 100 or 150. Do not set this value too high, as it may cause significant delays in dropdown displays.
 
 ![](/assets/images/Confluence-1.gif)
 
-1\. The filter settings are accessed from the “Space Tools” menu at the bottom left corner:
+1. Access filter settings from the **Space Tools** menu at the bottom left corner:
 
-![](/assets/images/Confluence-2.gif)
+    ![](/assets/images/Confluence-2.gif)
 
-2\. On the settings page you can configure any CI or multiple CIs using one interface. Note that if you configure the “Device” CI and the “Parts” CI for example, the filter will be applied only to the CI you have selected in your Table Macro drop down:
+2. On the settings page, configure any CI or multiple CIs using one interface. Note that if you configure the **Device** CI and the **Parts** CI, the filter will be applied only to the CI selected in your **Table Macro** dropdown:
 
-![](/assets/images/Confluence-3.gif)
+    ![](/assets/images/Confluence-3.gif)
 
-3\. Let’s configure a space filter to show Software with a name of “.NET”:
+3. Configure a space filter to show software with a name of `.NET`:
 
-![](/assets/images/Confluence-4.gif)
+    ![](/assets/images/Confluence-4.gif)
 
-4\. Don’t leave this screen until you get the green confirmation prompt confirming your filter has been saved. This is required so the plugin has the time necessary to process the filtering of the database items stored in your Confluence database.
+4. Do not leave this screen until you get the green confirmation prompt confirming your filter has been saved. This gives the plugin time to process the filtering of the database items stored in your Confluence database.
 
-5\. Once the filter has been saved, you can go back to the space with your table macro and apply it to the CI you have created the filter for, save the space and view the results:
+5. Once the filter has been saved, go back to the space with your table macro, apply it to the CI you created the filter for, save the space, and view the results:
 
-![](/assets/images/Confluence-5.gif)
+    ![](/assets/images/Confluence-5.gif)
 
-![](/assets/images/Confluence-5-B.gif)
+    ![](/assets/images/Confluence-5-B.gif)
 
 ### Filter Templates
 
-Filter templates allow a user to configure a global filter template which can then be used in any specific Confluence space with predefined CIs and values for each of the CI’s fields.
+Filter templates allow you to configure a global filter template that can then be used in any Confluence space with predefined CIs and values for each CI's fields. This is useful when you need a preconfigured template across multiple CI space filters instead of creating a separate one for each space.
 
-This can be useful when you need to define a preconfigured template that you use in multiple CI space filters instead of having to create a separate one for each space.
+1. Access filter templates by clicking the **Device42 Filter Templates** link from the Device42 Connector menu on the left side of Confluence's main menu.
 
-1\. Access the Filter Templates by clicking on the _Device42 Filter Templates_ link from the Device42 Connector menu found on the left hand side of Confluence’s main menu.
+    ![](/assets/images/Confluence-6.gif)
 
-![](/assets/images/Confluence-6.gif)
+2. A settings page opens with the following items:
 
-2\. A settings page will open with the following items:
+    ![](/assets/images/Confluence-7.gif)
 
-![](/assets/images/Confluence-7.gif)
+3. Create a new template filter by clicking the **Filter Templates** dropdown, selecting **Create New...**, and entering a name of your choice.
 
-3\. Above, a new template filter can be created by clicking on the Filter templates drop down and selecting “Create new…” menu item and entering a name of your choice like “parts\_fan” above for example.
+4. Select the CIs you want to be selectable from the **General Settings** tab (in most cases, leave the default settings).
 
-4\. After this, select the CIs you want to be selectable from the “General settings” tab (in most cases you want to leave the default settings).
+5. The CI tabs at the top allow you to select and configure the CI filtering you need:
 
-5\. The CI tabs at the top allow you to select and configure the CI filtering you need:
+    ![](/assets/images/Confluence-7-menu-bar.gif)
 
-![](/assets/images/Confluence-7-menu-bar.gif)
+6. Configure the **Parts** CI to show only **fan** type items:
 
-6\. Here we will configure the “Parts” CI to show only the “fan” type items:
+    ![](/assets/images/Confluence-8.gif)
 
-![](/assets/images/Confluence-8.gif)
+7. The search is case-insensitive and uses a "contains" match — any values specified will be checked against all database entries matching the CI's type and containing those values.
 
-7\. The search is case insensitive and of contains type, meaning any values specified here will be checked against all database entries matching the CI’s type and containing these values.
+8. Click **Save** at the bottom. If the button is grayed out after entering a value, click outside the text box first, then click **Save**.
 
-8\. Don’t forget to click “Save” at the bottom, if the button is grayed out after you have entered a value, make sure you click out of the text box and then click the “Save” button.
+9. You can also click **Reset** to reset the custom filter you have created. Note that this will delete your custom filter entry and does not apply to the default filter.
 
-9\. You can also “Reset” the custom filter you’ve created by clicking the “Reset” button. _Note: This will also delete your custom filter entry. This doesn’t apply to the “default” filter._
+10. Once saved, the filter templates will be available in the Space Device42 filter settings dropdown:
 
-10\. Once this is done, these filter templates will be available in the Space Device42 filter settings drop down:
+    ![](/assets/images/Confluence-9.gif)
 
-![](/assets/images/Confluence-9.gif)
-
-By loading the template filter, you pass in the values saved in the filter template into your specific space instance filter which can then be further modified.
+Loading a template filter passes the saved values into your specific space instance filter, which can then be further modified.
 
 * * *
 
 ## Configure Space Restrictions
 
-The Device42 Confluence Connector allows you to specify which spaces the Device42 macros can be used with.
+The Device42 Confluence Connector lets you specify which spaces the Device42 macros can be used in.
 
-### Configure Space Restrictions
+1. Log in as a user with **Confluence Administrators** global permission.
+2. From the Confluence administration console, select **DEVICE42 CONNECTOR > Device42 Restrict**.
+3. Turn space restrictions on.
+4. In the **Allowed Spaces** field, select all spaces where you want to allow Device42 macros.
 
-- Log in as a user with **Confluence Administrators** global permission.
-    
-- From the Confluence administration console, select **DEVICE42 CONNECTOR > Device42 Restrict.**
-    
-- Turn space restrictions on.
-    
-- In the **Allowed spaces** field, select all spaces where you want to allow the Device42 macros to be used.
-    
+    ![](/assets/images/WEB-646_Confluence-Spaces-1.png)
 
-![](/assets/images/WEB-646_Confluence-Spaces-1.png)
+5. Click **Save**.
 
-- Click **Save**.
-    
-- Now if you go to a space where Device42 macros are not allowed based on the space restrictions, you will get an access denied message if you try to use one of the Device42 macros.
-    
+If you go to a space where Device42 macros are not allowed, you will see an access denied message if you try to use a Device42 macro.
 
 ![](/assets/images/WEB-646_Confluence-Spaces-2.png)
 
-- In addition, if Device42 macros were allowed for the space and had been used on the page, and then the space did not allow Device42 macros, then the data that those macros returned would not be displayed on the page.
+If Device42 macros were previously allowed and used on a page, and the space is later restricted, the data returned by those macros will no longer be displayed.
 
 * * *
 
 ## Use Device42 Macros
 
-You can add information about Device42 Configuration Items inside your Confluence pages using Macros. Device42 Confluence connector provides 3 different Macros to achieve that goal: Details Macro, Link macro and Table macro. You can apply space filter for the list of the possible Configuration Items you want to see inside the specific space. Also you can apply the filter to the each of the Configuration Items category (see Space Filters Configuration for details).
+You can add information about Device42 CIs inside your Confluence pages using macros. The Device42 Confluence connector provides three macros: Details Macro, Link Macro, and Table Macro. You can apply a space filter to the list of CIs visible in a specific space, and also filter by CI category (see [Configure Confluence Space Filters](#configure-confluence-space-filters) for details).
 
-### Objects macros
+### Object Macros
 
-You can add information about one or set of the specific Configuration Items into your page using Device42 Details macro and Details42 Link macro. They have the similar configuration but different view functionality: for Device42 Details macro you can see the table of the CI parameters, the view macro contains the link only, but shows the additional information when you hover over that link.
+The Details Macro and the Link Macro both let you add information about one or more specific CIs to a page. They share a similar configuration but differ in presentation: the Details Macro shows a table of CI parameters, while the Link Macro shows a link that displays additional information on hover.
 
-#### Edit Device42 Object Macros
+To add an object macro to a page:
 
-1. To add the macro on the page select insert other macros from the top menu![confluence-connector-23.png](/assets/images/confluence-connector-23.png)
-2. Open External Content, you can find 3 Device42 macros. If you have too many macros - you can search for device42 using search field.![confluence-connector-24.png](/assets/images/confluence-connector-24.png)
-3. Select Link or Details macro. Select the needed CI category, select one or more CIs. You can preview macro using preview button.![confluence-connector-25.png](/assets/images/confluence-connector-25.png)
-4. Press the insert button to add the macro on page. Please note, that in edit mode the macro is not rendered, but you will be able to see the name of the macro, one letter for category and set of numbers for CI ids.![confluence-connector-26.png](/assets/images/confluence-connector-26.png)
+1. To add a macro to a page, select **Insert Other Macros** from the top menu.
 
-#### View Device42 Details Macro
+    ![confluence-connector-23.png](/assets/images/confluence-connector-23.png)
 
-The details macro shows the information regarding the CIs in the table. For the set of CIs you will see additional table for each of CIs. You can follow the link to access the CI inside the Device42 application
+2. Open **External Content** to find the three Device42 macros. Use the search field to search for **device42** if needed.
+
+    ![confluence-connector-24.png](/assets/images/confluence-connector-24.png)
+
+3. Select the **Link** or **Details** macro. Select the CI category and one or more CIs. Use the **Preview** button to preview the macro.
+
+    ![confluence-connector-25.png](/assets/images/confluence-connector-25.png)
+
+4. Click **Insert** to add the macro to the page. In edit mode the macro is not rendered, but you will see the macro name, a one-letter category code, and the CI IDs.
+
+    ![confluence-connector-26.png](/assets/images/confluence-connector-26.png)
+
+### View Device42 Details Macro
+
+The Details Macro shows CI information in a table. For multiple CIs, a separate table is shown for each CI. Follow the link to access the CI in Device42.
 
 ![confluence-connector-27.png](/assets/images/confluence-connector-27.png)
 
-#### View Device42 Link Macro
+### View Device42 Link Macro
 
-The link macro shows the short link to the Device42 application for the selected CI. For the set of CIs you will see set of links one for each row. You can follow the link to access the CI inside the Device42 application. If you hover over the link - you will see the detailed information about the linked CI inside the Confluence page.
+The Link Macro shows a short link to the Device42 application for the selected CI. For multiple CIs, a separate link is shown for each. Hovering over a link shows detailed information about the linked CI inline in the Confluence page.
 
 ![confluence-connector-28.png](/assets/images/confluence-connector-28.png)
 
 ### Search Macro
 
-Unlike the objects macro that links to the specific CIs inside the Device42 application the search macro shows the items according to search criteria.
+Unlike the object macros, which link to specific CIs, the Search Macro shows items matching search criteria.
 
-#### Table Macro
+### Table Macro
 
-The table macro allows you to see the table of the CIs of the selected type with the application of space filter and in-macro search criterias.
+The Table Macro displays a table of CIs of the selected type, with the space filter and in-macro search criteria applied.
 
-> In the current version in-macro search works for Devices only. For the other CI Types the Space Filter parameters would be applied.
+> In the current version, in-macro search works for Devices only. For other CI types, the space filter parameters are applied.
 
-When you select Table Macro in the edit mode you can select the needed CI type as the macro parameter. Optionally you can select name of the search criteria and value. There are 2 sets of fields that allow to have the "and-search" for the specific items. The following parameters are supported:
+When you select the Table Macro in edit mode, select the CI type as the macro parameter. Optionally, select a search criteria name and value. Two sets of fields are available for "and" searches. The following parameters are supported:
 
-- type
-- service\_level
-- in\_service
-- rack
-- room
-- building
+- `type`
+- `service_level`
+- `in_service`
+- `rack`
+- `room`
+- `building`
 
-You should type the exact naming for the parameter inside Filter parameters. Inside the value parameters you should type the prefered value of the specified parameter. If there are no CIs that apply your criteria (with the addition of the space filter) you will see no results for the table.
+Enter the exact parameter name in the filter parameters field and the preferred value in the value field. If no CIs match the criteria (including the space filter), the table will show no results.
 
 ![confluence-connector-29.png](/assets/images/confluence-connector-29.png)
 
-If you add wrong parameter you will see the error message instead of rendering of the table.
+If you enter an incorrect parameter, an error message is displayed instead of the table.
 
 ![confluence-connector-30.png](/assets/images/confluence-connector-30.png)
 
-In the edit mode the macro is not rendered, but you can see the selected CI type info and specified filter parameters.
+In edit mode, the macro is not rendered, but you can see the selected CI type and specified filter parameters.
 
 ![confluence-connector-31.png](/assets/images/confluence-connector-31.png)
 
-In the view mode you will be able to see the table with the filtered CIs
+In view mode, the table displays the filtered CIs.
 
 ![confluence-connector-32.png](/assets/images/confluence-connector-32.png)

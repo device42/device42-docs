@@ -33,7 +33,7 @@ The Chef synchronization script also requires:
 
 ## Puppet ENC (External Node Classifier) Integration
 
-External Node Classifiers can accept the name of a node as input, and return the class hierarchy for that node as output. Device42 can be utilized as a Puppet ENC, allowing easy management of Puppet classes right from Device42. As opposed to managing node definitions in the main site manifest (site.pp) on your Puppet master.
+External Node Classifiers accept the name of a node as input and return the class hierarchy for that node as output. Device42 can act as a Puppet ENC, allowing you to manage Puppet classes directly from Device42 instead of managing node definitions in the main site manifest (`site.pp`) on your Puppet master.
 
 An ENC script pipes data between your Puppet master and an ENC source, which is Device42 in this case.
 
@@ -87,6 +87,7 @@ Setting up the Device42-Puppet ENC integration is a four-step process:
   external_nodes = /etc/puppetlabs/puppet/d42-puppet-enc/d42_enc_fetcher.py
 ```
 
+**Step 5:** Restart your Puppet server services. The integration is now active.
 
 Once that is set, restart your Puppet server services. You can now create a class.
 
@@ -108,11 +109,10 @@ Integrating Puppet or Chef with Device42 also keeps Device42 aligned with your P
 - Power and environmental monitoring
 - Power control
 
-## Puppet and Chef Integrations
+## Integration Scripts
 
-**Puppet:** The script to sync Puppet nodes information to Device42 can be found here: [github.com/device42/puppet_to_device42_sync_py](https://github.com/device42/puppet_to_device42_sync_py)
+The following GitHub repositories contain the scripts for syncing data between Device42 and Puppet or Chef:
 
-**Puppet ENC:** The script to use Device42 as a Puppet External Node Classifier: [github.com/device42/d42-puppet-enc](https://github.com/device42/d42-puppet-enc)
-
-**Chef:** The script to sync Chef nodes information to Device42 can be found here: [github.com/device42/chef_to_device42_sync_py](https://github.com/device42/chef_to_device42_sync_py)
-
+- **Puppet:** [github.com/device42/puppet_to_device42_sync_py](https://github.com/device42/puppet_to_device42_sync_py) — sync Puppet node information to Device42
+- **Puppet ENC:** [github.com/device42/d42-puppet-enc](https://github.com/device42/d42-puppet-enc) — use Device42 as a Puppet External Node Classifier
+- **Chef:** [github.com/device42/chef_to_device42_sync_py](https://github.com/device42/chef_to_device42_sync_py) — sync Chef node information to Device42

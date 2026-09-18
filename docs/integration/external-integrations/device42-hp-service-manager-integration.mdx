@@ -3,7 +3,7 @@ title: "HP Service Manager Integration"
 sidebar_position: 13
 ---
 
-The Device42 HP Service Manager (HPSM) Connector enables HPSM users to seamlessly add Device42’s IT infrastructure management capabilities to their HPSM solution. HP Service Manager (HPSM) users can enhance their ITSM process, change management processes, and other workflows by syncing the Asset and CMDB data from Device42 to their HPSM instance.
+The Device42 HP Service Manager (HPSM) Connector syncs asset and CMDB data from Device42 to your HPSM instance, enhancing your ITSM processes, change management workflows, and other operations with Device42's comprehensive discovery data.
 
 With the connector you can use Device42 Continuous Discovery data in HPSM, link service requests to the relevant configuration item (CI), search for issues using CI attributes, and view CI details in HPSM.
 
@@ -13,6 +13,7 @@ Using the Device42-HPSM integration connector, you can synchronize Device42 asse
 
 Once Device42 CI data is synced to HP Service Manager, you can see Device42 CI details for those CIs in HPSM, such as asset tag, assignment, description, IP, and MAC address. CI data is also visible for HPSM-only CIs, and you can view any service requests associated with a CI.
 
+## Assumptions and Requirements
 
 ## Prerequisites
 
@@ -31,25 +32,7 @@ Integrate Device42 data into HPSM using the Device42-HPSM sync script.
 2. Copy or rename the settings file `conf.sample` to `conf`.
 3. Edit the `conf` file to contain the host, user, and password for your Device42 and HPSM instances:
 
-<details>
-    <summary>Click to expand the code block</summary>
-    ```
-        #========= Device 42 ========= #
-            d42_host = '192.168.1.102'
-            d42_username = 'user'
-            d42_password = 'pass'
-        #========= HPSM ========= #
-            hpsm_host = '10.42.42.46'
-            hpsm_protocol = 'http'
-            hpsm_port = '13080'
-            hpsm_username = 'user'
-            hpsm_password = 'pass'
-            hpsm_api_version = '9'
-        #========= Options ========= #
-            opt_debug = True
-            opt_dry_run = True
-    ```
-</details>
+4. Configure HPSM: Open the Database Dictionary and add a field (type `number`, name `device42.id`) to both the `computer` and `networkcomponents` models.
 
 4. Configure HPSM. Open the **Database Dictionary** and add a field of type `number`, named `device42.id`, to both the `computer` and `networkcomponents` models:
 
@@ -73,7 +56,7 @@ Integrate Device42 data into HPSM using the Device42-HPSM sync script.
 
 8. Set the unique key for both endpoints to `logical.name`:
 
-![Set Unique Keys in HPSM](/assets/images/2015-03-15-hpsm-conf-7.png)
+    ![Configure HPSM Database Dictionary fields](/assets/images/2015-03-15-hpsm-conf-2.png)
 
 9. Run `python starter.py`.
 

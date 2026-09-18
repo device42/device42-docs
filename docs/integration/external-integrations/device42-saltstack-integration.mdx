@@ -3,15 +3,17 @@ title: "SaltStack Integration"
 sidebar_position: 27
 ---
 
-Salt (aka SaltStack) is a Python-based open source configuration management software and remote execution engine. Salt supports the Software-Defined Datacenter, allowing configuration of your Infrastructure as Code (IaC). With the Device42 Salt Integration, you can now gather information about your devices from the same tool you use to provision them. The Device42-Salt Integration can gather the following from Salt:
+Salt (also known as SaltStack) is a Python-based open source configuration management tool and remote execution engine that supports Infrastructure as Code (IaC). The Device42 Salt integration lets you gather information about your devices from the same tool you use to provision them.
+
+The integration collects the following data from Salt:
 
 - Name
-- Node Type
-- CPU Power
+- Node type
+- CPU power
 - Customer
-- Virtual or Physical
-- Virtual Sub-type
-- CPU Core Count
+- Virtual or physical
+- Virtual sub-type
+- CPU core count
 - Manufacturer
 - Operating System and OS Version
 - Total Memory
@@ -27,8 +29,11 @@ Before you configure the integration, make sure you have:
 - Permission to run the script on the Salt Master as the user that runs the Salt Master
 - The Python packages in the integration repository's [`requirements.txt`](https://github.com/device42/salt_to_device42_sync/blob/master/requirements.txt) file
 
+```
+pip install PyYAML appdirs futures jinja2 tornado requests salt markupsafe msgpack-python packaging pycrypto pyparsing pyzmq singledispatch six
+```
 
-## Configuration and Usage
+## Configure and Use the Integration
 
 1. Create a working directory and copy the contents of the `salt_to_device42_sync` repository to it.
 2. Copy or rename the settings file `settings.yaml.example` to `settings.yaml`.
