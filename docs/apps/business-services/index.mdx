@@ -71,7 +71,7 @@ Navigate to **Applications > Business Services** to view the list page. It shows
     }}
     />
 
-You can also check which Business Services a device belongs to from the device record itself. Open the device's **Info** tab to see the associated Business Services.
+You can also check which Business Services a device belongs to from the **All Devices** list or the device record itself. On the **All Devices** list, use the **System Column List** settings to display the optional **Business Services** column. Each Business Service in the column links to its details page. From the device record, open the **Info** tab to see the associated Business Services.
 
 <ThemedImage
   alt="Device Info tab showing linked Business Services"
@@ -120,6 +120,7 @@ To create a new Business Service, fill out the **Info** form with the following 
 
 - Select the **Technical Application Owner**, **Business Service Owner**, and **Responsible Customer or Department**.
 - For **DR Recovery Point Objective** and **DR Recovery Time Objective**, use the format **1w 2d 3h 4m 5s** (1 week, 2 days, 3 hours, 4 minutes, and 5 seconds). Each term is optional, and all numbers must be integers. For example, enter **2d 6h** for a period of two days and six hours.
+- Select an **Impact** of **Critical**, **High**, **Medium**, or **Low**. Impact and **Criticality** are separate values, so you can use each according to your organization's risk and service-management model. The Impact value is also available through the API, DOQL, and Standard Reports.
 - Select the **Migration Group** and **Criticality**, and add any **Notes** or **Tags**.
 
   <ThemedImage

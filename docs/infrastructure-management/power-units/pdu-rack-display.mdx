@@ -6,81 +6,75 @@ sidebar_position: 5
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-In this section, we will cover the basics of entering information that tells Device42 where the PDU is mounted (that is, to the left, to the right, above, below, or in the rack). PDUs above and below the rack are displayed using an icon. Other locations are displayed using images.
+This page explains how to set PDU mount location in Device42 and how PDUs appear in the rack display depending on where they are mounted. PDUs above and below the rack are shown using icons, while other locations use images.
 
 ## PDU Location
 
-<ThemedImage   
-  alt="PDU location"   
-  sources={{     
-    light: useBaseUrl('/assets/images/power-units/wpid890-PDU_location-light.png'),     
-    dark: useBaseUrl('/assets/images/power-units/wpid890-PDU_location-dark.png'),   
-  }} 
+When editing a rack and selecting a PDU, you can configure the following location fields:
+
+<ThemedImage
+  alt="PDU location"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/wpid890-PDU_location-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/wpid890-PDU_location-dark.png'),
+  }}
 />
 
-When you choose a PDU from the lookup icon (or search icon), the following options can be defined:
-
-**Where:** Choose the location of the PDU from **Left**, **Right**, **Above**, **Below**, or **Rack Mounted**.
-
-**Start at:** A starting location is required for rack-mounted PDUs.  
-It is optional for PDUs that are to the left or right of the rack. However, if you choose a starting location, it will use that as its starting location. The only time the starting location is ignored is if the starting location and size of the PDU entered combine to overshoot the rack.  
-This field is not required or used for PDUs that are mounted above or below the rack.
-
-**Orientation:** PDUs are only displayed in their respective orientations. For example, for a **Front** orientation with the PDU on the top, the rack layout view only displays the PDU in the front of the rack and not in the back of the rack.
+- **Where:** The mount location of the PDU. Choose from **Left**, **Right**, **Above**, **Below**, or **Rack Mounted**.
+- **Start at:** Required for rack-mounted PDUs. Optional for left or right PDUs — if set, Device42 uses it as the starting position unless the PDU's size would overshoot the rack. Not used for PDUs mounted above or below the rack.
+- **Orientation:** PDUs are displayed only for their set orientation. For example, a PDU with **Front** orientation appears only in the front rack view, not the back.
 
 ## Rack-Mounted PDUs
 
-<ThemedImage   
-  alt="Rack mounted PDUs"   
-  sources={{     
-    light: useBaseUrl('/assets/images/power-units/wpid891-Rack_mounted_PDUs-light.png'),     
-    dark: useBaseUrl('/assets/images/power-units/wpid891-Rack_mounted_PDUs-dark.png'),   
-  }}   
-  style={{ width: '70%' }} 
-/>
+Rack-mounted PDUs display like any other device in the rack. Half-depth PDUs are greyed out on the other side of the rack unless another device is mounted there, in which case the PDU is not visible.
 
-Rack-mounted PDUs display like any other device in the rack. Half-depth PDUs are greyed out on the other side of the rack in the rack display (unless you have another device mounted; then the PDU is not visible).
+<ThemedImage
+  alt="Rack mounted PDUs"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/wpid891-Rack_mounted_PDUs-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/wpid891-Rack_mounted_PDUs-dark.png'),
+  }}
+  style={{ width: '70%' }}
+/>
 
 ## PDUs on the Left or Right Side of the Rack
 
-<ThemedImage   
-  alt="PDUs on the left side or right side of the rack"   
-  sources={{     
-    light: useBaseUrl('/assets/images/power-units/wpid889-PDUs_on_the_left_side_or_right_side_of_the_rack-light.png'),     
-    dark: useBaseUrl('/assets/images/power-units/wpid889-PDUs_on_the_left_side_or_right_side_of_the_rack-dark.png'),   
-  }}   
-  style={{ width: '60%' }} 
-/>
+Left or right PDUs are displayed only for their set orientation. Click the PDU to open its details page.
 
-Left or right PDUs are only displayed for the respective orientation, as shown in the image above. You can click on the PDU to open its details page.
+<ThemedImage
+  alt="PDUs on the left side or right side of the rack"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/wpid889-PDUs_on_the_left_side_or_right_side_of_the_rack-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/wpid889-PDUs_on_the_left_side_or_right_side_of_the_rack-dark.png'),
+  }}
+  style={{ width: '60%' }}
+/>
 
 ## PDUs Above or Below the Rack
 
-<ThemedImage   
-  alt="PDUs above or below the rack"   
-  sources={{     
-    light: useBaseUrl('/assets/images/power-units/wpid888-PDUs_above_or_below_the_rack-light.png'),     
-    dark: useBaseUrl('/assets/images/power-units/wpid888-PDUs_above_or_below_the_rack-dark.png'),   
-  }}   
-/>
+PDUs above or below the rack are shown using power point icons. Each icon represents a single PDU. Click an icon to open the PDU's details page.
 
-PDUs above or below the rack are shown using power point icons. Each icon represents a single PDU and can be clicked to open the PDU's details page.
+<ThemedImage
+  alt="PDUs above or below the rack"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/wpid888-PDUs_above_or_below_the_rack-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/wpid888-PDUs_above_or_below_the_rack-dark.png'),
+  }}
+/>
 
 ## PDU Display in Multi-Rack Views
 
-When looking at PDUs in multiple rack views, only rack-mounted PDUs are displayed.
+In multi-rack views, only rack-mounted PDUs are shown.
 
-## Visually Adding PDUs to the Rack From the Rack Layout Screen
+## Add PDUs to the Rack From the Rack Layout Screen
 
-From the rack layout screen, you will see the option to add a PDU:
+From the rack layout screen, you can add a PDU directly. Choose a name and a PDU model — a template object appears. Drag the template object to a rack slot to place the PDU.
 
-<ThemedImage   
-  alt="Visually adding PDUs to the rack from the rack layout screen"   
-  sources={{     
-    light: useBaseUrl('/assets/images/power-units/2015-10-10-add-pdu-to-rack-light.png'),     
-    dark: useBaseUrl('/assets/images/power-units/2015-10-10-add-pdu-to-rack-dark.png'),   
-  }}   
-  style={{ width: '60%' }} 
+<ThemedImage
+  alt="Add PDU to rack from rack layout screen"
+  sources={{
+    light: useBaseUrl('/assets/images/power-units/2015-10-10-add-pdu-to-rack-light.png'),
+    dark: useBaseUrl('/assets/images/power-units/2015-10-10-add-pdu-to-rack-dark.png'),
+  }}
+  style={{ width: '60%' }}
 />
-
-Choose a name and a PDU model, and a template object will appear. Drag the template object to a rack slot, and the move is complete.

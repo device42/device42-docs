@@ -71,6 +71,8 @@ The **OS Architecture: 32 vs 64 bit** field is no longer part of Enriched Data. 
 Depending on the vendor's published information, Enriched Data may not populate all or any of the date fields.
 :::
 
+For OS **End of Life** and **End of Support** dates, the service fills a blank date and can update a date that it previously supplied. It does not replace a manually entered date. When both sources provide a date, Device42 uses the manually entered date.
+
 ## Enriched Data Collection
 
 When Enriched Data is enabled, device data collected during discovery jobs is queued, batched, and sent via HTTPS to the Enriched Data service. The service processes requests in background tasks to prevent negative system impact. When it finds a match, it responds with enriched data. All enriched data is displayed on the **Analytics > EnrichAI Data** page. Depending on the number of requests in the queue and system load, this data may not be immediately visible.
