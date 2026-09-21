@@ -3,9 +3,18 @@ title: "Jenkins Integration"
 sidebar_position: 14
 ---
 
+This page is for administrators who want their Jenkins automation jobs to pull credentials from Device42's built-in secret store instead of storing them in Jenkins or in scripts. By the end, Jenkins jobs can reference Device42-stored secrets as variables, retrieved through the Device42 API at run time.
+
 The Device42-Jenkins integration allows Jenkins automation jobs to securely retrieve credentials stored in Device42 via the Device42 API. Instead of storing credentials in automation scripts or in multiple locations, you can leverage the centralized secret store in Device42.
 
 When you add or update a secret in Device42, your Jenkins automations instantly have access to the updated credentials. This page covers how to install, configure, and use the Device42-Jenkins credentials plugin.
+
+## Prerequisites
+
+Before installing the integration, make sure you have:
+- A Jenkins instance with administrator access to upload and manage plugins
+- A running Device42 Main Appliance with its API accessible from Jenkins
+- The Device42 Jenkins plugin (`Device42.hpi`), either [downloaded](https://github.com/device42/device42-jenkins-credentials-plugin/) or built from source (building from source requires **Maven**)
 
 ## Install the Device42-Jenkins Integration
 
