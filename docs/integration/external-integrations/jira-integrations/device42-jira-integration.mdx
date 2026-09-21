@@ -5,7 +5,7 @@ sidebar_position: 3
 
 Use the Device42 - CMDB with REST APIs for Jira app to integrate Device42 with a self-hosted (Data Center) Jira instance. This page covers installation, configuration, custom fields, CI filters, and workflow automation.
 
-## Integration Prerequisites
+## Prerequisites
 
 To use the self-hosted Device42-Jira integration, users must have:
 
@@ -394,7 +394,7 @@ Device42 custom fields allow full-text search on the CI IDs and parameters. Almo
 1. Open the issue navigator. Select 'Advanced' search mode
 2. Type the search request using JQL query language. Supported operators for the field: '~', '!~', 'IS EMPTY', 'IS NOT EMPTY'.
     
-    > _Example:_ D42 ~ "NH\*"
+    > Example: D42 ~ `"NH*"`
     
 3. Press 'Enter' … You will see the issues filtered by the custom field inside the issue navigator.![Advanced Search](/assets/images/2692817204-18_custom_field_advanced_search.png)
 
@@ -490,13 +490,13 @@ The Device42 Custom Field validator and condition have essentially the same setu
 
 The configuration screens for validation and condition are similar as well. You may freely add sets of validators (with "and" logic) and sets of conditions (with "or" or "and" logic depending on the condition setup).
 
-Inside the validation configuration, an administrator can set up the validation for Configuration Items count, CI types, and can also add a filtering check against the configuration item’s parameters. You can also set up live validation that will update the selected configuration items cache with the latest data _\[a real-time call will be made to Device42 to live-validate the data, ignoring the cached data stored in the Jira DB\]_. For validation, an administrator can configure both the error message and can choose which custom field should be validated.
+Inside the validation configuration, an administrator can set up the validation for Configuration Items count, CI types, and can also add a filtering check against the configuration item’s parameters. You can also set up live validation that will update the selected configuration items cache with the latest data. A real-time call is made to Device42 to live-validate the data, ignoring the cached data stored in the Jira database. For validation, an administrator can configure both the error message and can choose which custom field should be validated.
 
 ![Generic Info](/assets/images/358318860-WF18_2_generic_info.png)
 
 ### Advanced Validation Scenarios
 
-It is possible to set up advanced scenarios where beyond validating the custom field itself, an administrator can select aggregation options such as “Any” (so if any Device42 custom field that exists in the system is validated, the transition will be validated), “All” (so all Device42 custom field existing in system should be validated to pass the transition), “None” (none of the Device42 custom fields should be validated; if any field is validated the validation fails). For the validator, it is possible to add a custom error message that will be displayed when a user fails the workflow validation. The error message should contain clear instructions on how to fulfil the custom field’s validation criteria and should notify the user that a mistake was made. If an administrator leaves the message field empty, the default message will be generated. The administrator also has the ability to configure the live check for the CI details to be validated.
+It is possible to set up advanced scenarios where beyond validating the custom field itself, an administrator can select aggregation options such as **Any** (if any Device42 custom field that exists in the system is validated, the transition is validated), **All** (all Device42 custom fields existing in the system must be validated to pass the transition), and **None** (none of the Device42 custom fields should be validated; if any field is validated the validation fails). For the validator, it is possible to add a custom error message that will be displayed when a user fails the workflow validation. The error message should contain clear instructions on how to fulfil the custom field’s validation criteria and should notify the user that a mistake was made. If an administrator leaves the message field empty, the default message will be generated. The administrator also has the ability to configure the live check for the CI details to be validated.
 
 ![Error Message Config](/assets/images/1414389535-WF34_live_message.png)
 
@@ -510,7 +510,7 @@ The ‘_amount’_ validation option allows an administrator to limit the amount
 
 - The default option is "Any", which switches off this validation criteria.
 - _Exact value_ means that to meet the validation criteria, the custom field in the ticket should contain the exact amount of CIs specified. The amount of configuration items can be set up inside the validation configuration in the field right to the amount selection.
-- _Equals or less_ means to pass the validation, the custom field in the ticket should not contain any more CIs than the number specified in the configuration. Zero CI is \*not\* allowed by this validation. Please note, if any other validation set up zero items, validation will not succeed.
+- _Equals or less_ means to pass the validation, the custom field in the ticket should not contain any more CIs than the number specified in the configuration. Zero CIs are not allowed by this validation. Please note, if any other validation set up zero items, validation will not succeed.
 - _Equals or more_ means that to pass validation, the custom field in the ticket should not contain less configuration items than the amount specified in configuration.
 
 ![Exact Amount Validation](/assets/images/2853989934-WF20_2_amount.png)
@@ -537,12 +537,12 @@ If you selected the CI type for the validation it is possible to specify the par
 
 ### **Validation Types**
 
-There are 4 validation types that can be used for the validation of specific parameter:
+There are four validation types that you can use to validate a specific parameter:
 
-1. ‘Not Empty’\* the parameter value should exist inside the Configuration Item. Addition value is not used.
-2. _’Exact Value’_ the parameter value should exactly equal the value specified inside the row in the configuration.
-3. _’Contains the_ _parameter’_ value should contain the value specified inside the row in the configuration. The value supports the filter operators and sequences (so you can use the same language you use for the project filters, i.e. "(1|2),3" means that the configuration item parameter should contain "3" inside the text of parameter and additionally should contain "1" or "2" inside the text. For any parameter, all parameters will be checked and validation will pass if any parameter accepting the criteria found.
-4. _’Not Contains the_ _parameter’_ should not contain the value specified inside the row in the configuration. The possibilities for the value are the same as described in contains section.
+1. **Not Empty:** the parameter value should exist inside the configuration item. The additional value is not used.
+2. **Exact Value:** the parameter value should exactly equal the value specified inside the row in the configuration.
+3. **Contains the parameter:** the value should contain the value specified inside the row in the configuration. The value supports the filter operators and sequences, so you can use the same language you use for the project filters. For example, `(1|2),3` means that the configuration item parameter should contain `3` inside the text of the parameter, and additionally should contain `1` or `2`. For any parameter, all parameters will be checked and validation will pass if any parameter accepting the criteria found.
+4. **Not Contains the parameter:** the value should not contain the value specified inside the row in the configuration. The possibilities for the value are the same as described in contains section.
 
 For the _exact value_, _contains_, and _not contains_ validation options, you can select the value. The _not empty_ will hide the option to enter the value:
 

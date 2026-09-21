@@ -3,9 +3,19 @@ title: "Aperture VISTA to Device42 Migration"
 sidebar_position: 1
 ---
 
-The Aperture VISTA to Device42 migration exports data from Aperture VISTA by creating Device42 custom views in the Aperture SQL Server database. These views are exported from Aperture VISTA and saved as `.csv` or Excel files, which are then imported and mapped into Device42’s data architecture.
+This page is for administrators who are moving from Aperture VISTA to Device42. By the end, your Aperture VISTA data is imported into Device42, which creates the building, data center, and rack configurations for your rack-mounted devices.
 
-Device42 then automatically creates building, data center, and rack configurations for all rack-mounted devices. With the import completed, Device42’s agentless discovery tool automatically identifies and maps remaining IP-based network devices and intelligent power equipment for ongoing monitoring and management.
+The Aperture VISTA to Device42 migration exports data from Aperture VISTA by creating Device42 custom views in the Aperture SQL Server database. These views are exported from Aperture VISTA and saved as `.csv` or Excel files, which are then imported and mapped into Device42's data architecture.
+
+Device42 then automatically creates building, data center, and rack configurations for all rack-mounted devices. With the import completed, Device42's agentless discovery tool automatically identifies and maps remaining IP-based network devices and intelligent power equipment for ongoing monitoring and management.
+
+## Prerequisites
+
+Before starting the migration, make sure you have:
+- Access to the Aperture SQL Server database, with permission to create and run views
+- The [Aperture VISTA views](https://www.device42.com/migrations/aperture/) downloaded
+- A tool that can save query results as `.csv` or Excel files, such as SQL Server Management Studio
+- The [Device42 Bulk Import Tool](https://www.device42.com/bulk-data-management/) downloaded
 
 [Download the Aperture VISTA views](https://www.device42.com/migrations/aperture/).
 

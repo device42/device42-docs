@@ -6,9 +6,11 @@ sidebar_position: 28
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-Webhooks initiate an external action in another part of your IT environment when an event, based on rules you define, occurs. Also known as HTTP callbacks, webhooks are sent to HTTP endpoints (URLs) when a configured Webhook Action criteria is met. Within Device42, anything that produces an audit-log entry can be configured to fire a webhook.
+This page is for administrators who want Device42 to notify another system when something changes in their infrastructure. By the end, a Device42 event such as a new, changed, or deleted device automatically sends a webhook to the endpoint you choose.
 
-For example, you can configure webhooks to trigger when a Device42 discovery job finds a new device, when details about an existing device change, or when a device is deleted. An IT administrator might configure a webhook to deliver a message to one or more IT employees via a webhook-compatible endpoint (like Slack or Zapier), letting them know that an action took place.
+Webhooks initiate an external action in another part of your IT environment when an event, based on rules you define, occurs. Also known as HTTP callbacks, webhooks are sent to HTTP endpoints (URLs) when configured **Webhook Action** criteria are met. Within Device42, anything that produces an audit-log entry can trigger a webhook.
+
+For example, you can configure webhooks to trigger when a Device42 discovery job finds a new device, when details about an existing device change, or when a device is deleted. An IT administrator might configure a webhook to deliver a message to one or more IT employees via a webhook-compatible endpoint such as Slack or Zapier.
 
 <ThemedImage
   alt="Webhook menu"
@@ -17,6 +19,14 @@ For example, you can configure webhooks to trigger when a Device42 discovery job
     dark: useBaseUrl('/assets/images/webhooks-generic-integration/webhook-menu-dark.png'),
   }}
 />
+
+## Prerequisites
+
+Before creating a webhook, make sure you have:
+
+- Access to Device42 to configure **Tools > Webhooks**
+- An HTTP endpoint URL to receive the webhook, such as a Slack, Zapier, or custom endpoint
+- Any header names and tokens your endpoint requires for authentication
 
 ## Create a Webhook Action in Device42
 

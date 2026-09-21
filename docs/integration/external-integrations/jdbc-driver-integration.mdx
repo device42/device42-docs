@@ -5,7 +5,7 @@ sidebar_position: 21
 
 The Device42 Java Database Connectivity (JDBC) driver lets you connect to Device42 and pull data externally as a JDBC data source. The driver works on any platform that supports Java and is compatible with any JDBC-compatible client.
 
-Download the Device42 JDBC driver from the [Device42 Miscellaneous Tools download page](https://www.device42.com/miscellaneous-tools/).
+Download the Device42 JDBC driver, which works with any JDBC-compatible client, from the [Device42 Miscellaneous Tools download page](https://www.device42.com/miscellaneous-tools/).
 
 ## JDBC System Requirements
 
@@ -22,14 +22,14 @@ These steps are for SQL Workbench; other JDBC-compatible clients will have simil
 1. Install [SQL Workbench/J](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
 2. Run SQL Workbench/J.
 3. Click **File > Connect Window > Manage Drivers**.
-4. Create a new driver using the path to the downloaded JDBC driver JAR file and the class name `com.device42.jdbc.D42Driver`.
+4. Create a new driver using the path to the downloaded JDBC driver JAR file and the classname `com.device42.jdbc.D42Driver`.
 
-![SQL Workbench driver configuration](/assets/images/JDBC1-1.png)
+![Manage drivers in SQL Workbench](/assets/images/JDBC1-1.png)
 
-5. Create a new profile using the driver you created, with a URL such as `jdbc:doql://sandbox.device42.com:443` and your Device42 credentials. Replace `sandbox.device42.com` with your Device42 instance hostname.
+5. Create a new profile using the driver you created. Use a URL such as `jdbc:doql://sandbox.device42.com:443`, which uses port 443, along with your Device42 credentials. Replace `sandbox.device42.com` with your own Device42 instance.
 
-![SQL Workbench profile configuration](/assets/images/JDBC2-1.png)
+![Create a connection profile](/assets/images/JDBC2-1.png)
 
 6. Test a query.
 
-![SQL Workbench query test](/assets/images/JDBC3.png)
+![Test a query against Device42](/assets/images/JDBC3.png)

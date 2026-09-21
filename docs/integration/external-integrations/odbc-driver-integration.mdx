@@ -17,7 +17,7 @@ The following are required to connect to Device42 via ODBC:
 
 ## Install the Device42 ODBC Driver
 
-To install the Device42 ODBC driver, download the `.exe` installer from https://www.device42.com/miscellaneous-tools/ and double-click to run it on a Microsoft Windows-based system. Follow the on-screen instructions, clicking **Next** until you see **Installation Complete**:
+Download the `.exe` installer from the [Device42 Miscellaneous Tools page](https://www.device42.com/miscellaneous-tools/). Double-click the installer on a Microsoft Windows host. Follow the instructions on the screen. Click **Next** until you see **Installation Complete**:
 
 ![ODBC Driver Installation complete Windows](/assets/images/ODBC_driver_install_complete.png)
 
@@ -63,11 +63,12 @@ The Device42 ODBC DSN is now configured and available for use in PowerBI.
 
 Using the Device42 ODBC driver, you can import data directly into SQL Server. The following instructions are for Windows 10 and may differ from other versions of Windows.
 
-### Import Prerequisites
+### Prepare for the Import
 
-Before starting the import, copy the mapping files that control how data types from the Device42 ODBC Driver map to Microsoft SQL Server data types:
-
-1. Start **Task Manager**, then browse to the **SQL Server Import and Export Wizard** executable. Right-click the app executable (named similarly to **SQL Server Import and Export Wizard**, possibly ending with "32 bit" or "64 bit").
+1. Begin by copying the Mapping files (The mapping files control how data types from the Device42 ODBC Driver map to Microsoft SQL Server data types).
+2. Start the **SQL Server Import and Export Wizard**.
+3. Start **Task Manager**.
+4. Browse to the location of the **SQL Server Import and Export Wizard** executable and right-click it. Note that the name may end with `32 bit` or `64 bit`, and the `.exe` file extension.
 
 ![Browse to the SQL import export wizard](/assets/images/DTSWizard.exe-explorer.png)
 
@@ -98,11 +99,11 @@ These instructions apply to SQL Server Management Studio v17.9.1 and may differ 
 
 ![Copy data from table/view or from a query](/assets/images/specify-table-or-query.png)
 
-7. **If you selected "Write a query to specify the data to transfer"**, enter your query:
+7. If you selected **Write a query to specify the data to transfer**, enter your query. Otherwise, skip this step.
 
 ![Provide source query](/assets/images/provide-source-query.png)
 
-8. **If you selected "Copy data from one or more tables or views"**, select the views to copy:
+8. If you selected **Copy data from one or more tables or views**, select the views you want to copy:
 
 ![Select Source Tables and Views](/assets/images/select-source-tables.png)
 

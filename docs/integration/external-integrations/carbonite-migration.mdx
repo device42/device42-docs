@@ -15,97 +15,93 @@ The following software must be installed and running:
 - Source and target machines must have valid Carbonite Move licenses installed and activated.
 - (Optional) If you require fine-tuning of the migration job options, more features, or failover trigger configuration, the source and target machines need to have Carbonite Migrate Replication Console installed (usually installed by default during Carbonite Agent installation). The machines you want to monitor or control must be added to the Replication Console's **Servers** list.
 
-![](/assets/images/WEB-734_Carbonite-servers.png)
+![Servers](/assets/images/WEB-734_Carbonite-servers.png)
 
 - Both the source and target machines need compatible Windows operating system versions. See the Carbonite Agent documentation for all requirements for the Full Server Migration job type: [Full server migration requirements](https://download.doubletake.com/_download/8.4/8.4.0.0/Docs/Migrate/Windows/MigrateWindowsUsersGuide.htm#MigrateExisting/MigrateExistingRequirements.htm).
 
 ## Create a Carbonite Migration Job
 
-1. From the Device42 main menu, click **Tools** and select **Migrations > Migration Jobs**.
+- From D42’s main page, click on the top menu bar’s **Tools** link and select **Migrations > Migration Jobs**.
 
-    ![](/assets/images/WEB-734_Carbonite-menu.png)
+![Menu](/assets/images/WEB-734_Carbonite-menu.png)
 
-2. On the Migration Jobs list page, click **Add Migration Job** at the top right.
+- On the Migration Jobs list page, click **Add  Migration Job** at the top right.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-select-migration-job.png)
+![Select migration job](/assets/images/WEB-734_Carbonite-d42-select-migration-job.png)
 
-3. Fill in the **Source** and **Target** machines' IP addresses and select their **Secrets**. Do this by clicking the lens icon next to each field or typing the IP address or secret directly into the text box.
+- On the next page, you need to fill out the **Source** and **Target** machines’ IP addresses and select their **Secrets**. Do this by clicking on the lens icon next to each field or typing in the IP address or secret directly into the text box.
 
-    ![](/assets/images/WEB-585_Carbonite-4-D42-Migration-Job-IPs.png)
+![Migration Job IPs](/assets/images/WEB-585_Carbonite-4-D42-Migration-Job-IPs.png)
 
-4. If you click the lens icon, a pop-up window lists all existing IP addresses in the system and the device name associated with each. Note that the IP address must be attached to a device in Device42 before selecting it. You can also search for a device by name using the search field.
+- If you click the lens icon, you are prompted with a pop-up window which lists all existing IP addresses in the system and the **Device** name associated with that IP address. Please note that before selecting an IP address, you should make sure it is attached to a device in D42. You can also search for a device by its name by entering the term in the search field.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-select-ip-address.png)
+![Select ip address](/assets/images/WEB-734_Carbonite-d42-select-ip-address.png)
 
-5. The process is the same for selecting the **Secret**, which must first be created in Device42 and must include the username and password for the source and target machines.
+- The process is the same for selecting the **Secret**, which must first be created in D42 and consist of the username and password on the source and target machines.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-select-password.png)
+![Select password](/assets/images/WEB-734_Carbonite-d42-select-password.png)
 
 6. You have the option to leave the source server running or shut it down after a failover. The shutdown option is selected by default and should not normally be changed, as leaving it running will cause IP collisions — the target becomes a clone of the source, including its IP settings.
 
-    ![](/assets/images/WEB-585_Carbonite-7-D42-Shutdown-Server-Checkbox.png)
+![Shutdown Server Checkbox](/assets/images/WEB-585_Carbonite-7-D42-Shutdown-Server-Checkbox.png)
 
-7. Once the steps above are complete, the **Verify Job** option on the bottom control panel is enabled. Click it to save the selected settings. It may take a few minutes to complete, as Device42 waits for Carbonite Agent to generate the recommended job options and verify that the job can be successfully created.
+- After the steps above are complete, the **Verify Job** option on the bottom control panel is enabled; click it to save the selected settings. It may take a few minutes to complete as D42 waits for  Carbonite Agent to generate the recommended job options and verify if the job can be successfully created.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-add-migration-job.png)
+![Add migration job](/assets/images/WEB-734_Carbonite-d42-add-migration-job.png)
 
 8. If verification is successful, a verification table is displayed below the fields.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-verify-job.png)
+![Verify job](/assets/images/WEB-734_Carbonite-d42-verify-job.png)
 
-9. If any errors are found, they will be shown in this table and can only be fixed using the Carbonite Replication Console or by performing the system administrative tasks required to resolve each failed step. The job cannot be saved until all issues are resolved. Once resolved, click **Verify Job** again to re-verify.
+- If any errors are found, they will be displayed in this table and can only be fixed by using the Carbonite Replication console or performing system administrative tasks required to fix a particular failed verification step. In this case you will not be able to save this job until the issues are resolved. If resolved, you should click the **Verify Job** button again to have the job be verified.
+- You can now click any of the Save buttons on the bottom control row to save this job in D42 and have it created on the target server you selected. If you click the regular **Save** button, you will be taken to the Migration Jobs list page.
 
-10. Click any of the **Save** buttons on the bottom control row to save the job in Device42 and create it on the target server. Clicking **Save** takes you to the Migration Jobs list page.
-
-    ![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view.png)
+![Select migration job to view](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view.png)
 
 ## Control Created Migration Jobs
 
 From the jobs list page, you can control created jobs using the links next to each job's name.
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-2.png)
+![Select migration job to view 2](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-2.png)
 
 ### Control a Single Job via the Links
 
-You can start, stop, pause, failover, and refresh each job individually by clicking the corresponding job command links. This mirrors the functionality of the Carbonite Replication Console.
+- You can start, stop, pause and failover and refresh each job individually by clicking any one of the corresponding job commands. This mimics the functionality of the Carbonite Replication console. Here we click **Start** to start the first job; after that it may take a few minutes to get the job started and have the Activity column update initially. If the connection between your D42 machine and the source/target servers is slow, you will have to click the **Refresh Status** link to query the target server again to update the status of the job as we do below.
 
-Clicking **Start** starts the first job. It may take a few minutes for the job to start and for the **Activity** column to update. If the connection between your Device42 machine and the source or target servers is slow, click the **Refresh Status** link to query the target server again and update the job status.
+![Select migration job to view 3](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-3.png)
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-3.png)
+- You will need to click the **Refresh Status** link to see if the initial mirroring has completed.
 
-Click **Refresh Status** to check whether the initial mirroring has completed.
+![Select migration job to view 4](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-4.png)
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-4.png)
-
-- Once the **Activity** status changes to **Protecting**, the job will failover if any triggers set up in the Carbonite Replication Console are triggered, or if you initiate it manually by clicking the **Failover** link.
-- Click **Pause** to halt the job and **Start** to resume it from where it left off.
-- Click **Stop** to stop the job completely. Click **Start** to restart it from the beginning.
-- Clicking **Failover** begins the failover migration process, transforming the target machine into the source and shutting down the source machine.
-- Once this process has started, it cannot be undone. When it completes, the source and target IPs on the Migration Jobs list page will be the same. At that point, no further actions can be performed on the job. The only remaining option is to delete it via the edit screen.
+- Once the **Activity** status changes to **Protecting**, the job will failover if any of the triggers set up in the Carbonite Replication console are triggered, or you initiate it manually by clicking the **Failover** link.
+- You can also pause the job by clicking the **Pause** link to halt whatever is going on, and then resume the job at the point it left off by clicking the **Start** button.
+- You can stop the job by clicking the **Stop** button to have the job stopped completely, and then clicking **Start** to start it back up from the very beginning.
+- If you click **Failover**, the failover migration process will begin transforming your target machine into source and the source machine will be shut down.
+- Once this process has started, it cannot be undone, and when it completes, the source and target IPs on the Migration Jobs list page will become the same. At this point, no other actions can be performed on this job and you will get a message warning you of that if you try the action links. The only thing that can be done at this point if you’re satisfied with the migration is to delete it via the edit screen.
 
 ### Control Multiple Jobs via Actions
 
-You can control multiple jobs at once by selecting several jobs on the Migration Jobs list page and choosing a command from the **Action** dropdown.
+- You can control multiple jobs at once by selecting several jobs on the Migration Jobs list page and selecting one of the **Action** drop-down commands.
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-5.png)
+![Select migration job to view 5](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-5.png)
 
-All the functionality described in the [Control a Single Job via the Links](#control-a-single-job-via-the-links) section can be performed on multiple jobs.
+- All the functionality described in the **Control a Single Job via the Links** section above can be performed on multiple jobs.
+- Here we select **Start the selected jobs** action from the menu and click the lightning bolt button to the right to run this command. You are prompted to confirm this action. Click **Yes, I’m sure** to continue.
 
-Select **Start the selected jobs** from the action menu and click the lightning bolt button to run the command. You are prompted to confirm the action — click **Yes, I'm Sure** to continue.
+![Select Migration Job Action Menu Prompt](/assets/images/WEB-585_Carbonite-15-D42-Select-Migration-Job-Action-Menu-Prompt.png)
 
-![](/assets/images/WEB-585_Carbonite-15-D42-Select-Migration-Job-Action-Menu-Prompt.png)
-
-This confirmation prompt applies to all bulk actions except **Export selected items to CSV**.
+– This confirmation prompt also applies to all other bulk actions except **Export selected items to CSV**.
 
 Some delay is possible when executing a bulk command on a large number of jobs, as execution occurs in a queue on the Carbonite Agent target server.
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-6.png)
+![Select migration job to view 6](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-6.png)
 
-Run the **Refresh the selected jobs** action to update the status of all selected jobs.
+- You can now run the **Refresh the selected jobs** action item to have the status of all your selected jobs updated.
 
-![](/assets/images/WEB-585_Carbonite-17-D42-Select-Migration-Job-Action-2.png)
+![Select Migration Job Action 2](/assets/images/WEB-585_Carbonite-17-D42-Select-Migration-Job-Action-2.png)
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-7-refresh.png)
+![Select migration job to view 7 refresh](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-7-refresh.png)
 
 The status for both jobs has been updated.
 
@@ -113,35 +109,35 @@ The status for both jobs has been updated.
 
 ### Control a Single Job via the Action Menu
 
-Any single job can also be controlled via the view page's **Action** menu. Click the job name on the jobs list to open it.
+- Any single job can also be controlled via the view page’s **Action** menu. Click on the job name you want to control in the jobs list.
 
-![](/assets/images/WEB-585_Carbonite-19-D42-Select-Migration-Select-Job-Name.png)
+![Select Migration Select Job Name](/assets/images/WEB-585_Carbonite-19-D42-Select-Migration-Select-Job-Name.png)
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-8A-click-ellipse.png)
+![Select migration job to view 8A click ellipse](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-8A-click-ellipse.png)
 
-Select the action you want to perform. In this example, **Stop Job** is selected.
+– Select the action you want to perform. Here we selected **Stop Job**.
 
-After selecting the action, go back to the Migration Jobs list page to see the updated job status. If there is a delay between your Device42 machine and the target server, click **Refresh Status** to refresh the job status.
+- After selecting the action, go back to the Migrate Jobs list page and the status of the job should be updated. If there’s a delay between your D42 machine and your target server, click the **Refresh Status** link to refresh the job status.
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-9-stopped.png)
+![Select migration job to view 9 stopped](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-9-stopped.png)
 
 ### Delete Jobs
 
 **Delete a Single Job**
 
-To delete a job, click the job name in the list and then click the **Edit** button at the top right.
+- To delete a job, click on the name of the job in the list and click **Edit** button at the top right.
 
-![](/assets/images/WEB-734_Carbonite-d42-view-migration-job-editdelete.png)
+![View migration job editdelete](/assets/images/WEB-734_Carbonite-d42-view-migration-job-editdelete.png)
 
-Click **Delete** at the bottom left of the Change Migration Job page. The job will be deleted from Device42 and from the target server running Carbonite Migrate.
+- Now click **Delete** at the bottom left of the Change Migration Job page. The job will be deleted from D42 and the target server running Carbonite Migrate.
 
-![](/assets/images/WEB-734_Carbonite-d42-view-migration-job-delete-button.png)
+![View migration job delete button](/assets/images/WEB-734_Carbonite-d42-view-migration-job-delete-button.png)
 
 **Delete Multiple Jobs via the Action Menu**
 
-Check the jobs you want to delete from the Migration Jobs list page and select **Delete with Detailed Confirmation** from the **Action** menu.
+- Check the jobs you would like to delete from the Migration Jobs list page and select **Delete with Detailed Confirmation** from the **Action** menu.
 
-![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-10-2-selects.png)
+![Select migration job to view 10 2 selects](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-10-2-selects.png)
 
 Click the lightning bolt button to begin the process. Confirm the action on the next page. The jobs will be deleted from Device42 and from the target server(s) running Carbonite Migration agent.
 
@@ -153,15 +149,15 @@ You can change whether the source server is shut down after a failover. This is 
 
 1. Click the job name on the Migration Jobs list page to open it.
 
-    ![](/assets/images/WEB-585_Carbonite-25-D42-Select-Migration-Click-Job-Name.png)
+![Select Migration Click Job Name](/assets/images/WEB-585_Carbonite-25-D42-Select-Migration-Click-Job-Name.png)
 
-2. Click **Edit** at the top right.
+- On the following page, click **Edit** at the top right of the page.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-view-migration-job-click-edit-button.png)
+![View migration job click edit button](/assets/images/WEB-734_Carbonite-d42-view-migration-job-click-edit-button.png)
 
-3. Uncheck the **Shutdown source server after failover** checkbox and click **Save** to disable this option on the Carbonite Agent target server.
+- On the next page, uncheck the **Shutdown source server after failover** checkbox and click **Save** at the bottom to have this option disabled on your Carbonite Agent target server.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-10-2-uncheckselect.png)
+![Select migration job to view 10 2 uncheckselect](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-10-2-uncheckselect.png)
 
 ### Change and Update Credentials
 
@@ -169,40 +165,36 @@ If you have changed the username or password of your target or source servers, y
 
 1. Click the job name on the job list page, then click the **Edit** button on the View Migration Job page.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-view-migration-job-click-edit-button-2.png)
+![View migration job click edit button 2](/assets/images/WEB-734_Carbonite-d42-view-migration-job-click-edit-button-2.png)
 
-2. Select the source and target secrets you want to change. You can update just the source, just the target, or both.
+- In this example, we have added a new username `vagrant` to the source and target machines, so we will select both the source and the target secrets to change. But you can also change just the source or the target secret.
 
-    ![](/assets/images/WEB-585_Carbonite-30-D42-Change-Migration-Job.png)
+![Change Migration Job](/assets/images/WEB-585_Carbonite-30-D42-Change-Migration-Job.png)
 
-3. After selecting the new secrets, click **Save** or **Save and Continue Editing** to confirm the changes. If there were issues updating the credentials, the new settings will be canceled and the old secret will still show.
+- After the new secrets have been selected, just click **Save** button at the bottom or **Save and continue editing** to see if the changes have been accepted by the server and have been saved successfully. If there were issues while trying to update the credentials, the new settings will be canceled and the old secret will still show.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-view-migration-job-delete-button-1.png)
+![View migration job delete button 1](/assets/images/WEB-734_Carbonite-d42-view-migration-job-delete-button-1.png)
 
     The source and target secrets have been updated and saved to the Carbonite target server's job and the Device42 database.
 
-4. You can verify that the credentials update completed successfully by examining the job in the Carbonite Replication Console's **Jobs** tab and clicking **View Recent Activity** in the job control row.
+- You can also verify that the credentials update operation has successfully completed by examining the job in the Carbonite Replication console’s Jobs tab and clicking the **View Recent Activity** button in the job control row.
 
-    ![](/assets/images/WEB-734_Carbonite-jobs.png)
+![Jobs](/assets/images/WEB-734_Carbonite-jobs.png)
 
-**Note:** If you only updated the password on the source or target, you must first create a new Device42 secret with the new login credentials or update the existing secret from **Resources > Secrets**.
+- **Note**: If you only updated the password on the source or target, you would first need to create a new D42 secret with the new login credentials information or update your existing secret from D42’s **Resources > Secrets** menu.
 
-![](/assets/images/WEB-734_Secrets-menu.png)
+![Secrets menu](/assets/images/WEB-734_Secrets-menu.png)
 
 Once updated or added, you can perform the above procedure for the jobs of your choice.
 
 ### Export Jobs to a CSV File
 
-You can export the jobs displayed on the Migration Jobs list page using the **Export selected items to CSV** action.
+You can export the jobs displayed on the Migration Jobs list page via the **Export selected items to CSV** Action menu item.
 
-1. Select the jobs you want to export and choose **Export selected items to CSV** from the **Action** menu. Click the lightning bolt icon to begin.
+- Select the jobs you want exported to CSV from the list and select **Export selected items to CSV** from the Action menu. Click the lightning bolt icon to begin the process.
 
-    ![](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-12.png)
+![Select migration job to view 12](/assets/images/WEB-734_Carbonite-d42-select-migration-job-to-view-12.png)
 
 2. You are prompted to save the `.csv` file to a directory of your choice. The file will be named `migration-job.csv`.
 
-3. Note that if you are using Excel 2019 or later, the file must be imported rather than simply opened. Opening the file directly through Excel will result in incorrect formatting and some fields may be missing.
-
-    The resulting file will look similar to the following.
-
-    ![](/assets/images/WEB-734_Carbonite-d42-exported-cvs.png)
+![Exported cvs](/assets/images/WEB-734_Carbonite-d42-exported-cvs.png)

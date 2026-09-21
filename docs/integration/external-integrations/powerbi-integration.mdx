@@ -3,9 +3,24 @@ title: "PowerBI Integration"
 sidebar_position: 24
 ---
 
-Device42 integrates with Microsoft PowerBI using the Device42 ODBC driver, currently available for Microsoft Windows. The integration lets you connect to Device42 and pull data via an ODBC (Open Database Connectivity) data source.
+This page is for report authors and administrators who want to build Microsoft PowerBI reports on Device42 data. By the end, PowerBI connects to Device42 through the ODBC driver and you can pull Device42 data into your reports.
 
-This page covers how to download the ODBC driver, connect PowerBI to the Device42 ODBC data source, and optionally create a DSN. If you want to use the Device42 ODBC driver with an ODBC-compatible client other than PowerBI, see the [ODBC Driver Integration](/integration/external-integrations/odbc-driver-integration) page.
+Device42 integrates with Microsoft PowerBI using the [Device42 ODBC driver package](https://www.device42.com/miscellaneous-tools/), currently available for Microsoft Windows. With the PowerBI and ODBC integration, you can connect to Device42 and pull data through an ODBC (Open Database Connectivity) data source presented by the driver.
+
+The current ODBC driver installs on Microsoft Windows. The instructions below explain how to use the ODBC connection through PowerBI.
+
+:::note
+You can also use the Device42 ODBC driver with an ODBC-compatible consumer other than PowerBI. See the [ODBC driver documentation page](integration/external-integrations/odbc-driver-integration.mdx) to obtain the driver and for more information.
+:::
+
+## Prerequisites
+
+Before connecting PowerBI to Device42, make sure you have:
+- A Microsoft Windows machine, as the ODBC driver installs on Windows only
+- Microsoft PowerBI installed on that machine
+- The Device42 ODBC driver installed, and the requirements in the [ODBC System Requirements](integration/external-integrations/odbc-driver-integration.mdx#odbc-system-requirements) section of the ODBC driver page met
+- A current Device42 installation that is licensed, running, and reachable from the Windows machine
+- The Device42 host name, the port the server uses, and a Device42 username and password
 
 ## Download the Device42 PowerBI ODBC Driver
 
@@ -13,52 +28,49 @@ Download the Device42 ODBC driver from [https://www.device42.com/integrations/po
 
 ## Connect PowerBI to the Device42 ODBC Data Source
 
-The following steps assume you have completed the Device42 ODBC driver installation and meet all the requirements listed in the ODBC System Requirements section of the [ODBC Driver Integration](/integration/external-integrations/odbc-driver-integration) page.
+To connect PowerBI to the Device42 ODBC datasource, follow the instructions below. This section assumes you have installed the Device42 ODBC driver and meet the requirements listed in the [ODBC System Requirements](integration/external-integrations/odbc-driver-integration.mdx#odbc-system-requirements) section of the ODBC driver page.
 
-1. Launch PowerBI and click **Get Data** in the upper left corner:
+1. Launch PowerBI and click the **Get Data** icon in the upper left corner:
 
 ![PowerBI Get Data button](/assets/images/powerBI-get-data.png)
 
-2. In the **Search** field, enter `ODBC` to filter the data source options. Select **ODBC** and click **Connect**:
+2. In the **Search** field, enter `ODBC` to narrow down the listed data source options (1). Highlight **ODBC** (2), and click **Connect** (3):
 
 ![PowerBI search for and choose ODBC](/assets/images/PowerBI_search_ODBC.png)
 
-3. To connect using a DSN, see [Create a DSN](#create-a-dsn) below. Otherwise, expand **Advanced Options** to enter a connection string manually:
+3. To connect using a DSN, see the [Create a DSN](#create-a-dsn) section below to learn how to create a DSN, which will then show in this list. Otherwise, supply a connection string manually by clicking to expand the **Advanced Options** section:
 
 ![Expand advanced options](/assets/images/expand_advanced_options.png)
 
-4. In the connection string field, enter: `DRIVER={Device42 ODBC Driver};SERVER=YOUR-D42-SERVER.COM;`. Leave the **SQL Statement (optional)** field blank and click **OK**:
+4. In the connection string field, enter the following string: `DRIVER={Device42 ODBC Driver};SERVER=YOUR-D42-SERVER.COM;`. Leave the **SQL Statement (optional)** section blank, and click **OK**:
 
 ![Advanced connection options](/assets/images/powerBI_advanced_options.png)
 
-5. Enter your **User Name** and **Password**, then click **Connect**.
+5. Enter the **User Name** and **Password** that were provided to you, then click **Connect**. Setup is complete.
 
 ## Create a DSN
 
-To create or pre-define a DSN (Data Source Name), open the Windows ODBC Data Source Administrator:
-
-- **Windows 10:** Click **Start > Windows Administrative Tools > ODBC Data Sources (64-bit)**.
-- **Windows 7:** Click **Start > All Programs > Administrative Tools > Data Sources (ODBC)**.
+1. To create or pre-define a DSN (Data Source Name), open the Windows ODBC Data Source Administrator from the Windows Start menu. On Windows 10, click **Start > Windows Administrative Tools > ODBC Data Sources (64-bit)**. There is also a 32-bit version, which you can ignore. On Windows 7, click **Start > All Programs > Administrative Tools > Data Sources (ODBC)**:
 
 ![ODBC Datasource Admin](/assets/images/ODBC_Datasource_Administrator.png)
 
-1. Click **Add** to begin adding a new data source. In the **Create New Data Source** window, choose **Device42 ODBC Driver** and click **Finish**:
+2. Click **Add** to begin adding a new datasource. In the **Create New Data Source** window, choose **Device42 ODBC Driver** and click **Finish**:
 
 ![Add Device42 ODBC Driver DSN](/assets/images/add_device42_ODBC_driver_source.png)
 
-2. On the **Device42 ODBC Driver DSN Configuration** screen, enter values as described below:
+3. On the **Device42 ODBC Driver DSN Configuration** screen, enter values as explained below:
 
 ![Device42 DSN configuration](/assets/images/DSN_Configuration_Screen.png)
 
 - **DSN Name:** The name to identify this DSN.
 - **Server Host:** The host name of the Device42 server.
-- **Port:** The port number that the Device42 server uses for requests. The default is the standard SSL port `443`. If you leave this field blank, it also defaults to `443`.
-- **Username:** The username you use to log in to Device42.
-- **Password:** The password you use to log in to Device42.
+- **Port:** The port number that the Device42 server is servicing requests on. The default value is the standard SSL port of 443. If you leave this field blank, it will also default to 443.
+- **Username:** The username you use to login to Device42.
+- **Password:** The password you use to login to Device42.
 
-3. Click **Test** to try connecting. You will receive a message indicating whether the connection succeeded. If it did not, verify the information you entered.
-4. Click **Save** to save the DSN. Changes are only saved if the connection is successful.
+4. Click **Test** to try connecting using the information you specified. You will receive a message if the connection could or could not be made. If the connection could not be made, verify that the information you entered is correct.
+5. Click **Save** to save the changes you made to the DSN. Your changes will only be saved if the information entered results in a successful connection. If the connection could not be made, verify that the information you entered is correct.
 
 The Device42 ODBC DSN is now configured and available for use in PowerBI.
 
-For questions about the Device42 ODBC driver not answered here, open a ticket at [support.device42.com](https://support.device42.com) or email support@device42.com.
+If you have questions about the Device42 ODBC driver that are not answered here, open a ticket at [https://support.device42.com](https://support.device42.com) or email [support@device42.com](mailto:support@device42.com).

@@ -3,7 +3,9 @@ title: "Nagios Integration"
 sidebar_position: 19
 ---
 
-The Device42 Nagios plugin lets you monitor the health status of your Device42 appliance from within Nagios. This page covers how to install and configure the plugin, add Device42 to Nagios, and view health status data.
+This page is for administrators who already run Nagios and want the health of their Device42 appliance monitored alongside the rest of their infrastructure. By the end, Nagios reports Device42 health data as standard service checks.
+
+Device42 offers a [Nagios plugin for Device42](https://github.com/device42/Device42-Nagios-Health-Check). It is available for download via Github, and allows easy monitoring of the health status of your Device42 appliance. Data returned includes:
 
 The plugin is [available on GitHub](https://github.com/device42/Device42-Nagios-Health-Check) and returns the following data:
 
@@ -12,9 +14,12 @@ The plugin is [available on GitHub](https://github.com/device42/Device42-Nagios-
 - Memory usage
 - CPU usage
 
-## Install the Nagios Plugin
+## Prerequisites
 
-Before installing the plugin, ensure the following prerequisites are installed.
+Before installing the plugin, make sure you have:
+- A running Nagios server, with access to its plugin and configuration directories
+- `git` on the Nagios server to clone the [plugin repository](https://github.com/device42/Device42-Nagios-Health-Check)
+- The required Perl packages installed, as shown below
 
 On Ubuntu:
 
@@ -28,10 +33,12 @@ On Red Hat:
 yum install perl-JSON.noarch perl-Nagios-Plugin.noarch
 ```
 
-To install the plugin, clone the repository to your Nagios server:
+## Install the Nagios Add-On
+
+To install the Nagios plugin, clone the repository to your nagios server, e.g.:
 
 ```
-git clone https://www.github.com/device42/nagios
+git clone https://github.com/device42/Device42-Nagios-Health-Check
 ```
 
 Copy the `check_d42_health.pl` file to your Nagios plugin directory:
@@ -91,7 +98,7 @@ When you select the Device42 host from Nagios, you can see the appliance's curre
 
 ![Device42 Health Status in Nagios](/assets/images/2016-03-26-Nagios-01.png)
 
-Backup Status reports an error if any backup job has failed. The free disk space, memory, and swap statuses have thresholds that can be set in `d42.cfg`. A threshold of `50` triggers the flag if the value is greater than 50, while `50:` triggers the flag if the value is less than 50.
+The **Backup Status** check reports an error if any one of your backup jobs has failed. The free disk space, memory, and swap statuses have thresholds that you can set in `d42.cfg`. When setting the thresholds, `50` triggers the flag if the value is greater than 50, while `50:` triggers the flag if the value is less than 50.
 
 The following are suggested thresholds for the default Device42 disk size (50 GB HDD) and default allotted memory (4 GB RAM). If your appliance uses different settings, configure these values accordingly:
 
@@ -99,22 +106,22 @@ The following are suggested thresholds for the default Device42 disk size (50 GB
 
 | Health Check | Warning Threshold | Critical Threshold |
 | --- | --- | --- |
-| cpu\_used\_percent | 85 | 95 |
-| dbsize | 1000 | 2000 |
-| disk\_used\_percent | 60 | 80 |
-| memtotal | `<=` 4000 | `<=` 3000 |
-| cached |  |  |
-| swapfree | `<=`15% | `<=` 5% |
-| swaptotal | `<=` 2000 | `<=` 1000 |
-| memfree | `<=`15% | `<=`10% |
-| buffers |  |  |
+| `cpu_used_percent` | 85 | 95 |
+| `dbsize` | 1000 | 2000 |
+| `disk_used_percent` | 60 | 80 |
+| `memtotal` | `<=` 4000 | `<=` 3000 |
+| `cached` |  |  |
+| `swapfree` | `<=`15% | `<=` 5% |
+| `swaptotal` | `<=` 2000 | `<=` 1000 |
+| `memfree` | `<=`15% | `<=`10% |
+| `buffers` |  |  |
 
 * * *
 
+You can also view the trending data for any health stat by clicking the service and then **View Trending Data for this Service**.
+
 ![Device42 Trending Stats](/assets/images/2016-03-26-Nagios-02.png)
 
-You can view trending data for any health stat by clicking the service and then **View Trending Data for this Service**.
+A log of all statuses is available for the host by clicking **View Notifications for this Host**.
 
 ![Device42 Health Log](/assets/images/2016-03-26-Nagios-03.png)
-
-A log of all statuses is available for the host by clicking **View Notifications for this Host**.
