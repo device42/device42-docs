@@ -85,7 +85,7 @@ There are two ways to log in to the VM console:
 
      - Use port 404 on the Device42 IP address.
      - If you're using a power appliance, use port 442.
-     - For AWS deployments, SSH in to the device using `device42` as your username and `AWS-KEYFILE` as your password. For example:
+     - For AWS deployments, SSH in to the device using `device42` as your username and your AWS private key file for authentication. For example:
 
      ```shell
      ssh -i /path/to/your/private-key.pem -p port_number username@hostname
@@ -112,4 +112,3 @@ sources={{
 ## Update the Remote Collectors
 
 Device42 RCs are updated automatically as long as they are connected to a Device42 MA. Updates to the MA instance include updates to your RC(s), which are pushed out automatically as part of the regular Device42 update process. By keeping your main Device42 instance up to date, you ensure that your RCs are also up to date.
-
