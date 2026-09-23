@@ -166,7 +166,7 @@ If you wish to clear up the app data, select one of the two delete options in Ji
 
 ## Custom Fields
 
-Device42 custom fields can be used to link the Configuration Items (CIs) to Jira issues. You can have multiple independent Device42 custom fields per issue. You can link multiple CIs of the same type (for example, devices only) to a issue using one custom field. You can apply a project filter globally to the list of the possible CIs you want available within a specific project. Also, you can apply the filter to the each of the Configuration Items category. See the [Custom Field Filters](#custom-field-filters-for-configuration-items) section for details.
+Device42 custom fields can be used to link the Configuration Items (CIs) to Jira issues. You can have multiple independent Device42 custom fields per issue. You can link multiple CIs of the same type (for example, devices only) to an issue using one custom field. You can apply a project filter globally to the list of the possible CIs you want available within a specific project. Also, you can apply the filter to each Configuration Item category. See the [Custom Field Filters](#custom-field-filters-for-configuration-items) section for details.
 
 Create a new Device42 custom field as follows:
 
@@ -238,13 +238,13 @@ This section is about editing the **default** filter template. The interface for
 Individual CI types have parameters - with several being unique to the type - that you can add filters to. Please note that changes made to the default filter will be applied all projects that don't have their own custom filter configuration.
 
 1. From the main **Administration** console, click on the **Manage apps** tab and then **Device42 Filter Templates** on the left panel.
-2. Click on a CI type from them the group of CIs listed. For example, **Operating Systems**.
+2. Click on a CI type from the group of CIs listed. For example, **Operating Systems**.
 3. Enable specific parameters by clicking on the checkbox next to the parameter name.
 4. Type in the value that you want your list of CIs to contain. For example, only list operating systems that have **Linux** in the name.
    
     ![List of CIs and OS parameters](/assets/images/jira-self-managed/operating-systems-linux-steps.png)
 
-You can create unique and highly-specific filters include the exact CIs that you want using logical conditionals. Device42 uses general Query Language syntax to define these conditionals. See the [Using Query Language to Filter CI Parameters](#using-query-language-to-filter-ci-parameters) section below.
+You can create unique and highly-specific filters that include the exact CIs that you want using logical conditionals. Device42 uses general Query Language syntax to define these conditionals. See the [Using Query Language to Filter CI Parameters](#using-query-language-to-filter-ci-parameters) section below.
 
 5. Click on the **Save** button. When you scroll up you'll see a notification indicating whether the filter has been successfully saved. 
 
@@ -258,7 +258,7 @@ You can create unique and highly-specific filters include the exact CIs that you
 
 Use the following Query Language rules, ranging from exact value matches to complex logical conditions, to filter configuration items. Note that the filter search is NOT case sensitive.
 
-* Filter the CI selection based on a **single value**. Example: `test`. Only the CIs with the value`test` would be displayed.
+* Filter the CI selection based on a **single value**. Example: `test`. Only the CIs with the value `test` would be displayed.
 
 * Use AND logic to filter CIs that **match all the values** separated by a comma `,` or ampersand `&`. Example: `hello, world`. CIs with the value `hello world` would be displayed, but CIs with only the word `hello` or only the word `world` will be skipped.
 
@@ -363,11 +363,11 @@ When editing an issue, you'll see the custom field names listed on the left of t
 
 ![Edit issue window](/assets/images/jira-self-managed/edit-issue-window.png)
 
-You can search for a specific CI by typing part of its name into the search bar. If you want to delete the CI, click on the small cross icon next its name.  
+You can search for a specific CI by typing part of its name into the search bar. If you want to delete the CI, click on the small cross icon next to its name.
 
-**Note:** The list of available CIs and CI types depends on the filters that were applied to the project and custom fields. You will not be able to assign the CIs that have been filtered out. If the filter was created after the issue was edited the data will be shown inside the view mode. However, if you edit the issue the available CIs and CI types will conform to the new filter.See the [Custom Field Filters for CIs](#custom-field-filters-for-configuration-items) section for more information.
+**Note:** The list of available CIs and CI types depends on the filters that were applied to the project and custom fields. You will not be able to assign the CIs that have been filtered out. If the filter was created after the issue was edited the data will be shown inside the view mode. However, if you edit the issue the available CIs and CI types will conform to the new filter. See the [Custom Field Filters for CIs](#custom-field-filters-for-configuration-items) section for more information.
 
-If you don't see your custom field, you can add it by clicking on the **Configure Fields** button on the top right corner. Select **Custom Fields** form the dropdown menu under **Show** and select the checkboxes of the custom fields you'd like. Click on the **Apply changes** button to save.
+If you don't see your custom field, you can add it by clicking on the **Configure Fields** button on the top right corner. Select **Custom Fields** from the dropdown menu under **Show** and select the checkboxes of the custom fields you'd like. Click on the **Apply changes** button to save.
 
 ![Add custom fields to issue](/assets/images/jira-self-managed/edit-issue-configure-fields.png)
 
