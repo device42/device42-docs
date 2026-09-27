@@ -66,7 +66,7 @@ For an explanation of the backup options, see the [Backup via the Appliance Mana
 
 ### 3. Upload the Update File
 
-From the Main Appliance, navigate to **Application > Update Software** and **either** browse and upload the `.zip.enc` file **or** enter the update URL.
+In the Appliance Manager, navigate to **Application > Update Software** and **either** browse and upload the `.zip.enc` file **or** enter the update URL.
 
 ![Upload file or enter URL in the Appliance Manager](/assets/images/updating-device42/upload-file-19.06.png)
 
@@ -111,4 +111,4 @@ sources={{
 
 ## Update the Remote Collectors
 
-Device42 RCs are updated automatically as long as they are connected to a Device42 MA. Updates to the MA instance include updates to your RC(s), which are pushed out automatically as part of the regular Device42 update process. By keeping your main Device42 instance up to date, you ensure that your RCs are also up to date.
+When an MA update includes an RC update, the MA automatically pushes that update to its connected RCs. If an RC update is released separately, download the RC upgrade file and push it through the Appliance Manager. See the [Main Appliance and Remote Collector FAQ](/administration/main-appliance-remote-collector-faq.mdx#update-remote-collectors-on-the-latest-ma-release) for more information.
