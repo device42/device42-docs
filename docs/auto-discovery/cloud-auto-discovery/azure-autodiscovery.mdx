@@ -18,7 +18,7 @@ Before you begin discovery in Device42, prepare your Azure environment. Complete
 ### Prepare the Application
 
 1. Log in to Azure via [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to **Azure Active Directory > Enterprise Applications > New Application > Create Your Own Application**.
+2. Navigate to **Microsoft Entra ID > Enterprise applications > New application > Create your own application**.
 3. Name your application and select the **Integrate any other application you don't find in the gallery (Non-gallery)** option.
 4. Navigate back to the top-level directory you created the app in and choose **App Registrations**.
 5. Select your newly created app and note the **Application (client) ID** and the **Directory (tenant) ID**, as both are used for Device42 discovery.
@@ -153,7 +153,7 @@ To apply the role, go back to the **Access Control (IAM) > Add > Add Role Assign
 
 ### Azure Kubernetes Service (AKS)
 
-When **Authentication and Authorization** is set to **Azure AD authentication with Kubernetes RBAC** and **Kubernetes local accounts** is disabled, ensure that a group is configured within the **Cluster admin ClusterRoleBinding** that includes the discovery user or service principal.
+When **Authentication and Authorization** is set to use Microsoft Entra authentication with Kubernetes RBAC and **Kubernetes local accounts** is disabled, ensure that a group is configured within the **Cluster admin ClusterRoleBinding** that includes the discovery user or service principal.
 
 You can specify multiple groups within the **Cluster admin ClusterRoleBinding** selection. This can be useful if you want to keep the discovery user or service principal in a separate, dedicated discovery group rather than adding it to an existing group.
 

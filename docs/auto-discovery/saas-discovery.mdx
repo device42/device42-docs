@@ -16,7 +16,7 @@ Schedule SaaS discovery to maintain an up-to-date inventory of SaaS information.
 
 Device42 currently supports SaaS discovery from the following identity providers:
 
-- Azure Active Directory
+- Microsoft Entra ID (formerly Azure Active Directory)
 - Okta
 - G Suite (Google Workspace)
 
@@ -92,9 +92,9 @@ sources={{
 
 - **Name:** A unique name for the job.
 - **Remote Collector:** The Remote Collector to use.
-- **Type:** Select your identity provider (**Azure AD**, **Okta**, or **Gsuite**).
+- **Type:** Select your identity provider (**Azure AD** for Microsoft Entra ID, **Okta**, or **Gsuite**).
 - Add the authentication credentials for your identity provider account:
-    - **Azure AD:** **Credential**, **Cloud Definition**, **Tenant ID**, and **Client ID**
+    - **Azure AD** (Microsoft Entra ID): **Credential**, **Cloud Definition**, **Tenant ID**, and **Client ID**
     - **Okta:** **Credential** and **URL**
     - **G Suite:** **Admin Email** and **Credential**
 
