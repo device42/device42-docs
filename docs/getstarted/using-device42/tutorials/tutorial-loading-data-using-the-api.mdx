@@ -59,7 +59,7 @@ Each line in the script has a curl statement like the one below.
   <summary>Click to expand the code block</summary>
   ```bash
   #Add a Building
-  curl -i -H "Accept: application/json" \
+  curl -H "Accept: application/json" \
       -X POST \
       -d "name=New Haven DC" \
       -d "address=123 main st" \
@@ -67,16 +67,16 @@ Each line in the script has a curl statement like the one below.
       -d "contact_phone=1234567890" \
       -d "notes=super critical" \
       -u $USER:$PASS \
-      $URL/api/1.0/buildings/ \
-      --insecure
+      $URL/api/1.0/buildings/
   ```
 </details>
 
-The `-i`, `-H`, and `--insecure` parameters should be in all Device42 API calls:
+The example uses the following curl options:
 
-- The `-i` flag specifies that the header should be included in the output.
 - The `-H` flag tells the Device42 application that a JSON-formatted response will be accepted.
-- The `--insecure` flag is required because the Device42 appliance does not have a certificate.
+- The optional `-i` flag includes the response headers in the output and can be useful for troubleshooting.
+
+Device42 appliances ship with a self-signed HTTPS certificate. For production use, [install a certificate that your client trusts](/administration/appliance-manager/set-up-https-cert.mdx), or use curl's `--cacert` option with the appropriate CA certificate. The downloadable demo script uses `--insecure` to accommodate the default self-signed certificate; this option disables certificate validation and should be used only temporarily in an isolated test environment.
 
 The values of the following flags and variables vary depending on the API used:
 
