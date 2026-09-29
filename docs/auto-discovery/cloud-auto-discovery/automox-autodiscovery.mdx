@@ -26,7 +26,7 @@ Device42 collects the following details when an Automox discovery job runs:
 
 ## Authentication Requirements
 
-Your Automox username and password are required for Device42 to request a bearer token. Bearer token authentication is then used for subsequent requests.
+An Automox API key is required. In the Automox console, open **Secrets & Keys** and create or copy an [API key](https://help.automox.com/hc/en-us/articles/39855057281428-API-3rd-Party-Report-Updates-Available-or-Applications-Installed). Device42 sends this API key as a bearer token when it requests data from Automox.
 
 ## Create an Automox Discovery Job
 
@@ -42,7 +42,7 @@ Name the discovery job and select **Automox** from the **Type** dropdown.
   }}
 />
 
-Select the **Bearer Token** or click the **+** icon to create a Secret with your client credentials (bearer token).
+Select the Secret that contains your Automox API key in the **Bearer Token** field. To create a Secret, click the **+** icon, enter a descriptive name such as `Bearer Token` in the **Username** field, and paste the API key into the **Password** field.
 
 <ThemedImage
   alt="Provide your Automox credentials"
