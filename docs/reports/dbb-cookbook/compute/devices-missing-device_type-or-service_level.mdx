@@ -18,10 +18,10 @@ Returns devices where `service_level` or `device_type` is missing, unknown, or s
          ,dc.cloud_service_provider
          ,dc.cloud_service_name
          ,dc.device_serial
-         ,dc.device_type
     from view_dbb_compute_v2 dc
-    where lower(dc.service_level) in (null, 'missing', 'tbd')
-         or lower(dc.device_type) in (null, 'unknown')
+    where dc.service_level is null
+         or lower(dc.service_level) in ('missing', 'tbd')
+         or dc.device_type is null
+         or lower(dc.device_type) = 'unknown'
     ```
 </details>
-

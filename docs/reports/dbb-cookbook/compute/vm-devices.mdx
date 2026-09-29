@@ -29,11 +29,10 @@ select
      ,dc.all_ips
 from view_dbb_compute_v2 dc
 left join view_dbb_compute_v2 dc2
-on dc2.virtual_host_device_fk  = dc.device_fk
+on dc.virtual_host_device_fk = dc2.device_fk
 where lower(dc.device_type) = 'virtual'
      and dc.is_network_device = 'No'
      and dc.is_container = 'No'
 order by dc.device_name
 ```
 </details>
-

@@ -15,7 +15,7 @@ select
     ,dc.hardware_model
     ,dc.device_type
     ,dc.service_level
-    ,[dc.in](http://dc.in/)_service
+    ,dc.in_service
     ,dc.customer_department
     ,dc.server_location
     ,dc.building_address
@@ -25,7 +25,6 @@ select
     ,dc.u_position
     ,dc.last_discovered
     ,dc.tags
-    ,[dc.in](http://dc.in/)_service
 from view_dbb_compute_v2 dc
 where lower(dc.device_type)= 'physical' and dc.hardware_model is null
 order by 2

@@ -56,7 +56,7 @@ Returns paired host-guest relationships with detailed CPU, RAM, and OS specs for
     h.device_fk AS host_device_id,
     h.device_name AS host_device_name,
     h.total_cpus AS host_cpu_count,
-    h.ram_mb AS host_ram_gb,
+    round((h.ram_mb / 1024.0)::numeric, 2) AS host_ram_gb,
     h.os_name AS host_os_name,
     h.all_ips AS host_all_ips,
     vmm.device_name AS vm_manager,
@@ -86,7 +86,7 @@ Returns paired host-guest relationships with detailed CPU, RAM, and OS specs for
     g.total_cpus AS guest_cpu_count,
     g.core_per_cpu AS guest_cpu_cores,
     g.cpu_speed AS guest_cpu_speed_ghz,
-    g.ram_mb AS guest_ram_gb,
+    round((g.ram_mb / 1024.0)::numeric, 2) AS guest_ram_gb,
     g.local_disk_count AS guest_disk_count,
     g.threads_per_core AS guest_core_threads,
     CASE 
@@ -106,4 +106,3 @@ Returns paired host-guest relationships with detailed CPU, RAM, and OS specs for
     ORDER BY h.device_name ASC;
     ```
 </details>
-
