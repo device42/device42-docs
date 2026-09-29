@@ -298,7 +298,7 @@ If you are a non-superuser and you run an autodiscovery without specifying any c
 
 An 'orphaned object' is an object (for example, a rack or a subnet) that has no group assigned to it directly _and_ has no group assigned to a parent object. The parent objects of racks are rooms and buildings and the parent objects of subnets are their parent subnets and VRF groups. 
 
-The default is to leave the orphaned objects options unchecked so that orphaned objects are visible to everyone.
+When the orphaned object options are unchecked, orphaned objects are not visible to non-superusers. Select the relevant option to allow non-superusers to see those orphaned objects.
 
 The **Allow non-superusers to see orphaned building hierarchy objects** option applies to building hierarchy objects, specifically buildings, rooms, racks, devices, assets, and PDUs. If this option is checked, a non-superuser can view and change any building that has no groups assigned to it _and_ can view and change any room, rack, device, asset, or PDU in the building. 
 

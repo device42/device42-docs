@@ -339,7 +339,7 @@ Device42 can discover information on the following S3 fields:
 - Public ACLs Blocked
 - Public Policies Blocked
 
-A bucket can be [public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html#access-control-block-public-access-policy-status) if it has **Public Access Point**, **Public ACL** or **Public Policy**. The **Public ACLs Blocked** and **Public Policies Blocked** flags can be independently controlled with settings in the AWS S3 console. When these flags are checked off, a user with the correct permissions can access the bucket.  
+A bucket or object can be [publicly accessible](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) through an ACL, bucket policy, or access point policy only when the applicable Block Public Access settings permit that access. Amazon S3 applies the most restrictive combination of the access point, bucket, account, and organization settings. Authorized users may still be able to access a bucket when public access is blocked; authorized access does not make a bucket public. Use [IAM Access Analyzer for S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-analyzer.html) to review public or shared access.
 
 **Additional resources:**
 

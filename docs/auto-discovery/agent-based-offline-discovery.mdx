@@ -6,7 +6,7 @@ sidebar_position: 4
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-This page is for Device42 administrators who need to discover devices in completely network-isolated environments. Use offline agent-based discovery when target devices cannot communicate with the Device42 appliance at all. For environments where devices can reach Device42 but security rules limit traffic, use [standard agent-based discovery](agent-based-discovery.mdx). instead.
+This page is for Device42 administrators who need to discover devices in completely network-isolated environments. Use offline agent-based discovery when target devices cannot communicate with the Device42 appliance at all. For environments where devices can reach Device42 but security rules limit traffic, use [standard agent-based discovery](agent-based-discovery.mdx) instead.
 
 Agentless discovery in Device42 works great for most custom use cases. There are some edge cases where discovery is desired but the network doesn't allow communication back to the main Device42 appliance. Sometimes remote collectors can't be deployed because the target network segments are segregated or remote, while other times, policy doesn't allow it.
 
@@ -121,7 +121,7 @@ On Linux, the agent file requires Sudo permissions to collect data. There are tw
         ```
         -sudo-password string
         ```
-    - Name the output file. We recommend a unique name log based on the hostname and timestamp for each scanned device. The file could be a local file or on a writeable network share for easier collection. See the section [Create Naming Variables for Agent Logs](#create-naming-variables-for-agent-logs) above for details.
+    - Name the output file. We recommend a uniquely named log based on the hostname and timestamp for each scanned device. The file can be stored locally or on a writable network share for easier collection. See the section [Create Naming Variables for Agent Logs](#create-naming-variables-for-agent-logs) above for details.
         ```
         > filename.log
         ```

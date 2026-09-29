@@ -58,7 +58,7 @@ If you are using a hypervisor, a container platform, or an orchestration tool yo
 
 Device42 provides two Docker discovery methods: Docker API discovery returns basic container data with IPs and MAC addresses, while regular Docker discovery also returns service ports.
 
-Device42 supports all standard Docker cloud operating systems such as EKS (AWS Kubernetes), GKE (Google Kubernetes), AKS (Azure Kubernetes), and standalone Kubernetes, as well as Ubuntu, CentOS, Debian, Arch Linux, and Fedora.
+Device42 supports Kubernetes discovery for Amazon Elastic Kubernetes Service (EKS), Google Kubernetes Engine (GKE), Azure Kubernetes Service (AKS), and standalone Kubernetes. Docker discovery is supported on hosts running Ubuntu, CentOS, Debian, Arch Linux, and Fedora.
 
 By running Docker and connecting to the host, you can map connections to the container. You can see on the Docker host how to get the source ports of containers, without having to log in to the container to identify the connection. Use the `docker top` command and supply just the container ID (requires `sudo` commands).
 

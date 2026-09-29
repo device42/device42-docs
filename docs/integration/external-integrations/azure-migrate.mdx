@@ -5,7 +5,7 @@ sidebar_position: 2
 
 This page is for administrators who want to use Device42 as an assessment tool within Azure Migrate and export discovered business applications from Device42 to Azure for migration planning. By the end, your Device42 business application data appears in the Azure Migrate portal for assessment.
 
-The Azure Migrate integration lets you assess and migrate servers to Azure using Device42 as the assessment tool. This page covers how to set up Device42 from the Azure Migrate portal, register an Azure Active Directory user, and export your business applications to Azure.
+The Azure Migrate integration lets you assess and migrate servers to Azure using Device42 as the assessment tool. This page covers how to set up Device42 from the Azure Migrate portal, register a Microsoft Entra ID application, and export your business applications to Azure.
 
 You can access Azure Migrate directly at [portal.azure.com](https://portal.azure.com/#create/Microsoft.AzureMigrate).
 
@@ -14,7 +14,7 @@ You can access Azure Migrate directly at [portal.azure.com](https://portal.azure
 To export data from Device42 to Azure Migrate, make sure you have:
 - An Azure account with access to the Azure portal
 - An Azure Migrate project (created in [Set Up Device42 From the Azure Migrate Portal](#set-up-device42-from-the-azure-migrate-portal))
-- An Azure Active Directory app registration with a client secret, assigned the **Contributor** role on the subscription
+- A Microsoft Entra ID app registration with a client secret, assigned the **Contributor** role on the subscription
 - The following details collected from Azure: **Tenant ID**, **Subscription ID**, **Client ID**, **Client Secret**, and the **Migrate Project Name**
 - A running Device42 instance with business applications to export
 
@@ -82,13 +82,13 @@ Once Device42 is installed, start discovering your environment:
 
 ## Export Your Business Apps to Azure for Migration
 
-Complete the following steps to register an Azure Active Directory user, collect the required credentials, and export your business applications from Device42.
+Complete the following steps to register a Microsoft Entra ID application, collect the required credentials, and export your business applications from Device42.
 
-### Register an Azure Active Directory User
+### Register a Microsoft Entra ID Application
 
-1. Log in to the Azure portal and create an **App Registration** in Azure Active Directory. You will need this user to authenticate to Azure when uploading your export.
+1. Log in to the Azure portal and create an **App registration** in Microsoft Entra ID. Device42 uses this application to authenticate to Azure when uploading your export.
 
-    ![Create a new Azure User](/assets/images/register_an_application.png)
+    ![Create a Microsoft Entra ID app registration](/assets/images/register_an_application.png)
 
 2. Create a client secret and save the value for Device42.
 
@@ -110,7 +110,7 @@ Complete the following steps to register an Azure Active Directory user, collect
 
 Collect the following information from Azure before exporting:
 
-1. **Tenant ID:** **Azure Active Directory > Properties**
+1. **Tenant ID:** **Microsoft Entra ID > Properties**
 
     ![Azure Tenant ID](/assets/images/Tenant_ID.png)
 
@@ -118,7 +118,7 @@ Collect the following information from Azure before exporting:
 
     ![Azure Subscription ID](/assets/images/subscription_ID.png)
 
-3. **Client ID:** **Azure Active Directory > App Registrations**
+3. **Client ID:** **Microsoft Entra ID > App registrations**
 
     ![Azure Client ID](/assets/images/Client_ID.png)
 
