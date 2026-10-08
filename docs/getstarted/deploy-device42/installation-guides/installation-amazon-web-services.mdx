@@ -1,5 +1,5 @@
 ---
-title: "Amazon Web Services - Installation"
+title: "Amazon Web Services (AWS) - Installation"
 sidebar_position: 6
 ---
 
@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import loginImg from '/assets/images/installation-amazon-web-services/login-appliance-manager.png'
 
-The Device42 Amazon Web Services (AWS) offering involves an EC2 instance that houses the Device42 Main Appliance (MA), Appliance Manager (AM), and Remote Collector (RC).
+The Device42 AWS offering involves an EC2 instance that houses the Device42 Main Appliance (MA), Appliance Manager (AM), and Remote Collector (RC).
 
 ![AWS architecture](/assets/images/aws-architecture.png)
 
@@ -64,17 +64,17 @@ The following steps walk you through deploying Device42 from the AWS Marketplace
 
 Launch your Device42 instance using the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=Device42&ref_=device42) one-click feature and follow the on-screen instructions.
 
-When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA and configure incoming access for the appropriate administrative source:
+When you arrive at the **Launch this software** screen, select a key pair to use for SSH console access to the Device42 MA or RC and configure incoming access for the appropriate administrative source:
 
 - Click **Create a key pair in EC2** to generate a key. See the [Generating a New AWS Key Pair](#generating-a-new-aws-key-pair-for-ssh-access) section for more help with this step.
     
   ![Select SSH key pair to use for console access to Device42 on AWS](/assets/images/choose_SSH_keypair_AWSd42-hl.png)
 
-- Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and allowing access from the appropriate administrative source for the default Device42 ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`.
+- Create an appropriate security group via **Security Group Settings** by selecting **Create new based on seller settings** and allowing access from the appropriate administrative source for the default Device42 MA ports: `404 ssh`, `4242 appmgr-http`, `4343 appmgr-https`, and `443 https`, or default Device42 RC ports: `22 ssh`.
 
   These ports are part of the default Device42 AMI security group settings for incoming SSH, Appliance Manager, and web UI access.
 
-- For ports `404`, `4242`, and `4343`, select **Custom TCP** as the rule type and enter the port number manually. Port `443` can use the standard **HTTPS** rule type.
+- For ports `22`, `404`, `4242`, and `4343`, select **Custom TCP** as the rule type and enter the port number manually. Port `443` can use the standard **HTTPS** rule type.
     
   ![security group settings for access to Device42 on AWS](/assets/images/security_group_settings_CORRECT-hl.png)
 
@@ -84,12 +84,12 @@ If you allow direct access from your PC or local network, the deployed Device42 
 
 ### Connect to the Instance
 
-SSH to your Device42 MA on port `404` using one of the following methods:
+SSH to your Device42 MA on port `404`, or RC on port `22`, using one of the following methods:
 
 - **Public subnet (test/dev only — see the note above):** Connect directly using the public DNS name or IP address from the AWS console.
 - **Private subnet:** Connect via a bastion host, AWS Systems Manager Session Manager, or your VPN.
 
-Use `device42` as the username and the SSH key file you selected on the **Launch this software** screen for authentication (not a password). Ensure your instance's [security group settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) allow SSH access from your connection source.
+Use `device42` as the username for the MA or `client` as the username for the RC, and the SSH key file you selected on the **Launch this software** screen for authentication (not a password). Ensure your instance's [security group settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) allow SSH access from your connection source.
 
 ![Instance ID, public IP, and DNS address on the EC2 dashboard](/assets/images/EC2_dashboard_Instance_ID-IP-DNS_hl.png)
 
