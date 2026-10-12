@@ -35,7 +35,7 @@ You can edit an individual ignored service to change its ignored status or use t
 
 ## Ignored Services Actions
 
-Select one or more ignored service, and then select an Action to apply to the ignored services. You can use the Action menu to activate or deactivate selected ignored services, and you can also delete or export ignored services.
+Select one or more ignored services, and then select an **Action** to apply to them. You can use the **Action** menu to activate, deactivate, delete, or export selected ignored services.
 
 <ThemedImage
   alt="Ignored Services actions"
@@ -49,7 +49,9 @@ Select one or more ignored service, and then select an Action to apply to the ig
 
 Click **Create** from the Ignored Services list page to add an ignored service.
 
-Enter the **Ignored Text** and select the **Ignored Level**.  Click **Active** to add the ignored service as active – active ignored services are not captured in discovery. Click **Save** to add the ignored service.
+Enter the **Ignored Text** and select the **Ignored Level**. Click **Active** to add the ignored service as active—active ignored services are not captured in discovery. Click **Save** to add the ignored service.
+
+To ignore dynamically named services, set **Ignored Level** to **Service Name** or **Display Name**, then enter an asterisk (`*`) as a wildcard in **Ignored Text**. For example, `PrintWorkflow*` matches names such as `PrintWorkflowUserSvc_56616f34` and `PrintWorkflow_56db1ef`. Entries without a wildcard continue to use exact matching.
 
 <ThemedImage
   alt="Create an Ignored Service"

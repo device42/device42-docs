@@ -92,6 +92,26 @@ Locate the **Configure Network Scan Options** by clicking the button with the **
 
 Nmap returns a list of matches for each accessible target, in order of accuracy percentage. Allowing alternate matching means we will always use the match with the highest accuracy. The accuracy distance is the percentage points of accuracy that will be allowed. By default, alternate matching will be turned on.
 
+## Configure a Global Blackout Window
+
+Global blackout windows pause all automated discovery jobs during selected times. Use them to prevent discovery activity during maintenance, change freezes, or busy periods.
+
+To create a blackout window:
+
+1. Navigate to **Discovery > Discovery Hub**.
+2. Click the **Global Discovery Settings** wrench icon.
+3. Under **General**, find **Blackout Windows**.
+4. Click **Add Blackout Window**.
+5. Select the days, start time, and end time.
+6. Click **Save**.
+
+During the blackout window, Device42 suspends active and pending discovery jobs. When the window ends, the suspended jobs resume automatically.
+
+<img
+  alt="Create a global discovery blackout window"
+  src={useBaseUrl('/assets/images/discovery-hub-onboarding/global-blackout-window.png')}
+/>
+
 ## View Scan Results
 
 The scans you have created will be displayed in the left-hand column. Once started, a scan can be stopped but cannot be resumed or edited. To view the scope of the scan, click the **Settings** button in the top right of the screen (highlighted below) to display the parameters. 

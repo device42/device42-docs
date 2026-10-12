@@ -52,15 +52,19 @@ Browse to the modified sample spreadsheet, and then click **Import**.
   }}
 />
 
-Below **Browse**, Device42 displays a message listing the records that were added or updated successfully. If any records are rejected, the message includes a reason for each rejection.
+Below **Browse**, Device42 displays the import results under three headers following the phrase **The following lines from worksheet (name) were...**
+
+- **...added or updated successfully:** Device42 saved every field.
+- **...partially added or updated (with warnings):** Device42 saved the record but skipped one or more fields, such as a service level that doesn't exist in your instance.
+- **...not added or updated:** Device42 rejected the record. Each partial or rejected record lists the reason at the end of the line.
 
 <ThemedImage
-  alt="Upload success message"
+  alt="Successful, partial, and rejected spreadsheet import results"
   sources={{
     light: useBaseUrl("/assets/images/spreadsheet-imports-and-exports/success-message-light.png"),
     dark: useBaseUrl("/assets/images/spreadsheet-imports-and-exports/success-message-dark.png"),
   }}
-  style={{ width: '70%' }} 
+  style={{ width: '100%' }}
 />
 
 ### Data Field Descriptions
