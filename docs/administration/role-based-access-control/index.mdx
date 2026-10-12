@@ -56,7 +56,7 @@ The list pages for permissioned objects have two useful filters:
 - Filter by an object or subnet category to see all objects that can be seen by groups with view permissions for the category.
 
 
-You can view the objects that a group is associated with by clicking the ellipsis icon and selecting **Direct Permissions**, **Inherited Permissions**, or **All Permissions**.
+You can view the objects that a group is associated with by clicking the **ellipsis icon** and selecting **Direct Permissions**, **Inherited Permissions**, or **All Permissions**.
 
 <ThemedImage
   alt="Permission buttons"
@@ -180,7 +180,7 @@ From the list view of the object type, bulk select the objects you want to assig
   }}
 />
 
-Here, we are about to assign the **Prod** admin group permissions to the three racks listed above. If you click **Add group for selected objects**, you will give the **Prod** group the right to view and edit the selected racks. Leaving the **Change Permissions?** box unchecked means only granting view permission.
+In this example, you are assigning the **Prod** admin group permissions to the three racks listed above. If you click **Add group for selected objects**, you will give the **Prod** group the right to view and edit the selected racks. Leaving the **Change Permissions?** box unchecked means only granting view permission.
 
 <ThemedImage
   alt="Select admin group"
@@ -234,7 +234,7 @@ The following objects and screens do not have object-level permission and are go
 - Telecom and Power circuits 
 - DNS 
 - OS’s 
-- Passwords (also have their own user/group security) 
+- Passwords (also have their own user or group security)
 - Lifecycle Event Actions 
 - Misc Functions 
 - Custom Field setup 
@@ -245,7 +245,7 @@ The following objects and screens do not have object-level permission and are go
 
 ## Permission Hierarchies
 
-If an admin group is granted access to a building, the admin group is also granted access to all rooms, racks, devices, PDUs, and assets in the building. We call the hierarchy that contains buildings the Device Hierarchy. The rules for the Device Hierarchy are as follows:
+If an admin group is granted access to a building, the admin group is also granted access to all rooms, racks, devices, PDUs, and assets in the building. This hierarchy is called the Device Hierarchy. The rules for the Device Hierarchy are as follows:
 
 - Permission for a building implies permission for all rooms, racks, devices, PDUs, and assets in the building.
 - Permission for a room implies permission for all racks, devices, PDUs, and assets in the room.
@@ -254,7 +254,7 @@ If an admin group is granted access to a building, the admin group is also grant
 - Permission for a virtual host implies permission for all virtual machines in the host.
 - Permission for a device that is part of a cluster _does not_ imply permission to the cluster device itself. Because a cluster can be made up of devices that reside in multiple physical locations, a cluster device does not have a location attribute. Permissions for those using multi-tenancy will be inherited for cluster member devices, but will not be inherited for the cluster device itself. The only way to create permissions on a cluster object is to assign an object category to the cluster device.
 
-There is a second hierarchy that we call the IP Hierarchy. The rules for the IP Hierarchy are as follows:
+There is a second hierarchy called the IP Hierarchy. The rules for the IP Hierarchy are as follows:
 
 - Permission for a VRF group implies permission for all subnets and IP addresses within the VRF group.
 - Permission for a subnet category implies permission for all subnets labeled with that subnet category, all child subnets of those subnets, and all IP addresses within all those subnets.
@@ -264,7 +264,7 @@ Please note that change permission for an object also applies to the objects ben
 
 It is possible to grant view-only permission to a room but change permission to specific devices. This would allow users to change the specific devices but not change the other devices in the room.
 
-Note that there is a special scenario when an admin group with change permission is assigned to a building, room, or rack in conjunction with the **"Do Not Propagate** (DNP) option being selected. In this case, members of the admin group will only have view-only permission as the change permission is blocked by the DNP option.
+Note that there is a special scenario when an admin group with change permission is assigned to a building, room, or rack in conjunction with the **Do Not Propagate** (DNP) option being selected. In this case, members of the admin group will only have view-only permission, as the change permission is blocked by the DNP option.
 
 ### IPAM Hierarchy Rules
 
@@ -280,7 +280,7 @@ If you have view but not change permission to a device, you can still add an IP 
 
 If you give a group change permission to a room, you should also grant view permission to the building for the room. Otherwise, the user won't be able to select a building and, without a building specified, they won't be able to save the room edit form.
 
-When cloning devices and racks with explicit permissions, those permissions will be copied over to the newly cloned objects. If there are no permissions on a device or rack, it will copy over the next closest parent's object permissions (e.g. if there are no permissions on a device but there are permissions on the rack the device is in, the rack's permissions will be copied over). Also, if a device or rack has multiple groups, only the groups assigned to the current user will be copied over.
+When cloning devices and racks with explicit permissions, those permissions will be copied over to the newly cloned objects. If there are no permissions on a device or rack, it will copy over the next closest parent's object permissions (for example, if there are no permissions on a device but there are permissions on the rack the device is in, the rack's permissions will be copied over). Also, if a device or rack has multiple groups, only the groups assigned to the current user will be copied over.
 
 When deleting permissions on an object that has objects below it in the hierarchy (for example, deleting a building that has rooms, racks, and devices), removing the permissions on the building will not cascade the delete down the line. So any rooms within the building that you deleted permissions from will still be available to the group.
 

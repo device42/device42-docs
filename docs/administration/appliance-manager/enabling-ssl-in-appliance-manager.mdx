@@ -3,15 +3,18 @@ title: "Enabling SSL in Appliance Manager"
 sidebar_position: 9
 ---
 
-Device42 now has the ability to use HTTPS in the Appliance Manager, in addition to the existing HTTPS in the Main Appliance.
+Device42 supports HTTPS in the Appliance Manager in addition to the Main Appliance. This page covers how to enable SSL for the Appliance Manager.
 
-To enable this functionality, log in to the Device42 Appliance Manager by clicking the link at the bottom of the main login page and entering your Device42 credentials. The default username and password for the Appliance Manager are `d42admin` and `default`. For details about which URL to use and how to update the default password, see [Appliance Manager Login](device42-appliance-manager-login.mdx).
+## Enable HTTPS in the Appliance Manager
 
-- From the main menu (left panel) of the Appliance Manager, select **Appliance Manager SSL**: 
-- Check **Enable HTTPS** to enable SSL and click **Set**. You'll see a success message prompting you to restart the appliance from the VM console.
+Log in to the Device42 Appliance Manager. The default username and password are `d42admin` and `default` — see [Appliance Manager Login](administration/appliance-manager/device42-appliance-manager-login.mdx) for the URL and password change instructions.
 
-    ![HTTPS enabled](/assets/images/enabling-ssl-in-appliance-manager/appliance-manager-ssl.png)
+From the main menu in the left panel, select **Appliance Manager SSL**.
 
-- Log in to the VM console and select **Reboot Server**. 
+Check **Enable HTTPS** and click **Set**. A success message will prompt you to restart the appliance from the VM console.
 
-    ![Reboot appliance](/assets/images/enabling-ssl-in-appliance-manager/console-reboot-services.png) 
+![HTTPS enabled in Appliance Manager](/assets/images/enabling-ssl-in-appliance-manager/appliance-manager-ssl.png)
+
+Log in to the VM console and select **Reboot Server**.
+
+![Reboot Server option in the console](/assets/images/enabling-ssl-in-appliance-manager/console-reboot-services.png)

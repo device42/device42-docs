@@ -6,11 +6,11 @@ sidebar_position: 3
 import ThemedImage from '@theme/ThemedImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-You can create Active Directory (AD) settings in Device42 and use them to add AD users as administrators.
+You can create Active Directory (AD) settings in Device42 and use them to add AD users as administrators. This page covers adding AD settings, manually adding an AD administrator, and configuring an AD user sync job.
 
-First, add your AD settings under **Tools > Settings > Active Directory Settings**. See the [Active Directory and OpenLDAP](active-directory-and-openldap-support.mdx) page for details. 
+First, add your AD settings under **Tools > Settings > Active Directory Settings**. See the [Active Directory and OpenLDAP](/administration/active-directory-and-openldap-support) page for details.
 
-Next, manually add an administrator user from the Active Directory domain you configured. Navigate to **Tools > Admins & Permissions > Administrators** and click **Create Active Directory Admin**. 
+Next, manually add an administrator user from the Active Directory domain you configured. Navigate to **Tools > Admins & Permissions > Administrators** and click **Create Active Directory Admin**.
 
 <ThemedImage
     alt="Create AD Admin option"
@@ -22,7 +22,7 @@ Next, manually add an administrator user from the Active Directory domain you co
 
 Search for an Active Directory user to add as an administrator. Device42 displays the AD domain associated with the user you searched for before you add them.
 
-[The **Username login Style** option](active-directory-and-openldap-support.mdx#add-new-active-directory-or-openldap-settings) selected when the AD settings were added controls how Device42 formats and recognizes usernames during login (for example, as `Domain\Username` or `username@domain`).
+The [**Username login Style** option](/administration/active-directory-and-openldap-support#add-new-active-directory-or-openldap-settings) selected when the AD settings were added controls how Device42 formats and recognizes usernames during login (for example, as `Domain\Username` or `username@domain`).
 
 <ThemedImage
     alt="Add Active Directory user as admin"
@@ -34,6 +34,6 @@ Search for an Active Directory user to add as an administrator. Device42 display
 
 Note that Active Directory credentials are not stored in the Device42 application. You need to enter valid domain user credentials each time you search for a user.
 
-## Configuring the Active Directory User Discovery/sync Job
+## Configure the Active Directory User Discovery or Sync Job
 
-You can configure an AD Sync Job to pull in AD user data in bulk and/or keep them synced. See [the Active Directory Discovery Job docs page](auto-discovery/active-directory-sync.mdx) to view the AD discovery process.
+You can configure an AD sync job to pull in AD user data in bulk and keep it synced. See the [Active Directory Discovery Job](/auto-discovery/active-directory-sync) page for details on the AD discovery process.

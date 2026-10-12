@@ -3,8 +3,12 @@ title: "API Limits"
 sidebar_position: 2
 ---
 
-From the Appliance Manager, you can set a limit on the number of remote agents that can attempt to update at once. This option is intended for administrators who have hundreds of agents and need to prevent those agents from simultaneously attempting to update, possibly causing the Main Appliance to become overloaded.
+The API Limits setting in the Appliance Manager lets you cap the number of remote agents that can update concurrently. This page explains how the limit works and how to configure it.
 
-The default setting for the API limit is 16 concurrent agent updates. You can configure this number to best suit your needs, choosing a value between `8` and `128`.
+This setting is useful for administrators with hundreds of agents who need to prevent simultaneous updates from overloading the Main Appliance.
 
-![](/assets/images/api-limits/api-limits.png)
+## Configure the API Limit
+
+The default API limit is 16 concurrent agent updates. You can set this to any value between `8` and `128`.
+
+![API Limits setting in the Appliance Manager](/assets/images/api-limits/api-limits.png)
