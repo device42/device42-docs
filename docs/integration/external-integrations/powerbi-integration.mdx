@@ -1,42 +1,42 @@
 ---
-title: "PowerBI Integration"
+title: "Power BI Integration"
 sidebar_position: 24
 ---
 
-This page is for report authors and administrators who want to build Microsoft PowerBI reports on Device42 data. By the end, PowerBI connects to Device42 through the ODBC driver and you can pull Device42 data into your reports.
+This page is for report authors and administrators who want to build Microsoft Power BI reports on Device42 data. By the end, Power BI connects to Device42 through the ODBC driver and you can pull Device42 data into your reports.
 
-Device42 integrates with Microsoft PowerBI using the [Device42 ODBC driver package](https://www.device42.com/miscellaneous-tools/), currently available for Microsoft Windows. With the PowerBI and ODBC integration, you can connect to Device42 and pull data through an ODBC (Open Database Connectivity) data source presented by the driver.
+Device42 integrates with Microsoft Power BI using the [Device42 ODBC driver package](https://www.device42.com/miscellaneous-tools/), currently available for Microsoft Windows. With the Power BI and ODBC integration, you can connect to Device42 and pull data through an ODBC (Open Database Connectivity) data source presented by the driver.
 
-The current ODBC driver installs on Microsoft Windows. The instructions below explain how to use the ODBC connection through PowerBI.
+The current ODBC driver installs on Microsoft Windows. The instructions below explain how to use the ODBC connection through Power BI.
 
 :::note
-You can also use the Device42 ODBC driver with an ODBC-compatible consumer other than PowerBI. See the [ODBC driver documentation page](integration/external-integrations/odbc-driver-integration.mdx) to obtain the driver and for more information.
+You can also use the Device42 ODBC driver with an ODBC-compatible consumer other than Power BI. See the [ODBC driver documentation page](integration/external-integrations/odbc-driver-integration.mdx) to obtain the driver and for more information.
 :::
 
 ## Prerequisites
 
-Before connecting PowerBI to Device42, make sure you have:
-- A Microsoft Windows machine, as the ODBC driver installs on Windows only
-- Microsoft PowerBI installed on that machine
+Before connecting Power BI to Device42, make sure you have:
+- A machine running a currently supported Microsoft Windows release, as the ODBC driver installs on Windows only
+- Microsoft Power BI installed on that machine
 - The Device42 ODBC driver installed, and the requirements in the [ODBC System Requirements](integration/external-integrations/odbc-driver-integration.mdx#odbc-system-requirements) section of the ODBC driver page met
 - A current Device42 installation that is licensed, running, and reachable from the Windows machine
 - The Device42 host name, the port the server uses, and a Device42 username and password
 
-## Download the Device42 PowerBI ODBC Driver
+## Download the Device42 Power BI ODBC Driver
 
 Download the Device42 ODBC driver from [https://www.device42.com/integrations/powerbi/](https://www.device42.com/integrations/powerbi/).
 
-## Connect PowerBI to the Device42 ODBC Data Source
+## Connect Power BI to the Device42 ODBC Data Source
 
-To connect PowerBI to the Device42 ODBC datasource, follow the instructions below. This section assumes you have installed the Device42 ODBC driver and meet the requirements listed in the [ODBC System Requirements](integration/external-integrations/odbc-driver-integration.mdx#odbc-system-requirements) section of the ODBC driver page.
+To connect Power BI to the Device42 ODBC datasource, follow the instructions below. This section assumes you have installed the Device42 ODBC driver and meet the requirements listed in the [ODBC System Requirements](integration/external-integrations/odbc-driver-integration.mdx#odbc-system-requirements) section of the ODBC driver page.
 
-1. Launch PowerBI and click the **Get Data** icon in the upper left corner:
+1. Launch Power BI and click the **Get Data** icon in the upper left corner:
 
-![PowerBI Get Data button](/assets/images/powerBI-get-data.png)
+![Power BI Get Data button](/assets/images/powerBI-get-data.png)
 
 2. In the **Search** field, enter `ODBC` to narrow down the listed data source options (1). Highlight **ODBC** (2), and click **Connect** (3):
 
-![PowerBI search for and choose ODBC](/assets/images/PowerBI_search_ODBC.png)
+![Power BI search for and choose ODBC](/assets/images/PowerBI_search_ODBC.png)
 
 3. To connect using a DSN, see the [Create a DSN](#create-a-dsn) section below to learn how to create a DSN, which will then show in this list. Otherwise, supply a connection string manually by clicking to expand the **Advanced Options** section:
 
@@ -50,7 +50,7 @@ To connect PowerBI to the Device42 ODBC datasource, follow the instructions belo
 
 ## Create a DSN
 
-1. To create or pre-define a DSN (Data Source Name), open the Windows ODBC Data Source Administrator from the Windows Start menu. On Windows 10, click **Start > Windows Administrative Tools > ODBC Data Sources (64-bit)**. There is also a 32-bit version, which you can ignore. On Windows 7, click **Start > All Programs > Administrative Tools > Data Sources (ODBC)**:
+1. To create or predefine a DSN (Data Source Name) on a currently supported Microsoft Windows release, open **Start**, search for **ODBC Data Sources (64-bit)**, and select it. Use the 64-bit ODBC Data Source Administrator for the 64-bit Device42 driver and Power BI.
 
 ![ODBC Datasource Admin](/assets/images/ODBC_Datasource_Administrator.png)
 
@@ -71,6 +71,6 @@ To connect PowerBI to the Device42 ODBC datasource, follow the instructions belo
 4. Click **Test** to try connecting using the information you specified. You will receive a message if the connection could or could not be made. If the connection could not be made, verify that the information you entered is correct.
 5. Click **Save** to save the changes you made to the DSN. Your changes will only be saved if the information entered results in a successful connection. If the connection could not be made, verify that the information you entered is correct.
 
-The Device42 ODBC DSN is now configured and available for use in PowerBI.
+The Device42 ODBC DSN is now configured and available for use in Power BI.
 
 If you have questions about the Device42 ODBC driver that are not answered here, open a ticket at [https://support.device42.com](https://support.device42.com) or email [support@device42.com](mailto:support@device42.com).

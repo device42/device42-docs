@@ -9,7 +9,7 @@ Device42 integrates with SAML 2.0 alongside AD or LDAP user synchronization to p
 Authorization is handled by Device42, so SSO only works if the user account already exists in Device42 before the user logs in.
 :::
 
-SAML configuration varies between providers. This page covers configuration steps for Microsoft ADFS, Azure AD, Okta, and OneLogin as examples. Device42 SSO also works with any SAML 2.0 compatible Identity Provider and has been confirmed to work with IDaaS providers, Centrify, and PingIdentity's PingOne and PingFederate.
+SAML configuration varies between providers. This page covers configuration steps for Microsoft ADFS, Microsoft Entra ID (formerly Azure Active Directory), Okta, and OneLogin as examples. Device42 SSO also works with any SAML 2.0 compatible Identity Provider and has been confirmed to work with IDaaS providers, Centrify, and PingIdentity's PingOne and PingFederate.
 
 For further assistance, contact [Support](mailto:support@device42.com).
 
@@ -55,9 +55,9 @@ If you receive a time synchronization error, run the following command in PowerS
 Set-ADFSRelyingPartyTrust -TargetIdentifier "" -NotBeforeSkew 5
 ```
 
-## Configure Azure AD
+## Configure Microsoft Entra ID
 
-1. Navigate to Azure AD in the Azure portal via **Enterprise Applications > New Application > Create your own application**. Give your app a name (the app shown in the screenshots is `Device42SAML`) and select **Integrate any other application...**, then click **Create**.
+1. In the Azure portal, navigate to **Microsoft Entra ID > Enterprise applications > New application > Create your own application**. Give your app a name (the app shown in the screenshots is `Device42SAML`) and select **Integrate any other application...**, then click **Create**.
 
     ![](/assets/images/image-5.png)
 
@@ -69,23 +69,23 @@ Set-ADFSRelyingPartyTrust -TargetIdentifier "" -NotBeforeSkew 5
 
     ![](/assets/images/image3.png)
 
-4. Navigate to the Device42 Appliance Manager and go to **Global Settings > SAML/SSO Settings**. Copy the **App Federation Metadata URL** from the **SAML Signing Certificate** section of your Azure AD enterprise app, and paste it into the **Metadata auto conf url** field.
+4. Navigate to the Device42 Appliance Manager and go to **Global Settings > SAML/SSO Settings**. Copy the **App Federation Metadata URL** from the **SAML Signing Certificate** section of your Microsoft Entra ID enterprise app, and paste it into the **Metadata auto conf url** field.
 
     ![](/assets/images/image4.png)
 
-5. In the **SAML 2.0 Settings** of the Appliance Manager, enter `username` or another appropriate SAML attribute in the **Username field**. Unless you have signed responses configured on the Azure AD provider side, leave the **Require signed response** box unchecked — otherwise, you'll get an unavailable page error.
+5. In the **SAML 2.0 Settings** of the Appliance Manager, enter `username` or another appropriate SAML attribute in the **Username field**. Unless you have signed responses configured on the Microsoft Entra ID provider side, leave the **Require signed response** box unchecked — otherwise, you'll get an unavailable page error.
 
-    Azure's built-in claims like `emailaddress` may not work with Device42, even though they appear in the Azure interface, because the built-in claim uses a namespace URI format. To resolve this, create a new claim for `emailaddress` in your Azure AD enterprise app, map the claim to the user attribute, and use the custom claim name in the Device42 SAML **Username field**.
+    Azure's built-in claims like `emailaddress` may not work with Device42, even though they appear in the Azure interface, because the built-in claim uses a namespace URI format. To resolve this, create a new claim for `emailaddress` in your Microsoft Entra ID enterprise app, map the claim to the user attribute, and use the custom claim name in the Device42 SAML **Username field**.
 
     Save and restart the appliance from the VM console menu. You may want to complete steps 6 and 7 before saving or restarting, so that you can still log in to Device42 with the local admin account.
 
     ![Enter SAML username](/assets/images/enable-saml-2.0.png)
 
-6. Assign users or groups to the SAML enterprise app in Azure AD — these should be the users or groups you want to allow to authenticate into Device42 via SAML.
+6. Assign users or groups to the SAML enterprise app in Microsoft Entra ID — these should be the users or groups you want to allow to authenticate into Device42 via SAML.
 
-7. For each user associated with the enterprise app in Azure AD, create the user in Device42 using the appropriate Azure AD value with a placeholder password. The integration does not create users directly from Azure AD, so users must exist in Device42 before they can authenticate via Azure AD.
+7. For each user associated with the enterprise app in Microsoft Entra ID, create the user in Device42 using the appropriate Microsoft Entra ID value with a placeholder password. The integration does not create users directly from Microsoft Entra ID, so users must exist in Device42 before they can authenticate via Microsoft Entra ID.
 
-8. Once the above steps are complete, you can log in to your Device42 instance with your Azure AD credentials.
+8. Once the above steps are complete, you can log in to your Device42 instance with your Microsoft Entra ID credentials.
 
 ## Configure Okta
 

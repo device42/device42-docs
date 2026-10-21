@@ -51,7 +51,7 @@ Run CMD as an administrator by typing "cmd" in the start menu, right-clicking, a
 In your administrative command prompt, run the following to register the downloaded NetFlow collector. Provide the full path to the binary and name the service "D42NetFlow" for clarity:
 
 ```
-$ sc create D42NetFlow binPath="c:pathtobinarywindows\_x64.exe -h \*ma\_url\* -u \*username\* -p \*password\* -i \*Interval\*" 
+sc.exe create D42NetFlow binPath= "\"C:\Program Files\d42-netflow\d42-netflow64.exe\" -h https://ma.example.com -u username -p password -i 60"
 ```
 
 Where the string parameters are:

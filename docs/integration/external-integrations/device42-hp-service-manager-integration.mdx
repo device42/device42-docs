@@ -7,6 +7,10 @@ The Device42 HP Service Manager (HPSM) Connector syncs asset and CMDB data from 
 
 With the connector you can use Device42 Continuous Discovery data in HPSM, link service requests to the relevant configuration item (CI), search for issues using CI attributes, and view CI details in HPSM.
 
+:::caution Legacy integration
+This connector requires Python 2, which reached end of life in 2020 and no longer receives security updates. The instructions are retained for existing legacy environments only. Do not deploy this connector in a new environment unless it has been ported to and validated with a supported Python 3 release.
+:::
+
 ![Device42 Data in HPSM](/assets/images/2017-03-15-hpsm-1.png)
 
 Using the Device42-HPSM integration connector, you can synchronize Device42 asset management and tracking data to the IP-enabled configuration items (CIs) held in the HPSM Configuration Management Database (CMDB). You can refresh this synchronization manually at any time, or schedule it to refresh automatically at intervals you define.
@@ -20,7 +24,7 @@ Once Device42 CI data is synced to HP Service Manager, you can see Device42 CI d
 Before you configure the integration, make sure you have:
 
 - Working Device42 and HPSM instances
-- Python 2. The script is not compatible with Python 3.
+- Python 2. The legacy script is not compatible with Python 3.
 
 Device42 tested the script with HPSM 9.40 and Device42 12.0.0.
 
