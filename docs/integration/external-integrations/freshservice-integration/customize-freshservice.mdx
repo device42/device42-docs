@@ -1090,3 +1090,56 @@ inner join view_room_v1 rm on rk.room_fk = rm.room_pk
 </details>
 
 Save the file and [reupload it to Freshservice](#reupload-the-mappingxml-file) using the **Upload Custom Mapping** button, then run a [full sync](index.mdx#run-the-data-synchronization) to populate the new building, room, and rack assets in Freshservice.
+
+### Example 5: How To Sync Mobile Phone Numbers From Device42 to Freshservice
+
+Device42 already discovers the phone number of mobile devices. The value is available in DOQL as `view_device_v2.details ->> 'phone_number'`. However, Freshservice ITAM Classic has no default field for it.
+
+To sync phone numbers, you create a custom field in Freshservice and add the value to a custom `mapping.xml` file.
+
+:::note
+Device42 does not update custom mapping files when it releases a newer default mapping. Keep track of this change so you can add it to future versions. See [Manage Customization with Newer Releases](#manage-customization-with-newer-releases).
+:::
+
+**Step 1:** [Download the current default `mapping.xml` file](#download-the-mappingxml-file) with the **Download Default Mapping** button.
+
+**Step 2:** Create the custom field in Freshservice.
+
+1. Go to **Admin** and search for **Asset Types & Fields**.
+2. Edit the **Mobile Device** asset type.
+3. Add a **Single Line Text** field with the label `Phone Number`.
+
+**Step 3:** Verify the field name that Freshservice generated. Replace `<Freshservice-Instance>` with your Freshservice instance and `<Asset-Type-ID>` with the ID of the **Mobile Device** asset type:
+
+```
+<Freshservice-Instance>/api/v2/asset_types/<Asset-Type-ID>/fields
+```
+
+If the field label is exactly `Phone Number`, use `phone_number` as the target name in the XML. Do not include the asset type ID suffix. See [Syncing to Custom Field Names in Freshservice](#syncing-to-custom-field-names-in-freshservice) for more information.
+
+**Step 4:** Find each `Devices` task whose query uses `view_device_v2`. There are three version-specific variants of this task:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+```
+
+**Step 5:** In the `doql` attribute of the `<resource>` element of each task, add the phone number to the `SELECT` list. Put it next to the existing `imei` line, which you can find by searching for `AS imei`:
+
+```sql
+view_device_v2.details ->> 'imei' AS imei,
+view_device_v2.details ->> 'phone_number' AS phone_number,
+```
+
+**Step 6:** In the `<mapping>` element of each task, add the following `<field>` element to the **Mobile** section. Put it next to the existing `imei` field, which has `target-header="Mobile"`:
+
+```xml
+<field resource="phone_number" source-type="string" target="phone_number" target-type="string" target-header="Mobile" min-length="1" max-length="255"/>
+```
+
+**Step 7:** Save the file and [reupload it to Freshservice](#reupload-the-mappingxml-file) using the **Upload Custom Mapping** button.
+
+**Step 8:** Run a [full sync](integration/external-integrations/freshservice-integration/use-freshservice-integration.mdx#run-the-data-synchronization). A partial sync only updates devices that changed since the last sync, so a full sync is necessary to add phone numbers to your existing mobile device assets.
+
+**Step 9:** Verify the result. In Freshservice, open a mobile device asset that has a discovered phone number in Device42. The phone number appears in the new **Phone Number** field.
