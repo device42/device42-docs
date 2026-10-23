@@ -1,0 +1,74 @@
+---
+title: "Changes in Version 11.0 (CC 5.6.1)"
+sidebar_position: 1
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.6.1 release (CC 5.6.1).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## Software In Use Tasks
+
+The DOQL query now uses `select distinct` instead of `select`. This prevents duplicate rows when a device and software pair matches more than one row.
+
+The `doql` attribute of the `<resource>` element was changed in these two tasks:
+
+```xml
+<task enable="true" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_min_version="16.19.00">
+<task enable="true" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_max_version="16.18.02">
+```
+
+The start of the query was changed from:
+
+```sql
+select view_softwareinuse_v1.softwareinuse_pk as d42_pagination_key,
+```
+
+To the following:
+
+```sql
+select distinct view_softwareinuse_v1.softwareinuse_pk as d42_pagination_key,
+```
+
+## Delete Software Installations Tasks
+
+The same `select distinct` change was made to the delete tasks, so duplicate rows do not affect which software installations are deleted.
+
+The `doql` attribute of the `<resource>` element was changed in these two tasks:
+
+```xml
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_min_version="16.19.00">
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_max_version="16.18.02">
+```
+
+The start of the query was changed from:
+
+```sql
+select view_softwareinuse_v1.softwareinuse_pk as d42_pagination_key,
+```
+
+To the following:
+
+```sql
+select distinct view_softwareinuse_v1.softwareinuse_pk as d42_pagination_key,
+```
+
+## Azure Network Interface to Azure Subnet Task
+
+The pagination key now comes from the IP address row instead of the subnet row. This change was made in this task:
+
+```xml
+<task enable="true" name="Azure Network Interface to Azure Subnet" type="asset_relationship" description="Create Relationship from Azure Network Interface to Azure Subnet" d42_min_version="19.05.00">
+```
+
+In the `doql` attribute of the `<resource>` element, the `d42_pagination_key` field was changed from:
+
+```sql
+s.subnet_pk AS d42_pagination_key,
+```
+
+To the following:
+
+```sql
+ip.ipaddress_pk AS d42_pagination_key,
+```
