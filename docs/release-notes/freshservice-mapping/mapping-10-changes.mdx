@@ -1,0 +1,1325 @@
+---
+title: "Changes in Version 10.0 (CC 5.6.0)"
+sidebar_position: 1
+---
+
+The following changes to the `mapping.xml` file are part of the Cloud Connector 5.6.0 release (CC 5.6.0).
+
+If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
+## Software Tasks
+
+Software with the `ignored` software type is no longer copied to Freshservice.
+
+The following condition was added to the `doql` attribute of the `<resource>` element in this `Software` task:
+
+```xml
+<task enable="true" name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL">
+```
+
+```sql
+where lower(software_type) != 'ignored'
+```
+
+The following condition was added to the `doql` attribute of the `<resource>` element in these four tasks:
+
+```xml
+<task enable="true" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_min_version="16.19.00">
+<task enable="true" name="Software In Use" type="software_installation" description="Create Software Install from Software In Use" d42_max_version="16.18.02">
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_min_version="16.19.00">
+<task enable="true" type="software_installation" description="Delete software installations from Freshservice that do not exist in Device42" d42_max_version="16.18.02">
+```
+
+```sql
+and lower(view_software_v1.software_type) != 'ignored'
+```
+
+## Devices Tasks
+
+The `Devices` tasks that copy servers from Device42 to Freshservice received several changes. Version 10.0 also splits the DOQL v2 task for Device42 19.04.00 and later into two tasks. See [Device42 19.08.00 Task Versions](#device42-190800-task-versions).
+
+### Hostname Logic Updated
+
+The `alias` CTE was removed from the `Devices` tasks. The hostname now comes from the device name, and a `CASE` expression removes the domain part.
+
+**DOQL v2 for Device42 19.04.00 and Later**
+
+In this task, the `doql` attribute of the `<resource>` element was changed:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.04.00">
+```
+
+The `alias` CTE was changed from:
+
+```sql
+,alias as ( SELECT device_fk,     string_agg(alias_name, ', ' order by alias_name) as hostname FROM view_devicealias_v1 GROUP BY device_fk)
+```
+
+To the following `device_hostname` CTE, which uses the guest hostname and ignores placeholder values:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+, device_hostname AS (
+   SELECT device_pk,
+          COALESCE(
+          NULLIF(
+                  CASE WHEN details->>'guest_hostname' ~* '^(none|null|unknown|n/a)$'
+                         OR details->>'guest_hostname' ~* '^(localhost|tmpl)(\..*)?$'
+                         THEN NULL
+                         ELSE details->>'guest_hostname'
+                  END, ''),
+                  name
+          ) AS raw_hostname
+   FROM view_device_v2
+   )
+```
+
+</details>
+
+The `hostname` field was changed from:
+
+```sql
+COALESCE(alias.hostname, view_device_v2.name) AS hostname,
+```
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+CASE
+    WHEN device_hostname.raw_hostname ~* '^[^.]+\..+\.[a-zA-Z][a-zA-Z]+$'
+    THEN SPLIT_PART(device_hostname.raw_hostname, '.', 1)
+
+    WHEN device_hostname.raw_hostname ~* '^[^.]+\.(localdomain|localdom|local|lan|internal|intranet|home|corp)$'
+    THEN SPLIT_PART(device_hostname.raw_hostname, '.', 1)
+
+    ELSE device_hostname.raw_hostname
+END AS hostname,
+```
+
+</details>
+
+The join was changed from:
+
+```sql
+LEFT OUTER JOIN alias                 ON view_device_v2.device_pk      = alias.device_fk
+```
+
+To the following:
+
+```sql
+LEFT OUTER JOIN device_hostname       ON view_device_v2.device_pk      = device_hostname.device_pk
+```
+
+**DOQL v2 for Device42 16.19.00 to 19.03.99**
+
+In this task, the `alias` CTE and its join were deleted from the `doql` attribute of the `<resource>` element:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+```
+
+The following CTE was deleted:
+
+```sql
+,alias as ( SELECT device_fk,     string_agg(alias_name, ', ' order by alias_name) as hostname FROM view_devicealias_v1 GROUP BY device_fk)
+```
+
+The following join was deleted:
+
+```sql
+LEFT OUTER JOIN alias                 ON view_device_v2.device_pk      = alias.device_fk
+```
+
+The `hostname` field was changed from:
+
+```sql
+COALESCE(alias.hostname, view_device_v2.name) AS hostname,
+```
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+CASE
+    WHEN view_device_v2.name ~* '^[^.]+\..+\.[a-zA-Z][a-zA-Z]+$'
+    THEN SPLIT_PART(view_device_v2.name, '.', 1)
+    WHEN view_device_v2.name ~* '^[^.]+\.(localdomain|localdom|local|lan|internal|intranet|home|corp)$'
+    THEN SPLIT_PART(view_device_v2.name, '.', 1)
+    ELSE view_device_v2.name
+END AS hostname,
+```
+
+</details>
+
+**DOQL v1 for Device42 Up to 16.18.02**
+
+The same changes as the DOQL v2 (16.19.00 to 19.03.99) task were made within this task, with the exception that the DOQL query references `view_device_v1` instead of `view_device_v2`:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v1" d42_max_version="16.18.02">
+```
+
+The `alias` CTE and the `LEFT OUTER JOIN alias` join were deleted. The `hostname` field was changed from:
+
+```sql
+COALESCE(alias.hostname, view_device_v1.name) AS hostname,
+```
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+CASE
+    WHEN view_device_v1.name ~* '^[^.]+\..+\.[a-zA-Z][a-zA-Z]+$'
+    THEN SPLIT_PART(view_device_v1.name, '.', 1)
+    WHEN view_device_v1.name ~* '^[^.]+\.(localdomain|localdom|local|lan|internal|intranet|home|corp)$'
+    THEN SPLIT_PART(view_device_v1.name, '.', 1)
+    ELSE view_device_v1.name
+END AS hostname,
+```
+
+</details>
+
+### Last Login and MAC Address Queries Updated
+
+Two CTEs in the `doql` attribute of the `<resource>` element were refactored in these two tasks:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+```
+
+The `devicelastlogin` CTE now gets the end user email from a separate `enduser_by_sid` CTE instead of a subquery. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+devicelastlogin AS (
+    with sub as ( SELECT dll.device_fk, dll.username, dll.domain, dll.sid, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC, dll.devicelastlogin_pk DESC) AS rank FROM view_devicelastlogin_v1 dll )
+    SELECT sub.*,
+     CASE
+       WHEN sub.sid IS NOT NULL AND sub.sid <> ''
+       THEN (
+         SELECT enduser.email
+         FROM view_enduser_v1 enduser
+         WHERE enduser.details ->> 'sid' = sub.sid
+         ORDER BY enduser.enduser_pk DESC
+         LIMIT 1
+       )
+       ELSE NULL
+     END AS enduser_email
+     FROM sub
+     WHERE rank = 1
+)
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+devicelastlogin AS (
+    with sub as ( SELECT dll.device_fk, dll.username, dll.domain, dll.sid, ROW_NUMBER() OVER(PARTITION BY dll.device_fk ORDER BY dll.last_login DESC, dll.devicelastlogin_pk DESC) AS rank FROM view_devicelastlogin_v1 dll ),
+    enduser_by_sid as ( SELECT DISTINCT ON (enduser.details ->> 'sid') enduser.details ->> 'sid' AS sid, enduser.email FROM view_enduser_v1 enduser WHERE enduser.details ->> 'sid' IS NOT NULL AND enduser.details ->> 'sid' <> '' ORDER BY enduser.details ->> 'sid', enduser.enduser_pk DESC )
+    SELECT sub.*,
+     eus.email AS enduser_email
+     FROM sub
+     LEFT JOIN enduser_by_sid eus ON eus.sid = sub.sid
+     WHERE rank = 1
+)
+```
+
+</details>
+
+The `network_hw` CTE now uses `DISTINCT ON` instead of a `min()` subquery. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+,network_hw as (
+    select
+        n.device_fk,
+        n.hwaddress
+    from view_netport_v1 n
+    where n.netport_pk in (
+        select min(n.netport_pk) as netport_pk
+        from view_netport_v1 n
+        where n.device_fk is not null and n.hwaddress is not null AND LENGTH(TRIM(n.hwaddress)) = 12
+        group by n.device_fk
+    )
+)
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+,network_hw as (
+    select distinct on (n.device_fk)
+        n.device_fk,
+        n.hwaddress
+    from view_netport_v1 n
+    where n.device_fk is not null and n.hwaddress is not null AND LENGTH(TRIM(n.hwaddress)) = 12
+    order by n.device_fk, n.netport_pk
+)
+```
+
+</details>
+
+### Asset State Field Updated
+
+In this task, the Freshservice asset state now comes from the Device42 device state instead of the `in_service` flag:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+```
+
+In the `doql` attribute of the `<resource>` element, `view_device_v2.in_service,` was changed to `view_device_v2.state,`.
+
+In the `<mapping>` element, the following field element:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```xml
+<field resource="in_service" source-type="boolean" target="asset_state" target-type="string"
+       target-header="Hardware" skip-update="true" resource-description="Is the Device In Service?" target-description="Asset State">
+    <value-mapping default="Retired">
+        <item key="true" value="In Use"/>
+    </value-mapping>
+</field>
+```
+
+</details>
+
+Was changed to the following:
+
+```xml
+<field resource="state" source-type="string" target="asset_state" target-type="dropdown"
+       target-header="Hardware" resource-description="State of the Device (In Use, Missing, In Transit, In Stock, Retired, Reserved, Disposed)"
+       target-description="Asset State"/>
+```
+
+### Change Detection Field Updated
+
+The `doql-suffix` attribute of the `<mapping>` element now uses `last_changed` instead of `last_edited` in all four `Devices` tasks:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v1" d42_max_version="16.18.02">
+```
+
+In the three DOQL v2 tasks, the `doql-suffix` was changed from:
+
+```sql
+where view_device_v2.last_edited>'%s'
+```
+
+To the following:
+
+```sql
+where view_device_v2.last_changed>'%s'
+```
+
+In the DOQL v1 task, `view_device_v1.last_edited` was changed to `view_device_v1.last_changed` in the same way.
+
+### Unmapping Query Updated
+
+The `doql-suffix` attribute of the `<unmapping>` element now also matches the cloud instance name and the part of the device name after a `/`. This change was made in the same four `Devices` tasks.
+
+In the three DOQL v2 tasks, the `doql-suffix` was changed from:
+
+```sql
+where view_device_v2.name='%s'
+```
+
+To the following:
+
+```sql
+where '%s' IN (view_device_v2.name, CASE WHEN position('/' IN view_device_v2.name) > 0 THEN substring(view_device_v2.name FROM position('/' IN view_device_v2.name) + 1) ELSE COALESCE(NULLIF(ci.instance_name, ''), view_device_v2.name) END, ci.instance_name) ORDER BY CASE WHEN view_device_v2.name = '%s' THEN 0 ELSE 1 END
+```
+
+In the DOQL v1 task, the `doql-suffix` was changed from:
+
+```sql
+where view_device_v1.name='%s'
+```
+
+To the following:
+
+```sql
+where '%s' IN (view_device_v1.name, CASE WHEN position('/' IN view_device_v1.name) > 0 THEN substring(view_device_v1.name FROM position('/' IN view_device_v1.name) + 1) ELSE COALESCE(NULLIF(ci.instance_name, ''), view_device_v1.name) END, ci.instance_name) ORDER BY CASE WHEN view_device_v1.name = '%s' THEN 0 ELSE 1 END
+```
+
+In the `mapping.xml` file, the `>` character in these values is written as `&gt;`.
+
+## Device42 19.08.00 Task Versions
+
+Version 10.0 syncs the impact of devices, business applications, and resources to Freshservice. This sync only happens when you use Device42 19.08.00 or later.
+
+To support this, a new task was added for Device42 19.08.00 and later, and the existing task now ends at 19.07.99. This applies to the following tasks.
+
+### Devices Task
+
+The following task was added:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+```
+
+The existing task was changed from:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.04.00">
+```
+
+To the following:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+```
+
+### Business Applications Task
+
+The following task was added:
+
+```xml
+<task enable="true" name="Business Applications" type="asset" description="Copy Business Application from Device42 to Freshservice" d42_min_version="19.08.00">
+```
+
+The existing task was changed from:
+
+```xml
+<task enable="true" name="Business Applications" type="asset" description="Copy Business Application from Device42 to Freshservice" d42_min_version="16.19.00">
+```
+
+To the following:
+
+```xml
+<task enable="true" name="Business Applications" type="asset" description="Copy Business Application from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="16.19.00">
+```
+
+### Resource Tasks
+
+For each resource task, a new task was added for Device42 19.08.00 and later, and the existing task now ends at 19.07.99. For example, the following task was added:
+
+```xml
+<task enable="true" name="D42 AWS ALB to Freshservice AWS ALB" type="asset" description="Copy AWS ALB from Device42 to Freshservice" d42_min_version="19.08.00">
+```
+
+And the existing task was changed from:
+
+```xml
+<task enable="true" name="D42 AWS ALB to Freshservice AWS ALB" type="asset" description="Copy AWS ALB from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+To the following:
+
+```xml
+<task enable="true" name="D42 AWS ALB to Freshservice AWS ALB" type="asset" description="Copy AWS ALB from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.00">
+```
+
+### Delete Asset Relationships Task
+
+The following task was added:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.08.00">
+```
+
+The existing task was changed from:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00">
+```
+
+To the following:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00" d42_max_version="19.07.99">
+```
+
+## Business Applications Tasks
+
+The `owner_email` field now looks up Freshservice requesters instead of agents. This change was made in the `<mapping>` element of these two tasks:
+
+```xml
+<task enable="true" name="Business Applications" type="asset" description="Copy Business Application from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="Business Applications" type="asset" description="Copy Business Application from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="16.19.00">
+```
+
+The field element was changed from:
+
+```xml
+<field resource="owner_email" source-type="string" target="user_id" target-type="string"
+       target-header="Assignment"
+       target-foreign="agents" target-foreign-key="email" target-field="user_id" resource-description="Email for End User" target-description="Used By"/>
+```
+
+To the following:
+
+```xml
+<field resource="owner_email" source-type="string" target="user_id" target-type="string"
+       target-header="Assignment"
+       target-foreign="requesters" target-foreign-key="primary_email" target-field="user_id" resource-description="Email for End User" target-description="Used By"/>
+```
+
+## New Tasks Disabled by Default
+
+The following tasks were added. They are disabled by default. To use them, set `enable="true"`.
+
+```xml
+<task enable="false" name="Application Components" type="asset" description="Copy Application Component from Device42 to Freshservice">
+<task enable="false" name="Application Component To Device Relationships" type="asset_relationship" description="Create Relationship from Application Components to Devices">
+<task enable="false" name="D42 Building to Freshservice Building" type="asset" description="Copy Building from Device42 to Freshservice">
+<task enable="false" name="D42 Room to Freshservice Room" type="asset" description="Copy Room from Device42 to Freshservice">
+<task enable="false" name="D42 Rack to Freshservice Rack" type="asset" description="Copy Rack from Device42 to Freshservice">
+<task enable="false" name="Room to Building" type="asset_relationship" description="Create Relationship from Room to Building">
+<task enable="false" name="Rack to Room" type="asset_relationship" description="Create Relationship from Rack to Room">
+<task enable="false" name="Assets" type="asset" description="Copy assets from Device42 to Freshservice" d42_min_version="19.08.00">
+```
+
+### Delete Assets Task Updated
+
+The delete task now also removes application components, buildings, rooms, racks, and assets that no longer exist in Device42. This change was made in this task:
+
+```xml
+<task enable="true" type="asset" description="Delete assets from Freshservice that do not exist in Device42">
+```
+
+In the `doql` attribute of the `<resource>` element, `union` was changed to `union all`, and the following queries were added. This is how they appear in the version 10.0 file, which includes the keyset pagination fields:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+union all
+
+select
+    9 AS d42_pagination_type,
+    b.building_pk AS d42_pagination_key,
+    format('Building-%s', b.building_pk) as device42_id
+from view_building_v1 b
+
+union all
+
+select
+    10 AS d42_pagination_type,
+    r.room_pk AS d42_pagination_key,
+    format('Room-%s', r.room_pk) as device42_id
+from view_room_v1 r
+
+union all
+
+select
+    11 AS d42_pagination_type,
+    rk.rack_pk AS d42_pagination_key,
+    format('Rack-%s', rk.rack_pk) as device42_id
+from view_rack_v1 rk
+
+union all
+
+select
+    12 AS d42_pagination_type,
+    ac.appcomp_pk AS d42_pagination_key,
+    format('AppComp-%s', ac.appcomp_pk) as device42_id
+from view_appcomp_v1 ac
+
+union all
+
+select
+    13 AS d42_pagination_type,
+    a.asset_pk AS d42_pagination_key,
+    format('Asset-%s', a.asset_pk) as device42_id
+from view_asset_v1 a
+```
+
+</details>
+
+## Asset Relationship Tasks
+
+Version 10.0 adds one relationship task and updates several existing relationship queries.
+
+### Business Service Relationships Task Added
+
+The following task was added. It creates relationships between business services that are embedded in each other's diagrams:
+
+```xml
+<task enable="true" name="Business Service To Business Service Relationships" type="asset_relationship" description="Create Relationship between Business Services embedded in each other's diagrams" d42_min_version="19.08.00">
+```
+
+### Business Application Relationship Filter Added
+
+A filter was added so that device-to-device relationships only come from devices in the same business application.
+
+In this task, the following was added to the `doql` attribute of the `<resource>` element:
+
+```xml
+<task enable="true" name="Business Application Device To Device Relationships" type="asset_relationship" description="Create Relationship from Business Apps">
+```
+
+```sql
+and be2.businessapplication_fk = be1.businessapplication_fk
+```
+
+The same condition was added to the business application device-to-device relationships query in all three `Delete asset relationships from Freshservice that do not exist in Device42` tasks:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.08.00">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00" d42_max_version="19.07.99">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_max_version="19.04.99">
+```
+
+### New Relationships Added to Delete Tasks
+
+The three `Delete asset relationships from Freshservice that do not exist in Device42` tasks now also cover the relationships from the new disabled tasks.
+
+The following application component query was added to the `doql` attribute of the `<resource>` element:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+union
+
+select
+      ac.name                                     as dependent_device_name,
+      format('AppComp-%s', ac.appcomp_pk)         as dependent_device_device42_id,
+      'Hosted On'                                 as downstream_relationship,
+      d.name                                      as dependency_device_name,
+      format('Device-%s', d.device_pk)            as dependency_device_device42_id,
+      'Hosts'                                     as upstream_relationship
+from view_appcomp_v1 ac
+join view_device_v1 d on ac.device_fk = d.device_pk
+```
+
+</details>
+
+The following room and rack queries were also added:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+UNION
+
+SELECT
+       r.name                                AS dependent_device_name,
+       format('Room-%s', r.room_pk)          AS dependent_device_device42_id,
+       'Located In'                          AS downstream_relationship,
+       b.name                                AS dependency_device_name,
+       format('Building-%s', b.building_pk)  AS dependency_device_device42_id,
+       'Houses'                              AS upstream_relationship
+FROM
+       view_room_v1 r
+INNER JOIN
+       view_building_v1 b
+       ON r.building_fk = b.building_pk
+
+UNION
+
+SELECT
+       rk.name                          AS dependent_device_name,
+       format('Rack-%s', rk.rack_pk)    AS dependent_device_device42_id,
+       'Located In'                     AS downstream_relationship,
+       rm.name                          AS dependency_device_name,
+       format('Room-%s', rm.room_pk)    AS dependency_device_device42_id,
+       'Houses'                         AS upstream_relationship
+FROM
+       view_rack_v1 rk
+INNER JOIN
+       view_room_v1 rm
+       ON rk.room_fk = rm.room_pk
+```
+
+</details>
+
+### Delete Asset Relationships Queries Refactored
+
+Several queries in the `doql` attribute of the `<resource>` element were refactored to use materialized CTEs. This change was made in these two tasks:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.08.00">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00" d42_max_version="19.07.99">
+```
+
+The following CTEs were added before the `allrels` CTE:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+active_agrel AS MATERIALIZED (
+    SELECT rel.*
+    FROM view_applicationgrouprelationship_v2 rel
+    WHERE rel.effective_to IS NULL
+),
+lb_target_rels AS MATERIALIZED (
+    SELECT
+        resource.resource_name AS resource_name,
+        format('Resource-%s', resource.resource_pk) AS resource_device42_id,
+        rel.to_resource_fk AS target_resource_fk
+    FROM view_resource_v2 resource
+    INNER JOIN view_resourcerelationship_v2 rel
+        ON rel.from_resource_fk = resource.resource_pk
+    LEFT JOIN view_cloudinfrastructure_v2 infra
+        ON resource.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+    LEFT JOIN view_vendor_v1 vendor
+        ON infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE resource.vendor_resource_type = 'Elastic Load Balancer'
+        AND resource.category @> array['LB', 'ALB']
+        AND rel.relation = 'elb_target_groups'
+        AND vendor.name = 'Amazon'
+),
+google_vrf AS MATERIALIZED (
+    SELECT
+        vrf.vrfgroup_pk,
+        vrf.name,
+        vrf.vendor_custom_fields,
+        vrf.details ->> 'self_link' AS vrf_self_link
+    FROM view_vrfgroup_v1 vrf
+    INNER JOIN view_cloudinfrastructure_v2 infra
+        ON vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+    INNER JOIN view_vendor_v1 vendor
+        ON infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE vendor.name = 'Google'
+),
+amazon_netports_by_subnet_id AS MATERIALIZED (
+    SELECT
+        network.netport_pk,
+        network.vendor_custom_fields,
+        network.port,
+        network.details ->> 'subnet_id' AS subnet_id
+    FROM d42_readonly.view_netport_v1 network
+    INNER JOIN d42_readonly.view_cloudinfrastructure_v2 infra
+        ON network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+    INNER JOIN d42_readonly.view_vendor_v1 vendor
+        ON infra.cloud_vendor_fk = vendor.vendor_pk
+    WHERE infra.account_id IS NOT NULL
+        AND vendor.name = 'Amazon'
+),
+google_device_netports AS MATERIALIZED (
+    SELECT
+        device.device_pk,
+        device.name AS device_name,
+        cid.instance_name,
+        netport.details ->> 'subnet_self_link' AS subnet_self_link
+    FROM view_device_v2 device
+    INNER JOIN view_netport_v1 netport
+        ON device.device_pk = netport.device_fk
+    INNER JOIN view_cloudinstance_v1 cid
+        ON cid.device_fk = device.device_pk
+    INNER JOIN view_cloudinfrastructure_v2 ci
+        ON ci.account_id = cid.account
+    INNER JOIN view_vendor_v1 v
+        ON ci.cloud_vendor_fk = v.vendor_pk
+    INNER JOIN view_ipaddress_device_v2 ipr
+        ON ipr.device_fk = device.device_pk
+    INNER JOIN view_ipaddress_v2 ip
+        ON ip.ipaddress_pk = ipr.ipaddress_fk
+    WHERE v.name = 'Google'
+),
+azure_resource2_targets AS MATERIALIZED (
+    SELECT
+        resource2.resource_pk,
+        resource2.resource_name
+    FROM view_resource_v2 resource2
+    WHERE resource2.vendor_resource_type = 'Disk'
+        OR resource2.vendor_resource_type = 'Network Security Group'
+        OR 'azure_image' = ANY(resource2.category)
+        OR resource2.category @> ARRAY['azureKeyVault']
+        OR resource2.vendor_resource_type = 'Application Gateway'
+),
+```
+
+</details>
+
+The `allrels` CTE now reads from `active_agrel` instead of `view_applicationgrouprelationship_v2`, and its `WHERE rel.effective_to IS NULL` condition was removed. The `FROM` line was changed from:
+
+```sql
+FROM view_applicationgrouprelationship_v2 rel
+```
+
+To the following:
+
+```sql
+FROM active_agrel rel
+```
+
+The following five queries were changed to use the new CTEs.
+
+**AWS Load Balancer to Device Query**
+
+This query now reads from the `lb_target_rels` CTE. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     resource.resource_name                  AS dependent_device_name,
+      format('Resource-%s', resource.resource_pk) AS dependent_device_device42_id,
+      'Routes Traffic'                            AS downstream_relationship,
+      CASE
+                    WHEN position('/' IN device.NAME) > 0 THEN substring(device.NAME FROM position('/' IN device.NAME) + 1)
+                    ELSE
+                           CASE
+                                         WHEN cloud_instance.instance_name IS NULL
+                                         OR         cloud_instance.instance_name = '' THEN device.NAME
+                                         ELSE cloud_instance.instance_name
+                           END
+      END                                   AS dependency_device_name,
+      format('Device-%s', device.device_pk) AS dependency_device_device42_id,
+      'Receives Traffic'                    AS upstream_relationship
+FROM       view_resource_v2 resource
+INNER JOIN view_resourcerelationship_v2 rel
+ON         rel.from_resource_fk = resource.resource_pk
+INNER JOIN  view_resource_v2 targetgroup
+ON         targetgroup.resource_pk = rel.to_resource_fk
+INNER JOIN  view_deviceresource_v1 devrel
+ON         devrel.resource_fk = targetgroup.resource_pk
+INNER JOIN  view_device_v2 device
+ON         device.device_pk = devrel.device_fk
+LEFT JOIN  view_cloudinstance_v1 cloud_instance
+ON         cloud_instance.device_fk = device.device_pk
+LEFT JOIN  view_cloudinfrastructure_v2 infra
+ON         resource.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN  view_vendor_v1 vendor
+ON         infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE      resource.vendor_resource_type = 'Elastic Load Balancer'
+AND        resource.category @> array['LB', 'ALB']
+AND        rel.relation = 'elb_target_groups'
+AND        vendor.NAME = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     lbr.resource_name                       AS dependent_device_name,
+      lbr.resource_device42_id                AS dependent_device_device42_id,
+      'Routes Traffic'                            AS downstream_relationship,
+      CASE
+                    WHEN position('/' IN device.NAME) > 0 THEN substring(device.NAME FROM position('/' IN device.NAME) + 1)
+                    ELSE
+                           CASE
+                                         WHEN cloud_instance.instance_name IS NULL
+                                         OR         cloud_instance.instance_name = '' THEN device.NAME
+                                         ELSE cloud_instance.instance_name
+                           END
+      END                                   AS dependency_device_name,
+      format('Device-%s', device.device_pk) AS dependency_device_device42_id,
+      'Receives Traffic'                    AS upstream_relationship
+FROM       lb_target_rels lbr
+INNER JOIN  view_resource_v2 targetgroup
+ON         targetgroup.resource_pk = lbr.target_resource_fk
+INNER JOIN  view_deviceresource_v1 devrel
+ON         devrel.resource_fk = targetgroup.resource_pk
+INNER JOIN  view_device_v2 device
+ON         device.device_pk = devrel.device_fk
+LEFT JOIN  view_cloudinstance_v1 cloud_instance
+ON         cloud_instance.device_fk = device.device_pk
+```
+
+</details>
+
+**AWS Subnet to Network Interface Query**
+
+This query now reads from the `amazon_netports_by_subnet_id` CTE. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     subnet.NAME                                                    AS dependent_device_name,
+      format('Subnet-%s', subnet.subnet_pk)                          AS dependent_device_device42_id,
+      'Contains'                                                     AS downstream_relationship,
+      COALESCE(network.vendor_custom_fields -> 'Name', network.port) AS dependency_device_name,
+      format('Netport-%s', network.netport_pk)                       AS dependency_device_device42_id,
+      'Contained By'                                                 AS upstream_relationship
+FROM       d42_readonly.view_netport_v1 network
+INNER JOIN d42_readonly.view_subnet_v1 subnet
+ON         subnet.details ->> 'vendor_subnet_id' = network.details ->> 'subnet_id'
+LEFT JOIN  d42_readonly.view_cloudinfrastructure_v2 infra
+ON         network.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN  d42_readonly.view_vendor_v1 vendor
+ON         infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE      infra.account_id IS NOT NULL
+AND        vendor.NAME = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     subnet.NAME                                                    AS dependent_device_name,
+      format('Subnet-%s', subnet.subnet_pk)                          AS dependent_device_device42_id,
+      'Contains'                                                     AS downstream_relationship,
+      COALESCE(network.vendor_custom_fields -> 'Name', network.port) AS dependency_device_name,
+      format('Netport-%s', network.netport_pk)                       AS dependency_device_device42_id,
+      'Contained By'                                                 AS upstream_relationship
+FROM       amazon_netports_by_subnet_id network
+INNER JOIN d42_readonly.view_subnet_v1 subnet
+ON         subnet.details ->> 'vendor_subnet_id' = network.subnet_id
+```
+
+</details>
+
+**AWS Subnet to RDS Query**
+
+This query now uses `CROSS JOIN LATERAL` instead of an `ANY` subquery. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     subnet.NAME                            AS dependent_device_name,
+      format('Subnet-%s', subnet.subnet_pk)  AS dependent_device_device42_id,
+      'Contains'                             AS downstream_relationship,
+      rds.resource_name                      AS dependency_device_name,
+      format('Resource-%s', rds.resource_pk) AS dependency_device_device42_id,
+      'Contained By'                         AS upstream_relationship
+FROM       view_resource_v2 rds
+INNER JOIN view_subnet_v1 subnet
+ON         subnet.details ->> 'vendor_subnet_id' = ANY
+      (
+             SELECT jsonb_array_elements_text(COALESCE(rds.details ->> 'subnets', '[]')::jsonb))
+INNER JOIN view_vrfgroup_v1 vrf
+ON         subnet.vrfgroup_fk = vrf.vrfgroup_pk
+INNER JOIN view_cloudinfrastructure_v2 infra
+ON         vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+INNER JOIN view_vendor_v1 v
+ON         infra.cloud_vendor_fk = v.vendor_pk
+WHERE      subnet.NAME != 'undefined'
+AND        rds.vendor_resource_type = 'RDS'
+AND        rds.category && ARRAY['Database Instance', 'Cluster_Node']
+AND
+NOT rds.category @> array['Cluster']
+AND
+v.NAME = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT     subnet.NAME                            AS dependent_device_name,
+      format('Subnet-%s', subnet.subnet_pk)  AS dependent_device_device42_id,
+      'Contains'                             AS downstream_relationship,
+      rds.resource_name                      AS dependency_device_name,
+      format('Resource-%s', rds.resource_pk) AS dependency_device_device42_id,
+      'Contained By'                         AS upstream_relationship
+FROM       view_resource_v2 rds
+CROSS JOIN LATERAL (
+      SELECT DISTINCT jsonb_array_elements_text(COALESCE(rds.details ->> 'subnets', '[]')::jsonb) AS rds_subnet_id
+) rds_subnet_ids
+INNER JOIN view_subnet_v1 subnet
+ON         subnet.details ->> 'vendor_subnet_id' = rds_subnet_id
+INNER JOIN view_vrfgroup_v1 vrf
+ON         subnet.vrfgroup_fk = vrf.vrfgroup_pk
+INNER JOIN view_cloudinfrastructure_v2 infra
+ON         vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+INNER JOIN view_vendor_v1 v
+ON         infra.cloud_vendor_fk = v.vendor_pk
+WHERE      subnet.NAME != 'undefined'
+AND        rds.vendor_resource_type = 'RDS'
+AND        rds.category && ARRAY['Database Instance', 'Cluster_Node']
+AND
+NOT rds.category @> array['Cluster']
+AND
+v.NAME = 'Amazon'
+```
+
+</details>
+
+**Azure Resource Group Query**
+
+This query now reads from the `azure_resource2_targets` CTE. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+      resource.resource_name                       AS dependent_device_name,
+      format('Resource-%s', resource.resource_pk)  AS dependent_device_device42_id,
+      'Contains'                                   AS downstream_relationship,
+      resource2.resource_name                      AS dependency_device_name,
+      format('Resource-%s', resource2.resource_pk) AS dependency_device_device42_id,
+      'Contained By'                               AS upstream_relationship
+FROM   view_resource_v2 resource
+JOIN   view_resourcerelationship_v2 rel
+ON     rel.from_resource_fk = resource.resource_pk
+JOIN   view_resource_v2 resource2
+ON     resource2.resource_pk = rel.to_resource_fk
+WHERE  resource.category @> array['resource_group', 'Azure']
+AND    (
+             resource2.vendor_resource_type = 'Disk'
+      OR     resource2.vendor_resource_type = 'Network Security Group'
+      OR     'azure_image' = ANY(resource2.category)
+      OR     resource2.category @> ARRAY['azureKeyVault']
+      OR     resource2.vendor_resource_type = 'Application Gateway')
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+      resource.resource_name                       AS dependent_device_name,
+      format('Resource-%s', resource.resource_pk)  AS dependent_device_device42_id,
+      'Contains'                                   AS downstream_relationship,
+      resource2.resource_name                      AS dependency_device_name,
+      format('Resource-%s', resource2.resource_pk) AS dependency_device_device42_id,
+      'Contained By'                               AS upstream_relationship
+FROM   view_resource_v2 resource
+JOIN   view_resourcerelationship_v2 rel
+ON     rel.from_resource_fk = resource.resource_pk
+JOIN   azure_resource2_targets resource2
+ON     resource2.resource_pk = rel.to_resource_fk
+WHERE  resource.category @> array['resource_group', 'Azure']
+```
+
+</details>
+
+**GCP Subnet Queries**
+
+The GCP subnet to device query now reads from the `google_device_netports` CTE. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT DISTINCT
+    subnet.name                                 AS dependent_device_name,
+    format('Subnet-%s', subnet.subnet_pk)       AS dependent_device_device42_id,
+    'Contains'                                  AS downstream_relationship,
+    CASE
+        WHEN position('/' IN device.name) > 0 THEN
+            substring(device.name FROM position('/' IN device.name) + 1)
+        ELSE
+            CASE
+                WHEN cid.instance_name is null or cid.instance_name = '' then device.name
+                ELSE cid.instance_name
+            END
+    END                                         AS dependency_device_name,
+    format('Device-%s', device.device_pk)       AS dependency_device_device42_id,
+    'Contained By'                              AS upstream_relationship
+FROM
+    view_device_v2 device
+INNER JOIN
+    view_netport_v1 netport ON device.device_pk = netport.device_fk
+INNER JOIN
+    view_cloudinstance_v1 cid ON cid.device_fk = device.device_pk
+INNER JOIN
+    view_cloudinfrastructure_v2 ci ON ci.account_id = cid.account
+INNER JOIN
+    view_vendor_v1 v on ci.cloud_vendor_fk = v.vendor_pk
+INNER JOIN
+    view_ipaddress_device_v2 ipr on ipr.device_fk = device.device_pk
+INNER JOIN
+    view_ipaddress_v2 ip on ip.ipaddress_pk = ipr.ipaddress_fk
+INNER JOIN view_subnet_v1 subnet
+    ON netport.details->>'subnet_self_link' = subnet.details->>'self_link'
+INNER JOIN
+    view_vrfgroup_v1 vrf on vrf.vrfgroup_pk = subnet.vrfgroup_fk
+WHERE
+v.name = 'Google'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT DISTINCT
+    subnet.name                                 AS dependent_device_name,
+    format('Subnet-%s', subnet.subnet_pk)       AS dependent_device_device42_id,
+    'Contains'                                  AS downstream_relationship,
+    CASE
+        WHEN position('/' IN gdn.device_name) > 0 THEN
+            substring(gdn.device_name FROM position('/' IN gdn.device_name) + 1)
+        ELSE
+            CASE
+                WHEN gdn.instance_name is null or gdn.instance_name = '' then gdn.device_name
+                ELSE gdn.instance_name
+            END
+    END                                         AS dependency_device_name,
+    format('Device-%s', gdn.device_pk)          AS dependency_device_device42_id,
+    'Contained By'                              AS upstream_relationship
+FROM
+    google_device_netports gdn
+INNER JOIN view_subnet_v1 subnet
+    ON gdn.subnet_self_link = subnet.details->>'self_link'
+INNER JOIN
+    view_vrfgroup_v1 vrf on vrf.vrfgroup_pk = subnet.vrfgroup_fk
+```
+
+</details>
+
+The GCP VPC to network interface query now reads from the `google_vrf` CTE. It was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT DISTINCT
+    coalesce(NULLIF(vrf.vendor_custom_fields -> 'Name', ''), vrf.name) AS dependent_device_name,
+    format('Subnet-%s', subnet.subnet_pk)                              AS dependent_device_device42_id,
+    'Contains'                                                         AS downstream_relationship,
+    coalesce(NULLIF(netport.vendor_custom_fields -> 'Name', ''), netport.port)  AS dependency_device_name,
+    format('Netport-%s', netport.netport_pk)                        AS dependency_device_device42_id,
+    'Contained By'                                                  AS upstream_relationship
+FROM view_netport_v1 netport
+INNER JOIN view_vrfgroup_v1 vrf
+    ON netport.details->>'network_self_link' = vrf.details->>'self_link'
+INNER JOIN view_subnet_v1 subnet
+    ON netport.details->>'subnet_self_link' = subnet.details->>'self_link'
+INNER JOIN view_cloudinfrastructure_v2 infra
+    ON vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+INNER JOIN view_vendor_v1 vendor
+    ON infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE vendor.name = 'Google'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT DISTINCT
+    coalesce(NULLIF(vrf.vendor_custom_fields -> 'Name', ''), vrf.name) AS dependent_device_name,
+    format('Subnet-%s', subnet.subnet_pk)                              AS dependent_device_device42_id,
+    'Contains'                                                         AS downstream_relationship,
+    coalesce(NULLIF(netport.vendor_custom_fields -> 'Name', ''), netport.port)  AS dependency_device_name,
+    format('Netport-%s', netport.netport_pk)                        AS dependency_device_device42_id,
+    'Contained By'                                                  AS upstream_relationship
+FROM google_vrf vrf
+INNER JOIN view_netport_v1 netport
+    ON netport.details->>'network_self_link' = vrf.vrf_self_link
+INNER JOIN view_subnet_v1 subnet
+    ON netport.details->>'subnet_self_link' = subnet.details->>'self_link'
+```
+
+</details>
+
+### AWS VM to AWS Application LB Task
+
+The DOQL query was refactored to use a materialized CTE within this task:
+
+```xml
+<task enable="true" name="AWS VM to AWS Application LB" type="asset_relationship" description="Create Relationship from AWS VM to AWS Application LB" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+       resource.resource_name                                             AS resource_name,
+       format('Resource-%s', resource.resource_pk)                        AS resource_device42_id,
+       CASE
+       WHEN position('/' IN device.name) > 0 THEN
+              substring(device.name FROM position('/' IN device.name) + 1)
+       END                                                                 AS device_name,
+       format('Device-%s', device.device_pk)                               AS device_device42_id
+FROM
+       view_resource_v2 resource
+INNER JOIN
+       view_resourcerelationship_v2 rel ON rel.from_resource_fk = resource.resource_pk
+JOIN
+       view_resource_v2 targetgroup ON targetgroup.resource_pk = rel.to_resource_fk
+JOIN
+       view_deviceresource_v1 devrel ON devrel.resource_fk = targetgroup.resource_pk
+JOIN
+       view_device_v2 device ON device.device_pk = devrel.device_fk
+LEFT JOIN
+       view_cloudinstance_v1 cloud_instance ON cloud_instance.device_fk = device.device_pk
+LEFT JOIN
+       view_cloudinfrastructure_v2 infra ON resource.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+LEFT JOIN
+       view_vendor_v1 vendor ON infra.cloud_vendor_fk = vendor.vendor_pk
+WHERE
+       resource.vendor_resource_type = 'Elastic Load Balancer' AND resource.category @> ARRAY['LB', 'ALB'] AND rel.relation = 'elb_target_groups' AND vendor.name = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+WITH lb_target_rels AS MATERIALIZED (
+       SELECT
+              resource.resource_name                                             AS resource_name,
+              format('Resource-%s', resource.resource_pk)                        AS resource_device42_id,
+              rel.to_resource_fk                                                  AS target_resource_fk
+       FROM
+              view_resource_v2 resource
+       INNER JOIN
+              view_resourcerelationship_v2 rel ON rel.from_resource_fk = resource.resource_pk
+       LEFT JOIN
+              view_cloudinfrastructure_v2 infra ON resource.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+       LEFT JOIN
+              view_vendor_v1 vendor ON infra.cloud_vendor_fk = vendor.vendor_pk
+       WHERE
+              resource.vendor_resource_type = 'Elastic Load Balancer' AND resource.category @> ARRAY['LB', 'ALB'] AND rel.relation = 'elb_target_groups' AND vendor.name = 'Amazon'
+)
+SELECT
+       lbr.resource_name                                                   AS resource_name,
+       lbr.resource_device42_id                                            AS resource_device42_id,
+       CASE
+       WHEN position('/' IN device.name) > 0 THEN
+              substring(device.name FROM position('/' IN device.name) + 1)
+       END                                                                 AS device_name,
+       format('Device-%s', device.device_pk)                               AS device_device42_id
+FROM
+       lb_target_rels lbr
+JOIN
+       view_resource_v2 targetgroup ON targetgroup.resource_pk = lbr.target_resource_fk
+JOIN
+       view_deviceresource_v1 devrel ON devrel.resource_fk = targetgroup.resource_pk
+JOIN
+       view_device_v2 device ON device.device_pk = devrel.device_fk
+LEFT JOIN
+       view_cloudinstance_v1 cloud_instance ON cloud_instance.device_fk = device.device_pk
+```
+
+</details>
+
+### AWS RDS to AWS Subnet Task
+
+The DOQL query now uses `CROSS JOIN LATERAL` instead of an `ANY` subquery within this task:
+
+```xml
+<task enable="true" name="AWS RDS to AWS Subnet" type="asset_relationship" description="Create Relationship from AWS RDS to AWS Subnet" d42_min_version="19.05.00">
+```
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+       rds.resource_name                                                AS resource_name,
+       format('Resource-%s', rds.resource_pk)                           AS resource_device42_id,
+       subnet.name                                                      AS subnet_name,
+       format('Subnet-%s', subnet.subnet_pk)                            AS subnet_device42_id
+from
+       view_resource_v2 rds
+inner join
+       view_subnet_v1 subnet on subnet.details ->> 'vendor_subnet_id' = any(select jsonb_array_elements_text(COALESCE(rds.details ->> 'subnets', '[]')::jsonb))
+inner join
+       view_vrfgroup_v1 vrf on subnet.vrfgroup_fk = vrf.vrfgroup_pk
+inner join
+       view_cloudinfrastructure_v2 infra on vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+INNER JOIN
+       view_vendor_v1 v on infra.cloud_vendor_fk = v.vendor_pk
+WHERE
+       subnet.name != 'undefined' and rds.vendor_resource_type = 'RDS' AND rds.category && ARRAY['Database Instance', 'Cluster_Node'] and not rds.category @> array['Cluster'] and v.name = 'Amazon'
+```
+
+</details>
+
+To the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+SELECT
+       rds.resource_name                                                AS resource_name,
+       format('Resource-%s', rds.resource_pk)                           AS resource_device42_id,
+       subnet.name                                                      AS subnet_name,
+       format('Subnet-%s', subnet.subnet_pk)                            AS subnet_device42_id
+from
+       view_resource_v2 rds
+cross join lateral (
+       select distinct jsonb_array_elements_text(COALESCE(rds.details ->> 'subnets', '[]')::jsonb) as rds_subnet_id
+) rds_subnet_ids
+inner join
+       view_subnet_v1 subnet on subnet.details ->> 'vendor_subnet_id' = rds_subnet_id
+inner join
+       view_vrfgroup_v1 vrf on subnet.vrfgroup_fk = vrf.vrfgroup_pk
+inner join
+       view_cloudinfrastructure_v2 infra on vrf.cloudinfrastructure_fk = infra.cloudinfrastructure_pk
+INNER JOIN
+       view_vendor_v1 v on infra.cloud_vendor_fk = v.vendor_pk
+WHERE
+       subnet.name != 'undefined' and rds.vendor_resource_type = 'RDS' AND rds.category && ARRAY['Database Instance', 'Cluster_Node'] and not rds.category @> array['Cluster'] and v.name = 'Amazon'
+```
+
+</details>
+
+### VMware Host to Virtual Machine Task
+
+In this task, `SELECT` was changed to `SELECT DISTINCT` in the `doql` attribute of the `<resource>` element:
+
+```xml
+<task enable="true" name="VMWARE Host to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Host to Virtual Machine relationship" d42_min_version="19.05.00">
+```
+
+## Changes to All Tasks
+
+The following changes apply across many tasks in the `mapping.xml` file.
+
+### Unmapping and d42url Elements Added
+
+Each task that syncs items from Device42 to Freshservice assets now has an `<unmapping>` element and a `<d42url>` element. If a task did not have one of these elements, it was added.
+
+If the `resource` attribute of the `<d42url>` element referenced a field that the `doql` attribute of the `<resource>` element did not select, the `doql` attribute was updated to select that field.
+
+### Keyset Pagination Added
+
+A `doql-page-key` attribute was added to the `<resource>` element of every task. The Cloud Connector uses this attribute to get data in pages with keyset pagination, instead of getting all data at once. This improves performance. Where the `doql-page-key` value needed a new field, the `doql` attribute was also updated to select it.
+
+The `Software In Use` and `Delete software installations from Freshservice that do not exist in Device42` tasks also have new `doql-page-source` and `doql-page-source-key` attributes on the `<resource>` element to support keyset pagination.
+
+To use keyset pagination in an existing custom mapping, you must add the `doql-page-key` attribute to your tasks.
