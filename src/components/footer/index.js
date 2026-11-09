@@ -29,7 +29,7 @@ const solutions = [
   { link: "https://www.device42.com/features/ip-address-management/", title: "IP Address Management" },
   { link: "https://www.device42.com/features/enterprise-password-management/", title: "Password Manager" },
   { link: "https://www.device42.com/tours/ssl-certificate-management/", title: "SSL Certificate Management" },
-  { link: "https://www.device42.com/migrations/", title: "Migrations" }
+  { link: "/tools-and-utilities/#migration-scripts", title: "Migrations" }
 ]
 
 
