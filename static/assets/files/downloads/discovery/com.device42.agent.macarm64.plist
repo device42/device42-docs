@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.device42.agent.macarm64</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/device42/d42_macgent_signed_arm64</string>
+        <string>--config-file=/opt/device42/d42_mac_signed_config</string>
+        <!-- <string> --add-more-options-if-needed=here (by removing commenter part, and copy this line if needed) </string> -->
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/d42_macgent_signed_arm64.error.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/d42_macgent_signed_arm64.output.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/opt/device42</string>
+
+    <key>StartInterval</key>
+    <integer>28800</integer> <!-- Runs every 8 hours. Adjust to your needs. -->
+
+
+    <!-- Additional configuration options can be added here -->
+</dict>
+</plist>

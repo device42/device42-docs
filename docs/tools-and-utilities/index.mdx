@@ -1,0 +1,305 @@
+---
+title: "Tools and Utilities"
+sidebar_position: 1
+---
+
+import DownloadCard, { DownloadGrid } from '@site/src/components/download-card';
+
+This page lists the standalone tools and utilities that you can download and use with Device42. It covers discovery tools, bulk data management tools, migration scripts, and miscellaneous tools such as the ODBC and JDBC drivers.
+
+## Discovery Tools
+
+Use these tools to run discovery jobs from other machines or network segments, or to collect data that the main Device42 appliance can't reach directly.
+
+<DownloadGrid>
+
+<DownloadCard
+  docs="/getstarted/deploy-device42/remote-collector-rc-installation"
+  downloads={[{ label: 'Download via Trial Form', href: 'https://www.device42.com/try-device42/' }]}
+>
+
+### D42 Remote Collector (RC)
+
+The Device42 Remote Collector (RC) is a self-contained virtual appliance that lets you run any discovery job remotely across network segments. Register the RC from the main Device42 UI, and then run discovery jobs on it.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/getstarted/deploy-device42/windows-discovery-service-installation"
+  version="15.16.01"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/discovery/Device42Discovery_15_16_01.msi' }]}
+>
+
+### Device42 Windows Discovery Service (WDS)
+
+The Device42 Windows Discovery Service (WDS) is a lightweight service that lets you create and manage Windows discovery jobs from the main Device42 appliance. Install the WDS on a single Windows machine in your environment. The WDS needs WMI access to all the target machines.
+
+Installer SHA256: `A3297566D2A2F4326465409918AF2274EE129AA4E71397F5D50EBF01D15575E9`
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/signed-mac-agent"
+  version="1.1.0"
+  downloads={[
+    { label: 'Apple Silicon Download', href: '/assets/files/downloads/discovery/d42_macagent_v1.1.0_arm64.zip' },
+    { label: 'Intel Download', href: '/assets/files/downloads/discovery/d42_macagent_v1.1.0_x64.zip' },
+  ]}
+>
+
+### Signed Mac Agent for Discovery
+
+Use the signed agent to discover your macOS laptops automatically. Pair the agent with the encrypted config file that you download from your main Device42 appliance. You can run the agent by itself, or use the macOS service wrapper to run it at set intervals.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/mac-agent-service-launcher"
+  version="1.0.0"
+  downloads={[
+    { label: 'Apple Silicon Download', href: '/assets/files/downloads/discovery/com.device42.agent.macarm64.plist' },
+    { label: 'Intel Download', href: '/assets/files/downloads/discovery/com.device42.agent.macx64.plist' },
+  ]}
+>
+
+### macOS Service Wrapper for the Discovery Agent
+
+Use these `.plist` files to run the macOS agent as a service, so that it discovers your macOS machines on a regular schedule.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/getstarted/deploy-device42/windows-service-installation"
+  version="1.0.0"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/discovery/d42_winservice_combined_1_0_0.zip' }]}
+>
+
+### Windows Service Wrapper for Discovery Agent
+
+Use these executables to run the Windows discovery agent as a service on Windows 7 and later machines. You can set the service to run every N hours.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/d42-ping-sweep"
+  version="16.04.03"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/discovery/d42-ping-sweep.zip' }]}
+>
+
+### D42 Ping Sweep
+
+The Device42 Ping Sweep utility is a self-contained, portable utility that runs a ping sweep on the networks you specify. It uploads the discovered IP addresses (and, where available, MAC addresses and device names) to your Device42 appliance. It runs on Windows or Linux hosts.
+
+To use it, put it in a folder, copy or rename `ping.cfg.sample` to `ping.cfg`, and add your settings. On Linux, run `chmod +x` on the executable. Run the utility as root or as an administrator.
+
+Ping Sweep requires Device42 v11.0.0 or later.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/netflow-collector"
+  version="16.04.01"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/discovery/d42-netflow-collector.zip' }]}
+>
+
+### D42 NetFlow Collector
+
+The Device42 NetFlow Collector is a self-contained, portable utility. Point your network device to it, and it collects and analyzes NetFlow data and sends it to your Device42 instance for enhanced application dependency mapping. It is available for Windows and Linux.
+
+This version requires Device42 v16.00.00 or later. To get an older release, contact Device42 support.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/packet-capture"
+  version="16.04.01"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/discovery/d42-packet-capture.zip' }]}
+>
+
+### D42 Packet Capture
+
+The Device42 Packet Capture utility is self-contained and portable. Run it on any network-connected device to collect network packets from the local interface. It can filter and analyze the packets, and then send them to your Device42 instance for enhanced application dependency mapping. It is available for Windows and Linux.
+
+Packet Capture requires Device42 v16.00.00 or later.
+
+</DownloadCard>
+
+</DownloadGrid>
+
+## Bulk Data Management
+
+Use this tool to import data from spreadsheets into Device42.
+
+<DownloadGrid>
+
+<DownloadCard
+  docs="/integration/imports/spreadsheet-converter-tool"
+  version="7.4.0"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/bulk-data-management/d42_generic_import_tool_v7.4.0.exe' }]}
+>
+
+### Device42 Generic Import Tool
+
+The Device42 Generic Import Tool lets you map columns from `XLS`, `XLSX`, or `CSV` spreadsheets to fields in Device42 and import the data automatically. It runs on Windows. There is nothing to install. The tool is a portable executable file.
+
+</DownloadCard>
+
+</DownloadGrid>
+
+## Migration Scripts
+
+Device42 provides APIs and bulk data management tools that make it easier to import data from any data format. Use these scripts to migrate your data from other products to Device42.
+
+<DownloadGrid>
+
+<DownloadCard
+  downloads={[
+    { label: 'Download', href: '/assets/files/downloads/migration-scripts/device42-phpIPAM2Device42-de639e3.zip' },
+    { label: 'Visit Repository', href: 'https://github.com/device42/phpIPAM2Device42/' },
+  ]}
+>
+
+### phpIPAM
+
+If you manage IP addresses with phpIPAM, use this script to migrate your IP inventory to Device42. The script connects to the phpIPAM server (v1.2.1 and later), extracts the data, and sends it to Device42 using the REST APIs.
+
+You can run this Python script on Windows or Linux machines with Python 2.7.x. It requires `netaddr`, `pymysql`, and `requests`. For full details, see the GitHub repository and the `README.md` file.
+
+</DownloadCard>
+
+<DownloadCard
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/migration-scripts/RackMonkey-to-Device42-Migration-master.zip' }]}
+>
+
+### RackMonkey
+
+If you manage your server rooms in RackMonkey, use this script to migrate your data to Device42. The script connects to the RackMonkey database server, extracts the data, and sends it to Device42 using the REST APIs.
+
+You can run this Python script on Windows or Linux machines. For more details, see the `README.md` file in the `.zip` file.
+
+</DownloadCard>
+
+<DownloadCard
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/migration-scripts/Racktables-to-Device42-Migration-master.zip' }]}
+>
+
+### RackTables
+
+If you manage your server rooms in RackTables, use this script to migrate your data to Device42. The script connects to the RackTables database server, extracts the data, and sends it to Device42 using the REST APIs.
+
+You can run this Python script on Windows or Linux machines. For more details, see the `README.md` file in the `.zip` file.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/integration/external-integrations/aperture-vista-to-device42-migration"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/migration-scripts/Aperture-Views_D42-Migration.zip' }]}
+>
+
+### Aperture VISTA
+
+Use the pre-built SQL Server views and import templates to migrate from Aperture VISTA to Device42 quickly and reliably.
+
+First, create the Device42 custom views in the Aperture SQL Server database. Then export these views from Aperture VISTA as `.csv` or Excel spreadsheet files, and import and map them to Device42.
+
+</DownloadCard>
+
+<DownloadCard
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/migration-scripts/SolarWinds_IPAM_to_Device42_Migration-master.zip' }]}
+>
+
+### SolarWinds IPAM
+
+If you manage your IP addresses in SolarWinds IPAM, use this script to migrate your subnets and IP addresses to Device42. The script connects to the SolarWinds server, extracts the data, and sends it to Device42 using the REST APIs.
+
+You can run this Python script on Windows or Linux machines. For more details, see the `README.md` file in the `.zip` file.
+
+</DownloadCard>
+
+<DownloadCard
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/migration-scripts/OpenDCIM-to-Device42-Migration-master.zip' }]}
+>
+
+### OpenDCIM
+
+If you manage your server rooms in OpenDCIM, use this script to migrate your data to Device42. The script connects to the OpenDCIM database server, extracts the data, and sends it to Device42 using the REST APIs.
+
+You can run this Python script on Windows or Linux machines. It supports OpenDCIM v3.x. For more details, see the `README.md` file in the `.zip` file.
+
+</DownloadCard>
+
+</DownloadGrid>
+
+## Miscellaneous Tools
+
+These tools help you print QR codes, upload offline discovery logs, connect to Device42 data with ODBC or JDBC clients, and search Device42 from your browser.
+
+<DownloadGrid>
+
+<DownloadCard
+  version="2.1.1"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/miscellaneous-tools/D42PrintInstaller_v2.1.1.msi' }]}
+>
+
+### Device42 QR Code Print Utility
+
+The Device42 QR Code Print Utility gives you fine-grained control over QR code printing. Print QR codes with your Device42 print profiles, or generate codes as needed.
+
+This is a Windows application (Microsoft Software Installer). It is compatible with Device42 9.6.0 and later.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/auto-discovery/agent-based-offline-discovery"
+  version="1.0.0"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/miscellaneous-tools/d42_uploadtool.zip' }]}
+>
+
+### Device42 Agent Log Upload Utility
+
+The Device42 Agent Log Upload Utility uploads the log files that the Device42 discovery agent creates when it runs in offline mode. The utility can upload multiple log files in one run.
+
+This is a Windows application. It is compatible with Device42 15.14.04 and later.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/integration/external-integrations/odbc-driver-integration"
+  version="1.0.3"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/miscellaneous-tools/d42_odbcdriver.zip' }]}
+>
+
+### Device42 ODBC Driver
+
+The Device42 ODBC driver gives you access to the data in the Device42 CMDB through ODBC (Open Database Connectivity).
+
+The ODBC driver runs on Windows. It is compatible with Device42 15.14.02 and later.
+
+</DownloadCard>
+
+<DownloadCard
+  docs="/integration/external-integrations/jdbc-driver-integration"
+  version="1.0.2"
+  downloads={[{ label: 'Download', href: '/assets/files/downloads/miscellaneous-tools/d42_jdbcdriver.zip' }]}
+>
+
+### Device42 JDBC Driver
+
+The Device42 JDBC driver gives you access to the data in the Device42 CMDB through JDBC (Java Database Connectivity).
+
+You can use the JDBC driver on any platform that supports Java. It is compatible with Device42 15.14.02 and later.
+
+</DownloadCard>
+
+<DownloadCard
+  version="1.0.1"
+  downloads={[{ label: 'Firefox Download', href: 'https://addons.mozilla.org/en-US/firefox/addon/device42-search-addon/' }]}
+>
+
+### Device42 Search Browser Add-On
+
+The Device42 Search add-on lets you search for items in your Device42 instance from your browser. Add your Device42 instance URL in the add-on options. Then highlight any word (for example, an IP address, a device name, or a serial number), right-click it, and search in Device42. The Device42 search page opens and shows the related results.
+
+</DownloadCard>
+
+</DownloadGrid>
