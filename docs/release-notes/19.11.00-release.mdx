@@ -1,0 +1,153 @@
+---
+title: "19.11.00 Release"
+sidebar_position: 1
+---
+
+:::info
+The following release notes were taken from [the blog](https://www.device42.com/blog/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+:::
+
+*Release Date: October 8, 2026.*
+
+## Updating Device42 to Version 19.11.00
+
+Upgrading to 19.11.00 is only possible from 19.05.10 or above. If you need to first upgrade to Version 19.05.10, please see those [release notes](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/) for details. A link will also be provided when requesting an upgrade. We recommend making a backup of your system before any upgrades.
+
+For up-to-date information, notifications of outages or maintenance, visit our status page at: [https://device42.freshstatus.io/](https://device42.freshstatus.io/).
+
+The 19.11.00 MA release contains the following features:
+
+## Application Dependency Mapping Enhancements
+
+- D42-46085:
+  - Improved SQL Server cluster identification and expansion rules for displaying on the application layout
+  - Fixed the visualization when adding two application groups into a single Business Service
+
+## Reporting Enhancements
+
+- D42-60951 – Removed the 10,000 row restriction when filtering and exporting DOQL Standard Reports on the Display on Screen page
+- D42-46276 – Added a Live Preview toggle and query execution control to the Display on Screen view
+- D42-45114 – Added a calculated "Days Undetected" field to the Software Installation DOQL view and list view, enabling more accurate auto-cleaning of software and services
+- D42-60798 – Fixed an issue where some DOQL syntax was not being validated in Standard Reports
+- D42-61612 – Fixed sync failures that could occur following the introduction of enhanced DOQL validation
+- D42-61919 – Fixed an issue where DOQL queries could fail with the error "function not permitted: normalize_resource_details"
+
+## Discovery Scheduling, Automation, and Notifications
+
+- D42-37510 – Added Blackout Scheduling Windows, allowing you to define periods when discovery jobs will not run
+- D42-62406 – Blackout Window time settings now align with the settings in **Tools > Time Settings**
+- D42-39162 – Added an out-of-the-box automation rule for Software Installations
+- D42-39163 – Added an out-of-the-box automation rule for Software Models
+- D42-39165 – Added an out-of-the-box automation rule for Operating System Models
+- D42-35330 – Added support for OAuth2 token-based authorization for Office 365 mail server settings
+
+## Security Updates
+
+Across many aspects of Device42 security has been enhanced. Including updating core OS dependencies and libraries and in product protections.
+
+- D42-61735 – Updated the Remote Collector kernel to remediate CVE-2026-64600
+- D42-60977 – Updated OpenSSH packages to remediate a reported vulnerability
+- D42-61147 – Restricted exposure of the Django REST Framework browsable API interface
+- D42-61146 – Added additional validation to archive processing in the system restore endpoint
+- D42-61132 – Added additional validation to SNMP MIB file upload and processing parameters
+- D42-46566 – Removed the use of a hard-coded cryptographic key
+- D42-47215 – The passphrase is now masked in the Appliance Manager during a restore
+
+## UX Enhancements and Usability Improvements
+
+The following enhancements have been added to Device42:
+
+- D42-47448 – Added lazy loading and a pop-out view for the Customer field
+- D42-47447 – Excel imports now categorize partial failures in the import status
+- D42-48348 – Fixed a bug where usage metrics could not be disabled in an air gapped environment
+- D42-62112 – Improved error messages to provide more specific details instead of a generic "Authentication Failure"
+- D42-61221 – Fixed several issues with the Korean localization
+- D42-61698 – Fixed an issue where deleting a contract from the device page removed the entire PO line item
+- D42-60656 – Fixed an issue where lifecycle events may not be visible when RBAC is enabled
+- D42-62005 – Fixed an issue where a database migration could get stuck during upgrade
+
+## Discovery Fixes and Enhancements
+
+- D42-38799 – Enhanced \*nix discovery to support the Discover Remote File Systems job parameter
+- D42-40603 – Azure cloud discovery now maps private IPs to native Device42 IP objects
+- D42-61600 – Added discovery of the PostgreSQL version for Azure Flexible Servers
+- D42-49707 – Enhanced Pure Storage array discovery to support Pure API 2.X
+- D42-48015 – The `user_id` and `user_display_name` fields are now reset in Device42 when they are reset in Intune
+- D42-60869 – Added support for new Enlogic PDUs
+- D42-48341 – Added SNMP support for Accton switches
+- D42-47207 – Added SNMP support for Infinera DTN devices
+- D42-47204 – Added SNMP support for Infinera mTC-9 devices
+- D42-47015 – Added SNMP support for HSM devices
+- D42-44421 – Added SNMP support for xFusion FusionServer 2288H V7
+- D42-44324 – Added SNMP support for Allied Telesis AR4050S
+- D42-44144 – Added SNMP support for Allied Telesis 8000/16 switches
+- D42-44260 – Added SNMP support for KTI Networks KGD-802 switches
+- D42-43557 – Improved SNMP discovery of Avocent devices
+- D42-47475 – Added support for gathering the Serial Number on Canon TX-3000 network printers via SNMP
+- D42-47028 – PDU WebCards are now captured when discovering PDUs via SNMP
+- D42-62317 – Fixed an issue where the Device42 agent WMI query could cause LSASS CPU spikes on domain controllers
+- D42-62126 – Fixed an issue where Kubernetes autodiscovery could fail when extracting CronJobs
+- D42-60982 – Fixed an issue where Kubernetes discovery could fail on pod specs with no containers defined
+- D42-61681 – Fixed an issue with AS400 mainframe discovery
+- D42-61566 – Fixed an issue where the discover last login option did not display the actual last login times.
+- D42-61436 – Fixed an issue where Huawei S5731 iStack switches were discovered as a single device with modules instead of a cluster
+- D42-60968 – Fixed an issue with Oracle database discovery in \*nix discovery
+- D42-60940 – Fixed "Too Many Requests" and paging errors in Azure Advanced Discovery
+- D42-60868 – Fixed an issue where \*nix discovery may not return the install date for software
+- D42-60793 – Fixed an issue where printer names were not reflected in Device42
+- D42-60789 – Fixed an issue where ignored services were still being discovered
+- D42-60772 – Fixed an issue where Alibaba Cloud discovery may fail
+- D42-60770 – Fixed a bug in the agent service wrapper
+- D42-60769 – Fixed an issue where OpenStack discovery failed with HTTP 400 during Keystone v3 authentication
+- D42-58665 – Fixed an issue where tags containing spaces were split into multiple tags in discovered software during SaaS discovery
+- D42-58654 – Fixed an issue where InTune discovery created device names incorrectly
+- D42-58611 – Fixed an issue where SaaS discovery may fail when a proxy is configured
+- D42-58477 – Fixed an issue where Cisco Room Kit devices showed as Unknown
+- D42-58473 – Fixed an issue with SNMP scans of FS switches
+- D42-48117 – Fixed an issue where Windows discovery configured with an LDAP filter targeting `memberOf=<group DN>` returns zero AD targets
+- D42-48005 – Fixed an issue where the Serial Number was not discovered on Versa devices
+- D42-47973 – Fixed several issues with SNMP discovery jobs
+- D42-47716 – Fixed missing VIP to backend service relationships in NetScaler discovery
+- D42-47430 – Fixed an issue where Palo Alto devices were changed to printers after discovery
+- D42-47224 – Fixed an issue where certain device discoveries ended in a Discovery Exception
+- D42-47203 – Fixed a Discovery Exception when discovering Smartoptics devices via SNMP
+- D42-47033 – Fixed a Discovery Exception when discovering Pure Storage via SNMP
+- D42-44255 – Fixed a Discovery Exception when discovering Altice OLT devices
+- D42-42294 – Fixed an issue where SNMP discovery failed on Quantum devices
+- D42-45780 – Fixed an issue where the entire VLAN range was brought in when discovering switches with trunked ports via SNMP
+- D42-45442 – AWS Route53 discovery now captures the zone type (Public or Private), preventing DNS record collisions
+- D42-45418 – Fixed incorrect storage array license mapping
+- D42-44657 – Fixed an issue where last login was updated for all apps in G Suite discovery
+- D42-39615 – Fixed an issue where duplicate devices were created when the device name in OneView differed from the name captured by a direct scan
+
+## API and Integration Enhancements
+
+The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).
+
+- D42-60906 – Published the OpenAPI 3.0 specification in Swagger
+- D42-46568 – Standardized the backup and restore status in the `/healthstats/` API to clearly indicate success or failure
+- D42-47704 – Added support for creating item relationships in ServiceNow using the API/DOQL import approach
+- D42-47521 – Fixed a 524 sync failure that could stop JSM Assets device syncs
+- D42-19679 – Fixed an issue where adding a PagerDuty alert integration returned a "choice is not valid" error
+
+## Known Issues
+
+- D42-48031 – Mismatch in device counts between CRE/RU Inventory reports and corresponding UI pages for Operating System data
+- D42-40349 – Generic Import Tool trims custom fields with ':' character
+- D42-38249 – Users are not notified if they lack view permissions
+- D42-39359 – Enrichment services allow editing button mistakenly
+- D42-39404 – Improve performance when sorting and filtering with the 'Location' column
+- D42-39344 – Object Category field is visible on Power Units detail page when RBAC is disabled
+- D42-38512 – Spacing Issue on Hypervisor Discovery Page
+- D42-40799 – AWS Discovery may fail to collect subnet details for Elastic Load Balancer resources when more than 1 region is defined
+- D42-47262 – Rated Power not showing on banks
+- D42-45361 – The 'Applies' advanced filter is not displayed in the predefined report landing page
+- D42-44237 – In the AD/LDAP Sync page, the field name (Departments) and link name (Add Cost Center) don't match
+
+## Latest Device42 Update
+
+Download the current update for Device42 [here](https://www.device42.com/update).
+
+Depending on the version you are upgrading from, you may have to install an incremental update first: 18.14 > 19.00 > 19.05 > 19.11.
+
+If you haven't tried Device42 yet, [download a 14-day free trial](https://www.device42.com/try-device42/)!
