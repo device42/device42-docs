@@ -10,11 +10,18 @@ Due to the scope of Device42 discovery, duplicate items may occur. To help avoid
 
 When a new full discovery is performed, the algorithm uses various device attributes to determine potential matches with previously discovered devices. This page explains the device matching levels, the attributes used for matching, and how to handle unmatched devices.
 
+The menu paths for these settings are different in on-premises Device42 and in Freshservice ITAM (SaaS). Each section gives both paths.
+
 ## Device Matching Level
 
-Under **Tools > Global Settings**, you can set the device matching level in the **Miscellaneous** section. 
+You can set the device matching level here:
+
+- **On-premises Device42:** Go to **Tools > Global Settings** and find the **Miscellaneous** section.
+- **Freshservice ITAM (SaaS):** Go to **Admin > Asset Management > Discovery Hub > Discovery settings**.
 
 Device42 supports three different matching models: **Classic**, **Moderate**, and **Conservative**. 
+
+The following image shows the on-premises Device42 settings.
 
 <ThemedImage
   alt="Device matching levels"
@@ -39,9 +46,14 @@ You can change the matching aggressiveness to ensure the best performance in a g
 
 ## Enhanced Device Matching
 
-Enable the **Enhanced Device Matching** option (under **Tools > Global Settings > Miscellaneous**) for improved accuracy when dealing with separate devices that share the same name.
+Enable the **Enhanced Device Matching** option for improved accuracy when dealing with separate devices that share the same name. The option is here:
+
+- **On-premises Device42:** **Tools > Global Settings > Miscellaneous**
+- **Freshservice ITAM (SaaS):** **Admin > Asset Management > Discovery Hub > Discovery settings**
 
 To access this setting, which is turned off by default, select the **Moderate** or **Conservative** matching level under **Device Matching Level**.
+
+The following image shows the on-premises Device42 settings.
 
 <ThemedImage
   alt="Enhanced device matching"
@@ -71,4 +83,7 @@ A device must have at least one match for a match score to be calculated. If no 
 
 The advanced matching model mitigates the possibility of false positives and increases the intelligence of automatic matching, but can result in unmatched devices when score results are too low.  
 
-When devices cannot be matched with a high degree of certainty, they are flagged as unmatched devices. Find the unmatched devices under **Discovery > Unprocessed Device Records**.
+When devices cannot be matched with a high degree of certainty, they are flagged as unmatched devices. Find the unmatched devices here:
+
+- **On-premises Device42:** **Discovery > Unprocessed Device Records**
+- **Freshservice ITAM (SaaS):** **Admin > Asset Management > Discovery Hub > Unprocessed device records**
