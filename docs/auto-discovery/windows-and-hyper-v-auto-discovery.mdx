@@ -69,7 +69,7 @@ sources={{
 2. For Windows or Hyper-V discovery, select **Windows** as the **Platform**.
     - Select **Discover Using WinRM** to use the WinRM protocol for discovery, which is fast and Microsoft's preferred protocol. The **URL prefix** and **Port** fields will default accordingly.
     :::note
-    It is not necessary to update existing jobs to use WinRM, as Device42 currently uses NTLM, which Microsoft is in the process of deprecating. Kerberos support is planned for a future release.
+    It is not necessary to update existing jobs to use WinRM, as Device42 currently uses NTLM, which Microsoft is in the process of deprecating. The **WinRM through WDS** option supports Kerberos authentication. See [Use Kerberos Authentication](#use-kerberos-authentication).
     :::
     - If you're using WinRM, select the **WinRM through WDS** option to run the discovery using the local WDS. Ensure that your WDS service account operates under a domain account and is not set to **Local System**, as it doesn't support remote authentication.
 
@@ -94,6 +94,16 @@ sources={{
 :::note
 **Classic WinRM** is no longer a **Platform** type as of 18.08.00. Existing Classic WinRM jobs will continue to function.
 :::
+
+### Use Kerberos Authentication
+
+The **WinRM through WDS** discovery option supports Kerberos authentication. To use Kerberos:
+
+1. Deploy a Windows Discovery Service (WDS). See [Device42 Windows Discovery Service - Installation](getstarted/deploy-device42/windows-discovery-service-installation.mdx).
+2. Configure the WDS service to run as a domain user that has WinRM access.
+3. On the discovery job, select the following options:
+    - **Discover Using WinRM**
+    - **WinRM through WDS**
 
 ### Windows and Hyper-V Discovery Job Options
 
