@@ -1,0 +1,141 @@
+---
+title: "19.10.00 Release"
+sidebar_position: 2
+---
+
+:::info
+The following release notes were taken from [the blog](https://www.device42.com/blog/). The [Device42 blog](https://www.device42.com/blog/category/release/) remains the authoritative source for release notes.
+:::
+
+*Release Date: July 31, 2026.*
+
+## Updating Device42 to Version 19.10.00
+
+Upgrading to 19.10.00 is possible from 19.05.10 or above. If you need to first upgrade to Version 19.05.10, please see those [release notes](https://www.device42.com/blog/2025/04/02/adm-and-ui-enhancements-v19-05-ma/) for details. A link will also be provided when requesting an upgrade. We recommend making a backup of your system before any upgrades.
+
+For up-to-date information, notifications of outages or maintenance, visit our status page at: [https://device42.freshstatus.io/](https://device42.freshstatus.io/).
+
+The 19.10.00 MA release contains the following features:
+
+## Reporting Enhancements
+
+- D42-46279 – Added the ability to easily clone any standard reports
+- D42-46275 – Added the ability to use AND and OR within reports. Additionally added date range filters and operators and grid functionality to clear filters and use pagination
+- D42-46271 – Added an Export button to the display on screen view, ensured the exports are filter aware and added an edit button to the display on screen view
+- D42-33267 – Increased the dropdown limit and added alphabetical sorting to Insights+ dashboard dropdowns
+- D42-58637 – Fixed an issue when creating a report where you cannot save a dataset with empty results
+- D42-48370 – Fixed an issue where reports and alerts may be sent twice
+- D42-47971 – Fixed an issue in Insights+ that could cause certain reports to not display correctly when using custom certificates
+- D42-47925 – Fixed an issue that would sometimes prevent saving after editing an alert
+- D42-46386 – Manually entered data within EOS and EOL fields will no longer be overridden by our enrichment services. This is now consistent across both software records and operating system records.
+
+## Security Updates
+
+Across many aspects of Device42 security has been enhanced. Including updating core OS dependencies and libraries and in product protections.
+
+- D42-58531 – Added additional protection to `/internal/rc` API endpoints
+- D42-58516 – Updated the Rocky Linux kernel to resolve several security issues
+- D42-48391 – Fixed an issue in the test SNMP connectivity feature
+- D42-48390 – Fixed an issue in the ping module
+- D42-48388 – Fixed an issue with how we execute NCAT
+- D42-48386 – Fixed an issue with how we execute TraceRoute
+- D42-43668 – Fixed an issue with Importing SSL certificates
+- D42-47322 – Updated several internal libraries to remediate known issues
+- D42-20636 – Added additional validation and checks to ensure passwords are not displayed in log files for discoveries
+- D42-47788 – Fixed an issue where open Django sessions were not being properly closed
+
+## Minor UX Enhancements and Usability Improvements
+
+The following minor enhancements have been added to Device42:
+
+- D42-47997 – Added the ability to open the associated business services from the all devices list page, it has been added as a default column to the view
+- D42-39682 – Added the availability to query application groups via API and assign them to business services
+- D42-44485 – Fixed a bug that would prevent periodic jobs from being cleaned up after disabling ADM in the discovery job
+- D42-60811 – Fixed package clean up in the Upgrade process
+- D42-60801 – Fixed a connection issue when upgrading RCs
+- D42-58717 – Removed the Middle East cloud connection option following the unavailability of the regional DC
+- D42-49797 – Fixed the generation of barcodes to properly show the desired fields
+- D42-48324 – Fixed a performance issue when opening certain VRF groups
+- D42-48222 – Added Critical as an option to the Business Service Impact Dropdown
+- D42-48156 – While adding a manual IP on the Device page, removed the /32 from ip addresses as this was redundant
+- D42-48095 – Fixed an issue with the RC disaster recovery process
+- D42-48092 – Fixed an issue when setting permissions for a chart in Insights+.
+- D42-48077 – Added incremental discovery when discovering SaaS software
+- D42-48073 – Fixed an issue that could prevent RC backups from completing successfully
+- D42-47959 – Fixed an issue that may prevent all subnets from displaying in the subnet tree
+- D42-47676 – Fixed an issue that prevented the rack view from displaying when viewing racks with limited access to some of the devices on the rack. The rack will correctly display now, but only show the devices you have access to.
+- D42-47648 – Fixed an issue where generating runbooks may time out.
+- D42-43097 – Fixed an issue with autorestore sometimes failing on standby instances
+
+## Discovery Fixes and Enhancements
+
+- D42-47708 – Improved the performance of Azure Cloud discoveries. In certain large environments, the discovery would time out.
+- D42-47624 – Added support for SNMP V3 credentials in VLAN discoveries
+- D42-47464 – Improved SNMP discovery performance, we now detect empty OIDS and skip them instead of querying and getting no results
+- D42-26521 – Updated the methods we use to gather results from NetApp devices as the existing method has been deprecated
+- D42-47429 – Improved the performance of SaaS software discovery jobs
+- D42-47405 – Improved device type detection when running InTune and JAMF discoveries, the subtypes will now correctly be set
+- D42-60631 – Fixed an issue where Azure instances may not correctly match by instance id
+- D42-55187 – Fixed a bug that prevented Arista Cloudvision from showing all appropriate connections
+- D42-49714 – Fixed an issue where Azure discovery may not create all subnets
+- D42-48339 – Fixed an error when discovering some HP PDUs
+- D42-48304 – Fixed an issue when discovery certain Hitachi storage arrays
+- D42-48272 – Fixed an issue where certain ports may be duplicated in AWS scans
+- D42-48270 – Improved Azure function discovery to bring in more objects
+- D42-48183 – Improved agent based discovery within AWS instances
+- D42-48149 – Fixed an issue where AWS discovery could create multiple cloud accounts
+- D42-48131 – Fixed an issue where windows and VMWare scans may not discover all local physical hard drives
+- D42-48117 – Fixed an issue where Windows discovery configured with an LDAP filter targeting `memberOf=<group DN>` returns zero AD targets
+- D42-48071 – Fixed an issue with EKS discovery selecting the wrong zone causing failures
+- D42-47970 – Fixed an issue where Nutanix details may not be updated correctly even though the discovery showed as successful
+- D42-47955 – Fixed an issue that prevented all software from being discovered on SunOS devices
+- D42-47778 – Added the ability to specify the database port used for SCCM discoveries
+- D42-47711 – Fixed an occasional crash when running vServer discoveries, this would cause Physical Memory parts from being correctly created
+- D42-47621 – Fixed an issue when discovering Hyper-V windows guests with more cores and processors were not showing the correct count
+- D42-47574 – Fixed an issue where Solarflare cards were not being created as parts in some SNMP jobs
+- D42-47476 – Fixed an issue that were prevent the discovery of Serial Numbers on Raritan devices
+- D42-47474 – Added support for gathering the Serial Numbers on HP Network Printers
+- D42-47438 – Fixed an issue that could cause AWS discovery in Give regions to fail when no account_ID is provided in the role
+- D42-47013 – Added SNMP support for NetScout devices
+- D42-46887 – Improved Cisco UCS SNMP discovery, serial numbers and hardware info will now be properly populated
+- D42-46173 – Fixed environment monitor detection via SNMP for certain APC devices
+- D42-44420 – Fixed an issue where the serial number would not be detected on certain HP printers
+- D42-44020 – Enhanced the discovery of Thales Luna HSMs
+- D42-43944 – Added SNMP support for Liebert HVAC devices
+- D42-43677 – Added SNMP support for TrendMicro TippingPoint SMS devices
+- D42-43332 – Fixed an issue in SNMP discovery where a device could be duplicated if there are multiple virtual devices configured
+- D42-39703 – Fixed an issue where HPE PDUs may not display power information
+
+## API Enhancements
+
+The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).
+
+- D42-48347 – Fixed an issue with the Import and Export of Application Groups
+- D42-48346 – Improved the messaging in the `#Cloud_Account_getCloud_infrastructure` API call
+- D42-48397 – Improved the messaging and error handling in our `/healthstats/` API
+
+## Known Issues
+
+- D42-48031 – Mismatch in device counts between CRE/RU Inventory reports and corresponding UI pages for Operating System data
+- D42-40349 – Generic Import Tool trims custom fields with ':' character
+- D42-38249 – Users are not notified if they lack view permissions
+- D42-39359 – Enrichment services allow editing button mistakenly
+- D42-39404 – Improve performance when sorting and filtering with the 'Location' column
+- D42-39344 – Object Category field is visible on Power Units detail page when RBAC is disabled
+- D42-38512 – Spacing Issue on Hypervisor Discovery Page
+- D42-40799 – AWS Discovery may fail to collect subnet details for Elastic Load Balancer resources when more than 1 region is defined
+- D42-47430 – Palo Alto Devices get changed to printers after discovery
+- D42-47262 – Rated Power not showing on banks
+- D42-45361 – The 'Applies' advanced filter is not displayed in the predefined report landing page.
+- D42-44657 – Last login is updated for all the apps in G Suite discovery
+- D42-44237 – In the AD/LDAP Sync page, the field name (Departments) and link name (Add Cost Center) don't match
+- D42-46834 – Fixed an issue where links to business services in some Insights+ reports would not work correctly
+- D42-43634 – Fixed a bug where it may not be possible to save a device update after adding and deleting file attachments
+
+## Latest Device42 Update
+
+Download the current update for Device42 [here](https://www.device42.com/update).
+
+Depending on the version you are upgrading from, you may have to install an incremental update first: 18.14 > 19.00 > 19.05 > 19.10.
+
+If you haven't tried Device42 yet, [download a 14-day free trial](https://www.device42.com/try-device42/)!
