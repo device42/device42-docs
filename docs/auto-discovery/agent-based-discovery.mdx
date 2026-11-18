@@ -182,6 +182,12 @@ The agent can be run from the command line or can be scheduled using the relevan
 
 For best results, run the command with `sudo`. Make sure that `/home/system_dev42/bin/d42agent` is owned by `root` with `-rwx--- (0700)` permissions. This prevents the non-root user `system_dev42` from overwriting the agent or adding it to `root`’s crontab (or `cron.daily/hourly`) while allowing root to execute it.
 
+To run the agent every day at 2 AM, for example, add the following entry to `root`'s crontab with `sudo crontab -e`:
+
+```bash
+0 2 * * * /home/system_dev42/bin/d42agent
+```
+
 ### Use a Limited Account
 
 The Linux agent runs as `root` by default. However, you can configure the agent to run with a limited, non-root account.
@@ -207,14 +213,18 @@ The Linux agent runs as `root` by default. However, you can configure the agent 
      d42_limited ALL=(ALL) NOPASSWD: /usr/sbin/arp, /bin/cat, /sbin/ifconfig, /usr/bin/curl, /usr/bin/wget, /bin/ls, /usr/sbin/dmidecode, /usr/bin/lsof, /usr/bin/ps, /usr/bin/python3, /bin/uname, /usr/bin/systemctl, /sbin/ip, /usr/bin/df, /usr/bin/free, /usr/bin/mount, /usr/sbin/iptables
      ```
 
+     :::warning
+     Several of these commands (`python3`, `cat`, `curl`, `wget`, `mount`, `systemctl`, and `iptables`) let the account act as root through `sudo`. This setup stops the account from being used for logins. It does not limit what the agent can do.
+     :::
+
      Read the [Commands Required by the Discovery Agent](#required-agent-commands) section to see the full list of commands required by the agent.
 
 3. **Configure the file ownership and permissions**:
-   - Make sure that the `d42agent` binary is still owned by `root` and has restricted permissions:
+   - Make sure that the `d42agent` binary is owned by `root` and that the limited account can run it but not change it:
 
      ```bash
-     sudo chown root:root /home/system_dev42/bin/d42agent
-     sudo chmod 0700 /home/system_dev42/bin/d42agent
+     sudo chown root:d42_limited /home/system_dev42/bin/d42agent
+     sudo chmod 0750 /home/system_dev42/bin/d42agent
      ```
 
 4. **Run the agent with the limited account**:
@@ -267,38 +277,17 @@ The Linux agent runs as `root` by default. However, you can configure the agent 
 
 Ensure the limited account can execute all these commands through `sudo` without requiring a password.
 
-Here's a shell script that can be used to check whether the limited account has access to the commands:
+To check which commands the limited account can run through `sudo`, list its sudo rules:
 
-<details>
-  <summary>Click to expand the code block</summary>
+```bash
+sudo -l -U d42_limited
+```
 
-  ```bash
-    #!/bin/bash
-
-    # List of commands required by the discovery agent
-    commands=(
-        arp
-        cat
-        chkconfig
-        ...
-        # Add the rest of the commands from the list above
-    )
-
-    # Check if the limited account has access to all the required commands
-    for command in "${commands[@]}"; do
-        sudo -u d42_limited command -v $command > /dev/null 2>&1
-        if [ $? -ne 0 ]; then
-            echo "Command $command not found or not executable by d42_limited"
-        fi
-    done
-  ```
-</details>
-
-You can run this script to verify that the limited account has access to all the required commands.
+Compare the output with the list above.
 
 ## Run the Agent on Linux and Mac
 
-After downloading the agent, make it executable by running the command `chmod +x <agentname>` and use `sudo` for best results. Use the command `--sudo-password="password"` to pass in the password.
+After downloading the agent, make it executable by running the command `chmod +x <agentname>` and use `sudo` for best results. The `--sudo-password="password"` option passes in the sudo password, but it exposes the password in your shell history and the process list. Use a passwordless `sudoers` entry instead, as shown in [Use a Limited Account](#use-a-limited-account).
 
 You may experience an issue with opening the application on your Mac. If so, please use the following Apple support link to [open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).
 
