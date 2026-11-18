@@ -15,7 +15,7 @@ The Device42 AWS offering involves an EC2 instance that houses the Device42 Main
 
 The Device42 Main Appliance is available on AWS, either as a manual installation or through the AWS Marketplace — this guide has instructions for both options.
 
-The Device42 RC is only available via manual installation only. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
+The Device42 RC is only available via manual installation. To request access, please submit a ticket to the Device42 RC Amazon Machine Image (AMI) and include the following information:
 
 - The AWS region for Device42 deployment
 - The AWS account number
@@ -127,7 +127,7 @@ Update the appliance license key, because the included key has expired:
 
 Make sure your AMI is running the latest version of Device42 and update it if necessary:
 
-- From the Device42 web UI, head to **Tools > Update**.
+- From the Device42 web UI, head to **Tools > Settings > Update**.
 - Make note of the **Current Main Appliance Version** number displayed.
 - Then, follow the **Check for latest version** link or visit [https://www.device42.com/update/](https://www.device42.com/update/) to check for an update.
 - If the update page offers a newer release, enter your work email and install the update by following the [Device42 Upgrade Steps](https://docs.device42.com/administration/updating-device42/). If you're working with a new appliance with no data, skip the backup step.
@@ -244,18 +244,16 @@ The documentation also includes an example configuration that leverages Nagios t
 The following sample IAM policy is **not** needed to simply run Device42 on AWS. You would only set up an IAM policy similar to this if you wanted to **target** your AWS inventory for discovery (to document your AWS deployment in Device42). No IAM policy is necessary for **running** Device42 in AWS, nor for discovering infrastructure that is running elsewhere.
 :::
 
-Visit the [Device42 Support page](https://support.device42.com/) to open a ticket or reach out to [support@device42.com](mailto:support@device42.com) if you have any more questions.
-
 The following permissions are required to support discovery:
 
-<table><tbody><tr><td width="288"><ul><li>AmazonEc2ReadOnly</li><li>AmazonElastiCacheReadOnlyAccess</li></ul></td><td width="288"><ul><li>AmazonRDSReadOnlyAccess</li><li>AmazonS3ReadOnlyAccess</li></ul></td></tr></tbody></table>
+<table><tbody><tr><td width="288"><ul><li>AmazonEC2ReadOnlyAccess</li><li>AmazonElastiCacheReadOnlyAccess</li></ul></td><td width="288"><ul><li>AmazonRDSReadOnlyAccess</li><li>AmazonS3ReadOnlyAccess</li></ul></td></tr></tbody></table>
 
 The following is a sample IAM policy (with minimum appropriate permissions) that allows Device42 to discover and inventory instances running on AWS. You may modify it, but we recommend that you only use it if you understand it:
 
 <details>
   <summary>Click to expand the code block</summary>
 
-```js
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -311,7 +309,6 @@ The following is a sample IAM policy (with minimum appropriate permissions) that
         },
         {
             "Action": [
-                "cloudwatch:GetMetricStatistics",
                 "logs:DescribeLogStreams",
                 "logs:GetLogEvents"
             ],
@@ -323,6 +320,8 @@ The following is a sample IAM policy (with minimum appropriate permissions) that
 ```
 
 </details>
+
+Visit the [Device42 Support page](https://support.device42.com/) to open a ticket or reach out to [support@device42.com](mailto:support@device42.com) if you have any more questions.
 
 ### Security, Privacy, and Other Considerations
 
