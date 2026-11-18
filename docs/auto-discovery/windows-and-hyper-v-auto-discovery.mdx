@@ -149,7 +149,7 @@ Globally, you can add an **Exclusion** to ignore IP and MAC addresses for all jo
 
 ### The “Query domain controller to obtain list of discovery devices” Option
 
-Selecting the **Query domain controller to obtain list of discovery devices** option hides the **Server(s):** field. Target(s) discovered in this mode are instead defined by the result of the chosen **LDAP Criteria**, as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server.
+Selecting the **Query domain controller to obtain list of discovery devices** option hides the **Discovery Target(s)** field. Target(s) discovered in this mode are instead defined by the result of the chosen **LDAP Criteria**, as returned by the specified Microsoft Windows Active Directory Domain or Domain Directory Server.
 
 <ThemedImage
     alt="Query domain LDAP filter"
@@ -218,7 +218,7 @@ Fields and requirements for using LAPS discovery mode:
 
 To run a Hyper-V discovery job, set the **Platform** to **Windows** and enable the **Discover VMs** option.
 
-The Hyper-V server's hardware details, name, UUID, and MAC addresses are pulled in from the VMs. In the **Server(s)** field, include the Hyper-V servers as hostnames, as IP addresses, or as part of a CIDR or IP range.
+The Hyper-V server's hardware details, name, UUID, and MAC addresses are pulled in from the VMs. In the **Discovery Target(s)** field, include the Hyper-V servers as hostnames, as IP addresses, or as part of a CIDR or IP range.
 
 ### Additional Job Options
 
@@ -420,11 +420,21 @@ Use the `sc.exe sdset scmanager` command to grant `SC_MANAGER_CONNECT` permissio
 
 - First, [find the SID](https://www.ninjaone.com/blog/how-to-find-user-security-identifier/) of the non-admin user account that you want to grant permission. 
 
-- Next, as an admin user, add the non-admin user's SID to the following command and execute it in PowerShell:
+- Next, as an admin user, show the current security descriptor of the Service Control Manager in PowerShell. Save a copy of the output, as you need it to restore the original permissions:
 
-    ```bash
-    sc.exe sdset scmanager "D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CCLCRPRC;;;SID_OF_DISCOVERY_USER)"
+    ```powershell
+    sc.exe sdshow scmanager
     ```
+
+- Edit the output string. Add `(A;;CCLCRPRC;;;SID_OF_DISCOVERY_USER)` at the end of the `D:` part, before `S:` if it is present. Replace `SID_OF_DISCOVERY_USER` with the SID of the non-admin user.
+
+- Apply the edited string:
+
+    ```powershell
+    sc.exe sdset scmanager "EDITED_SECURITY_DESCRIPTOR"
+    ```
+
+    The `sc.exe sdset` command replaces the whole security descriptor. Always start from the output of `sc.exe sdshow` on the same server, so that you keep its existing permissions.
 
 - Then try running the discovery process again as the non-admin user.
 
@@ -447,7 +457,7 @@ Use the `sc.exe sdset scmanager` command to grant `SC_MANAGER_CONNECT` permissio
 - If you've populated Device42 with devices before your first discovery run (using CSV imports, spreadsheets, or manual entry), test discovery against a few devices to verify that the selected discovery naming options are correct for your naming convention. For example, if you added `nh-linux01` as a device, discovery could find the hostname `nh-linux01.example.com` and add it as a new device because the names don't match. See the [Device Naming and Duplicate Device Prevention](#device-naming-and-duplicate-device-prevention) section.
 - **Run device discovery after running network discovery** or after defining the subnets where your network IPs reside.
 - Floating IPs that logically belong to a cluster but are found on a device during discovery will be assigned to that device and **not** the cluster resource.
-- You can run the WDS from any or multiple network segments. Communication from the discovery client back to the main Device42 instance requires access via port TCP/443 (HTTPS) on your network.
+- You can run the WDS from any or multiple network segments. The WDS connects to its Remote Collector over port TCP/443 (HTTPS), so allow this traffic on your network. See [Discovery Port Configurations](/getstarted/deploy-device42/discovery-port-configurations.mdx).
 
 ## Legacy Windows 2000 Discovery Prerequisites
 
