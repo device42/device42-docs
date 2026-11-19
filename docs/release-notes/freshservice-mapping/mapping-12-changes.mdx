@@ -6,165 +6,576 @@ sidebar_position: 1
 The following changes to the `mapping.xml` file are part of the Cloud Connector 5.7.0 release (CC 5.7.0).
 
 If you are using a custom `mapping.xml` file, you need to manually apply these updates. See [Manage Customization with Newer Releases](/integration/external-integrations/freshservice-integration/customize-freshservice#manage-customization-with-newer-releases).
+
 ## Devices Tasks
 
-All four Devices tasks gained a **Vendor** field and a **Virtual Machines** field. The **Vendor** field maps the existing `purchase_order_vendor` column to the Freshservice `vendor` field, looked up by `name` in `vendors`. The **Virtual Machines** field appears under the `VMware VCenter Host` header and maps a new `vms_json` column to `virtual_machines`. That column comes from a new `host_vms` CTE, which lists the VMware VMs registered on each ESXi host. The incremental mapping suffix now compares `GREATEST(last_changed, host_vms.max_vm_last_changed)` with the last sync time, and it always includes ESXi hosts (`virtual_host` and `os_name` like `%esxi%`).
-
-The two tasks with `d42_min_version="19.04.00"` or later have three more changes. A new `bios_shared` CTE finds BIOS UUIDs that more than one device shares. For a VMware VM, `uuid` is now the lowercased BIOS UUID only when that UUID is unique. Otherwise it is `concat_ws('_', vm_manager_instance_id, vm_manager_ref_id)`, and the VM's `instance_id` now ends in `vm_manager_ref_id` instead of the UUID. A new `bios_uuid` column was added, and the **Bios UUID** field under the `VMware VCenter Host`, `VMware VCenter VM`, and `VMware VCenter Image` headers now maps from `bios_uuid` instead of `uuid`.
-
-**Applies to:**
+The `Devices` tasks received five changes. The first three apply to all four `Devices` tasks:
 
 ```xml
-<task name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" enable="true" d42_min_version="19.08.00">
-<task name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" enable="true" d42_min_version="19.04.00" d42_max_version="19.07.99">
-<task name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" enable="true" d42_min_version="16.19.00" d42_max_version="19.03.99">
-<task name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v1" enable="true" d42_max_version="16.18.02">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.03.99" d42_min_version="16.19.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v1" d42_max_version="16.18.02">
+```
+
+### Vendor Field Added
+
+The Device42 purchase order vendor now syncs to the Freshservice **Vendor** field.
+
+The following field element was added to the `<mapping>` element:
+
+```xml
+<field resource="purchase_order_vendor" source-type="string" target="vendor" target-field="id"
+       target-type="dict" target-foreign="vendors" target-foreign-key="name" max-length="255"
+       resource-description="Vendor of the qualifying purchase line item with the latest end date (warranty, or base/upgrade from IBM/Lenovo)"
+       resource-description-manual="true" target-description="Vendor"/>
+```
+
+### Virtual Machines Field Added
+
+VMware ESXi hosts in Freshservice now show the VMs registered on them in a new **Virtual Machines** field.
+
+A new `host_vms` CTE was added to the `doql` attribute of the `<resource>` element. In the three DOQL v2 tasks, the CTE is:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+,host_vms as (
+    select
+        host_dev.device_pk,
+        max(vm.last_changed) as max_vm_last_changed,
+        json_agg(json_build_object(
+            'name', vm.name,
+            'ip', vm_ip.ip_address,
+            'os', vm.os_name,
+            'uuid', lower(vm.uuid),
+            'cpu', case when vm.core_per_cpu is not null and vm.total_cpus is not null
+                        then concat(vm.core_per_cpu * vm.total_cpus, ' vCPU')
+                        else null end,
+            'memory', case when vm.ram is not null
+                        then concat(
+                            case
+                                when vm.ram_size_type = 'MB' then vm.ram / 1024
+                                when vm.ram_size_type = 'TB' then vm.ram * 1024
+                                else vm.ram
+                            end, ' GB')
+                        else null end
+        ) ORDER BY vm.name) as vms_json
+    from view_device_v2 host_dev
+    inner join view_device_v2 vm
+        on vm.virtual_host_device_fk = host_dev.device_pk
+        and lower(vm.type) = 'virtual'
+        and lower(vm.virtualsubtype) = 'vmware'
+        and (vm.details->>'template' is null or (vm.details->>'template')::boolean = false)
+    left join network_ip vm_ip on vm_ip.device_fk = vm.device_pk
+    where host_dev.virtual_host and lower(host_dev.os_name) like '%esxi%'
+    group by host_dev.device_pk
+)
+```
+
+</details>
+
+In the DOQL v1 task, the CTE uses `view_device_v1`, `vm.cpucore * vm.cpucount`, and `vm.virtual_subtype`, and it does not filter out VM templates:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+,host_vms as (
+    select
+        host_dev.device_pk,
+        max(vm.last_changed) as max_vm_last_changed,
+        json_agg(json_build_object(
+            'name', vm.name,
+            'ip', vm_ip.ip_address,
+            'os', vm.os_name,
+            'uuid', lower(vm.uuid),
+            'cpu', case when vm.cpucore is not null and vm.cpucount is not null
+                        then concat(vm.cpucore * vm.cpucount, ' vCPU')
+                        else null end,
+            'memory', case when vm.ram is not null
+                        then concat(
+                            case
+                                when vm.ram_size_type = 'MB' then vm.ram / 1024
+                                when vm.ram_size_type = 'TB' then vm.ram * 1024
+                                else vm.ram
+                            end, ' GB')
+                        else null end
+        ) ORDER BY vm.name) as vms_json
+    from view_device_v1 host_dev
+    inner join view_device_v1 vm
+        on vm.virtual_host_device_fk = host_dev.device_pk
+        and lower(vm.type) = 'virtual'
+        and lower(vm.virtual_subtype) = 'vmware'
+    left join network_ip vm_ip on vm_ip.device_fk = vm.device_pk
+    where host_dev.virtual_host and lower(host_dev.os_name) like '%esxi%'
+    group by host_dev.device_pk
+)
+```
+
+</details>
+
+The following column was added to the `SELECT` statement:
+
+```sql
+,COALESCE(host_vms.vms_json::text, '[]') as vms_json
+```
+
+And the following join was added:
+
+```sql
+LEFT JOIN host_vms ON view_device_v2.device_pk = host_vms.device_pk
+```
+
+In the DOQL v1 task, the join is:
+
+```sql
+LEFT JOIN host_vms ON view_device_v1.device_pk = host_vms.device_pk
+```
+
+The following field element was added under the `VMware VCenter Host` header:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```xml
+<field resource="vms_json" source-type="string" target="virtual_machines" target-type="list"
+       target-header="VMware VCenter Host"
+       resource-description="VMs registered on this host, for the Virtual Machines tab"
+       resource-description-manual="true" target-description="Virtual Machines"
+       target-description-manual="true"/>
+```
+
+</details>
+
+### Change Detection Updated
+
+The incremental sync now compares the most recent change to the host or its VMs with the last sync time, and it always includes ESXi hosts.
+
+In the three DOQL v2 tasks, the `doql-suffix` attribute of the `<mapping>` element was changed from:
+
+```sql
+where view_device_v2.last_changed>'%s'
+```
+
+To the following:
+
+```sql
+where (GREATEST(view_device_v2.last_changed, host_vms.max_vm_last_changed)>'%s' or (view_device_v2.virtual_host and lower(view_device_v2.os_name) like '%%esxi%%'))
+```
+
+In the DOQL v1 task, the same change was made with `view_device_v1` instead of `view_device_v2`.
+
+### VMware VM UUID Logic Updated
+
+For a VMware VM, `uuid` is now the lowercased BIOS UUID only when that UUID is unique. Otherwise, it is `concat_ws('_', vm_manager_instance_id, vm_manager_ref_id)`.
+
+This change applies to the two newest DOQL v2 tasks:
+
+```xml
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_min_version="19.08.00">
+<task enable="true" name="Devices" type="asset" description="Copy Servers from Device42 to Freshservice using DOQL v2" d42_max_version="19.07.99" d42_min_version="19.04.00">
+```
+
+A new `bios_shared` CTE was added to the `doql` attribute of the `<resource>` element. It finds BIOS UUIDs that more than one device has:
+
+```sql
+bios_shared AS (
+    SELECT lower(d.uuid) AS bios FROM view_device_v2 d WHERE NULLIF(d.uuid, '') IS NOT NULL
+    GROUP BY lower(d.uuid) HAVING count(*) > 1
+),
+```
+
+And the following join was added:
+
+```sql
+LEFT JOIN bios_shared ON bios_shared.bios = lower(view_device_v2.uuid)
+```
+
+In the `uuid` expression, the VMware VM line:
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware') then lower(view_device_v2.uuid)
+```
+
+Was changed to the following:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware' and NULLIF(view_device_v2.uuid, '') IS NOT NULL and bios_shared.bios IS NULL) then lower(view_device_v2.uuid)
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware' and (view_device_v2.details->> 'vm_manager_instance_id' IS NULL OR view_device_v2.details->> 'vm_manager_instance_id' = '' OR view_device_v2.vm_manager_ref_id IS NULL OR view_device_v2.vm_manager_ref_id = '')) then null
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware') then concat_ws('_',view_device_v2.details ->> 'vm_manager_instance_id', view_device_v2.vm_manager_ref_id)
+```
+
+</details>
+
+In the `instance_id` expression, the VMware VM value now ends in `vm_manager_ref_id` instead of the UUID. The VMware VM line was changed from:
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware') then concat_ws('_',view_device_v2.details ->> 'vm_manager_instance_id', lower(view_device_v2.uuid))
+```
+
+To the following:
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware') then concat_ws('_',view_device_v2.details ->> 'vm_manager_instance_id', view_device_v2.vm_manager_ref_id)
+```
+
+The `null` check line before it was also changed from:
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware' and (view_device_v2.details->> 'vm_manager_instance_id' IS NULL OR view_device_v2.details->> 'vm_manager_instance_id' = '' OR view_device_v2.uuid IS NULL OR view_device_v2.uuid = '')) then null
+```
+
+To the following:
+
+```sql
+when (lower(view_device_v2.type) = 'virtual' AND lower(view_device_v2.virtualsubtype) = 'vmware' and (view_device_v2.details->> 'vm_manager_instance_id' IS NULL OR view_device_v2.details->> 'vm_manager_instance_id' = '' OR view_device_v2.vm_manager_ref_id IS NULL OR view_device_v2.vm_manager_ref_id = '')) then null
+```
+
+### Bios UUID Field Updated
+
+A new `bios_uuid` column was added to the `SELECT` statement in the same two tasks:
+
+```sql
+lower(view_device_v2.uuid) as bios_uuid,
+```
+
+The **Bios UUID** field under the `VMware VCenter Host`, `VMware VCenter VM`, and `VMware VCenter Image` headers now uses this column. In each of these field elements, `resource="uuid"` was changed to `resource="bios_uuid"`:
+
+```xml
+<field resource="bios_uuid" type="string" target="bios_uuid"
+       target-header="VMware VCenter Host"
+       min-length="1" max-length="255" resource-description="Universally Unique Identifier (UUID) for the device" resource-description-manual="true" target-description="Bios UUID"/>
 ```
 
 ## Software Tasks
 
-The existing Software task gained `d42_max_version="19.06.99"`, and a new Software task with `d42_min_version="19.07.00"` was added. The first header below is that task before the max version was added. In both tasks, software is now grouped by `lower(trim(name))`, `last_changed` uses `max` instead of `min`, and the **Application Type** field has `skip-update="true"`. In the `d42_min_version="19.07.00"` task, Application Type now comes from the Device42 deployment type (`'saas'`, `'mobile'`, `'desktop'`, and `'server'` as `'desktop'`) instead of always being `'desktop'`.
+The `Software` task was split into two tasks, one for Device42 19.07.00 and later and one for earlier versions.
 
-**Applies to:**
+The existing task:
 
 ```xml
-<task name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL" enable="true">
-<task name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL" enable="true" d42_max_version="19.06.99">
-<task name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.07.00">
+<task enable="true" name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL">
 ```
+
+Was replaced with the following tasks:
+
+```xml
+<task enable="true" name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL" d42_min_version="19.07.00">
+<task enable="true" name="Software" type="software" description="Copy Softwares from Device42 to Freshservice using DOQL" d42_max_version="19.06.99">
+```
+
+### Software Grouping Updated
+
+In both tasks, software with the same name in different letter cases is now grouped as one item. The `last_changed` value now uses the most recent change instead of the oldest.
+
+The `doql` attribute of the `<resource>` element was changed from:
+
+```sql
+select * from (select min(software_pk) as d42_pagination_key, trim(name) as name, 'discovered' as software_type, min(view_software_v1.notes) as notes, 'desktop' as application_type, min(last_changed) as last_changed from view_software_v1 where lower(software_type) != 'ignored' group by trim(name)) a
+```
+
+To the following in the `d42_max_version="19.06.99"` task:
+
+```sql
+select * from (select min(software_pk) as d42_pagination_key, min(trim(name)) as name, 'discovered' as software_type, min(view_software_v1.notes) as notes, 'desktop' as application_type, max(last_changed) as last_changed from view_software_v1 where lower(software_type) != 'ignored' group by lower(trim(name))) a
+```
+
+### Application Type Mapping Updated
+
+In the `d42_min_version="19.07.00"` task, the Freshservice application type now comes from the Device42 deployment type, instead of always being `desktop`. The SaaS, mobile, and desktop types map directly, and the server type maps to desktop.
+
+The `doql` attribute of the `<resource>` element is:
+
+```sql
+select * from (select min(software_pk) as d42_pagination_key, min(trim(name)) as name, 'discovered' as software_type, min(view_software_v1.notes) as notes, min(case lower(trim(deployment_type)) when 'saas' then 'saas' when 'mobile' then 'mobile' when 'desktop' then 'desktop' when 'server' then 'desktop' end) as application_type, max(last_changed) as last_changed from view_software_v1 where lower(software_type) != 'ignored' group by lower(trim(name))) a
+```
+
+In both tasks, `skip-update="true"` was added to the `application_type` field element.
 
 ## CPU, RAM, and Hard Disk Components Tasks
 
-The DOQL query now skips parts on virtual devices with the filter `lower(dev.type) <> 'virtual'`.
+These tasks no longer copy parts from virtual devices.
 
-**Applies to:**
+The change was made in these tasks:
 
 ```xml
-<task name="CPU Components" type="component" description="Copy CPU Parts from Device42 to Freshservice using DOQL" enable="true">
-<task name="RAM Components" type="component" description="Copy RAM Parts from Device42 to Freshservice using DOQL" enable="true">
-<task name="Hard Disk Components" type="component" description="Copy Hard Disk Parts from Device42 to Freshservice using DOQL" enable="true">
+<task enable="true" name="CPU Components" type="component" description="Copy CPU Parts from Device42 to Freshservice using DOQL">
+<task enable="true" name="RAM Components" type="component" description="Copy RAM Parts from Device42 to Freshservice using DOQL">
+<task enable="true" name="Hard Disk Components" type="component" description="Copy Hard Disk Parts from Device42 to Freshservice using DOQL">
+```
+
+The following condition was added to the `WHERE` clause of the `doql` attribute of the `<resource>` element:
+
+```sql
+and lower(dev.type) <> 'virtual'
 ```
 
 ## Create Relationship Between Host and Virtual Machine Task
 
-The `vm_device` CTE now excludes VMware VMs with `lower(coalesce(d.virtual_subtype, '')) <> 'vmware'`.
-
-**Applies to:**
+This task no longer creates relationships for VMware VMs. The change was made in this task:
 
 ```xml
-<task name="Create relationship between Host and Virtual Machine" type="asset_relationship" description="Create relationship between Host and Virtual Machine" enable="true">
+<task enable="true" name="Create relationship between Host and Virtual Machine" type="asset_relationship" description="Create relationship between Host and Virtual Machine">
+```
+
+In the `vm_device` CTE, the `WHERE` clause was changed from:
+
+```sql
+where lower(d.type) = 'virtual'
+```
+
+To the following:
+
+```sql
+where lower(d.type) = 'virtual' and lower(coalesce(d.virtual_subtype, '')) <> 'vmware'
 ```
 
 ## Delete Asset Relationships Tasks
 
-In all three tasks, the `vm_device` CTE now excludes VMware VMs with `lower(coalesce(d.virtual_subtype, '')) <> 'vmware'`, the same change as the Create relationship between Host and Virtual Machine task.
+The `Delete asset relationships from Freshservice that do not exist in Device42` tasks received three changes.
 
-The tasks with `d42_min_version="19.05.00"` or later also dropped the VMware vCenter `UNION` branches, along with their `rels`, `datacenters`, `datastores`, and `networks` CTEs. Those branches used these relationship pairs:
+### VMware VM Filter Added
 
-- `'Contains'` / `'Contained By'`
-- `'Used By'` / `'Uses'`
-- `'Provides storage for'` / `'Stored on'`
-- `'Has Registered'` / `'Is Registered On'`
-- `'Provides'` / `'Provided By'`
-- `'Connects'` / `'Connected By'`
-- `'Defines Resources for'` / `'Gets Resources from'`
-- `'Has'` / `'Is Attached To'`
-
-Five database `UNION` branches were added, each keyed by `FORMAT('Resource-%s', ...)`. One relates a database instance to its device (`FORMAT('Device-%s', d.device_pk)`) as `'Hosted On'` / `'Hosts'`. The other four use `'Contains'` / `'Contained By'`: database instance to database or schema, database instance to database file, database or schema to database file, and database instance to database instance (`'db_instance_container'`).
-
-**Applies to:**
+The same `vm_device` filter as in the [Create Relationship Between Host and Virtual Machine task](#create-relationship-between-host-and-virtual-machine-task) was added to all three tasks:
 
 ```xml
-<task type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" enable="true" d42_min_version="19.08.00">
-<task type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" enable="true" d42_min_version="19.05.00" d42_max_version="19.07.99">
-<task type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" enable="true" d42_max_version="19.04.99">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.08.00">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00" d42_max_version="19.07.99">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_max_version="19.04.99">
 ```
+
+The `WHERE` clause of the `vm_device` CTE was changed from:
+
+```sql
+WHERE  lower(d.type) = 'virtual'
+```
+
+To the following:
+
+```sql
+WHERE  lower(d.type) = 'virtual' and lower(coalesce(d.virtual_subtype, '')) <> 'vmware'
+```
+
+### VMware vCenter Relationships Removed
+
+The VMware vCenter `UNION` branches were removed from these two tasks:
+
+```xml
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.08.00">
+<task enable="true" type="asset_relationship" description="Delete asset relationships from Freshservice that do not exist in Device42" d42_min_version="19.05.00" d42_max_version="19.07.99">
+```
+
+The removed branches used the `rels`, `datacenters`, `datastores`, and `networks` CTEs, and covered these relationship pairs:
+
+- `Contains` and `Contained By`
+- `Used By` and `Uses`
+- `Provides storage for` and `Stored on`
+- `Has Registered` and `Is Registered On`
+- `Provides` and `Provided By`
+- `Connects` and `Connected By`
+- `Defines Resources for` and `Gets Resources from`
+- `Has` and `Is Attached To`
+
+### Database Relationships Added
+
+Five `UNION` branches for database relationships were added to the same two tasks. They cover these relationships:
+
+- A database instance is `Hosted On` its device.
+- A database instance `Contains` a database or schema.
+- A database instance `Contains` a database file.
+- A database or schema `Contains` a database file.
+- A database instance `Contains` a database instance (`db_instance_container`).
+
+For example, the following branch was added for database instances and their devices:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```sql
+UNION
+
+SELECT
+       COALESCE(NULLIF(r_from.resource_name, ''), r_from.identifier) AS dependent_device_name,
+       FORMAT('Resource-%s', r_from.resource_pk)   AS dependent_device_device42_id,
+       'Hosted On'                                 AS downstream_relationship,
+       d.name                                      AS dependency_device_name,
+       FORMAT('Device-%s', d.device_pk)            AS dependency_device_device42_id,
+       'Hosts'                                     AS upstream_relationship
+FROM   view_resource_v2 r_from
+JOIN   view_appcomp_resources_v2 ar
+ON     ar.resource_fk = r_from.resource_pk
+JOIN   view_appcomp_v1 a
+ON     a.appcomp_pk = ar.appcomp_fk
+JOIN   view_device_v1 d
+ON     d.device_pk = a.device_fk
+WHERE  lower(r_from.vendor_resource_type) = 'database instance'
+```
+
+</details>
 
 ## Delete Assets Task
 
-The resource part of the DOQL query (`format('Resource-%s', r.resource_pk)`) now skips VMware vCenter resources, using a `( ... ) is not true` filter. The filter covers five cases:
-
-- `r.category @> ARRAY['vmware', 'vdisk', 'vcenter']` with `vendor_resource_type = 'Disk'`
-- `'vcenter' = ANY(r.category)` with `'Network'`
-- `'vcenter' = ANY(r.category)` and `'ds'` with `'Mountpoint'`
-- `'vcenter' = ANY(r.category)` with `'Datacenter'`
-- `'vcenter' = ANY(r.category)` with `'Resource Pool'`
-
-**Applies to:**
+The resource part of the DOQL query now skips VMware vCenter resources. The change was made in this task:
 
 ```xml
-<task type="asset" description="Delete assets from Freshservice that do not exist in Device42" enable="true">
+<task enable="true" type="asset" description="Delete assets from Freshservice that do not exist in Device42">
 ```
 
-## D42 Azure Network Interface to Freshservice Azure Network Interface Task
+The following `WHERE` clause was added to the resource query (`format('Resource-%s', r.resource_pk)`) in the `doql` attribute of the `<resource>` element:
 
-The **Item Name** field (`item_name` under the `Network Interface` header) was removed, along with the `netport.port AS item_name` column in the DOQL query.
+<details>
+  <summary>Click to expand the code block</summary>
 
-**Applies to:**
+```sql
+where (
+    (r.category @> ARRAY['vmware', 'vdisk', 'vcenter'] AND r.vendor_resource_type = 'Disk')
+    OR ('vcenter' = ANY(r.category) AND r.vendor_resource_type = 'Network')
+    OR ('vcenter' = ANY(r.category) AND 'ds' = ANY(r.category) AND r.vendor_resource_type = 'Mountpoint')
+    OR ('vcenter' = ANY(r.category) AND r.vendor_resource_type = 'Datacenter')
+    OR ('vcenter' = ANY(r.category) AND r.vendor_resource_type = 'Resource Pool')
+) is not true
+```
+
+</details>
+
+## Azure Network Interface Task
+
+The **Item Name** field (`item_name` under the `Network Interface` header) was removed from this task.
 
 ```xml
-<task name="D42 Azure Network Interface to Freshservice Azure Network Interface" type="asset" description="Copy Azure Network Interface from Device42 to Freshservice" enable="true" d42_min_version="19.04.00">
+<task enable="true" name="D42 Azure Network Interface to Freshservice Azure Network Interface" type="asset" description="Copy Azure Network Interface from Device42 to Freshservice" d42_min_version="19.04.00">
+```
+
+The following line was removed from the `doql` attribute of the `<resource>` element:
+
+```sql
+netport.port AS item_name,
+```
+
+And the following field element was removed from the `<mapping>` element:
+
+```xml
+<field resource="item_name" source-type="string" target="item_name" target-type="string" target-header="Network Interface" resource-description="Azure network interface item name" resource-description-manual="true" target-description="Item Name"/>
 ```
 
 ## New Tasks
 
-These tasks were added:
+The following tasks were added.
 
-- VMware vCenter component tasks for vDisks, datastores, networks, datacenters, and resource pools
-- Virtual CPU, memory, and hard disk component tasks
-- A Delete Software task
-- Database instance, schema, and instance file tasks, with their relationship tasks (disabled by default)
+### VMware vCenter Component Tasks
+
+These tasks copy VMware vCenter disks, datastores, networks, datacenters, and resource pools as components.
+
+<details>
+  <summary>Click to expand the code block</summary>
 
 ```xml
-<task name="Virtual CPU Components" type="component" description="Copy virtual CPU parts derived from device fields from Device42 to Freshservice using DOQL" enable="true">
-<task name="Virtual Memory Components" type="component" description="Copy virtual RAM parts derived from device fields from Device42 to Freshservice using DOQL" enable="true">
-<task name="Virtual Hard Disk Components" type="component" description="Copy virtual Hard Disk parts derived from device fields from Device42 to Freshservice using DOQL" enable="true">
-<task name="vDisk Components" type="component" description="Copy VMware VCenter Disk components from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.05.00">
-<task name="VMware Datastore Components" type="component" description="Copy VMware VCenter Datastore components from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.05.00">
-<task name="VMware Network Components" type="component" description="Copy VMware VCenter Network components from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.05.00">
-<task name="VMware Datacenter Components" type="component" description="Copy VMware VCenter Datacenter components from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.05.00">
-<task name="VMware Resource Pool Components" type="component" description="Copy VMware VCenter Resource Pool components from Device42 to Freshservice using DOQL" enable="true" d42_min_version="19.05.00">
-<task name="D42 Database Instances to Freshservice Database Instances" type="asset" description="Copy Database Instances from Device42 to Freshservice" enable="false" d42_min_version="19.05.00">
-<task name="D42 Database Schemas to Freshservice Database Schemas" type="asset" description="Copy Database Schemas from Device42 to Freshservice" enable="false" d42_min_version="19.05.00">
-<task name="D42 Database Instance Files to Freshservice Database Instance Files" type="asset" description="Copy Database Instance Files from Device42 to Freshservice" enable="false" d42_min_version="19.05.00">
-<task name="Create relationship between database instance and database server" type="asset_relationship" description="Create relationship between database instance and database server" enable="false" d42_min_version="19.05.00">
-<task name="Create relationship between database instance and database schema" type="asset_relationship" description="Create relationship between database instance and database schema" enable="false" d42_min_version="19.05.00">
-<task name="Create relationship between database instance and database instance file" type="asset_relationship" description="Create relationship between database instance and database instance file" enable="false" d42_min_version="19.05.00">
-<task name="Create relationship between database schema and database instance file" type="asset_relationship" description="Create relationship between database schema and database instance file" enable="false" d42_min_version="19.05.00">
-<task name="Create relationship between database instance and pluggable database instance" type="asset_relationship" description="Create relationship between database instance and pluggable database instance" enable="false" d42_min_version="19.05.00">
-<task type="software" description="Delete software from Freshservice that does not exist in Device42" enable="true">
+<task enable="true" name="vDisk Components" type="component" description="Copy VMware VCenter Disk components from Device42 to Freshservice using DOQL" d42_min_version="19.05.00">
+<task enable="true" name="VMware Datastore Components" type="component" description="Copy VMware VCenter Datastore components from Device42 to Freshservice using DOQL" d42_min_version="19.05.00">
+<task enable="true" name="VMware Network Components" type="component" description="Copy VMware VCenter Network components from Device42 to Freshservice using DOQL" d42_min_version="19.05.00">
+<task enable="true" name="VMware Datacenter Components" type="component" description="Copy VMware VCenter Datacenter components from Device42 to Freshservice using DOQL" d42_min_version="19.05.00">
+<task enable="true" name="VMware Resource Pool Components" type="component" description="Copy VMware VCenter Resource Pool components from Device42 to Freshservice using DOQL" d42_min_version="19.05.00">
 ```
+
+</details>
+
+### Virtual Component Tasks
+
+These tasks copy virtual CPU, memory, and hard disk components from Device42 to Freshservice.
+
+```xml
+<task enable="true" name="Virtual CPU Components" type="component" description="Copy virtual CPU parts derived from device fields from Device42 to Freshservice using DOQL">
+<task enable="true" name="Virtual Memory Components" type="component" description="Copy virtual RAM parts derived from device fields from Device42 to Freshservice using DOQL">
+<task enable="true" name="Virtual Hard Disk Components" type="component" description="Copy virtual Hard Disk parts derived from device fields from Device42 to Freshservice using DOQL">
+```
+
+### Delete Software Task
+
+This task deletes software from Freshservice that no longer exists in Device42:
+
+```xml
+<task enable="true" type="software" description="Delete software from Freshservice that does not exist in Device42">
+```
+
+### Database Tasks Disabled by Default
+
+These tasks copy database instances, schemas, and instance files, and create relationships between them. They are disabled by default.
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```xml
+<task enable="false" name="D42 Database Instances to Freshservice Database Instances" type="asset" description="Copy Database Instances from Device42 to Freshservice" d42_min_version="19.05.00">
+<task enable="false" name="D42 Database Schemas to Freshservice Database Schemas" type="asset" description="Copy Database Schemas from Device42 to Freshservice" d42_min_version="19.05.00">
+<task enable="false" name="D42 Database Instance Files to Freshservice Database Instance Files" type="asset" description="Copy Database Instance Files from Device42 to Freshservice" d42_min_version="19.05.00">
+<task enable="false" name="Create relationship between database instance and database server" type="asset_relationship" description="Create relationship between database instance and database server" d42_min_version="19.05.00">
+<task enable="false" name="Create relationship between database instance and database schema" type="asset_relationship" description="Create relationship between database instance and database schema" d42_min_version="19.05.00">
+<task enable="false" name="Create relationship between database instance and database instance file" type="asset_relationship" description="Create relationship between database instance and database instance file" d42_min_version="19.05.00">
+<task enable="false" name="Create relationship between database schema and database instance file" type="asset_relationship" description="Create relationship between database schema and database instance file" d42_min_version="19.05.00">
+<task enable="false" name="Create relationship between database instance and pluggable database instance" type="asset_relationship" description="Create relationship between database instance and pluggable database instance" d42_min_version="19.05.00">
+```
+
+</details>
 
 ## Removed Tasks
 
-These tasks were removed:
+The following tasks were removed.
 
-- The Datastore Components task
-- Both variants of each VMware vCenter Resource Pool, Network, Disk, Datastore, and Datacenter asset task
-- The twelve VMWARE relationship tasks
+### Datastore Components Task
+
+The following task was removed:
 
 ```xml
-<task name="Datastore Components" type="component" description="Copy Mount Point(Datastore) from Device42 to Freshservice using DOQL" enable="true">
-<task name="D42 VMware VCenter Resource Pool to Freshservice VMware VCenter Resource Pool" type="asset" description="Copy VMware VCenter Resource Pool from Device42 to Freshservice" enable="true" d42_min_version="19.08.00">
-<task name="D42 VMware VCenter Resource Pool to Freshservice VMware VCenter Resource Pool" type="asset" description="Copy VMware VCenter Resource Pool from Device42 to Freshservice" enable="true" d42_min_version="19.04.10" d42_max_version="19.07.99">
-<task name="D42 VMware VCenter Network to Freshservice VMware VCenter Network" type="asset" description="Copy VMware VCenter Network from Device42 to Freshservice" enable="true" d42_min_version="19.08.00">
-<task name="D42 VMware VCenter Network to Freshservice VMware VCenter Network" type="asset" description="Copy VMware VCenter Network from Device42 to Freshservice" enable="true" d42_min_version="19.04.10" d42_max_version="19.07.99">
-<task name="D42 VMware VCenter Disk to Freshservice VMware VCenter Disk" type="asset" description="Copy VMware VCenter Disk from Device42 to Freshservice" enable="true" d42_min_version="19.08.00">
-<task name="D42 VMware VCenter Disk to Freshservice VMware VCenter Disk" type="asset" description="Copy VMware VCenter Disk from Device42 to Freshservice" enable="true" d42_min_version="19.04.10" d42_max_version="19.07.99">
-<task name="D42 VMware VCenter Datastore to Freshservice VMware VCenter Datastore" type="asset" description="Copy VMware VCenter Datastore from Device42 to Freshservice" enable="true" d42_min_version="19.08.00">
-<task name="D42 VMware VCenter Datastore to Freshservice VMware VCenter Datastore" type="asset" description="Copy VMware VCenter Datastore from Device42 to Freshservice" enable="true" d42_min_version="19.04.10" d42_max_version="19.07.99">
-<task name="D42 VMware VCenter Datacenter to Freshservice VMware VCenter Datacenter" type="asset" description="Copy VMware VCenter Datacenter from Device42 to Freshservice" enable="true" d42_min_version="19.08.00">
-<task name="D42 VMware VCenter Datacenter to Freshservice VMware VCenter Datacenter" type="asset" description="Copy VMware VCenter Datacenter from Device42 to Freshservice" enable="true" d42_min_version="19.04.10" d42_max_version="19.07.99">
-<task name="VMWARE Datacenter to Datastore" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Datastore relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Datacenter to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Virtual Machine relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Datacenter to Host" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Host relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Datacenter to Network" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Network relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Datastore to Host" type="asset_relationship" description="Sync Device42 VMWare Datastore to Host relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Datastore to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Datastore to Virtual Machine relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Host to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Host to Virtual Machine relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Network to Host" type="asset_relationship" description="Sync Device42 VMWare Network to Host relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Network to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Network to Virtual Machine relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Resource Pool to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Resource Pool to Virtual Machine relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Resource Pool to Resource Pool" type="asset_relationship" description="Sync Device42 VMWare Resource Pool to Resource Pool relationship" enable="true" d42_min_version="19.05.00">
-<task name="VMWARE Virtual Machine to Disk" type="asset_relationship" description="Sync Device42 VMWare Virtual Machine to Disk relationship" enable="true" d42_min_version="19.05.00">
+<task enable="true" name="Datastore Components" type="component" description="Copy Mount Point(Datastore) from Device42 to Freshservice using DOQL">
 ```
+
+### VMware vCenter Asset Tasks
+
+Both versions of each VMware vCenter asset task were removed.
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```xml
+<task enable="true" name="D42 VMware VCenter Resource Pool to Freshservice VMware VCenter Resource Pool" type="asset" description="Copy VMware VCenter Resource Pool from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="D42 VMware VCenter Resource Pool to Freshservice VMware VCenter Resource Pool" type="asset" description="Copy VMware VCenter Resource Pool from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.10">
+<task enable="true" name="D42 VMware VCenter Network to Freshservice VMware VCenter Network" type="asset" description="Copy VMware VCenter Network from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="D42 VMware VCenter Network to Freshservice VMware VCenter Network" type="asset" description="Copy VMware VCenter Network from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.10">
+<task enable="true" name="D42 VMware VCenter Disk to Freshservice VMware VCenter Disk" type="asset" description="Copy VMware VCenter Disk from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="D42 VMware VCenter Disk to Freshservice VMware VCenter Disk" type="asset" description="Copy VMware VCenter Disk from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.10">
+<task enable="true" name="D42 VMware VCenter Datastore to Freshservice VMware VCenter Datastore" type="asset" description="Copy VMware VCenter Datastore from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="D42 VMware VCenter Datastore to Freshservice VMware VCenter Datastore" type="asset" description="Copy VMware VCenter Datastore from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.10">
+<task enable="true" name="D42 VMware VCenter Datacenter to Freshservice VMware VCenter Datacenter" type="asset" description="Copy VMware VCenter Datacenter from Device42 to Freshservice" d42_min_version="19.08.00">
+<task enable="true" name="D42 VMware VCenter Datacenter to Freshservice VMware VCenter Datacenter" type="asset" description="Copy VMware VCenter Datacenter from Device42 to Freshservice" d42_max_version="19.07.99" d42_min_version="19.04.10">
+```
+
+</details>
+
+### VMware Relationship Tasks
+
+The twelve VMware relationship tasks were removed:
+
+<details>
+  <summary>Click to expand the code block</summary>
+
+```xml
+<task enable="true" name="VMWARE Datacenter to Datastore" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Datastore relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Datacenter to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Virtual Machine relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Datacenter to Host" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Host relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Datacenter to Network" type="asset_relationship" description="Sync Device42 VMWare Datacenter to Network relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Datastore to Host" type="asset_relationship" description="Sync Device42 VMWare Datastore to Host relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Datastore to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Datastore to Virtual Machine relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Host to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Host to Virtual Machine relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Network to Host" type="asset_relationship" description="Sync Device42 VMWare Network to Host relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Network to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Network to Virtual Machine relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Resource Pool to Virtual Machine" type="asset_relationship" description="Sync Device42 VMWare Resource Pool to Virtual Machine relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Resource Pool to Resource Pool" type="asset_relationship" description="Sync Device42 VMWare Resource Pool to Resource Pool relationship" d42_min_version="19.05.00">
+<task enable="true" name="VMWARE Virtual Machine to Disk" type="asset_relationship" description="Sync Device42 VMWare Virtual Machine to Disk relationship" d42_min_version="19.05.00">
+```
+
+</details>
