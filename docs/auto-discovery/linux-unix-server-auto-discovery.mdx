@@ -269,13 +269,13 @@ The following two files will be created by the command you just ran:
 
 Save a copy of the `id_rsa` file (your private key) on your local machine so you can browse to it and upload it to Device42.
 
-Use `$ssh-copy-id` to copy the newly generated certificate to your target host(s): 
+Use `ssh-copy-id` to copy the public key to your target host(s): 
 
 ```bash
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub discovery_user@discoverytarget.device42.com
 ```
 
-This sets up your target hosts for remote SSH-key-based authentication using the same user account you used to run the command. Verify that your SSH key-based login works from a remote terminal and proceed to [Step 2](#step-2-create-a-discovery-job-that-uses-ssh-key-auth) to set up your Linux discovery job.   
+This sets up your target hosts for remote SSH-key-based authentication using the same user account you used to run the command. Verify that your SSH key-based login works from a remote terminal and proceed to [Step 2](#step-2-create-a-discovery-job-with-ssh-key-auth) to set up your Linux discovery job.   
 
 **Manual Set Up Option**
 
@@ -460,13 +460,13 @@ The following table lists commands that Device42 sometimes or always runs with `
 | `vzlist`            | Sometimes      | Aix                                                       |
 | `zlogin`            | Always         | Solaris (For Zones)                                       |
 
-The following example shows how to allow a particular user or group to run a specific sudo command without being prompted for a password:
+The following partial example shows how to allow a particular user or group to run specific sudo commands without being prompted for a password. The table above is the full list of commands that discovery uses:
 
 ```
 %your-group-here ALL = (ALL) NOPASSWD:/usr/sbin/dmidecode, /sbin/hdparm, /sbin/fdisk
 ```
 
-Adjust the paths as needed to match the location of each program. If these permissions are missing, the discovery client cannot discover hardware, manufacturer, serial number, and so on, as well as service dependencies and application configuration information. You might also need to comment out `Default Require tty` in the `/etc/sudoers` file.
+Adjust the paths as needed to match the location of each program. If these permissions are missing, the discovery client cannot discover hardware, manufacturer, serial number, and so on, as well as service dependencies and application configuration information. If `/etc/sudoers` contains `Defaults requiretty`, use `visudo` to add `Defaults:DISCOVERY_ACCOUNT !requiretty` for the discovery account instead of removing the setting for all users.
 
 ## SUDO PATH in Non-Interactive Shells
 
@@ -481,9 +481,7 @@ The `sudoers` file should contain a line as follows:
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
 
-You could alternatively make the defaults particular to just the discovery account like so:
+You could alternatively make the defaults particular to just the discovery account. Edit the file with `visudo` and add the entry on one line:
 ```
-Defaults:DISCOVERY_ACCOUNT
-
-secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults:DISCOVERY_ACCOUNT secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
