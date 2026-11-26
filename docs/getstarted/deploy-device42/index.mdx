@@ -102,7 +102,7 @@ Select the platform-specific installation guide that matches your environment:
 ### 1.3 Apply Your License
 
 After installing the MA you will be prompted to apply for your new license file. Perform these steps:
-1. Click the **Choose File** button.
+1. Click the **Browse** button.
 2. Select the file and click **Open**.
 3. Click the **Upload & Apply** button.
 
@@ -116,6 +116,8 @@ You must create a passphrase that will encrypt passwords within Device42. To cre
 1. Choose **Tools > Password Security**.
 2. Enter a passphrase and click the checkbox stating you will save the passphrase in a secure location.
 3. Click the **Save** button.
+
+The passphrase must be 12 to 32 characters long.
 
 :::tip
 To view a video on installing and configuring the MA, click [here](https://device42.wistia.com/medias/sleift9zbj).
@@ -141,7 +143,7 @@ To view a video on configuring the RCs, click [here](https://device42.wistia.com
 
 ### 3.1 Size the Windows Discovery Service Servers
 
-Windows Discovery Services server sizing is based on the quantity of workloads to be discovered. Refer to [Sizing Recommendations table](sizing-recommendations.mdx) to properly size your Device42 Remote Collector servers.
+Windows Discovery Services server sizing is based on the quantity of workloads to be discovered. Refer to [Sizing Recommendations table](sizing-recommendations.mdx) to properly size your Device42 Windows Discovery Service servers.
 
 ### 3.2 Install the Windows Discovery Service
 
@@ -199,6 +201,7 @@ To add new administrators, perform the following steps:
 1. Hover over **Tools**, then choose **Administrators** from the Admins & Permissions section.
 2. Click either **Create Local Admin** or **Create Active Directory Admin** (if AD is connected to the Main Appliance).
 3. Fill out the Add Admin User page and click the **Save** button.
+4. Device42 opens a second form with **Permissions** and **Groups** fields. A new administrator has no groups by default and cannot access any resources. Assign the permissions or groups the administrator needs and click **Save**.
 
 Click [here](/administration/add-an-active-directory-user-as-a-device42-administrator.mdx) for more information to add an Active Directory User as a Device42 Administrator. For information on setting up an Active Directory/LDAP User Sync click [here](/auto-discovery/active-directory-sync.mdx), and for information on configuring Device42 Role-Based Access Control click [here](/administration/role-based-access-control/index.mdx). 
 
