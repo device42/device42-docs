@@ -63,6 +63,10 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          ...['19-06-00', '19-07-10', '19-08-10', '19-09-00', '19-10-00', '19-11-00', '19-12-00'].map((v) => ({
+            to: `/release-notes/${v}-release/`,
+            from: [`/release-notes/${v.replace(/-/g, '.')}-release/`],
+          })),
           {
             to: '/getstarted/getting-started-with-auto-discovery/',
             from: ['/getstarted/getting-started-with-a-blank-slate/'],
