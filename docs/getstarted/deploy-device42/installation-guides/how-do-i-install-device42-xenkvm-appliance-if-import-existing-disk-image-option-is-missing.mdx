@@ -9,26 +9,26 @@ These are **special case** installation instructions for installing the Device42
 
 ## Outline of Alternative Installation
 
-1. Download the Device42 image and use bunzip2 to uncompress the image.
+1. Download the Device42 image and extract the disk image with `unzip`.
 2. Create a new virtual machine using the **Network Boot** option and complete the installation wizard setup. 
 3. Disable **Network (PXE)** from the Device42 virtual machine **Boot Options**.
-4. Log in to the Device42 console and web interface as described in the [Set Up the Main Appliance](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-and-log-in) section and later of the Virt-Manager installation page.
+4. Log in to the Device42 console and web interface as described in the [Set Up the Main Appliance](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-from-the-console) section and later of the Virt-Manager installation page.
 
 ## Illustrated Installation Steps
 
 The following alternative installation steps are similar to the [standard Virt-Manager installation](installation-xen-or-kvm-using-virt-manager.mdx), except that you select the **Network Boot** option instead of importing the Device42 image and then disable the network boot. 
 
-### Download and Uncompress with bunzip2
+### Download the Image and Extract It
 
-The raw image for Xen or KVM has been compressed using bzip2. When you get the file on the KVM host, run the `bunzip2` command to uncompress the file:
+The Xen/OpenStack/KVM image downloads as a ZIP file, for example `Device42-19.08.00-qcow2.zip`. The ZIP file contains the disk image in QCOW2 format (`Device42-<version>.qcow2`), a `README.txt` file, and a `Deployment_Guide.pdf` file. When you get the file on the KVM host, run the `unzip` command to extract it:
 
 ```bash
-bunzip2 device42-3.2.3-raw.img.bz2
+unzip Device42-<version>-qcow2.zip
 ```
 
 ### Create a New Virtual Machine
 
-Once you have uncompressed the downloaded raw image, create a new virtual machine. 
+After you extract the disk image, create a new virtual machine. 
 
 Choose the **Network Boot** option. We'll add the disk later. Make sure you don't have some sort of automated network boot enabled for this machine. You will not see the **Import existing disk image** option.
 
@@ -36,7 +36,7 @@ Choose the **Network Boot** option. We'll add the disk later. Make sure you don'
 
 ### Choose OS and Version
 
-Choose **Linux** as the **OS type** and the latest Ubuntu version in the **Version** field.
+Choose **Linux** as the **OS type** and select Rocky Linux 8 in the **Version** field. The Main Appliance runs Rocky Linux 8.
 
 ![Choosing OS and version](/assets/images/wpid2480-Choosing_OS_and_version.png)
 
@@ -48,7 +48,7 @@ Allocate at least 16 GB RAM and 4 vCPUs for production appliances. See [Sizing R
 
 ![Choose disk](/assets/images/wpid2479-Choose_disk_bunzipped_file_.png)
 
-Choose your virtualization type under the **Advanced options** and select **i686** as the **Architecture**.
+Choose your virtualization type under the **Advanced options** and select **x86_64** as the **Architecture**.
 
 ![](/assets/images/wpid2487-media_1352976855381.png)
 
@@ -60,4 +60,4 @@ Go to **Details** (1), **Boot Options** (2), uncheck **Network (PXE)**, and clic
 
 ### Complete the Setup
 
-Follow the steps outlined in the [Set Up the Main Appliance and Log In](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-and-log-in) section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.mdx) page to complete the installation of the Main Appliance. 
+Follow the steps outlined in the [Set Up the Main Appliance from the Console](installation-xen-or-kvm-using-virt-manager.mdx#set-up-the-main-appliance-from-the-console) section of the [Xen or KVM Using Virt-Manager - Installation](installation-xen-or-kvm-using-virt-manager.mdx) page to complete the installation of the Main Appliance. 
