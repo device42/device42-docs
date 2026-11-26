@@ -1,0 +1,123 @@
+---
+title: "19.12.00 Release"
+sidebar_position: 1
+---
+
+## Updating Device42 to Version 19.12.00
+
+Upgrading to 19.12.00 is only possible from 19.05.10 or above. If you need to first upgrade to Version 19.05.10, a link will be provided when requesting an upgrade. We recommend making a backup of your system before any upgrades.
+
+As an interim step toward retiring Advanced Reporting, upgrading to 19.12.00 disables that feature. Administrators can re-enable it if needed, but it will be entirely removed in early 2027. The existing reporting engine has been upgraded to replace the functionality.
+
+For up-to-date information, notifications of outages or maintenance, visit our status page at: [https://device42.freshstatus.io/](https://device42.freshstatus.io/).
+
+The 19.12.00 MA release contains the following features:
+
+Device42 19.12.00 introduces detailed MySQL and MariaDB discovery, improved Oracle software-version discovery, reporting fixes, more readable audit information, and expanded discovery reliability. The release also includes application and operating-system security updates.
+
+## Database Discovery Enhancements
+
+- D42-64144 – Added detailed MySQL and MariaDB Database Discovery, including database instances, per-schema records, schema size, collation, character set and connection information
+- D42-38991 – Enhanced Oracle discovery to capture the patch-level software version rather than only the base release version
+
+## Reporting Enhancements
+
+- D42-61337 – Added discovery-job run-report information to additional DOQL discovery-job views
+- D42-61736 – Fixed an issue where editing a saved DOQL query could hang
+- D42-62391 – Fixed an issue where the rightmost column in an Insights+ chart did not honor its alignment setting
+- D42-64381 – Fixed report-tab searches that could fail with HTTP 400 or 500 errors when a report contained unsupported column types
+- D42-65448 – Fixed errors when creating Insights+ charts from Standard Reports
+
+## ADM and Business Services
+
+- D42-61553 – Fixed an issue that prevented deletion of Business Service Types
+- D42-63512 – Fixed an issue that prevented exporting a Business Service as SVG
+
+## Security Updates
+
+Across many aspects of Device42 security has been enhanced. Including updating core OS dependencies and libraries and in product protections.
+
+- D42-63987 – Strengthened authentication and request-origin handling for integration credentials and DOQL access
+- D42-63993 – Addressed input-handling vulnerabilities in Cloud Recommendation Engine reporting and DOQL export processing
+- D42-64646 – Updated the appliance kernel and supporting Rocky Linux packages
+- D42-64038 – OpenSSH packages have been updated
+
+## UX, Audit Logging, and Data-Management Improvements
+
+The following enhancements have been added to Device42:
+
+- D42-37514 – Improved audit-history readability by presenting changes in a more understandable format
+- D42-39359 – Fixed an issue where the Enriched Data screen allowed editing even though changes could not be saved
+- D42-60967 – Fixed an issue where an expired local password could block SAML sign-in or prompt an SSO user to change an unused local password
+- D42-61956 – Improved the presentation of long login-screen announcement messages
+- D42-62224 – Fixed an issue that prevented saving changes to certain device records
+- D42-62405 – Fixed an issue where searching the Subnet Tree could prevent child subnets from appearing when a VRF group was expanded
+- D42-63267 – Fixed purchase line-item quantity inconsistencies after removing an association with a building
+- D42-63314 – Made more detailed SNMP discovery failure messages available in the user interface
+- D42-64227 – Fixed incorrect audit attribution when a workflow was deleted, so the deletion is attributed to the user performing the action rather than the workflow creator
+- D42-64693 – Fixed Appliance Manager console rendering issues caused by background error messages interfering with menu navigation
+
+## Discovery Fixes and Enhancements
+
+- D42-61951 – Added storage discovery support for Hitachi HNAS 4040
+- D42-61584 – Fixed missing per-port VLAN data during SNMP discovery of Aruba AOS-CX switches
+- D42-60587 – Added SNMP support for ipTime Wi-Fi routers
+- D42-61945 – Added SNMP discovery support for Telestream devices
+- D42-42101 – Fixed primary-PDU identification in the discovery module
+- D42-60865 – Fixed issues where HPE iLO discovery could overwrite the blade-server subtype
+- D42-60999 – Fixed incorrect server-class CPU parts being associated with discovered network devices
+- D42-61727 – Fixed missing temperature-sensor units on Dell UPS discovery
+- D42-61946 – Improved CPI eConnect PDU discovery
+- D42-63074 – Fixed incorrect cluster classification for Meraki MX250 appliances when no member devices were identified
+- D42-60679 – Improved Linux discovery compatibility with sudo-rs by replacing wildcard-based DMI reads
+- D42-61757 – Fixed an agent shutdown crash
+- D42-62225 – Fixed a detailed SSH/\*nix discovery failure that could be reported as an authentication error after basic discovery succeeded
+- D42-63412 – Fixed duplicate service instances during AS400 discovery when FTP was disabled
+- D42-64039 – Fixed quoted duplicate tags being assigned during Hypervisors/\*nix/Windows discovery
+- D42-64136 – Fixed Remote Collector registration failures in environments with modified forwarded-address headers
+- D42-65544 – Fixed HTTP 502 failures affecting Windows Discovery Service REST communication through the Remote Collector after upgrading
+- D42-60966 – Fixed an issue where repeated OpenStack discovery runs could leave device records unprocessed
+- D42-61539 – Fixed an Azure SaaS discovery exception that could report no applications found
+- D42-61565 – Fixed Meraki warranty-sync errors and an issue where synchronization did not create purchase records
+- D42-62092 – Fixed warranty-sync failures involving serial-number lookup requests
+- D42-62094 – Fixed a SaaS discovery reliability issue where discovery stopped running
+- D42-62329 – Fixed a Google Workspace discovery issue where a software installation could be missed when duplicate software components were consolidated
+- D42-63816 – Improved OpenStack discovery handling when the account lacks access to hypervisor information. This does not grant additional OpenStack permissions
+- D42-63818 – Fixed a Kubernetes discovery initialization failure when a proxy was configured but disabled
+- D42-63953 – Fixed discovery-result entries showing the job name as "None" and linking to a missing page
+
+## Performance and Reliability
+
+- D42-61738 – Addressed repeated EnrichAI processing failures
+- D42-62226 – Addressed an appliance availability issue associated with excessive application-worker memory consumption
+- D42-61964 – Added access to parsed discovered and enriched data in supported list and detail views, making software and operating-system evidence easier to inspect and use
+
+## API and Integration Enhancements
+
+The API documentation is available at: [https://api.device42.com/](https://api.device42.com/).
+
+- D42-62014 – Fixed inconsistent lifecycle-event handling for cluster objects through APIs and imports
+- D42-63475 – Fixed clearing a device's operating system through an API or import
+- D42-63707 – Fixed an issue where Device42-to-JSM Assets synchronization displayed "Unknown user" in the Assets audit trail
+
+## Known Issues
+
+- D42-48031 – Mismatch in device counts between CRE/RU Inventory reports and corresponding UI pages for Operating System data
+- D42-40349 – Generic Import Tool trims custom fields with ':' character
+- D42-38249 – Users are not notified if they lack view permissions
+- D42-39359 – Enrichment services allow editing button mistakenly
+- D42-39404 – Improve performance when sorting and filtering with the 'Location' column
+- D42-39344 – Object Category field is visible on Power Units detail page when RBAC is disabled
+- D42-38512 – Spacing Issue on Hypervisor Discovery Page
+- D42-40799 – AWS Discovery may fail to collect subnet details for Elastic Load Balancer resources when more than 1 region is defined
+- D42-47262 – Rated Power not showing on banks
+- D42-45361 – The 'Applies' advanced filter is not displayed in the predefined report landing page
+- D42-44237 – In the AD/LDAP Sync page, the field name (Departments) and link name (Add Cost Center) don't match
+
+## Latest Device42 Update
+
+Download the current update for Device42 [here](https://www.device42.com/update).
+
+Depending on the version you are upgrading from, you may have to install an incremental update first: 18.14 > 19.00 > 19.05 > 19.12.
+
+If you haven't tried Device42 yet, [download a 14-day free trial](https://www.device42.com/try-device42/)!
