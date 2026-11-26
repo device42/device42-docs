@@ -10,7 +10,7 @@ Install the Device42 Main Appliance on Xen- or KVM-based platforms by following 
 
 ## Outline of Installation
 
-1. Download the Device42 image and unzip the image using bunzip2.
+1. Download the Device42 image and extract the disk image with `unzip`.
 2. Import the disk image and follow the wizard to create a new virtual machine.
 3. Log in to the Device42 console and configure the Main Appliance.
 4. Set the time zone and configure NTP.
@@ -20,12 +20,12 @@ Install the Device42 Main Appliance on Xen- or KVM-based platforms by following 
 
 Follow these steps to install the Device42 Main Appliance.
 
-### Download the Image and Uncompress 
+### Download the Image and Extract It
 
-The raw image for Xen or KVM has been compressed using bzip2. When you get the file on the KVM host, run the `bunzip2` command to uncompress the file:
+The Xen/OpenStack/KVM image downloads as a ZIP file, for example `Device42-19.08.00-qcow2.zip`. The ZIP file contains the disk image in QCOW2 format (`Device42-<version>.qcow2`), a `README.txt` file, and a `Deployment_Guide.pdf` file. When you get the file on the KVM host, run the `unzip` command to extract it:
 
 ```bash
-bunzip2 device42-<version>-raw.img.bz2
+unzip Device42-<version>-qcow2.zip
 ```
 
 ### Create the Virtual Machine
@@ -36,7 +36,7 @@ bunzip2 device42-<version>-raw.img.bz2
 
 ![Install](/assets/images/wpid6123-Download_and_Install.png)
 
-2. Choose **Linux** as the **OS type** and select the latest Ubuntu **Version**.
+2. Choose **Linux** as the **OS type** and select Rocky Linux 8 as the **Version**. The Main Appliance runs Rocky Linux 8.
 
 ![Choosing OS and version](/assets/images/wpid6121-Choosing_OS_and_version.png)
 
@@ -58,13 +58,13 @@ bunzip2 device42-<version>-raw.img.bz2
 
    Change the default password after signing in to the appliance console.
 
-3. Configure a static IP address for the Device42 appliance.
+3. Configure a static IP address for the Device42 appliance. From the console menu, choose **(u) Network, Connectivity and Utilities > (n) Network Interfaces**, then select the network interface.
 
 ![IP config options v19.05](/assets/images/vm-ip-settings.png)
 
 4. (Optional) Create a DNS entry for the new IP address for the new virtual appliance.
 
-You can apply updates and perform other menu-related tasks using SSH. Please note that root login has been disabled.
+You can apply updates and perform other menu-related tasks using SSH on port `404`, for example, `ssh -p 404 device42@<appliance-IP>`. Port `22` is not used. Root login is disabled.
 
 ### Set the Time Zone and Configure NTP
 
